@@ -1,0 +1,2079 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background Mask1="OldMask1.png" Mask2="OldMask2.png" Background="OldBackground.png" PictureNull="Null.png" X="-200" Y="0" Width="1065" Height="568" SizeX="665" SizeY="568"></Background>
+  <SurNameText X="199" Y="41" Width="60" Height="25"
+            FontName="Microsoft YaHei UI"
+            FontSize="18"
+            FontStyle="Bold"
+            FontColor="4294967040"
+            Align="Left">
+  </SurNameText>
+  <GivenNameText X="259" Y="41" Width="60" Height="25"
+            FontName="Microsoft YaHei UI"
+            FontSize="18"
+            FontStyle="Bold"
+            FontColor="4294967040"
+            Align="Left">
+  </GivenNameText>
+  <CalledNameText X="319" Y="41" Width="60" Height="25"
+            FontName="Microsoft YaHei UI"
+            FontSize="15"
+            FontStyle="Bold"
+            FontColor="4294967040"
+            Align="Left">
+  </CalledNameText>
+  <PortraitTexturePosition X="15" Y="79" Width="218" Height="203" ></PortraitTexturePosition>
+  <Labels>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="性别"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="340" Y="77" Width="40" Height="20" PropertyName="SexString"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4294934528"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="性格"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="340" Y="102" Width="40" Height="20" PropertyName="CharacterString"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4294934720"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="年龄"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="430" Y="77" Width="40" Height="20" PropertyName="DisplayedAge"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4290822336"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="名声"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="243" Y="92" Width="40" Height="20" PropertyName="Reputation"
+                FontName="Microsoft YaHei UI"
+                FontSize="12"
+                FontStyle="Regular"
+                FontColor="4278255424"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="义理"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="520" Y="77" Width="40" Height="20" PropertyName="PersonalLoyalty"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4282384512"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="相性"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="610" Y="127" Width="40" Height="20" PropertyName="Ideal"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="出仕相性考虑"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="0" Y="0" Width="0" Height="0" PropertyName="IdealTendencyString"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="野心"
+              FontName="Microsoft YaHei UI"
+              FontSize="1"
+              FontStyle="Regular"
+              FontColor="4294967295"
+              Align="Left">
+    </Label>
+    <Text X="520" Y="127" Width="40" Height="20" PropertyName="Ambition"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="是否会独立"
+          FontName="Microsoft YaHei UI"
+          FontSize="1"
+          FontStyle="Regular"
+          FontColor="4294967295"
+          Align="Left">
+    </Label>
+    <Text X="0" Y="0" Width="0" Height="0" PropertyName="LeaderPossibility"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="势力"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="610" Y="77" Width="40" Height="20" PropertyName="Faction"
+                FontName="Microsoft YaHei UI"
+                FontSize="12"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="忠诚"
+             FontName="Microsoft YaHei UI"
+             FontSize="1"
+             FontStyle="Regular"
+             FontColor="4294967295"
+             Align="Left">
+    </Label>
+    <Text X="610" Y="102" Width="40" Height="20" PropertyName="Loyalty"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="所在"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="243" Y="137" Width="40" Height="20" PropertyName="Location"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="工作"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="243" Y="195" Width="40" Height="20" PropertyName="WorkKindString"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="宝物"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="0" Y="0" Width="0" Height="0" PropertyName="TreasureCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="武勇"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="340" Y="152" Width="40" Height="20" PropertyName="Strength"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4282356711"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="武勇经验"
+            FontName="Microsoft YaHei UI"
+            FontSize="1"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Middle">
+    </Label>
+    <Text X="430" Y="152" Width="40" Height="20" PropertyName="StrengthExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="统率"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4282356711"
+                Align="Middle">
+    </Label>
+    <Text X="340" Y="177" Width="40" Height="20" PropertyName="Command"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4286611520"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="统率经验"
+            FontName="Microsoft YaHei UI"
+            FontSize="1"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Middle">
+    </Label>
+    <Text X="430" Y="177" Width="40" Height="20" PropertyName="CommandExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="智谋"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4282356711"
+                Align="Middle">
+    </Label>
+    <Text X="340" Y="202" Width="40" Height="20" PropertyName="Intelligence"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4278190335"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="智谋经验"
+            FontName="Microsoft YaHei UI"
+            FontSize="1"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Middle">
+    </Label>
+    <Text X="430" Y="202" Width="40" Height="20" PropertyName="IntelligenceExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="政治"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4282356711"
+                Align="Middle">
+    </Label>
+    <Text X="340" Y="227" Width="40" Height="20" PropertyName="Politics"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4278222848"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="政治经验"
+             FontName="Microsoft YaHei UI"
+             FontSize="1"
+             FontStyle="Regular"
+             FontColor="4294967295"
+             Align="Middle">
+    </Label>
+    <Text X="430" Y="227" Width="40" Height="20" PropertyName="PoliticsExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="魅力"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4282356711"
+                Align="Middle">
+    </Label>
+    <Text X="340" Y="252" Width="40" Height="20" PropertyName="Glamour"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4286578943"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="魅力经验"
+            FontName="Microsoft YaHei UI"
+            FontSize="1"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Middle">
+    </Label>
+    <Text X="430" Y="252" Width="40" Height="20" PropertyName="GlamourExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="勇猛"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="340" Y="127" Width="40" Height="20" PropertyName="Braveness"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4286578816"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="冷静"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="430" Y="127" Width="40" Height="20" PropertyName="Calmness"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4278190240"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="疲劳"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="430" Y="102" Width="40" Height="20" PropertyName="Tiredness"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4286595072"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="负伤"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="520" Y="102" Width="40" Height="20" PropertyName="InjuryString"
+                FontName="Microsoft YaHei UI"
+                FontSize="12"
+                FontStyle="Bold"
+                FontColor="4294934592"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="步兵"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="520" Y="177" Width="40" Height="20" PropertyName="BubingExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="弩兵"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="520" Y="202" Width="40" Height="20" PropertyName="NubingExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="骑兵"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="520" Y="227" Width="40" Height="20" PropertyName="QibingExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="水军"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="610" Y="177" Width="40" Height="20" PropertyName="ShuijunExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="器械"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="610" Y="202" Width="40" Height="20" PropertyName="QixieExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="计略"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="610" Y="227" Width="40" Height="20" PropertyName="StratagemExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="内政"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="520" Y="252" Width="40" Height="20" PropertyName="InternalExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="策略"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="610" Y="252" Width="40" Height="20" PropertyName="TacticsExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="主将战力"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="520" Y="152" Width="40" Height="20" PropertyName="FightingForce"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="副将战力"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="610" Y="152" Width="40" Height="20" PropertyName="SubFightingForce"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    
+  </Labels>
+  <Title X="285" Y="320" Width="165" Height="224" RowMargin="0"
+            FontName="Microsoft YaHei UI"
+            FontSize="11"
+            FontStyle="Bold"
+            FontColor="4286643968">
+  </Title>
+  <SkillBlock Width="34" Height="20" OffsetX="21" OffsetY="305"
+              FontName="Microsoft YaHei UI"
+              FontSize="10"
+              FontStyle="Regular"
+              FontColor="4278222848"
+              SkillColor="4286643968"
+              LearnableColor="4294967040"
+              Align="Middle">
+  </SkillBlock>
+  <Stunt X="477" Y="320" Width="165" Height="224" RowMargin="0"
+            FontName="Microsoft YaHei UI"
+            FontSize="11"
+            FontStyle="Bold"
+            FontColor="4294967295">
+  </Stunt>
+  <Influence X="672" Y="63" Width="187" Height="394" RowMargin="0" TitleColor="4294967040"
+			SubTitleColor="4294901760" SubTitleColor2="4286611711" SubTitleColor3="4278255360"
+            FontName="Microsoft YaHei UI"
+            FontSize="11"
+            FontStyle="Regular"
+            FontColor="4294967295">
+  </Influence>
+  <Condition X="-194" Y="63" Width="187" Height="394" RowMargin="0" TitleColor="4294934783" SubTitleColor="4294934783"
+			PositiveColor="4278255360" NegativeColor="4294901760"
+            FontName="Microsoft YaHei UI"
+            FontSize="11"
+            FontStyle="Regular"
+            FontColor="4294967295">
+  </Condition>
+  <Biography X="665" Y="40" Width="200" Height="520" RowMargin="1" TitleColor="4294967040" SubTitleColor="4278255360" SubTitleColor2="4294901760"
+            FontName="Microsoft YaHei UI"
+            FontSize="12"
+            FontStyle="Regular"
+            FontColor="4294967295">
+  </Biography>
+  <Item12></Item12>
+  <PersonTreasuresText   ShowPersonTreasuresCount="on" ShowPersonTreasuresWorth="on" ShowPersonTreasuresDescription="on"
+                 X="-190" Y="40" Width="200" Height="520" RowMargin="1"
+                 TitleColor1="4294967040" TitleColor2="4294901760" WorthColor="4286644096" DescriptionColor="4278255360" FileName0="InformationButton9998.png"
+                 FontName="Microsoft YaHei UI"
+                 FontSize="12"
+                 FontStyle="Regular"
+                 FontColor="4294967295"
+                 Text1="宝物数量：" Text2="[" Text3="/" Text4=" ]" Text5="(有效宝物/所有宝物)" Text6="有效宝物：" Text7="多余(未生效)宝物："
+                 Text8="名称：" Text9="价值：" Text10="说明：" Text11="『" Text12="』" Text13="〖" Text14="〗">
+  </PersonTreasuresText>
+  <Item14></Item14>
+  <Switchs NewUI="on" TheFirstShowItem="1" UISound="on" PersonSound="on"
+           PersonBiography="on" BiographySeparate="on" TheFirstShowOfBiography="1" BiographyBrief="on" BiographRomance="on" BiographyHistory="on" BiographyInGame="on" 
+           FactionName="on" FactionColour="on" 
+           ImportantTreasure="on" GeneralTreasure="on" ThePersonPictureInTreasure="on" ImportantTitle="on" ImportantStunt="on"
+           Relative="on" Relation1="on" Relation2="on" Standings="on" 
+           ConditionAndInfluenceBackground="on" SkillBackground="on" TitleBackground="on" StuntBackground="on" >     
+  </Switchs>
+  <Item16></Item16>
+  <Item17></Item17>
+  <Item18></Item18>
+  <Item19></Item19>
+  <Item20></Item20>
+  <Item21></Item21>
+  <BiographyButton FileName0="BiographyButton.png" FileName1="BiographyPressed.png" X="440" Y="252" Width="38" Height="38" ></BiographyButton>
+  <Item23></Item23>
+  <Item24></Item24>
+  <Item25></Item25>
+  <Item26></Item26>
+  <Item27></Item27>
+  <Item28></Item28>
+  <Item29></Item29>
+  <Item30></Item30>
+  <InformationBackground Mask1="Mask1.png" Mask2="Mask2.png" Background="Background.png" X="0" Y="0" Width="665" Height="568"></InformationBackground>
+  <DetailBackground Mask1="Null.png" Mask2="Null.png" Background="TextBackground.png" X="0" Y="0" Width="665" Height="568"></DetailBackground>
+  <TreasureBackground Mask1="Null.png" Mask2="Null.png" Background="Null.png" X="0" Y="0" Width="665" Height="568"></TreasureBackground>
+  <TitleBackground Mask1="Null.png" Mask2="TitleMask.png" Background="Null.png" X="0" Y="0" Width="665" Height="568"></TitleBackground>
+  <SkillBackground Mask1="Null.png" Mask2="Null.png" Background="Null.png" X="0" Y="0" Width="665" Height="568"></SkillBackground>
+  <StuntBackground Mask1="Null.png" Mask2="Null.png" Background="StuntBackground.png" X="0" Y="0" Width="665" Height="568"></StuntBackground>
+  <BiographyBackground Mask1="Null.png" Mask2="Null.png" Background="BiographyBackground.png" X="0" Y="0" Width="665" Height="568"></BiographyBackground>
+  <SpecialtyBackground Mask1="Null.png" Mask2="Null.png" Background="Null.png" X="0" Y="0" Width="665" Height="568"></SpecialtyBackground>
+  <Item39></Item39>
+  <Item40></Item40>
+  <PortraitInInformationPosition PortraitKind="1" X="41" Y="75" Width="200" Height="200"></PortraitInInformationPosition>
+  <Item42></Item42>
+  <Item43></Item43>
+  <Item44></Item44>
+  <Item45></Item45>
+  <Item46></Item46>
+  <Item47></Item47>
+  <Item48></Item48>
+  <Item49></Item49>
+  <Item50></Item50>
+  <Item51></Item51>
+  <Item52></Item52>
+  <Item53></Item53>
+  <Item54></Item54>
+  <Item55></Item55>
+  <Item56></Item56>
+  <Item57></Item57>
+  <Item58></Item58>
+  <Item59></Item59>
+  <Item60></Item60>
+  <PersonInInformationTexts>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="性别"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4278206592"
+                Align="Left">
+    </Label>
+    <Text X="383" Y="40" Width="20" Height="20" PropertyName="SexString"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4290822336"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="性格"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="322" Y="70" Width="40" Height="20" PropertyName="CharacterString"
+                FontName="Microsoft YaHei UI"
+                FontSize="12"
+                FontStyle="Regular"
+                FontColor="4286611456"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="年龄"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4278206592"
+                Align="Left">
+    </Label>
+    <Text X="406" Y="47" Width="30" Height="20" PropertyName="DisplayedAge"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4290822336"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="名声"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="575" Y="242" Width="60" Height="20" PropertyName="Reputation"
+                FontName="Microsoft YaHei UI"
+                FontSize="12"
+                FontStyle="Regular"
+                FontColor="4292670220"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="义理"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="601" Y="70" Width="50" Height="20" PropertyName="PersonalLoyalty"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4286611456"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="相性"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="405" Y="70" Width="40" Height="20" PropertyName="Ideal"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4286611456"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="出仕相性考虑"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="0" Y="0" Width="0" Height="0" PropertyName="IdealTendencyString"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="野心"
+              FontName="Microsoft YaHei UI"
+              FontSize="1"
+              FontStyle="Regular"
+              FontColor="4294967295"
+              Align="Left">
+    </Label>
+    <Text X="520" Y="127" Width="0" Height="0" PropertyName="Ambition"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="是否会独立"
+          FontName="Microsoft YaHei UI"
+          FontSize="1"
+          FontStyle="Regular"
+          FontColor="4294967295"
+          Align="Left">
+    </Label>
+    <Text X="0" Y="0" Width="0" Height="0" PropertyName="LeaderPossibility"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="势力"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="610" Y="77" Width="0" Height="0" PropertyName="Faction"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="忠诚"
+             FontName="Microsoft YaHei UI"
+             FontSize="1"
+             FontStyle="Regular"
+             FontColor="4294967295"
+             Align="Left">
+    </Label>
+    <Text X="498" Y="70" Width="50" Height="20" PropertyName="Loyalty"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4286611456"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="所在"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="498" Y="94" Width="50" Height="20" PropertyName="Location"
+                FontName="Microsoft YaHei UI"
+                FontSize="12"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="工作"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="601" Y="94" Width="50" Height="20" PropertyName="WorkKindString"
+                FontName="Microsoft YaHei UI"
+                FontSize="12"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="宝物"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Left">
+    </Label>
+    <Text X="0" Y="0" Width="0" Height="0" PropertyName="TreasureCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="武勇"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="322" Y="94" Width="40" Height="20" PropertyName="Strength"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4278223040"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="武勇经验"
+            FontName="Microsoft YaHei UI"
+            FontSize="1"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Middle">
+    </Label>
+    <Text X="395" Y="94" Width="50" Height="20" PropertyName="StrengthExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="统率"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4282356711"
+                Align="Middle">
+    </Label>
+    <Text X="322" Y="119" Width="40" Height="20" PropertyName="Command"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4278223040"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="统率经验"
+            FontName="Microsoft YaHei UI"
+            FontSize="1"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Middle">
+    </Label>
+    <Text X="395" Y="119" Width="50" Height="20" PropertyName="CommandExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="智谋"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4282356711"
+                Align="Middle">
+    </Label>
+    <Text X="322" Y="144" Width="40" Height="20" PropertyName="Intelligence"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4278223040"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="智谋经验"
+            FontName="Microsoft YaHei UI"
+            FontSize="1"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Middle">
+    </Label>
+    <Text X="395" Y="144" Width="50" Height="20" PropertyName="IntelligenceExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="政治"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4282356711"
+                Align="Middle">
+    </Label>
+    <Text X="322" Y="169" Width="40" Height="20" PropertyName="Politics"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4278223040"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="政治经验"
+             FontName="Microsoft YaHei UI"
+             FontSize="1"
+             FontStyle="Regular"
+             FontColor="4294967295"
+             Align="Middle">
+    </Label>
+    <Text X="395" Y="169" Width="50" Height="20" PropertyName="PoliticsExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="魅力"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4282356711"
+                Align="Middle">
+    </Label>
+    <Text X="322" Y="194" Width="40" Height="20" PropertyName="Glamour"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4278223040"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="魅力经验"
+            FontName="Microsoft YaHei UI"
+            FontSize="1"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Middle">
+    </Label>
+    <Text X="395" Y="194" Width="50" Height="20" PropertyName="GlamourExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="勇猛"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="322" Y="219" Width="40" Height="20" PropertyName="Braveness"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4286611456"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="冷静"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="322" Y="244" Width="40" Height="20" PropertyName="Calmness"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4286611456"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="疲劳"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="498" Y="44" Width="50" Height="20" PropertyName="Tiredness"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Bold"
+                FontColor="4286611456"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="负伤"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="601" Y="44" Width="50" Height="20" PropertyName="InjuryString"
+                FontName="Microsoft YaHei UI"
+                FontSize="12"
+                FontStyle="Regular"
+                FontColor="4286611456"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="步兵"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="498" Y="119" Width="50" Height="20" PropertyName="BubingExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="弩兵"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="498" Y="144" Width="50" Height="20" PropertyName="NubingExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="骑兵"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="498" Y="169" Width="50" Height="20" PropertyName="QibingExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="水军"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="601" Y="119" Width="50" Height="20" PropertyName="ShuijunExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="器械"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="601" Y="144" Width="50" Height="20" PropertyName="QixieExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="计略"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="601" Y="169" Width="50" Height="20" PropertyName="StratagemExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="内政"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="498" Y="194" Width="50" Height="20" PropertyName="InternalExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="策略"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="601" Y="194" Width="50" Height="20" PropertyName="TacticsExperience"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="主将战力"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="520" Y="152" Width="0" Height="0" PropertyName="FightingForce"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="副将战力"
+               FontName="Microsoft YaHei UI"
+               FontSize="1"
+               FontStyle="Regular"
+               FontColor="4294967295"
+               Align="Middle">
+    </Label>
+    <Text X="610" Y="152" Width="0" Height="0" PropertyName="SubFightingForce"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+  </PersonInInformationTexts>
+  <Item62></Item62>
+  <Item63></Item63>
+  <Item64></Item64>
+  <Item65></Item65>
+  <Item66></Item66>
+  <Item67></Item67>
+  <Item68></Item68>
+  <Item69></Item69>
+  <Item70></Item70>
+  <Item71></Item71>
+  <Item72></Item72>
+  <Item73></Item73>
+  <Item74></Item74>
+  <FactionNameText X="40" Y="49" Width="40" Height="20"
+              FontName="Microsoft YaHei UI"
+              FontSize="18"
+              FontStyle="Bold"
+              FontColor="4290822336"
+              Align="Middle"
+              FactionNameKind="4"
+              ShowFactionNameBackground="off" Background="FactionBackground.png">
+  </FactionNameText>
+  <FactionColour ColourPicture="FactionColour.png" ColourBackground="FactionBackground.png" X="32" Y="41" Width="54" Height="43"></FactionColour>
+  <Item77></Item77>
+  <Item78></Item78>
+  <Item79></Item79>
+  <Item80></Item80>
+  <Item81></Item81>
+  <Item82></Item82>
+  <Item83></Item83>
+  <Item84></Item84>
+  <Item85></Item85>
+  <Item86></Item86>
+  <Item87></Item87>
+  <Item88></Item88>
+  <Item89></Item89>
+  <Item90></Item90>
+  <Item91></Item91>
+  <Item92></Item92>
+  <Item93></Item93>
+  <Item94></Item94>
+  <Item95></Item95>
+  <Item96></Item96>
+  <Item97></Item97>
+  <Item98></Item98>
+  <Item99></Item99>
+  <Item100></Item100>
+  <Item101></Item101>
+  <Item102></Item102>
+  <Item103></Item103>
+  <Item104></Item104>
+  <Item105></Item105>
+  <Item106></Item106>
+  <Item107></Item107>
+  <Item108></Item108>
+  <Item109></Item109>
+  <Item110></Item110>
+  <ImportantTreasureButton FileName0="TreasureButton.png" FileName1="TreasurePressed.png" X="415" Y="375" Width="93" Height="86" ></ImportantTreasureButton>
+  <ImportantTreasureBackground MaxImportantTreasureShowNumber="10" Background="ImportantTreasureBackground.png" Mask="Null.png" TreasureMask="TreasureMask2.png" X="-201" Y="0" Width="201" Height="556"></ImportantTreasureBackground>
+  <GeneralTreasureBackground MaxGeneralTreasureShowNumber="16" Background="Null.png" ShowNullTreasurePicture="on" Mask="Null.png" X="-200" Y="338" Width="200" Height="220"></GeneralTreasureBackground>
+  <ImportantTreasureTextBackground ImportantTreasureTextFollowTheMouse="1" Background="ImportantTreasureTextBackground.png" Mask="ImportantTreasureTextMask.png" X="10" Y="10" Width="400" Height="200"></ImportantTreasureTextBackground>
+  <ImportantTreasureText   Text1="宝物名称：" Text2="宝物价值：" Text3="宝物介绍：" Text4="预留" Text5="预留"
+                           X="176" Y="40" Width="230" Height="160" RowMargin="0"
+                           TitleColor="4294967040" NameColor="4294901760" WorthColor="4286644096" DescriptionColor="4278255360"
+                           FontName="方正隶变_GBK"
+                           FontSize="12"
+                           FontStyle="Bold"
+                           FontColor="4294967295">
+  </ImportantTreasureText>
+  <ImportantTreasureTextPicture  X="19" Y="40" Width="150" Height="150"></ImportantTreasureTextPicture>
+  <ThePersonPictureInTreasure  ThePictureKindInTreasure="1" SexPicture1="0.png" SexPicture2="1.png" X="-143" Y="91" Width="85" Height="215"></ThePersonPictureInTreasure>
+  <Item118></Item118>
+  <Item119></Item119>
+  <Item120></Item120>
+  <ImportantTreasure1  Group="5" X="-173" Y="198" Width="30" Height="30"></ImportantTreasure1>
+  <ImportantTreasure2  Group="1100" X="-188" Y="163" Width="30" Height="30"></ImportantTreasure2>
+  <ImportantTreasure3  Group="3100" X="-173" Y="128" Width="30" Height="30"></ImportantTreasure3>
+  <ImportantTreasure4  Group="4700" X="-158" Y="93" Width="30" Height="30"></ImportantTreasure4>
+  <ImportantTreasure5  Group="4100" X="-116" Y="63" Width="30" Height="30"></ImportantTreasure5>
+  <ImportantTreasure6  Group="4400" X="-73" Y="93" Width="30" Height="30"></ImportantTreasure6>
+  <ImportantTreasure7  Group="3000" X="-58" Y="128" Width="30" Height="30"></ImportantTreasure7>
+  <ImportantTreasure8  Group="4000" X="-43" Y="163" Width="30" Height="30"></ImportantTreasure8>
+  <ImportantTreasure9  Group="4700" X="-58" Y="198" Width="30" Height="30"></ImportantTreasure9>
+  <ImportantTreasure10  Group="300" X="-58" Y="253" Width="30" Height="30"></ImportantTreasure10>
+  <ImportantTreasure11  Group="1200" X="-175" Y="270" Width="30" Height="30"></ImportantTreasure11>
+  <ImportantTreasure12  Group="1300" X="-145" Y="270" Width="30" Height="30"></ImportantTreasure12>
+  <ImportantTreasure13  Group="1400" X="-115" Y="270" Width="30" Height="30"></ImportantTreasure13>
+  <ImportantTreasure14  Group="1500" X="-85" Y="270" Width="30" Height="30"></ImportantTreasure14>
+  <ImportantTreasure15  Group="1600" X="-55" Y="270" Width="30" Height="30"></ImportantTreasure15>
+  <ImportantTreasure16  Group="1800" X="-175" Y="300" Width="30" Height="30"></ImportantTreasure16>
+  <ImportantTreasure17  Group="1900" X="-145" Y="300" Width="30" Height="30"></ImportantTreasure17>
+  <ImportantTreasure18  Group="2600" X="-115" Y="300" Width="30" Height="30"></ImportantTreasure18>
+  <ImportantTreasure19  Group="2700" X="-85" Y="300" Width="30" Height="30"></ImportantTreasure19>
+  <ImportantTreasure20  Group="2900" X="-55" Y="300" Width="30" Height="30"></ImportantTreasure20>
+  <GeneralTreasure Mask="TreasureMask1.png"  Background="NullTreasurePicture.png"
+                       X="-181" Y="373" Width="35" Height="35"
+                       HSpace="5" VSpace="5" HNumber="4" VNumber="4">    
+  </GeneralTreasure>
+  <Item142></Item142>
+  <Item143></Item143>
+  <Item144></Item144>
+  <Item145></Item145>
+  <Item146></Item146>
+  <Item147></Item147>
+  <Item148></Item148>
+  <Item149></Item149>
+  <Item150></Item150>
+  <ImportantTitleTextBackground MaxImportantTitleShowNumber="9" ShowImportantTitleName="on" ShowImportantTitleNameBackground="on" ShowImportantTitlePicture="off" 
+                                ImportantTitleTextFollowTheMouse ="1" FileName="ImportantTitleTextBackground.png" 
+                                X="10" Y="10" Width="400" Height="200">    
+  </ImportantTitleTextBackground>
+  <ImportantTitleText    Text1="称号类型：" Text2="称号等级：" Text3="称号说明：" Text4="预留" Text5="预留"
+                         X="20" Y="40" Width="380" Height="155" RowMargin="0"
+                         TitleColor="4294967040" KindColor="4294901760" LevelColor="4286644096" DescriptionColor="4278255360"
+                         FontName="方正隶变_GBK"
+                         FontSize="15"
+                         FontStyle="Bold"
+                         FontColor="4294967295">
+  </ImportantTitleText>
+  <Item153></Item153>
+  <Item154></Item154>
+  <Item155></Item155>
+  <Item156></Item156>
+  <Item157></Item157>
+  <Item158></Item158>
+  <Item159></Item159>
+  <Item160></Item160>
+  <ImportantTitle1NameText X="116" Y="252" Width="50" Height="18" RowMargin="0"
+                           Group="1" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="8"
+                           FontStyle="Regular"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle1NameText>
+  <ImportantTitle2NameText X="116" Y="68" Width="50" Height="18" RowMargin="0"
+                           Group="3" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="8"
+                           FontStyle="Regular"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle2NameText>
+  <ImportantTitle3NameText X="194" Y="80" Width="50" Height="18" RowMargin="0"
+                           Group="4" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="8"
+                           FontStyle="Bold"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle3NameText>
+  <ImportantTitle4NameText X="116" Y="89" Width="50" Height="18" RowMargin="0"
+                           Group="5" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="8"
+                           FontStyle="Regular"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle4NameText>
+  <ImportantTitle5NameText X="49" Y="80" Width="50" Height="18" RowMargin="0"
+                           Group="10" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="8"
+                           FontStyle="Regular"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle5NameText>
+  <ImportantTitle6NameText X="184" Y="252" Width="50" Height="18" RowMargin="0"
+                           Group="20" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="8"
+                           FontStyle="Regular"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle6NameText>
+  <ImportantTitle7NameText X="49" Y="252" Width="50" Height="18" RowMargin="0"
+                           Group="21" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="8"
+                           FontStyle="Regular"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle7NameText>
+  <ImportantTitle8NameText X="116" Y="89" Width="50" Height="18" RowMargin="0"
+                           Group="50" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="8"
+                           FontStyle="Regular"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle8NameText>
+  <ImportantTitle9NameText X="116" Y="231" Width="50" Height="18" RowMargin="0"
+                           Group="500" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="8"
+                           FontStyle="Regular"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle9NameText>
+  <ImportantTitle10NameText X="560" Y="145" Width="95" Height="25" RowMargin="0"
+                           Group="2" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="8"
+                           FontStyle="Regular"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle10NameText>
+  <ImportantTitle11NameText X="458" Y="85" Width="95" Height="25" RowMargin="0"
+                           Group="102" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="8"
+                           FontStyle="Regular"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle11NameText>
+  <ImportantTitle12NameText X="458" Y="115" Width="95" Height="25" RowMargin="0"
+                           Group="999" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="8"
+                           FontStyle="Regular"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle12NameText>
+  <ImportantTitle13NameText X="458" Y="145" Width="95" Height="25" RowMargin="0"
+                           Group="999" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="8"
+                           FontStyle="Regular"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle13NameText>
+  <ImportantTitle14NameText X="400" Y="260" Width="95" Height="25" RowMargin="0"
+                           Group="999" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294934528"
+                           Align="Middle" >
+  </ImportantTitle14NameText>
+  <ImportantTitle15NameText X="520" Y="260" Width="95" Height="25" RowMargin="0"
+                           Group="999" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4278222848"
+                           Align="Middle" >
+  </ImportantTitle15NameText>
+  <ImportantTitle16NameText X="285" Y="85" Width="95" Height="25" RowMargin="0"
+                           Group="999" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4278222848"
+                           Align="Middle" >
+  </ImportantTitle16NameText>
+  <ImportantTitle17NameText X="560" Y="50" Width="95" Height="25" RowMargin="0"
+                           Group="999" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4278222848"
+                           Align="Middle" >
+  </ImportantTitle17NameText>
+  <ImportantTitle18NameText X="560" Y="85" Width="95" Height="25" RowMargin="0"
+                           Group="999" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4278222848"
+                           Align="Middle" >
+  </ImportantTitle18NameText>
+  <ImportantTitle19NameText X="560" Y="115" Width="95" Height="25" RowMargin="0"
+                           Group="999" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4278222848"
+                           Align="Middle" >
+  </ImportantTitle19NameText>
+  <ImportantTitle20NameText X="560" Y="145" Width="95" Height="25" RowMargin="0"
+                           Group="999" Background="Null.png"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4278222848"
+                           Align="Middle" >
+  </ImportantTitle20NameText>
+  <ImportantTitle1Picture  FileName="Null.png" X="458" Y="85" Width="95" Height="50"></ImportantTitle1Picture>
+  <ImportantTitle2Picture  FileName="Null.png" X="458" Y="115" Width="95" Height="50"></ImportantTitle2Picture>
+  <ImportantTitle3Picture  FileName="Null.png" X="458" Y="145" Width="95" Height="50"></ImportantTitle3Picture>
+  <ImportantTitle4Picture  FileName="Null.png" X="400" Y="260" Width="95" Height="50"></ImportantTitle4Picture>
+  <ImportantTitle5Picture  FileName="Null.png" X="520" Y="260" Width="95" Height="50"></ImportantTitle5Picture>
+  <ImportantTitle6Picture  FileName="Null.png" X="285" Y="85" Width="95" Height="50"></ImportantTitle6Picture>
+  <ImportantTitle7Picture  FileName="Null.png" X="560" Y="50" Width="95" Height="50"></ImportantTitle7Picture>
+  <ImportantTitle8Picture  FileName="Null.png" X="560" Y="85" Width="95" Height="50"></ImportantTitle8Picture>
+  <ImportantTitle9Picture  FileName="Null.png" X="560" Y="115" Width="95" Height="50"></ImportantTitle9Picture>
+  <ImportantTitle10Picture  FileName="Null.png" X="560" Y="145" Width="95" Height="50"></ImportantTitle10Picture>
+  <ImportantTitle11Picture  FileName="Null.png" X="385" Y="85" Width="95" Height="50"></ImportantTitle11Picture>
+  <ImportantTitle12Picture  FileName="Null.png" X="458" Y="115" Width="95" Height="50"></ImportantTitle12Picture>
+  <ImportantTitle13Picture  FileName="Null.png" X="458" Y="145" Width="95" Height="50"></ImportantTitle13Picture>
+  <ImportantTitle14Picture  FileName="Null.png" X="400" Y="260" Width="95" Height="50"></ImportantTitle14Picture>
+  <ImportantTitle15Picture  FileName="Null.png" X="520" Y="260" Width="95" Height="50"></ImportantTitle15Picture>
+  <ImportantTitle16Picture  FileName="Null.png" X="285" Y="85" Width="95" Height="50"></ImportantTitle16Picture>
+  <ImportantTitle17Picture  FileName="Null.png" X="560" Y="50" Width="95" Height="50"></ImportantTitle17Picture>
+  <ImportantTitle18Picture  FileName="Null.png" X="560" Y="85" Width="95" Height="50"></ImportantTitle18Picture>
+  <ImportantTitle19Picture  FileName="Null.png" X="560" Y="115" Width="95" Height="50"></ImportantTitle19Picture>
+  <ImportantTitle20Picture  FileName="Null.png" X="560" Y="145" Width="95" Height="50"></ImportantTitle20Picture>
+  <ImportantStuntTextBackground MaxImportantStuntShowNumber="14" ShowImportantStuntName="off" ShowImportantStuntNameBackground="on" ShowImportantStuntPicture="on"
+                              ImportantStuntTextFollowTheMouse ="1" FileName="ImportantStuntTextBackground.png"
+                              X="10" Y="10" Width="400" Height="200">
+  </ImportantStuntTextBackground>
+  <ImportantStuntText    Text1="特技名称：" Text2="战意消耗：" Text3="特技说明：" Text4="预留" Text5="预留"
+                         X="20" Y="40" Width="380" Height="165" RowMargin="0"
+                         TitleColor="4294967040" KindColor="4294901760" LevelColor="4286644096" DescriptionColor="4278255360"
+                         FontName="方正隶变_GBK"
+                         FontSize="14"
+                         FontStyle="Bold"
+                         FontColor="4294967295">
+  </ImportantStuntText>
+  <Item203></Item203>
+  <Item204></Item204>
+  <Item205></Item205>
+  <Item206></Item206>
+  <Item207></Item207>
+  <Item208></Item208>
+  <Item209></Item209>
+  <Item210></Item210>
+  <ImportantStunt1NameText X="505" Y="274" Width="49" Height="49" RowMargin="0"
+                           Group="0" Background="0n.png" Description="跑路必备特技。使用该特技后，部队在接下来的3天中，只能进行移动，但是部队的行动力会和防御力暂时加强,不会被围攻，被暴击几率和中计几率减少。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt1NameText>
+  <ImportantStunt2NameText X="366" Y="458" Width="49" Height="49" RowMargin="0"
+                           Group="1" Background="1n.png" Description="攻击型特技。使用该特技后，部队在接下来的4天中，行动力、攻击力和暴击几率将得到加强,且击破部队后可以再次进行攻击。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt2NameText>
+  <ImportantStunt3NameText X="293" Y="458" Width="49" Height="49" RowMargin="0"
+                           Group="2" Background="2n.png" Description="龟缩型特技。使用该特技后，部队在接下来的5天中，不会被围攻，同时被部队的暴击几率和中计几率降低，防御力将得到加强。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt3NameText>
+  <ImportantStunt4NameText X="284" Y="336" Width="49" Height="49" RowMargin="0"
+                           Group="3" Background="3n.png" Description="兴奋剂型特技。使用该特技后，部队在接下来的3天中，不能使用计略，但攻击力将得到很大提高，且期间暴击几率和暴击致敌混乱几率暂时提高。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt4NameText>
+  <ImportantStunt5NameText X="317" Y="298" Width="49" Height="49" RowMargin="0"
+                           Group="4" Background="4n.png" Description="神技，不解释，就是消耗有点大。使用该特技后，部队在接下来的5天中，攻击力和防御力提高，无论主动攻击还是反击都将使敌人战意降低。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt5NameText>
+  <ImportantStunt6NameText X="505" Y="332" Width="49" Height="49" RowMargin="0"
+                           Group="5" Background="5n.png" Description="爆发吧，混乱吧。使用该特技后，部队在接下来的2天中，攻击力和暴击几率增加，暴击致敌混乱几率增加。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt6NameText>
+  <ImportantStunt7NameText X="577" Y="458" Width="49" Height="49" RowMargin="0"
+                           Group="6" Background="6n.png" Description="兄弟们，一起上。使用该特技后，部队在接下来的3天中，必然发起围攻,围攻致乱率增加。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt7NameText>
+  <ImportantStunt8NameText X="366" Y="274" Width="49" Height="49" RowMargin="0"
+                           Group="7" Background="7n.png" Description="嘿嘿嘿，使用该特技后，部队在接下来的4天中，有50%几率使敌军遭受火焰伤害。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt8NameText>
+  <ImportantStunt9NameText X="554" Y="298" Width="49" Height="49" RowMargin="0"
+                           Group="8" Background="8n.png" Description="神技，义无反顾的向前进军吧。使用该特技后，部队在接下来的4天中，攻击力和防御力都会得到提高，且主动攻击还会使降低敌方战意，避免被围攻几率提高，围攻致乱率增加。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt9NameText>
+  <ImportantStunt10NameText X="366" Y="332" Width="49" Height="49" RowMargin="0"
+                           Group="9" Background="9n.png" Description="大家快让开，我要发疯了。使用该特技后，部队在接下来的3天中，每天会恢复一定战意，期间不能使用战法和计略，但攻击力会得到很大的加成，且攻击会波及周边部队。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt10NameText>
+  <ImportantStunt11NameText X="505" Y="458" Width="49" Height="49" RowMargin="0"
+                           Group="10" Background="10n.png" Description="伺机而动，防守反击。使用该特技后，部队在接下来的5天中，中计几率减少，不会被围攻，防御力提高，反击会使敌方战意减少。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt11NameText>
+  <ImportantStunt12NameText X="586" Y="336" Width="49" Height="49" RowMargin="0"
+                           Group="11" Background="11n.png" Description="既然不能把敌人变笨，就让自己变聪明。使用该特技后，部队在接下来的2天中，计略成功率提高，中计几率减少。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt12NameText>
+  <ImportantStunt13NameText X="543" Y="499" Width="49" Height="49" RowMargin="0"
+                           Group="12" Background="12n.png" Description="龟缩技能。使用该特技后，部队在接下来的5天中，防御力增加,混乱状态当天恢复,不会被敌人围攻,期间部队不能使用战法。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt13NameText>
+  <ImportantStunt14NameText X="327" Y="499" Width="49" Height="49" RowMargin="0"
+                           Group="13" Background="13n.png" Description="技如其名，攻城必备。使用该特技后，部队在接下来的5天中，对建筑伤害有极大的加成。"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt14NameText>
+  <ImportantStunt15NameText X="665" Y="350" Width="49" Height="49" RowMargin="0"
+                           Group="14" Background="Null.png" Description="这是特技15"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt15NameText>
+  <ImportantStunt16NameText X="285" Y="85" Width="49" Height="49" RowMargin="0"
+                           Group="15" Background="Null.png" Description="这是特技16"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4294902015"
+                           Align="Middle" >
+  </ImportantStunt16NameText>
+  <ImportantStunt17NameText X="560" Y="50" Width="49" Height="49" RowMargin="0"
+                           Group="999" Background="Null.png" Description="这是特技17"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4278222848"
+                           Align="Middle" >
+  </ImportantStunt17NameText>
+  <ImportantStunt18NameText X="560" Y="85" Width="49" Height="49" RowMargin="0"
+                           Group="999" Background="Null.png" Description="这是特技18"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4278222848"
+                           Align="Middle" >
+  </ImportantStunt18NameText>
+  <ImportantStunt19NameText X="560" Y="115" Width="49" Height="49" RowMargin="0"
+                           Group="999" Background="Null.png" Description="这是特技19"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4278222848"
+                           Align="Middle" >
+  </ImportantStunt19NameText>
+  <ImportantStunt20NameText X="560" Y="145" Width="95" Height="25" RowMargin="0"
+                           Group="999" Background="Null.png" Description="这是特技20"
+                           FontName="Microsoft YaHei UI"
+                           FontSize="15"
+                           FontStyle="Bold"
+                           FontColor="4278222848"
+                           Align="Middle" >
+  </ImportantStunt20NameText>
+  <ImportantStunt1Picture  FileName="0.png" X="505" Y="274" Width="49" Height="49"></ImportantStunt1Picture>
+  <ImportantStunt2Picture  FileName="1.png" X="366" Y="458" Width="49" Height="49"></ImportantStunt2Picture>
+  <ImportantStunt3Picture  FileName="2.png" X="293" Y="458" Width="49" Height="49"></ImportantStunt3Picture>
+  <ImportantStunt4Picture  FileName="3.png" X="284" Y="336" Width="49" Height="49"></ImportantStunt4Picture>
+  <ImportantStunt5Picture  FileName="4.png" X="317" Y="298" Width="49" Height="49"></ImportantStunt5Picture>
+  <ImportantStunt6Picture  FileName="5.png" X="505" Y="332" Width="49" Height="49"></ImportantStunt6Picture>
+  <ImportantStunt7Picture  FileName="6.png" X="577" Y="458" Width="49" Height="49"></ImportantStunt7Picture>
+  <ImportantStunt8Picture  FileName="7.png" X="366" Y="274" Width="49" Height="49"></ImportantStunt8Picture>
+  <ImportantStunt9Picture  FileName="8.png" X="554" Y="298" Width="49" Height="49"></ImportantStunt9Picture>
+  <ImportantStunt10Picture  FileName="9.png" X="366" Y="332" Width="49" Height="49"></ImportantStunt10Picture>
+  <ImportantStunt11Picture  FileName="10.png" X="505" Y="458" Width="49" Height="49"></ImportantStunt11Picture>
+  <ImportantStunt12Picture  FileName="11.png" X="586" Y="336" Width="49" Height="49"></ImportantStunt12Picture>
+  <ImportantStunt13Picture  FileName="12.png" X="543" Y="499" Width="49" Height="49"></ImportantStunt13Picture>
+  <ImportantStunt14Picture  FileName="13.png" X="327" Y="499" Width="49" Height="49"></ImportantStunt14Picture>
+  <ImportantStunt15Picture  FileName="Null.png" X="520" Y="260" Width="95" Height="50"></ImportantStunt15Picture>
+  <ImportantStunt16Picture  FileName="Null.png" X="285" Y="85" Width="95" Height="50"></ImportantStunt16Picture>
+  <ImportantStunt17Picture  FileName="Null.png" X="560" Y="50" Width="95" Height="25"></ImportantStunt17Picture>
+  <ImportantStunt18Picture  FileName="Null.png" X="560" Y="85" Width="95" Height="25"></ImportantStunt18Picture>
+  <ImportantStunt19Picture  FileName="Null.png" X="560" Y="115" Width="95" Height="25"></ImportantStunt19Picture>
+  <ImportantStunt20Picture  FileName="Null.png" X="560" Y="145" Width="95" Height="25"></ImportantStunt20Picture>
+  <BiographyBriefButton FileName0="BiographyBriefButton.png" FileName1="BiographyBriefPressed.png" X="345" Y="71" Width="45" Height="18"></BiographyBriefButton>
+  <BiographRomanceButton FileName0="BiographRomanceButton.png" FileName1="BiographRomancePressed.png" X="390" Y="71" Width="45" Height="18"></BiographRomanceButton>
+  <BiographyHistoryButton FileName0="BiographyHistoryButton.png" FileName1="BiographyHistoryPressed.png" X="435" Y="71" Width="45" Height="18"></BiographyHistoryButton>
+  <BiographyInGameButton FileName0="BiographyInGameButton.png" FileName1="BiographyInGamePressed.png" X="480" Y="71" Width="45" Height="18"></BiographyInGameButton>
+  <PersonBiographyText    Text1="✍" Text2="✎" Text3="☯" Text4="☬" Text5="ஐ"
+                   X="289" Y="89" Width="345" Height="175" RowMargin="0"
+                   BriefColor="4294934528" RomanceColor="4278222848" HistoryColor="4286611456" InGameColor="4278222976"
+                   FontName="方正隶变_GBK"
+                   FontSize="14"
+                   FontStyle="Bold"
+                   FontColor="4294967295">
+  </PersonBiographyText>
+  <Item256></Item256>
+  <Item257></Item257>
+  <Item258></Item258>
+  <Item259></Item259>
+  <Item260></Item260>  
+  <RelativeButton FileName0="RelativeButton.png" FileName1="RelativePressed.png" X="440" Y="217" Width="38" Height="38"></RelativeButton>
+  <RelationButton FileName0="RelationButton.png" FileName1="RelationPressed.png" X="392" Y="228" Width="38" Height="38"></RelationButton>
+  <PersonRelationButton FileName0="PersonRelationButton.png" FileName1="PersonRelationPressed.png" X="807" Y="40" Width="50" Height="17"></PersonRelationButton>
+  <StandingsButton FileName0="StandingsButton.png" FileName1="StandingsPressed.png" X="488" Y="228" Width="38" Height="38"></StandingsButton>
+  <Item265></Item265>
+  <RelativeBackground Background="RelativeBackground.png" Mask="Null.png" X="665" Y="0" Width="243" Height="340"></RelativeBackground>
+  <GenerationText X="685" Y="152" Width="45" Height="20"
+              FontName="Microsoft YaHei UI"
+              FontSize="14"
+              FontStyle="Bold"
+              FontColor="4290822336"
+              Align="Middle">
+  </GenerationText>
+  <StrainText X="679" Y="99" Width="60" Height="20"
+            FontName="Microsoft YaHei UI"
+            FontSize="14"
+            FontStyle="Regular"
+            FontColor="4286578688"
+            Align="Middle">
+  </StrainText>
+  <SmallPortrait X="807" Y="213" Width="25" Height="24" ></SmallPortrait>
+  <FatherNameText X="755" Y="157" Width="38" Height="17"
+            FontName="Microsoft YaHei UI"
+            FontSize="8"
+            FontStyle="Bold"
+            FontColor="4290822336"
+            Align="Middle">
+  </FatherNameText>
+  <FatherSmallPortrait X="750" Y="101" Width="48" Height="48" ></FatherSmallPortrait>
+  <MotherName X="842" Y="157" Width="38" Height="17"
+            FontName="Microsoft YaHei UI"
+            FontSize="8"
+            FontStyle="Bold"
+            FontColor="4290822336"
+            Align="Middle">
+  </MotherName>
+  <MotherSmallPortrait X="838" Y="101" Width="48" Height="48" ></MotherSmallPortrait>
+  <SpouseNameText X="842" Y="258" Width="38" Height="17"
+            FontName="Microsoft YaHei UI"
+            FontSize="8"
+            FontStyle="Bold"
+            FontColor="4290822336"
+            Align="Middle">
+  </SpouseNameText>
+  <SpouseSmallPortrait X="838" Y="202" Width="48" Height="48" ></SpouseSmallPortrait>
+  <ChildrenNumberText X="727" Y="184" Width="36" Height="12"
+          FontName="Microsoft YaHei UI"
+          FontSize="12"
+          FontStyle="Bold"
+          FontColor="4290822336"
+          Align="Middle">
+  </ChildrenNumberText>
+  <ChildrenText    Text1="" Text2="/" Text3="/" Text4="-*-*-*-*-*-*-*-*-*-*-" Text5="-*-*-*-*-*-*-*-*-*-*-"
+                 X="695" Y="203" Width="105" Height="115" RowMargin="0"
+                 NameColor1="4294901888" NameColor2="4286611711" DisplayedAgeColor="4294934528" LocationColor="4286611520"
+                 FontName="Microsoft YaHei UI"
+                 FontSize="8"
+                 FontStyle="Bold"
+                 FontColor="4294967295">
+  </ChildrenText>
+  <Item278></Item278>
+  <Item279></Item279>
+  <Item280></Item280>
+  <RelationBackground Background="RelationBackground.png" Mask="Null.png" X="665" Y="0" Width="201" Height="356"></RelationBackground>
+  <BrothersText    Text1="" Text2="" Text3="-" Text4="〖 -" Text5="〗"
+                 X="676" Y="75" Width="177" Height="85" RowMargin="0" Vertical="off"
+                 NameColor="4294934528" Text1and2Color="4294901760" Text3Color="4286644096" Text4and5Color="4278255360"
+                 FontName="方正隶变_GBK"
+                 FontSize="13"
+                 FontStyle="Bold"
+                 FontColor="4294967295">
+  </BrothersText>
+  <ClosePersonsText    Text1="" Text2="" Text3="" Text4="︽---︽" Text5="︾---︾"
+               X="676" Y="199" Width="86" Height="142" RowMargin="0" Vertical="on"
+               NameColor="4278255360" Text1and2Color="4294901760" Text3Color="4286644096" Text4and5Color="4278255360"
+               FontName="方正隶变_GBK"
+               FontSize="13"
+               FontStyle="Bold"
+               FontColor="4294967295">
+  </ClosePersonsText>
+  <HatedPersonsText    Text1="" Text2="" Text3="" Text4="︹---︹" Text5="︺---︺"
+               X="768" Y="199" Width="86" Height="142" RowMargin="0" Vertical="on"
+               NameColor="4294901760" Text1and2Color="4294901760" Text3Color="4286644096" Text4and5Color="4278255360"
+               FontName="方正隶变_GBK"
+               FontSize="13"
+               FontStyle="Bold"
+               FontColor="4294967295">
+  </HatedPersonsText>
+  <Item285></Item285>
+  <PersonRelationBackground Background="PersonRelationBackground.png" Mask="Null.png" X="665" Y="356" Width="201" Height="200"></PersonRelationBackground>
+  <PersonRelationText    Text1="『-" Text2="-』" Text3="〔-" Text4="-〕" Text5="预留"
+               X="688" Y="383" Width="158" Height="148" RowMargin="0"
+               Text1and2Color="4286611456" Relation1Color="4278222848" Text3and4Color="4294934592" Relation2Color="4286578688"
+               FontName="方正隶变_GBK"
+               FontSize="13"
+               FontStyle="Bold"
+               FontColor="4294967295">
+  </PersonRelationText> 
+  <StandingsBackground Background="StandingsBackground.png" Mask="Null.png" X="665" Y="0" Width="201" Height="471"></StandingsBackground>
+  <StandingsTexts>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="击破次数"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="79" Width="50" Height="20" PropertyName="RoutCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="被击破次数"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="104" Width="50" Height="20" PropertyName="RoutedCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="计略成功次数"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="129" Width="50" Height="20" PropertyName="StratagemSuccessCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="计略失败次数"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="154" Width="50" Height="20" PropertyName="StratagemFailCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="计略中计次数"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="179" Width="50" Height="20" PropertyName="StratagemBeSuccessCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="计略阻挡次数"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="204" Width="50" Height="20" PropertyName="StratagemBeFailCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="总士兵伤害"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="229" Width="50" Height="20" PropertyName="TroopDamageDealt"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="总受士兵伤害"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="254" Width="50" Height="20" PropertyName="TroopBeDamageDealt"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="总建筑伤害"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="279" Width="50" Height="20" PropertyName="ArchitectureDamageDealt"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="反叛数"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="304" Width="50" Height="20" PropertyName="RebelCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="处斩数"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="329" Width="50" Height="20" PropertyName="ExecuteCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="逃跑数"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="354" Width="50" Height="20" PropertyName="FleeCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="俘获将领次数"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="379" Width="50" Height="20" PropertyName="CaptiveCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="被俘次数"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="404" Width="50" Height="20" PropertyName="HeldCaptiveCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="0" Y="0" Width="0" Height="0" Label ="致武将战死数"
+                FontName="Microsoft YaHei UI"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="807" Y="429" Width="50" Height="20" PropertyName="OfficerKillCount"
+                FontName="Microsoft YaHei UI"
+                FontSize="13"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+  </StandingsTexts>
+  <Item290></Item290>
+  <SkillTextBackground PersonSkill="PersonSkill.png" LearnableSkill="LearnableSkill.png" AllSkill="AllSkill.png"></SkillTextBackground>
+  <TitleTextBackground FileName="TextBackground1.png" X="295" Y="310" Width="160" Height="225" TextHeight="18"></TitleTextBackground>
+  <StuntTextBackground FileName="TextBackground2.png" X="464" Y="310" Width="160" Height="225" TextHeight="18"></StuntTextBackground>
+  <ConditionBackground FileName="ConditionBackground.png" X="-201" Y="0" Width="201" Height="550"></ConditionBackground>
+  <InfluenceBackground FileName="InfluenceBackground.png" X="665" Y="0" Width="201" Height="550"></InfluenceBackground>   
+  <SkillBlock Width="35" Height="21" OffsetX="19" OffsetY="294"
+              FontName="Microsoft YaHei UI"
+              FontSize="10"
+              FontStyle="Regular"
+              FontColor="4278222848"
+              SkillColor="4278232831"
+              LearnableColor="4294967040"
+              Align="Middle">
+  </SkillBlock>
+  <Title X="295" Y="310" Width="165" Height="224" RowMargin="0"
+              FontName="Microsoft YaHei UI"
+              FontSize="11"
+              FontStyle="Bold"
+              FontColor="4286643968">
+  </Title>
+  <Stunt X="480" Y="310" Width="165" Height="224" RowMargin="0"
+            FontName="Microsoft YaHei UI"
+            FontSize="11"
+            FontStyle="Bold"
+            FontColor="4294967295">
+  </Stunt>
+  <Condition X="-184" Y="80" Width="187" Height="480" RowMargin="0" TitleColor="4294934783" SubTitleColor="4294934783"
+			      PositiveColor="4278255360" NegativeColor="4294901760"
+            FontName="Microsoft YaHei UI"
+            FontSize="11"
+            FontStyle="Regular"
+            FontColor="4294967295">
+  </Condition>
+  <Influence X="682" Y="80" Width="187" Height="480" RowMargin="0" TitleColor="4294967040"
+             SubTitleColor="4294901760" SubTitleColor2="4286611711" SubTitleColor3="4278255360"
+             FontName="Microsoft YaHei UI"
+             FontSize="11"
+             FontStyle="Regular"
+             FontColor="4294967295">
+  </Influence>
+
+
+
+</Root>

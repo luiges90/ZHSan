@@ -1,0 +1,1849 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background FileName="Background.png" PictureNull="Null.png" Width="1000" Height="570"></Background>
+  <Labels>
+    <Label X="60" Y="30" Width="80" Height="25" Label ="建筑名称"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="60" Y="55" Width="80" Height="25" PropertyName="Name"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Bold"
+                FontColor="4294967040"
+                Align="Middle">
+    </Text>
+    <Label X="160" Y="30" Width="80" Height="25" Label ="建筑类别"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="160" Y="55" Width="80" Height="25" PropertyName="KindString"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="260" Y="30" Width="80" Height="25" Label ="所属势力"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="260" Y="55" Width="80" Height="25" PropertyName="FactionString"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Bold"
+                FontColor="4294901862"
+                Align="Middle">
+    </Text>
+    <Label X="360" Y="30" Width="80" Height="25" Label ="所在州"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="360" Y="55" Width="80" Height="25" PropertyName="StateString"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="460" Y="30" Width="80" Height="25" Label ="地域"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="460" Y="55" Width="80" Height="25" PropertyName="RegionString"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="560" Y="30" Width="80" Height="25" Label ="规模"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="560" Y="55" Width="80" Height="25" PropertyName="AreaCount"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Bold"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="660" Y="30" Width="80" Height="25" Label ="人口"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="660" Y="55" Width="80" Height="25" PropertyName="Population"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4286119584"
+                Align="Middle">
+    </Text>
+    <Label X="60" Y="90" Width="80" Height="25" Label ="资金"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="60" Y="115" Width="80" Height="25" PropertyName="Fund"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="160" Y="90" Width="80" Height="25" Label ="资金收入"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="160" Y="115" Width="80" Height="25" PropertyName="ExpectedFundString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="260" Y="90" Width="80" Height="25" Label ="军粮"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="260" Y="115" Width="80" Height="25" PropertyName="Food"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="360" Y="90" Width="80" Height="25" Label ="军粮收入"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="360" Y="115" Width="80" Height="25" PropertyName="ExpectedFoodString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="460" Y="90" Width="80" Height="25" Label ="设施空间"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="460" Y="115" Width="80" Height="25" PropertyName="FacilityPositionString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="560" Y="90" Width="80" Height="25" Label ="设施维持费"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="560" Y="115" Width="80" Height="25" PropertyName="FacilityMaintenanceCostString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="660" Y="90" Width="80" Height="25" Label ="设施有效"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="660" Y="115" Width="80" Height="25" PropertyName="FacilityEnabledString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="60" Y="150" Width="80" Height="25" Label ="农业"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="60" Y="175" Width="80" Height="25" PropertyName="AgricultureString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="160" Y="150" Width="80" Height="25" Label ="商业"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="160" Y="175" Width="80" Height="25" PropertyName="CommerceString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="260" Y="150" Width="80" Height="25" Label ="技术"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="260" Y="175" Width="80" Height="25" PropertyName="TechnologyString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="360" Y="150" Width="80" Height="25" Label ="统治"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="360" Y="175" Width="80" Height="25" PropertyName="DominationString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="460" Y="150" Width="80" Height="25" Label ="民心"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="460" Y="175" Width="80" Height="25" PropertyName="MoraleString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="560" Y="150" Width="80" Height="25" Label ="耐久"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="560" Y="175" Width="80" Height="25" PropertyName="EnduranceString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="660" Y="150" Width="80" Height="25" Label ="内政效率"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="660" Y="175" Width="80" Height="25" PropertyName="CurrentRateOfInternal"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Bold"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="60" Y="210" Width="80" Height="25" Label ="人物数量"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="60" Y="235" Width="80" Height="25" PropertyName="PersonCount"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="160" Y="210" Width="80" Height="25" Label ="在野数量"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="160" Y="235" Width="80" Height="25" PropertyName="NoFactionPersonCount"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="260" Y="210" Width="80" Height="25" Label ="编队数量"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="260" Y="235" Width="80" Height="25" PropertyName="MilitaryCount"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="360" Y="210" Width="80" Height="25" Label ="军队数量"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="360" Y="235" Width="80" Height="25" PropertyName="ArmyQuantity"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="460" Y="210" Width="80" Height="25" Label ="军队规模"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="460" Y="235" Width="80" Height="25" PropertyName="ArmyScale"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="560" Y="210" Width="80" Height="25" Label ="粮道维持费"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="560" Y="235" Width="80" Height="25" PropertyName="RoutewayActiveCostString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="660" Y="210" Width="80" Height="25" Label ="情报维持费"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="660" Y="235" Width="80" Height="25" PropertyName="InformationCostString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="60" Y="270" Width="80" Height="25" Label ="人口增长(%%)"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="60" Y="295" Width="80" Height="25" PropertyName="PopulationDevelopingRateString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="160" Y="270" Width="80" Height="25" Label ="州效果"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="160" Y="295" Width="80" Height="25" PropertyName="StateEffectString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="260" Y="270" Width="80" Height="25" Label ="地区效果"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="260" Y="295" Width="80" Height="25" PropertyName="RegionEffectString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="360" Y="270" Width="80" Height="25" Label ="战略要冲"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="360" Y="295" Width="80" Height="25" PropertyName="IsStrategicCenterString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="460" Y="270" Width="80" Height="25" Label ="粮草衰减率"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="460" Y="295" Width="80" Height="25" PropertyName="FoodReduceDayRateString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+  </Labels>
+  <Characteristic X="40" Y="320" Width="360" Height="200" RowMargin="0" TitleColor="4294967040" SubTitleColor="4286644096"
+            FontName="方正隶变_GBK"
+            FontSize="14"
+            FontStyle="Bold"
+            FontColor="4294967295">
+  </Characteristic>
+  <Facility X="440" Y="320" Width="360" Height="200" RowMargin="0"
+			TitleColor="4294967040" SubTitleColor="4294901760" SubTitleColor2="4286644096" SubTitleColor3="4278255360" 
+            FontName="方正隶变_GBK"
+            FontSize="14"
+            FontStyle="Bold"
+            FontColor="4294967295">
+  </Facility>
+  <Item4></Item4>  
+  <Switchs NewUI="on" UISound="on"
+           ArchitectureInformation="on" InformationBar="on" CharacteristicShow="on" CharacteristicTextInInformation="off" FacilityTextInInformation="off" ShowPictureforArchitectureKindOrArchitectureIDInInformationPage="on"          
+           ArchitectureFacility="on" ArchitectureInFacilityTexts="off" FacilityTextInFacility="on" FacilityPageForArchitectureKind="off" FacilityPageForArchitectureCharacteristic="off" ShowTheFacilityPictureB="on" ShowTheFacilityTextPicture="on" >     
+  </Switchs>
+  <Item6></Item6>
+  <Item7></Item7>
+  <Item8></Item8>
+  <Item9></Item9>
+  <Item10></Item10>
+  <InformationButton FileName="InformationButton.png" PressedName="InformationPressed.png" X="20" Y="2"  Width="80" Height="20"></InformationButton>
+  <Item12></Item12>
+  <FacilityButton FileName="FacilityButton.png" PressedName="FacilityPressed.png" X="180" Y="2"  Width="80" Height="20"></FacilityButton>
+  <Item14></Item14>
+  <Item15></Item15>
+  <Item16></Item16>
+  <Item17></Item17>
+  <Item18></Item18>
+  <Item19></Item19>
+  <Item20></Item20>
+  <TheInformationPage Mask1="Mask1.png" Mask2="Mask2.png" Background="Background.png" X="0" Y="0" Width="1000" Height="600"></TheInformationPage>
+  <ArchitectureInInformationTexts>
+    <Label X="60" Y="30" Width="80" Height="0" Label ="建筑名称"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="483" Y="83" Width="80" Height="30" PropertyName="Name"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Bold"
+                FontColor="4294967040"
+                Align="Middle">
+    </Text>
+    <Label X="160" Y="30" Width="80" Height="0" Label ="建筑类别"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="355" Y="91" Width="110" Height="0" PropertyName="KindString"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="260" Y="30" Width="80" Height="0" Label ="所属势力"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="355" Y="91" Width="110" Height="20" PropertyName="FactionString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Bold"
+                FontColor="4294901862"
+                Align="Middle">
+    </Text>
+    <Label X="360" Y="30" Width="80" Height="0" Label ="所在州"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="580" Y="91" Width="55" Height="20" PropertyName="StateString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="460" Y="30" Width="80" Height="0" Label ="地域"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="635" Y="91" Width="55" Height="20" PropertyName="RegionString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="560" Y="30" Width="80" Height="0" Label ="规模"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="467" Y="149" Width="110" Height="20" PropertyName="AreaCount"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Bold"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="660" Y="30" Width="80" Height="0" Label ="人口"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="467" Y="189" Width="110" Height="20" PropertyName="Population"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4286119584"
+                Align="Middle">
+    </Text>
+    <Label X="60" Y="90" Width="80" Height="0" Label ="资金"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="337" Y="149" Width="110" Height="20" PropertyName="Fund"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="160" Y="90" Width="80" Height="0" Label ="资金收入"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="597" Y="149" Width="110" Height="20" PropertyName="ExpectedFundString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="260" Y="90" Width="80" Height="0" Label ="军粮"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="337" Y="189" Width="110" Height="20" PropertyName="Food"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="360" Y="90" Width="80" Height="0" Label ="军粮收入"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="597" Y="189" Width="110" Height="20" PropertyName="ExpectedFoodString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="460" Y="90" Width="80" Height="0" Label ="设施空间"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="337" Y="229" Width="110" Height="20" PropertyName="FacilityPositionString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="560" Y="90" Width="80" Height="0" Label ="设施维持费"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="597" Y="229" Width="110" Height="20" PropertyName="FacilityMaintenanceCostString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="660" Y="90" Width="80" Height="0" Label ="设施有效"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="467" Y="229" Width="110" Height="20" PropertyName="FacilityEnabledString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="60" Y="150" Width="80" Height="0" Label ="农业"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="337" Y="269" Width="110" Height="20" PropertyName="AgricultureString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="160" Y="150" Width="80" Height="0" Label ="商业"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="337" Y="309" Width="110" Height="20" PropertyName="CommerceString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="260" Y="150" Width="80" Height="0" Label ="技术"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="597" Y="269" Width="110" Height="20" PropertyName="TechnologyString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="360" Y="150" Width="80" Height="0" Label ="统治"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="467" Y="269" Width="110" Height="20" PropertyName="DominationString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="460" Y="150" Width="80" Height="0" Label ="民心"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="472" Y="309" Width="110" Height="20" PropertyName="MoraleString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="560" Y="150" Width="80" Height="0" Label ="耐久"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="597" Y="309" Width="110" Height="20" PropertyName="EnduranceString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="660" Y="150" Width="80" Height="0" Label ="内政效率"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="467" Y="349" Width="110" Height="20" PropertyName="CurrentRateOfInternal"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Bold"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="60" Y="210" Width="80" Height="0" Label ="人物数量"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="337" Y="349" Width="110" Height="20" PropertyName="PersonCount"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="160" Y="210" Width="80" Height="0" Label ="在野数量"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="597" Y="349" Width="110" Height="20" PropertyName="NoFactionPersonCount"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="260" Y="210" Width="80" Height="0" Label ="编队数量"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="467" Y="389" Width="110" Height="20" PropertyName="MilitaryCount"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="360" Y="210" Width="80" Height="0" Label ="军队数量"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="337" Y="389" Width="110" Height="20" PropertyName="ArmyQuantity"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="460" Y="210" Width="80" Height="0" Label ="军队规模"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="597" Y="389" Width="110" Height="20" PropertyName="ArmyScale"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="560" Y="210" Width="80" Height="0" Label ="粮道维持费"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="337" Y="429" Width="110" Height="20" PropertyName="RoutewayActiveCostString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="660" Y="210" Width="80" Height="0" Label ="情报维持费"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="337" Y="469" Width="110" Height="20" PropertyName="InformationCostString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="60" Y="270" Width="80" Height="0" Label ="人口增长(%%)"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="597" Y="429" Width="110" Height="20" PropertyName="PopulationDevelopingRateString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="160" Y="270" Width="80" Height="0" Label ="州效果"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="467" Y="429" Width="110" Height="20" PropertyName="StateEffectString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="260" Y="270" Width="80" Height="0" Label ="地区效果"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="467" Y="469" Width="110" Height="20" PropertyName="RegionEffectString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="360" Y="270" Width="80" Height="0" Label ="战略要冲"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="467" Y="509" Width="110" Height="20" PropertyName="IsStrategicCenterString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="460" Y="270" Width="80" Height="0" Label ="粮草衰减率"
+                FontName="方正隶变_GBK"
+                FontSize="1"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="597" Y="469" Width="110" Height="20" PropertyName="FoodReduceDayRateString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+  </ArchitectureInInformationTexts>
+  <Characteristic X="40" Y="320" Width="360" Height="200" RowMargin="0" TitleColor="4294967040" SubTitleColor="4286644096"
+            FontName="方正隶变_GBK"
+            FontSize="14"
+            FontStyle="Bold"
+            FontColor="4294967295">
+  </Characteristic>
+  <Facility X="440" Y="320" Width="360" Height="200" RowMargin="0"
+			TitleColor="4294967040" SubTitleColor="4294901760" SubTitleColor2="4286644096" SubTitleColor3="4278255360"
+            FontName="方正隶变_GBK"
+            FontSize="14"
+            FontStyle="Bold"
+            FontColor="4294967295">
+  </Facility>
+  <Item25></Item25>
+  <IntegrationBar  X="83" Y="204" Width="200" Height="8" FileName0="Green.png" FileName1="Cyan.png" FileName2="Cyan.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Purple.png"></IntegrationBar>
+  <DominationBar  X="83" Y="227" Width="200" Height="8" FileName0="Red.png" FileName1="Orange.png" FileName2="Yellow.png" FileName3="Green.png" FileName4="Blue.png" FileName5="Purple.png"></DominationBar>
+  <EnduranceBar  X="83" Y="250" Width="200" Height="8" FileName0="Red.png" FileName1="Orange.png" FileName2="Yellow.png" FileName3="Green.png" FileName4="Blue.png" FileName5="Purple.png"></EnduranceBar>
+  <AgricultureBar  X="83" Y="273" Width="200" Height="8" FileName0="Green.png" FileName1="Cyan.png" FileName2="Cyan.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Purple.png"></AgricultureBar>
+  <CommerceBar  X="83" Y="296" Width="200" Height="8" FileName0="Green.png" FileName1="Cyan.png" FileName2="Cyan.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Purple.png"></CommerceBar>
+  <TechnologyBar  X="83" Y="319" Width="200" Height="8" FileName0="Green.png" FileName1="Cyan.png" FileName2="Cyan.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Purple.png"></TechnologyBar>
+  <MoraleBar  X="83" Y="342" Width="200" Height="8" FileName0="Green.png" FileName1="Cyan.png" FileName2="Cyan.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Purple.png"></MoraleBar>
+  <FacilityCountBar  X="83" Y="365" Width="200" Height="8" FileName0="Blue.png" FileName1="Cyan.png" FileName2="Green.png" FileName3="Yellow.png" FileName4="Orange.png" FileName5="Red.png"></FacilityCountBar>
+  <Item34></Item34>
+  <Item35></Item35>
+  <CharacteristicShowBackground Mask="Null.png" Background="CharacteristicBackground.png" ShowNullCharacteristicPicture="off" X="762" Y="55" Width="200" Height="490"></CharacteristicShowBackground>
+  <CharacteristicShow Mask="Null.png"  NullCharacteristicPicture="Null.png" 
+                      X="770" Y="96" Width="191" Height="45" 
+                      XNumber="1" YNumber="9" XSpacing="5" YSpacing="5"></CharacteristicShow>
+  <ImportantArchitectureKindPicture ShowArchitectureKindPicture="on" X="38" Y="114" Width="244" Height="80"></ImportantArchitectureKindPicture>
+  <ImportantArchitectureIDPicture ShowArchitectureIDPicture="off" X="22" Y="385" Width="276" Height="193"></ImportantArchitectureIDPicture>
+  <Item40></Item40>
+  <Item41></Item41>
+  <Item42></Item42>
+  <Item43></Item43>
+  <Item44></Item44>
+  <Item45></Item45>
+  <Item46></Item46>
+  <Item47></Item47>
+  <Item48></Item48>
+  <Item49></Item49>
+  <Item50></Item50>
+  <Item51></Item51>
+  <Item52></Item52>
+  <Item53></Item53>
+  <Item54></Item54>
+  <Item55></Item55>
+  <Item56></Item56>
+  <Item57></Item57>
+  <Item58></Item58>
+  <Item59></Item59>
+  <Item60></Item60>
+  <Item61></Item61>
+  <Item62></Item62>
+  <Item63></Item63>
+  <Item64></Item64>
+  <Item65></Item65>
+  <Item66></Item66>
+  <Item67></Item67>
+  <Item68></Item68>
+  <Item69></Item69>
+  <Item70></Item70>
+  <Item71></Item71>
+  <Item72></Item72>
+  <Item73></Item73>
+  <Item74></Item74>
+  <Item75></Item75>
+  <Item76></Item76>
+  <Item77></Item77>
+  <Item78></Item78>
+  <Item79></Item79>
+  <Item80></Item80>
+  <Item81></Item81>
+  <Item82></Item82>
+  <Item83></Item83>
+  <Item84></Item84>
+  <Item85></Item85>
+  <Item86></Item86>
+  <Item87></Item87>
+  <Item88></Item88>
+  <Item89></Item89>
+  <Item90></Item90>
+  <Item91></Item91>
+  <Item92></Item92>
+  <Item93></Item93>
+  <Item94></Item94>
+  <Item95></Item95>
+  <Item96></Item96>
+  <Item97></Item97>
+  <Item98></Item98>
+  <Item99></Item99>
+  <Item100></Item100>
+  <Item101></Item101>
+  <Item102></Item102>
+  <Item103></Item103>
+  <Item104></Item104>
+  <Item105></Item105>
+  <Item106></Item106>
+  <Item107></Item107>
+  <Item108></Item108>
+  <Item109></Item109>
+  <Item110></Item110>
+  <Item111></Item111>
+  <Item112></Item112>
+  <Item113></Item113>
+  <Item114></Item114>
+  <Item115></Item115>
+  <Item116></Item116>
+  <Item117></Item117>
+  <Item118></Item118>
+  <Item119></Item119>
+  <Item120></Item120>
+  <Item121></Item121>
+  <Item122></Item122>
+  <Item123></Item123>
+  <Item124></Item124>
+  <Item125></Item125>
+  <Item126></Item126>
+  <Item127></Item127>
+  <Item128></Item128>
+  <Item129></Item129>
+  <Item130></Item130>
+  <Item131></Item131>
+  <Item132></Item132>
+  <Item133></Item133>
+  <Item134></Item134>
+  <Item135></Item135>
+  <Item136></Item136>
+  <Item137></Item137>
+  <Item138></Item138>
+  <Item139></Item139>
+  <Item140></Item140>
+  <Item141></Item141>
+  <Item142></Item142>
+  <Item143></Item143>
+  <Item144></Item144>
+  <Item145></Item145>
+  <Item146></Item146>
+  <Item147></Item147>
+  <Item148></Item148>
+  <Item149></Item149>
+  <Item150></Item150>
+  <Item151></Item151>
+  <Item152></Item152>
+  <Item153></Item153>
+  <Item154></Item154>
+  <Item155></Item155>
+  <Item156></Item156>
+  <Item157></Item157>
+  <Item158></Item158>
+  <Item159></Item159>
+  <Item160></Item160>
+  <Item161></Item161>
+  <Item162></Item162>
+  <Item163></Item163>
+  <Item164></Item164>
+  <Item165></Item165>
+  <Item166></Item166>
+  <Item167></Item167>
+  <Item168></Item168>
+  <Item169></Item169>
+  <Item170></Item170>
+  <Item171></Item171>
+  <Item172></Item172>
+  <Item173></Item173>
+  <Item174></Item174>
+  <Item175></Item175>
+  <Item176></Item176>
+  <Item177></Item177>
+  <Item178></Item178>
+  <Item179></Item179>
+  <Item180></Item180>
+  <Item181></Item181>
+  <Item182></Item182>
+  <Item183></Item183>
+  <Item184></Item184>
+  <Item185></Item185>
+  <Item186></Item186>
+  <Item187></Item187>
+  <Item188></Item188>
+  <Item189></Item189>
+  <Item190></Item190>
+  <Item191></Item191>
+  <Item192></Item192>
+  <Item193></Item193>
+  <Item194></Item194>
+  <Item195></Item195>
+  <Item196></Item196>
+  <Item197></Item197>
+  <Item198></Item198>
+  <Item199></Item199>
+  <Item200></Item200>
+  <TheFacilityPage Mask1="Null.png" Mask2="Null.png" Background="AuxiliaryBackground.jpg" AllFacilityNumber="69" X="0" Y="0" Width="1000" Height="600"></TheFacilityPage>
+  <ArchitectureInFacilityTexts>
+    <Label X="60" Y="30" Width="80" Height="25" Label ="建筑名称"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="60" Y="55" Width="80" Height="25" PropertyName="Name"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Bold"
+                FontColor="4294967040"
+                Align="Middle">
+    </Text>
+  </ArchitectureInFacilityTexts>
+  <PageShowConditionAndSetting X="0" Y="0" Width="1000" Height="600" Mask="Null.png" Background="Background0.jpg"
+                               TheFirstPage="0"
+                               PageForFacilityPositionCountNumber="4" 
+                               TheFacilityPositionCount1="1" Mask1="Null.png" Background1="BackgroundA.jpg"
+                               TheFacilityPositionCount2="1" Mask2="Null.png" Background2="BackgroundB.jpg"
+                               TheFacilityPositionCount3="1" Mask3="Null.png" Background3="BackgroundC.jpg"
+                               TheFacilityPositionCount4="1" Mask4="Null.png" Background4="BackgroundD.jpg"
+                               TheFacilityPositionCount5="1" Mask5="Null.png" Background5="BackgroundE.jpg"
+                               TheFacilityPositionCount6="99" Mask6="Null.png" Background6="Background.png"
+                               TheFacilityPositionCount7="99" Mask7="Null.png" Background7="Background.png"
+                               TheFacilityPositionCount8="99" Mask8="Null.png" Background8="Background.png"
+                               TheFacilityPositionCount9="99" Mask9="Null.png" Background9="Background.png"
+                               TheFacilityPositionCount10="99" Mask10="Null.png" Background10="Background.png"
+                               PageForArchitectureKindNumber="0" 
+                               TheArchitectureKind1="1" Mask11="Null.png" Background11="Background.png"
+                               TheArchitectureKind2="1" Mask12="Null.png" Background12="Background.png"
+                               TheArchitectureKind3="1" Mask13="Null.png" Background13="Background.png"
+                               TheArchitectureKind4="1" Mask14="Null.png" Background14="Background.png"
+                               TheArchitectureKind5="1" Mask15="Null.png" Background15="Background.png"
+                               TheArchitectureKind6="1" Mask16="Null.png" Background16="Background.png"
+                               TheArchitectureKind7="1" Mask17="Null.png" Background17="Background.png"
+                               TheArchitectureKind8="1" Mask18="Null.png" Background18="Background.png"
+                               TheArchitectureKind9="1" Mask19="Null.png" Background19="Background.png"
+                               TheArchitectureKind10="1" Mask20="Null.png" Background20="Background.png"
+                               PageForArchitectureCharacteristicNumber="0"
+                               TheArchitectureCharacteristic1="1001" Mask21="Null.png" Background21="Background.png"
+                               TheArchitectureCharacteristic2="1001" Mask22="Null.png" Background22="Background.png"
+                               TheArchitectureCharacteristic3="1001" Mask23="Null.png" Background23="Background.png"
+                               TheArchitectureCharacteristic4="1001" Mask24="Null.png" Background24="Background.png"
+                               TheArchitectureCharacteristic5="1001" Mask25="Null.png" Background25="Background.png"
+                               TheArchitectureCharacteristic6="1001" Mask26="Null.png" Background26="Background.png"
+                               TheArchitectureCharacteristic7="1001" Mask27="Null.png" Background27="Background.png"
+                               TheArchitectureCharacteristic8="1001" Mask28="Null.png" Background28="Background.png"
+                               TheArchitectureCharacteristic9="1001" Mask29="Null.png" Background29="Background.png"
+                               TheArchitectureCharacteristic10="1001" Mask30="Null.png" Background30="Background.png">
+  </PageShowConditionAndSetting>
+  <Item204></Item204>
+  <Item205></Item205>
+  <FacilityforPage1Button FileName="FacilityforAButton.png" PressedName="FacilityforAPressed.png" X="320" Y="2"  Width="80" Height="20"></FacilityforPage1Button>
+  <FacilityforPage2Button FileName="FacilityforBButton.png" PressedName="FacilityforBPressed.png" X="400" Y="2"  Width="80" Height="20"></FacilityforPage2Button>
+  <FacilityforPage3Button FileName="FacilityforCButton.png" PressedName="FacilityforCPressed.png" X="480" Y="2"  Width="80" Height="20"></FacilityforPage3Button>
+  <FacilityforPage4Button FileName="FacilityforDButton.png" PressedName="FacilityforDPressed.png" X="560" Y="2"  Width="80" Height="20"></FacilityforPage4Button>
+  <FacilityforPage5Button FileName="FacilityforEButton.png" PressedName="FacilityforEPressed.png" X="640" Y="2"  Width="80" Height="20"></FacilityforPage5Button>
+  <FacilityforPage6Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage6Button>
+  <FacilityforPage7Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage7Button>
+  <FacilityforPage8Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage8Button>
+  <FacilityforPage9Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage9Button>
+  <FacilityforPage10Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage10Button>
+  <FacilityforPage11Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage11Button>
+  <FacilityforPage12Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage12Button>
+  <FacilityforPage13Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage13Button>
+  <FacilityforPage14Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage14Button>
+  <FacilityforPage15Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage15Button>
+  <FacilityforPage16Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage16Button>
+  <FacilityforPage17Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage17Button>
+  <FacilityforPage18Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage18Button>
+  <FacilityforPage19Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage19Button>
+  <FacilityforPage20Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage20Button>
+  <FacilityforPage21Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage21Button>
+  <FacilityforPage22Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage22Button>
+  <FacilityforPage23Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage23Button>
+  <FacilityforPage24Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage24Button>
+  <FacilityforPage25Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage25Button>
+  <FacilityforPage26Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage26Button>
+  <FacilityforPage27Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage27Button>
+  <FacilityforPage28Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage28Button>
+  <FacilityforPage29Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage29Button>
+  <FacilityforPage30Button FileName="Null.png" PressedName="Null.png" X="220" Y="2"  Width="80" Height="20"></FacilityforPage30Button>
+  <FacilityRichText  ShowFacilityAllCount="on" ShowTheFacilityCount="on" ShowThePositionOccupied="off" ShowTheMaintenanceCost="off" ShowTheFacilityDescription="off" 
+                     Text1="在建设施：" Text2="[" Text3="剩余"  Text4="天]" Text5="已建设施" Text6="«" Text7="»：" Text8="︽︽︽︽︽︽︽" Text9="︾︾︾︾︾︾︾"                     
+                     Text10="数量(" Text11=");" Text12="占用空间{" Text13="};" Text14="维持费用[" Text15="];" Text16="介绍【" Text17="】"
+                     Text18="预留" Text19="预留" 
+                     X="54" Y="188" Width="160" Height="350" RowMargin="0" 
+			               TitleColor="4294967040" SubTitleColor="4294901760" SubTitleColor2="4286644096" SubTitleColor3="4278255360"
+                     FontName="方正隶变_GBK"
+                     FontSize="14"
+                     FontStyle="Bold"
+                     FontColor="4294967295">
+  </FacilityRichText >
+  <Item237></Item237>
+  <Item238></Item238>
+  <Item239></Item239>
+  <Item240></Item240>
+  <FacilityDescriptionTextBackground Mask="Null.png" Background="TextBackground.jpg" X="49" Y="152" Width="172" Height="287"></FacilityDescriptionTextBackground>
+  <FacilityDescriptionText  TheFacilityDescriptionTextFrom="xml"  FacilityDescriptionTextFollowTheMouse="off" 
+                            TheBuildingFacilityPictureA="Ing.png" TheBuildingFacilityPictureB="Ings.png" TheBuildingFacilityTextPicture="Ingt.png"
+                            Text1="设施名称：" Text2="[" Text3="]" Text4="设施数量：" Text5="〔" Text6="〕" Text7="设施说明：" Text8="✎『" Text9="』"                            
+                            Text10="该设施正在建造中·····" Text11="请耐心等待" Text12="天" 
+                            Text13="预留" Text14="预留" Text15="预留" Text16="预留" Text17="预留" Text18="预留" Text19="预留" 
+                            X="54" Y="188" Width="170" Height="350" RowMargin="0"
+                            TitleColor="4294967040" SubTitleColor="4294901760" SubTitleColor2="4286644096" SubTitleColor3="4278255360"
+                            FontName="方正隶变_GBK"
+                            FontSize="14"
+                            FontStyle="Bold"
+                            FontColor="4294967295">
+  </FacilityDescriptionText>
+  <Item243></Item243>
+  <Item244></Item244>
+  <Item245></Item245>
+  <Item246></Item246>
+  <Item247></Item247>
+  <Item248></Item248>
+  <Item249></Item249>
+  <Item250></Item250>
+  <Item251></Item251>
+  <Item252></Item252>
+  <Item253></Item253>
+  <Item254></Item254>
+  <Item255></Item255>
+  <Item256></Item256>
+  <Item257></Item257>
+  <Item258></Item258>
+  <Item259></Item259>
+  <Item260></Item260>
+  <Item261></Item261>
+  <Item262></Item262>
+  <Item263></Item263>
+  <Item264></Item264>
+  <Item265></Item265>
+  <Item266></Item266>
+  <Item267></Item267>
+  <Item268></Item268>
+  <Item269></Item269>
+  <Item270></Item270>
+  <Item271></Item271>
+  <Item272></Item272>
+  <Item273></Item273>
+  <Item274></Item274>
+  <Item275></Item275>
+  <Item276></Item276>
+  <Item277></Item277>
+  <Item278></Item278>
+  <Item279></Item279>
+  <Item280></Item280>
+  <Item281></Item281>
+  <Item282></Item282>
+  <Item283></Item283>
+  <Item284></Item284>
+  <Item285></Item285>
+  <Item286></Item286>
+  <Item287></Item287>
+  <Item288></Item288>
+  <Item289></Item289>
+  <Item290></Item290>
+  <Item291></Item291>
+  <Item292></Item292>
+  <Item293></Item293>
+  <Item294></Item294>
+  <Item295></Item295>
+  <Item296></Item296>
+  <Item297></Item297>
+  <Item298></Item298>
+  <Item299></Item299>
+  <Item300></Item300>
+  <Facility1 ID="101" Name="乡村草市" Description="少量增加资金收入。" Page="1" PictureA="101.png" PictureB="101s.png" X="272" Y="271" Width="97" Height="57"></Facility1>
+  <Facility2 ID="0" Name="治所" Description="城池统治每天增加1点，并对人口增长有少许增益。" Page="1" PictureA="0.png" PictureB="0s.png" X="663" Y="286" Width="75" Height="42"></Facility2>
+  <Facility3 ID="2" Name="金曹" Description="城池商业每天增加1点，并对人口增长有少许增益。" Page="1" PictureA="2.png" PictureB="2s.png" X="461" Y="192" Width="75" Height="44"></Facility3>
+  <Facility4 ID="3" Name="议曹" Description="城池技术每天增加1点，并对人口增长有少许增益。" Page="1" PictureA="3.png" PictureB="3s.png" X="246" Y="204" Width="78" Height="45"></Facility4>
+  <Facility5 ID="6" Name="户曹" Description="城池民心每天增加1点，并对人口增长有少许增益。" Page="1" PictureA="6.png" PictureB="6s.png" X="603" Y="253" Width="75" Height="47"></Facility5>
+  <Facility6 ID="20" Name="市集" Description="增加城池每月资金收入，并能吸引少量人口聚集。" Page="1" PictureA="20.png" PictureB="20s.png" X="445" Y="360" Width="90" Height="57"></Facility6>
+  <Facility7 ID="21" Name="商行" Description="对城池每月的资金收入有加成作用，并对人口增长有所增益。" Page="1" PictureA="21.png" PictureB="21s.png" X="345" Y="240" Width="75" Height="47"></Facility7>
+  <Facility8 ID="22" Name="巨贾" Description="大商家入驻。能对城池每月的资金收入有很大的加成，并能加大城池商业每天的增长量，提高城池资金上限。" Page="1" PictureA="22.png" PictureB="22s.png" X="551" Y="145" Width="76" Height="43"></Facility8>
+  <Facility9 ID="25" Name="大市集" Description="对城池每月的资金收入有很大的提高，并能吸引大量人口入住。" Page="1" PictureA="25.png" PictureB="25s.png" X="423" Y="253" Width="167" Height="85"></Facility9>
+  <Facility10 ID="100" Name="医馆" Description="治愈病人，减少瘟疫的影响，加快伤病的恢复，并能吸引大量人口聚集。" Page="1" PictureA="100.png" PictureB="100s.png" X="669" Y="131" Width="62" Height="52"></Facility10>
+  <Facility11 ID="211" Name="督邮" Description="能增加城池的统治上限，并扩大城池的视野范围。" Page="1" PictureA="211.png" PictureB="211s.png" X="528" Y="226" Width="78" Height="41"></Facility11>
+  <Facility12 ID="221" Name="乐府" Description="使人愉悦，能增加大家的工作效率，并对城池民心的提升有影响。" Page="1" PictureA="221.png" PictureB="221s.png" X="520" Y="330" Width="92" Height="54"></Facility12>
+  <Facility13 ID="60" Name="民房" Description="对城市人口增长有少许增益。" Page="1" PictureA="60.png" PictureB="60s.png" X="741" Y="108" Width="74" Height="42"></Facility13>
+  <Facility14 ID="61" Name="义舍" Description="减少城池旱灾的破坏，并对城池民心的提升有很大的影响。" Page="1" PictureA="61.png" PictureB="61s.png" X="161" Y="387" Width="75" Height="43"></Facility14>
+  <Facility15 ID="62" Name="道观" Description="增加城内女性怀孕几率，并对城池的民心提升略有影响，对人口增长有少许增益。" Page="1" PictureA="62.png" PictureB="62s.png" X="694" Y="195" Width="74" Height="64"></Facility15>
+  <Facility16 ID="63" Name="寺庙" Description="降低城池灾害发生几率，并对城池的民心提升略有影响。" Page="1" PictureA="63.png" PictureB="63s.png" X="842" Y="406" Width="107" Height="66"></Facility16>
+  <Facility17 ID="5" Name="郡司空" Description="加快城池耐久的恢复，减少水灾产生的影响。" Page="1" PictureA="5.png" PictureB="5s.png" X="669" Y="344" Width="79" Height="50"></Facility17>
+  <Facility18 ID="4" Name="兵曹" Description="对新兵进行思想教育，提高新兵的士气和战意。" Page="2" PictureA="4.png" PictureB="4s.png" X="554" Y="167" Width="79" Height="47"></Facility18>
+  <Facility19 ID="7" Name="法曹" Description="减少俘虏的逃跑率。" Page="2" PictureA="7.png" PictureB="7s.png" X="231" Y="227" Width="74" Height="44"></Facility19>
+  <Facility20 ID="40" Name="军营" Description="极大的提升了城内部队的训练速度。" Page="2" PictureA="40.png" PictureB="40s.png" X="357" Y="300" Width="334" Height="154"></Facility20>
+  <Facility21 ID="42" Name="将军府" Description="对城池的军事力量有决定性的作用。" Page="2" PictureA="42.png" PictureB="42s.png" X="504" Y="129" Width="78" Height="56"></Facility21>
+  <Facility22 ID="43" Name="骑兵训练营" Description="增加出征骑兵的战斗力。" Page="2" PictureA="43.png" PictureB="43s.png" X="242" Y="284" Width="142" Height="86"></Facility22>
+  <Facility23 ID="44" Name="羽林骑营" Description="可以使城池组件羽林郎。" Page="2" PictureA="44.png" PictureB="44s.png" X="652" Y="180" Width="148" Height="86"></Facility23>
+  <Facility24 ID="45" Name="步兵训练营" Description="增加出征步兵的战斗力。" Page="2" PictureA="45.png" PictureB="45s.png" X="203" Y="401" Width="135" Height="77"></Facility24>
+  <Facility25 ID="46" Name="弓手训练营" Description="增加出征弓弩的战斗力。" Page="2" PictureA="46.png" PictureB="46s.png" X="426" Y="191" Width="141" Height="91"></Facility25>
+  <Facility26 ID="47" Name="武库署" Description="增加出征器械的战斗力。" Page="2" PictureA="47.png" PictureB="47s.png" X="163" Y="344" Width="73" Height="51"></Facility26>
+  <Facility27 ID="48" Name="演武厅" Description="高级将领练武的地方。" Page="2" PictureA="48.png" PictureB="48s.png" X="337" Y="135" Width="108" Height="72"></Facility27>
+  <Facility28 ID="55" Name="望楼" Description="扩大城池视野范围。" Page="2" PictureA="55.png" PictureB="55s.png" X="112" Y="357" Width="67" Height="63"></Facility28>
+  <Facility29 ID="56" Name="鼓楼" Description="增加城池附件部队的战意。" Page="2" PictureA="56.png" PictureB="56s.png" X="314" Y="469" Width="64" Height="56"></Facility29>
+  <Facility30 ID="57" Name="督造司" Description="增加城池的牢固度，降低城池地震产生的破坏。" Page="2" PictureA="57.png" PictureB="57s.png" X="564" Y="448" Width="77" Height="48"></Facility30>
+  <Facility31 ID="1" Name="仓曹" Description="城池农业每天增加1点，并对人口增长有少许增益。" Page="3" PictureA="1.png" PictureB="1s.png" X="632" Y="268" Width="165" Height="91"></Facility31>
+  <Facility32 ID="11" Name="农田" Description="增加城池每月粮食收入有加成作用，并能吸引少量人口聚集。" Page="3" PictureA="11.png" PictureB="11s.png" X="528" Y="223" Width="150" Height="83"></Facility32>
+  <Facility33 ID="12" Name="粮仓" Description="降低蝗灾对该城的影响，大幅度减少城池内粮食的消耗，并对人口增长有所增益。" Page="3" PictureA="12.png" PictureB="12s.png" X="429" Y="160" Width="129" Height="90"></Facility33>
+  <Facility34 ID="13" Name="农具制造所" Description="对城池每月的粮食收入有加成作用，并对人口增长有所增益。" Page="3" PictureA="13.png" PictureB="13s.png" X="266" Y="117" Width="79" Height="42"></Facility34>
+  <Facility35 ID="14" Name="军屯" Description="寓兵于农。能对城池每月的粮食收入有很大的加成，并能加大城池农业每天的增长量，提高城池粮食上限。" Page="3" PictureA="14.png" PictureB="14s.png" X="514" Y="312" Width="151" Height="82"></Facility35>
+  <Facility36 ID="15" Name="大农田" Description="大量增加城池每月军粮收入，并能吸引大量人口入住。" Page="3" PictureA="15.png" PictureB="15s.png" X="251" Y="223" Width="263" Height="146"></Facility36>
+  <Facility37 ID="230" Name="渔港" Description="少量增加城池每月资金收入。" Page="3" PictureA="230.png" PictureB="230s.png" X="191" Y="371" Width="72" Height="45"></Facility37>
+  <Facility38 ID="300" Name="翻车" Description="大幅提高城池的农业上限，并对人口增长有少许增益。" Page="3" PictureA="300.png" PictureB="300s.png" X="312" Y="186" Width="79" Height="50"></Facility38>
+  <Facility39 ID="301" Name="官营作坊" Description="增加城池的技术上限和商业上限，并对人口增长有少许增益。" Page="3" PictureA="301.png" PictureB="301s.png" X="644" Y="127" Width="76" Height="48"></Facility39>
+  <Facility40 ID="302" Name="马场" Description="可以使城池组建骑兵，增加城池商业上限，并对人口增长有少许增益。" Page="3" PictureA="302.png" PictureB="302.png" X="442" Y="359" Width="112" Height="70"></Facility40>
+  <Facility41 ID="303" Name="制陶场" Description="大幅提高城池的商业上限，并对人口增长有少许增益。" Page="3" PictureA="303.png" PictureB="303s.png" X="228" Y="161" Width="77" Height="43"></Facility41>
+  <Facility42 ID="304" Name="织丝作坊" Description="大幅提高城池的商业上限，并对人口增长有少许增益。" Page="3" PictureA="304.png" PictureB="304s.png" X="580" Y="159" Width="75" Height="43"></Facility42>
+  <Facility43 ID="305" Name="铸币厂" Description="对城池商业上限的提高有决定性作用，并对人口增长有少许增益。" Page="3" PictureA="305.png" PictureB="305s.png" X="633" Y="449" Width="77" Height="43"></Facility43>
+  <Facility44 ID="306" Name="织锦作坊" Description="大幅提高城池的商业上限，并对人口增长有少许增益。" Page="3" PictureA="306.png" PictureB="306s.png" X="723" Y="167" Width="74" Height="44"></Facility44>
+  <Facility45 ID="307" Name="矿场" Description="对城池商业上限的提高有关键性作用，能大幅度减少新编步弩的费用。并对人口增长有少许增益。" Page="3" PictureA="307.png" PictureB="307s.png" X="751" Y="512" Width="72" Height="48"></Facility45>
+  <Facility46 ID="308" Name="制漆场" Description="大幅提高城池的商业上限，并对人口增长有少许增益。" Page="3" PictureA="308.png" PictureB="308s.png" X="227" Y="61" Width="78" Height="40"></Facility46>
+  <Facility47 ID="309" Name="制盐场" Description="对城池商业上限的提高有关键性作用，并对人口增长有少许增益。" Page="3" PictureA="309.png" PictureB="309s.png" X="286" Y="418" Width="77" Height="43"></Facility47>
+  <Facility48 ID="310" Name="织麻作坊" Description="大幅提高城池的商业上限，并对人口增长有少许增益。" Page="3" PictureA="310.png" PictureB="310s.png" X="682" Y="216" Width="78" Height="49"></Facility48>
+  <Facility49 ID="206" Name="将作监" Description="城池耐久度每天增加1，并提升设施新建速度，减少风灾的破坏。" Page="3" PictureA="206.png" PictureB="206s.png" X="452" Y="97" Width="82" Height="50"></Facility49>
+  <Facility50 ID="231" Name="楼船士训练营" Description="增加出征水军的战斗力。" Page="3" PictureA="231.png" PictureB="231s.png" X="109" Y="426" Width="101" Height="86"></Facility50>
+  <Facility51 ID="102" Name="天牢" Description="降低俘虏忠诚，大幅减少俘虏逃跑率。" Page="4" PictureA="102.png" PictureB="102s.png" X="581" Y="362" Width="125" Height="69"></Facility51>
+  <Facility52 ID="200" Name="皇宫" Description="这是信仰，不解释。" Page="4" PictureA="200.png" PictureB="200s.png" X="429" Y="240" Width="145" Height="95"></Facility52>
+  <Facility53 ID="201" Name="州府" Description="能大幅提高城池的内政上限。" Page="4" PictureA="201.png" PictureB="201s.png" X="251" Y="214" Width="75" Height="45"></Facility53>
+  <Facility54 ID="202" Name="尚书台" Description="对提高大家的工作效率有重要作用，并加快新技巧的研发。" Page="4" PictureA="202.png" PictureB="202s.png" X="324" Y="295" Width="88" Height="61"></Facility54>
+  <Facility55 ID="203" Name="廷尉府" Description="增加城池统治上限，并很大程度的减少俘虏逃跑率。" Page="4" PictureA="203.png" PictureB="203s.png" X="251" Y="259" Width="92" Height="67"></Facility55>
+  <Facility56 ID="204" Name="太医署" Description="对伤兵的恢复能起到关键性作用。" Page="4" PictureA="204.png" PictureB="204s.png" X="462" Y="367" Width="86" Height="55"></Facility56>
+  <Facility57 ID="205" Name="太学" Description="扩大势力声望，促进势力技巧的研发。" Page="4" PictureA="205.png" PictureB="205s.png" X="399" Y="336" Width="75" Height="52"></Facility57>
+  <Facility58 ID="30" Name="察举司" Description="减少城内人事的消耗费用，能大幅提高工作效率" Page="4" PictureA="30.png" PictureB="30s.png" X="662" Y="313" Width="116" Height="83"></Facility58>
+  <Facility59 ID="31" Name="观星台" Description="降低灾难发生几率。" Page="4" PictureA="31.png" PictureB="31s.png" X="320" Y="230" Width="97" Height="68"></Facility59>
+  <Facility60 ID="41" Name="幕府" Description="执行破坏、煽动、流言和劫牢的资金消耗减半" Page="4" PictureA="41.png" PictureB="41s.png" X="345" Y="401" Width="75" Height="44"></Facility60>
+  <Facility61 ID="400" Name="思民堂" Description="将领讨论政事的地方。" Page="4" PictureA="400.png" PictureB="400s.png" X="203" Y="338" Width="73" Height="42"></Facility61>
+  <Facility62 ID="401" Name="修身居" Description="将领修身养性的地方。" Page="4" PictureA="401.png" PictureB="401s.png" X="324" Y="185" Width="75" Height="44"></Facility62>
+  <Facility63 ID="64" Name="藏娇阁" Description="不解释" Page="4" PictureA="64.png" PictureB="64s.png" X="456" Y="178" Width="94" Height="58"></Facility63>
+  <Facility64 ID="65" Name="绿玉轩" Description="不解释" Page="4" PictureA="65.png" PictureB="65s.png" X="663" Y="279" Width="93" Height="52"></Facility64>
+  <Facility65 ID="66" Name="尝香楼" Description="不解释" Page="4" PictureA="66.png" PictureB="66s.png" X="520" Y="214" Width="94" Height="56"></Facility65>
+  <Facility66 ID="67" Name="铜雀台" Description="不解释" Page="4" PictureA="67.png" PictureB="67s.png" X="586" Y="245" Width="94" Height="58"></Facility66>
+  <Facility67 ID="992" Name="和氏璧" Description="不解释" Page="4" PictureA="992.png" PictureB="992s.png" X="523" Y="328" Width="104" Height="69"></Facility67>
+  <Facility68 ID="991" Name="东厂" Description="凑数量的" Page="4" PictureA="991.png" PictureB="991s.png" X="593" Y="307" Width="94" Height="55"></Facility68>
+  <Facility69 ID="993" Name="西厂" Description="凑数量的" Page="4" PictureA="993.png" PictureB="993s.png" X="388" Y="213" Width="88" Height="51"></Facility69>
+  <Facility70 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility70>
+  <Facility71 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility71>
+  <Facility72 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility72>
+  <Facility73 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility73>
+  <Facility74 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility74>
+  <Facility75 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility75>
+  <Facility76 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility76>
+  <Facility77 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility77>
+  <Facility78 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility78>
+  <Facility79 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility79>
+  <Facility80 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility80>
+  <Facility81 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility81>
+  <Facility82 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility82>
+  <Facility83 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility83>
+  <Facility84 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility84>
+  <Facility85 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility85>
+  <Facility86 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility86>
+  <Facility87 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility87>
+  <Facility88 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility88>
+  <Facility89 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility89>
+  <Facility90 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility90>
+  <Facility91 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility91>
+  <Facility92 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility92>
+  <Facility93 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility93>
+  <Facility94 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility94>
+  <Facility95 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility95>
+  <Facility96 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility96>
+  <Facility97 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility97>
+  <Facility98 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility98>
+  <Facility99 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility99>
+  <Facility100 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility100>
+  <Facility101 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility101>
+  <Facility102 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility102>
+  <Facility103 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility103>
+  <Facility104 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility104>
+  <Facility105 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility105>
+  <Facility106 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility106>
+  <Facility107 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility107>
+  <Facility108 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility108>
+  <Facility109 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility109>
+  <Facility110 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility110>
+  <Facility111 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility111>
+  <Facility112 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility112>
+  <Facility113 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility113>
+  <Facility114 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility114>
+  <Facility115 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility115>
+  <Facility116 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility116>
+  <Facility117 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility117>
+  <Facility118 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility118>
+  <Facility119 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility119>
+  <Facility120 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility120>
+  <Facility121 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility121>
+  <Facility122 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility122>
+  <Facility123 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility123>
+  <Facility124 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility124>
+  <Facility125 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility125>
+  <Facility126 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility126>
+  <Facility127 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility127>
+  <Facility128 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility128>
+  <Facility129 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility129>
+  <Facility130 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility130>
+  <Facility131 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility131>
+  <Facility132 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility132>
+  <Facility133 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility133>
+  <Facility134 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility134>
+  <Facility135 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility135>
+  <Facility136 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility136>
+  <Facility137 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility137>
+  <Facility138 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility138>
+  <Facility139 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility139>
+  <Facility140 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility140>
+  <Facility141 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility141>
+  <Facility142 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility142>
+  <Facility143 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility143>
+  <Facility144 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility144>
+  <Facility145 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility145>
+  <Facility146 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility146>
+  <Facility147 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility147>
+  <Facility148 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility148>
+  <Facility149 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility149>
+  <Facility150 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility150>
+  <Facility151 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility151>
+  <Facility152 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility152>
+  <Facility153 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility153>
+  <Facility154 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility154>
+  <Facility155 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility155>
+  <Facility156 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility156>
+  <Facility157 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility157>
+  <Facility158 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility158>
+  <Facility159 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility159>
+  <Facility160 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility160>
+  <Facility161 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility161>
+  <Facility162 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility162>
+  <Facility163 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility163>
+  <Facility164 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility164>
+  <Facility165 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility165>
+  <Facility166 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility166>
+  <Facility167 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility167>
+  <Facility168 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility168>
+  <Facility169 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility169>
+  <Facility170 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility170>
+  <Facility171 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility171>
+  <Facility172 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility172>
+  <Facility173 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility173>
+  <Facility174 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility174>
+  <Facility175 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility175>
+  <Facility176 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility176>
+  <Facility177 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility177>
+  <Facility178 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility178>
+  <Facility179 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility179>
+  <Facility180 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility180>
+  <Facility181 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility181>
+  <Facility182 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility182>
+  <Facility183 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility183>
+  <Facility184 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility184>
+  <Facility185 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility185>
+  <Facility186 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility186>
+  <Facility187 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility187>
+  <Facility188 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility188>
+  <Facility189 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility189>
+  <Facility190 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility190>
+  <Facility191 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility191>
+  <Facility192 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility192>
+  <Facility193 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility193>
+  <Facility194 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility194>
+  <Facility195 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility195>
+  <Facility196 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility196>
+  <Facility197 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility197>
+  <Facility198 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility198>
+  <Facility199 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility199>
+  <Facility200 ID="99999" Name="设施名称" Description="设施介绍" Page="1" PictureA="Null.png" PictureB="Null.png" X="272" Y="271" Width="97" Height="57"></Facility200>
+  <Item501></Item501>
+  <Item502></Item502>
+  <Item503></Item503>
+  <Item504></Item504>
+  <Item505></Item505>
+  <Item506></Item506>
+  <Item507></Item507>
+  <Item508></Item508>
+  <Item509></Item509>
+  <Item510></Item510>
+  <Item511></Item511>
+  <Item512></Item512>
+  <Item513></Item513>
+  <Item514></Item514>
+  <Item515></Item515>
+  <Item516></Item516>
+  <Item517></Item517>
+  <Item518></Item518>
+  <Item519></Item519>
+  <Item520></Item520>
+  <Item521></Item521>
+  <Item522></Item522>
+  <Item523></Item523>
+  <Item524></Item524>
+  <Item525></Item525>
+  <Item526></Item526>
+  <Item527></Item527>
+  <Item528></Item528>
+  <Item529></Item529>
+  <Item530></Item530>
+  <Item531></Item531>
+  <Item532></Item532>
+  <Item533></Item533>
+  <Item534></Item534>
+  <Item535></Item535>
+  <Item536></Item536>
+  <Item537></Item537>
+  <Item538></Item538>
+  <Item539></Item539>
+  <Item540></Item540>
+  <Item541></Item541>
+  <Item542></Item542>
+  <Item543></Item543>
+  <Item544></Item544>
+  <Item545></Item545>
+  <Item546></Item546>
+  <Item547></Item547>
+  <Item548></Item548>
+  <Item549></Item549>
+  <Item550></Item550>
+  <Item551></Item551>
+  <Item552></Item552>
+  <Item553></Item553>
+  <Item554></Item554>
+  <Item555></Item555>
+  <Item556></Item556>
+  <Item557></Item557>
+  <Item558></Item558>
+  <Item559></Item559>
+  <Item560></Item560>
+  <Item561></Item561>
+  <Item562></Item562>
+  <Item563></Item563>
+  <Item564></Item564>
+  <Item565></Item565>
+  <Item566></Item566>
+  <Item567></Item567>
+  <Item568></Item568>
+  <Item569></Item569>
+  <Item570></Item570>
+  <Item571></Item571>
+  <Item572></Item572>
+  <Item573></Item573>
+  <Item574></Item574>
+  <Item575></Item575>
+  <Item576></Item576>
+  <Item577></Item577>
+  <Item578></Item578>
+  <Item579></Item579>
+  <Item580></Item580>
+  <Item581></Item581>
+  <Item582></Item582>
+  <Item583></Item583>
+  <Item584></Item584>
+  <Item585></Item585>
+  <Item586></Item586>
+  <Item587></Item587>
+  <Item588></Item588>
+  <Item589></Item589>
+  <Item590></Item590>
+  <Item591></Item591>
+  <Item592></Item592>
+  <Item593></Item593>
+  <Item594></Item594>
+  <Item595></Item595>
+  <Item596></Item596>
+  <Item597></Item597>
+  <Item598></Item598>
+  <Item599></Item599>
+  <Item600></Item600>
+  <Facility1TextPosition Picture="101t.png" X="280" Y="274" Width="80" Height="50"></Facility1TextPosition>
+  <Facility2TextPosition Picture="0t.png" X="660" Y="282" Width="80" Height="50"></Facility2TextPosition>
+  <Facility3TextPosition Picture="2t.png" X="485" Y="189" Width="80" Height="50"></Facility3TextPosition>
+  <Facility4TextPosition Picture="3t.png" X="245" Y="201" Width="80" Height="50"></Facility4TextPosition>
+  <Facility5TextPosition Picture="6t.png" X="600" Y="251" Width="80" Height="50"></Facility5TextPosition>
+  <Facility6TextPosition Picture="20t.png" X="450" Y="363" Width="80" Height="50"></Facility6TextPosition>
+  <Facility7TextPosition Picture="21t.png" X="342" Y="238" Width="80" Height="50"></Facility7TextPosition>
+  <Facility8TextPosition Picture="22t.png" X="549" Y="141" Width="80" Height="50"></Facility8TextPosition>
+  <Facility9TextPosition Picture="25t.png" X="466" Y="270" Width="80" Height="50"></Facility9TextPosition>
+  <Facility10TextPosition Picture="100t.png" X="660" Y="132" Width="80" Height="50"></Facility10TextPosition>
+  <Facility11TextPosition Picture="211t.png" X="527" Y="221" Width="80" Height="50"></Facility11TextPosition>
+  <Facility12TextPosition Picture="221t.png" X="526" Y="332" Width="80" Height="50"></Facility12TextPosition>
+  <Facility13TextPosition Picture="60t.png" X="738" Y="104" Width="80" Height="50"></Facility13TextPosition>
+  <Facility14TextPosition Picture="61t.png" X="158" Y="383" Width="80" Height="50"></Facility14TextPosition>
+  <Facility15TextPosition Picture="62t.png" X="694" Y="195" Width="80" Height="50"></Facility15TextPosition>
+  <Facility16TextPosition Picture="63t.png" X="855" Y="414" Width="80" Height="50"></Facility16TextPosition>
+  <Facility17TextPosition Picture="5t.png" X="668" Y="344" Width="80" Height="50"></Facility17TextPosition>
+  <Facility18TextPosition Picture="4t.png" X="553" Y="165" Width="80" Height="50"></Facility18TextPosition>
+  <Facility19TextPosition Picture="7t.png" X="228" Y="224" Width="80" Height="50"></Facility19TextPosition>
+  <Facility20TextPosition Picture="40t.png" X="484" Y="352" Width="80" Height="50"></Facility20TextPosition>
+  <Facility21TextPosition Picture="42t.png" X="503" Y="132" Width="80" Height="50"></Facility21TextPosition>
+  <Facility22TextPosition Picture="43t.png" X="273" Y="302" Width="80" Height="50"></Facility22TextPosition>
+  <Facility23TextPosition Picture="44t.png" X="686" Y="198" Width="80" Height="50"></Facility23TextPosition>
+  <Facility24TextPosition Picture="45t.png" X="230" Y="414" Width="80" Height="50"></Facility24TextPosition>
+  <Facility25TextPosition Picture="46t.png" X="456" Y="211" Width="80" Height="50"></Facility25TextPosition>
+  <Facility26TextPosition Picture="47t.png" X="159" Y="344" Width="80" Height="50"></Facility26TextPosition>
+  <Facility27TextPosition Picture="48t.png" X="351" Y="146" Width="80" Height="50"></Facility27TextPosition>
+  <Facility28TextPosition Picture="55t.png" X="105" Y="363" Width="80" Height="50"></Facility28TextPosition>
+  <Facility29TextPosition Picture="56t.png" X="306" Y="472" Width="80" Height="50"></Facility29TextPosition>
+  <Facility30TextPosition Picture="57t.png" X="562" Y="447" Width="80" Height="50"></Facility30TextPosition>
+  <Facility31TextPosition Picture="1t.png" X="674" Y="288" Width="80" Height="50"></Facility31TextPosition>
+  <Facility32TextPosition Picture="11t.png" X="563" Y="239" Width="80" Height="50"></Facility32TextPosition>
+  <Facility33TextPosition Picture="12t.png" X="453" Y="180" Width="80" Height="50"></Facility33TextPosition>
+  <Facility34TextPosition Picture="13t.png" X="265" Y="113" Width="80" Height="50"></Facility34TextPosition>
+  <Facility35TextPosition Picture="14t.png" X="549" Y="328" Width="80" Height="50"></Facility35TextPosition>
+  <Facility36TextPosition Picture="15t.png" X="342" Y="271" Width="80" Height="50"></Facility36TextPosition>
+  <Facility37TextPosition Picture="230t.png" X="187" Y="368" Width="80" Height="50"></Facility37TextPosition>
+  <Facility38TextPosition Picture="300t.png" X="311" Y="186" Width="80" Height="50"></Facility38TextPosition>
+  <Facility39TextPosition Picture="301t.png" X="642" Y="126" Width="80" Height="50"></Facility39TextPosition>
+  <Facility40TextPosition Picture="302t.png" X="458" Y="369" Width="80" Height="50"></Facility40TextPosition>
+  <Facility41TextPosition Picture="303t.png" X="226" Y="157" Width="80" Height="50"></Facility41TextPosition>
+  <Facility42TextPosition Picture="304t.png" X="577" Y="155" Width="80" Height="50"></Facility42TextPosition>
+  <Facility43TextPosition Picture="305t.png" X="631" Y="445" Width="80" Height="50"></Facility43TextPosition>
+  <Facility44TextPosition Picture="306t.png" X="720" Y="164" Width="80" Height="50"></Facility44TextPosition>
+  <Facility45TextPosition Picture="307t.png" X="751" Y="511" Width="80" Height="50"></Facility45TextPosition>
+  <Facility46TextPosition Picture="308t.png" X="226" Y="56" Width="80" Height="50"></Facility46TextPosition>
+  <Facility47TextPosition Picture="309t.png" X="284" Y="414" Width="80" Height="50"></Facility47TextPosition>
+  <Facility48TextPosition Picture="310t.png" X="681" Y="215" Width="80" Height="50"></Facility48TextPosition>
+  <Facility49TextPosition Picture="206t.png" X="453" Y="97" Width="80" Height="50"></Facility49TextPosition>
+  <Facility50TextPosition Picture="231t.png" X="119" Y="444" Width="80" Height="50"></Facility50TextPosition>
+  <Facility51TextPosition Picture="102t.png" X="603" Y="371" Width="80" Height="50"></Facility51TextPosition>
+  <Facility52TextPosition Picture="200t.png" X="461" Y="262" Width="80" Height="50"></Facility52TextPosition>
+  <Facility53TextPosition Picture="201t.png" X="248" Y="211" Width="80" Height="50"></Facility53TextPosition>
+  <Facility54TextPosition Picture="202t.png" X="928" Y="93" Width="80" Height="50"></Facility54TextPosition>
+  <Facility55TextPosition Picture="203t.png" X="257" Y="267" Width="80" Height="50"></Facility55TextPosition>
+  <Facility56TextPosition Picture="204t.png" X="465" Y="369" Width="80" Height="50"></Facility56TextPosition>
+  <Facility57TextPosition Picture="205t.png" X="396" Y="337" Width="80" Height="50"></Facility57TextPosition>
+  <Facility58TextPosition Picture="30t.png" X="680" Y="329" Width="80" Height="50"></Facility58TextPosition>
+  <Facility59TextPosition Picture="31t.png" X="328" Y="239" Width="80" Height="50"></Facility59TextPosition>
+  <Facility60TextPosition Picture="41t.png" X="342" Y="398" Width="80" Height="50"></Facility60TextPosition>
+  <Facility61TextPosition Picture="400t.png" X="199" Y="334" Width="80" Height="50"></Facility61TextPosition>
+  <Facility62TextPosition Picture="401t.png" X="321" Y="182" Width="80" Height="50"></Facility62TextPosition>
+  <Facility63TextPosition Picture="64t.png" X="463" Y="182" Width="80" Height="50"></Facility63TextPosition>
+  <Facility64TextPosition Picture="65t.png" X="669" Y="280" Width="80" Height="50"></Facility64TextPosition>
+  <Facility65TextPosition Picture="66t.png" X="527" Y="217" Width="80" Height="50"></Facility65TextPosition>
+  <Facility66TextPosition Picture="67t.png" X="593" Y="249" Width="80" Height="50"></Facility66TextPosition>
+  <Facility67TextPosition Picture="992t.png" X="535" Y="337" Width="80" Height="50"></Facility67TextPosition>
+  <Facility68TextPosition Picture="991t.png" X="600" Y="309" Width="80" Height="50"></Facility68TextPosition>
+  <Facility69TextPosition Picture="993t.png" X="392" Y="213" Width="80" Height="50"></Facility69TextPosition>
+  <Facility70TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility70TextPosition>
+  <Facility71TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility71TextPosition>
+  <Facility72TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility72TextPosition>
+  <Facility73TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility73TextPosition>
+  <Facility74TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility74TextPosition>
+  <Facility75TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility75TextPosition>
+  <Facility76TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility76TextPosition>
+  <Facility77TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility77TextPosition>
+  <Facility78TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility78TextPosition>
+  <Facility79TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility79TextPosition>
+  <Facility80TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility80TextPosition>
+  <Facility81TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility81TextPosition>
+  <Facility82TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility82TextPosition>
+  <Facility83TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility83TextPosition>
+  <Facility84TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility84TextPosition>
+  <Facility85TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility85TextPosition>
+  <Facility86TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility86TextPosition>
+  <Facility87TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility87TextPosition>
+  <Facility88TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility88TextPosition>
+  <Facility89TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility89TextPosition>
+  <Facility90TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility90TextPosition>
+  <Facility91TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility91TextPosition>
+  <Facility92TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility92TextPosition>
+  <Facility93TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility93TextPosition>
+  <Facility94TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility94TextPosition>
+  <Facility95TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility95TextPosition>
+  <Facility96TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility96TextPosition>
+  <Facility97TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility97TextPosition>
+  <Facility98TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility98TextPosition>
+  <Facility99TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility99TextPosition>
+  <Facility100TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility100TextPosition>
+  <Facility101TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility101TextPosition>
+  <Facility102TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility102TextPosition>
+  <Facility103TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility103TextPosition>
+  <Facility104TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility104TextPosition>
+  <Facility105TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility105TextPosition>
+  <Facility106TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility106TextPosition>
+  <Facility107TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility107TextPosition>
+  <Facility108TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility108TextPosition>
+  <Facility109TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility109TextPosition>
+  <Facility110TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility110TextPosition>
+  <Facility111TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility111TextPosition>
+  <Facility112TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility112TextPosition>
+  <Facility113TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility113TextPosition>
+  <Facility114TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility114TextPosition>
+  <Facility115TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility115TextPosition>
+  <Facility116TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility116TextPosition>
+  <Facility117TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility117TextPosition>
+  <Facility118TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility118TextPosition>
+  <Facility119TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility119TextPosition>
+  <Facility120TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility120TextPosition>
+  <Facility121TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility121TextPosition>
+  <Facility122TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility122TextPosition>
+  <Facility123TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility123TextPosition>
+  <Facility124TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility124TextPosition>
+  <Facility125TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility125TextPosition>
+  <Facility126TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility126TextPosition>
+  <Facility127TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility127TextPosition>
+  <Facility128TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility128TextPosition>
+  <Facility129TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility129TextPosition>
+  <Facility130TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility130TextPosition>
+  <Facility131TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility131TextPosition>
+  <Facility132TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility132TextPosition>
+  <Facility133TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility133TextPosition>
+  <Facility134TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility134TextPosition>
+  <Facility135TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility135TextPosition>
+  <Facility136TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility136TextPosition>
+  <Facility137TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility137TextPosition>
+  <Facility138TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility138TextPosition>
+  <Facility139TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility139TextPosition>
+  <Facility140TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility140TextPosition>
+  <Facility141TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility141TextPosition>
+  <Facility142TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility142TextPosition>
+  <Facility143TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility143TextPosition>
+  <Facility144TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility144TextPosition>
+  <Facility145TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility145TextPosition>
+  <Facility146TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility146TextPosition>
+  <Facility147TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility147TextPosition>
+  <Facility148TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility148TextPosition>
+  <Facility149TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility149TextPosition>
+  <Facility150TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility150TextPosition>
+  <Facility151TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility151TextPosition>
+  <Facility152TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility152TextPosition>
+  <Facility153TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility153TextPosition>
+  <Facility154TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility154TextPosition>
+  <Facility155TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility155TextPosition>
+  <Facility156TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility156TextPosition>
+  <Facility157TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility157TextPosition>
+  <Facility158TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility158TextPosition>
+  <Facility159TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility159TextPosition>
+  <Facility160TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility160TextPosition>
+  <Facility161TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility161TextPosition>
+  <Facility162TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility162TextPosition>
+  <Facility163TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility163TextPosition>
+  <Facility164TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility164TextPosition>
+  <Facility165TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility165TextPosition>
+  <Facility166TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility166TextPosition>
+  <Facility167TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility167TextPosition>
+  <Facility168TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility168TextPosition>
+  <Facility169TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility169TextPosition>
+  <Facility170TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility170TextPosition>
+  <Facility171TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility171TextPosition>
+  <Facility172TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility172TextPosition>
+  <Facility173TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility173TextPosition>
+  <Facility174TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility174TextPosition>
+  <Facility175TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility175TextPosition>
+  <Facility176TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility176TextPosition>
+  <Facility177TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility177TextPosition>
+  <Facility178TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility178TextPosition>
+  <Facility179TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility179TextPosition>
+  <Facility180TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility180TextPosition>
+  <Facility181TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility181TextPosition>
+  <Facility182TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility182TextPosition>
+  <Facility183TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility183TextPosition>
+  <Facility184TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility184TextPosition>
+  <Facility185TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility185TextPosition>
+  <Facility186TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility186TextPosition>
+  <Facility187TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility187TextPosition>
+  <Facility188TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility188TextPosition>
+  <Facility189TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility189TextPosition>
+  <Facility190TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility190TextPosition>
+  <Facility191TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility191TextPosition>
+  <Facility192TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility192TextPosition>
+  <Facility193TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility193TextPosition>
+  <Facility194TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility194TextPosition>
+  <Facility195TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility195TextPosition>
+  <Facility196TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility196TextPosition>
+  <Facility197TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility197TextPosition>
+  <Facility198TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility198TextPosition>
+  <Facility199TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility199TextPosition>
+  <Facility200TextPosition Picture="Null.png" X="0" Y="0" Width="80" Height="50"></Facility200TextPosition>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</Root>

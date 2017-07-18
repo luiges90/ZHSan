@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background FileName="Background.png" Width="218" Height="320"></Background>
+  <Range X="13" Y="6" Width="192" Height="20"
+         FontName="Courier New"
+         FontSize="12"
+         FontStyle="Regular"
+         FontColor="4294967295"
+         Align="Middle">
+  </Range>
+  <Frame FileName="Frame.png" X="13" Y="40" Width="192" Height="40"
+         FontName="Courier New"
+         FontSize="18"
+         FontStyle="Bold"
+         FontColor="4278255615"
+         Align="Middle">
+  </Frame>
+  <Numbers>
+    <Number FileName="Number0.png" Num="0" X="13" Y="256" Width="40" Height="48"></Number>
+    <Number FileName="Number1.png" Num="1" X="13" Y="200" Width="40" Height="48"></Number>
+    <Number FileName="Number2.png" Num="2" X="61" Y="200" Width="40" Height="48"></Number>
+    <Number FileName="Number3.png" Num="3" X="109" Y="200" Width="40" Height="48"></Number>
+    <Number FileName="Number4.png" Num="4" X="13" Y="144" Width="40" Height="48"></Number>
+    <Number FileName="Number5.png" Num="5" X="61" Y="144" Width="40" Height="48"></Number>
+    <Number FileName="Number6.png" Num="6" X="109" Y="144" Width="40" Height="48"></Number>
+    <Number FileName="Number7.png" Num="7" X="13" Y="88" Width="40" Height="48"></Number>
+    <Number FileName="Number8.png" Num="8" X="61" Y="88" Width="40" Height="48"></Number>
+    <Number FileName="Number9.png" Num="9" X="109" Y="88" Width="40" Height="48"></Number>
+  </Numbers>
+  <Clear FileName="Clear.png" X="165" Y="144" Width="40" Height="48"></Clear>
+  <Enter FileName="Enter.png" X="165" Y="200" Width="40" Height="104"></Enter>
+  <Backspace FileName="Backspace.png" X="61" Y="256" Width="40" Height="48"></Backspace>
+  <Max FileName="Max.png" X="109" Y="256" Width="40" Height="48"></Max>
+  <Exit FileName="Exit.png" X="165" Y="88" Width="40" Height="48"></Exit>
+  <Selection FileName="Selection.png"></Selection>
+</Root>

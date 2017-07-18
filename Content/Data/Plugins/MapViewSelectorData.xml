@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background Width="100" Height="110"></Background>
+  <Title FileName="Title.png" Width="100" Height="25"></Title>
+  <ButtonTexture FileName="Button.png" Selected="ButtonSelected.png"></ButtonTexture>
+  <Buttons>
+    <ReturnToListButton X="0" Y="35" Width="100" Height="25" Label ="返回列表"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4294238869"
+                Align="Middle">
+    </ReturnToListButton>
+    <OKButton X="0" Y="60" Width="100" Height="25" Label ="确认"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4294238869"
+                Align="Middle">
+    </OKButton>
+    <CancelButton X="0" Y="85" Width="100" Height="25" Label ="取消"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4294238869"
+                Align="Middle">
+    </CancelButton>
+  </Buttons>
+  <ItemTexture InList="ItemInList.png" Selected="ItemSelected.png"></ItemTexture>
+</Root>

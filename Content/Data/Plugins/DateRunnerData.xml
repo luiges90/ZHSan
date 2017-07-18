@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background FileName="Background.png" Align="Left" Width="190"></Background>
+  <UpperArrowTexture FileName="UpperArrow.png" Selected="UpperArrowSelected.png"></UpperArrowTexture>
+  <LowerArrowTexture FileName="LowerArrow.png" Selected="LowerArrowSelected.png"></LowerArrowTexture>
+  <PlayTexture FileName="Play.png" Selected="PlaySelected.png"></PlayTexture>
+  <PauseTexture FileName="Pause.png" Selected="PauseSelected.png"></PauseTexture>
+  <StopTexture FileName="Stop.png" Selected="StopSelected.png"></StopTexture>
+  <FirstDigitUpperArrowPosition X="5" Y="10" Width="20" Height="6"></FirstDigitUpperArrowPosition>
+  <FirstDigitLowerArrowPosition X="5" Y="37" Width="20" Height="6"></FirstDigitLowerArrowPosition>
+  <FirstDigitTextPosition X="5" Y="12" Width="20" Height="28"></FirstDigitTextPosition>
+  <SecondDigitUpperArrowPosition X="30" Y="10" Width="20" Height="6"></SecondDigitUpperArrowPosition>
+  <SecondDigitLowerArrowPosition X="30" Y="37" Width="20" Height="6"></SecondDigitLowerArrowPosition>
+  <SecondDigitTextPosition X="30" Y="12" Width="20" Height="28"></SecondDigitTextPosition>
+  <PlayPosition X="60" Y="10" Width="33" Height="33"></PlayPosition>
+  <StopPosition X="95" Y="10" Width="33" Height="33"></StopPosition>
+  <DaysLeftTextPosition X="140" Y="12" Width="40" Height="28"></DaysLeftTextPosition>
+  <DaysToGo DefaultDays ="1"
+            FontName="Courier New"
+            FontSize="10"
+            FontStyle="Bold"
+            FontColor="4278190335" >
+  </DaysToGo>
+  <DaysLeft FontName="Courier New"
+            FontSize="10"
+            FontStyle="Bold"
+            FontColor="4278190335" >
+  </DaysLeft>
+</Root>

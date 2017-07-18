@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <LeftEdge Width="16" FileName="LeftEdge.png"></LeftEdge>
+  <RightEdge Width="16" FileName="RightEdge.png"></RightEdge>
+  <TopEdge Width="48" FileName="TopEdge.png"></TopEdge>
+  <BottomEdge Width="30" FileName="BottomEdge.png"></BottomEdge>
+  <BackGround FileName="BackGround.png"></BackGround>
+  <OKButton Width="95" Height="32" FileName="OKButton.png" Selected="OKButtonSelected.png" Pressed="OKButtonPressed.png" Disabled="OKButtonDisabled.png"></OKButton>
+  <CancelButton Width="95" Height="32" FileName="CancelButton.png" Selected="CancelButtonSelected.png" Pressed="CancelButtonPressed.png" Disabled="CancelButtonDisabled.png"></CancelButton>
+  <Title FileName="Title.png" Width="950" Height="55"
+         FontName="方正隶变_GBK"
+         FontSize="18"
+         FontStyle="Bold"
+         FontColor="4294238869"
+         Align="Middle">
+  </Title>
+  <SoundFile OK="OK" Cancel="Cancel"></SoundFile>
+  <MapViewSelectorButton Width="160" Height="30" FileName="MapViewSelectorButton.png" Selected="MapViewSelectorButtonSelected.png"></MapViewSelectorButton>
+
+  <TopLeft FileName="TopLeft.png"></TopLeft>
+  <TopRight FileName="TopRight.png"></TopRight>
+  <BottomLeft FileName="BottomLeft.png"></BottomLeft>
+  <BottomRight FileName="BottomRight.png"></BottomRight>
+</Root>

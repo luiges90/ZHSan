@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <BackgroundTextureFile FileName="ArchitectureSurvey.png" Width="194" Height="273"></BackgroundTextureFile>
+  <FactionTextureFile FileName="Faction.png" X="149" Y="89" Width="18" Height="18" ></FactionTextureFile>
+  <NameText X="65" Y="38" Width="80" Height="25" 
+            FontName="方正隶变_GBK" 
+            FontSize="15" 
+            FontStyle="Regular" 
+            FontColor="4278255615" 
+            Align="Middle">
+  </NameText>
+  <KindText X="68" Y="63" Width="80" Height="25" 
+            FontName="方正隶变_GBK" 
+            FontSize="15" 
+            FontStyle="Regular" 
+            FontColor="4294967295" 
+            Align="Middle">
+  </KindText>
+  <FactionText X="65" Y="87" Width="80" Height="25" 
+               FontName="方正隶变_GBK" 
+               FontSize="15" 
+               FontStyle="Regular" 
+               FontColor="4294967295" 
+               Align="Middle">
+  </FactionText>
+  <PopulationText X="63" Y="136" Width="110" Height="25" 
+                  FontName="方正隶变_GBK" 
+                  FontSize="15" 
+                  FontStyle="Regular" 
+                  FontColor="4294967295" 
+                  Align="Right">
+  </PopulationText>
+  <ArmyText X="63" Y="160" Width="110" Height="25" 
+            FontName="方正隶变_GBK" 
+            FontSize="15" 
+            FontStyle="Regular" 
+            FontColor="4294967295" 
+            Align="Right">
+  </ArmyText>
+  <DominationText X="63" Y="185" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </DominationText>
+  <EnduranceText X="63" Y="210" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </EnduranceText>
+  <ControllingBackgroundTextureFile FileName="ArchitectureSurveyControlling.png" Width="388" Height="273"></ControllingBackgroundTextureFile>
+  <FundText X="255" Y="37" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </FundText>
+  <FoodText X="255" Y="59" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </FoodText>
+  <PersonCountText X="255" Y="81" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </PersonCountText>
+  <NoFactionPersonCountText X="255" Y="103" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </NoFactionPersonCountText>
+  <AgricultureText X="255" Y="125" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </AgricultureText>
+  <CommerceText X="255" Y="147" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </CommerceText>
+  <TechnologyText X="255" Y="169" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </TechnologyText>
+  <MoraleText X="255" Y="191" Width="110" Height="25"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Right">
+  </MoraleText>
+  <MilitaryPopulationText X="63" Y="235" Width="110" Height="25"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Right">
+  </MilitaryPopulationText>
+  <FacilityCountText X="255" Y="213" Width="110" Height="25"
+          FontName="方正隶变_GBK"
+          FontSize="14"
+          FontStyle="Regular"
+          FontColor="4294967295"
+          Align="Right">
+  </FacilityCountText>
+  <BuildingDaysLeftText X="255" Y="235" Width="110" Height="25"
+          FontName="方正隶变_GBK"
+          FontSize="14"
+          FontStyle="Regular"
+          FontColor="4294967295"
+          Align="Right">
+  </BuildingDaysLeftText>
+  <MayorNameText X="65" Y="113" Width="80" Height="25" 
+               FontName="方正隶变_GBK" 
+               FontSize="15" 
+               FontStyle="Regular" 
+               FontColor="4294967295" 
+               Align="Middle">
+  </MayorNameText>
+
+  <Switchs ArchitectureKinds="on" Bars="on" > </Switchs>
+  <NewControllingBackground Mask="Mask.png" Background="Background.png"></NewControllingBackground>
+  <ArchitectureKinds  X="119" Y="-60" Width="150" Height="100"
+           Name1="都城" Name2="关隘" Name3="港口" Name4="军营" Name5="荒城" Name6="关城" Name7="异族据点"
+           Name8="中原城池" Name9="河北城池" Name10="西北城池" Name11="吴越城池" Name12="巴蜀城池" Name13="荆楚城池" Name14="漠北城池"
+           Name15="南中城池" Name16="预留" Name17="预留" Name18="预留" Name19="预留" Name20="预留" Name21="预留"
+           Name22="预留" Name23="预留" Name24="预留" Name25="预留" Name26="预留" Name27="预留" Name28="预留" 
+           FileName0="Background0.jpg"
+           FileName1="Background1.jpg"  FileName2="Background2.jpg"  FileName3="Background3.jpg"  FileName4="Background4.jpg"  FileName5="Background5.jpg"  FileName6="Background6.jpg"
+           FileName7="Background7.jpg"  FileName8="Background8.jpg"  FileName9="Background9.jpg"  FileName10="Background10.jpg"  FileName11="Background11.jpg"  FileName12="Background12.jpg"
+           FileName13="Background13.jpg"  FileName14="Background14.jpg"  FileName15="Background15.jpg"  FileName16="Background0.jpg"  FileName17="Background0.jpg"  FileName18="Background0.jpg"
+           FileName19="Background0.jpg"  FileName20="Background0.jpg"  FileName21="Background0.jpg"  FileName22="Background0.jpg"  FileName23="Background0.jpg"  FileName24="Background0.jpg"
+           FileName25="Background0.jpg"  FileName26="Background0.jpg"  FileName27="Background0.jpg"  FileName28="Background0.jpg" >
+  </ArchitectureKinds>
+  <DominationBar  X="64" Y="202" Width="100" Height="8" FileName0="Red.png" FileName1="Orange.png" FileName2="Yellow.png" FileName3="Green.png" FileName4="Blue.png" FileName5="Purple.png">  </DominationBar>
+  <EnduranceBar  X="64" Y="227" Width="100" Height="8" FileName0="Red.png" FileName1="Orange.png" FileName2="Yellow.png" FileName3="Green.png" FileName4="Blue.png" FileName5="Purple.png">  </EnduranceBar>
+  <AgricultureBar  X="254" Y="141" Width="100" Height="8" FileName0="Green.png" FileName1="Cyan.png" FileName2="Cyan.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Purple.png">  </AgricultureBar>
+  <CommerceBar  X="254" Y="163" Width="100" Height="8" FileName0="Green.png" FileName1="Cyan.png" FileName2="Cyan.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Purple.png">  </CommerceBar>
+  <TechnologyBar  X="254" Y="185" Width="100" Height="8" FileName0="Green.png" FileName1="Cyan.png" FileName2="Cyan.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Purple.png">  </TechnologyBar>
+  <MoraleBar  X="254" Y="207" Width="100" Height="8" FileName0="Green.png" FileName1="Cyan.png" FileName2="Cyan.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Purple.png">  </MoraleBar>
+  <FacilityCountBar  X="254" Y="229" Width="100" Height="8" FileName0="Blue.png" FileName1="Cyan.png" FileName2="Green.png" FileName3="Yellow.png" FileName4="Orange.png" FileName5="Red.png">  </FacilityCountBar>
+
+</Root>

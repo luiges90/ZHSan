@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background FileName="Background.png" Width="710" Height="202"></Background>
+  <PortraitClient X="2" Y="24" Width="164" Height="164"></PortraitClient>
+  <RichText X="200" Y="60" Width="450" Height="84" RowMargin="1"
+            FontName="方正隶变_GBK"
+            FontSize="16"
+            FontStyle="Regular"
+            FontColor="4294967295">
+  </RichText>
+  <FirstPageButton FileName="FirstPage.png" Selected="FirstPageSelected.png" Disabled="FirstPageDisabled.png" X="648" Y="152" Width="20" Height="20"></FirstPageButton>
+  <NameText X="172" Y="-2" Width="120" Height="40"
+            FontName="方正隶变_GBK"
+            FontSize="18"
+            FontStyle="Bold"
+            FontColor="4294967295"
+            Align="Middle">
+  </NameText>
+  <ShowingSeconds Time="10"></ShowingSeconds>
+  <shijiantupian FileName="zhanling.bmp" X="0" Y="0"  Width="286" Height="400"></shijiantupian>
+  <SoundFile shijianshengyin="zhanling"></SoundFile>
+</Root>

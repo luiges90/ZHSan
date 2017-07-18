@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background FileName="BackGround.png" Width="280" Height="76" PopoutX="10" PopoutY="76"></Background>
+  <PortraitClient X="14" Y="9" Width="40" Height="50"></PortraitClient>
+  <RichText X="63" Y="19" Width="200" Height="50" RowMargin="2"
+            FontName="宋体"
+            FontSize="10"
+            FontStyle="Regular"
+            FontColor="4294967295">
+  </RichText>
+  <PersonSpecial TimeLast="1800" Color="4294448914"></PersonSpecial>
+</Root>

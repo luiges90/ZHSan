@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <PositionRectangleInScreen ScaleX="0" ScaleY="1" ScaleWidth="1" ScaleHeight="0.072">
+    <!--The rectangle in scale of the true screen. The conment text will be drawn on center of it; Example:(0,0.9,1,0.1) is a bottom full View-Width 1/10 View-Height rectangle-->
+  </PositionRectangleInScreen>
+  <FirstText Left ="·" Right="·"
+             FontName="宋体"
+             FontSize="12"
+             FontStyle="Bold"
+             FontColor="4278255615">
+  </FirstText>
+  <SecondText Left ="【" Right="】"
+              FontName="宋体"
+              FontSize="12"
+              FontStyle="Bold"
+              FontColor="4278255615">
+  </SecondText>
+  <ThirdText Left ="(" Right=")"
+             FontName="宋体"
+             FontSize="12"
+             FontStyle="Bold"
+             FontColor="4278255615">
+  </ThirdText>
+</Root>

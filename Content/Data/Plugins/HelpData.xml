@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background FileName="Background.png" Width="400" Height="400"></Background>
+  <Button FileName="Button.png" Selected="ButtonSelected.png"></Button>
+  <RichText RowMargin="0"
+            FontName="方正隶变_GBK"
+            FontSize="14"
+            FontStyle="Regular"
+            FontColor="4294967295"
+			TitleColor="4278232306"
+			SubTitleColor="4278255360">
+  </RichText>
+</Root>

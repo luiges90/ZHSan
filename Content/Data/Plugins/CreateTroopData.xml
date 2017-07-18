@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background FileName="Background.png" Width="740" Height="560"></Background>
+  <TroopNameText X="20" Y="35" Width="80" Height="30"
+            FontName="方正隶变_GBK"
+            FontSize="15"
+            FontStyle="Bold"
+            FontColor="4294967295"
+            Align="Middle">
+  </TroopNameText>
+  <PortraitTexturePosition X="20" Y="83" Width="80" Height="100" ></PortraitTexturePosition>
+  <Labels>
+    <Label X="151" Y="90" Width="80" Height="25" Label ="战斗称号"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="151" Y="115" Width="80" Height="25" PropertyName="CombatTitleString"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Bold"
+                FontColor="4294901862"
+                Align="Middle">
+    </Text>
+    <Label X="251" Y="90" Width="80" Height="25" Label ="所属势力"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="251" Y="115" Width="80" Height="25" PropertyName="FactionString"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Bold"
+                FontColor="4294967295"
+                Align="Middle">
+    </Text>
+    <Label X="351" Y="90" Width="80" Height="25" Label ="口粮天数"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="351" Y="115" Width="80" Height="25" PropertyName="RationDaysString"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="451" Y="90" Width="80" Height="25" Label ="粮草总量"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="451" Y="115" Width="80" Height="25" PropertyName="Food"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="551" Y="90" Width="80" Height="25" Label ="行动速率"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="551" Y="115" Width="80" Height="25" PropertyName="Speed"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="151" Y="145" Width="80" Height="25" Label ="士兵数量"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="151" Y="165" Width="80" Height="25" PropertyName="Quantity"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="251" Y="145" Width="80" Height="25" Label ="部队士气"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="251" Y="165" Width="80" Height="25" PropertyName="Morale"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="351" Y="145" Width="80" Height="25" Label ="部队战意"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="351" Y="165" Width="80" Height="25" PropertyName="Combativity"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="451" Y="145" Width="80" Height="25" Label ="部队伤兵"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="451" Y="165" Width="80" Height="25" PropertyName="InjuryQuantity"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="551" Y="145" Width="80" Height="25" Label ="当前乘数"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="551" Y="165" Width="80" Height="25" PropertyName="CurrentRate"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Bold"
+                FontColor="4278255424"
+                Align="Middle">
+    </Text>
+    <Label X="151" Y="195" Width="80" Height="25" Label ="部队武勇"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="151" Y="215" Width="80" Height="25" PropertyName="TroopStrength"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="251" Y="195" Width="80" Height="25" Label ="部队统率"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="251" Y="215" Width="80" Height="25" PropertyName="TroopCommand"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="351" Y="195" Width="80" Height="25" Label ="部队智谋"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="351" Y="215" Width="80" Height="25" PropertyName="TroopIntelligence"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="451" Y="195" Width="80" Height="25" Label ="攻击力"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="451" Y="215" Width="80" Height="25" PropertyName="Offence"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="551" Y="195" Width="80" Height="25" Label ="防御力"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="551" Y="215" Width="80" Height="25" PropertyName="Defence"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+    <Label X="151" Y="245" Width="80" Height="25" Label ="暴击几率"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="151" Y="265" Width="80" Height="25" PropertyName="CriticalStrikeChance"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4294901760"
+                Align="Middle">
+    </Text>
+    <Label X="251" Y="245" Width="80" Height="25" Label ="抗暴几率"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="251" Y="265" Width="80" Height="25" PropertyName="AntiCriticalStrikeChance"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255424"
+                Align="Middle">
+    </Text>
+    <Label X="351" Y="245" Width="80" Height="25" Label ="暴击致乱"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="351" Y="265" Width="80" Height="25" PropertyName="ChaosAfterCriticalStrikeChance"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4293943072"
+                Align="Middle">
+    </Text>
+    <Label X="451" Y="245" Width="80" Height="25" Label ="抗围几率"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="451" Y="265" Width="80" Height="25" PropertyName="AvoidSurroundedChance"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255424"
+                Align="Middle">
+    </Text>
+    <Label X="551" Y="245" Width="80" Height="25" Label ="包围致乱"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="551" Y="265" Width="80" Height="25" PropertyName="ChaosAfterSurroundAttackChance"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4293943072"
+                Align="Middle">
+    </Text>
+    <Label X="151" Y="295" Width="80" Height="25" Label ="计略成功"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="151" Y="315" Width="80" Height="25" PropertyName="StratagemChanceIncrement"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4294901760"
+                Align="Middle">
+    </Text>
+    <Label X="251" Y="295" Width="80" Height="25" Label ="计略抵抗"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="251" Y="315" Width="80" Height="25" PropertyName="AntiStratagemChanceIncrement"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255424"
+                Align="Middle">
+    </Text>
+    <Label X="351" Y="295" Width="80" Height="25" Label ="计略致乱"
+                FontName="方正隶变_GBK"
+                FontSize="14"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="351" Y="315" Width="80" Height="25" PropertyName="ChaosAfterStratagemSuccessChance"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4293943072"
+                Align="Middle">
+    </Text>
+    <Label X="451" Y="295" Width="80" Height="25" Label ="携带资金"
+            FontName="方正隶变_GBK"
+            FontSize="14"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Middle">
+    </Label>
+    <Text X="451" Y="315" Width="80" Height="25" PropertyName="zijin"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+	<Label X="551" Y="295" Width="80" Height="25" Label ="疲累度"
+            FontName="方正隶变_GBK"
+            FontSize="14"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Middle">
+    </Label>
+    <Text X="551" Y="315" Width="80" Height="25" PropertyName="Tiredness"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4278255615"
+                Align="Middle">
+    </Text>
+  </Labels>
+  <OtherPerson X="20" Y="200" Width="80" Height="150" RowMargin="0" TitleColor="4294967040" SubTitleColor="4278255360"
+            FontName="方正隶变_GBK"
+            FontSize="13"
+            FontStyle="Regular"
+            FontColor="4294967295">
+  </OtherPerson>
+  <CombatMethod X="20" Y="360" Width="190" Height="200" RowMargin="0" TitleColor="4294967040" SubTitleColor="4278255360" SubTitleColor2="4294901760"
+            FontName="方正隶变_GBK"
+            FontSize="13"
+            FontStyle="Regular"
+            FontColor="4294967295">
+  </CombatMethod>
+  <Stunt X="215" Y="360" Width="190" Height="200" RowMargin="0"
+			TitleColor="4294967040" SubTitleColor="4278255360" SubTitleColor2="4294901760" SubTitleColor3="4286644096"
+            FontName="方正隶变_GBK"
+            FontSize="13"
+            FontStyle="Regular"
+            FontColor="4294967295">
+  </Stunt>
+  <Influence X="410" Y="360" Width="340" Height="200" RowMargin="0"
+			TitleColor="4294967040" SubTitleColor="4278255360" SubTitleColor2="4294901760" SubTitleColor3="4286644096"
+            FontName="方正隶变_GBK"
+            FontSize="13"
+            FontStyle="Regular"
+            FontColor="4294967295">
+  </Influence>
+  <MilitaryButton FileName="Military.png" Selected="MilitarySelected.png" Disabled="MilitaryDisabled.png" X="130" Y="48" Width="80" Height="30"></MilitaryButton>
+  <PersonButton FileName="Person.png" Selected="PersonSelected.png" Disabled="PersonDisabled.png" X="220" Y="48" Width="80" Height="30"></PersonButton>
+  <LeaderButton FileName="Leader.png" Selected="LeaderSelected.png" Disabled="LeaderDisabled.png" X="310" Y="48" Width="80" Height="30"></LeaderButton>
+  <RationButton FileName="Ration.png" Selected="RationSelected.png" Disabled="RationDisabled.png" X="400" Y="48" Width="80" Height="30"></RationButton>
+  <CreateButton FileName="Create.png" Selected="CreateSelected.png" Disabled="CreateDisabled.png" X="620" Y="48" Width="90" Height="30"></CreateButton>
+  <zijinButton FileName="zijin.png" Selected="zijinSelected.png" Disabled="zijinDisabled.png" X="490" Y="48" Width="80" Height="30"></zijinButton>
+</Root>

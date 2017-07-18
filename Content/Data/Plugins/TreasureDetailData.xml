@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background FileName="Background.png" Width="600" Height="290"></Background>
+  <Picture X="25" Y="25" Width="240" Height="240"></Picture>
+  <Labels>
+    <Label X="289" Y="28" Width="80" Height="25" Label ="名称"
+                FontName="宋体"
+                FontSize="11"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="289" Y="48" Width="80" Height="25" PropertyName="Name"
+                FontName="宋体"
+                FontSize="11"
+                FontStyle="Bold"
+                FontColor="4294967040"
+                Align="Middle">
+    </Text>
+    <Label X="389" Y="28" Width="80" Height="25" Label ="价值"
+                FontName="宋体"
+                FontSize="11"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="389" Y="48" Width="80" Height="25" PropertyName="Worth"
+                FontName="宋体"
+                FontSize="11"
+                FontStyle="Bold"
+                FontColor="4294909695"
+                Align="Middle">
+    </Text>
+    <Label X="489" Y="28" Width="80" Height="25" Label ="所属"
+                FontName="宋体"
+                FontSize="11"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Middle">
+    </Label>
+    <Text X="489" Y="48" Width="80" Height="25" PropertyName="BelongedPersonString"
+                FontName="宋体"
+                FontSize="11"
+                FontStyle="Bold"
+                FontColor="4294901862"
+                Align="Middle">
+    </Text>
+  </Labels>
+  <Description X="300" Y="88" Width="280" Height="80" RowMargin="0" TitleColor="4294967040" SubTitleColor="4286644096"
+            FontName="宋体"
+            FontSize="10"
+            FontStyle="Regular"
+            FontColor="4294967295">
+  </Description>
+  <Influence X="300" Y="166" Width="280" Height="120" RowMargin="0"
+            FontName="宋体"
+            FontSize="10"
+            FontStyle="Regular"
+            FontColor="4294967295">
+  </Influence>
+</Root>

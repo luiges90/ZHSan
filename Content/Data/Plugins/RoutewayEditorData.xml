@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background FileName="Background.png" Width="100" Height="160"></Background>
+  <CommentBackground FileName="CommentBackground.png" Width="120"></CommentBackground>
+  <Comment RowMargin="0" TitleColor="4294967040" SubTitleColor="4278255360" SubTitleColor2="4294901760"
+          FontName="宋体"
+          FontSize="10"
+          FontStyle="Regular"
+          FontColor="4294967295">
+  </Comment>
+  <TitleText X="0" Y="0" Width="100" Height="27" Text="编辑粮道"
+         FontName="宋体"
+         FontSize="11"
+         FontStyle="Regular"
+         FontColor="4294238869"
+         Align="Middle">
+  </TitleText>
+  <ExtendButton X="0" Y="35" Width="100" Height="25" FileName="ExtendButton.png" Selected="ExtendButtonSelected.png" Down="ExtendButtonDown.png" Disabled="ExtendButtonDisabled.png"></ExtendButton>
+  <CutButton X="0" Y="60" Width="100" Height="25" FileName="CutButton.png" Selected="CutButtonSelected.png" Down="CutButtonDown.png" Disabled="CutButtonDisabled.png"></CutButton>
+  <DirectionSwitch X="0" Y="85" Width="100" Height="25" FileName="DirectionSwitch.png" Selected="DirectionSwitchSelected.png" Disabled="DirectionSwitchDisabled.png"></DirectionSwitch>
+  <BuildButton X="0" Y="110" Width="100" Height="25" FileName="BuildButton.png" Selected="BuildButtonSelected.png" Down="BuildButtonDown.png"></BuildButton>
+  <EndButton X="0" Y="135" Width="100" Height="25" FileName="EndButton.png" Selected="EndButtonSelected.png" Down="EndButtonDown.png"></EndButton>
+  <ExtendArrow Width="30" Height="30" FileName="ExtendMouseArrow.png" Disabled="ExtendDisabledMouseArrow.png"></ExtendArrow>
+  <CutArrow Width="30" Height="30" FileName="CutMouseArrow.png" Disabled="CutDisabledMouseArrow.png"></CutArrow>
+  <ExtendPoint FileName="ExtendPoint.png" End="ExtendPointEnd.png"
+         FontName="宋体"
+         FontSize="14"
+         FontStyle="Bold"
+         FontColor="4294967295"
+         Align="Middle">
+  </ExtendPoint>
+</Root>

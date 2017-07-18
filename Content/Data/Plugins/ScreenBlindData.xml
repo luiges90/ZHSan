@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background FileName="Background.png" X="0" Y="0" Width="342" Height="78"></Background>
+  <Season Spring="Spring.png" Summer="Summer.png" Autumn="Autumn.png" Winter="Winter.png"></Season>
+  <DateClient X="126" Y ="15" Width="150" Height="20"
+               FontName="楷体"
+               FontSize="10"
+               FontStyle="Bold"
+               FontColor="4293647049"
+               Align="Middle">
+  </DateClient>
+  <FactionClient X="126" Y ="38" Width="150" Height="18"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Bold"
+                FontColor="4293647049"
+                Align="Middle">
+  </FactionClient>
+  <SeasonClient X="20" Y="9" Width="51" Height="51"></SeasonClient>
+</Root>

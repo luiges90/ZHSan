@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background FileName="Background.png" Width="216" Height="54"></Background>
+  <YesTexture FileName="Yes.png" Selected="YesSelected.png" SoundFile="Yes" X="29" Y="12" Width="70" Height="30"></YesTexture>
+  <NoTexture FileName="NO.png" Selected="NOSelected.png" SoundFile="No" X="107" Y="12" Width="70" Height="30"></NoTexture>
+</Root>
