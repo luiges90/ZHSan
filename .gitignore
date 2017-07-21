@@ -304,3 +304,6 @@ Content/TexturesAlpha
 
 # No keystores!
 Docs
+
+# links won't work anyway
+*.lnk
