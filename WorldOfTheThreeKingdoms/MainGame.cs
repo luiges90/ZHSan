@@ -247,7 +247,7 @@ namespace WorldOfTheThreeKingdoms
             //第四步
 
             base.Update(gameTime);
-            if (base.IsActive)
+            if (base.IsActive || GlobalVariables.RunWhileNotFocused)
             {
                 if (Platform.Current.InputTextNow())
                 {
