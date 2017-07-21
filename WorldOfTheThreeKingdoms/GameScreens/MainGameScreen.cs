@@ -473,20 +473,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             //this.UpdateViewport();
             this.ResumeMusic();
             base.EnableMouseEvent = true;
-            if (!Session.GlobalVariables.RunWhileNotFocused)
-            {
-                this.Activate();
-            }
         }
 
         private void Game_Deactivated(object sender, EventArgs e)
         {
             this.PauseMusic();
             base.EnableMouseEvent = false;
-            if (!Session.GlobalVariables.RunWhileNotFocused)
-            {
-                this.Deactivate();
-            }
         }
 
         public override Rectangle GetDestination(Point mapPosition)
