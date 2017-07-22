@@ -4384,7 +4384,7 @@ namespace GameObjects
             }
         }
 
-        public bool SaveGameScenario(string LoadedFileName, bool saveMap, bool saveCommonData, bool saveSettings)
+        public bool SaveGameScenario(string LoadedFileName, bool saveMap, bool saveCommonData, bool saveSettings, bool doNotDisposeMemory, bool fullPath)
         {
             this.GameTime += (int)DateTime.Now.Subtract(sessionStartTime).TotalSeconds;
 
@@ -4394,7 +4394,10 @@ namespace GameObjects
             ClearPersonWorkCache();
             //try
             //{
-            this.DisposeLotsOfMemory();
+            if (!doNotDisposeMemory)
+            {
+                this.DisposeLotsOfMemory();
+            }
 
             foreach (Faction faction in this.Factions)
             {
@@ -4809,9 +4812,15 @@ namespace GameObjects
 
             var saves = LoadScenarioSaves();
 
-            string file = @"Save\" + LoadedFileName;
-            
-            bool result = SimpleSerializer.SerializeJsonFile(scenarioClone, file, true);
+            bool result;
+            if (!fullPath)
+            {
+                string file = @"Save\" + LoadedFileName;
+                result = SimpleSerializer.SerializeJsonFile(scenarioClone, file, true);
+            } else
+            {
+                result = SimpleSerializer.SerializeJsonFile(scenarioClone, LoadedFileName, true, false, true);
+            }
 
             if (result)
             {
@@ -4819,7 +4828,7 @@ namespace GameObjects
 
                 string name = LoadedFileName.Replace(".json", "");
 
-                if (int.TryParse(name.Replace("Save", ""), out id))
+                if (int.TryParse(name.Substring(name.LastIndexOf('\\')+1), out id))
                 {
                     string time = scenarioClone.Date.Year + "-" + scenarioClone.Date.Month + "-" + scenarioClone.Date.Day;
 

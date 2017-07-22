@@ -99,6 +99,8 @@ namespace GameObjects
 
         public string SaveQueueToString()
         {
+            if (this.factionQueue == null) return "";
+
             string str = "";
             foreach (Faction faction in this.factionQueue)
             {

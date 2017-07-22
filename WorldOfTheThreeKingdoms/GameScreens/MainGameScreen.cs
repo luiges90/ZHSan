@@ -1601,7 +1601,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             base.Scenario.ScenarioMap.JumpPosition = this.mainMapLayer.GetCurrentScreenCenter(base.viewportSize);
             saveMap = saveMap || this.mapEdited;
             
-            base.Scenario.SaveGameScenario(LoadedFileName, saveMap, saveMap, true);
+            base.Scenario.SaveGameScenario(LoadedFileName, saveMap, saveMap, true, false, false);
             
             base.Scenario.EnableLoadAndSave = true;
         }

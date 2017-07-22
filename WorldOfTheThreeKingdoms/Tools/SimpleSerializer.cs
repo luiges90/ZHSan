@@ -59,7 +59,7 @@ namespace Tools
         public static void SerializeXML<T>(T t, string file)
         {
             string xml = SerializeXML(t);
-            Platform.Current.SaveUserFile(file, xml);
+            Platform.Current.SaveUserFile(file, xml, false);
         }
 
         public static T DeserializeXMLFile<T>(string file, bool isUserFile)
@@ -150,12 +150,12 @@ namespace Tools
             return t;
         }
 
-        public static bool SerializeJsonFile<T>(T t, string file, bool zip = false, bool Net = false)
+        public static bool SerializeJsonFile<T>(T t, string file, bool zip = false, bool Net = false, bool fullPath = false)
         {
             try
             {
                 string json = SerializeJson(t, zip, Net);
-                Platform.Current.SaveUserFile(file, json);
+                Platform.Current.SaveUserFile(file, json, fullPath);
                 return true;
             }
             catch (Exception ex)

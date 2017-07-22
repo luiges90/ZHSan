@@ -117,6 +117,7 @@ public class ExtensionInterface
             // extensions not enabled
             return;
         }
+        /*
         foreach (Type t in compiledTypes)
         {
             try
@@ -155,6 +156,7 @@ public class ExtensionInterface
                 //}
             }
         }
+        */
     }
 
 }

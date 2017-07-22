@@ -1,0 +1,27 @@
+﻿<Window x:Class="WorldOfTheThreeKingdomsEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorldOfTheThreeKingdomsEditor"
+        mc:Ignorable="d"
+        Title="中華三國志劇本編輯器" Height="600" Width="960">
+    <Grid>
+        <Button x:Name="btnLoad" Content="讀取劇本" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="btnLoad_Click"/>
+        <TabControl HorizontalAlignment="Left" Height="525" Margin="10,34,0,0" VerticalAlignment="Top" Width="932">
+            <TabItem Header="武將">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgPerson" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="建築">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="勢力" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="59">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="btnSave" Content="保存劇本" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+
+    </Grid>
+</Window>

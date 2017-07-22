@@ -723,14 +723,21 @@ namespace Platforms
         /// </summary>
         /// <param name="res"></param>
         /// <param name="content"></param>
-        public void SaveUserFile(string res, string content)
+        public void SaveUserFile(string res, string content, bool fullPath)
         {
             try
             {
                 DelUserFiles(new string[] { res }, null);
                 lock (Platform.IoLock)
                 {
-                    File.WriteAllText(UserApplicationDataPath + res, content);
+                    if (fullPath)
+                    {
+                        File.WriteAllText(res, content);
+                    }
+                    else
+                    {
+                        File.WriteAllText(UserApplicationDataPath + res, content);
+                    }
                 }
             }
             catch (Exception ex)
