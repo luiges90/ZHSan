@@ -35,70 +35,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void populateTables()
         {
-            DataTable dtPersons = new DataTable("Person");
-
-            DataColumn dc = new DataColumn();
-            dc.DataType = typeof(int);
-            dc.ColumnName = "id";
-            dc.ReadOnly = true;
-            dtPersons.Columns.Add(dc);
-
-            dtPersons.Columns.Add("surname", typeof(string));
-            dtPersons.Columns.Add("givenName", typeof(string));
-            dtPersons.Columns.Add("calledName", typeof(string));
-
-            foreach (Person p in scen.Persons)
-            {
-                DataRow row = dtPersons.NewRow();
-                row["id"] = p.ID;
-                row["surname"] = p.SurName;
-                row["givenName"] = p.GivenName;
-                row["calledName"] = p.CalledName;
-                dtPersons.Rows.Add(row);
-            }
-
-            dgPerson.ItemsSource = dtPersons.AsDataView();
-
-            dtPersons.TableNewRow += DtPersons_TableNewRow;
-            dtPersons.RowChanged += DtPersons_RowChanged;
-            dtPersons.RowDeleted += DtPersons_RowDeleted;
-        }
-
-        private void DtPersons_RowDeleted(object sender, DataRowChangeEventArgs e)
-        {
-            try
-            {
-                Person p = (Person)scen.Persons.GetGameObject((int)e.Row["id"]);
-                scen.Persons.Remove(p);
-            }
-            catch (InvalidCastException)
-            {
-                MessageBox.Show("資料輸入錯誤。");
-            }
-        }
-
-        private void DtPersons_RowChanged(object sender, DataRowChangeEventArgs e)
-        {
-            try
-            {
-                Person p = (Person)scen.Persons.GetGameObject((int)e.Row["id"]);
-                p.SurName = e.Row["surname"].ToString();
-                p.GivenName = e.Row["givenName"].ToString();
-                p.CalledName = e.Row["calledName"].ToString();
-            } catch (InvalidCastException)
-            {
-                MessageBox.Show("資料輸入錯誤。");
-            }
-        }
-
-        private void DtPersons_TableNewRow(object sender, DataTableNewRowEventArgs e)
-        {
-            Person p = new Person();
-
-            int id = scen.Persons.GetFreeGameObjectID();
-            e.Row["id"] = id;
-            p.ID = id;
-            scen.Persons.Add(p);
+            setupPersons();
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)
@@ -123,6 +60,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 scen = WorldOfTheThreeKingdoms.GameScreens.MainGameScreen.LoadScenarioData(filename, true, null);
 
                 populateTables();
+                lblFilename.Content = filename;
             }
         }
 

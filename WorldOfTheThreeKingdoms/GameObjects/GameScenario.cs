@@ -4819,7 +4819,7 @@ namespace GameObjects
                 result = SimpleSerializer.SerializeJsonFile(scenarioClone, file, true);
             } else
             {
-                result = SimpleSerializer.SerializeJsonFile(scenarioClone, LoadedFileName, true, false, true);
+                result = SimpleSerializer.SerializeJsonFile(scenarioClone, LoadedFileName, false, false, true);
             }
 
             if (result)
