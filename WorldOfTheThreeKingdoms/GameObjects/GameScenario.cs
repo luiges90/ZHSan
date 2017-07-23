@@ -4828,7 +4828,7 @@ namespace GameObjects
 
                 string name = LoadedFileName.Replace(".json", "");
 
-                if (int.TryParse(name.Substring(name.LastIndexOf('\\')+1), out id))
+                if (int.TryParse(name.Replace("Save", ""), out id))
                 {
                     string time = scenarioClone.Date.Year + "-" + scenarioClone.Date.Month + "-" + scenarioClone.Date.Day;
 
