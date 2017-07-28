@@ -25,6 +25,7 @@ namespace GameObjects
     public class Architecture : GameObject
     {
         class SimulatingFightingForceComparer : IComparer<Troop>
+        //战斗力的模拟比较器
         {
             public int Compare(Troop x, Troop y)
             {
@@ -33,6 +34,7 @@ namespace GameObjects
         }
 
         class FightingForceComparer : IComparer<Troop>
+        //战斗力比较器
         {
             public int Compare(Troop x, Troop y)
             {
@@ -41,83 +43,85 @@ namespace GameObjects
         }
 
         public void Init()
+        //初始化
         {
-            AIAllLinkNodes = new Dictionary<int, LinkNode>();
+            AIAllLinkNodes = new Dictionary<int, LinkNode>();//AI所有链路节点
 
-            AILandLinks = new ArchitectureList();
+            AILandLinks = new ArchitectureList();//AI陆地链路
 
-            AILinkProcedureDetails = new Queue<AILinkProcedureDetail>();
+            AILinkProcedureDetails = new Queue<AILinkProcedureDetail>();//AI链接过程细节
 
-            AIWaterLinks = new ArchitectureList();
+            AIWaterLinks = new ArchitectureList();//AI水中链路
 
-            ArchitectureArea = new GameArea();
+            ArchitectureArea = new GameArea();//建筑面积
 
-            BeMergedMilitaryList = new MilitaryList();
+            BeMergedMilitaryList = new MilitaryList();//被合并军事列表
 
-            BuildableFacilityKindList = new GameObjectList();
+            BuildableFacilityKindList = new GameObjectList();//建筑设施类列表
 
-            actuallyUnreachableArch = new HashSet<Architecture>();
+            actuallyUnreachableArch = new HashSet<Architecture>();//不能到达区域
 
-            CampaignMilitaryList = new MilitaryList();
-            ChangeCapitalArchitectureList = new ArchitectureList();
+            CampaignMilitaryList = new MilitaryList();//作战军事列表
+            ChangeCapitalArchitectureList = new ArchitectureList();//改变资产建筑列表
 
-            IncrementNumberList = new CombatNumberItemList(CombatNumberDirection.上);
+            IncrementNumberList = new CombatNumberItemList(CombatNumberDirection.上);//增量号码列表
 
-            DecrementNumberList = new CombatNumberItemList(CombatNumberDirection.下);
+            DecrementNumberList = new CombatNumberItemList(CombatNumberDirection.下);//减量号码列表
 
-            Characteristics = new InfluenceTable();
+            Characteristics = new InfluenceTable();//特性
 
-            Facilities = new FacilityList();
+            Facilities = new FacilityList();//设施
 
-            FundPacks = new List<FundPack>();
+            FundPacks = new List<FundPack>();//金钱
 
-            FoodPacks = new List<FoodPack>();
+            FoodPacks = new List<FoodPack>();//粮食
 
-            MergeMilitaryList = new MilitaryList();
+            MergeMilitaryList = new MilitaryList();//合并军事列表
 
-            Militaries = new MilitaryList();
+            Militaries = new MilitaryList();//军队
 
-            UpgradableMilitaryKindList = new MilitaryKindList();
+            UpgradableMilitaryKindList = new MilitaryKindList();//可升级军事类列表
 
-            Informations = new InformationList();
-            LevelUpMilitaryList = new MilitaryList();
+            Informations = new InformationList();//信息
+            LevelUpMilitaryList = new MilitaryList();//加强军事装备建设列表
 
-            OtherArchitectureList = new ArchitectureList();
+            OtherArchitectureList = new ArchitectureList();//其他建筑列表
 
-            NewMilitaryKindList = new MilitaryKindList();
+            NewMilitaryKindList = new MilitaryKindList();//新的军事目录
 
-            PopulationPacks = new List<PopulationPack>();
-            PrivateMilitaryKinds = new MilitaryKindTable();
+            PopulationPacks = new List<PopulationPack>();//人口
+            PrivateMilitaryKinds = new MilitaryKindTable();//私人军事类
 
-            RecruitmentMilitaryList = new MilitaryList();
-            RedeemCaptiveList = new CaptiveList();
-            ResetDiplomaticRelationList = new GameObjectList();
-            EnhanceDiplomaticRelationList = new GameObjectList();
-            AllyDiplomaticRelationList = new GameObjectList();
-            TruceDiplomaticRelationList = new GameObjectList();
-            DenounceDiplomaticRelationList = new GameObjectList();
+            RecruitmentMilitaryList = new MilitaryList();//招聘军事列表
+            RedeemCaptiveList = new CaptiveList();//赎回俘虏名单
+            ResetDiplomaticRelationList = new GameObjectList();//重新设置外交关系清单
+            EnhanceDiplomaticRelationList = new GameObjectList();//加强外交关系清单
+            AllyDiplomaticRelationList = new GameObjectList();//盟国外交关系清单
+            TruceDiplomaticRelationList = new GameObjectList();//停战外交关系表
+            DenounceDiplomaticRelationList = new GameObjectList();//谴责外交关系清单
             QuanXiangDiplomaticRelationList = new GameObjectList(); //劝降
             GeDiDiplomaticRelationList = new GameObjectList(); //割地
-            RewardPersonList = new PersonList();
-            RoutewayDestinationArchitectures = new Dictionary<int, Architecture>();
-            RoutewayProcedures = new Queue<RoutewayProcedureDetail>();
+            RewardPersonList = new PersonList();//奖励的人的名单
+            RoutewayDestinationArchitectures = new Dictionary<int, Architecture>();//通道目标架构
+            RoutewayProcedures = new Queue<RoutewayProcedureDetail>();//通道程序
 
-            Routeways = new RoutewayList();
+            Routeways = new RoutewayList();//通道
 
-            ShelledMilitaryList = new MilitaryList();
-            TrainingMilitaryList = new MilitaryList();
-            TransferArchitectureList = new ArchitectureList();
+            ShelledMilitaryList = new MilitaryList();//攻击军事列表
+            TrainingMilitaryList = new MilitaryList();//军事训练的名单
+            TransferArchitectureList = new ArchitectureList();//运输建筑列表
 
-            linkNodeRouteway = new Dictionary<LinkNode, Routeway>();
+            linkNodeRouteway = new Dictionary<LinkNode, Routeway>();//链路节点路由方式
 
             mayorID = -1;
-            buildingFacility = -1;
+            buildingFacility = -1;//建筑设施
             PathRoutewayID = -1;
 
             pathFinder = new RoutewayPathFinder();
         }
 
         // public int[] preferredOfficialTypes = {100, 100, 100, 100, 60, 100, 1, 250, 250, 39 };
+        //首选官方类型
 
         private Person mayor = null;
         private int mayorID = -1;
@@ -531,7 +535,7 @@ namespace GameObjects
 
        // public OngoingBattle Battle { get; set; }
 
-        private String oldFactionName = "";
+        private String oldFactionName = "";//旧派名字
         [DataMember]
         public String OldFactionName
         {
@@ -573,7 +577,7 @@ namespace GameObjects
 
         public event RewardPersons OnRewardPersons;
 
-        public CaptiveList Captives
+        public CaptiveList Captives //俘虏
         {
             get
             {
@@ -590,7 +594,7 @@ namespace GameObjects
             }
         }
 
-        public PersonList PersonAndChildren
+        public PersonList PersonAndChildren //和孩子
         {
             get
             {
@@ -3898,15 +3902,16 @@ namespace GameObjects
 
         private void AutoDecrement()
         {
-            /*if (!(((this.BelongedFaction == null) || (this.RecentlyAttacked <= 0)) || this.DayAvoidInternalDecrementOnBattle))
-            {
-                int maxValue = (this.RecentlyAttacked / 2) + 1;
-                this.DecreaseAgriculture(GameObject.Random(maxValue));
-                this.DecreaseCommerce(GameObject.Random(maxValue));
-                this.DecreaseTechnology(GameObject.Random(maxValue));
+            if (!(((this.BelongedFaction == null) || (this.RecentlyAttacked <= 0)) || this.DayAvoidInternalDecrementOnBattle))
+            {//有派系长久的和平时期
+                int maxValue = (this.RecentlyAttacked / 2) + 1;//最近袭击数
+                this.DecreaseAgriculture(GameObject.Random(maxValue));//降低农业
+                this.DecreaseCommerce(GameObject.Random(maxValue));//降低商业
+                this.DecreaseTechnology(GameObject.Random(maxValue));//降低技术
                 this.DecreaseMorale(GameObject.Random(maxValue));
-            }*/
+            }
         }
+
 
         public bool AutoHiringAvail()
         {
@@ -3915,7 +3920,7 @@ namespace GameObjects
 
         private void AutoIncrement()
         {
-            if (this.IncrementOfAgriculturePerDay > 0)
+            if (this.IncrementOfAgriculturePerDay > 0) 
             {
                 this.IncreaseAgriculture(this.IncrementOfAgriculturePerDay);
             }
@@ -6501,31 +6506,57 @@ namespace GameObjects
             }
         }
 
-        private void DevelopAgriculture()
+        private void DevelopAgriculture()//农业开发
         {
-            if (this.Agriculture != this.AgricultureCeiling)
+            if (this.Agriculture != this.AgricultureCeiling)//农业现值不等于农业上限
             {
-                foreach (Person person in this.AgricultureWorkingPersons)
+                int MaxAgricultureAbility = 0;
+                foreach (Person person in this.AgricultureWorkingPersons)//遍历从事农业工作的武将选择农业最高的
+                {   
+                    int PersonAgricultureAbility = person.AgricultureAbility;
+                    if (PersonAgricultureAbility > MaxAgricultureAbility)
+                    {
+                        MaxAgricultureAbility = PersonAgricultureAbility;
+                    }
+                }
+                int NowMaxAgriculture = ((MaxAgricultureAbility / 120) + (MaxAgricultureAbility / 120)) * this.AgricultureCeiling;
+                if (this.Agriculture <= NowMaxAgriculture)
                 {
-                    if (!person.InternalNoFundNeeded)
+                    foreach (Person person in this.AgricultureWorkingPersons)//遍历从事农业工作的武将
                     {
-                        if (this.Fund < this.InternalFundCost)
+                        if (!person.InternalNoFundNeeded)//武将农业开发需要资金的
                         {
-                            continue;
+                            if (this.Fund < this.InternalFundCost)//城市资金小于内政资金花费的踢出
+                            {
+                                continue;
+                            }
+                            this.DecreaseFund(this.InternalFundCost);//消费城市资金
                         }
-                        this.DecreaseFund(this.InternalFundCost);
+                        int randomValue = StaticMethods.GetRandomValue((int)((person.AgricultureAbility * this.CurrentRateOfInternal) * Parameters.InternalRate), 500 + (150 * (this.AreaCount - 1)));
+                        //随机（个人能力*城市加成*设置加成，500+150*城市面积）
+
+                        if (randomValue > 0)
+                        {
+                            person.AddInternalExperience(randomValue * 2);
+                            //增加内政经验
+                            person.AddPoliticsExperience(randomValue * 2);
+                            //增加政治经验
+                            person.AddGlamourExperience(randomValue * 2);
+                            //增加魅力经验
+                            person.IncreaseReputation(randomValue * 4);
+                            //提高声望
+                            this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfAgricultureReputation);
+                            //城市所属派系提高声望
+                            this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfAgricultureTechniquePoint) * 100);
+                            //城市所属派系增加技巧
+                            this.IncreaseAgriculture(randomValue);
+                            //增加农业值
+                        }
                     }
-                    int randomValue = StaticMethods.GetRandomValue((int)((person.AgricultureAbility * this.CurrentRateOfInternal) * Parameters.InternalRate), 500 + (150 * (this.AreaCount - 1)));
-                    if (randomValue > 0)
-                    {
-                        person.AddInternalExperience(randomValue * 2);
-                        person.AddPoliticsExperience(randomValue * 2);
-                        person.AddGlamourExperience(randomValue * 2);
-                        person.IncreaseReputation(randomValue * 4);
-                        this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfAgricultureReputation);
-                        this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfAgricultureTechniquePoint) * 100);
-                        this.IncreaseAgriculture(randomValue);
-                    }
+                }
+                else {
+                    int maxValue = 3;
+                    this.DecreaseAgriculture(GameObject.Random(maxValue));//降低农业
                 }
             }
         }
@@ -6545,28 +6576,46 @@ namespace GameObjects
         {
             if (this.Commerce != this.CommerceCeiling)
             {
-                foreach (Person person in this.CommerceWorkingPersons)
+                int MaxCommerceAbility = 0;
+                foreach (Person person in this.AgricultureWorkingPersons)
                 {
-                    if (!person.InternalNoFundNeeded)
+                    int PersonCommerceAbility = person.CommerceAbility;
+                    if (PersonCommerceAbility > MaxCommerceAbility)
                     {
-                        if (this.Fund < this.InternalFundCost)
+                        MaxCommerceAbility = PersonCommerceAbility;
+                    }
+                }
+                int NowMaxCommerceAbility = ((MaxCommerceAbility / 120) + (MaxCommerceAbility / 120)) * this.CommerceCeiling;
+                if (this.Commerce <=NowMaxCommerceAbility)
+                {
+                    foreach (Person person in this.CommerceWorkingPersons)
+                    {
+                        if (!person.InternalNoFundNeeded)
                         {
-                            continue;
+                            if (this.Fund < this.InternalFundCost)
+                            {
+                                continue;
+                            }
+                            this.DecreaseFund(this.InternalFundCost);
                         }
-                        this.DecreaseFund(this.InternalFundCost);
+                        int randomValue = StaticMethods.GetRandomValue((int)((person.CommerceAbility * this.CurrentRateOfInternal) * Parameters.InternalRate), 500 + (150 * (this.AreaCount - 1)));
+                        if (randomValue > 0)
+                        {
+                            person.AddInternalExperience(randomValue * 2);
+                            person.AddIntelligenceExperience(randomValue);
+                            person.AddPoliticsExperience(randomValue * 2);
+                            person.AddGlamourExperience(randomValue);
+                            person.IncreaseReputation(randomValue * 4);
+                            this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfCommerceReputation);
+                            this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfCommerceTechniquePoint) * 100);
+                            this.IncreaseCommerce(randomValue);
+                        }
                     }
-                    int randomValue = StaticMethods.GetRandomValue((int)((person.CommerceAbility * this.CurrentRateOfInternal) * Parameters.InternalRate), 500 + (150 * (this.AreaCount - 1)));
-                    if (randomValue > 0)
-                    {
-                        person.AddInternalExperience(randomValue * 2);
-                        person.AddIntelligenceExperience(randomValue);
-                        person.AddPoliticsExperience(randomValue * 2);
-                        person.AddGlamourExperience(randomValue);
-                        person.IncreaseReputation(randomValue * 4);
-                        this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfCommerceReputation);
-                        this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfCommerceTechniquePoint) * 100);
-                        this.IncreaseCommerce(randomValue);
-                    }
+                }
+                else
+                {
+                    int maxValue = 3;
+                    this.DecreaseCommerce(GameObject.Random(maxValue));//降低农业
                 }
             }
         }
@@ -9266,12 +9315,15 @@ namespace GameObjects
             return (this.ViewArea.HasPoint(troop.Position) && (((this.BelongedFaction != null) && this.IsFriendly(troop.BelongedFaction)) || (troop.Status != TroopStatus.埋伏)));
         }
 
-        public void IncreaseAgriculture(int increment)
+        public void IncreaseAgriculture(int increment)//增加农业
         {
-            if (this.AgricultureCeiling == 0) return;
+            if (this.AgricultureCeiling == 0) return;//农业上限
             float actualIncrement = increment > 0 ? increment * (1-(float)this.Agriculture / this.AgricultureCeiling) : increment;
+            //实际增量 = 增加农业*剩余开发/农业上限，剩余越多越快
             this.Agriculture += (int) Math.Floor(actualIncrement);
+            //向下取整
             if (GameObject.Random(1000000) < (actualIncrement - Math.Floor(actualIncrement)) * 1000000)
+            
             {
                 this.Agriculture++;
             }
