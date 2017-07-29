@@ -49,29 +49,29 @@ namespace TabListPlugin
             this.ColumnTextList.Clear();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.DisplayPosition.Right > this.tabList.VisibleLowerClient.Right)
             {
                 if (this.DisplayPosition.Left < this.tabList.VisibleLowerClient.Right)
                 {
-                    spriteBatch.Draw(this.tabList.rightArrowTexture, StaticMethods.LeftRectangle(this.DisplayPosition, new Rectangle(0, 0, this.tabList.rightArrowTexture.Width, this.tabList.rightArrowTexture.Height)), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
+                    CacheManager.Draw(this.tabList.rightArrowTexture, StaticMethods.LeftRectangle(this.DisplayPosition, new Rectangle(0, 0, this.tabList.rightArrowTexture.Width, this.tabList.rightArrowTexture.Height)), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
                 }
             }
             else if (this.DisplayPosition.Left < this.tabList.VisibleLowerClient.Left)
             {
                 if (this.DisplayPosition.Right > this.tabList.VisibleLowerClient.Left)
                 {
-                    spriteBatch.Draw(this.tabList.leftArrowTexture, StaticMethods.RightRectangle(this.DisplayPosition, new Rectangle(0, 0, this.tabList.leftArrowTexture.Width, this.tabList.leftArrowTexture.Height)), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
+                    CacheManager.Draw(this.tabList.leftArrowTexture, StaticMethods.RightRectangle(this.DisplayPosition, new Rectangle(0, 0, this.tabList.leftArrowTexture.Width, this.tabList.leftArrowTexture.Height)), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
                 }
             }
             else
             {
                 Rectangle? sourceRectangle = null;
-                spriteBatch.Draw(this.tabList.columnheaderTexture, this.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
+                CacheManager.Draw(this.tabList.columnheaderTexture, this.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
                 sourceRectangle = null;
-                spriteBatch.Draw(this.tabList.columnspliterTexture, this.SpliterPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
-                this.Text.Draw(spriteBatch, 0.03499f);
+                CacheManager.Draw(this.tabList.columnspliterTexture, this.SpliterPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
+                this.Text.Draw(0.03499f);
                 for (int i = 0; i < this.ColumnTextList.Count; i++)
                 {
                     if (((this.ColumnTextList.DisplayPosition(i).Bottom <= this.tabList.VisibleLowerClient.Bottom) && (this.ColumnTextList.DisplayPosition(i).Top >= this.DisplayPosition.Bottom)))  // (!String.IsNullOrEmpty(this.ColumnTextList[i].Text)))
@@ -87,12 +87,15 @@ namespace TabListPlugin
                             else
                             {
                                 sourceRectangle = null;
-                                spriteBatch.Draw(this.ColumnTextList[i].TextTexture, StaticMethods.CenterRectangle(this.ColumnTextList.DisplayPosition(i), new Rectangle(0, 0, this.tabList.checkboxWidth, this.tabList.checkboxWidth)), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.03499f);
+
+                                var rec = StaticMethods.CenterRectangle(this.ColumnTextList.DisplayPosition(i), new Rectangle(0, 0, this.tabList.checkboxWidth, this.tabList.checkboxWidth));
+
+                                CacheManager.Draw(this.ColumnTextList[i].TextTexture, rec, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.03499f);
                             }
                         }
                         else
                         {
-                            this.ColumnTextList.Draw(spriteBatch, i, 0.03499f);
+                            this.ColumnTextList.Draw(i, 0.03499f);
                         }
 
                     }
@@ -266,7 +269,7 @@ namespace TabListPlugin
         {
             get
             {
-                return this.DetailLevel <= GlobalVariables.TabListDetailLevel;
+                return this.DetailLevel <= Session.GlobalVariables.TabListDetailLevel;
             }
         }
     }

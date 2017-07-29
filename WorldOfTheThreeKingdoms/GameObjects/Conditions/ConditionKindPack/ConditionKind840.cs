@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Conditions;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
         public override bool CheckConditionKind(Person person)
         {
             HashSet<Person> relatedPersons = new HashSet<Person>();
-            foreach (Person p in person.Scenario.Persons)
+            foreach (Person p in Session.Current.Scenario.Persons)
             {
                 if (p.Father == person)
                 {

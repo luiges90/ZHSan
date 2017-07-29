@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text;
 
 namespace GameObjects.TroopDetail
 {
@@ -60,6 +61,17 @@ namespace GameObjects.TroopDetail
                 return this.CombatMethods.Count;
             }
         }
+
+        public string SaveToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            foreach (var obj2 in this.CombatMethods)
+            {
+                builder.Append(obj2.Key + " ");
+            }
+            return builder.ToString();
+        }
+
     }
 }
 

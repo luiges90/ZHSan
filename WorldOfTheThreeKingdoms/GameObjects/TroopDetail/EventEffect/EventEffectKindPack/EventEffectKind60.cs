@@ -1,4 +1,5 @@
 ﻿using GameGlobal;
+using GameManager;
 using GameObjects;
 using GameObjects.TroopDetail.EventEffect;
 using System;
@@ -13,7 +14,7 @@ using System.Runtime.Serialization;namespace GameObjects.TroopDetail.EventEffect
         {
             if (person.LocationTroop != null)
             {
-                person.LocationTroop.SetOnFire(Parameters.FireDamageScale * person.Scenario.GetTerrainDetailByPositionNoCheck(person.LocationTroop.Position).FireDamageRate);
+                person.LocationTroop.SetOnFire(Session.Parameters.FireDamageScale * Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(person.LocationTroop.Position).FireDamageRate);
             }
         }
     }

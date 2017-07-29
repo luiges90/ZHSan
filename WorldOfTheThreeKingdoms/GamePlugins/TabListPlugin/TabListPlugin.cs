@@ -30,12 +30,12 @@ namespace TabListPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            this.tabList.Draw(spriteBatch);
+            this.tabList.Draw();
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -54,45 +54,45 @@ namespace TabListPlugin
             XmlNode node = nextSibling.ChildNodes.Item(0);
             this.tabList.tabbuttonWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.tabList.tabbuttonHeight = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.tabList.tabbuttonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.tabList.tabbuttonselectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
+            this.tabList.tabbuttonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.tabbuttonselectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
             node = nextSibling.ChildNodes.Item(1);
             this.tabList.columnheaderHeight = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.tabList.columnheaderTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.columnheaderTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(2);
             this.tabList.columnspliterWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.tabList.columnspliterHeight = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.tabList.columnspliterTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.columnspliterTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(3);
             this.tabList.scrollbuttonWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.scrollbuttonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.scrollbuttonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(4);
             this.tabList.scrolltrackWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.scrolltrackTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.scrolltrackTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(5);
-            this.tabList.leftArrowTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("LeftFileName").Value);
-            this.tabList.rightArrowTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("RightFileName").Value);
+            this.tabList.leftArrowTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("LeftFileName").Value);
+            this.tabList.rightArrowTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("RightFileName").Value);
             node = nextSibling.ChildNodes.Item(6);
-            this.tabList.focusTrackTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.focusTrackTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(7);
             this.tabList.checkboxName = node.Attributes.GetNamedItem("Name").Value;
             this.tabList.checkboxDisplayName = node.Attributes.GetNamedItem("DisplayName").Value;
             this.tabList.checkboxWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.checkboxTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.tabList.checkboxSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
-            this.tabList.roundcheckboxTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("RoundFileName").Value);
-            this.tabList.roundcheckboxSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("RoundSelectedFileName").Value);
+            this.tabList.checkboxTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.checkboxSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
+            this.tabList.roundcheckboxTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("RoundFileName").Value);
+            this.tabList.roundcheckboxSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\" + node.Attributes.GetNamedItem("RoundSelectedFileName").Value);
             node = nextSibling.ChildNodes.Item(8);
             this.tabList.PortraitWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.tabList.PortraitHeight = int.Parse(node.Attributes.GetNamedItem("Height").Value);
             node = nextSibling.ChildNodes.Item(9);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.tabList.TabTextBuilder.SetFreeTextBuilder(this.tabList.graphicsDevice, font);
+            this.tabList.TabTextBuilder.SetFreeTextBuilder(font);
             this.tabList.TabTextColor = color;
             this.tabList.TabTextAlign = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
             node = nextSibling.ChildNodes.Item(10);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.tabList.ColumnTextBuilder.SetFreeTextBuilder(this.tabList.graphicsDevice, font);
+            this.tabList.ColumnTextBuilder.SetFreeTextBuilder(font);
             this.tabList.ColumnTextColor = color;
             this.tabList.ColumnTextAlign = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
             node = nextSibling.ChildNodes.Item(11);
@@ -120,9 +120,8 @@ namespace TabListPlugin
             this.tabList.iGameFrame = iGameFrame;
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.tabList.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\TabListData.xml");
         }
 
@@ -142,9 +141,9 @@ namespace TabListPlugin
             this.tabList.iPersonDetail = iPersonDetail;
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.tabList.Initialize(screen as Screen);
+            this.tabList.Initialize();
         }
 
         public void SetSelectedItemMaxCount(int max)

@@ -1,7 +1,7 @@
 ﻿using GameManager;
 using Platforms;
 using SanguoSeason.Encryption;
-using PlatformContracts;
+using SeasonContracts;
 using System;
 using System.Linq;
 
@@ -9,13 +9,13 @@ namespace Tools
 {
     public static class WebTools
     {
-        private const string des3Key = "Season";  //"WorldOfTheThreeKingdoms.Zhsan";
+        private const string des3Key = "WorldOfTheThreeKingdoms.Zhsan";
 
         public static string WebSite
         {
             get
             {
-                string webSite = "http://www.linyuanle.com";
+                string webSite = "http://www.zhsan.com";
                 return webSite;
             }
         }
@@ -44,6 +44,7 @@ namespace Tools
             }
             Session.MainGame.warn = warn + ext;
             Session.MainGame.lastWarnTime = DateTime.Now;
+
             new PlatformTask(() =>
             {
                 WebTools.SendErrMsg(warn + ext + detail, ex);
@@ -59,6 +60,7 @@ namespace Tools
                 UserName = "",
                 Contact = "",
                 DeviceId = Platform.Current.GetDeviceID(),
+                DeviceInfo = Platform.Current.GetDeviceInfo(),
                 Product = Platform.Product,
                 Platform = Platform.PlatFormType.ToString(),
                 Channel = Platform.Current.Channel,
@@ -75,6 +77,8 @@ namespace Tools
                 ResultStatus = msg,
                 ErrorMsg = ex.GetExceptionDetail()
             };
+
+            errorLog.ResultStatus = errorLog.UserIdentity.DeviceInfo + " " + errorLog.ResultStatus;
 
             string status = "";
             string errorMsg = "";
@@ -94,7 +98,7 @@ namespace Tools
             string json = "";
             try
             {
-                string url = String.Format("{0}/Webservice.asmx/SeasonMessageFile?", WebTools.WebSite);
+                string url = String.Format("{0}/Webservice.asmx/SeasonMessageFile2?", WebTools.WebSite);
                 string jso = SimpleSerializer.SerializeJson<RecordBase>(info, false, false, false);
                 string jsonEncryptZip = EncryptionHelper.Encrypt(jso, des3Key).GZipCompressString().UrlEncodePath2();
                 string binaryEncryptZip = "";
@@ -102,7 +106,7 @@ namespace Tools
                 {
                     binaryEncryptZip = binary.UrlEncodePath2();
                 }
-                string data = String.Format("info={0}&binary={1}&guid={2}&platform={3}", jsonEncryptZip, binaryEncryptZip, Setting.Current.UserGuid, Platform.PlatFormType.ToString());
+                string data = String.Format("info={0}&binary={1}&product={2}&guid={3}&platform={4}", jsonEncryptZip, binaryEncryptZip, "WorldOfTheThreeKingdoms", Setting.Current.UserGuid, Platform.PlatFormType.ToString());
                 json = new Platform().GetWebServicePost(url.UrlEncodePath2(), data, onUpload);
                 json = json.GZipDecompressString();
                 json = EncryptionHelper.Decrypt(json, des3Key);

@@ -148,13 +148,13 @@ namespace GamePanels
                 PreMouseOver = MouseOver;
                 if (basePos == null)
                 {
-                    MouseOver = this.Position.X - ExtDis <= poX && poX <= this.Position.X + OriginWidth + ExtDis
-                        && this.Position.Y - ExtDis <= poY && poY <= this.Position.Y + OriginHeight + ExtDis;
+                    MouseOver = this.Position.X - ExtDis <= poX && poX <= this.Position.X + OriginWidth * Scale + ExtDis
+                        && this.Position.Y - ExtDis <= poY && poY <= this.Position.Y + OriginHeight * Scale + ExtDis;
                 }
                 else
                 {
-                    MouseOver = this.Position.X + ((Vector2)basePos).X - ExtDis <= poX && poX <= this.Position.X + ((Vector2)basePos).X + OriginWidth + ExtDis
-                        && this.Position.Y + ((Vector2)basePos).Y - ExtDis <= poY && poY <= this.Position.Y + ((Vector2)basePos).Y + OriginHeight + ExtDis;
+                    MouseOver = this.Position.X + ((Vector2)basePos).X - ExtDis <= poX && poX <= this.Position.X + ((Vector2)basePos).X + OriginWidth * Scale + ExtDis
+                        && this.Position.Y + ((Vector2)basePos).Y - ExtDis <= poY && poY <= this.Position.Y + ((Vector2)basePos).Y + OriginHeight * Scale + ExtDis;
                 }
             }
             else

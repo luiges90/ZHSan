@@ -34,15 +34,25 @@ namespace WorldOfTheThreeKingdoms
 
         public MainGameScreen mainGameScreen;
 
+        public float time = 0f;
+
+        public bool beginApply = false;
+
+#pragma warning disable CS0414 // The field 'MainGame.previousWindowHeight' is assigned but its value is never used
         private int previousWindowHeight = 720;
+#pragma warning restore CS0414 // The field 'MainGame.previousWindowHeight' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'MainGame.previousWindowWidth' is assigned but its value is never used
         private int previousWindowWidth = 0x438;
+#pragma warning restore CS0414 // The field 'MainGame.previousWindowWidth' is assigned but its value is never used
 
         //public jiazaitishichuangkou jiazaitishi = new jiazaitishichuangkou();
 
         //public WindowsMediaPlayerClass Player = new WindowsMediaPlayerClass();
 
         //标识是否为全屏
+#pragma warning disable CS0414 // The field 'MainGame.IsFullScreen' is assigned but its value is never used
         private bool IsFullScreen = false;
+#pragma warning restore CS0414 // The field 'MainGame.IsFullScreen' is assigned but its value is never used
 
         public Matrix SpriteScale1, SpriteScale2;
 
@@ -61,10 +71,10 @@ namespace WorldOfTheThreeKingdoms
         public string warn = "";
         public DateTime? lastWarnTime = null;
         public string view = "";
-
-        public Texture2D tex = null;
-
+        
         public Texture2D renderLast = null;
+
+        public bool isDebug = false;
 
         public MainGame()
         {
@@ -85,14 +95,10 @@ namespace WorldOfTheThreeKingdoms
             //this.graphics.PreferredBackBufferWidth = this.previousWindowWidth;
             //this.graphics.PreferredBackBufferHeight = this.previousWindowHeight;                      
 
-            if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)  //Platform.PlatFormType == PlatFormType.UWP
+            if (Platform.PlatFormType == PlatFormType.Win)  //Platform.PlatFormType == PlatFormType.UWP
             {
-                DateTime buildDate = new FileInfo(Assembly.GetExecutingAssembly().Location).LastWriteTime;
+                DateTime buildDate = new FileInfo(Platform.Current.Location).LastWriteTime;
                 base.Window.Title = "中华三国志开发版(已命名修改版 v.33 - build-" + buildDate.Year + "-" + buildDate.Month + "-" + buildDate.Day + ")";
-            }
-            else
-            {
-                
             }
 
             Platform.Current.SetMouseVisible(false);
@@ -135,8 +141,10 @@ namespace WorldOfTheThreeKingdoms
         protected override void Initialize()
         {
             //第二步
-
-            Session.ChangeDisplay(true);
+            //if (Platform.PlatFormType != PlatFormType.UWP)
+            //{
+                Session.ChangeDisplay(true);
+            //}
 
             //基本材質初始化
             Session.TextureRecs = TextureRecsManager.AllTextureRectangles();
@@ -148,7 +156,7 @@ namespace WorldOfTheThreeKingdoms
 
             //try
             //{
-                this.mainMenuScreen = new MainMenuScreen(this);
+                this.mainMenuScreen = new MainMenuScreen();
             //}
             //catch (Exception ex)
             //{
@@ -157,7 +165,7 @@ namespace WorldOfTheThreeKingdoms
 
             //this.jiazaitishi.Close();
             //全屏的判断放到初始化代码中
-            //if (GlobalVariables.FullScreen)
+            //if (Session.GlobalVariables.FullScreen)
             //{
             //    this.ToggleFullScreen();
             //}
@@ -178,11 +186,7 @@ namespace WorldOfTheThreeKingdoms
             Session.LoadContent(base.Content);
 
             Session.PlayMusic("Start");
-
-            // Create a new SpriteBatch, which can be used to draw textures.
-            //spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
+            
         }
 
         public void ToggleFullScreen()
@@ -221,7 +225,7 @@ namespace WorldOfTheThreeKingdoms
                 this.graphics.PreferredBackBufferHeight = adapter.CurrentDisplayMode.Height;
             }
             this.graphics.ToggleFullScreen();
-            GlobalVariables.FullScreen = this.graphics.GraphicsDevice.PresentationParameters.IsFullScreen;
+            Session.GlobalVariables.FullScreen = this.graphics.GraphicsDevice.PresentationParameters.IsFullScreen;
              */
             //修改后的全屏代码
             //if (this.IsFullScreen)
@@ -246,8 +250,20 @@ namespace WorldOfTheThreeKingdoms
         {
             //第四步
 
+            //time += Convert.ToSingle(gameTime.ElapsedGameTime.TotalSeconds);
+
+            //if (time >= 0.5f && !beginApply)
+            //{
+            //    beginApply = true;
+            //    if (Platform.PlatFormType == PlatFormType.UWP)
+            //    {
+            //        Session.ChangeDisplay(true);
+            //        Platform.GraphicsApplyChanges();
+            //    }
+            //}
+
             base.Update(gameTime);
-            if (base.IsActive || GlobalVariables.RunWhileNotFocused)
+            if (base.IsActive)
             {
                 if (Platform.Current.InputTextNow())
                 {
@@ -271,7 +287,41 @@ namespace WorldOfTheThreeKingdoms
                     }
                     else
                     {
-                        mainGameScreen.Update(gameTime);
+                        if (isDebug)
+                        {
+                            mainGameScreen.Update(gameTime);
+                        }
+                        else
+                        {
+                            if (String.IsNullOrEmpty(err))
+                            {
+                                try
+                                {
+                                    mainGameScreen.Update(gameTime);
+                                }
+                                catch (Exception ex)
+                                {
+                                    err = "不好意思，游戏运行出错，点击将返回主菜单，请考虑读取自动存档。\r\n" + ex.Message;
+                                    WebTools.TakeWarnMsg("mainGameScreen.Update", "", ex);
+                                }
+                            }
+                            else
+                            {
+                                if (InputManager.IsPressed)
+                                {
+                                    err = "";
+
+                                    //保存當前進度
+                                    mainGameScreen.SaveGameAutoPosition();
+
+                                    loadingScreen = new LoadingScreen();
+                                    loadingScreen.LoadScreenEvent += (sender0, e0) =>
+                                    {
+                                        Platform.Sleep(1000);
+                                    };
+                                }
+                            }
+                        }
                     }
                 }
                 else
@@ -289,7 +339,7 @@ namespace WorldOfTheThreeKingdoms
                 //}
                 //游戏设置中的全屏选项勾选后将多次调用这个方法，界面会闪来闪去
                 //只在初始化的时候全屏一次就好啦……
-                /*if ((GlobalVariables.FullScreen && !this.mainGameScreen.IsFullScreen) || (!GlobalVariables.FullScreen && this.mainGameScreen.IsFullScreen))
+                /*if ((Session.GlobalVariables.FullScreen && !this.mainGameScreen.IsFullScreen) || (!Session.GlobalVariables.FullScreen && this.mainGameScreen.IsFullScreen))
                 {
                     this.mainGameScreen.ToggleFullScreen();
                 }*/
@@ -312,7 +362,9 @@ namespace WorldOfTheThreeKingdoms
                         }
                         Platform.GraphicsDevice.SetRenderTarget(screenshot);
                     }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                     catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
                     {
                         //Log...
                     }
@@ -324,7 +376,7 @@ namespace WorldOfTheThreeKingdoms
 
             if (disScale) //Platform.PlatFormType == PlatForm.iOS && isRetina)
             {
-                if (mainGameScreen == null)
+                if (mainGameScreen == null || loadingScreen != null)
                 {
                     SpriteBatch.Begin(spriteMode, BlendState.AlphaBlend, null, null, null, null, SpriteScale1);
                 }
@@ -356,7 +408,46 @@ namespace WorldOfTheThreeKingdoms
                 }
                 else
                 {
-                    mainGameScreen.Draw(gameTime);
+                    if (isDebug)
+                    {
+                        mainGameScreen.Draw(gameTime);
+                    }
+                    else
+                    {
+                        if (String.IsNullOrEmpty(err))
+                        {
+                            try
+                            {
+                                mainGameScreen.Draw(gameTime);
+                            }
+                            catch (Exception ex)
+                            {
+                                err = "不好意思，游戏运行出错，点击将返回主菜单，请考虑读取自动存档。\r\n" + ex.Message;
+                                WebTools.TakeWarnMsg("mainGameScreen.Draw", "", ex);
+                            }
+                        }
+                        else
+                        {
+                            if (!String.IsNullOrEmpty(err))
+                            {
+                                CacheManager.DrawString(Session.Current.Font, err.SplitLineString(100), errPos, Color.Red, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                            }
+
+                            if (InputManager.IsPressed)
+                            {
+                                err = "";
+
+                                //保存當前進度
+                                mainGameScreen.SaveGameAutoPosition();
+
+                                loadingScreen = new LoadingScreen();
+                                loadingScreen.LoadScreenEvent += (sender0, e0) =>
+                                {
+                                    Platform.Sleep(1000);
+                                };
+                            }
+                        }
+                    }
                 }
             }
             else
@@ -364,11 +455,11 @@ namespace WorldOfTheThreeKingdoms
                 loadingScreen.Draw(gameTime);
             }
 
-            view = Platform.Current.MemoryUsage;
-            if (!String.IsNullOrEmpty(view))
-            {
-                CacheManager.DrawString(Session.Current.Font, "view:" + view.SplitLineString(100), errPos, Color.Red, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, -2f);
-            }
+            //view = Platform.Current.MemoryUsage;
+            //if (!String.IsNullOrEmpty(view))
+            //{
+            //    CacheManager.DrawString(Session.Current.Font, "view:" + view.SplitLineString(100), errPos, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            //}
 
             //if (!String.IsNullOrEmpty(warn) && lastWarnTime != null && (DateTime.Now - (DateTime)lastWarnTime).TotalSeconds < 20)
             //{

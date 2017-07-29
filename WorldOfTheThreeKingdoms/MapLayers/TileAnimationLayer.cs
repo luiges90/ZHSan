@@ -8,37 +8,31 @@ using Microsoft.Xna.Framework;
 using WorldOfTheThreeKingdoms;
 using Microsoft.Xna.Framework.Graphics;
 using GameObjects.Animations;
-
-
+using GameManager;
 
 namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
 
 {
     public class TileAnimationLayer
     {
-        private MainMapLayer mainMapLayer;
-        private GameScenario scenario;
-
-        public void Draw(SpriteBatch spriteBatch, Point viewportSize)
+        public void Draw(Point viewportSize)
         {
-            foreach (TileAnimation animation in this.scenario.GeneratorOfTileAnimation.TileAnimations.Values)
+            foreach (TileAnimation animation in Session.Current.Scenario.GeneratorOfTileAnimation.TileAnimations.Values)
             {
-                if ((GlobalVariables.DrawTroopAnimation && this.mainMapLayer.TileInScreen(animation.Position)) && ((GlobalVariables.SkyEye || this.scenario.NoCurrentPlayer) || ((this.scenario.CurrentPlayer != null) && this.scenario.CurrentPlayer.IsPositionKnown(animation.Position))))
+                if ((Session.GlobalVariables.DrawTroopAnimation && Session.MainGame.mainGameScreen.mainMapLayer.TileInScreen(animation.Position)) && ((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || ((Session.Current.Scenario.CurrentPlayer != null) && Session.Current.Scenario.CurrentPlayer.IsPositionKnown(animation.Position))))
                 {
-                    animation.Draw(spriteBatch, this.mainMapLayer.Tiles[animation.Position.X, animation.Position.Y].Destination);
+                    animation.Draw(Session.MainGame.mainGameScreen.mainMapLayer.Tiles[animation.Position.X, animation.Position.Y].Destination);
                 }
                 else if (!animation.Looping)
                 {
                     animation.Drawing = false;
                 }
             }
-            this.scenario.GeneratorOfTileAnimation.ClearFinishedAnimation();
+            Session.Current.Scenario.GeneratorOfTileAnimation.ClearFinishedAnimation();
         }
 
-        public void Initialize(MainMapLayer mainMapLayer, GameScenario scenario)
+        public void Initialize()
         {
-            this.mainMapLayer = mainMapLayer;
-            this.scenario = scenario;
         }
     }
 

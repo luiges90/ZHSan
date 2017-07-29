@@ -13,6 +13,10 @@ namespace GameManager
     public class PlatformTexture
     {
         public string Name { get; set; }
+
+        public int Width { get; set; }
+
+        public int Height { get; set; }
     }
 
     public struct PlatformColor
@@ -119,6 +123,8 @@ namespace GameManager
                 try
                 {
                     Session.Current.SoundContent.Unload();
+                    //Session.Current.MusicContent.Unload();
+                    Session.Current.Content.Unload();
                 }
                 catch (Exception ex)
                 {
@@ -184,10 +190,18 @@ namespace GameManager
         //    }
         //}
 
-        public static Texture2D LoadTempTexture(string name)
+        public static PlatformTexture GetTempTexture(string name)
         {
-            return Platform.Current.LoadTexture(name, false);
+            return new PlatformTexture()
+            {
+                Name = name
+            };
         }
+
+        //public static Texture2D LoadTempTexture(string name)
+        //{
+        //    return Platform.Current.LoadTexture(name, false);
+        //}
 
         public static Texture2D LoadAvatar(string name, bool isUser, bool isTemp, TextureShape shape, float[] shapeParms)
         {
@@ -328,6 +342,30 @@ namespace GameManager
             if (tex != null && !tex.IsDisposed)
             {
                 Session.Current.SpriteBatch.Draw(tex, pos, source, color, rotation, Vector2.Zero, scale, effect, 0f);
+            }
+        }
+
+        public static void Draw(PlatformTexture platformTexture, Vector2 pos, Rectangle? source, Color color, float rotation, Vector2 origin, float scale, SpriteEffects effect, float depth)
+        {
+            if (platformTexture != null && !String.IsNullOrEmpty(platformTexture.Name))
+            {
+                Texture2D tex = LoadTexture(platformTexture.Name);
+                if (tex != null && !tex.IsDisposed)
+                {
+                    Session.Current.SpriteBatch.Draw(tex, pos, source, color, rotation, origin, scale, effect, depth);
+                }
+            }
+        }
+
+        public static void Draw(PlatformTexture platformTexture, Rectangle rec, Rectangle? source, Color color, float rotation, Vector2 origin, SpriteEffects effect, float depth)
+        {
+            if (platformTexture != null && !String.IsNullOrEmpty(platformTexture.Name))
+            {
+                Texture2D tex = LoadTexture(platformTexture.Name);
+                if (tex != null && !tex.IsDisposed)
+                {
+                    Session.Current.SpriteBatch.Draw(tex, rec, source, color, rotation, origin, effect, depth);
+                }
             }
         }
 

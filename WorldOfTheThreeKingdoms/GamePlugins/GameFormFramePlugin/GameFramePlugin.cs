@@ -21,7 +21,7 @@ namespace GameFormFramePlugin
         private const string DataPath = @"Content\Textures\GameComponents\GameFrame\Data\";
         private string description = "窗体的框架";
         private GameFrame gameFrame = new GameFrame();
-        private GraphicsDevice graphicsDevice;
+        
         private const string Path = @"Content\Textures\GameComponents\GameFrame\";
         private string pluginName = "GameFramePlugin";
         private string version = "1.0.0";
@@ -36,12 +36,12 @@ namespace GameFormFramePlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            this.gameFrame.Draw(spriteBatch);
+            this.gameFrame.Draw();
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -57,38 +57,38 @@ namespace GameFormFramePlugin
             XmlNode nextSibling = document.FirstChild.NextSibling;
             XmlNode node = nextSibling.ChildNodes.Item(0);
             this.gameFrame.leftedgeWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.gameFrame.leftedgeTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.leftedgeTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(1);
             this.gameFrame.rightedgeWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.gameFrame.rightedgeTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.rightedgeTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(2);
             this.gameFrame.topedgeWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.gameFrame.topedgeTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.topedgeTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(3);
             this.gameFrame.bottomedgeWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.gameFrame.bottomedgeTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.bottomedgeTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(4);
-            this.gameFrame.backgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.backgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(5);
             this.gameFrame.okbuttonSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.gameFrame.okbuttonSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.gameFrame.okbuttonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.gameFrame.okbuttonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Selected").Value);
-            this.gameFrame.okbuttonPressedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Pressed").Value);
-            this.gameFrame.okbuttonDisabledTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
+            this.gameFrame.okbuttonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.okbuttonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.gameFrame.okbuttonPressedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Pressed").Value);
+            this.gameFrame.okbuttonDisabledTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
             node = nextSibling.ChildNodes.Item(6);
             this.gameFrame.cancelbuttonSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.gameFrame.cancelbuttonSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.gameFrame.cancelbuttonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.gameFrame.cancelbuttonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Selected").Value);
-            this.gameFrame.cancelbuttonPressedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Pressed").Value);
-            this.gameFrame.cancelbuttonDisabledTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
+            this.gameFrame.cancelbuttonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.cancelbuttonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.gameFrame.cancelbuttonPressedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Pressed").Value);
+            this.gameFrame.cancelbuttonDisabledTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
             node = nextSibling.ChildNodes.Item(7);
             this.gameFrame.titleWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.gameFrame.titleHeight = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.gameFrame.titleTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.titleTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.gameFrame.TitleText = new FreeText(this.graphicsDevice, font, color);
+            this.gameFrame.TitleText = new FreeText(font, color);
             this.gameFrame.TitleText.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
             node = nextSibling.ChildNodes.Item(8);
             this.gameFrame.OKSoundFile = @"Content\Sound\" + node.Attributes.GetNamedItem("OK").Value;
@@ -96,30 +96,30 @@ namespace GameFormFramePlugin
             node = nextSibling.ChildNodes.Item(9);
             this.gameFrame.mapviewselectorbuttonSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.gameFrame.mapviewselectorbuttonSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.gameFrame.MapViewSelectorButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.gameFrame.MapViewSelectorButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.gameFrame.MapViewSelectorButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.MapViewSelectorButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Selected").Value);
 
 
             node = nextSibling.ChildNodes.Item(10);
             //this.gameFrame.TopLeftWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.gameFrame.TopLeftTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.TopLeftTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(11);
             //this.gameFrame.TopRightWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.gameFrame.TopRightTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.TopRightTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(12);
             //this.gameFrame.BottomLeftWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.gameFrame.BottomLeftTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.BottomLeftTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(13);
             //this.gameFrame.BottomRightWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.gameFrame.BottomRightTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.BottomRightTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             /*
             node = nextSibling.ChildNodes.Item(14);
             this.gameFrame.selectallbuttonSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.gameFrame.selectallbuttonSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.gameFrame.selectallbuttonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.gameFrame.selectallbuttonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Selected").Value);
-            this.gameFrame.selectallbuttonPressedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Pressed").Value);
-            this.gameFrame.selectallbuttonDisabledTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
+            this.gameFrame.selectallbuttonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameFrame.selectallbuttonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.gameFrame.selectallbuttonPressedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Pressed").Value);
+            this.gameFrame.selectallbuttonDisabledTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameFrame\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
              */
         }
 
@@ -151,9 +151,8 @@ namespace GameFormFramePlugin
             }
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\GameFrameData.xml");
         }
 
@@ -162,9 +161,9 @@ namespace GameFormFramePlugin
             this.gameFrame.SetOKFunction(function);
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.gameFrame.Initialize(screen as Screen);
+            this.gameFrame.Initialize();
         }
 
         public void Update(GameTime gameTime)

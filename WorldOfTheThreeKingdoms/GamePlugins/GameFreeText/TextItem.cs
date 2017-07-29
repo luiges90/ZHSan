@@ -1,8 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GameManager;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-
-
 
 namespace GameFreeText
 {
@@ -12,7 +11,7 @@ namespace GameFreeText
         public int MaxWidth;
         public Rectangle Position;
         public string Text;
-        public Texture2D TextTexture;
+        public PlatformTexture TextTexture;
 
         public TextItem(string text)
         {

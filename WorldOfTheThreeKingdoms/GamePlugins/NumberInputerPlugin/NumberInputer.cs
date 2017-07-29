@@ -1,5 +1,6 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,32 +14,32 @@ namespace NumberInputerPlugin
     internal class NumberInputer
     {
         internal Point BackgroundSize;
-        internal Texture2D BackgroundTexture;
+        internal PlatformTexture BackgroundTexture;
         internal Rectangle BackspacePosition;
-        internal Texture2D BackspaceTexture;
+        internal PlatformTexture BackspaceTexture;
         internal Rectangle ClearPosition;
-        internal Texture2D ClearTexture;
+        internal PlatformTexture ClearTexture;
         private Keys currentKey;
         internal float DepthOffset;
         internal Point DisplayOffset;
         internal GameDelegates.VoidFunction EnterFunction;
         internal Rectangle EnterPosition;
-        internal Texture2D EnterTexture;
+        internal PlatformTexture EnterTexture;
         internal Rectangle ExitPosition;
-        internal Texture2D ExitTexture;
+        internal PlatformTexture ExitTexture;
         internal Rectangle FramePosition;
         internal FreeText FrameText;
-        internal Texture2D FrameTexture;
+        internal PlatformTexture FrameTexture;
         private bool isShowing;
         internal int Max = -1;
         internal Rectangle MaxPosition;
-        internal Texture2D MaxTexture;
+        internal PlatformTexture MaxTexture;
         internal int Num;
         internal List<Number> Numbers = new List<Number>();
         internal FreeText RangeText;
-        private Screen screen;
+        
         internal Rectangle SelectionDisplayPosition;
-        internal Texture2D SelectionTexture;
+        internal PlatformTexture SelectionTexture;
         internal bool ShowSelection;
         internal string unit = "";
         internal int Scale = 1;
@@ -55,32 +56,32 @@ namespace NumberInputerPlugin
             this.FrameText.Text = this.Num.ToString();
         }
 
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw()
         {
             Rectangle? sourceRectangle = null;
-            spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, this.DepthOffset + 0.2f);
-            this.RangeText.Draw(spriteBatch, (this.DepthOffset + 0.2f) + -0.0001f);
+            CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, this.DepthOffset + 0.2f);
+            this.RangeText.Draw((this.DepthOffset + 0.2f) + -0.0001f);
             sourceRectangle = null;
-            spriteBatch.Draw(this.FrameTexture, this.FrameDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -1E-05f);
-            this.FrameText.Draw(spriteBatch, (this.DepthOffset + 0.2f) + -0.0001f);
+            CacheManager.Draw(this.FrameTexture, this.FrameDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -1E-05f);
+            this.FrameText.Draw((this.DepthOffset + 0.2f) + -0.0001f);
             foreach (Number number in this.Numbers)
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(number.Texture, number.GetDisplayPosition(this.DisplayOffset), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
+                CacheManager.Draw(number.Texture, number.GetDisplayPosition(this.DisplayOffset), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
             }
             sourceRectangle = null;
-            spriteBatch.Draw(this.ClearTexture, this.ClearDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
+            CacheManager.Draw(this.ClearTexture, this.ClearDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
             sourceRectangle = null;
-            spriteBatch.Draw(this.ExitTexture, this.ExitDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
+            CacheManager.Draw(this.ExitTexture, this.ExitDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
             sourceRectangle = null;
-            spriteBatch.Draw(this.EnterTexture, this.EnterDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
+            CacheManager.Draw(this.EnterTexture, this.EnterDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
             sourceRectangle = null;
-            spriteBatch.Draw(this.BackspaceTexture, this.BackspaceDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
+            CacheManager.Draw(this.BackspaceTexture, this.BackspaceDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
             sourceRectangle = null;
-            spriteBatch.Draw(this.MaxTexture, this.MaxDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
+            CacheManager.Draw(this.MaxTexture, this.MaxDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
             if (this.ShowSelection)
             {
-                spriteBatch.Draw(this.SelectionTexture, this.SelectionDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, ((this.DepthOffset + 0.2f) + -0.001f) + -0.0002f);
+                CacheManager.Draw(this.SelectionTexture, this.SelectionDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, ((this.DepthOffset + 0.2f) + -0.001f) + -0.0002f);
             }
         }
 
@@ -99,9 +100,9 @@ namespace NumberInputerPlugin
             this.IsShowing = false;
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         private void InputDigit(int digit)
@@ -126,7 +127,7 @@ namespace NumberInputerPlugin
 
         private void screen_OnMouseLeftDown(Point position)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Inputer)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Inputer)
             {
                 if (StaticMethods.PointInRectangle(position, this.ClearDisplayPosition))
                 {
@@ -164,7 +165,7 @@ namespace NumberInputerPlugin
 
         private void screen_OnMouseMove(Point position, bool leftDown)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Inputer)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Inputer)
             {
                 this.ShowSelection = false;
                 foreach (Number number in this.Numbers)
@@ -209,7 +210,7 @@ namespace NumberInputerPlugin
 
         private void screen_OnMouseRightDown(Point position)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Inputer)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Inputer)
             {
                 this.IsShowing = false;
             }
@@ -217,7 +218,7 @@ namespace NumberInputerPlugin
 
         internal void SetDisplayOffset(ShowPosition showPosition)
         {
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
             Rectangle rect = new Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
             switch (showPosition)
             {
@@ -275,138 +276,138 @@ namespace NumberInputerPlugin
         {
             if (this.currentKey != Keys.None)
             {
-                if (!this.screen.KeyState.IsKeyUp(this.currentKey))
+                if (!Session.MainGame.mainGameScreen.KeyState.IsKeyUp(this.currentKey))
                 {
                     return;
                 }
                 this.currentKey = Keys.None;
             }
-            if (this.screen.KeyState.IsKeyDown(Keys.NumPad0))
+            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad0))
             {
                 this.InputDigit(0);
                 this.currentKey = Keys.NumPad0;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.D0))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D0))
             {
                 this.InputDigit(0);
                 this.currentKey = Keys.D0;
             }
-            if (this.screen.KeyState.IsKeyDown(Keys.NumPad1))
+            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad1))
             {
                 this.InputDigit(1);
                 this.currentKey = Keys.NumPad1;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.D1))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D1))
             {
                 this.InputDigit(1);
                 this.currentKey = Keys.D1;
             }
-            if (this.screen.KeyState.IsKeyDown(Keys.NumPad2))
+            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad2))
             {
                 this.InputDigit(2);
                 this.currentKey = Keys.NumPad2;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.D2))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D2))
             {
                 this.InputDigit(2);
                 this.currentKey = Keys.D2;
             }
-            if (this.screen.KeyState.IsKeyDown(Keys.NumPad3))
+            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad3))
             {
                 this.InputDigit(3);
                 this.currentKey = Keys.NumPad3;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.D3))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D3))
             {
                 this.InputDigit(3);
                 this.currentKey = Keys.D3;
             }
-            if (this.screen.KeyState.IsKeyDown(Keys.NumPad4))
+            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad4))
             {
                 this.InputDigit(4);
                 this.currentKey = Keys.NumPad4;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.D4))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D4))
             {
                 this.InputDigit(4);
                 this.currentKey = Keys.D4;
             }
-            if (this.screen.KeyState.IsKeyDown(Keys.NumPad5))
+            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad5))
             {
                 this.InputDigit(5);
                 this.currentKey = Keys.NumPad5;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.D5))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D5))
             {
                 this.InputDigit(5);
                 this.currentKey = Keys.D5;
             }
-            if (this.screen.KeyState.IsKeyDown(Keys.NumPad6))
+            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad6))
             {
                 this.InputDigit(6);
                 this.currentKey = Keys.NumPad6;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.D6))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D6))
             {
                 this.InputDigit(6);
                 this.currentKey = Keys.D6;
             }
-            if (this.screen.KeyState.IsKeyDown(Keys.NumPad7))
+            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad7))
             {
                 this.InputDigit(7);
                 this.currentKey = Keys.NumPad7;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.D7))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D7))
             {
                 this.InputDigit(7);
                 this.currentKey = Keys.D7;
             }
-            if (this.screen.KeyState.IsKeyDown(Keys.NumPad8))
+            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad8))
             {
                 this.InputDigit(8);
                 this.currentKey = Keys.NumPad8;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.D8))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D8))
             {
                 this.InputDigit(8);
                 this.currentKey = Keys.D8;
             }
-            if (this.screen.KeyState.IsKeyDown(Keys.NumPad9))
+            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad9))
             {
                 this.InputDigit(9);
                 this.currentKey = Keys.NumPad9;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.D9))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D9))
             {
                 this.InputDigit(9);
                 this.currentKey = Keys.D9;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.Delete))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Delete))
             {
                 this.ClearNumber();
                 this.currentKey = Keys.Delete;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.Enter))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Enter))
             {
                 this.Enter();
                 this.currentKey = Keys.Enter;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.Back))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Back))
             {
                 this.Backspace();
                 this.currentKey = Keys.Back;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.Escape))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Escape))
             {
                 this.Exit();
                 this.currentKey = Keys.Escape;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.Space))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Space))
             {
                 this.MaxNumber();
                 this.currentKey = Keys.Space;
             }
-            else if (this.screen.KeyState.IsKeyDown(Keys.Add))
+            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Add))
             {
                 this.MaxNumber();
                 this.currentKey = Keys.Add;
@@ -472,10 +473,10 @@ namespace NumberInputerPlugin
                 this.isShowing = value;
                 if (value)
                 {
-                    this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Inputer, UndoneWorkSubKind.None));
-                    this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
-                    this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Inputer, UndoneWorkSubKind.None));
+                    Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                    Session.MainGame.mainGameScreen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftDown);
                 }
                 else
                 {
@@ -484,13 +485,13 @@ namespace NumberInputerPlugin
                     this.Scale = 1;
                     this.Num = 0;
                     this.unit = "";
-                    if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.Inputer)
+                    if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.Inputer)
                     {
                         throw new Exception("The UndoneWork is not a NumberInputer.");
                     }
-                    this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
-                    this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                    Session.MainGame.mainGameScreen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftDown);
                 }
             }
         }

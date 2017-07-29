@@ -7,7 +7,7 @@ using GameGlobal;
 using Microsoft.Xna.Framework.Graphics;
 using GameFreeText;
 using GameObjects;
-
+using GameManager;
 
 namespace ArchitectureSurveyPlugin
 {
@@ -17,11 +17,11 @@ namespace ArchitectureSurveyPlugin
         public Architecture ArchitectureToSurvey;
         public FreeText ArmyText;
         public Point BackgroundSize;
-        public Texture2D BackgroundTexture;
+        public PlatformTexture BackgroundTexture;
         public FreeText CommerceText;
         private bool Controlling;
         public Point ControllingBackgroundSize;
-        public Texture2D ControllingBackgroundTexture;
+        public PlatformTexture ControllingBackgroundTexture;
         public Point CurrentPosition;
         private Point displayOffset;
         public FreeText DominationText;
@@ -29,7 +29,7 @@ namespace ArchitectureSurveyPlugin
         public Color FactionColor;
         public Rectangle FactionPosition;
         public FreeText FactionText;
-        public Texture2D FactionTexture;
+        public PlatformTexture FactionTexture;
         public FreeText FoodText;
         public FreeText FundText;
         public FreeText KindText;
@@ -53,8 +53,8 @@ namespace ArchitectureSurveyPlugin
         internal string Switch2;//进度条图片
 
         //public Point NewControllingBackgroundSize;
-        public Texture2D NewControllingBackgroundTexture;
-        public Texture2D NewControllingMaskTexture;
+        public PlatformTexture NewControllingBackgroundTexture;
+        public PlatformTexture NewControllingMaskTexture;
         //↓建筑种类相关定义
         internal string AKinds;
         internal string AKindfor1;
@@ -86,100 +86,100 @@ namespace ArchitectureSurveyPlugin
         internal string AKindfor27;
         internal string AKindfor28;
         //↓建筑种类文理及尺寸相关定义
-        internal Texture2D AKBackgroundTexture;
-        internal Texture2D AKBackground0Texture;
-        internal Texture2D AKBackground1Texture;
-        internal Texture2D AKBackground2Texture;
-        internal Texture2D AKBackground3Texture;
-        internal Texture2D AKBackground4Texture;
-        internal Texture2D AKBackground5Texture;
-        internal Texture2D AKBackground6Texture;
-        internal Texture2D AKBackground7Texture;
-        internal Texture2D AKBackground8Texture;
-        internal Texture2D AKBackground9Texture;
-        internal Texture2D AKBackground10Texture;
-        internal Texture2D AKBackground11Texture;
-        internal Texture2D AKBackground12Texture;
-        internal Texture2D AKBackground13Texture;
-        internal Texture2D AKBackground14Texture;
-        internal Texture2D AKBackground15Texture;
-        internal Texture2D AKBackground16Texture;
-        internal Texture2D AKBackground17Texture;
-        internal Texture2D AKBackground18Texture;
-        internal Texture2D AKBackground19Texture;
-        internal Texture2D AKBackground20Texture;
-        internal Texture2D AKBackground21Texture;
-        internal Texture2D AKBackground22Texture;
-        internal Texture2D AKBackground23Texture;
-        internal Texture2D AKBackground24Texture;
-        internal Texture2D AKBackground25Texture;
-        internal Texture2D AKBackground26Texture;
-        internal Texture2D AKBackground27Texture;
-        internal Texture2D AKBackground28Texture;
+        internal PlatformTexture AKBackgroundTexture;
+        internal PlatformTexture AKBackground0Texture;
+        internal PlatformTexture AKBackground1Texture;
+        internal PlatformTexture AKBackground2Texture;
+        internal PlatformTexture AKBackground3Texture;
+        internal PlatformTexture AKBackground4Texture;
+        internal PlatformTexture AKBackground5Texture;
+        internal PlatformTexture AKBackground6Texture;
+        internal PlatformTexture AKBackground7Texture;
+        internal PlatformTexture AKBackground8Texture;
+        internal PlatformTexture AKBackground9Texture;
+        internal PlatformTexture AKBackground10Texture;
+        internal PlatformTexture AKBackground11Texture;
+        internal PlatformTexture AKBackground12Texture;
+        internal PlatformTexture AKBackground13Texture;
+        internal PlatformTexture AKBackground14Texture;
+        internal PlatformTexture AKBackground15Texture;
+        internal PlatformTexture AKBackground16Texture;
+        internal PlatformTexture AKBackground17Texture;
+        internal PlatformTexture AKBackground18Texture;
+        internal PlatformTexture AKBackground19Texture;
+        internal PlatformTexture AKBackground20Texture;
+        internal PlatformTexture AKBackground21Texture;
+        internal PlatformTexture AKBackground22Texture;
+        internal PlatformTexture AKBackground23Texture;
+        internal PlatformTexture AKBackground24Texture;
+        internal PlatformTexture AKBackground25Texture;
+        internal PlatformTexture AKBackground26Texture;
+        internal PlatformTexture AKBackground27Texture;
+        internal PlatformTexture AKBackground28Texture;
         internal Rectangle AKBackground0Client; 
         //进度条相关定义
        
-        internal Texture2D DominationBarTexture;
-        internal Texture2D Domination1BarTexture;
-        internal Texture2D Domination2BarTexture;
-        internal Texture2D Domination3BarTexture;
-        internal Texture2D Domination4BarTexture;
-        internal Texture2D Domination5BarTexture;
-        internal Texture2D Domination6BarTexture;
+        internal PlatformTexture DominationBarTexture;
+        internal PlatformTexture Domination1BarTexture;
+        internal PlatformTexture Domination2BarTexture;
+        internal PlatformTexture Domination3BarTexture;
+        internal PlatformTexture Domination4BarTexture;
+        internal PlatformTexture Domination5BarTexture;
+        internal PlatformTexture Domination6BarTexture;
         internal Rectangle DominationBarClient;
 
-        internal Texture2D EnduranceBarTexture;
-        internal Texture2D Endurance1BarTexture;
-        internal Texture2D Endurance2BarTexture;
-        internal Texture2D Endurance3BarTexture;
-        internal Texture2D Endurance4BarTexture;
-        internal Texture2D Endurance5BarTexture;
-        internal Texture2D Endurance6BarTexture;
+        internal PlatformTexture EnduranceBarTexture;
+        internal PlatformTexture Endurance1BarTexture;
+        internal PlatformTexture Endurance2BarTexture;
+        internal PlatformTexture Endurance3BarTexture;
+        internal PlatformTexture Endurance4BarTexture;
+        internal PlatformTexture Endurance5BarTexture;
+        internal PlatformTexture Endurance6BarTexture;
         internal Rectangle EnduranceBarClient;
 
-        internal Texture2D AgricultureBarTexture;
-        internal Texture2D Agriculture1BarTexture;
-        internal Texture2D Agriculture2BarTexture;
-        internal Texture2D Agriculture3BarTexture;
-        internal Texture2D Agriculture4BarTexture;
-        internal Texture2D Agriculture5BarTexture;
-        internal Texture2D Agriculture6BarTexture;
+        internal PlatformTexture AgricultureBarTexture;
+        internal PlatformTexture Agriculture1BarTexture;
+        internal PlatformTexture Agriculture2BarTexture;
+        internal PlatformTexture Agriculture3BarTexture;
+        internal PlatformTexture Agriculture4BarTexture;
+        internal PlatformTexture Agriculture5BarTexture;
+        internal PlatformTexture Agriculture6BarTexture;
         internal Rectangle AgricultureBarClient;
 
-        internal Texture2D CommerceBarTexture;
-        internal Texture2D Commerce1BarTexture;
-        internal Texture2D Commerce2BarTexture;
-        internal Texture2D Commerce3BarTexture;
-        internal Texture2D Commerce4BarTexture;
-        internal Texture2D Commerce5BarTexture;
-        internal Texture2D Commerce6BarTexture;
+        internal PlatformTexture CommerceBarTexture;
+        internal PlatformTexture Commerce1BarTexture;
+        internal PlatformTexture Commerce2BarTexture;
+        internal PlatformTexture Commerce3BarTexture;
+        internal PlatformTexture Commerce4BarTexture;
+        internal PlatformTexture Commerce5BarTexture;
+        internal PlatformTexture Commerce6BarTexture;
         internal Rectangle CommerceBarClient;
 
-        internal Texture2D TechnologyBarTexture;
-        internal Texture2D Technology1BarTexture;
-        internal Texture2D Technology2BarTexture;
-        internal Texture2D Technology3BarTexture;
-        internal Texture2D Technology4BarTexture;
-        internal Texture2D Technology5BarTexture;
-        internal Texture2D Technology6BarTexture;
+        internal PlatformTexture TechnologyBarTexture;
+        internal PlatformTexture Technology1BarTexture;
+        internal PlatformTexture Technology2BarTexture;
+        internal PlatformTexture Technology3BarTexture;
+        internal PlatformTexture Technology4BarTexture;
+        internal PlatformTexture Technology5BarTexture;
+        internal PlatformTexture Technology6BarTexture;
         internal Rectangle TechnologyBarClient;
 
-        internal Texture2D MoraleBarTexture;
-        internal Texture2D Morale1BarTexture;
-        internal Texture2D Morale2BarTexture;
-        internal Texture2D Morale3BarTexture;
-        internal Texture2D Morale4BarTexture;
-        internal Texture2D Morale5BarTexture;
-        internal Texture2D Morale6BarTexture;
+        internal PlatformTexture MoraleBarTexture;
+        internal PlatformTexture Morale1BarTexture;
+        internal PlatformTexture Morale2BarTexture;
+        internal PlatformTexture Morale3BarTexture;
+        internal PlatformTexture Morale4BarTexture;
+        internal PlatformTexture Morale5BarTexture;
+        internal PlatformTexture Morale6BarTexture;
         internal Rectangle MoraleBarClient;
 
-        internal Texture2D FacilityCountBarTexture;
-        internal Texture2D FacilityCount1BarTexture;
-        internal Texture2D FacilityCount2BarTexture;
-        internal Texture2D FacilityCount3BarTexture;
-        internal Texture2D FacilityCount4BarTexture;
-        internal Texture2D FacilityCount5BarTexture;
-        internal Texture2D FacilityCount6BarTexture;
+        internal PlatformTexture FacilityCountBarTexture;
+        internal PlatformTexture FacilityCount1BarTexture;
+        internal PlatformTexture FacilityCount2BarTexture;
+        internal PlatformTexture FacilityCount3BarTexture;
+        internal PlatformTexture FacilityCount4BarTexture;
+        internal PlatformTexture FacilityCount5BarTexture;
+        internal PlatformTexture FacilityCount6BarTexture;
         internal Rectangle FacilityCountBarClient;
                 
         float Bar2 = 0;
@@ -192,72 +192,72 @@ namespace ArchitectureSurveyPlugin
         
 
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             Rectangle? nullable;
             if (!this.Controlling)
             {
                 nullable = null;
-                spriteBatch.Draw(this.BackgroundTexture, new Rectangle(this.displayOffset.X, this.displayOffset.Y, this.BackgroundSize.X, this.BackgroundSize.Y), nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.053f);
-                spriteBatch.Draw(this.FactionTexture, new Rectangle(this.displayOffset.X + this.FactionPosition.X, this.displayOffset.Y + this.FactionPosition.Y, this.FactionPosition.Width, this.FactionPosition.Height), null, this.FactionColor, 0f, Vector2.Zero, SpriteEffects.None, 0.049f);
-                this.NameText.Draw(spriteBatch, 0.05f);
-                this.KindText.Draw(spriteBatch, 0.05f);
-                this.FactionText.Draw(spriteBatch, 0.05f);
-                this.PopulationText.Draw(spriteBatch, 0.05f);
-                this.MilitaryPopulationText.Draw(spriteBatch, 0.05f);
-                this.ArmyText.Draw(spriteBatch, 0.05f);
-                this.DominationText.Draw(spriteBatch, 0.05f);
-                this.EnduranceText.Draw(spriteBatch, 0.05f);
-                this.MayorNameText.Draw(spriteBatch, 0.05f);
+                CacheManager.Draw(this.BackgroundTexture, new Rectangle(this.displayOffset.X, this.displayOffset.Y, this.BackgroundSize.X, this.BackgroundSize.Y), nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.053f);
+                CacheManager.Draw(this.FactionTexture, new Rectangle(this.displayOffset.X + this.FactionPosition.X, this.displayOffset.Y + this.FactionPosition.Y, this.FactionPosition.Width, this.FactionPosition.Height), null, this.FactionColor, 0f, Vector2.Zero, SpriteEffects.None, 0.049f);
+                this.NameText.Draw(0.05f);
+                this.KindText.Draw(0.05f);
+                this.FactionText.Draw(0.05f);
+                this.PopulationText.Draw(0.05f);
+                this.MilitaryPopulationText.Draw(0.05f);
+                this.ArmyText.Draw(0.05f);
+                this.DominationText.Draw(0.05f);
+                this.EnduranceText.Draw(0.05f);
+                this.MayorNameText.Draw(0.05f);
             }
             else
             {
                 nullable = null;
                 if (Switch1 != "on")
                 {
-                    spriteBatch.Draw(this.ControllingBackgroundTexture, new Rectangle(this.displayOffset.X, this.displayOffset.Y, this.ControllingBackgroundSize.X, this.ControllingBackgroundSize.Y), nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.053f);
+                    CacheManager.Draw(this.ControllingBackgroundTexture, new Rectangle(this.displayOffset.X, this.displayOffset.Y, this.ControllingBackgroundSize.X, this.ControllingBackgroundSize.Y), nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.053f);
                 }
-                    spriteBatch.Draw(this.FactionTexture, new Rectangle(this.displayOffset.X + this.FactionPosition.X, this.displayOffset.Y + this.FactionPosition.Y, this.FactionPosition.Width, this.FactionPosition.Height), null, this.FactionColor, 0f, Vector2.Zero, SpriteEffects.None, 0.052f);
+                    CacheManager.Draw(this.FactionTexture, new Rectangle(this.displayOffset.X + this.FactionPosition.X, this.displayOffset.Y + this.FactionPosition.Y, this.FactionPosition.Width, this.FactionPosition.Height), null, this.FactionColor, 0f, Vector2.Zero, SpriteEffects.None, 0.052f);
                 if (Switch1 == "on")
                 {
-                    spriteBatch.Draw(this.AKBackgroundTexture, this.AKBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0491f);
-                    spriteBatch.Draw(this.NewControllingBackgroundTexture, new Rectangle(this.displayOffset.X, this.displayOffset.Y, this.ControllingBackgroundSize.X, this.ControllingBackgroundSize.Y), nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.053f);
+                    CacheManager.Draw(this.AKBackgroundTexture, this.AKBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0491f);
+                    CacheManager.Draw(this.NewControllingBackgroundTexture, new Rectangle(this.displayOffset.X, this.displayOffset.Y, this.ControllingBackgroundSize.X, this.ControllingBackgroundSize.Y), nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.053f);
                 }
                 if (Switch2 == "on")
                 {
                     try
                     {
-                        spriteBatch.Draw(this.DominationBarTexture, this.DominationBarDisplayPosition, this.DominationDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
-                        spriteBatch.Draw(this.EnduranceBarTexture, this.EnduranceBarDisplayPosition, this.EnduranceDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
-                        spriteBatch.Draw(this.AgricultureBarTexture, this.AgricultureBarDisplayPosition, this.AgricultureDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
-                        spriteBatch.Draw(this.CommerceBarTexture, this.CommerceBarDisplayPosition, this.CommerceDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
-                        spriteBatch.Draw(this.TechnologyBarTexture, this.TechnologyBarDisplayPosition, this.TechnologyDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
-                        spriteBatch.Draw(this.MoraleBarTexture, this.MoraleBarDisplayPosition, this.MoraleDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
-                        spriteBatch.Draw(this.FacilityCountBarTexture, this.FacilityCountBarDisplayPosition, this.FacilityCountDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
-                        spriteBatch.Draw(this.NewControllingMaskTexture, new Rectangle(this.displayOffset.X, this.displayOffset.Y, this.ControllingBackgroundSize.X, this.ControllingBackgroundSize.Y), nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.049f);
+                        CacheManager.Draw(this.DominationBarTexture, this.DominationBarDisplayPosition, this.DominationDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
+                        CacheManager.Draw(this.EnduranceBarTexture, this.EnduranceBarDisplayPosition, this.EnduranceDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
+                        CacheManager.Draw(this.AgricultureBarTexture, this.AgricultureBarDisplayPosition, this.AgricultureDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
+                        CacheManager.Draw(this.CommerceBarTexture, this.CommerceBarDisplayPosition, this.CommerceDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
+                        CacheManager.Draw(this.TechnologyBarTexture, this.TechnologyBarDisplayPosition, this.TechnologyDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
+                        CacheManager.Draw(this.MoraleBarTexture, this.MoraleBarDisplayPosition, this.MoraleDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
+                        CacheManager.Draw(this.FacilityCountBarTexture, this.FacilityCountBarDisplayPosition, this.FacilityCountDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.051f);
+                        CacheManager.Draw(this.NewControllingMaskTexture, new Rectangle(this.displayOffset.X, this.displayOffset.Y, this.ControllingBackgroundSize.X, this.ControllingBackgroundSize.Y), nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.049f);
                     }
                     catch { }
                 }
 
-                this.NameText.Draw(spriteBatch, 0.05f);
-                this.KindText.Draw(spriteBatch, 0.05f);
-                this.FactionText.Draw(spriteBatch, 0.05f);
-                this.PopulationText.Draw(spriteBatch, 0.05f);
-                this.MilitaryPopulationText.Draw(spriteBatch, 0.05f);
-                this.ArmyText.Draw(spriteBatch, 0.05f);
-                this.DominationText.Draw(spriteBatch, 0.05f);
-                this.EnduranceText.Draw(spriteBatch, 0.05f);
-                this.FundText.Draw(spriteBatch, 0.05f);
-                this.FoodText.Draw(spriteBatch, 0.05f);
-                this.PersonCountText.Draw(spriteBatch, 0.05f);
-                this.FacilityCountText.Draw(spriteBatch, 0.05f);
-                this.NoFactionPersonCountText.Draw(spriteBatch, 0.05f);
-                this.AgricultureText.Draw(spriteBatch, 0.05f);
-                this.CommerceText.Draw(spriteBatch, 0.05f);
-                this.TechnologyText.Draw(spriteBatch, 0.05f);
-                this.MoraleText.Draw(spriteBatch, 0.05f);
-                this.BuildingDaysLeftText.Draw(spriteBatch, 0.05f);
-                this.MayorNameText.Draw(spriteBatch, 0.05f);
+                this.NameText.Draw(0.05f);
+                this.KindText.Draw(0.05f);
+                this.FactionText.Draw(0.05f);
+                this.PopulationText.Draw(0.05f);
+                this.MilitaryPopulationText.Draw(0.05f);
+                this.ArmyText.Draw(0.05f);
+                this.DominationText.Draw(0.05f);
+                this.EnduranceText.Draw(0.05f);
+                this.FundText.Draw(0.05f);
+                this.FoodText.Draw(0.05f);
+                this.PersonCountText.Draw(0.05f);
+                this.FacilityCountText.Draw(0.05f);
+                this.NoFactionPersonCountText.Draw(0.05f);
+                this.AgricultureText.Draw(0.05f);
+                this.CommerceText.Draw(0.05f);
+                this.TechnologyText.Draw(0.05f);
+                this.MoraleText.Draw(0.05f);
+                this.BuildingDaysLeftText.Draw(0.05f);
+                this.MayorNameText.Draw(0.05f);
             }
         }
 
@@ -293,7 +293,7 @@ namespace ArchitectureSurveyPlugin
             {
                 this.FactionColor = this.ArchitectureToSurvey.BelongedFaction.FactionColor;
             }
-            if (((this.ViewingFaction != null) && !GlobalVariables.SkyEye) && (this.ViewingFaction != this.ArchitectureToSurvey.BelongedFaction))
+            if (((this.ViewingFaction != null) && !Session.GlobalVariables.SkyEye) && (this.ViewingFaction != this.ArchitectureToSurvey.BelongedFaction))
             {
                 this.Controlling = false;
                 rectangle = new Rectangle(this.Left - this.BackgroundSize.X, this.Top - this.BackgroundSize.Y, this.BackgroundSize.X, this.BackgroundSize.Y);

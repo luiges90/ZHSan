@@ -1,7 +1,7 @@
 ﻿using GameObjects;
 using GameObjects.Conditions;
 using System;
-
+using GameManager;
 
 using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKindPack
 {
@@ -12,7 +12,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
 
         public override bool CheckConditionKind(Person person)
         {
-            Treasure t = person.Scenario.Treasures.GetGameObject(number) as Treasure;
+            Treasure t = Session.Current.Scenario.Treasures.GetGameObject(number) as Treasure;
             return !person.Treasures.GameObjects.Contains(t);
         }
 

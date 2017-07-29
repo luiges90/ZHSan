@@ -1,5 +1,6 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -18,7 +19,7 @@ namespace ContextMenuPlugin
         public object CurrentGameObject;
         public int CurrentParamID;
         public string FoldSoundFile;
-        public Texture2D HasChildTexture;
+        public PlatformTexture HasChildTexture;
         public IHelp HelpPlugin;
         private bool isShowing;
         public const int ItemMoveMargin = 10;
@@ -28,8 +29,8 @@ namespace ContextMenuPlugin
         public Font LeftClickFreeTextBuilder = new Font();
         //public FreeTextBuilder LeftClickFreeTextBuilder = new FreeTextBuilder();
 
-        public Texture2D LeftClickItemSelectedTexture;
-        public Texture2D LeftClickItemTexture;
+        public PlatformTexture LeftClickItemSelectedTexture;
+        public PlatformTexture LeftClickItemTexture;
         public Color LeftClickTextColor;
         public List<MenuKind> MenuKinds = new List<MenuKind>();
         private MenuKind menuToDisplay;
@@ -39,35 +40,35 @@ namespace ContextMenuPlugin
         public Font RightClickFreeTextBuilder = new Font();
         //public FreeTextBuilder RightClickFreeTextBuilder = new FreeTextBuilder();
 
-        public Texture2D RightClickItemSelectedTexture;
-        public Texture2D RightClickItemTexture;
+        public PlatformTexture RightClickItemSelectedTexture;
+        public PlatformTexture RightClickItemTexture;
         public Color RightClickTextColor;
 
         public Font DisabledFreeTextBuilder = new Font();
         //public FreeTextBuilder DisabledFreeTextBuilder = new FreeTextBuilder();
 
-        public Texture2D DisabledItemSelectedTexture;
-        public Texture2D DisabledItemTexture;
+        public PlatformTexture DisabledItemSelectedTexture;
+        public PlatformTexture DisabledItemTexture;
         public Color DisabledTextColor;
 
         public Font RightDisabledFreeTextBuilder = new Font();
         //public FreeTextBuilder RightDisabledFreeTextBuilder = new FreeTextBuilder();
 
-        public Texture2D RightDisabledItemSelectedTexture;
-        public Texture2D RightDisabledItemTexture;
+        public PlatformTexture RightDisabledItemSelectedTexture;
+        public PlatformTexture RightDisabledItemTexture;
         public Color RightDisabledTextColor;
-        private Screen screen;
+        
         public int top;
         public Point ViewportSize;
         public bool BianduiLiebiaoXianshi=false ;
         public Rectangle BianduiLiebiaoWeizhi=new Rectangle (0,0,0,0);
 
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.menuToDisplay != null)
             {
-                this.menuToDisplay.Draw(spriteBatch);
+                this.menuToDisplay.Draw();
             }
         }
 
@@ -95,9 +96,9 @@ namespace ContextMenuPlugin
             return null;
         }
 
-        public void Initialize(Screen screen)
+        public void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         public void LoadFromXmlNode(XmlNode rootNode)
@@ -125,6 +126,10 @@ namespace ContextMenuPlugin
                 StaticMethods.AdjustRectangleInViewport(ref rect, viewportSize);
                 this.left = rect.Left;
                 this.top = rect.Top;
+                if (this.top < 0)
+                {
+                    this.top = 0;
+                }
                 this.Prepare();
             }
         }
@@ -180,28 +185,28 @@ namespace ContextMenuPlugin
                         itemByPosition.Open = !itemByPosition.Open;
                         if (open || itemByPosition.Open )
                         {
-                            this.screen.PlayNormalSound(this.OpenSoundFile);
+                            Session.MainGame.mainGameScreen.PlayNormalSound(this.OpenSoundFile);
                             this.Result = ContextMenuResult.KeepShowing;
                         }
                         else if (itemByPosition.Name == "减小音量")
                         {
-                            this.screen.PlayNormalSound(this.ClickSoundFile);
-                            this.screen.减小音量();
+                            Session.MainGame.mainGameScreen.PlayNormalSound(this.ClickSoundFile);
+                            Session.MainGame.mainGameScreen.ReduceSound();
                         }
                         else if (itemByPosition.Name == "增加音量")
                         {
-                            this.screen.PlayNormalSound(this.ClickSoundFile);
-                            this.screen.增加音量();
+                            Session.MainGame.mainGameScreen.PlayNormalSound(this.ClickSoundFile);
+                            Session.MainGame.mainGameScreen.IncreaseSound();
                         }
                         else if (itemByPosition.Name == "返回初始菜单")
                         {
-                            this.screen.PlayNormalSound(this.ClickSoundFile);
-                            this.screen.返回初始菜单();
+                            Session.MainGame.mainGameScreen.PlayNormalSound(this.ClickSoundFile);
+                            Session.MainGame.mainGameScreen.ReturnMainMenu();
                         }
 
                         else
                         {
-                            this.screen.PlayNormalSound(this.ClickSoundFile);
+                            Session.MainGame.mainGameScreen.PlayNormalSound(this.ClickSoundFile);
                             if (itemByPosition.IsParamIDItem)
                             {
                                 this.CurrentParamID = int.Parse(itemByPosition.Param);
@@ -216,13 +221,13 @@ namespace ContextMenuPlugin
                     }
                     else if (!this.menuToDisplay.HasOpenItem)
                     {
-                        this.screen.PlayNormalSound(this.FoldSoundFile);
+                        Session.MainGame.mainGameScreen.PlayNormalSound(this.FoldSoundFile);
                         this.Result = ContextMenuResult.None;
                         this.IsShowing = false;
                     }
                     else
                     {
-                        this.screen.PlayNormalSound(this.FoldSoundFile);
+                        Session.MainGame.mainGameScreen.PlayNormalSound(this.FoldSoundFile);
                         this.menuToDisplay.FoldOpenedItem();
                         this.Result = ContextMenuResult.KeepShowing;
                     }
@@ -252,20 +257,20 @@ namespace ContextMenuPlugin
             {
                 if (!this.menuToDisplay.HasOpenItem)
                 {
-                    this.screen.PlayNormalSound(this.FoldSoundFile);
+                    Session.MainGame.mainGameScreen.PlayNormalSound(this.FoldSoundFile);
                     this.Result = ContextMenuResult.None;
                     this.IsShowing = false;
                 }
             }
             else if (this.menuToDisplay.HasOpenItem)
             {
-                this.screen.PlayNormalSound(this.FoldSoundFile);
+                Session.MainGame.mainGameScreen.PlayNormalSound(this.FoldSoundFile);
                 this.menuToDisplay.FoldOpenedItem();
                 this.Result = ContextMenuResult.KeepShowing;
             }
             else
             {
-                this.screen.PlayNormalSound(this.FoldSoundFile);
+                Session.MainGame.mainGameScreen.PlayNormalSound(this.FoldSoundFile);
                 this.Result = ContextMenuResult.None;
                 this.IsShowing = false;
             }
@@ -275,7 +280,7 @@ namespace ContextMenuPlugin
         {
             if (!this.menuToDisplay.IsLeft && this.menuToDisplay.HasOpenItem)
             {
-                this.screen.PlayNormalSound(this.FoldSoundFile);
+                Session.MainGame.mainGameScreen.PlayNormalSound(this.FoldSoundFile);
                 this.menuToDisplay.FoldOpenedItem();
                 this.Result = ContextMenuResult.KeepShowing;
             }
@@ -343,23 +348,23 @@ namespace ContextMenuPlugin
                     this.isShowing = value;
                     if (value )
                     {
-                        this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.ContextMenu, UndoneWorkSubKind.None));
-                        this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                        this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                        this.screen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
-                        this.screen.PlayNormalSound(this.OpenSoundFile);
+                        Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.ContextMenu, UndoneWorkSubKind.None));
+                        Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                        Session.MainGame.mainGameScreen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                        Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                        Session.MainGame.mainGameScreen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                        Session.MainGame.mainGameScreen.PlayNormalSound(this.OpenSoundFile);
                     }
                     else
                     {
-                        if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.ContextMenu)
+                        if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.ContextMenu)
                         {
                             throw new Exception("The UndoneWork is not a ContextMenu.");
                         }
-                        this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                        this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                        this.screen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                        Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                        Session.MainGame.mainGameScreen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                        Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                        Session.MainGame.mainGameScreen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
                         if (this.HelpPlugin != null)
                         {
                             this.HelpPlugin.IsButtonShowing = false;

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using GameManager;
 
 namespace GameObjects.TroopDetail
 {
@@ -30,51 +31,51 @@ namespace GameObjects.TroopDetail
             int num;
             this.Animations.Clear();
             List<Point> list = new List<Point>();
-            for (num = 1; num < GlobalVariables.TroopMoveFrameCount; num++)
+            for (num = 1; num < Session.GlobalVariables.TroopMoveFrameCount; num++)
             {
-                list.Add(new Point((int) Math.Round((decimal) ((width * num) / GlobalVariables.TroopMoveFrameCount)), 0));
+                list.Add(new Point((int) Math.Round((decimal) ((width * num) / Session.GlobalVariables.TroopMoveFrameCount)), 0));
             }
             this.Animations.Add(new Point(1, 0), list);
             list = new List<Point>();
-            for (num = 1; num < GlobalVariables.TroopMoveFrameCount; num++)
+            for (num = 1; num < Session.GlobalVariables.TroopMoveFrameCount; num++)
             {
-                list.Add(new Point(0, (int) Math.Round((decimal) ((width * num) / GlobalVariables.TroopMoveFrameCount))));
+                list.Add(new Point(0, (int) Math.Round((decimal) ((width * num) / Session.GlobalVariables.TroopMoveFrameCount))));
             }
             this.Animations.Add(new Point(0, 1), list);
             list = new List<Point>();
-            for (num = 1; num < GlobalVariables.TroopMoveFrameCount; num++)
+            for (num = 1; num < Session.GlobalVariables.TroopMoveFrameCount; num++)
             {
-                list.Add(new Point((int) Math.Round((decimal) ((-width * num) / GlobalVariables.TroopMoveFrameCount)), 0));
+                list.Add(new Point((int) Math.Round((decimal) ((-width * num) / Session.GlobalVariables.TroopMoveFrameCount)), 0));
             }
             this.Animations.Add(new Point(-1, 0), list);
             list = new List<Point>();
-            for (num = 1; num < GlobalVariables.TroopMoveFrameCount; num++)
+            for (num = 1; num < Session.GlobalVariables.TroopMoveFrameCount; num++)
             {
-                list.Add(new Point(0, (int) Math.Round((decimal) ((-width * num) / GlobalVariables.TroopMoveFrameCount))));
+                list.Add(new Point(0, (int) Math.Round((decimal) ((-width * num) / Session.GlobalVariables.TroopMoveFrameCount))));
             }
             this.Animations.Add(new Point(0, -1), list);
             list = new List<Point>();
-            for (num = 1; num < GlobalVariables.TroopMoveFrameCount; num++)
+            for (num = 1; num < Session.GlobalVariables.TroopMoveFrameCount; num++)
             {
-                list.Add(new Point((int) Math.Round((decimal) ((width * num) / GlobalVariables.TroopMoveFrameCount)), (int) Math.Round((decimal) ((width * num) / GlobalVariables.TroopMoveFrameCount))));
+                list.Add(new Point((int) Math.Round((decimal) ((width * num) / Session.GlobalVariables.TroopMoveFrameCount)), (int) Math.Round((decimal) ((width * num) / Session.GlobalVariables.TroopMoveFrameCount))));
             }
             this.Animations.Add(new Point(1, 1), list);
             list = new List<Point>();
-            for (num = 1; num < GlobalVariables.TroopMoveFrameCount; num++)
+            for (num = 1; num < Session.GlobalVariables.TroopMoveFrameCount; num++)
             {
-                list.Add(new Point((int) Math.Round((decimal) ((-width * num) / GlobalVariables.TroopMoveFrameCount)), (int) Math.Round((decimal) ((width * num) / GlobalVariables.TroopMoveFrameCount))));
+                list.Add(new Point((int) Math.Round((decimal) ((-width * num) / Session.GlobalVariables.TroopMoveFrameCount)), (int) Math.Round((decimal) ((width * num) / Session.GlobalVariables.TroopMoveFrameCount))));
             }
             this.Animations.Add(new Point(-1, 1), list);
             list = new List<Point>();
-            for (num = 1; num < GlobalVariables.TroopMoveFrameCount; num++)
+            for (num = 1; num < Session.GlobalVariables.TroopMoveFrameCount; num++)
             {
-                list.Add(new Point((int) Math.Round((decimal) ((width * num) / GlobalVariables.TroopMoveFrameCount)), (int) Math.Round((decimal) ((-width * num) / GlobalVariables.TroopMoveFrameCount))));
+                list.Add(new Point((int) Math.Round((decimal) ((width * num) / Session.GlobalVariables.TroopMoveFrameCount)), (int) Math.Round((decimal) ((-width * num) / Session.GlobalVariables.TroopMoveFrameCount))));
             }
             this.Animations.Add(new Point(1, -1), list);
             list = new List<Point>();
-            for (num = 1; num < GlobalVariables.TroopMoveFrameCount; num++)
+            for (num = 1; num < Session.GlobalVariables.TroopMoveFrameCount; num++)
             {
-                list.Add(new Point((int) Math.Round((decimal) ((-width * num) / GlobalVariables.TroopMoveFrameCount)), (int) Math.Round((decimal) ((-width * num) / GlobalVariables.TroopMoveFrameCount))));
+                list.Add(new Point((int) Math.Round((decimal) ((-width * num) / Session.GlobalVariables.TroopMoveFrameCount)), (int) Math.Round((decimal) ((-width * num) / Session.GlobalVariables.TroopMoveFrameCount))));
             }
             this.Animations.Add(new Point(-1, -1), list);
         }

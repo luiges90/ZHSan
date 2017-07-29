@@ -54,7 +54,9 @@ namespace GameManager
 
                         Save();
                     }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                     catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
                     {
 
                     }
@@ -75,7 +77,7 @@ namespace GameManager
 
 			//if (Platform.PlatFormType == PlatFormType.iOS)  //|| Platform.PlatForm == PlatForm.WinRT || Platform.PlatForm == PlatForm.WP)
             //{
-				Session.RealResolution = Session.Resolution = Platform.PreferResolution;
+			//	Session.RealResolution = Session.Resolution = Platform.PreferResolution;
 			//}
 
         }
@@ -125,7 +127,9 @@ namespace GameManager
                     {
                         name = Platform.Current.CurrentLanguage; // System.Globalization.CultureInfo.InstalledUICulture.Name;
                     }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                     catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
                     {
                         //«@È¡Ïµ½yÕZÑÔÊ§”¡
                     }

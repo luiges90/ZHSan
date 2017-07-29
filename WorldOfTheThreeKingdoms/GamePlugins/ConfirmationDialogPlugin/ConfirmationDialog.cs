@@ -1,4 +1,5 @@
 ﻿using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,38 +12,38 @@ namespace ConfirmationDialogPlugin
     internal class ConfirmationDialog
     {
         internal Point BackgroundSize;
-        internal Texture2D BackgroundTexture;
+        internal PlatformTexture BackgroundTexture;
         private Point DisplayOffset;
         private Itupianwenzi iPersonTextDialog;
         private ISimpleTextDialog iSimpleTextDialog;
         private bool isShowing;
-        private Texture2D NoDisplayTexture;
+        private PlatformTexture NoDisplayTexture;
         internal GameDelegates.VoidFunction NoFunction;
         internal Rectangle NoPosition;
-        internal Texture2D NoSelectedTexture;
+        internal PlatformTexture NoSelectedTexture;
         internal string NoSoundFile;
-        internal Texture2D NoTexture;
+        internal PlatformTexture NoTexture;
         internal DialogResult Result;
-        private Screen screen;
-        private Texture2D YesDisplayTexture;
+        
+        private PlatformTexture YesDisplayTexture;
         internal GameDelegates.VoidFunction YesFunction;
         internal Rectangle YesPosition;
-        internal Texture2D YesSelectedTexture;
+        internal PlatformTexture YesSelectedTexture;
         internal string YesSoundFile;
-        internal Texture2D YesTexture;
+        internal PlatformTexture YesTexture;
 
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw()
         {
             Rectangle? sourceRectangle = null;
-            spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+            CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
             sourceRectangle = null;
-            spriteBatch.Draw(this.YesDisplayTexture, this.YesDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
-            spriteBatch.Draw(this.NoDisplayTexture, this.NoDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+            CacheManager.Draw(this.YesDisplayTexture, this.YesDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+            CacheManager.Draw(this.NoDisplayTexture, this.NoDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         private void screen_OnMouseLeftDown(Point position)
@@ -50,7 +51,7 @@ namespace ConfirmationDialogPlugin
             if (StaticMethods.PointInRectangle(position, this.YesDisplayPosition))
             {
                 this.Result = DialogResult.Yes;
-                this.screen.PlayNormalSound(this.YesSoundFile);
+                Session.MainGame.mainGameScreen.PlayNormalSound(this.YesSoundFile);
                 if (this.YesFunction != null)
                 {
                     this.YesFunction();
@@ -61,7 +62,7 @@ namespace ConfirmationDialogPlugin
             else if (StaticMethods.PointInRectangle(position, this.NoDisplayPosition))
             {
                 this.Result = DialogResult.No;
-                this.screen.PlayNormalSound(this.NoSoundFile);
+                Session.MainGame.mainGameScreen.PlayNormalSound(this.NoSoundFile);
                 if (this.NoFunction != null)
                 {
                     this.NoFunction();
@@ -94,7 +95,7 @@ namespace ConfirmationDialogPlugin
         private void screen_OnMouseRightDown(Point position)
         {
             this.Result = DialogResult.No;
-            this.screen.PlayNormalSound(this.NoSoundFile);
+            Session.MainGame.mainGameScreen.PlayNormalSound(this.NoSoundFile);
             if (this.NoFunction != null)
             {
                 this.NoFunction();
@@ -111,7 +112,7 @@ namespace ConfirmationDialogPlugin
 
         internal void SetPosition(ShowPosition showPosition)
         {
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
             Rectangle rect = new Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
             switch (showPosition)
             {
@@ -185,12 +186,12 @@ namespace ConfirmationDialogPlugin
                     this.isShowing = value;
                     if (value)
                     {
-                        this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, DialogKind.Confirmation));
+                        Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, DialogKind.Confirmation));
                         this.YesDisplayTexture = this.YesTexture;
                         this.NoDisplayTexture = this.NoTexture;
-                        this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.screen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                        Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                        Session.MainGame.mainGameScreen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
                         if (this.iSimpleTextDialog != null)
                         {
                             this.iSimpleTextDialog.SetPosition(ShowPosition.Bottom);
@@ -198,19 +199,19 @@ namespace ConfirmationDialogPlugin
                         }
                         else if (this.iPersonTextDialog != null)
                         {
-                            this.iPersonTextDialog.SetPosition(ShowPosition.Bottom);
+                            this.iPersonTextDialog.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
                         }
                     }
                     else
                     {
-                       // if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.Dialog)
-                        if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.tupianwenzi)
+                       // if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.Dialog)
+                        if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.tupianwenzi)
                         {
                           //  throw new Exception("The UndoneWork is not a Dialog.");
                         }
-                        this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.screen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                        Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                        Session.MainGame.mainGameScreen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
                         if (this.iSimpleTextDialog != null)
                         {
                             this.iSimpleTextDialog.IsShowing = false;
@@ -218,7 +219,7 @@ namespace ConfirmationDialogPlugin
                         }
                         else if (this.iPersonTextDialog != null)
                         {
-                            this.iPersonTextDialog.Close();
+                            this.iPersonTextDialog.Close(Session.MainGame.mainGameScreen);
                         }
                     }
                 }

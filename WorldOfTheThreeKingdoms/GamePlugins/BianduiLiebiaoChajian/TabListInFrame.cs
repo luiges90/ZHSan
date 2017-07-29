@@ -17,29 +17,29 @@ namespace BianduiLiebiaoChajian
     {
         internal int Bingyi = 0;
         internal Rectangle TopLeftRectangle;
-        internal Texture2D TopLeftTexture;
+        internal PlatformTexture TopLeftTexture;
         //internal int TopLeftWidth;
         internal Rectangle TopRightRectangle;
-        internal Texture2D TopRightTexture;
+        internal PlatformTexture TopRightTexture;
         //internal int TopRightWidth;
         internal Rectangle BottomLeftRectangle;
-        internal Texture2D BottomLeftTexture;
+        internal PlatformTexture BottomLeftTexture;
         //internal int BottomLeftWidth;
         internal Rectangle BottomRightRectangle;
-        internal Texture2D BottomRightTexture;
+        internal PlatformTexture BottomRightTexture;
         //internal int BottomRightWidth;
 
 
         internal Point TopLeftPosition = new Point();
         internal string checkboxDisplayName;
         internal string checkboxName;
-        internal Texture2D checkboxSelectedTexture;
-        internal Texture2D checkboxTexture;
+        internal PlatformTexture checkboxSelectedTexture;
+        internal PlatformTexture checkboxTexture;
         internal int checkboxWidth;
         internal int columnheaderHeight;
-        internal Texture2D columnheaderTexture;
+        internal PlatformTexture columnheaderTexture;
         internal int columnspliterHeight;
-        internal Texture2D columnspliterTexture;
+        internal PlatformTexture columnspliterTexture;
         internal int columnspliterWidth;
         internal TextAlign ColumnTextAlign;
 
@@ -50,10 +50,9 @@ namespace BianduiLiebiaoChajian
         private bool firstTimeMapViewSelector = true;
         internal int Focused;
         internal GameObject FocusedObject;
-        internal Texture2D focusTrackTexture;
+        internal PlatformTexture focusTrackTexture;
         internal Rectangle FullLowerClient;
         internal GameObjectList gameObjectList;
-        internal GraphicsDevice graphicsDevice;
         private bool HeightCanShrink = true;
         internal IArchitectureDetail iArchitectureDetail;
         internal IFactionTechniques iFactionTechniques;
@@ -62,7 +61,7 @@ namespace BianduiLiebiaoChajian
         internal IPersonDetail iPersonDetail;
         internal ITreasureDetail iTreasureDetail;
         internal ITroopDetail iTroopDetail;
-        internal Texture2D leftArrowTexture;
+        internal PlatformTexture leftArrowTexture;
         internal List<ListKind> ListKinds;
         private ListKind listKindToDisplay;
         internal bool MovingHorizontalScrollBar = false;
@@ -72,17 +71,17 @@ namespace BianduiLiebiaoChajian
         internal int oldScrollValue;
         internal int PortraitHeight;
         internal int PortraitWidth;
-        internal Texture2D rightArrowTexture;
+        internal PlatformTexture rightArrowTexture;
         private bool RightClickClose = true;
         internal SubKind RootListKind;
-        internal Texture2D roundcheckboxSelectedTexture;
-        internal Texture2D roundcheckboxTexture;
+        internal PlatformTexture roundcheckboxSelectedTexture;
+        internal PlatformTexture roundcheckboxTexture;
         internal int rowHeight;
         internal List<Rectangle> RowRectangles;
-        private Screen screen;
-        internal Texture2D scrollbuttonTexture;
+        
+        internal PlatformTexture scrollbuttonTexture;
         internal int scrollbuttonWidth;
-        internal Texture2D scrolltrackTexture;
+        internal PlatformTexture scrolltrackTexture;
         internal int scrolltrackWidth;
         internal GameObject SelectedItem;
         internal GameObjectList SelectedItemList;
@@ -95,8 +94,8 @@ namespace BianduiLiebiaoChajian
         internal bool ShowVerticalScrollBar = false;
         private Stack<SubKind> SubKinds = new Stack<SubKind>();
         internal int tabbuttonHeight;
-        internal Texture2D tabbuttonselectedTexture;
-        internal Texture2D tabbuttonTexture;
+        internal PlatformTexture tabbuttonselectedTexture;
+        internal PlatformTexture tabbuttonTexture;
         internal int tabbuttonWidth;
         internal TextAlign TabTextAlign;
 
@@ -106,10 +105,10 @@ namespace BianduiLiebiaoChajian
         internal string Title = "";
         internal Rectangle VisibleLowerClient;
 
-        internal Texture2D ToolDisplayTexture;
+        internal PlatformTexture ToolDisplayTexture;
         internal Rectangle ToolPosition;
-        internal Texture2D ToolSelectedTexture;
-        internal Texture2D ToolTexture;
+        internal PlatformTexture ToolSelectedTexture;
+        internal PlatformTexture ToolTexture;
 
         private bool WidthCanShrink = true;
 
@@ -118,28 +117,28 @@ namespace BianduiLiebiaoChajian
 
 
         internal  Rectangle backgroundRectangle;
-        internal Texture2D backgroundTexture;
+        internal PlatformTexture backgroundTexture;
 
         internal Rectangle bottomedgeRectangle;
-        internal Texture2D bottomedgeTexture;
+        internal PlatformTexture bottomedgeTexture;
         internal int bottomedgeWidth;
 
 
     
         internal Rectangle leftedgeRectangle;
-        internal Texture2D leftedgeTexture;
+        internal PlatformTexture leftedgeTexture;
         internal int leftedgeWidth;
     
    
         internal Rectangle Position;
      
         internal Rectangle rightedgeRectangle;
-        internal Texture2D rightedgeTexture;
+        internal PlatformTexture rightedgeTexture;
         internal int rightedgeWidth;
     
       
         internal Rectangle topedgeRectangle;
-        internal Texture2D topedgeTexture;
+        internal PlatformTexture topedgeTexture;
         internal int topedgeWidth;
 
         internal Rectangle ToolDisplayPosition;
@@ -169,7 +168,7 @@ namespace BianduiLiebiaoChajian
             if (this.Function == FrameFunction.Jump)
             {
                 //this.IsShowing = false;
-                if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.None)
+                if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.None)
                 {
                     //throw new Exception("The UndoneWork is not a Frame.");  //错误检查
                 }
@@ -254,41 +253,41 @@ namespace BianduiLiebiaoChajian
             }
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw()
         {
             
             
             if (this.xianshiyoucelan)
             {
                 
-                spriteBatch.Draw(this.leftedgeTexture, this.leftedgeRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
+                CacheManager.Draw(this.leftedgeTexture, this.leftedgeRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
                 
-                spriteBatch.Draw(this.rightedgeTexture, this.rightedgeRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
+                CacheManager.Draw(this.rightedgeTexture, this.rightedgeRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
                 
-                spriteBatch.Draw(this.topedgeTexture, this.topedgeRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
+                CacheManager.Draw(this.topedgeTexture, this.topedgeRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
                 
-                spriteBatch.Draw(this.bottomedgeTexture, this.bottomedgeRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
+                CacheManager.Draw(this.bottomedgeTexture, this.bottomedgeRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
                 
-                spriteBatch.Draw(this.backgroundTexture, this.backgroundRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
+                CacheManager.Draw(this.backgroundTexture, this.backgroundRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
 
-                spriteBatch.Draw(this.TopLeftTexture, this.TopLeftRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
-                spriteBatch.Draw(this.TopRightTexture, this.TopRightRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
-                spriteBatch.Draw(this.BottomLeftTexture, this.BottomLeftRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
-                spriteBatch.Draw(this.BottomRightTexture, this.BottomRightRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
+                CacheManager.Draw(this.TopLeftTexture, this.TopLeftRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
+                CacheManager.Draw(this.TopRightTexture, this.TopRightRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
+                CacheManager.Draw(this.BottomLeftTexture, this.BottomLeftRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
+                CacheManager.Draw(this.BottomRightTexture, this.BottomRightRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4f);
 
 
-                //base.Draw(spriteBatch);
+                //base.Draw();
                 //if (this.frameContent != null)
                 //{
-                //    this.frameContent.Draw(spriteBatch);
+                //    this.frameContent.Draw();
                 //}
 
                 if (this.listKindToDisplay != null)
                 {
-                    this.listKindToDisplay.Draw(spriteBatch);
+                    this.listKindToDisplay.Draw();
                 }
 
-                spriteBatch.Draw(this.ToolDisplayTexture, this.ToolDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
+                CacheManager.Draw(this.ToolDisplayTexture, this.ToolDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
             }
         }
 
@@ -424,9 +423,9 @@ namespace BianduiLiebiaoChajian
             return "未知";
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
             this.ListKinds = new List<ListKind>();
             this.RowRectangles = new List<Rectangle>();
         }
@@ -596,7 +595,7 @@ namespace BianduiLiebiaoChajian
 
 
 
-            if (this.xianshiyoucelan && (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.ContextMenu ) && StaticMethods.PointInRectangle(position, this.RealClient))
+            if (this.xianshiyoucelan && (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.ContextMenu ) && StaticMethods.PointInRectangle(position, this.RealClient))
             {
                 if (position.Y < this.listKindToDisplay.ColumnsTop)
                 {
@@ -645,13 +644,13 @@ namespace BianduiLiebiaoChajian
                                     if (gameObjectByPosition.Selected)
                                     {
                                         this.SelectedItem = gameObjectByPosition;
-                                        if (!(this.MultiSelecting || !GlobalVariables.SingleSelectionOneClick))
+                                        if (!(this.MultiSelecting || !Session.GlobalVariables.SingleSelectionOneClick))
                                         {
                                             this.iGameFrame.OK();
                                         }
                                         else
                                         {
-                                            this.screen.PlayNormalSound(this.SelectSoundFile);
+                                            Session.MainGame.mainGameScreen.PlayNormalSound(this.SelectSoundFile);
                                         }
                                     }
                                     else
@@ -670,7 +669,7 @@ namespace BianduiLiebiaoChajian
                                         this.iTroopDetail.SetTroop(gameObjectByPosition);
                                         this.iTroopDetail.IsShowing = true;
                                     }
-                                    this.screen.JumpTo((gameObjectByPosition as Troop).Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Troop).Position);
                                 }
                                 else if (gameObjectByPosition is Person)
                                 {
@@ -682,7 +681,7 @@ namespace BianduiLiebiaoChajian
                                     }
                                     if (!(gameObjectByPosition as Person).IsCaptive)
                                     {
-                                        this.screen.JumpTo((gameObjectByPosition as Person).Position);
+                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Person).Position);
                                     }
                                 }
                                 else if (gameObjectByPosition is Architecture)
@@ -693,11 +692,11 @@ namespace BianduiLiebiaoChajian
                                         this.iArchitectureDetail.SetArchitecture(gameObjectByPosition);
                                         this.iArchitectureDetail.IsShowing = true;
                                     }
-                                    this.screen.JumpTo((gameObjectByPosition as Architecture).Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Architecture).Position);
                                 }
                                 else if (gameObjectByPosition is Military)
                                 {
-                                    this.screen.JumpTo((gameObjectByPosition as Military).Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Military).Position);
                                 }
                                 else if (gameObjectByPosition is Faction)
                                 {
@@ -708,7 +707,7 @@ namespace BianduiLiebiaoChajian
                                         this.iFactionTechniques.SetPosition(ShowPosition.Center);
                                         this.iFactionTechniques.IsShowing = true;
                                     }
-                                    this.screen.JumpTo((gameObjectByPosition as Faction).Leader.Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Faction).Leader.Position);
                                 }
                                 else if (gameObjectByPosition is Captive)
                                 {
@@ -729,7 +728,7 @@ namespace BianduiLiebiaoChajian
                                     }
                                     if ((gameObjectByPosition as Treasure).BelongedPerson != null)
                                     {
-                                        this.screen.JumpTo((gameObjectByPosition as Treasure).BelongedPerson.Position);
+                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Treasure).BelongedPerson.Position);
                                     }
                                 }
                                 if (gameObjectByPosition != null)
@@ -758,7 +757,7 @@ namespace BianduiLiebiaoChajian
                                         this.iTroopDetail.SetTroop(gameObjectByPosition);
                                         this.iTroopDetail.IsShowing = true;
                                     }
-                                    this.screen.JumpTo((gameObjectByPosition as Troop).Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Troop).Position);
                                 }
                                 else if (gameObjectByPosition is Person)
                                 {
@@ -770,7 +769,7 @@ namespace BianduiLiebiaoChajian
                                     }
                                     if (!(gameObjectByPosition as Person).IsCaptive)
                                     {
-                                        this.screen.JumpTo((gameObjectByPosition as Person).Position);
+                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Person).Position);
                                     }
                                 }
                                 else if (gameObjectByPosition is Architecture)
@@ -781,11 +780,11 @@ namespace BianduiLiebiaoChajian
                                         this.iArchitectureDetail.SetArchitecture(gameObjectByPosition);
                                         this.iArchitectureDetail.IsShowing = true;
                                     }
-                                    this.screen.JumpTo((gameObjectByPosition as Architecture).Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Architecture).Position);
                                 }
                                 else if (gameObjectByPosition is Military)
                                 {
-                                    this.screen.JumpTo((gameObjectByPosition as Military).Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Military).Position);
                                 }
                                 else if (gameObjectByPosition is Faction)
                                 {
@@ -796,7 +795,7 @@ namespace BianduiLiebiaoChajian
                                         this.iFactionTechniques.SetPosition(ShowPosition.Center);
                                         this.iFactionTechniques.IsShowing = true;
                                     }
-                                    this.screen.JumpTo((gameObjectByPosition as Faction).Leader.Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Faction).Leader.Position);
                                 }
                                 else if (gameObjectByPosition is Captive)
                                 {
@@ -817,7 +816,7 @@ namespace BianduiLiebiaoChajian
                                     }
                                     if ((gameObjectByPosition as Treasure).BelongedPerson != null)
                                     {
-                                        this.screen.JumpTo((gameObjectByPosition as Treasure).BelongedPerson.Position);
+                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Treasure).BelongedPerson.Position);
                                     }
                                 }
                                 if (gameObjectByPosition != null)
@@ -833,7 +832,7 @@ namespace BianduiLiebiaoChajian
 
         private void screen_OnMouseLeftUp(Point position)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.ContextMenu )
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.ContextMenu )
             {
                 this.MovingHorizontalScrollBar = false;
                 this.MovingVerticalScrollBar = false;
@@ -843,7 +842,7 @@ namespace BianduiLiebiaoChajian
 
         private void screen_OnMouseMove(Point position, bool leftDown)
         {
-            if ((this.screen.PeekUndoneWork().Kind == UndoneWorkKind.ContextMenu ) && (this.oldMousePosition != position))
+            if ((Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.ContextMenu ) && (this.oldMousePosition != position))
             {
                 if (leftDown)
                 {
@@ -908,7 +907,7 @@ namespace BianduiLiebiaoChajian
 
         private void screen_OnMouseRightUp(Point position)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.ContextMenu )
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.ContextMenu )
             {
                 this.PopSubKind();
             }
@@ -916,7 +915,7 @@ namespace BianduiLiebiaoChajian
 
         private void screen_OnMouseScroll(Point position, int scrollValue)
         {
-            if (((this.screen.PeekUndoneWork().Kind == UndoneWorkKind.ContextMenu ) && (!this.MovingHorizontalScrollBar && !this.MovingVerticalScrollBar)) && (this.listKindToDisplay != null))
+            if (((Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.ContextMenu ) && (!this.MovingHorizontalScrollBar && !this.MovingVerticalScrollBar)) && (this.listKindToDisplay != null))
             {
                 if (this.ShowVerticalScrollBar)
                 {
@@ -1071,27 +1070,27 @@ namespace BianduiLiebiaoChajian
                     this.jiancexianshi = value;
                     if (value)
                     {
-                        //this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.None, UndoneWorkSubKind.None));
+                        //Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.None, UndoneWorkSubKind.None));
                         //this.frameContent.IsShowing = true;
-                        this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                        this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                        //this.screen.OnMouseScroll += new Screen.MouseScroll(this.screen_OnMouseScroll);
+                        Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                        Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                        Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                        //Session.MainGame.mainGameScreen.OnMouseScroll += new Screen.MouseScroll(this.screen_OnMouseScroll);
                     }
                     else
                     {
-                        //if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.None )
+                        //if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.None )
                         {
                             //throw new Exception("The UndoneWork is not a Frame.");  //错误检查
                         }
                         //this.frameContent.IsShowing = false;
 
-                        this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                        this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                        //this.screen.OnMouseScroll -= new Screen.MouseScroll(this.screen_OnMouseScroll);
+                        Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                        Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                        Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                        //Session.MainGame.mainGameScreen.OnMouseScroll -= new Screen.MouseScroll(this.screen_OnMouseScroll);
                         this.SelectedItemMaxCount = 0;
                         this.OKFunction = null;
                     }

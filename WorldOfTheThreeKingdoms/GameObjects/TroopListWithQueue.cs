@@ -1,4 +1,5 @@
 ﻿using GameGlobal;
+using GameManager;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -33,7 +34,7 @@ namespace GameObjects
             }
             this.AmbushList.Clear();
             GameObjectList randomList = base.GetRandomList();
-            if (GlobalVariables.MilitaryKindSpeedValid && (randomList.Count > 1))
+            if (Session.GlobalVariables.MilitaryKindSpeedValid && (randomList.Count > 1))
             {
                 randomList.PropertyName = "Speed";
                 randomList.IsNumber = true;
@@ -84,7 +85,9 @@ namespace GameObjects
             return (gameObject != null);
         }
 
+#pragma warning disable CS0108 // 'TroopListWithQueue.Clear()' hides inherited member 'GameObjectList.Clear()'. Use the new keyword if hiding was intended.
         public void Clear()
+#pragma warning restore CS0108 // 'TroopListWithQueue.Clear()' hides inherited member 'GameObjectList.Clear()'. Use the new keyword if hiding was intended.
         {
             base.GameObjects.Clear();
             this.troopQueue.Clear();
@@ -139,7 +142,7 @@ namespace GameObjects
                             item.OperationDone = true;
                         }
 
-                        if (item.Scenario.IsPlayer(item.BelongedFaction))
+                        if (Session.Current.Scenario.IsPlayer(item.BelongedFaction))
                         {
                             if (!(item.HasToDoCombatAction || !item.ToDoCombatAction()))
                             {
@@ -245,7 +248,7 @@ namespace GameObjects
         }
         private void TroopChangeRealDestination(Troop troop)
         {
-            if (troop.Scenario.IsPlayer(troop.BelongedFaction))
+            if (Session.Current.Scenario.IsPlayer(troop.BelongedFaction))
             {
                 if (troop.mingling == "攻击军队" && troop.TargetTroop != null)
                 {

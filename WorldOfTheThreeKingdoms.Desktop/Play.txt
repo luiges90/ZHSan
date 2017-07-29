@@ -1,0 +1,13 @@
+﻿此游戏运行需要Mono环境，不同发行版的安装有所不同。
+详情见：http://www.mono-project.com/
+如Ubuntu的安装命令可能为：
+sudo apt-get install mono-runtime libmonogame-cil，要注意的是有可能官方提供的组件已过时。
+
+另外运行时有可能要求安装组件libSDL_mixer-1_2-0，依然是不同发行版安装有所不同。
+如openSuse的组件页面：https://software.opensuse.org/package/libSDL_mixer-1_2-0
+
+环境配置好后，在此目录的终端命令上，执行如下命令即可运行游戏：
+
+
+
+mono WorldOfTheThreeKingdoms.Desktop

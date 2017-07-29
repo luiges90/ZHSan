@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using System;
 
 
@@ -11,7 +12,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
         {
             if (person.LocationArchitecture != null)
             {
-                Captive captive = Captive.Create(base.Scenario, person, person.LocationArchitecture.BelongedFaction);
+                Captive captive = Captive.Create(person, person.LocationArchitecture.BelongedFaction);
             }
         }
 

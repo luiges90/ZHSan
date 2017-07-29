@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Conditions;
 using System;
 
@@ -13,7 +14,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
         {
             if (person.ID == -1)
             {
-                person = person.Scenario.Persons[GameObject.Random(person.Scenario.Persons.Count)] as Person;
+                person = Session.Current.Scenario.Persons[GameObject.Random(Session.Current.Scenario.Persons.Count)] as Person;
             }
 
 

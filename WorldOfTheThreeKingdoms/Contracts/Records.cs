@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace PlatformContracts
+namespace SeasonContracts
 {
     [DataContract]
     public class UserIdentity
@@ -26,6 +26,9 @@ namespace PlatformContracts
 
         [DataMember]
         public string DeviceId { get; set; }
+
+        [DataMember]
+        public string DeviceInfo { get; set; }
 
         [DataMember]
         public string Product { get; set; }

@@ -2,7 +2,7 @@
 using GameObjects.Conditions;
 using GameGlobal;
 using System;
-
+using GameManager;
 
 using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKindPack
 {
@@ -13,7 +13,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
 
         public override bool CheckConditionKind(Person person)
         {
-            return (person.Age >= this.number || !GlobalVariables.PersonNaturalDeath);
+            return (person.Age >= this.number || !((bool)Session.GlobalVariables.PersonNaturalDeath));
         }
 
         public override void InitializeParameter(string parameter)

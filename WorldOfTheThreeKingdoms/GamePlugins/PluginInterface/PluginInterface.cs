@@ -19,9 +19,9 @@ namespace PluginInterface
         //void ReloadTroopView();
         void ResetFramePosition(Point viewportSize, int leftEdge, int topEdge, Point totalMapSize);
         void ResetFrameSize(Point viewportSize, Point totalMapSize);
-        void ResetMapPosition();
+        void ResetMapPosition(Screen screen);
         void SetMapPosition(ShowPosition showPosition);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
 
         bool IsMapShowing { get; }
         Rectangle MapPosition { get; }
@@ -32,7 +32,7 @@ namespace PluginInterface
     {
         void SetArchitecture(object architecture);
         void SetPosition(ShowPosition showPosition);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
 
         bool IsShowing { get; set; }
     }
@@ -54,7 +54,7 @@ namespace PluginInterface
         void SetDescriptionText(string Text);
         void SetPersonTextDialog(Itupianwenzi iPersonTextDialog);
         void SetPosition(ShowPosition showPosition);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void SetSimpleTextDialog(ISimpleTextDialog iSimpleTextDialog);
 
         bool IsShowing { get; set; }
@@ -76,7 +76,7 @@ namespace PluginInterface
         void SetGameFrame(IGameFrame iGameFrame);
         void SetNumberInputer(INumberInputer iNumberInputer);
         void SetPosition(ShowPosition showPosition);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void SetShellMilitaryKind(object kind);
         void SetTabList(ITabList iTabList);
 
@@ -99,7 +99,7 @@ namespace PluginInterface
         void Run();
         void RunDays(int Days);
         void SetGameDate(object gameDate);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void Stop();
 
         object ToolInstance { get; }
@@ -109,7 +109,7 @@ namespace PluginInterface
         void SetArchitecture(object architecture);
         void SetFaction(object faction, bool control);
         void SetPosition(ShowPosition showPosition);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
 
         bool IsShowing { get; set; }
     }
@@ -121,7 +121,7 @@ namespace PluginInterface
         void SetIHelp(IHelp iHelp);
         void SetMenuKindByID(int ID);
         void SetMenuKindByName(string Name);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void ShezhiBianduiLiebiaoXinxi(bool Xianshi, Rectangle Weizhi);
         int CurrentParamID { get; }
         bool IsShowing { get; set; }
@@ -137,7 +137,7 @@ namespace PluginInterface
         void SetFrameContent(object content, Point viewportSize);
         //void SetFrameyoucelanContent(object content, Point viewportSize);
         void SetOKFunction(GameDelegates.VoidFunction function);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
 
         //bool shiyoucelan { get; set; }
         bool CancelButtonEnabled { get; set; }
@@ -157,7 +157,7 @@ namespace PluginInterface
         void AddBranch(object gameObject, string branchName, Point position);
         void Clear();
         void ResetRecordShowPosition();
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
 
         bool IsRecordShowing { get; }
         object ToolInstance { get; }
@@ -166,7 +166,7 @@ namespace PluginInterface
     public interface IGameSystem : IBasePlugin, IPluginXML, IPluginGraphics
     {
         void SetOptionDialog(IOptionDialog iOptionDialog);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void ShowOptionDialog(ShowPosition showPosition);
 
         object ToolInstance { get; }
@@ -175,12 +175,12 @@ namespace PluginInterface
 
     public interface IHelp : IBasePlugin, IPluginXML, IPluginGraphics, IScenarioAwarePlugin
     {
-        void DrawButton(SpriteBatch spriteBatch, float depth);
+        void DrawButton(float depth);
         void SetButtonDisplayOffset(Point offset);
         void SetButtonSize(Point size);
         bool SetCurrentKey(string key);
         void SetMapPosition(ShowPosition showPosition);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
 
         Rectangle ButtonDisplayPosition { get; }
         bool IsButtonShowing { get; set; }
@@ -191,7 +191,7 @@ namespace PluginInterface
 
     public interface IMapLayer : IBasePlugin, IPluginXML, IPluginGraphics
     {
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
 
         object ToolInstance { get; }
     }
@@ -205,7 +205,7 @@ namespace PluginInterface
         void SetMapPosition(ShowPosition showPosition);
         void SetMultiSelecting(bool multiSelecting);
         void SetOKFunction(GameDelegates.VoidFunction function);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void SetTabList(ITabList iTabList);
 
         bool IsShowing { get; set; }
@@ -217,7 +217,7 @@ namespace PluginInterface
         void SetFaction(object faction);
         void SetGameFrame(IGameFrame iGameFrame);
         void SetMapPosition(ShowPosition showPosition);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void SetSection(object section);
         void SetTabList(ITabList iTabList);
 
@@ -233,7 +233,7 @@ namespace PluginInterface
         void SetEnterFunction(GameDelegates.VoidFunction function);
         void SetMapPosition(ShowPosition showPosition);
         void SetMax(int max);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void SetUnit(string unit);
         void SetScale(int scale);
         bool IsShowing { get; set; }
@@ -249,7 +249,7 @@ namespace PluginInterface
         void EndAddOptions();
         void HideOptionDialog();
         void SetReturnObjectFunction(GameDelegates.ObjectFunction returnobjectFunction);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void SetStyle(string style);
         void SetTitle(string title);
         void ShowOptionDialog(ShowPosition showPosition);
@@ -262,7 +262,7 @@ namespace PluginInterface
         void AddPerson(object person, Point position, string branchName);
         void AddPersonText(object person, Point position, string text);
         void AddPerson(object person, Point position, Enum kind, string fallback);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
 
         bool IsShowing { get; set; }
     }
@@ -272,7 +272,7 @@ namespace PluginInterface
     {
         void SetPerson(object person);
         void SetPosition(ShowPosition showPosition);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
 
         bool IsShowing { get; set; }
     }
@@ -288,13 +288,13 @@ namespace PluginInterface
         //Texture2D GetSmallPortrait(float id);
         //Texture2D GetTroopPortrait(float id);
         //Texture2D GetFullPortrait(float id);
-        void SetGraphicsDevice(GraphicsDevice device);
+        void SetGraphicsDevice();
     }
 
 
     public interface Itupianwenzi : IBasePlugin, IPluginXML, IPluginGraphics
     {
-        void Close();
+        void Close(Screen screen);
         void SetCloseFunction(GameDelegates.VoidFunction closeFunction);
         void SetConfirmationDialog(IConfirmationDialog iConfirmationDialog, GameDelegates.VoidFunction yesFunction, GameDelegates.VoidFunction noFunction);
         void SetContextMenu(IGameContextMenu iContextMenu);
@@ -303,8 +303,8 @@ namespace PluginInterface
         void SetGameObjectBranch(object person, object gameObject, Enum kind, string branchName);
         void SetGameObjectBranch(object person, object gameObject, Enum kind, string branchName, string tupian, string shengyin);
 
-        void SetPosition(ShowPosition showPosition);
-        void SetScreen(object screen);
+        void SetPosition(ShowPosition showPosition, Screen screen);
+        void SetScreen(Screen screen);
 
         bool IsShowing { get; set; }
         FreeRichText RichText { get; }
@@ -314,7 +314,7 @@ namespace PluginInterface
     public interface IRoutewayEditor : IBasePlugin, IPluginXML, IPluginGraphics, IScreenDisableRects
     {
         void SetRouteway(object routeway);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
 
         bool IsShowing { get; set; }
     }
@@ -323,7 +323,7 @@ namespace PluginInterface
 
     public interface IScreenBlind : IBasePlugin, IPluginXML, IPluginGraphics
     {
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
     }
 
 
@@ -346,7 +346,7 @@ namespace PluginInterface
         void SetConfirmationDialog(IConfirmationDialog iConfirmationDialog);
         void SetGameObjectBranch(object gameObject, string branchName);
         void SetPosition(ShowPosition showPosition);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
 
         bool IsShowing { get; set; }
         FreeRichText RichText { get; }
@@ -365,7 +365,7 @@ namespace PluginInterface
         void SetListKindByName(string Name, bool ShowCheckBox, bool MultiSelecting);
         void SetMapViewSelector(IMapViewSelector iMapViewSelector);
         void SetPersonDetailDialog(IPersonDetail iPersonDetail);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void SetSelectedItemMaxCount(int max);
         void SetSelectedTab(string tabName);
         void SetTreasureDetailDialog(ITreasureDetail iTreasureDetail);
@@ -388,7 +388,7 @@ namespace PluginInterface
         void SetListKindByName(string Name, bool ShowCheckBox, bool MultiSelecting);
         void SetMapViewSelector(IMapViewSelector iMapViewSelector);
         void SetPersonDetailDialog(IPersonDetail iPersonDetail);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void SetSelectedItemMaxCount(int max);
         void SetSelectedTab(string tabName);
         void SetTreasureDetailDialog(ITreasureDetail iTreasureDetail);
@@ -417,7 +417,7 @@ namespace PluginInterface
         void SetListKindByName(string Name, bool ShowCheckBox, bool MultiSelecting);
         void SetMapViewSelector(IMapViewSelector iMapViewSelector);
         void SetPersonDetailDialog(IPersonDetail iPersonDetail);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void SetSelectedItemMaxCount(int max);
         void SetSelectedTab(string tabName);
         void SetTreasureDetailDialog(ITreasureDetail iTreasureDetail);
@@ -442,8 +442,8 @@ namespace PluginInterface
         void RemoveTool(object tool);
         void SetContextMenuPlugin(IGameContextMenu contextMenuPlugin);
         void SetRealViewportSize(Point realViewportSize);
-        void SetScreen(object screen);
-        void Draw(SpriteBatch spriteBatch, GameTime gameTime);
+        void SetScreen(Screen screen);
+        void Draw(GameTime gameTime);
         bool DrawTools { get; set; }
         bool Enabled { get; set; }
         int Height { get; set; }
@@ -459,7 +459,7 @@ namespace PluginInterface
         void SetKind(TransportKind kind);
         void SetMapPosition(ShowPosition showPosition);
         void SetNumberInputer(INumberInputer iNumberInputer);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void SetSourceArchiecture(object architecture);
         void SetTabList(ITabList iTabList);
         void SetGameRecord(IGameRecord iGameRecord);
@@ -472,7 +472,7 @@ namespace PluginInterface
     public interface ITreasureDetail : IBasePlugin, IPluginXML, IPluginGraphics
     {
         void SetPosition(ShowPosition showPosition);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void SetTreasure(object treasure);
 
         bool IsShowing { get; set; }
@@ -482,13 +482,11 @@ namespace PluginInterface
     public interface ITroopDetail : IBasePlugin, IPluginXML, IPluginGraphics
     {
         void SetPosition(ShowPosition showPosition);
-        void SetScreen(object screen);
+        void SetScreen(Screen screen);
         void SetTroop(object troop);
 
         bool IsShowing { get; set; }
     }
-
-
 
 
     public interface ITroopSurvey : IBasePlugin, IPluginXML, IPluginGraphics
@@ -504,7 +502,7 @@ namespace PluginInterface
 
     public interface ITroopTitle : IBasePlugin, IPluginXML, IPluginGraphics
     {
-        void DrawTroop(SpriteBatch spriteBatch, object troop, bool playerControlling);
+        void DrawTroop(object troop, bool playerControlling);
 
         bool IsShowing { get; set; }
     }

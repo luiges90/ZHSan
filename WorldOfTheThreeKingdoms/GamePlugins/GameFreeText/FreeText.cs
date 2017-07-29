@@ -21,7 +21,7 @@ namespace GameFreeText
         private Microsoft.Xna.Framework.Rectangle position;
         private string text;
         private Microsoft.Xna.Framework.Color textColor;
-        private Texture2D textTexture;
+        //private Texture2D textTexture;
 
         public FreeText(Font builder)
         {
@@ -33,19 +33,7 @@ namespace GameFreeText
             this.Builder = builder;
         }
 
-        public FreeText(GraphicsDevice device, Font font)
-        {
-            this.position = Microsoft.Xna.Framework.Rectangle.Empty;
-            this.displayOffset = Microsoft.Xna.Framework.Point.Zero;
-            this.align = TextAlign.None;
-            this.textColor = Microsoft.Xna.Framework.Color.Black;
-            //this.textTexture = null;
-            this.Builder = font;
-            //this.Builder = new FreeTextBuilder();
-            //this.Builder.SetFreeTextBuilder(device, font);
-        }
-
-        public FreeText(GraphicsDevice device, Font font, Microsoft.Xna.Framework.Color color)
+        public FreeText(Font font, Microsoft.Xna.Framework.Color color)
         {
             this.position = Microsoft.Xna.Framework.Rectangle.Empty;
             this.displayOffset = Microsoft.Xna.Framework.Point.Zero;
@@ -58,82 +46,58 @@ namespace GameFreeText
             this.textColor = color;
         }
 
-        public void Draw(SpriteBatch spriteBatch, float Depth, Microsoft.Xna.Framework.Rectangle weizhijuxing)
+        public void Draw(float Depth, Microsoft.Xna.Framework.Rectangle weizhijuxing)
         {
             if (!String.IsNullOrEmpty(Text))
             {
                 var pos = new Vector2(weizhijuxing.X, weizhijuxing.Y);
                 CacheManager.DrawString(Session.Current.Font, Text, pos, this.TextColor, 0f, Vector2.Zero, Builder.Scale, SpriteEffects.None, Depth + -0.0001f);
             }
-            //if (this.textTexture != null)
-            //{
-            //    spriteBatch.Draw(this.textTexture, weizhijuxing , null, this.textColor, 0f, Vector2.Zero, SpriteEffects.None, Depth + -0.0001f);                
-            //}
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (!String.IsNullOrEmpty(Text))
             {
                 var pos = new Vector2(this.alignedPosition.X, this.alignedPosition.Y);
                 CacheManager.DrawString(Session.Current.Font, Text, pos, this.TextColor, 0f, Vector2.Zero, Builder.Scale, SpriteEffects.None, 1f);
             }
-            //if (this.textTexture != null)
-            //{
-            //    spriteBatch.Draw(this.textTexture, this.alignedPosition, this.textColor);
-            //}
         }
 
-        public void Draw(SpriteBatch spriteBatch, float Depth)
+        public void Draw(float Depth)
         {
             if (!String.IsNullOrEmpty(Text))
             {
                 var pos = new Vector2(this.alignedPosition.X, this.alignedPosition.Y);
                 CacheManager.DrawString(Session.Current.Font, Text, pos, this.TextColor, 0f, Vector2.Zero, Builder.Scale, SpriteEffects.None, Depth + -0.0001f);
             }
-            //if (this.textTexture != null)
-            //{
-            //    spriteBatch.Draw(this.textTexture, this.alignedPosition, null, this.textColor, 0f, Vector2.Zero, SpriteEffects.None, Depth + -0.0001f);
-            //}
         }
 
-        public void Draw(SpriteBatch spriteBatch, Microsoft.Xna.Framework.Color color, float Depth)
+        public void Draw(Microsoft.Xna.Framework.Color color, float Depth)
         {
             if (!String.IsNullOrEmpty(Text))
             {
                 var pos = new Vector2(this.alignedPosition.X, this.alignedPosition.Y);
                 CacheManager.DrawString(Session.Current.Font, Text, pos, color, 0f, Vector2.Zero, Builder.Scale, SpriteEffects.None, Depth + -0.0001f);
             }
-            //if (this.textTexture != null)
-            //{
-            //    spriteBatch.Draw(this.textTexture, this.alignedPosition, null, color, 0f, Vector2.Zero, SpriteEffects.None, Depth + -0.0001f);
-            //}
         }
 
-        public void Draw(SpriteBatch spriteBatch, float Rotation, float? Depth, float scale)
+        public void Draw(float Rotation, float? Depth, float scale)
         {
             if (!String.IsNullOrEmpty(Text))
             {
                 var pos = new Vector2(this.alignedPosition.X, this.alignedPosition.Y);
                 CacheManager.DrawString(Session.Current.Font, Text, pos, this.textColor, Rotation, Vector2.Zero, scale, SpriteEffects.None, Depth == null ? 1f : ((float)Depth + -0.0001f));
             }
-            //if (this.textTexture != null)
-            //{
-            //    spriteBatch.Draw(this.textTexture, this.alignedPosition, null, this.textColor, Rotation, Vector2.Zero, SpriteEffects.None, Depth + -0.0001f);
-            //}
         }
 
-        public void Draw(SpriteBatch spriteBatch, float Rotation, float Depth)
+        public void Draw(float Rotation, float Depth)
         {
             if (!String.IsNullOrEmpty(Text))
             {
                 var pos = new Vector2(this.alignedPosition.X, this.alignedPosition.Y);
                 CacheManager.DrawString(Session.Current.Font, Text, pos, this.textColor, Rotation, Vector2.Zero, Builder.Scale, SpriteEffects.None, Depth + -0.0001f);
             }
-            //if (this.textTexture != null)
-            //{
-            //    spriteBatch.Draw(this.textTexture, this.alignedPosition, null, this.textColor, Rotation, Vector2.Zero, SpriteEffects.None, Depth + -0.0001f);
-            //}
         }
 
         private void ResetAlignedPosition()
@@ -248,18 +212,18 @@ namespace GameFreeText
             }
         }
 
-        public Texture2D TextTexture
-        {
-            get
-            {
-                return this.textTexture;
-            }
-            set
-            {
-                this.textTexture = value;
-                this.ResetAlignedPosition();
-            }
-        }
+        //public Texture2D TextTexture
+        //{
+        //    get
+        //    {
+        //        return this.textTexture;
+        //    }
+        //    set
+        //    {
+        //        this.textTexture = value;
+        //        this.ResetAlignedPosition();
+        //    }
+        //}
 
         public int Width
         {

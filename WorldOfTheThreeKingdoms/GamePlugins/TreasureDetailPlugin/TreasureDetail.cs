@@ -1,5 +1,6 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using GameObjects.Influences;
 using Microsoft.Xna.Framework;
@@ -13,7 +14,7 @@ namespace TreasureDetailPlugin
     public class TreasureDetail
     {
         internal Point BackgroundSize;
-        internal Texture2D BackgroundTexture;
+        internal PlatformTexture BackgroundTexture;
         internal Rectangle DescriptionClient;
         internal FreeRichText DescriptionText = new FreeRichText();
         private Point DisplayOffset;
@@ -22,34 +23,34 @@ namespace TreasureDetailPlugin
         private bool isShowing;
         internal List<LabelText> LabelTexts = new List<LabelText>();
         internal Rectangle PictureClient;
-        internal Screen screen;
+
         internal Treasure ShowingTreasure;
 
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw()
         {
             if (this.ShowingTreasure != null)
             {
                 Rectangle? sourceRectangle = null;
-                spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
 
                 if (this.ShowingTreasure.Picture != null)
                 {
-                    spriteBatch.Draw(this.ShowingTreasure.Picture, this.PictureClientDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                    CacheManager.Draw(this.ShowingTreasure.Picture, this.PictureClientDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
                 }
 
                 foreach (LabelText text in this.LabelTexts)
                 {
-                    text.Label.Draw(spriteBatch, 0.1999f);
-                    text.Text.Draw(spriteBatch, 0.1999f);
+                    text.Label.Draw(0.1999f);
+                    text.Text.Draw(0.1999f);
                 }
-                this.DescriptionText.Draw(spriteBatch, 0.1999f);
-                this.InfluenceText.Draw(spriteBatch, 0.1999f);
+                this.DescriptionText.Draw(0.1999f);
+                this.InfluenceText.Draw(0.1999f);
             }
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         private void screen_OnMouseLeftDown(Point position)
@@ -78,7 +79,7 @@ namespace TreasureDetailPlugin
 
         internal void SetPosition(ShowPosition showPosition)
         {
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
             Rectangle rect = new Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
             switch (showPosition)
             {
@@ -177,20 +178,20 @@ namespace TreasureDetailPlugin
                 this.isShowing = value;
                 if (value)
                 {
-                    this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.SubDialog, DialogKind.TreasureDetail));
-                    this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                    this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.SubDialog, DialogKind.TreasureDetail));
+                    Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                 }
                 else
                 {
-                    if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.SubDialog)
+                    if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.SubDialog)
                     {
                         throw new Exception("The UndoneWork is not a SubDialog.");
                     }
-                    this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                    this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                     this.DescriptionText.Clear();
                     this.InfluenceText.Clear();
                 }

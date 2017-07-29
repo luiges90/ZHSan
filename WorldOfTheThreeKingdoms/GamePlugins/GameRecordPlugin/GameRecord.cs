@@ -1,11 +1,12 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-
+using Platforms;
 
 namespace GameRecordPlugin
 {
@@ -20,21 +21,21 @@ namespace GameRecordPlugin
         private List<Point> Positions = new List<Point>();
         public FreeRichText Record = new FreeRichText();
         public Rectangle RecordBackgroundClient;
-        public Texture2D RecordBackgroundTexture;
+        public PlatformTexture RecordBackgroundTexture;
         private Point RecordDisplayOffset;
         public ShowPosition RecordShowPosition;
-        private Screen screen;
+        
         public GameObjectTextTree TextTree = new GameObjectTextTree();
         public Rectangle ToolClient;
-        public Texture2D ToolDisplayTexture;
-        public Texture2D ToolSelectedTexture;
-        public Texture2D ToolTexture;
+        public PlatformTexture ToolDisplayTexture;
+        public PlatformTexture ToolSelectedTexture;
+        public PlatformTexture ToolTexture;
 
         private bool isRecord1Showing=false;
         public Rectangle Tool1Client;
-        public Texture2D Tool1DisplayTexture;
-        public Texture2D Tool1SelectedTexture;
-        public Texture2D Tool1Texture;
+        public PlatformTexture Tool1DisplayTexture;
+        public PlatformTexture Tool1SelectedTexture;
+        public PlatformTexture Tool1Texture;
 
 
         public void AddBranch(GameObject gameObject, string branchName, Point position)
@@ -48,15 +49,15 @@ namespace GameRecordPlugin
                 this.Positions.RemoveRange(index, this.Positions.Count - index);
                 this.PositionRectangles.RemoveRange(index, this.PositionRectangles.Count - index);
             }
-            this.screen.PlayNormalSound(this.PopSoundFile);
+            Session.MainGame.mainGameScreen.PlayNormalSound(this.PopSoundFile);
             this.ButtonDrawingColor = Color.Lime;
             this.ButtonDrawingTime = DateTime.Now;
         }
 
         public void AddDisableRects()
         {
-            this.screen.AddDisableRectangle(this.screen.LaterMouseEventDisableRects, this.RecordDisplayPosition);
-            this.screen.AddDisableRectangle(this.screen.SelectingDisableRects, this.RecordDisplayPosition);
+            Session.MainGame.mainGameScreen.AddDisableRectangle(Session.MainGame.mainGameScreen.LaterMouseEventDisableRects, this.RecordDisplayPosition);
+            Session.MainGame.mainGameScreen.AddDisableRectangle(Session.MainGame.mainGameScreen.SelectingDisableRects, this.RecordDisplayPosition);
         }
 
         public void Clear()
@@ -66,22 +67,27 @@ namespace GameRecordPlugin
             this.PositionRectangles.Clear();
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw()
         {
             Rectangle? sourceRectangle = null;
-            spriteBatch.Draw(this.ToolDisplayTexture, this.ToolDisplayPosition, sourceRectangle, this.ButtonDrawingColor, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
-            spriteBatch.Draw(this.Tool1DisplayTexture, this.Tool1DisplayPosition, sourceRectangle, this.ButtonDrawingColor, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
+            CacheManager.Draw(this.ToolDisplayTexture, this.ToolDisplayPosition, sourceRectangle, this.ButtonDrawingColor, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
+
+            if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
+            {
+                CacheManager.Draw(this.Tool1DisplayTexture, this.Tool1DisplayPosition, sourceRectangle, this.ButtonDrawingColor, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
+            }
+
             if (this.IsRecordShowing)
             {
-                spriteBatch.Draw(this.RecordBackgroundTexture, this.RecordDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.102f);
-                this.Record.Draw(spriteBatch, 0.101f);
+                CacheManager.Draw(this.RecordBackgroundTexture, this.RecordDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.102f);
+                this.Record.Draw(0.101f);
             }
 
             if (this.IsRecord1Showing)
             {
                  Record.DisplayOffset = new Point(500, 100);
-                spriteBatch.Draw(this.RecordBackgroundTexture, new Rectangle(500, 100, 500, 600), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
-                Record.Draw(spriteBatch, 0.0999f);
+                CacheManager.Draw(this.RecordBackgroundTexture, new Rectangle(500, 100, 500, 600), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
+                Record.Draw(0.0999f);
             }
 
         }
@@ -96,11 +102,10 @@ namespace GameRecordPlugin
         }
 
         public void Initialize(Screen screen)
-        {
-            this.screen = screen;
+        {            
             this.Record.OnePage = true;
             screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-            screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+            screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftDown);
         }
 
         private void MoveRectangleDown(int height)
@@ -114,8 +119,8 @@ namespace GameRecordPlugin
 
         public void RemoveDisableRects()
         {
-            this.screen.RemoveDisableRectangle(this.screen.LaterMouseEventDisableRects, this.RecordDisplayPosition);
-            this.screen.RemoveDisableRectangle(this.screen.SelectingDisableRects, this.RecordDisplayPosition);
+            Session.MainGame.mainGameScreen.RemoveDisableRectangle(Session.MainGame.mainGameScreen.LaterMouseEventDisableRects, this.RecordDisplayPosition);
+            Session.MainGame.mainGameScreen.RemoveDisableRectangle(Session.MainGame.mainGameScreen.SelectingDisableRects, this.RecordDisplayPosition);
         }
 
         private void screen_OnMouseLeftDown(Point position)
@@ -129,20 +134,23 @@ namespace GameRecordPlugin
                         this.IsRecord1Showing = false;
                 }
 
-                if (StaticMethods.PointInRectangle(position, this.Tool1DisplayPosition))
+                if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
                 {
-                    this.IsRecord1Showing = !this.IsRecord1Showing;
-                    if (this.IsRecord1Showing)
-                        this.IsRecordShowing = false;
+                    if (StaticMethods.PointInRectangle(position, this.Tool1DisplayPosition))
+                    {
+                        this.IsRecord1Showing = !this.IsRecord1Showing;
+                        if (this.IsRecord1Showing)
+                            this.IsRecordShowing = false;
+                    }
                 }
 
                 if (this.IsRecordShowing )
                 {
                     for (int i = 0; i < this.PositionRectangles.Count; i++)
                     {
-                        if (StaticMethods.PointInRectangle(position, this.GetPositionRectangle(i)) && position.Y<screen.viewportSize.Y-48)
+                        if (StaticMethods.PointInRectangle(position, this.GetPositionRectangle(i)) && position.Y< Session.MainGame.mainGameScreen.viewportSize.Y-48)
                         {
-                            this.screen.JumpTo(this.Positions[i]);
+                            Session.MainGame.mainGameScreen.JumpTo(this.Positions[i]);
                             break;
                         }
                     }
@@ -151,9 +159,9 @@ namespace GameRecordPlugin
                 {
                     for (int i = 0; i < this.PositionRectangles.Count; i++)
                     {
-                        if (StaticMethods.PointInRectangle(position, this.GetPositionRectangle1(i)) && position.Y < screen.viewportSize.Y - 48)
+                        if (StaticMethods.PointInRectangle(position, this.GetPositionRectangle1(i)) && position.Y < Session.MainGame.mainGameScreen.viewportSize.Y - 48)
                         {
-                            this.screen.JumpTo(this.Positions[i]);
+                            Session.MainGame.mainGameScreen.JumpTo(this.Positions[i]);
                             break;
                         }
                     }
@@ -170,7 +178,7 @@ namespace GameRecordPlugin
                 {
                     if (StaticMethods.PointInRectangle(position, this.ToolDisplayPosition))
                     {
-                        this.screen.ResetMouse();
+                        Session.MainGame.mainGameScreen.ResetMouse();
                         this.ToolDisplayTexture = this.ToolSelectedTexture;
                     }
                     else
@@ -178,9 +186,15 @@ namespace GameRecordPlugin
                         this.ToolDisplayTexture = this.ToolTexture;
                     }
                 }
-                else if (StaticMethods.PointInRectangle(position, this.RecordDisplayPosition))
+                else
                 {
-                    this.screen.ResetMouse();
+                    if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
+                    {
+                        if (StaticMethods.PointInRectangle(position, this.RecordDisplayPosition))
+                        {
+                            Session.MainGame.mainGameScreen.ResetMouse();
+                        }
+                    }
                 }
             }
         }
@@ -196,7 +210,7 @@ namespace GameRecordPlugin
 
         public void SetDisplayOffset(ShowPosition showPosition)
         {
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
             if (rectDes != Rectangle.Empty)
             {
                 Rectangle recordBackgroundClient = this.RecordBackgroundClient;
@@ -263,13 +277,13 @@ namespace GameRecordPlugin
                 this.isRecordShowing = value;
                 if (value)
                 {
-                    this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                     this.SetDisplayOffset(this.RecordShowPosition);
                     this.AddDisableRects();
                 }
                 else
                 {
-                    this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                     this.RemoveDisableRects();
                 }
             }

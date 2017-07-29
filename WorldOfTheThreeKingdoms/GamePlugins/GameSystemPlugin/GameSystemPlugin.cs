@@ -20,7 +20,7 @@ namespace GameSystemPlugin
         private const string DataPath = @"Content\Textures\GameComponents\GameSystem\Data\";
         private string description = "系统工具";
         public GameSystem gameSystem = new GameSystem();
-        private GraphicsDevice graphicsDevice;
+        
         private const string Path = @"Content\Textures\GameComponents\GameSystem\";
         private string pluginName = "GameSystemPlugin";
         private string version = "1.0.0";
@@ -30,12 +30,12 @@ namespace GameSystemPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            this.gameSystem.Draw(spriteBatch);
+            this.gameSystem.Draw();
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -49,15 +49,14 @@ namespace GameSystemPlugin
             this.gameSystem.Align = (ToolAlign) Enum.Parse(typeof(ToolAlign), node.Attributes.GetNamedItem("Align").Value);
             this.gameSystem.Width = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             node = nextSibling.ChildNodes.Item(1);
-            this.gameSystem.SystemTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameSystem\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.gameSystem.SystemSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\GameSystem\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.gameSystem.SystemTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameSystem\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.gameSystem.SystemSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\GameSystem\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             this.gameSystem.SystemDisplayTexture = this.gameSystem.SystemTexture;
             this.gameSystem.SystemPosition = StaticMethods.LoadRectangleFromXMLNode(node);
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\GameSystemData.xml");
         }
 
@@ -66,9 +65,9 @@ namespace GameSystemPlugin
             this.gameSystem.SetOptionDialog(iOptionDialog);
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.gameSystem.Initialize(screen as Screen);
+            this.gameSystem.Initialize(screen);
         }
 
         public void ShowOptionDialog(ShowPosition showPosition)

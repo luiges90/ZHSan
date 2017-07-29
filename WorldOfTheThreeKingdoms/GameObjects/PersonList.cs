@@ -2,6 +2,7 @@
 using GameObjects.Influences;
 using System;
 using System.Runtime.Serialization;
+using GameManager;
 
 namespace GameObjects
 {
@@ -19,8 +20,8 @@ namespace GameObjects
             {
                 base.Add(person);
             }
-            if (person.Scenario.GameScreen != null)
-            {
+            //if (Session.MainGame.mainGameScreen != null)
+            //{
                 person.OnJailBreakSuccess += new Person.JailBreakSuccess(person_OnJailBreakSuccess);
                 person.OnJailBreakFailed += new Person.JailBreakFailed(person_OnJailBreakFailed);
                 person.OnConvinceSuccess += new Person.ConvinceSuccess(this.person_OnConvinceSuccess);
@@ -53,14 +54,14 @@ namespace GameObjects
                 person.OnCreateBrother += new Person.CreateBrother(this.person_OnCreateBrother);
                 person.OnCreateSister += new Person.CreateSister(person_OnCreateSister);
                 person.OnCreateSpouse += new Person.CreateSpouse(person_OnCreateSpouse);
-            }
+            //}
         }
 
         public void PurifyInfluences()
         {
             foreach (Person person in base.GameObjects)
             {
-                if (!person.Scenario.Preparing)
+                if (!Session.Current.Scenario.Preparing)
                 {
                     foreach (Title t in person.Titles)
                     {
@@ -183,168 +184,167 @@ namespace GameObjects
 
         private void person_OnBeAwardedTreasure(Person person, Treasure t)
         {
-            person.Scenario.GameScreen.PersonBeAwardedTreasure(person, t);
+            Session.MainGame.mainGameScreen.PersonBeAwardedTreasure(person, t);
         }
 
         private void person_OnBeConfiscatedTreasure(Person person, Treasure t)
         {
-            person.Scenario.GameScreen.PersonBeConfiscatedTreasure(person, t);
+            Session.MainGame.mainGameScreen.PersonBeConfiscatedTreasure(person, t);
         }
 
         private void person_OnBeKilled(Person person, Architecture location)
         {
-            person.Scenario.GameScreen.PersonBeKilled(person, location);
+            Session.MainGame.mainGameScreen.PersonBeKilled(person, location);
         }
 
         private void person_OnChangeLeader(Faction faction, Person leader, bool changeName, string oldName)
         {
-            faction.Scenario.GameScreen.PersonChangeLeader(faction, leader, changeName, oldName);
+            Session.MainGame.mainGameScreen.PersonChangeLeader(faction, leader, changeName, oldName);
         }
         /*
         private void person_OnQuanXiangFailed(Person source, Faction targetFaction)
         {
-            source.Scenario.GameScreen.QuanXiangFailed(source, targetFaction);
+            Session.MainGame.mainGameScreen.QuanXiangFailed(source, targetFaction);
         }
         */
         private void person_OnConvinceFailed(Person source, Person destination)
         {
-            source.Scenario.GameScreen.PersonConvinceFailed(source, destination);
+            Session.MainGame.mainGameScreen.PersonConvinceFailed(source, destination);
         }
 
         private void person_OnConvinceSuccess(Person source, Person destination, Faction oldFaction)
         {
-            source.Scenario.GameScreen.PersonConvinceSuccess(source, destination, oldFaction);
+            Session.MainGame.mainGameScreen.PersonConvinceSuccess(source, destination, oldFaction);
         }
 
         private void person_OnDeath(Person person, Person killer, Architecture location, Troop locationTroop)
         {
-            person.Scenario.GameScreen.PersonDeath(person, killer, location, locationTroop);
+            Session.MainGame.mainGameScreen.PersonDeath(person, killer, location, locationTroop);
         }
 
         private void person_OnDeathChangeFaction(Person dead, Person leader, string oldName)
         {
-            leader.Scenario.GameScreen.PersonDeathChangeFaction(dead, leader, oldName);
+            Session.MainGame.mainGameScreen.PersonDeathChangeFaction(dead, leader, oldName);
         }
 
         private void person_OnDestroyFailed(Person person, Architecture architecture)
         {
-            person.Scenario.GameScreen.PersonDestroyFailed(person, architecture);
+            Session.MainGame.mainGameScreen.PersonDestroyFailed(person, architecture);
         }
 
         private void person_OnDestroySuccess(Person person, Architecture architecture, int down)
         {
-            person.Scenario.GameScreen.PersonDestroySuccess(person, architecture, down);
+            Session.MainGame.mainGameScreen.PersonDestroySuccess(person, architecture, down);
         }
 
         private void person_OnGossipFailed(Person person, Architecture architecture)
         {
-            person.Scenario.GameScreen.PersonGossipFailed(person, architecture);
+            Session.MainGame.mainGameScreen.PersonGossipFailed(person, architecture);
         }
 
         private void person_OnGossipSuccess(Person person, Architecture architecture)
         {
-            person.Scenario.GameScreen.PersonGossipSuccess(person, architecture);
+            Session.MainGame.mainGameScreen.PersonGossipSuccess(person, architecture);
         }
 
         private void person_OnInformationObtained(Person person, Information information)
         {
-            person.Scenario.GameScreen.PersonInformationObtained(person, information);
+            Session.MainGame.mainGameScreen.PersonInformationObtained(person, information);
         }
-
         
         private void person_qingbaoshibai(Person person)
         {
-            person.Scenario.GameScreen.qingbaoshibai(person);
+            Session.MainGame.mainGameScreen.qingbaoshibai(person);
         }
 
         private void person_OnInstigateFailed(Person person, Architecture architecture)
         {
-            person.Scenario.GameScreen.PersonInstigateFailed(person, architecture);
+            Session.MainGame.mainGameScreen.PersonInstigateFailed(person, architecture);
         }
 
         private void person_OnInstigateSuccess(Person person, Architecture architecture, int down)
         {
-            person.Scenario.GameScreen.PersonInstigateSuccess(person, architecture, down);
+            Session.MainGame.mainGameScreen.PersonInstigateSuccess(person, architecture, down);
         }
 
         private void person_OnLeave(Person person, Architecture location)
         {
-            person.Scenario.GameScreen.PersonLeave(person, location);
+            Session.MainGame.mainGameScreen.PersonLeave(person, location);
         }
 
         private void person_OnSearchFinished(Person person, Architecture architecture, SearchResultPack resultPack)
         {
-            person.Scenario.GameScreen.PersonSearchFinished(person, architecture, resultPack);
+            Session.MainGame.mainGameScreen.PersonSearchFinished(person, architecture, resultPack);
         }
         /*
         private void person_OnShowMessage(Person person, PersonMessage personMessage)
         {
-            person.Scenario.GameScreen.PersonShowMessage(person, personMessage);
+            Session.MainGame.mainGameScreen.PersonShowMessage(person, personMessage);
         }
         
         private void person_OnSpyFailed(Person person, Architecture architecture)
         {
-            person.Scenario.GameScreen.PersonSpyFailed(person, architecture);
+            Session.MainGame.mainGameScreen.PersonSpyFailed(person, architecture);
         }
 
         private void person_OnSpyFound(Person person, Person spy)
         {
-            person.Scenario.GameScreen.PersonSpyFound(person, spy);
+            Session.MainGame.mainGameScreen.PersonSpyFound(person, spy);
         }
 
         private void person_OnSpySuccess(Person person, Architecture architecture)
         {
-            person.Scenario.GameScreen.PersonSpySuccess(person, architecture);
+            Session.MainGame.mainGameScreen.PersonSpySuccess(person, architecture);
         }
         */
         private void person_OnStudySkillFinished(Person person, string skillString, bool success)
         {
-            person.Scenario.GameScreen.PersonStudySkillFinished(person, skillString, success);
+            Session.MainGame.mainGameScreen.PersonStudySkillFinished(person, skillString, success);
         }
 
         private void person_OnStudyStuntFinished(Person person, Stunt stunt, bool success)
         {
-            person.Scenario.GameScreen.PersonStudyStuntFinished(person, stunt, success);
+            Session.MainGame.mainGameScreen.PersonStudyStuntFinished(person, stunt, success);
         }
 
         private void person_OnStudyTitleFinished(Person person, Title title, bool success)
         {
-            person.Scenario.GameScreen.PersonStudyTitleFinished(person, title, success);
+            Session.MainGame.mainGameScreen.PersonStudyTitleFinished(person, title, success);
         }
 
         private void person_OnTreasureFound(Person person, Treasure treasure)
         {
-            person.Scenario.GameScreen.PersonTreasureFound(person, treasure);
+            Session.MainGame.mainGameScreen.PersonTreasureFound(person, treasure);
         }
 
         private void person_OnCapturedByArchitecture(Person person, Architecture architecture)
         {
-            person.Scenario.GameScreen.PersonCapturedByArchitecture(person, architecture);
+            Session.MainGame.mainGameScreen.PersonCapturedByArchitecture(person, architecture);
         }
 
         void person_OnJailBreakSuccess(Person source, Captive destination)
         {
-            source.Scenario.GameScreen.PersonJailBreak(source, destination);
+            Session.MainGame.mainGameScreen.PersonJailBreak(source, destination);
         }
 
         void person_OnJailBreakFailed(Person source, Architecture destination)
         {
-            source.Scenario.GameScreen.PersonJailBreakFailed(source, destination);
+            Session.MainGame.mainGameScreen.PersonJailBreakFailed(source, destination);
         }
 
         void person_OnCreateBrother(Person p, Person q)
         {
-            p.Scenario.GameScreen.CreateBrother(p, q);
+            Session.MainGame.mainGameScreen.CreateBrother(p, q);
         }
 
         void person_OnCreateSister(Person p, Person q)
         {
-            p.Scenario.GameScreen.CreateSister(p, q);
+            Session.MainGame.mainGameScreen.CreateSister(p, q);
         }
 
         void person_OnCreateSpouse(Person p, Person q)
         {
-            p.Scenario.GameScreen.CreateSpouse(p, q);
+            Session.MainGame.mainGameScreen.CreateSpouse(p, q);
         }
     }
 }

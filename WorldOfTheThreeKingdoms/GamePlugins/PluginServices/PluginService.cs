@@ -27,28 +27,28 @@ namespace PluginServices
 
         }
 
-        private void AddPlugin(string FileName)
-        {
-            Assembly assembly = Assembly.LoadFrom(FileName);
-            foreach (Type type in assembly.GetTypes())
-            {
-                if (type.IsPublic && !type.IsAbstract)
-                {
-                    if (this.GetPluginInterface(type) != null)
-                    {
-                        AvailablePlugin pluginToAdd = new AvailablePlugin
-                        {
-                            AssemblyPath = FileName,
-                            Instance = (IBasePlugin)Activator.CreateInstance(assembly.GetType(type.ToString()))
-                        };
-                        pluginToAdd.Instance.Initialize();
-                        this.availablePlugins.Add(pluginToAdd);
-                        pluginToAdd = null;
-                    }
-                }
-            }
-            assembly = null;
-        }
+        //private void AddPlugin(string FileName)
+        //{
+        //    Assembly assembly = Assembly.LoadFrom(FileName);
+        //    foreach (Type type in assembly.GetTypes())
+        //    {
+        //        if (type.IsPublic && !type.IsAbstract)
+        //        {
+        //            if (this.GetPluginInterface(type) != null)
+        //            {
+        //                AvailablePlugin pluginToAdd = new AvailablePlugin
+        //                {
+        //                    AssemblyPath = FileName,
+        //                    Instance = (IBasePlugin)Activator.CreateInstance(assembly.GetType(type.ToString()))
+        //                };
+        //                pluginToAdd.Instance.Initialize();
+        //                this.availablePlugins.Add(pluginToAdd);
+        //                pluginToAdd = null;
+        //            }
+        //        }
+        //    }
+        //    assembly = null;
+        //}
 
         public void ClearPlugins()
         {
@@ -133,19 +133,19 @@ namespace PluginServices
         //    }
         //}
 
-        private Type GetPluginInterface(Type pluginType)
-        {
-            Type type = null;
-            foreach (string str in GamePluginTypes)
-            {
-                type = pluginType.GetInterface(str, true);
-                if (type != null)
-                {
-                    return type;
-                }
-            }
-            return type;
-        }
+        //private Type GetPluginInterface(Type pluginType)
+        //{
+        //    Type type = null;
+        //    foreach (string str in GamePluginTypes)
+        //    {
+        //        type = pluginType.GetInterface(str, true);
+        //        if (type != null)
+        //        {
+        //            return type;
+        //        }
+        //    }
+        //    return type;
+        //}
 
         public AvailablePlugins AvailablePlugins
         {

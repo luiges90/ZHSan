@@ -21,7 +21,7 @@ namespace PersonBubble
         private string author = "clip_on";
         private const string DataPath = @"Content\Textures\GameComponents\PersonBubble\Data\";
         private string description = "人物气泡";
-        private GraphicsDevice graphicsDevice;
+        
         private const string Path = @"Content\Textures\GameComponents\PersonBubble\";
         private PersonBubble personBubble = new PersonBubble();
         private string pluginName = "PersonBubblePlugin";
@@ -42,7 +42,7 @@ namespace PersonBubble
         {
             Person p = (Person)person;
             TextMessageKind k = (TextMessageKind)kind;
-            List<string> msg = p.Scenario.GameCommonData.AllTextMessages.GetTextMessage(p.ID, k);
+            List<string> msg = Session.Current.Scenario.GameCommonData.AllTextMessages.GetTextMessage(p.ID, k);
             if (msg.Count > 0)
             {
                 this.AddPersonText(person, position, msg[GameObject.Random(msg.Count)]);
@@ -57,15 +57,15 @@ namespace PersonBubble
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.personBubble.IsShowing)
             {
-                this.personBubble.Draw(spriteBatch);
+                this.personBubble.Draw();
             }
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -77,7 +77,7 @@ namespace PersonBubble
             string xml = Platform.Current.LoadText(filename);document.LoadXml(xml);
             XmlNode nextSibling = document.FirstChild.NextSibling;
             XmlNode node = nextSibling.ChildNodes.Item(0);
-            this.personBubble.BackgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\PersonBubble\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.personBubble.BackgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\PersonBubble\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.personBubble.BackgroundSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.personBubble.BackgroundSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
             this.personBubble.PopoutOffset.X = int.Parse(node.Attributes.GetNamedItem("PopoutX").Value);
@@ -91,7 +91,7 @@ namespace PersonBubble
             this.personBubble.TextRowMargin = int.Parse(node.Attributes.GetNamedItem("RowMargin").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
 
-            this.personBubble.TextBuilder.SetFreeTextBuilder(this.graphicsDevice, font);
+            this.personBubble.TextBuilder.SetFreeTextBuilder(font);
 
             this.personBubble.DefaultTextColor = color;
             node = nextSibling.ChildNodes.Item(3);
@@ -103,15 +103,14 @@ namespace PersonBubble
             this.personBubble.TextTree.LoadFromXmlFile(@"Content\Data\Plugins\PersonBubbleTree.xml");
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\PersonBubbleData.xml");
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.personBubble.Initialize(screen as Screen);
+            this.personBubble.Initialize();
         }
 
         public void Update(GameTime gameTime)

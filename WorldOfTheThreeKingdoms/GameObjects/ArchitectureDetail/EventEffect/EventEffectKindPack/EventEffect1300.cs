@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using System;
 
 
@@ -11,7 +12,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
 
         public override void ApplyEffectKind(Architecture a, Event e)
         {
-            a.zainan.zainanzhonglei = base.Scenario.GameCommonData.suoyouzainanzhonglei.Getzainanzhonglei(id);
+            a.zainan.zainanzhonglei = Session.Current.Scenario.GameCommonData.suoyouzainanzhonglei.Getzainanzhonglei(id);
             a.zainan.shengyutianshu = a.zainan.zainanzhonglei.shijianxiaxian + GameObject.Random(a.zainan.zainanzhonglei.shijianshangxian - a.zainan.zainanzhonglei.shijianxiaxian);
             a.youzainan = true;
             foreach (Military military in a.Militaries)//发生灾难时不能补充

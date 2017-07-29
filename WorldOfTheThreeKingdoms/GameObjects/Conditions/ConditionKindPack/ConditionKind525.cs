@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Conditions;
 using System;
 
@@ -12,7 +13,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
 
         public override bool CheckConditionKind(Person person)
         {
-            Person p1 = person.Scenario.Persons.GetGameObject(personID) as Person;
+            Person p1 = Session.Current.Scenario.Persons.GetGameObject(personID) as Person;
             return !( person.LocationArchitecture != null && p1.LocationArchitecture  != null && person.LocationArchitecture == p1.LocationArchitecture );
         }
 

@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using System;
 
 
@@ -11,7 +12,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
 
         public override void ApplyEffectKind(Person person, Event e)
         {
-            GameObjects.PersonDetail.Stunt stunt = person.Scenario.GameCommonData.AllStunts.GetStunt(increment);
+            GameObjects.PersonDetail.Stunt stunt = Session.Current.Scenario.GameCommonData.AllStunts.GetStunt(increment);
             person.Stunts.Stunts.Remove(increment);
         }
 

@@ -16,52 +16,51 @@ using GameManager;
 using Tools;
 
 namespace WorldOfTheThreeKingdoms.Resources
-
 {
 
     public class GameTextures
     {
         //public Texture2D BackgroundMap;
-        public Texture2D[] MapVeilTextures;
-        public Texture2D[] MouseArrowTextures;
-        public Texture2D[] RoutewayDirectionArrowTextures;
-        public Texture2D[] RoutewayDirectionTailTextures;
-        public Texture2D[] RoutewayTextures;
-        public Texture2D SelectorTexture;
+        public PlatformTexture[] MapVeilTextures;
+        public PlatformTexture[] MouseArrowTextures;
+        public PlatformTexture[] RoutewayDirectionArrowTextures;
+        public PlatformTexture[] RoutewayDirectionTailTextures;
+        public PlatformTexture[] RoutewayTextures;
+        public PlatformTexture SelectorTexture;
         public PlatformTexture[] TerrainTextures;
-        public Texture2D[] TileFrameTextures;
-        public Texture2D qizitupian;
-        public Texture2D huangditupian;
+        public PlatformTexture[] TileFrameTextures;
+        public PlatformTexture qizitupian;
+        public PlatformTexture huangditupian;
         //public Texture2D jianzhubiaotibeijing;
-        public Texture2D zidongcundangtupian;
-        public Dictionary<int, Texture2D> mediumCityImg = new Dictionary<int, Texture2D>();
-        public Dictionary<int, Texture2D> largeCityImg = new Dictionary<int, Texture2D>();
-        public Texture2D[] guandetupian = new Texture2D[3];
-        public Texture2D wanggetupian;
-        public Texture2D EditModeGrid;
-        public Texture2D LandConnect;
-        public Texture2D WaterConnect;
-        public Texture2D SingleConnect;
+        public PlatformTexture zidongcundangtupian;
+        public Dictionary<int, PlatformTexture> mediumCityImg = new Dictionary<int, PlatformTexture>();
+        public Dictionary<int, PlatformTexture> largeCityImg = new Dictionary<int, PlatformTexture>();
+        public PlatformTexture[] guandetupian = new PlatformTexture[3];
+        public PlatformTexture wanggetupian;
+        public PlatformTexture EditModeGrid;
+        public PlatformTexture LandConnect;
+        public PlatformTexture WaterConnect;
+        public PlatformTexture SingleConnect;
 
-        public void LoadTextures(GraphicsDevice device, GameScenario scenario)
+        public void LoadTextures()
         {
             Exception exception;
             string str;
-            //this.BackgroundMap = CacheManager.LoadTempTexture("Content/Textures/Resources/bg.jpg");
+            //this.BackgroundMap = CacheManager.GetTempTexture("Content/Textures/Resources/bg.jpg");
 
             try
             {
-                this.MouseArrowTextures = new Texture2D[Enum.GetValues(typeof(MouseArrowKind)).Length];
-                this.MouseArrowTextures[0] = CacheManager.LoadTempTexture("Content/Textures/Resources/MouseArrow/Normal.png");
-                this.MouseArrowTextures[1] = CacheManager.LoadTempTexture("Content/Textures/Resources/MouseArrow/Left.png");
-                this.MouseArrowTextures[2] = CacheManager.LoadTempTexture("Content/Textures/Resources/MouseArrow/Right.png");
-                this.MouseArrowTextures[3] = CacheManager.LoadTempTexture("Content/Textures/Resources/MouseArrow/Top.png");
-                this.MouseArrowTextures[4] = CacheManager.LoadTempTexture("Content/Textures/Resources/MouseArrow/Bottom.png");
-                this.MouseArrowTextures[5] = CacheManager.LoadTempTexture("Content/Textures/Resources/MouseArrow/TopLeft.png");
-                this.MouseArrowTextures[6] = CacheManager.LoadTempTexture("Content/Textures/Resources/MouseArrow/TopRight.png");
-                this.MouseArrowTextures[7] = CacheManager.LoadTempTexture("Content/Textures/Resources/MouseArrow/BottomLeft.png");
-                this.MouseArrowTextures[8] = CacheManager.LoadTempTexture("Content/Textures/Resources/MouseArrow/BottomRight.png");
-                this.MouseArrowTextures[9] = CacheManager.LoadTempTexture("Content/Textures/Resources/MouseArrow/Selecting.png");
+                this.MouseArrowTextures = new PlatformTexture[Enum.GetValues(typeof(MouseArrowKind)).Length];
+                this.MouseArrowTextures[0] = CacheManager.GetTempTexture("Content/Textures/Resources/MouseArrow/Normal.png");
+                this.MouseArrowTextures[1] = CacheManager.GetTempTexture("Content/Textures/Resources/MouseArrow/Left.png");
+                this.MouseArrowTextures[2] = CacheManager.GetTempTexture("Content/Textures/Resources/MouseArrow/Right.png");
+                this.MouseArrowTextures[3] = CacheManager.GetTempTexture("Content/Textures/Resources/MouseArrow/Top.png");
+                this.MouseArrowTextures[4] = CacheManager.GetTempTexture("Content/Textures/Resources/MouseArrow/Bottom.png");
+                this.MouseArrowTextures[5] = CacheManager.GetTempTexture("Content/Textures/Resources/MouseArrow/TopLeft.png");
+                this.MouseArrowTextures[6] = CacheManager.GetTempTexture("Content/Textures/Resources/MouseArrow/TopRight.png");
+                this.MouseArrowTextures[7] = CacheManager.GetTempTexture("Content/Textures/Resources/MouseArrow/BottomLeft.png");
+                this.MouseArrowTextures[8] = CacheManager.GetTempTexture("Content/Textures/Resources/MouseArrow/BottomRight.png");
+                this.MouseArrowTextures[9] = CacheManager.GetTempTexture("Content/Textures/Resources/MouseArrow/Selecting.png");
             }
             catch (Exception exception1)
             {
@@ -70,7 +69,7 @@ namespace WorldOfTheThreeKingdoms.Resources
             }
             try
             {
-                foreach (TerrainDetail detail in scenario.GameCommonData.AllTerrainDetails.TerrainDetails.Values)
+                foreach (TerrainDetail detail in Session.Current.Scenario.GameCommonData.AllTerrainDetails.TerrainDetails.Values)
                 {
                     detail.Textures = new GameObjects.MapDetail.TerrainTextures();
                     str = "Content/Textures/Resources/Terrain/" + detail.ID.ToString() + "/";
@@ -165,7 +164,7 @@ namespace WorldOfTheThreeKingdoms.Resources
             //}
             try
             {
-                foreach (MilitaryKind kind2 in scenario.GameCommonData.AllMilitaryKinds.MilitaryKinds.Values)
+                foreach (MilitaryKind kind2 in Session.Current.Scenario.GameCommonData.AllMilitaryKinds.MilitaryKinds.Values)
                 {
                     str = "Content/Textures/Resources/Troop/" + kind2.ID.ToString() + "/";
                     string soundDir = @"Content\Sound\Troop\" + kind2.ID.ToString() + "/";
@@ -207,8 +206,8 @@ namespace WorldOfTheThreeKingdoms.Resources
             }
             try
             {
-                this.MapVeilTextures = new Texture2D[Enum.GetValues(typeof(MapVeilKind)).Length];
-                this.MapVeilTextures[0] = CacheManager.LoadTempTexture("Content/Textures/Resources/MapVeil/Gray.png");
+                this.MapVeilTextures = new PlatformTexture[Enum.GetValues(typeof(MapVeilKind)).Length];
+                this.MapVeilTextures[0] = CacheManager.GetTempTexture("Content/Textures/Resources/MapVeil/Gray.png");
             }
             catch (Exception exception5)
             {
@@ -217,14 +216,14 @@ namespace WorldOfTheThreeKingdoms.Resources
             }
             try
             {
-                this.TileFrameTextures = new Texture2D[Enum.GetValues(typeof(TileFrameKind)).Length];
-                this.TileFrameTextures[0] = CacheManager.LoadTempTexture("Content/Textures/Resources/TileFrame/White.png");
-                this.TileFrameTextures[1] = CacheManager.LoadTempTexture("Content/Textures/Resources/TileFrame/Black.png");
-                this.TileFrameTextures[2] = CacheManager.LoadTempTexture("Content/Textures/Resources/TileFrame/Red.png");
-                this.TileFrameTextures[3] = CacheManager.LoadTempTexture("Content/Textures/Resources/TileFrame/Blue.png");
-                this.TileFrameTextures[4] = CacheManager.LoadTempTexture("Content/Textures/Resources/TileFrame/Green.png");
-                this.TileFrameTextures[5] = CacheManager.LoadTempTexture("Content/Textures/Resources/TileFrame/Purple.png");
-                this.TileFrameTextures[6] = CacheManager.LoadTempTexture("Content/Textures/Resources/TileFrame/Yellow.png");
+                this.TileFrameTextures = new PlatformTexture[Enum.GetValues(typeof(TileFrameKind)).Length];
+                this.TileFrameTextures[0] = CacheManager.GetTempTexture("Content/Textures/Resources/TileFrame/White.png");
+                this.TileFrameTextures[1] = CacheManager.GetTempTexture("Content/Textures/Resources/TileFrame/Black.png");
+                this.TileFrameTextures[2] = CacheManager.GetTempTexture("Content/Textures/Resources/TileFrame/Red.png");
+                this.TileFrameTextures[3] = CacheManager.GetTempTexture("Content/Textures/Resources/TileFrame/Blue.png");
+                this.TileFrameTextures[4] = CacheManager.GetTempTexture("Content/Textures/Resources/TileFrame/Green.png");
+                this.TileFrameTextures[5] = CacheManager.GetTempTexture("Content/Textures/Resources/TileFrame/Purple.png");
+                this.TileFrameTextures[6] = CacheManager.GetTempTexture("Content/Textures/Resources/TileFrame/Yellow.png");
             }
             catch (Exception exception6)
             {
@@ -233,24 +232,24 @@ namespace WorldOfTheThreeKingdoms.Resources
             }
             try
             {
-                this.RoutewayTextures = new Texture2D[Enum.GetValues(typeof(RoutewayState)).Length];
-                this.RoutewayTextures[0] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/Planning.png");
-                this.RoutewayTextures[1] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/Active.png");
-                this.RoutewayTextures[2] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/Inefficiency.png");
-                this.RoutewayTextures[3] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/Building.png");
-                this.RoutewayTextures[4] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/NoFood.png");
-                this.RoutewayTextures[5] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/Hostile.png");
-                this.RoutewayDirectionArrowTextures = new Texture2D[Enum.GetValues(typeof(SimpleDirection)).Length];
-                this.RoutewayDirectionArrowTextures[0] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/DirectionArrowNone.png");
-                this.RoutewayDirectionArrowTextures[1] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/DirectionArrowLeft.png");
-                this.RoutewayDirectionArrowTextures[2] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/DirectionArrowUp.png");
-                this.RoutewayDirectionArrowTextures[3] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/DirectionArrowRight.png");
-                this.RoutewayDirectionArrowTextures[4] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/DirectionArrowDown.png");
-                this.RoutewayDirectionTailTextures = new Texture2D[Enum.GetValues(typeof(SimpleDirection)).Length];
-                this.RoutewayDirectionTailTextures[1] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/DirectionTailLeft.png");
-                this.RoutewayDirectionTailTextures[2] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/DirectionTailUp.png");
-                this.RoutewayDirectionTailTextures[3] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/DirectionTailRight.png");
-                this.RoutewayDirectionTailTextures[4] = CacheManager.LoadTempTexture("Content/Textures/Resources/Routeway/DirectionTailDown.png");
+                this.RoutewayTextures = new PlatformTexture[Enum.GetValues(typeof(RoutewayState)).Length];
+                this.RoutewayTextures[0] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/Planning.png");
+                this.RoutewayTextures[1] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/Active.png");
+                this.RoutewayTextures[2] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/Inefficiency.png");
+                this.RoutewayTextures[3] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/Building.png");
+                this.RoutewayTextures[4] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/NoFood.png");
+                this.RoutewayTextures[5] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/Hostile.png");
+                this.RoutewayDirectionArrowTextures = new PlatformTexture[Enum.GetValues(typeof(SimpleDirection)).Length];
+                this.RoutewayDirectionArrowTextures[0] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/DirectionArrowNone.png");
+                this.RoutewayDirectionArrowTextures[1] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/DirectionArrowLeft.png");
+                this.RoutewayDirectionArrowTextures[2] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/DirectionArrowUp.png");
+                this.RoutewayDirectionArrowTextures[3] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/DirectionArrowRight.png");
+                this.RoutewayDirectionArrowTextures[4] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/DirectionArrowDown.png");
+                this.RoutewayDirectionTailTextures = new PlatformTexture[Enum.GetValues(typeof(SimpleDirection)).Length];
+                this.RoutewayDirectionTailTextures[1] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/DirectionTailLeft.png");
+                this.RoutewayDirectionTailTextures[2] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/DirectionTailUp.png");
+                this.RoutewayDirectionTailTextures[3] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/DirectionTailRight.png");
+                this.RoutewayDirectionTailTextures[4] = CacheManager.GetTempTexture("Content/Textures/Resources/Routeway/DirectionTailDown.png");
             }
             catch (Exception exception7)
             {
@@ -259,7 +258,7 @@ namespace WorldOfTheThreeKingdoms.Resources
             }
             //try
             //{
-                foreach (Animation animation in scenario.GameCommonData.AllTileAnimations.Animations.Values)
+                foreach (Animation animation in Session.Current.Scenario.GameCommonData.AllTileAnimations.Animations.Values)
                 {
                     //animation.Device = device;
                     animation.TextureFileName = "Content/Textures/Resources/Effects/TileEffect/" + animation.Name + ".png";
@@ -285,8 +284,7 @@ namespace WorldOfTheThreeKingdoms.Resources
             //}
             try
             {
-                scenario.GameCommonData.NumberGenerator.Device = device;
-                scenario.GameCommonData.NumberGenerator.TextureFileName = "Content/Textures/Resources/Effects/CombatNumber/CombatNumber.png";
+                Session.Current.Scenario.GameCommonData.NumberGenerator.TextureFileName = "Content/Textures/Resources/Effects/CombatNumber/CombatNumber.png";
             }
             catch (Exception exception9)
             {
@@ -295,7 +293,7 @@ namespace WorldOfTheThreeKingdoms.Resources
             }
             try
             {
-                this.SelectorTexture = CacheManager.LoadTempTexture("Content/Textures/Resources/Effects/Selector/Selector.png");
+                this.SelectorTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Effects/Selector/Selector.png");
             }
             catch (Exception exception10)
             {
@@ -305,7 +303,7 @@ namespace WorldOfTheThreeKingdoms.Resources
 
             try
             {
-                this.qizitupian = CacheManager.LoadTempTexture("Content/Textures/Resources/Architecture/qizi.png");
+                this.qizitupian = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/qizi.png");
             }
             catch (Exception exception11)
             {
@@ -315,7 +313,7 @@ namespace WorldOfTheThreeKingdoms.Resources
 
             try
             {
-                this.huangditupian = CacheManager.LoadTempTexture("Content/Textures/Resources/Architecture/huangdi.png");
+                this.huangditupian = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/huangdi.png");
             }
             catch (Exception exception11)
             {
@@ -325,9 +323,9 @@ namespace WorldOfTheThreeKingdoms.Resources
 
             try
             {
-                this.LandConnect = CacheManager.LoadTempTexture("Content/Textures/Resources/Architecture/LandConnect.png");
-                this.WaterConnect = CacheManager.LoadTempTexture("Content/Textures/Resources/Architecture/WaterConnect.png");
-                this.SingleConnect = CacheManager.LoadTempTexture("Content/Textures/Resources/Architecture/SingleConnect.png");
+                this.LandConnect = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/LandConnect.png");
+                this.WaterConnect = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/WaterConnect.png");
+                this.SingleConnect = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/SingleConnect.png");
             }
             catch (Exception exception12)
             {
@@ -335,7 +333,7 @@ namespace WorldOfTheThreeKingdoms.Resources
                 throw new Exception("The ArchitectureConnect Textures are not completely loaded.\n" + exception.ToString());
             }
 
-            //this.jianzhubiaotibeijing = CacheManager.LoadTempTexture("Content/Textures/Resources/Architecture/jianzhubiaotibeijing.png");
+            //this.jianzhubiaotibeijing = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/jianzhubiaotibeijing.png");
 
             mediumCityImg.Clear();
             largeCityImg.Clear();
@@ -355,21 +353,29 @@ namespace WorldOfTheThreeKingdoms.Resources
                 {
                     if (size.Equals("5"))
                     {
-                        mediumCityImg.Add(archId, Platform.Current.LoadTexture(s, false));
+                        var tex = new PlatformTexture()
+                        {
+                            Name = s
+                        };
+                        mediumCityImg.Add(archId, tex);  // { Platform.Current.LoadTexture(s, false));
                     }
                     else
                     {
-                        largeCityImg.Add(archId, Platform.Current.LoadTexture(s, false));
+                        var tex = new PlatformTexture()
+                        {
+                            Name = s
+                        };
+                        largeCityImg.Add(archId, tex);  // Platform.Current.LoadTexture(s, false));
                     }
                 }
             }
 
-            this.guandetupian[0] = CacheManager.LoadTempTexture("Content/Textures/Resources/Architecture/hengguan3.png");
-            this.guandetupian[1] = CacheManager.LoadTempTexture("Content/Textures/Resources/Architecture/shuguan3.png");
-            this.guandetupian[2] = CacheManager.LoadTempTexture("Content/Textures/Resources/Architecture/shuguan5.png");
-            this.wanggetupian = CacheManager.LoadTempTexture("Content/Textures/Resources/TileFrame/wangge.png");
-            this.EditModeGrid = CacheManager.LoadTempTexture("Content/Textures/Resources/TileFrame/Blue.png");
-            this.zidongcundangtupian = CacheManager.LoadTempTexture("Content/Textures/Resources/Effects/zidongcundang.png");
+            this.guandetupian[0] = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/hengguan3.png");
+            this.guandetupian[1] = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/shuguan3.png");
+            this.guandetupian[2] = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/shuguan5.png");
+            this.wanggetupian = CacheManager.GetTempTexture("Content/Textures/Resources/TileFrame/wangge.png");
+            this.EditModeGrid = CacheManager.GetTempTexture("Content/Textures/Resources/TileFrame/Blue.png");
+            this.zidongcundangtupian = CacheManager.GetTempTexture("Content/Textures/Resources/Effects/zidongcundang.png");
         }
     }
 

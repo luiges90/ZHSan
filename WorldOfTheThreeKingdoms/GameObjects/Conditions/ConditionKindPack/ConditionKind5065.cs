@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Conditions;
 using System;
 
@@ -12,22 +13,22 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
 
         public override bool CheckConditionKind(Faction faction)
         {
-            return faction.Scenario.Militaries.Count < val;
+            return Session.Current.Scenario.Militaries.Count < val;
         }
 
         public override bool CheckConditionKind(Architecture architecture)
         {
-            return architecture.Scenario.Militaries.Count < val;
+            return Session.Current.Scenario.Militaries.Count < val;
         }
 
         public override bool CheckConditionKind(Person person)
         {
-            return person.Scenario.Militaries.Count < val;
+            return Session.Current.Scenario.Militaries.Count < val;
         }
 
         public override bool CheckConditionKind(Troop troop)
         {
-            return troop.Scenario.Militaries.Count < val;
+            return Session.Current.Scenario.Militaries.Count < val;
         }
 
         public override void InitializeParameter(string parameter)

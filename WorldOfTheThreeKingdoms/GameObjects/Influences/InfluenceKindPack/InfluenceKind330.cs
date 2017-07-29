@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Influences;
 using System;
 
@@ -12,7 +13,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
 
         public override void ApplyInfluenceKind(Troop troop)
         {
-            troop.Stunts.AddStunt(troop.Scenario.GameCommonData.AllStunts.GetStunt(this.combatMethodID));
+            troop.Stunts.AddStunt(Session.Current.Scenario.GameCommonData.AllStunts.GetStunt(this.combatMethodID));
         }
 
         public override void InitializeParameter(string parameter)
@@ -28,7 +29,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
 
         public override void PurifyInfluenceKind(Troop troop)
         {
-            troop.Stunts.RemoveStunt(troop.Scenario.GameCommonData.AllStunts.GetStunt(this.combatMethodID));
+            troop.Stunts.RemoveStunt(Session.Current.Scenario.GameCommonData.AllStunts.GetStunt(this.combatMethodID));
         }
     }
 }

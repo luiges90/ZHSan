@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using GameManager;
 
 namespace GameObjects.Influences
 {
@@ -309,13 +310,13 @@ namespace GameObjects.Influences
                 {
                     case 320:
                         return this.Kind.AIPersonValue *
-                            (base.Scenario.GameCommonData.AllCombatMethods.GetCombatMethod((int)p1).Combativity * this.Kind.AIPersonValuePow);
+                            (Session.Current.Scenario.GameCommonData.AllCombatMethods.GetCombatMethod((int)p1).Combativity * this.Kind.AIPersonValuePow);
                     case 330:
                         return this.Kind.AIPersonValue *
-                            (base.Scenario.GameCommonData.AllStunts.GetStunt((int)p1).Combativity * this.Kind.AIPersonValuePow);
+                            (Session.Current.Scenario.GameCommonData.AllStunts.GetStunt((int)p1).Combativity * this.Kind.AIPersonValuePow);
                     case 860:
                         return this.Kind.AIPersonValue *
-                            (base.Scenario.GameCommonData.AllStratagems.GetStratagem((int)p1).Combativity * this.Kind.AIPersonValuePow);
+                            (Session.Current.Scenario.GameCommonData.AllStratagems.GetStratagem((int)p1).Combativity * this.Kind.AIPersonValuePow);
                     case 800:
                     case 802:
                     case 804:

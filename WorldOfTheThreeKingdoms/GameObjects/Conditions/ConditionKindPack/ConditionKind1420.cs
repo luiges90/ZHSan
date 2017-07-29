@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Conditions;
 using System;
 
@@ -10,7 +11,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
     {
         public override bool CheckConditionKind(Troop troop)
         {
-            Architecture architectureByPositionNoCheck = troop.Scenario.GetArchitectureByPositionNoCheck(troop.Position);
+            Architecture architectureByPositionNoCheck = Session.Current.Scenario.GetArchitectureByPositionNoCheck(troop.Position);
             return ((architectureByPositionNoCheck != null) && troop.IsFriendly(architectureByPositionNoCheck.BelongedFaction));
         }
     }

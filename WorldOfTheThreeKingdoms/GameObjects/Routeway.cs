@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using System.Text;
-
+using GameManager;
 
 
 namespace GameObjects
@@ -54,13 +54,13 @@ namespace GameObjects
 
         private void AddRoutePointArea(RoutePoint routePoint)
         {
-            GameArea area = GameArea.GetViewArea(routePoint.Position, this.Radius, true, base.Scenario, this.BelongedFaction);
+            GameArea area = GameArea.GetViewArea(routePoint.Position, this.Radius, true, this.BelongedFaction);
             foreach (Point point in area.Area)
             {
-                if (!base.Scenario.PositionOutOfRange(point) && !this.RouteArea.ContainsKey(point))
+                if (!Session.Current.Scenario.PositionOutOfRange(point) && !this.RouteArea.ContainsKey(point))
                 {
                     this.RouteArea.Add(point, routePoint);
-                    base.Scenario.MapTileData[point.X, point.Y].AddSupplyingRoutePoint(routePoint);
+                    Session.Current.Scenario.MapTileData[point.X, point.Y].AddSupplyingRoutePoint(routePoint);
                 }
             }
         }
@@ -72,7 +72,7 @@ namespace GameObjects
 
         public bool BuildAvail()
         {
-            return ((this.StartArchitecture != null) && !this.IsActive && GlobalVariables.LiangdaoXitong);
+            return ((this.StartArchitecture != null) && !this.IsActive && Session.GlobalVariables.LiangdaoXitong);
         }
 
         public void Clear()
@@ -98,13 +98,13 @@ namespace GameObjects
                     break;
                 }
                 this.RemoveRoutePointArea(point);
-                this.BelongedFaction.RemovePositionInformation(point.Position, GlobalVariables.RoutewayInformationLevel);
+                this.BelongedFaction.RemovePositionInformation(point.Position, Session.GlobalVariables.RoutewayInformationLevel);
             }
             this.LastActivePointIndex = -1;
             this.RouteArea.Clear();
             if (this.RemoveAfterClose)
             {
-                base.Scenario.RemoveRouteway(this);
+                Session.Current.Scenario.RemoveRouteway(this);
             }
         }
 
@@ -159,7 +159,7 @@ namespace GameObjects
 
         public void DayEvent()
         {
-            if (!GlobalVariables.LiangdaoXitong) return;
+            if (!Session.GlobalVariables.LiangdaoXitong) return;
             LinkedListNode<RoutePoint> lastActiveNode = this.LastActiveNode;
             if (lastActiveNode != null)
             {
@@ -239,8 +239,8 @@ namespace GameObjects
             {
                 node = this.RoutePoints.First;
                 if (node == null) return;
-                troopByPositionNoCheck = base.Scenario.GetTroopByPositionNoCheck(node.Value.Position);
-                if ((!((troopByPositionNoCheck == null) || this.BelongedFaction.IsFriendly(troopByPositionNoCheck.BelongedFaction)) || base.Scenario.PositionIsOnFire(node.Value.Position)) || ((routewayWorkForce < node.Value.BuildWorkCost) || (this.StartArchitecture.Fund < node.Value.BuildFundCost)))
+                troopByPositionNoCheck = Session.Current.Scenario.GetTroopByPositionNoCheck(node.Value.Position);
+                if ((!((troopByPositionNoCheck == null) || this.BelongedFaction.IsFriendly(troopByPositionNoCheck.BelongedFaction)) || Session.Current.Scenario.PositionIsOnFire(node.Value.Position)) || ((routewayWorkForce < node.Value.BuildWorkCost) || (this.StartArchitecture.Fund < node.Value.BuildFundCost)))
                 {
                     return;
                 }
@@ -248,14 +248,14 @@ namespace GameObjects
                 this.LastActivePointIndex++;
                 this.AddRoutePointArea(node.Value);
                 routewayWorkForce -= node.Value.BuildWorkCost;
-                this.BelongedFaction.AddPositionInformation(node.Value.Position, GlobalVariables.RoutewayInformationLevel);
+                this.BelongedFaction.AddPositionInformation(node.Value.Position, Session.GlobalVariables.RoutewayInformationLevel);
                 this.BelongedFaction.IncreaseTechniquePoint(node.Value.BuildFundCost * 2);
                 this.BelongedFaction.IncreaseReputation(node.Value.BuildFundCost / 20);
             }
             while (node.Next != null)
             {
-                troopByPositionNoCheck = base.Scenario.GetTroopByPositionNoCheck(node.Next.Value.Position);
-                if (!((troopByPositionNoCheck == null) || this.BelongedFaction.IsFriendly(troopByPositionNoCheck.BelongedFaction)) || base.Scenario.PositionIsOnFire(node.Next.Value.Position))
+                troopByPositionNoCheck = Session.Current.Scenario.GetTroopByPositionNoCheck(node.Next.Value.Position);
+                if (!((troopByPositionNoCheck == null) || this.BelongedFaction.IsFriendly(troopByPositionNoCheck.BelongedFaction)) || Session.Current.Scenario.PositionIsOnFire(node.Next.Value.Position))
                 {
                     break;
                 }
@@ -268,7 +268,7 @@ namespace GameObjects
                 this.LastActivePointIndex++;
                 this.AddRoutePointArea(node.Next.Value);
                 routewayWorkForce -= node.Next.Value.BuildWorkCost;
-                this.BelongedFaction.AddPositionInformation(node.Next.Value.Position, GlobalVariables.RoutewayInformationLevel);
+                this.BelongedFaction.AddPositionInformation(node.Next.Value.Position, Session.GlobalVariables.RoutewayInformationLevel);
                 this.BelongedFaction.IncreaseTechniquePoint(decrement * 2);
                 this.BelongedFaction.IncreaseReputation(decrement / 20);
                 node = node.Next;
@@ -279,7 +279,7 @@ namespace GameObjects
         {
             RoutePoint point = new RoutePoint();
             point.Position = p;
-            TerrainDetail terrainDetailByPosition = base.Scenario.GetTerrainDetailByPosition(p);
+            TerrainDetail terrainDetailByPosition = Session.Current.Scenario.GetTerrainDetailByPosition(p);
             if (this.RoutePoints.Count <= 0)
             {
                 point.Index = 0;
@@ -329,9 +329,9 @@ namespace GameObjects
             this.RoutePoints.AddLast(point);
             if (this.LastActivePointIndex >= point.Index)
             {
-                this.BelongedFaction.AddPositionInformation(p, GlobalVariables.RoutewayInformationLevel);
+                this.BelongedFaction.AddPositionInformation(p, Session.GlobalVariables.RoutewayInformationLevel);
             }
-            base.Scenario.MapTileData[p.X, p.Y].AddTileRouteway(this);
+            Session.Current.Scenario.MapTileData[p.X, p.Y].AddTileRouteway(this);
         }
 
         public void ExtendTo(Point point)
@@ -458,11 +458,11 @@ namespace GameObjects
 
         private bool IsPositionPossible(Point p)
         {
-            if (base.Scenario.GetArchitectureByPosition(p) != null)
+            if (Session.Current.Scenario.GetArchitectureByPosition(p) != null)
             {
                 return false;
             }
-            TerrainDetail terrainDetailByPosition = base.Scenario.GetTerrainDetailByPosition(p);
+            TerrainDetail terrainDetailByPosition = Session.Current.Scenario.GetTerrainDetailByPosition(p);
             return ((terrainDetailByPosition != null) && ((this.BelongedFaction.RoutewayWorkForce >= terrainDetailByPosition.RoutewayBuildWorkCost) && (Math.Round((double) (terrainDetailByPosition.RoutewayConsumptionRate + this.LastPoint.ConsumptionRate), 3) < 1.0)));
         }
 
@@ -556,7 +556,7 @@ namespace GameObjects
                 this.RouteArea.TryGetValue(point, out point2);
                 if (point2 != null)
                 {
-                    base.Scenario.MapTileData[point.X, point.Y].RemoveSupplyingRoutePoint(point2);
+                    Session.Current.Scenario.MapTileData[point.X, point.Y].RemoveSupplyingRoutePoint(point2);
                 }
             }
             this.RouteArea.Clear();
@@ -574,9 +574,9 @@ namespace GameObjects
             if (this.LastActivePointIndex >= this.LastPoint.Index)
             {
                 this.RemoveRoutePointArea(this.LastPoint);
-                this.BelongedFaction.RemovePositionInformation(this.LastPoint.Position, GlobalVariables.RoutewayInformationLevel);
+                this.BelongedFaction.RemovePositionInformation(this.LastPoint.Position, Session.GlobalVariables.RoutewayInformationLevel);
             }
-            base.Scenario.MapTileData[this.LastPoint.Position.X, this.LastPoint.Position.Y].RemoveTileRouteway(this);
+            Session.Current.Scenario.MapTileData[this.LastPoint.Position.X, this.LastPoint.Position.Y].RemoveTileRouteway(this);
             this.RoutePoints.RemoveLast();
         }
 
@@ -590,7 +590,7 @@ namespace GameObjects
                 if (point2 == routePoint)
                 {
                     this.RouteArea.Remove(point);
-                    base.Scenario.MapTileData[point.X, point.Y].RemoveSupplyingRoutePoint(routePoint);
+                    Session.Current.Scenario.MapTileData[point.X, point.Y].RemoveSupplyingRoutePoint(routePoint);
                 }
             }
         }
@@ -617,7 +617,7 @@ namespace GameObjects
             this.RoutePoints = new LinkedList<RoutePoint>();
             while (routePoints.Last != null)
             {
-                base.Scenario.MapTileData[routePoints.Last.Value.Position.X, routePoints.Last.Value.Position.Y].RemoveTileRouteway(this);
+                Session.Current.Scenario.MapTileData[routePoints.Last.Value.Position.X, routePoints.Last.Value.Position.Y].RemoveTileRouteway(this);
                 this.Extend(routePoints.Last.Value.Position);
                 routePoints.RemoveLast();
             }
@@ -658,7 +658,7 @@ namespace GameObjects
                 {
                     num++;
                     this.RemoveRoutePointArea(lastActiveNode.Value);
-                    this.BelongedFaction.RemovePositionInformation(lastActiveNode.Value.Position, GlobalVariables.RoutewayInformationLevel);
+                    this.BelongedFaction.RemovePositionInformation(lastActiveNode.Value.Position, Session.GlobalVariables.RoutewayInformationLevel);
                 }
                 if (lastActiveNode.Value.Position == p)
                 {
@@ -707,9 +707,9 @@ namespace GameObjects
                 {
                     foreach (RoutePoint point in this.RoutePoints)
                     {
-                        foreach (Architecture architecture in base.Scenario.GetHighViewingArchitecturesByPosition(point.Position))
+                        foreach (Architecture architecture in Session.Current.Scenario.GetHighViewingArchitecturesByPosition(point.Position))
                         {
-                            if (((architecture != this.DestinationArchitecture) && (architecture.BelongedFaction != null)) && !(this.BelongedFaction.IsFriendlyWithoutTruce(architecture.BelongedFaction) || (base.Scenario.GetDistance(this.StartArchitecture.ArchitectureArea, architecture.ArchitectureArea) >= base.Scenario.GetDistance(this.StartArchitecture.ArchitectureArea, this.DestinationArchitecture.ArchitectureArea))))
+                            if (((architecture != this.DestinationArchitecture) && (architecture.BelongedFaction != null)) && !(this.BelongedFaction.IsFriendlyWithoutTruce(architecture.BelongedFaction) || (Session.Current.Scenario.GetDistance(this.StartArchitecture.ArchitectureArea, architecture.ArchitectureArea) >= Session.Current.Scenario.GetDistance(this.StartArchitecture.ArchitectureArea, this.DestinationArchitecture.ArchitectureArea))))
                             {
                                 return architecture;
                             }
@@ -776,7 +776,7 @@ namespace GameObjects
             {
                 foreach (Point point in this.RouteArea.Keys)
                 {
-                    Troop troopByPosition = base.Scenario.GetTroopByPosition(point);
+                    Troop troopByPosition = Session.Current.Scenario.GetTroopByPosition(point);
                     if (((troopByPosition != null) && this.BelongedFaction.IsFriendlyWithoutTruce(troopByPosition.BelongedFaction)) && this.IsEnough(point, troopByPosition.FoodCostPerDay))
                     {
                         return true;
@@ -818,7 +818,7 @@ namespace GameObjects
                     this.StartArchitecture.AIAllLinkNodes.TryGetValue(this.DestinationArchitecture.ID, out node);
                     if (node != null)
                     {
-                        float foodRateBySeason = base.Scenario.Date.GetFoodRateBySeason(base.Scenario.Date.GetSeason(this.Length));
+                        float foodRateBySeason = Session.Current.Scenario.Date.GetFoodRateBySeason(Session.Current.Scenario.Date.GetSeason(this.Length));
                         if (((this.StartArchitecture.Food * foodRateBySeason) >= (this.StartArchitecture.FoodCeiling / 3)) || this.StartArchitecture.IsSelfFoodEnough(node, this))
                         {
                             return true;
@@ -832,7 +832,7 @@ namespace GameObjects
                         if ((legion.Troops.Count > 0) && (legion.WillArchitecture != null))
                         {
                             int minTroopFoodCost = legion.GetMinTroopFoodCost();
-                            if ((minTroopFoodCost <= this.StartArchitecture.Food) || ((base.Scenario.Date.Day >= 0x1c) && (minTroopFoodCost <= (this.StartArchitecture.Food + this.StartArchitecture.ExpectedFood))))
+                            if ((minTroopFoodCost <= this.StartArchitecture.Food) || ((Session.Current.Scenario.Date.Day >= 0x1c) && (minTroopFoodCost <= (this.StartArchitecture.Food + this.StartArchitecture.ExpectedFood))))
                             {
                                 if ((legion.PreferredRouteway == this) && ((legion.WillArchitecture.BelongedFaction != this.BelongedFaction) || (legion.WillArchitecture.RecentlyAttacked > 0)))
                                 {

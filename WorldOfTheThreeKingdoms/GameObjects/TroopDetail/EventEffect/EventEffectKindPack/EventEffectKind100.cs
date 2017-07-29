@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Influences;
 using GameObjects.TroopDetail.EventEffect;
 using System;
@@ -15,7 +16,7 @@ using System.Runtime.Serialization;namespace GameObjects.TroopDetail.EventEffect
         {
             if (person.LocationTroop != null)
             {
-                Influence t = person.Scenario.GameCommonData.AllInfluences.GetInfluence(this.number);
+                Influence t = Session.Current.Scenario.GameCommonData.AllInfluences.GetInfluence(this.number);
                 if (t != null)
                 {
                     person.LocationTroop.EventInfluences.Add(t);
@@ -26,7 +27,7 @@ using System.Runtime.Serialization;namespace GameObjects.TroopDetail.EventEffect
 
         public override void ApplyEffectKind(Troop troop)
         {
-            Influence t = troop.Scenario.GameCommonData.AllInfluences.GetInfluence(this.number);
+            Influence t = Session.Current.Scenario.GameCommonData.AllInfluences.GetInfluence(this.number);
             if (t != null)
             {
                 troop.EventInfluences.Add(t);

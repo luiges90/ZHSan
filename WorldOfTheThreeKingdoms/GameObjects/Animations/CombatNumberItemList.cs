@@ -1,4 +1,5 @@
 ﻿using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -38,9 +39,9 @@ namespace GameObjects.Animations
             this.Numbers.Clear();
         }
 
-        public void Draw(Screen screen, SpriteBatch spriteBatch, CombatNumberGenerator generator, GetDisplayRectangle positionMethod, int tileWidth, GameTime gameTime)
+        public void Draw(CombatNumberGenerator generator, GetDisplayRectangle positionMethod, int tileWidth, GameTime gameTime)
         {
-            if (screen.PeekUndoneWork().Kind != UndoneWorkKind.None)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind != UndoneWorkKind.None)
             {
                 this.startDrawing = false;
             }
@@ -75,7 +76,7 @@ namespace GameObjects.Animations
                             while (num2 < this.Numbers.Count)
                             {
                                 rectangle = positionMethod(this.Numbers[num2].Position);
-                                this.Numbers[num2].DrawLeft(spriteBatch, generator, new Point(rectangle.Left, (rectangle.Top + (rectangle.Height / 2)) - ((int) ((generator.DigitHeight * num2) * scale))), scale);
+                                this.Numbers[num2].DrawLeft(generator, new Point(rectangle.Left, (rectangle.Top + (rectangle.Height / 2)) - ((int) ((generator.DigitHeight * num2) * scale))), scale);
                                 num2++;
                             }
                             break;
@@ -84,11 +85,11 @@ namespace GameObjects.Animations
                             for (num2 = 0; num2 < this.Numbers.Count; num2++)
                             {
                                 rectangle = positionMethod(this.Numbers[num2].Position);
-                                this.Numbers[num2].DrawRight(spriteBatch, generator, new Point(rectangle.Right, (rectangle.Top + (rectangle.Height / 2)) + ((int) ((generator.DigitHeight * num2) * scale))), scale);
+                                this.Numbers[num2].DrawRight(generator, new Point(rectangle.Right, (rectangle.Top + (rectangle.Height / 2)) + ((int) ((generator.DigitHeight * num2) * scale))), scale);
                             }
                             break;
                     }
-                    if ((gameTime.TotalGameTime.TotalMilliseconds - this.currentTime) >= 300 * GlobalVariables.TroopMoveSpeed)
+                    if ((gameTime.TotalGameTime.TotalMilliseconds - this.currentTime) >= 300 * Session.GlobalVariables.TroopMoveSpeed)
                     {
                         this.Clear();
                     }

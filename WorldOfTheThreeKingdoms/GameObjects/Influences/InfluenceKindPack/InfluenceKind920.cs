@@ -16,7 +16,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
         {
             if (person.BelongedFaction != null))
             {
-                Condition c = person.Scenario.GameCommonData.AllConditions.GetCondition(this.number);
+                Condition c = Session.Current.Scenario.GameCommonData.AllConditions.GetCondition(this.number);
                 if (c != null)
                 {
 

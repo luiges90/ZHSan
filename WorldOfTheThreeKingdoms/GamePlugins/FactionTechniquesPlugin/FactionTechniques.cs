@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using GameManager;
 //using System.Drawing;
 
 namespace FactionTechniquesPlugin
@@ -16,39 +17,40 @@ namespace FactionTechniquesPlugin
     {
         internal List<TechniqueItem> AllTechniques = new List<TechniqueItem>();
         internal Microsoft.Xna.Framework.Point BackgroundSize;
-        internal Texture2D BackgroundTexture;
-        internal Texture2D ButtonAvailableTexture;
-        internal Texture2D ButtonBasicTexture;
+        internal PlatformTexture BackgroundTexture;
+        internal PlatformTexture ButtonAvailableTexture;
+        internal PlatformTexture ButtonBasicTexture;
         internal Microsoft.Xna.Framework.Point ButtonSize;
         internal Microsoft.Xna.Framework.Point ButtonStartPosition;
         internal TextAlign ButtonTextAlign;
         internal Microsoft.Xna.Framework.Color ButtonTextColor;
         internal Font ButtonTextFont;
-        internal Texture2D ButtonUpgradedTexture;
-        internal Texture2D ButtonUpgradingTexture;
+        internal PlatformTexture ButtonUpgradedTexture;
+        internal PlatformTexture ButtonUpgradingTexture;
         internal Microsoft.Xna.Framework.Rectangle CommentsClient;
         internal FreeRichText CommentsText = new FreeRichText();
         internal bool Control;
         private object current;
         private Microsoft.Xna.Framework.Point DisplayOffset;
-        internal Texture2D FrameTexture;
-        internal GraphicsDevice graphicsDevice;
+#pragma warning disable CS0649 // Field 'FactionTechniques.FrameTexture' is never assigned to, and will always have its default value null
+        internal PlatformTexture FrameTexture;
+#pragma warning restore CS0649 // Field 'FactionTechniques.FrameTexture' is never assigned to, and will always have its default value null
         private bool isShowing;
         internal List<LabelText> LabelTexts = new List<LabelText>();
-        internal Screen screen;
+
         internal Faction ShowingFaction;
         internal Architecture UpgradingArchitecture;
 
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw()
         {
             if (this.ShowingFaction != null)
             {
                 Microsoft.Xna.Framework.Rectangle? sourceRectangle = null;
-                spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.02f);  // 0.2f);
+                CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.02f);  // 0.2f);
                 foreach (LabelText text in this.LabelTexts)
                 {
-                    text.Label.Draw(spriteBatch, 0.01999f);
-                    text.Text.Draw(spriteBatch, 0.01999f);
+                    text.Label.Draw(0.01999f);
+                    text.Text.Draw(0.01999f);
                 }
                 foreach (TechniqueItem item in this.AllTechniques)
                 {
@@ -59,35 +61,35 @@ namespace FactionTechniquesPlugin
                         white = new Microsoft.Xna.Framework.Color((byte) 150, (byte) 150, (byte) 150);
                         black = Microsoft.Xna.Framework.Color.White;
                     }
-                    item.Text.Draw(spriteBatch, black, 0.01989f);
+                    item.Text.Draw(black, 0.01989f);
                     if (this.ShowingFaction.IsTechniqueUpgrading(item.LinkedTechnique.ID))
                     {
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.ButtonUpgradingTexture, item.Position, sourceRectangle, white, 0f, Vector2.Zero, SpriteEffects.None, 0.0199f);  // 0.199f);
+                        CacheManager.Draw(this.ButtonUpgradingTexture, item.Position, sourceRectangle, white, 0f, Vector2.Zero, SpriteEffects.None, 0.0199f);  // 0.199f);
                     }
                     else if (this.ShowingFaction.HasTechnique(item.LinkedTechnique.ID))
                     {
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.ButtonUpgradedTexture, item.Position, sourceRectangle, white, 0f, Vector2.Zero, SpriteEffects.None, 0.0199f);
+                        CacheManager.Draw(this.ButtonUpgradedTexture, item.Position, sourceRectangle, white, 0f, Vector2.Zero, SpriteEffects.None, 0.0199f);
                     }
                     else if (this.Control && this.ShowingFaction.MatchTechnique(item.LinkedTechnique, this.UpgradingArchitecture))
                     {
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.ButtonAvailableTexture, item.Position, sourceRectangle, white, 0f, Vector2.Zero, SpriteEffects.None, 0.0199f);
+                        CacheManager.Draw(this.ButtonAvailableTexture, item.Position, sourceRectangle, white, 0f, Vector2.Zero, SpriteEffects.None, 0.0199f);
                     }
                     else
                     {
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.ButtonBasicTexture, item.Position, sourceRectangle, white, 0f, Vector2.Zero, SpriteEffects.None, 0.0199f);
+                        CacheManager.Draw(this.ButtonBasicTexture, item.Position, sourceRectangle, white, 0f, Vector2.Zero, SpriteEffects.None, 0.0199f);
                     }
                 }
-                this.CommentsText.Draw(spriteBatch, 0.01999f);
+                this.CommentsText.Draw(0.01999f);
             }
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         private void screen_OnMouseLeftDown(Microsoft.Xna.Framework.Point position)
@@ -149,7 +151,7 @@ namespace FactionTechniquesPlugin
                                     this.CommentsText.DefaultColor);
                                 if (item.LinkedTechnique.PreID >= 0)
                                 {
-                                    this.CommentsText.AddText("，前提条件：" + this.ShowingFaction.Scenario.GameCommonData.AllTechniques.GetTechnique(item.LinkedTechnique.PreID).Name, this.CommentsText.DefaultColor);
+                                    this.CommentsText.AddText("，前提条件：" + Session.Current.Scenario.GameCommonData.AllTechniques.GetTechnique(item.LinkedTechnique.PreID).Name, this.CommentsText.DefaultColor);
                                 }
                                 this.CommentsText.AddNewLine();
                                 this.CommentsText.AddText("请单击鼠标左键开始升级", this.CommentsText.SubTitleColor2);
@@ -194,11 +196,11 @@ namespace FactionTechniquesPlugin
                                     this.CommentsText.AddNewLine();
                                     if (this.ShowingFaction.HasTechnique(item.LinkedTechnique.PreID))
                                     {
-                                        this.CommentsText.AddText("前提条件：" + this.ShowingFaction.Scenario.GameCommonData.AllTechniques.GetTechnique(item.LinkedTechnique.PreID).Name, this.CommentsText.PositiveColor);
+                                        this.CommentsText.AddText("前提条件：" + Session.Current.Scenario.GameCommonData.AllTechniques.GetTechnique(item.LinkedTechnique.PreID).Name, this.CommentsText.PositiveColor);
                                     }
                                     else
                                     {
-                                        this.CommentsText.AddText("前提条件：" + this.ShowingFaction.Scenario.GameCommonData.AllTechniques.GetTechnique(item.LinkedTechnique.PreID).Name, this.CommentsText.NegativeColor);
+                                        this.CommentsText.AddText("前提条件：" + Session.Current.Scenario.GameCommonData.AllTechniques.GetTechnique(item.LinkedTechnique.PreID).Name, this.CommentsText.NegativeColor);
                                     }
                                 }
                                 if (item.LinkedTechnique.Conditions.Count > 0)
@@ -260,7 +262,7 @@ namespace FactionTechniquesPlugin
             this.AllTechniques.Clear();
 
             Dictionary<Microsoft.Xna.Framework.Point, Technique> showTechniques = new Dictionary<Microsoft.Xna.Framework.Point, Technique>();
-            foreach (Technique technique in faction.Scenario.GameCommonData.AllTechniques.Techniques.Values)
+            foreach (Technique technique in Session.Current.Scenario.GameCommonData.AllTechniques.Techniques.Values)
             {
                 Microsoft.Xna.Framework.Point p = new Microsoft.Xna.Framework.Point(technique.DisplayRow, technique.DisplayCol);
                 //try
@@ -293,7 +295,7 @@ namespace FactionTechniquesPlugin
             {
                 TechniqueItem item = new TechniqueItem {
                     LinkedTechnique = technique,
-                    Text = new FreeText(this.graphicsDevice, this.ButtonTextFont, this.ButtonTextColor)
+                    Text = new FreeText(this.ButtonTextFont, this.ButtonTextColor)
                 };
                 item.Text.Position = new Microsoft.Xna.Framework.Rectangle(this.ButtonSize.X * item.Col, this.ButtonSize.Y * item.Row, this.ButtonSize.X, this.ButtonSize.Y);
                 item.Text.Align = this.ButtonTextAlign;
@@ -304,7 +306,7 @@ namespace FactionTechniquesPlugin
 
         internal void SetPosition(ShowPosition showPosition)
         {
-            Microsoft.Xna.Framework.Rectangle rectDes = new Microsoft.Xna.Framework.Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Microsoft.Xna.Framework.Rectangle rectDes = new Microsoft.Xna.Framework.Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
             Microsoft.Xna.Framework.Rectangle rect = new Microsoft.Xna.Framework.Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
             switch (showPosition)
             {
@@ -431,20 +433,20 @@ namespace FactionTechniquesPlugin
                 this.isShowing = value;
                 if (value)
                 {
-                    this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.SubDialog, DialogKind.FactionTechniques));
-                    this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                    this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.SubDialog, DialogKind.FactionTechniques));
+                    Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
                 }
                 else
                 {
-                    if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.SubDialog)
+                    if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.SubDialog)
                     {
                         throw new Exception("The UndoneWork is not a SubDialog.");
                     }
-                    this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                    this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
                     this.CommentsText.Clear();
                 }
             }

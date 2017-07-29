@@ -44,11 +44,45 @@ namespace GameManager
 
         public GameScenario Scenario { get; set; }
 
-        public Parameters gameParameters = new Parameters();
-        public GlobalVariables globalVariables = new GlobalVariables();
+        public static Parameters parametersBasic = new Parameters();
 
-        public static int ResolutionX = 1120;
-        public static int ResolutionY = 630;
+        public static Parameters Parameters
+        {
+            get
+            {
+                if (Session.Current.Scenario == null || Session.Current.Scenario.Parameters == null)
+                {
+                    return parametersBasic;
+                }
+                else
+                {
+                    return Session.Current.Scenario.Parameters;
+                }
+            }
+        }
+
+        public static GlobalVariables globalVariablesBasic = new GlobalVariables();
+
+        public static GlobalVariables GlobalVariables
+        {
+            get
+            {
+                if (Session.Current.Scenario == null || Session.Current.Scenario.GlobalVariables == null)
+                {
+                    return globalVariablesBasic;
+                }
+                else
+                {
+                    return Session.Current.Scenario.GlobalVariables;
+                }
+            }
+        }
+
+        //public Parameters gameParameters = new Parameters();
+        //public GlobalVariables globalVariables = new GlobalVariables();
+
+        public static int ResolutionX = 925;
+        public static int ResolutionY = 520;
         public static string Resolution
         {
             get
@@ -176,6 +210,15 @@ namespace GameManager
             }
         }
 
+        public void Clear()
+        {
+            if (Scenario != null)
+            {
+                Scenario.Clear();
+                Scenario = null;
+            }
+        }
+
         public static void Init()
         {
             new PlatformTask(() =>
@@ -192,6 +235,27 @@ namespace GameManager
                             string comFile = Platform.Current.SolutionDir + @"Content\Data\Common\CommonData.json";
                             string comFileCon = Platform.Current.ReadAllText(comFile);
                             var common = Tools.SimpleSerializer.DeserializeJson<CommonData>(comFileCon);
+                            
+                            //var str = System.IO.File.ReadAllText(@"C:\Projects\InfluenceKind.xml");
+                            //var doc = new System.Xml.XmlDocument();
+                            //doc.LoadXml(str);
+
+                            //var childNodes = ((System.Xml.XmlLinkedNode)doc.FirstChild).NextSibling.ChildNodes;
+
+                            //foreach (System.Xml.XmlElement child in childNodes)
+                            //{
+                            //    var id = child["ID"];
+                            //    var type = child["Type"];
+                            //    var combat = child["Combat"];
+                            //    var pv = child["AIPersonValue"];
+                            //    var pvp = child["AIPersonValuePow"];
+
+                            //    var influ = common.AllInfluenceKinds.InfluenceKinds.FirstOrDefault(inf => inf.Key == int.Parse(id.InnerText));
+                            //    influ.Value.Type = (InfluenceType)Enum.Parse(typeof(InfluenceType), type.InnerText);
+                            //    influ.Value.Combat = combat.InnerText == "1";
+                            //    influ.Value.AIPersonValue = float.Parse(pv.InnerText);
+                            //    influ.Value.AIPersonValuePow = float.Parse(pvp.InnerText);
+                            //}
 
                             string json = SimpleSerializer.SerializeJson<CommonData>(common, true);
                             string comZipFile = Platform.Current.SolutionDir + @"Content\Data\CommonZip\CommonData.json";
@@ -220,7 +284,13 @@ namespace GameManager
 
                     CommonData.Current = Tools.SimpleSerializer.DeserializeJsonFile<CommonData>(@"Content\Data\Common\CommonData.json", false, true);
 
-                    GameScenario.ProcessCommonData(CommonData.Current);
+                    GameScenario.ProcessCommonData(CommonData.Current);               
+
+                    Session.globalVariablesBasic = new GlobalVariables();
+                    Session.globalVariablesBasic.InitialGlobalVariables();
+
+                    Session.parametersBasic = new Parameters();
+                    Session.parametersBasic.InitializeGameParameters();
 
                     CommonData.CurrentReady = true;
                 }
@@ -230,24 +300,21 @@ namespace GameManager
                 }
             }).Start();
 
-            Current.globalVariables.InitialGlobalVariables();
-            Current.gameParameters.InitializeGameParameters();
-
             if (String.IsNullOrEmpty(Setting.Current.Difficulty))
             {
-                if (String.IsNullOrEmpty(GlobalVariables.GameDifficulty))
+                if (String.IsNullOrEmpty(Session.GlobalVariables.GameDifficulty))
                 {
                     Setting.Current.Difficulty = Difficulty.beginner.ToString();
                 }
                 else
                 {
-                    Setting.Current.Difficulty = GlobalVariables.GameDifficulty;
+                    Setting.Current.Difficulty = Session.GlobalVariables.GameDifficulty;
                 }
             }
 
             if (String.IsNullOrEmpty(Setting.Current.BattleSpeed))
             {
-                Setting.Current.BattleSpeed = GlobalVariables.FastBattleSpeed.ToString();
+                Setting.Current.BattleSpeed = Session.GlobalVariables.FastBattleSpeed.ToString();
             }
 
             Platform.InitGraphicsDeviceManager();
@@ -303,17 +370,25 @@ namespace GameManager
 
             float screenscalex1 = 1f;
             float screenscaley1 = 1f;
+#pragma warning disable CS0219 // The variable 'screenScale1' is assigned but its value is never used
             float screenScale1 = 1f;
+#pragma warning restore CS0219 // The variable 'screenScale1' is assigned but its value is never used
 
             float screenscalex2 = 1f;
             float screenscaley2 = 1f;
+#pragma warning disable CS0219 // The variable 'screenScale2' is assigned but its value is never used
             float screenScale2 = 1f;
+#pragma warning restore CS0219 // The variable 'screenScale2' is assigned but its value is never used
 
             int width = 0;
             int height = 0;
 
+            //Session.Resolution = "925*520";
+
             if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
             {
+                Session.Resolution = Platform.PreferResolution;
+
                 width = int.Parse(Session.Resolution.Split('*')[0]);
                 height = int.Parse(Session.Resolution.Split('*')[1]);
 
@@ -336,11 +411,11 @@ namespace GameManager
             }
 
 			float slope = Convert.ToSingle(width) / Convert.ToSingle(height);
-            if (Platform.PlatFormType == PlatFormType.iOS)
+            if (Platform.PlatFormType == PlatFormType.Android || Platform.PlatFormType == PlatFormType.iOS || Platform.PlatFormType == PlatFormType.UWP)
             {
                 if (slope >= 1.5)
                 {
-                    Session.Resolution = "1120*630";
+                    Session.Resolution = "925*520";
                 }
                 else
                 {
@@ -397,14 +472,11 @@ namespace GameManager
             Session.MainGame.SpriteScale1 = Matrix.CreateScale(screenscalex1, screenscaley1, 1);
             Session.MainGame.SpriteScale2 = Matrix.CreateScale(screenscalex2, screenscaley2, 1);
 
-            Platform.SetGraphicsWidthHeight(Session.ResolutionX, Session.ResolutionY);
+            Platform.SetGraphicsWidthHeight(width, height);
 
-            Platform.Current.ProcessViewChanged();
+            //Platform.Current.ProcessViewChanged();
 
-            if (Platform.PlatFormType != PlatFormType.Desktop)
-            {
-                Platform.GraphicsApplyChanges();
-            }
+            Platform.GraphicsApplyChanges();            
 
             InputManager.SWidth = Session.ResolutionX;
             InputManager.SHeight = Session.ResolutionY;
@@ -413,22 +485,12 @@ namespace GameManager
 
         public static void StartScenario(Scenario scenario, bool save)
         {
-            var players = scenario.Players.Split(',').RemoveNullOrEmpty().Select(id => int.Parse(id)).NullToEmptyList();
+            var players = scenario.Players.Split(',').RemoveNullOrEmpty().Select(id => int.Parse(id)).NullToEmptyList();        
 
-            if (players.Count == 0)
-            {
-                GameGlobal.GlobalVariables.SkyEye = true;
-            }
-            else
-            {
-                GameGlobal.GlobalVariables.SkyEye = false;
-            }
-
-            Session.MainGame.mainGameScreen = null;
-            Session.MainGame.loadingScreen = new LoadingScreen(Session.MainGame);
+            Session.MainGame.loadingScreen = new LoadingScreen();
             Session.MainGame.loadingScreen.LoadScreenEvent += (sender0, e0) =>
             {
-                var mainGameScreen = new MainGameScreen(Session.MainGame);
+                var mainGameScreen = new MainGameScreen();
                 mainGameScreen.InitializationFileName = scenario.Name;
 
                 if (save)
@@ -445,10 +507,6 @@ namespace GameManager
 
                 mainGameScreen.Initialize();
                 Session.MainGame.mainGameScreen = mainGameScreen;
-
-                Session.MainGame.loadingScreen.ClearEvent();
-                Session.MainGame.loadingScreen.IsComplete = true;
-                Session.MainGame.loadingScreen = null;
             };
         }
 

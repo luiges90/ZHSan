@@ -20,9 +20,8 @@ namespace GameObjects
 
     public class Screen  // : DrawableGameComponent
     {
-        //private SpriteBatch batch;
         public Point BottomRightPosition;
-        private Texture2D defaultMouseArrowTexture;
+        private PlatformTexture defaultMouseArrowTexture;
         public bool EnableLaterMouseEvent;
         public bool EnableMouseEvent;
         public bool EnableScroll;
@@ -34,18 +33,10 @@ namespace GameObjects
         protected KeyboardState keyState;
         public List<Rectangle> LaterMouseEventDisableRects;
         public bool LoadScenarioInInitialization;
-        protected Texture2D MouseArrowTexture;
-        protected Microsoft.Xna.Framework.Input.MouseState mouseState;
+        protected PlatformTexture MouseArrowTexture;
+        //protected Microsoft.Xna.Framework.Input.MouseState mouseState;
         public GameObjectList PluginList;
-        protected Microsoft.Xna.Framework.Input.MouseState previousMouseState;
-
-        public GameScenario Scenario
-        {
-            get
-            {
-                return Session.Current.Scenario;
-            }
-        }
+        //protected Microsoft.Xna.Framework.Input.MouseState previousMouseState;
 
         public List<Rectangle> ScrollDisableRects;
         public List<Rectangle> SelectingDisableRects;
@@ -65,7 +56,7 @@ namespace GameObjects
 
         public event MouseScroll OnMouseScroll;
 
-        public Screen(Game game) // : base(game)
+        public Screen() // : base(game)
         {
             this.PluginList = new GameObjectList();
             this.EnableUpdate = true;
@@ -83,8 +74,9 @@ namespace GameObjects
         public virtual void FullScreen() { }
 
 
-        public virtual void DisposeMapTileMemory()
+        public virtual void DisposeMapTileMemory(bool gc, bool clearAll)
         {
+
         }
 
         public virtual void Activate()
@@ -165,7 +157,7 @@ namespace GameObjects
         {
             if (this.OnMouseLeftDown != null)
             {
-                this.OnMouseLeftDown(new Point(Convert.ToInt32(InputManager.Position.X), Convert.ToInt32(InputManager.Position.Y)));  //   this.mouseState.X, this.mouseState.Y));
+                this.OnMouseLeftDown(new Point(Convert.ToInt32(InputManager.Position.X), Convert.ToInt32(InputManager.Position.Y)));  //   InputManager.NowMouse.X, InputManager.NowMouse.Y));
             }
         }
 
@@ -173,7 +165,7 @@ namespace GameObjects
         {
             if (this.OnMouseLeftUp != null)
             {
-                this.OnMouseLeftUp(new Point(Convert.ToInt32(InputManager.Position.X), Convert.ToInt32(InputManager.Position.Y)));   //  this.mouseState.X, this.mouseState.Y
+                this.OnMouseLeftUp(new Point(Convert.ToInt32(InputManager.Position.X), Convert.ToInt32(InputManager.Position.Y)));   //  InputManager.NowMouse.X, InputManager.NowMouse.Y
             }
         }
 
@@ -181,8 +173,9 @@ namespace GameObjects
         {
             if (this.OnMouseMove != null)
             {
-                this.OnMouseMove(new Point(Convert.ToInt32(InputManager.Position.X), Convert.ToInt32(InputManager.Position.Y)), InputManager.IsMoved);
-                //this.OnMouseMove(new Point(this.mouseState.X, this.mouseState.Y), this.mouseState.LeftButton == ButtonState.Pressed);
+                //UWP平台要求InputManager.IsDown
+                this.OnMouseMove(new Point(Convert.ToInt32(InputManager.Position.X), Convert.ToInt32(InputManager.Position.Y)), InputManager.IsDown);  // InputManager.IsMoved);
+                //this.OnMouseMove(new Point(InputManager.NowMouse.X, InputManager.NowMouse.Y), InputManager.NowMouse.LeftButton == ButtonState.Pressed);
             }
         }
 
@@ -190,7 +183,7 @@ namespace GameObjects
         {
             if (this.OnMouseRightDown != null)
             {
-                this.OnMouseRightDown(new Point(this.mouseState.X, this.mouseState.Y));
+                this.OnMouseRightDown(new Point(InputManager.NowMouse.X, InputManager.NowMouse.Y));
             }
         }
 
@@ -198,7 +191,7 @@ namespace GameObjects
         {
             if (this.OnMouseRightUp != null)
             {
-                this.OnMouseRightUp(new Point(this.mouseState.X, this.mouseState.Y));
+                this.OnMouseRightUp(new Point(InputManager.NowMouse.X, InputManager.NowMouse.Y));
             }
         }
 
@@ -206,7 +199,7 @@ namespace GameObjects
         {
             if (this.OnMouseScroll != null)
             {
-                this.OnMouseScroll(new Point(this.mouseState.X, this.mouseState.Y), this.mouseState.ScrollWheelValue);
+                this.OnMouseScroll(new Point(InputManager.NowMouse.X, InputManager.NowMouse.Y), InputManager.NowMouse.ScrollWheelValue);
             }
         }
 
@@ -263,13 +256,13 @@ namespace GameObjects
                     }
                 }
 
-                if (this.previousMouseState.RightButton != this.mouseState.RightButton)
+                if (InputManager.MouseStatePre.RightButton != InputManager.NowMouse.RightButton)
                 {
-                    if (this.mouseState.RightButton == ButtonState.Pressed)
+                    if (InputManager.NowMouse.RightButton == ButtonState.Pressed)
                     {
                         this.EarlyMouseRightDown();
                     }
-                    else if (this.mouseState.RightButton == ButtonState.Released)
+                    else if (InputManager.NowMouse.RightButton == ButtonState.Released)
                     {
                         this.EarlyMouseRightUp();
                     }
@@ -280,7 +273,7 @@ namespace GameObjects
                     this.EarlyMouseMove();
                 }
 
-                if (this.mouseState.ScrollWheelValue != this.previousMouseState.ScrollWheelValue)
+                if (InputManager.NowMouse.ScrollWheelValue != InputManager.MouseStatePre.ScrollWheelValue)
                 {
                     this.EarlyMouseScroll();
                 }
@@ -291,33 +284,33 @@ namespace GameObjects
         //{
         //    if (this.EnableMouseEvent)
         //    {
-        //        if (this.previousMouseState.LeftButton != this.mouseState.LeftButton)
+        //        if (this.previousMouseState.LeftButton != InputManager.NowMouse.LeftButton)
         //        {
-        //            if (this.mouseState.LeftButton == ButtonState.Pressed)
+        //            if (InputManager.NowMouse.LeftButton == ButtonState.Pressed)
         //            {
         //                this.EarlyMouseLeftDown();
         //            }
-        //            else if (this.mouseState.LeftButton == ButtonState.Released)
+        //            else if (InputManager.NowMouse.LeftButton == ButtonState.Released)
         //            {
         //                this.EarlyMouseLeftUp();
         //            }
         //        }
-        //        else if (this.previousMouseState.RightButton != this.mouseState.RightButton)
+        //        else if (this.previousMouseState.RightButton != InputManager.NowMouse.RightButton)
         //        {
-        //            if (this.mouseState.RightButton == ButtonState.Pressed)
+        //            if (InputManager.NowMouse.RightButton == ButtonState.Pressed)
         //            {
         //                this.EarlyMouseRightDown();
         //            }
-        //            else if (this.mouseState.RightButton == ButtonState.Released)
+        //            else if (InputManager.NowMouse.RightButton == ButtonState.Released)
         //            {
         //                this.EarlyMouseRightUp();
         //            }
         //        }
-        //        if ((this.mouseState.X != this.previousMouseState.X) || (this.mouseState.Y != this.previousMouseState.Y))
+        //        if ((InputManager.NowMouse.X != this.previousMouseState.X) || (InputManager.NowMouse.Y != this.previousMouseState.Y))
         //        {
         //            this.EarlyMouseMove();
         //        }
-        //        if (this.mouseState.ScrollWheelValue != this.previousMouseState.ScrollWheelValue)
+        //        if (InputManager.NowMouse.ScrollWheelValue != this.previousMouseState.ScrollWheelValue)
         //        {
         //            this.EarlyMouseScroll();
         //        }
@@ -334,10 +327,10 @@ namespace GameObjects
             return Point.Zero;
         }
 
-        public virtual Texture2D GetPortrait(float id)
-        {
-            return null;
-        }
+        //public virtual Texture2D GetPortrait(float id)
+        //{
+        //    return null;
+        //}
 
         public virtual Point GetPositionByPoint(Point mousePoint)
         {
@@ -346,19 +339,19 @@ namespace GameObjects
 
         //[DllImport("Kernel32", CharSet=CharSet.Auto)]
         //private static extern int GetShortPathName(string path, StringBuilder shortPath, int shortPathLength);
-        public virtual Texture2D GetSmallPortrait(float id)
-        {
-            return null;
-        }
+        //public virtual Texture2D GetSmallPortrait(float id)
+        //{
+        //    return null;
+        //}
 
-        public virtual Texture2D GetTroopPortrait(float id)
-        {
-            return null;
-        }
-        public virtual Texture2D GetFullPortrait(float id)
-        {
-            return null;
-        }
+        //public virtual Texture2D GetTroopPortrait(float id)
+        //{
+        //    return null;
+        //}
+        //public virtual Texture2D GetFullPortrait(float id)
+        //{
+        //    return null;
+        //}
         //public override void Initialize()
         //{
         //    base.Initialize();
@@ -383,8 +376,6 @@ namespace GameObjects
         protected void LoadContent()
         {
             //base.LoadContent();
-            //IGraphicsDeviceService service = base.Game.Services.GetService(typeof(IGraphicsDeviceService)) as IGraphicsDeviceService;
-            //this.batch = new SpriteBatch(service.GraphicsDevice);
         }
 
         public virtual void LoadGame()
@@ -558,7 +549,7 @@ namespace GameObjects
 
         public void PlayImportantSound(string soundFileLocation)
         {
-            if (GlobalVariables.PlayBattleSound)  // && File.Exists(soundFileLocation))
+            if (Session.GlobalVariables.PlayBattleSound)  // && File.Exists(soundFileLocation))
             {
                 Platform.Current.PlayEffect(soundFileLocation);
             }
@@ -570,7 +561,7 @@ namespace GameObjects
 
         public void PlayNormalSound(string soundFileLocation)
         {
-            if (GlobalVariables.PlayNormalSound)  // && File.Exists(soundFileLocation))
+            if (Session.GlobalVariables.PlayNormalSound)  // && File.Exists(soundFileLocation))
             {
                 Platform.Current.PlayEffect(soundFileLocation);
                 //PlaySound(soundFileLocation);
@@ -643,7 +634,7 @@ namespace GameObjects
         public bool TileInScreen(Point tile)
         {
             return ((((tile.X >= this.TopLeftPosition.X) && (tile.Y >= this.TopLeftPosition.Y)) && (tile.X <= this.BottomRightPosition.X)) && (tile.Y <= this.BottomRightPosition.Y)
-                && !this.Scenario.PositionOutOfRange(tile));
+                && !Session.Current.Scenario.PositionOutOfRange(tile));
         }
 
         public virtual void TroopAmbush(Troop troop)
@@ -840,7 +831,7 @@ namespace GameObjects
         {
         }
         */
-        public virtual void ApplyEvent(Event e, Architecture a)
+        public virtual void ApplyEvent(Event e, Architecture a, Screen screen)
         {
         }
 
@@ -871,9 +862,9 @@ namespace GameObjects
 
                 if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
                 {
-                    this.previousMouseState = this.mouseState;
-                    this.mouseState = Mouse.GetState();
-                    this.keyState = Keyboard.GetState();
+                    //this.previousMouseState = this.mouseState;
+                    //this.mouseState = Mouse.GetState();
+                    //this.keyState = Keyboard.GetState();
                 }
                 else
                 {
@@ -886,7 +877,7 @@ namespace GameObjects
             }
         }
 
-        public Texture2D DefaultMouseArrowTexture
+        public PlatformTexture DefaultMouseArrowTexture
         {
             get
             {
@@ -912,7 +903,7 @@ namespace GameObjects
             get
             {
                 return new Point(InputManager.PoXMove, InputManager.PoY);
-                //return new Point(this.mouseState.X - this.previousMouseState.X, this.mouseState.Y - this.previousMouseState.Y);
+                //return new Point(InputManager.NowMouse.X - this.previousMouseState.X, InputManager.NowMouse.Y - this.previousMouseState.Y);
             }
         }
 
@@ -924,28 +915,12 @@ namespace GameObjects
             }
         }
 
-        public Microsoft.Xna.Framework.Input.MouseState MouseState
-        {
-            get
-            {
-                return this.mouseState;
-            }
-        }
-
         public Point RealViewportSize
         {
             get
             {
                 return viewportSize;
-                //return new Point(Platform.GraphicsDevice.Viewport.X, Platform.GraphicsDevice.Viewport.Y);
-            }
-        }
-
-        public SpriteBatch spriteBatch
-        {
-            get
-            {
-                return Session.Current.SpriteBatch;
+                //return new Point(Platform.Viewport.X, Platform.Viewport.Y);
             }
         }
 
@@ -1036,13 +1011,13 @@ namespace GameObjects
 
         public virtual void OnAIMergeAgainstPlayer(Faction strongestPlayer, Faction merger, Faction merged) { }
 
-        public virtual void 减小音量()
+        public virtual void ReduceSound()
         {
         }
-        public virtual void 增加音量()
+        public virtual void IncreaseSound()
         {
         }
-        public virtual void 返回初始菜单()
+        public virtual void ReturnMainMenu()
         {
         }
     }

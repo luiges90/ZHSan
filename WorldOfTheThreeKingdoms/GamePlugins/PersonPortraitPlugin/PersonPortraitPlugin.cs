@@ -52,14 +52,14 @@ namespace PersonPortraitPlugin
         //{
         //    return this.personPortrait.GetFullPortrait(id);
         //}
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
             this.personPortrait.TempImageFileName = @"Content\Textures\GameComponents\PersonPortrait\~tmp.image";
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.personPortrait.Device = device;
+
         }
 
         public string Author

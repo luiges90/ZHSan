@@ -40,17 +40,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private bool Date_OnDayPassed()
         {
-            if (!base.Scenario.Threading)
+            if (!Session.Current.Scenario.Threading)
             {
-                base.Scenario.DayPassedEvent();
-                //base.Scenario.CheckRepeatedPerson();
+                Session.Current.Scenario.DayPassedEvent();
+                //Session.Current.Scenario.CheckRepeatedPerson();
                 //this.Plugins.AirViewPlugin.ReloadTroopView();
 
                 this.gengxinyoucelan();
                 //this.DrawAutoSavePicture();
 
                 /*
-                if (base.Scenario.Date.Day == 29 && GlobalVariables.doAutoSave)
+                if (Session.Current.Scenario.Date.Day == 29 && Session.GlobalVariables.doAutoSave)
                 {
                     this.SaveGameAutoPosition();
                     shangciCundangShijian = DateTime.Now;
@@ -61,13 +61,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 cundangShijianJiange = DateTime.Now - shangciCundangShijian;
 
-                if (cundangShijianJiange.Minutes >= GlobalVariables.AutoSaveFrequency)
+                if (cundangShijianJiange.Minutes >= Session.GlobalVariables.AutoSaveFrequency)
                 {
-                    if (GlobalVariables.doAutoSave)
+                    if (Session.GlobalVariables.doAutoSave)
                     {
-                        this.Scenario.Date.Go(1);
+                        Session.Current.Scenario.Date.Go(1);
                         this.SaveGameAutoPosition();
-                        this.Scenario.Date.Go(-1);
+                        Session.Current.Scenario.Date.Go(-1);
                     }
                     shangciCundangShijian = DateTime.Now;
                 }
@@ -80,9 +80,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         private bool Date_OnDayStarting()
         {
 
-            if (!base.Scenario.Threading)
+            if (!Session.Current.Scenario.Threading)
             {
-                base.Scenario.DayStartingEvent();
+                Session.Current.Scenario.DayStartingEvent();
 
                 return true;
             }
@@ -91,9 +91,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private bool Date_OnMonthPassed()
         {
-            if (!base.Scenario.Threading)
+            if (!Session.Current.Scenario.Threading)
             {
-                base.Scenario.MonthPassedEvent();
+                Session.Current.Scenario.MonthPassedEvent();
                 return true;
             }
             return false;
@@ -101,13 +101,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void SwichMusic(GameSeason season)
         {
-            if (GlobalVariables.PlayMusic)
+            if (Session.GlobalVariables.PlayMusic)
             {
                 try
                 {
-                    if (this.Scenario.CurrentPlayer != null && this.Scenario.CurrentPlayer.BattleState != ZhandouZhuangtai.和平)
+                    if (Session.Current.Scenario.CurrentPlayer != null && Session.Current.Scenario.CurrentPlayer.BattleState != ZhandouZhuangtai.和平)
                     {
-                        if (this.Scenario.CurrentPlayer.BattleState == ZhandouZhuangtai.进攻)
+                        if (Session.Current.Scenario.CurrentPlayer.BattleState == ZhandouZhuangtai.进攻)
                         {
                             Session.PlayMusic("Attack");
                             //Player.currentPlaylist.clear();
@@ -127,7 +127,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             //Player.settings.setMode("loop", true);
                             //this.PlayMusic("GameMusic/Attack.mp3");
                         }
-                        else if (this.Scenario.CurrentPlayer.BattleState == ZhandouZhuangtai.防守)
+                        else if (Session.Current.Scenario.CurrentPlayer.BattleState == ZhandouZhuangtai.防守)
                         {
                             Session.PlayMusic("Defend");
                             //Player.currentPlaylist.clear();
@@ -266,22 +266,22 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void Date_OnSeasonChange(GameSeason season)
         {
-            if (this.Scenario.CurrentPlayer == null || this.Scenario.CurrentPlayer.BattleState==ZhandouZhuangtai.和平)
+            if (Session.Current.Scenario.CurrentPlayer == null || Session.Current.Scenario.CurrentPlayer.BattleState==ZhandouZhuangtai.和平)
             {
                 this.SwichMusic(season);
             }
-            if (!base.Scenario.Threading&&base.Scenario.Date.Day==1)
+            if (!Session.Current.Scenario.Threading&&Session.Current.Scenario.Date.Day==1)
             {
-                base.Scenario.SeasonChangeEvent();
+                Session.Current.Scenario.SeasonChangeEvent();
                 
             }
         }
 
         private bool Date_OnYearPassed()
         {
-            if (!base.Scenario.Threading)
+            if (!Session.Current.Scenario.Threading)
             {
-                base.Scenario.YearPassedEvent();
+                Session.Current.Scenario.YearPassedEvent();
                 return true;
             }
             return false;
@@ -289,9 +289,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private bool Date_OnYearStarting()
         {
-            if (!base.Scenario.Threading)
+            if (!Session.Current.Scenario.Threading)
             {
-                base.Scenario.YearStartingEvent();
+                Session.Current.Scenario.YearStartingEvent();
                 return true;
             }
             return false;
@@ -299,15 +299,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public  void DateGo(int Days)
         {
-            if (base.Scenario.CurrentPlayer != null)
+            if (Session.Current.Scenario.CurrentPlayer != null)
             {
-                base.Scenario.CurrentPlayer.Passed = true;
-                if (base.Scenario.IsLastPlayer(base.Scenario.CurrentPlayer))
+                Session.Current.Scenario.CurrentPlayer.Passed = true;
+                if (Session.Current.Scenario.IsLastPlayer(Session.Current.Scenario.CurrentPlayer))
                 {
                     this.Plugins.DateRunnerPlugin.RunDays(Days);
                 }
             } else 
-            if (base.Scenario.PlayerFactions.Count == 0)
+            if (Session.Current.Scenario.PlayerFactions.Count == 0)
             {
                 this.Plugins.DateRunnerPlugin.RunDays(Days);
             }

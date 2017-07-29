@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using System.Runtime.Serialization;
+using GameManager;
 
 namespace GameObjects
 {
@@ -121,7 +122,7 @@ namespace GameObjects
                 if (list.Count > 0)
                 {
                     Person person = list[GameObject.Random(list.Count)] as Person;
-                    InformationKindList availList = base.Scenario.GameCommonData.AllInformationKinds.GetAvailList(person.LocationArchitecture);
+                    InformationKindList availList = Session.Current.Scenario.GameCommonData.AllInformationKinds.GetAvailList(person.LocationArchitecture);
                     if (availList.Count > 0)
                     {
                         if (availList.Count > 1)
@@ -151,7 +152,7 @@ namespace GameObjects
 
         private void CallRouteway()
         {
-            if (!GlobalVariables.LiangdaoXitong) return;
+            if (!Session.GlobalVariables.LiangdaoXitong) return;
             if (this.WillArchitecture != null)
             {
                 int foodCostPerDay;
@@ -340,7 +341,7 @@ namespace GameObjects
             Troop troop = null;
             foreach (Troop troop2 in this.Troops)
             {
-                double distance = base.Scenario.GetDistance(troop2.Position, this.WillArchitecture.ArchitectureArea);
+                double distance = Session.Current.Scenario.GetDistance(troop2.Position, this.WillArchitecture.ArchitectureArea);
                 if (distance < maxValue)
                 {
                     maxValue = distance;
@@ -409,7 +410,7 @@ namespace GameObjects
             {
                 orientations.Add(troop.Position);
             }
-            this.InformationDestination = base.Scenario.GetClosestPosition(this.WillArchitecture.ArchitectureArea, orientations);
+            this.InformationDestination = Session.Current.Scenario.GetClosestPosition(this.WillArchitecture.ArchitectureArea, orientations);
         }
 
         public void TroopAI()

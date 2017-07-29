@@ -52,7 +52,7 @@ namespace ContextMenuPlugin
             this.MenuItems = new List<MenuItem>();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.Visible)
             {
@@ -67,12 +67,11 @@ namespace ContextMenuPlugin
                     if (this.menuKind.IsLeft)
                     {
                         nullable = null;
-                        spriteBatch.Draw(this.Enabled ? this.contextMenu.LeftClickItemSelectedTexture : this.contextMenu.DisabledItemSelectedTexture
+                        CacheManager.Draw(this.Enabled ? this.contextMenu.LeftClickItemSelectedTexture : this.contextMenu.DisabledItemSelectedTexture
                             , this.Position, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None,0.04f);
                         if (!this.open)
                         {
                             nullable = null;
-                            //spriteBatch.Draw(this.TextTexture, StaticMethods.CenterRectangle(this.Position, new Rectangle(0, 0, this.TextTexture.Width, this.TextTexture.Height)), nullable, this.Enabled ? Color.White : this.contextMenu.DisabledTextColor, 0f, Vector2.Zero, SpriteEffects.None, 0.0399f);
                             var rec = StaticMethods.CenterRectangle(this.Position, new Rectangle(0, 0, width, height));
                             var pos = new Vector2(rec.X, rec.Y);
                             var scale = this.contextMenu.LeftClickFreeTextBuilder.Scale;
@@ -86,13 +85,12 @@ namespace ContextMenuPlugin
                             var color = this.Enabled ? Color.Gold : this.contextMenu.DisabledTextColor;
                             var scale = this.contextMenu.LeftClickFreeTextBuilder.Scale;
                             CacheManager.DrawString(Session.Current.Font, this.DisplayName, pos, color, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.0399f);
-                            //spriteBatch.Draw(this.TextTexture, rec, nullable, color, 0f, Vector2.Zero, SpriteEffects.None, 0.0399f);
                         }
                     }
                     else
                     {
                         nullable = null;
-                        spriteBatch.Draw(this.Enabled ? this.contextMenu.RightClickItemSelectedTexture : this.contextMenu.RightDisabledItemSelectedTexture, this.Position, nullable, this.Enabled ? Color.White : this.contextMenu.RightDisabledTextColor, 0f, Vector2.Zero, SpriteEffects.None,0.04f);
+                        CacheManager.Draw(this.Enabled ? this.contextMenu.RightClickItemSelectedTexture : this.contextMenu.RightDisabledItemSelectedTexture, this.Position, nullable, this.Enabled ? Color.White : this.contextMenu.RightDisabledTextColor, 0f, Vector2.Zero, SpriteEffects.None,0.04f);
                         nullable = null;
 
                         var rec = StaticMethods.CenterRectangle(this.Position, new Rectangle(0, 0, width, height));
@@ -102,25 +100,24 @@ namespace ContextMenuPlugin
                         var scale = this.contextMenu.RightClickFreeTextBuilder.Scale;
 
                         CacheManager.DrawString(Session.Current.Font, this.DisplayName, pos, color, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.0399f);
-
-                        //spriteBatch.Draw(this.TextTexture, rec, nullable, color, 0f, Vector2.Zero, SpriteEffects.None, 0.0399f);
+                        
                     }
                     if (this.open)
                     {
                         foreach (MenuItem item in this.MenuItems)
                         {
-                            item.Draw(spriteBatch);
+                            item.Draw();
                         }
                     }
                     else if (this.HasChild)
                     {
                         if (!this.menuKind.ShowLeft)
                         {
-                            spriteBatch.Draw(this.contextMenu.HasChildTexture, StaticMethods.CenterRectangle(new Rectangle(this.Position.Right, this.Position.Top, this.contextMenu.HasChildTexture.Width, this.Position.Height), new Rectangle(0, 0, this.contextMenu.HasChildTexture.Width, this.contextMenu.HasChildTexture.Height)), null, this.Enabled ? Color.White : this.contextMenu.DisabledTextColor, 0f, Vector2.Zero, SpriteEffects.None,0.04f);
+                            CacheManager.Draw(this.contextMenu.HasChildTexture, StaticMethods.CenterRectangle(new Rectangle(this.Position.Right, this.Position.Top, this.contextMenu.HasChildTexture.Width, this.Position.Height), new Rectangle(0, 0, this.contextMenu.HasChildTexture.Width, this.contextMenu.HasChildTexture.Height)), null, this.Enabled ? Color.White : this.contextMenu.DisabledTextColor, 0f, Vector2.Zero, SpriteEffects.None,0.04f);
                         }
                         else
                         {
-                            spriteBatch.Draw(this.contextMenu.HasChildTexture, StaticMethods.CenterRectangle(new Rectangle(this.Position.Left, this.Position.Top, -this.contextMenu.HasChildTexture.Width, this.Position.Height), new Rectangle(0, 0, -this.contextMenu.HasChildTexture.Width, -this.contextMenu.HasChildTexture.Height)), null, this.Enabled ? Color.White : this.contextMenu.RightDisabledTextColor, 0f, Vector2.Zero, SpriteEffects.None,0.04f);
+                            CacheManager.Draw(this.contextMenu.HasChildTexture, StaticMethods.CenterRectangle(new Rectangle(this.Position.Left, this.Position.Top, -this.contextMenu.HasChildTexture.Width, this.Position.Height), new Rectangle(0, 0, -this.contextMenu.HasChildTexture.Width, -this.contextMenu.HasChildTexture.Height)), null, this.Enabled ? Color.White : this.contextMenu.RightDisabledTextColor, 0f, Vector2.Zero, SpriteEffects.None,0.04f);
                         }
                     }
                 }
@@ -129,7 +126,7 @@ namespace ContextMenuPlugin
                     if (this.Enabled)
                     {
                         nullable = null;
-                        spriteBatch.Draw(this.contextMenu.LeftClickItemTexture, this.Position, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None,0.04f);                                             
+                        CacheManager.Draw(this.contextMenu.LeftClickItemTexture, this.Position, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None,0.04f);                                             
 
                         var rec = StaticMethods.CenterRectangle(this.Position, new Rectangle(0, 0, width, height));
                         var pos = new Vector2(rec.X, rec.Y);
@@ -137,13 +134,12 @@ namespace ContextMenuPlugin
                         var scale = this.contextMenu.LeftClickFreeTextBuilder.Scale;
 
                         CacheManager.DrawString(Session.Current.Font, this.DisplayName, pos, this.contextMenu.LeftClickTextColor, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.0399f);
-
-                        //spriteBatch.Draw(this.TextTexture, rec, null, this.contextMenu.LeftClickTextColor, 0f, Vector2.Zero, SpriteEffects.None, 0.0399f);
+                        
                     }
                     else
                     {
                         nullable = null;
-                        spriteBatch.Draw(this.contextMenu.DisabledItemTexture, this.Position, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None,0.04f);
+                        CacheManager.Draw(this.contextMenu.DisabledItemTexture, this.Position, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None,0.04f);
 
                         var rec = StaticMethods.CenterRectangle(this.Position, new Rectangle(0, 0, width, height));
 
@@ -152,8 +148,7 @@ namespace ContextMenuPlugin
                         var scale = this.contextMenu.LeftClickFreeTextBuilder.Scale;
 
                         CacheManager.DrawString(Session.Current.Font, this.DisplayName, pos, this.contextMenu.DisabledTextColor, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.0399f);
-
-                        //spriteBatch.Draw(this.TextTexture, rec, null, this.contextMenu.DisabledTextColor, 0f, Vector2.Zero, SpriteEffects.None, 0.0399f);
+                        
                     }
                 }
                 else
@@ -161,7 +156,7 @@ namespace ContextMenuPlugin
                     if (this.Enabled)
                     {
                         nullable = null;
-                        spriteBatch.Draw(this.contextMenu.RightClickItemTexture, this.Position, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None,0.04f);
+                        CacheManager.Draw(this.contextMenu.RightClickItemTexture, this.Position, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None,0.04f);
 
                         var rec = StaticMethods.CenterRectangle(this.Position, new Rectangle(0, 0, width, height));
 
@@ -170,13 +165,12 @@ namespace ContextMenuPlugin
                         var scale = this.contextMenu.RightClickFreeTextBuilder.Scale;
 
                         CacheManager.DrawString(Session.Current.Font, this.DisplayName, pos, this.contextMenu.RightClickTextColor, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.0399f);
-
-                        //spriteBatch.Draw(this.TextTexture, rec, null, this.contextMenu.RightClickTextColor, 0f, Vector2.Zero, SpriteEffects.None, 0.0399f);
+                        
                     }
                     else
                     {
                         nullable = null;
-                        spriteBatch.Draw(this.contextMenu.RightDisabledItemTexture, this.Position, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None,0.04f);
+                        CacheManager.Draw(this.contextMenu.RightDisabledItemTexture, this.Position, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None,0.04f);
 
                         var rec = StaticMethods.CenterRectangle(this.Position, new Rectangle(0, 0, width, height));
                         var pos = new Vector2(rec.X, rec.Y);
@@ -184,9 +178,7 @@ namespace ContextMenuPlugin
                         var scale = this.contextMenu.RightClickFreeTextBuilder.Scale;
 
                         CacheManager.DrawString(Session.Current.Font, this.DisplayName, pos, this.contextMenu.RightDisabledTextColor, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.0399f);
-
-                        //spriteBatch.Draw(this.TextTexture, rec, null, this.contextMenu.RightDisabledTextColor, 0f, Vector2.Zero, SpriteEffects.None, 0.0399f);
-
+                        
                     }
                 }
             }
@@ -733,14 +725,14 @@ namespace ContextMenuPlugin
         {
             get
             {
-                if (!GlobalVariables.EnableCheat && this.DisplayName.Contains("*")) return false;
-                if (GlobalVariables.hougongGetChildrenRate <= 0 && this.Name.Equals("hougongTop")) return false;
+                if (!Session.GlobalVariables.EnableCheat && this.DisplayName.Contains("*")) return false;
+                if (Session.GlobalVariables.hougongGetChildrenRate <= 0 && this.Name.Equals("hougongTop")) return false;
                 return this.visible;
             }
             set
             {
-                if (!GlobalVariables.EnableCheat && this.DisplayName.Contains("*")) return;
-                if (GlobalVariables.hougongGetChildrenRate <= 0 && this.Name.Equals("hougongTop")) return;
+                if (!Session.GlobalVariables.EnableCheat && this.DisplayName.Contains("*")) return;
+                if (Session.GlobalVariables.hougongGetChildrenRate <= 0 && this.Name.Equals("hougongTop")) return;
                 this.visible = value;
                 if (value)
                 {

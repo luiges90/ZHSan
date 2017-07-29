@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameManager;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -87,7 +88,7 @@ namespace GameObjects
                     }
                     else
                     {
-                        this.RunningFaction.Scenario.CurrentFaction = this.RunningFaction;
+                        Session.Current.Scenario.CurrentFaction = this.RunningFaction;
                         if (this.RunningFaction.Run())
                         {
                             this.RunningFaction = null;
@@ -99,8 +100,6 @@ namespace GameObjects
 
         public string SaveQueueToString()
         {
-            if (this.factionQueue == null) return "";
-
             string str = "";
             foreach (Faction faction in this.factionQueue)
             {

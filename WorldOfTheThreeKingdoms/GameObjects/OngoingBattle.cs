@@ -19,7 +19,7 @@ namespace GameObjects
             get
             {
                 PersonList result = new PersonList();
-                foreach (Person p in base.Scenario.Persons)
+                foreach (Person p in Session.Current.Scenario.Persons)
                 {
                     if (p.Battle == this)
                     {
@@ -35,7 +35,7 @@ namespace GameObjects
             get
             {
                 ArchitectureList result = new ArchitectureList();
-                foreach (Architecture a in base.Scenario.Architectures)
+                foreach (Architecture a in Session.Current.Scenario.Architectures)
                 {
                     if (a.Battle == this)
                     {

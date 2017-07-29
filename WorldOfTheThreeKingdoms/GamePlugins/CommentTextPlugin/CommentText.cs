@@ -65,11 +65,11 @@ namespace CommentTextPlugin
             return this.ThirdText.Text;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            this.FirstText.Draw(spriteBatch, 0.05f);
-            this.SecondText.Draw(spriteBatch, 0.05f);
-            this.ThirdText.Draw(spriteBatch, 0.05f);
+            this.FirstText.Draw(0.05f);
+            this.SecondText.Draw(0.05f);
+            this.ThirdText.Draw(0.05f);
         }
 
         public void Update()

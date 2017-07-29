@@ -19,18 +19,17 @@ using GameManager;
 namespace tupianwenziPlugin
 {
 
-    internal class tupianwenzilei
+    public class tupianwenzilei
     {
-        internal GraphicsDevice graphicsDevice;
         internal Point BackgroundSize;
-        internal Texture2D BackgroundTexture;
-        internal Queue<Texture2D> shijiantupianduilie = new Queue<Texture2D>();
+        internal PlatformTexture BackgroundTexture;
+        internal Queue<PlatformTexture> shijiantupianduilie = new Queue<PlatformTexture>();
         internal Queue<Rectangle> juxingduilie = new Queue<Rectangle>();
         internal Queue<string> shijianshengyinduilie = new Queue<string>();
 
 
         internal Rectangle shijiantupianjuxing;
-        internal Texture2D shijiantupian;
+        internal PlatformTexture shijiantupian;
         internal string shijianshengyin;
 
 
@@ -39,11 +38,11 @@ namespace tupianwenziPlugin
         private Keys currentKey;
         private Point DisplayOffset;
         private Queue<GameObjectAndBranchName> DisplayQueue = new Queue<GameObjectAndBranchName>();
-        internal Texture2D FirstPageButtonDisabledTexture;
-        private Texture2D FirstPageButtonDisplayTexture;
+        internal PlatformTexture FirstPageButtonDisabledTexture;
+        private PlatformTexture FirstPageButtonDisplayTexture;
         internal Rectangle FirstPageButtonPosition;
-        internal Texture2D FirstPageButtonSelectedTexture;
-        internal Texture2D FirstPageButtonTexture;
+        internal PlatformTexture FirstPageButtonSelectedTexture;
+        internal PlatformTexture FirstPageButtonTexture;
         private bool firstShowing;
         internal bool HasConfirmationDialog = false;
         internal IConfirmationDialog iConfirmationDialog;
@@ -55,8 +54,7 @@ namespace tupianwenziPlugin
         internal GameDelegates.VoidFunction NoFunction;
         internal Rectangle PortraitClient;
         internal FreeRichText RichText = new FreeRichText();
-
-        internal  Screen screen;
+        
         internal Person SpeakingPerson;
         private DateTime startShowingTime;
         internal GameObjectTextTree TextTree = new GameObjectTextTree();
@@ -66,16 +64,16 @@ namespace tupianwenziPlugin
 
 
 
-        internal void Close()
+        internal void Close(Screen screen)
         {
-            if (this.DequeueAndDisplay())
+            if (this.DequeueAndDisplay(screen))
             {
                 this.IsShowing = false;
             }
         }
 
 
-        private bool DequeueAndDisplay()
+        private bool DequeueAndDisplay(Screen screen)
         {
 
 
@@ -85,14 +83,14 @@ namespace tupianwenziPlugin
                 GameObjectAndBranchName name = this.DisplayQueue.Dequeue();
                 this.shijiantupian = this.shijiantupianduilie.Dequeue();
                 this.shijiantupianjuxing = this.juxingduilie.Dequeue();
-                this.SetPosition(ShowPosition.Bottom );
+                this.SetPosition(ShowPosition.Bottom, screen);
                 this.shijianshengyin = this.shijianshengyinduilie.Dequeue();
                 this.SpeakingPerson = name.person;
                 this.NameText.Text = name.person.Name;
                 this.RichText.Clear();
                 if (this.diyigeshengyin)
                 {
-                    this.screen.PlayNormalSound(this.shijianshengyin);
+                    screen.PlayNormalSound(this.shijianshengyin);
                     this.diyigeshengyin = false;
                 }
 
@@ -118,7 +116,7 @@ namespace tupianwenziPlugin
             return true;
         }
 
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw()
         {
             if (this.SpeakingPerson != null)
             {
@@ -126,7 +124,7 @@ namespace tupianwenziPlugin
                 
                 //try
                 //{
-                //    spriteBatch.Draw(this.SpeakingPerson.Portrait, this.PortraitDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.201f);
+                //    CacheManager.Draw(this.SpeakingPerson.Portrait, this.PortraitDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.201f);
                 //}
                 //catch
                 //{
@@ -135,36 +133,36 @@ namespace tupianwenziPlugin
                 CacheManager.DrawZhsanAvatar(this.SpeakingPerson, "", this.PortraitDisplayPosition, Color.White, 0.201f);
 
                 sourceRectangle = null;
-                spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
                 if (this.shijiantupian != null)
                 {
                     if (this.shijiantupianjuxing.Width == 240 && this.shijiantupianjuxing.Height == 240)//如果是人物死亡图片的话
                     {
 
-                        //spriteBatch.Draw(this.CaiseTupianZhuanchengHeibai(this.graphicsDevice ,this.shijiantupian), new Rectangle(this.shijiantupianjuxing.X, this.shijiantupianjuxing.Y + 70, this.shijiantupianjuxing.Width, this.shijiantupianjuxing.Height), sourceRectangle, Color.White , 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
-                        spriteBatch.Draw(this.shijiantupian, this.shijiantupianjuxing, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                        //CacheManager.Draw(this.CaiseTupianZhuanchengHeibai(this.graphicsDevice ,this.shijiantupian), new Rectangle(this.shijiantupianjuxing.X, this.shijiantupianjuxing.Y + 70, this.shijiantupianjuxing.Width, this.shijiantupianjuxing.Height), sourceRectangle, Color.White , 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                        CacheManager.Draw(this.shijiantupian, this.shijiantupianjuxing, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
 
                     }
                     else
                     {
-                        spriteBatch.Draw(this.shijiantupian, this.shijiantupianjuxing, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                        CacheManager.Draw(this.shijiantupian, this.shijiantupianjuxing, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
 
                     }
                 }
                 
-                this.NameText.Draw(spriteBatch, 0.1999f);
-                spriteBatch.Draw(this.FirstPageButtonDisplayTexture, this.FirstPageButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                this.NameText.Draw(0.1999f);
+                CacheManager.Draw(this.FirstPageButtonDisplayTexture, this.FirstPageButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
 
-                this.RichText.Draw(spriteBatch, 0.1999f);                
+                this.RichText.Draw(0.1999f);                
                 
             }
         }
 
 
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         private void screen_OnMouseLeftDown(Point position)
@@ -183,7 +181,7 @@ namespace tupianwenziPlugin
             {
                 if (!this.firstShowing)
                 {
-                    this.Close();
+                    this.Close(Session.MainGame.mainGameScreen);
                 }
                 this.firstShowing = false;
             }
@@ -253,9 +251,9 @@ namespace tupianwenziPlugin
             this.HasConfirmationDialog = false;
         }
 
-        internal void SetPosition(ShowPosition showPosition)
+        internal void SetPosition(ShowPosition showPosition, Screen screen)
         {
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, screen.viewportSize.X, screen.viewportSize.Y);
             Rectangle rect = new Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
             switch (showPosition)
             {
@@ -309,25 +307,25 @@ namespace tupianwenziPlugin
             {
                 if (this.currentKey != Keys.None)
                 {
-                    if (!this.screen.KeyState.IsKeyUp(this.currentKey))
+                    if (!Session.MainGame.mainGameScreen.KeyState.IsKeyUp(this.currentKey))
                     {
                         return;
                     }
                     this.currentKey = Keys.None;
                 }
-                if (this.screen.KeyState.IsKeyDown(Keys.Enter))
+                if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Enter))
                 {
                     this.currentKey = Keys.Enter;
-                    this.Close();
+                    this.Close(Session.MainGame.mainGameScreen);
                 }
                 TimeSpan span = (TimeSpan) (DateTime.Now - this.startShowingTime);
                 if (span.Milliseconds >= 300)
                 {
                     this.firstShowing = false;
                 }
-                if (span.Seconds >= GlobalVariables.DialogShowTime)
+                if (span.Seconds >= Session.GlobalVariables.DialogShowTime)
                 {
-                    this.Close();
+                    this.Close(Session.MainGame.mainGameScreen);
                 }
             }
         }
@@ -356,46 +354,49 @@ namespace tupianwenziPlugin
             }
             set
             {
-                if (this.isShowing != value && GlobalVariables.DialogShowTime > 0)
+                SetIsShowing(Session.MainGame.mainGameScreen, value);
+            }
+        }
+
+        public void SetIsShowing(Screen screen, bool value)
+        {
+            if (this.isShowing != value && Session.GlobalVariables.DialogShowTime > 0)
+            {
+                this.isShowing = value;
+                if (value)
                 {
-                    this.isShowing = value;
-                    if (value)
+                    if ((this.iContextMenu != null) && this.iContextMenu.IsShowing)
                     {
-                        if ((this.iContextMenu != null) && this.iContextMenu.IsShowing)
-                        {
-                            this.iContextMenu.IsShowing = false;
-                        }
-                        this.firstShowing = true;
-                        this.screen.IsHolding = true;
-                        this.diyigeshengyin = true;
-                        this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.tupianwenzi, UndoneWorkSubKind.None));
-                        this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                        this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.FirstPageButtonDisplayTexture = this.FirstPageButtonDisabledTexture;
-                        this.screen.EnableLaterMouseEvent = false;
-                        this.Close();
+                        this.iContextMenu.IsShowing = false;
                     }
-                    else
+                    this.firstShowing = true;
+                    screen.IsHolding = true;
+                    this.diyigeshengyin = true;
+                    screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.tupianwenzi, UndoneWorkSubKind.None));
+                    screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                    screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                    this.FirstPageButtonDisplayTexture = this.FirstPageButtonDisabledTexture;
+                    screen.EnableLaterMouseEvent = false;
+                    this.Close(screen);
+                }
+                else
+                {
+                    screen.IsHolding = false;
+                    if (screen.PopUndoneWork().Kind != UndoneWorkKind.tupianwenzi)
                     {
-                        this.screen.IsHolding = false;
-                        if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.tupianwenzi )
-                        {
-                            //throw new Exception("The UndoneWork is not a tupianwenzi.");
-                        }
-                        this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                        this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.screen.EnableLaterMouseEvent = true;
+                        //throw new Exception("The UndoneWork is not a tupianwenzi.");
+                    }
+                    screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                    screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                    screen.EnableLaterMouseEvent = true;
 
-                        
-
-                        this.iConfirmationDialog = null;
-                        if (this.CloseFunction != null)
-                        {
-                            this.CloseFunction();
-                            this.CloseFunction = null;
-                        }
+                    this.iConfirmationDialog = null;
+                    if (this.CloseFunction != null)
+                    {
+                        this.CloseFunction();
+                        this.CloseFunction = null;
                     }
                 }
             }
@@ -410,47 +411,47 @@ namespace tupianwenziPlugin
         }
 
 
-        private Texture2D CaiseTupianZhuanchengHeibai(GraphicsDevice device,Texture2D YuanTupian)
-        {
+        //private Texture2D CaiseTupianZhuanchengHeibai(GraphicsDevice device, Texture2D YuanTupian)
+        //{
 
 
-            int Height = YuanTupian.Height;
-            int Width = YuanTupian.Width;
-            Texture2D XinTupian = new Texture2D(device, Width, Height);
+        //    int Height = YuanTupian.Height;
+        //    int Width = YuanTupian.Width;
+        //    Texture2D XinTupian = new Texture2D(device, Width, Height);
 
-                   
-                Color[] pixel=GetColorDataFromTexture(YuanTupian);
-                int XiangsuGeshu = YuanTupian.Width * YuanTupian.Height;
-                for (int i = 0; i < XiangsuGeshu; i++)         
-                         
-                    {
-                         
-                        int r, g, b, Result = 0;              
-                        r = pixel[i].R;                 
-                        g = pixel[i].G;             
-                        b = pixel[i].B;        
-                        //实例程序以加权平均值法产生黑白图像       
-                        int iType =2;                 
-                        switch (iType)               
-                        {                   
-                            case 0://平均值法           
-                                Result = ((r + g + b) / 3);        
-                                break;                      
-                            case 1://最大值法                 
-                                Result = r > g ? r : g;        
-                                Result = Result > b ? Result : b;    
-                                break;                 
-                            case 2://加权平均值法             
-                                Result = ((int)(0.7 * r) + (int)(0.2 * g) + (int)(0.1 * b));   
-                                break;                   
-                        } 
-                    pixel[i]=new Color(Result,Result,Result);
 
-                    XinTupian.SetData<Color>(pixel);
-                    }
+        //    Color[] pixel = GetColorDataFromTexture(YuanTupian);
+        //    int XiangsuGeshu = YuanTupian.Width * YuanTupian.Height;
+        //    for (int i = 0; i < XiangsuGeshu; i++)
 
-                return XinTupian;
-        }
+        //    {
+
+        //        int r, g, b, Result = 0;
+        //        r = pixel[i].R;
+        //        g = pixel[i].G;
+        //        b = pixel[i].B;
+        //        //实例程序以加权平均值法产生黑白图像       
+        //        int iType = 2;
+        //        switch (iType)
+        //        {
+        //            case 0://平均值法           
+        //                Result = ((r + g + b) / 3);
+        //                break;
+        //            case 1://最大值法                 
+        //                Result = r > g ? r : g;
+        //                Result = Result > b ? Result : b;
+        //                break;
+        //            case 2://加权平均值法             
+        //                Result = ((int)(0.7 * r) + (int)(0.2 * g) + (int)(0.1 * b));
+        //                break;
+        //        }
+        //        pixel[i] = new Color(Result, Result, Result);
+
+        //        XinTupian.SetData<Color>(pixel);
+        //    }
+
+        //    return XinTupian;
+        //}
 
         private Color[] GetColorDataFromTexture(Texture2D texture)
         {

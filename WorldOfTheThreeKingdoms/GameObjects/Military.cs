@@ -3,6 +3,7 @@ using GameObjects.TroopDetail;
 using Microsoft.Xna.Framework;
 using System;
 using System.Runtime.Serialization;
+using GameManager;
 
 namespace GameObjects
 {
@@ -104,17 +105,17 @@ namespace GameObjects
         {
             if (this.FollowedLeader == troop.Leader)
             {
-                troop.RateOfOffence += Parameters.FollowedLeaderOffenceRateIncrement;
-                troop.RateOfDefence += Parameters.FollowedLeaderDefenceRateIncrement;
+                troop.RateOfOffence += Session.Parameters.FollowedLeaderOffenceRateIncrement;
+                troop.RateOfDefence += Session.Parameters.FollowedLeaderDefenceRateIncrement;
             }
         }
 
-        public static Military Create(GameScenario scenario, Architecture architecture, MilitaryKind kind)
+        public static Military Create(Architecture architecture, MilitaryKind kind)
         {
             Military military = new Military();
-            military.Scenario = scenario;
+            
             military.KindID = kind.ID;
-            military.ID = scenario.Militaries.GetFreeGameObjectID();
+            military.ID = Session.Current.Scenario.Militaries.GetFreeGameObjectID();
             if (kind.RecruitLimit == 1)
             {
                 military.Name = kind.Name;
@@ -125,7 +126,7 @@ namespace GameObjects
             }
             architecture.AddMilitary(military);
             architecture.BelongedFaction.AddMilitary(military);
-            scenario.Militaries.AddMilitary(military);
+            Session.Current.Scenario.Militaries.AddMilitary(military);
             architecture.DecreaseFund((int) (kind.CreateCost * kind.GetRateOfNewMilitary(architecture)));
             if (kind.IsTransport)
             {
@@ -133,7 +134,7 @@ namespace GameObjects
                 military.Morale = military.MoraleCeiling;
                 military.Combativity = military.CombativityCeiling;
             }
-            military.YearCreated = scenario.Date.Year;
+            military.YearCreated = Session.Current.Scenario.Date.Year;
             return military;
         }
 
@@ -231,18 +232,18 @@ namespace GameObjects
         {
             if (this.ShelledMilitary == null)
             {
-                this.experience += increment * (base.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Parameters.AIArmyExperienceRate);
-                if (this.experience > GlobalVariables.MaxMilitaryExperience)
+                this.experience += increment * (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIArmyExperienceRate);
+                if (this.experience > Session.GlobalVariables.MaxMilitaryExperience)
                 {
-                    this.experience = GlobalVariables.MaxMilitaryExperience;
+                    this.experience = Session.GlobalVariables.MaxMilitaryExperience;
                 }
             }
             else
             {
-                this.ShelledMilitary.experience += increment * (base.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Parameters.AIArmyExperienceRate);
-                if (this.ShelledMilitary.experience > GlobalVariables.MaxMilitaryExperience)
+                this.ShelledMilitary.experience += increment * (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIArmyExperienceRate);
+                if (this.ShelledMilitary.experience > Session.GlobalVariables.MaxMilitaryExperience)
                 {
-                    this.ShelledMilitary.experience = GlobalVariables.MaxMilitaryExperience;
+                    this.ShelledMilitary.experience = Session.GlobalVariables.MaxMilitaryExperience;
                 }
             }
         }
@@ -312,13 +313,13 @@ namespace GameObjects
         {
             for (int i = area.Count - 1; i >= 0; i--)
             {
-                Architecture architectureByPosition = base.Scenario.GetArchitectureByPosition(area[i]);
+                Architecture architectureByPosition = Session.Current.Scenario.GetArchitectureByPosition(area[i]);
                 if (((architectureByPosition == null) || (this.BelongedFaction != architectureByPosition.BelongedFaction))
-                    && this.GetTerrainAdaptability(base.Scenario.GetTerrainKindByPosition(area[i])) > this.Kind.Movability)
+                    && this.GetTerrainAdaptability(Session.Current.Scenario.GetTerrainKindByPosition(area[i])) > this.Kind.Movability)
                 {
                         area.Area.RemoveAt(i);
                 } 
-                else if (base.Scenario.GetWaterPositionMapCost(this.Kind, area[i]) >= 0xdac)
+                else if (Session.Current.Scenario.GetWaterPositionMapCost(this.Kind, area[i]) >= 0xdac)
                 {
                     area.Area.RemoveAt(i);
                 }
@@ -384,12 +385,11 @@ namespace GameObjects
             }
         }
 
-        public static Military SimCreate(GameScenario scenario, Architecture architecture, MilitaryKind kind)
+        public static Military SimCreate(Architecture architecture, MilitaryKind kind)
         {
             Military military = new Military();
-            military.Scenario = scenario;
             military.KindID = kind.ID;
-            military.ID = scenario.Militaries.GetFreeGameObjectID();
+            military.ID = Session.Current.Scenario.Militaries.GetFreeGameObjectID();
             if (kind.RecruitLimit == 1)
             {
                 military.Name = kind.Name;
@@ -532,7 +532,7 @@ namespace GameObjects
                 {
                     if (this.followedLeader == null)
                     {
-                        this.followedLeader = base.Scenario.Persons.GetGameObject(this.followedLeaderID) as Person;
+                        this.followedLeader = Session.Current.Scenario.Persons.GetGameObject(this.followedLeaderID) as Person;
                     }
                     return this.followedLeader;
                 }
@@ -645,7 +645,7 @@ namespace GameObjects
             {
                 if (this.kind == null)
                 {
-                    this.kind = base.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(this.kindID);
+                    this.kind = Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(this.kindID);
                 }
                 if (this.BelongedArchitecture!=null )
                 {
@@ -655,7 +655,7 @@ namespace GameObjects
                 {
                     if (this.bushiShuijunBingqieChuyuShuiyu())
                     {
-                        return base.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(28);  //运兵船
+                        return Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(28);  //运兵船
                     }
                     else
                     {
@@ -704,9 +704,9 @@ namespace GameObjects
             set
             {
                 this.kindID = value;
-                if (base.Scenario != null && base.Scenario.GameCommonData != null && base.Scenario.GameCommonData.AllMilitaryKinds != null)
+                if (Session.Current.Scenario != null && Session.Current.Scenario.GameCommonData != null && Session.Current.Scenario.GameCommonData.AllMilitaryKinds != null)
                 {
-                    this.kind = base.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(this.kindID);
+                    this.kind = Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(this.kindID);
                 }
             }
         }
@@ -749,8 +749,8 @@ namespace GameObjects
 
         public bool bushiShuijunBingqieChuyuShuiyu(Point position)
         {
-            if (GlobalVariables.LandArmyCanGoDownWater && kind != null && kind.Type != MilitaryType.水军 &&
-                base.Scenario.GetTerrainKindByPosition(position) == TerrainKind.水域)
+            if (Session.GlobalVariables.LandArmyCanGoDownWater && kind != null && kind.Type != MilitaryType.水军 &&
+                Session.Current.Scenario.GetTerrainKindByPosition(position) == TerrainKind.水域)
             {
                 return true;
             }
@@ -789,7 +789,7 @@ namespace GameObjects
                 {
                     if (this.leader == null)
                     {
-                        this.leader = base.Scenario.Persons.GetGameObject(this.leaderID) as Person;
+                        this.leader = Session.Current.Scenario.Persons.GetGameObject(this.leaderID) as Person;
                     }
                     return this.leader;
                 }
@@ -1799,7 +1799,7 @@ namespace GameObjects
                 
                 if (this.targetArchitecture == null)
                 {
-                    this.targetArchitecture = base.Scenario.Architectures.GetGameObject(this.targetArchitectureID) as Architecture;
+                    this.targetArchitecture = Session.Current.Scenario.Architectures.GetGameObject(this.targetArchitectureID) as Architecture;
                 }
                 return this.targetArchitecture;
             }
@@ -1851,7 +1851,7 @@ namespace GameObjects
 
                 if (this.startingArchitecture == null)
                 {
-                    this.startingArchitecture = base.Scenario.Architectures.GetGameObject(this.startingArchitectureID) as Architecture;
+                    this.startingArchitecture = Session.Current.Scenario.Architectures.GetGameObject(this.startingArchitectureID) as Architecture;
                 }
                 return this.startingArchitecture;
             }
@@ -1924,8 +1924,8 @@ namespace GameObjects
         {
             get
             {
-                int year = base.Scenario.Date.Year - this.YearCreated;
-                int sinceBeginning = base.Scenario.DaySince / 360;
+                int year = Session.Current.Scenario.Date.Year - this.YearCreated;
+                int sinceBeginning = Session.Current.Scenario.DaySince / 360;
                 return Math.Min(year, sinceBeginning);
             }
         }

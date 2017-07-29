@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using Platforms;
 using Tools;
+using GameManager;
 
 namespace GameObjects
 {
@@ -57,13 +58,13 @@ namespace GameObjects
             {
                 p.PersonBiography = new PersonDetail.Biography();
                 p.PersonBiography.FactionColor = 52;
-                p.PersonBiography.MilitaryKinds.AddBasicMilitaryKinds(p.Scenario);
+                p.PersonBiography.MilitaryKinds.AddBasicMilitaryKinds();
                 p.PersonBiography.Brief = "";
                 p.PersonBiography.History = "";
                 p.PersonBiography.Romance = "";
                 p.PersonBiography.InGame = "";
                 p.PersonBiography.ID = p.ID;
-                p.Scenario.AllBiographies.AddBiography(p.PersonBiography);
+                Session.Current.Scenario.AllBiographies.AddBiography(p.PersonBiography);
             }
             p.PersonBiography.InGame = date.Year + "年" + date.Month + "月：" + content + '\n' + p.PersonBiography.InGame;
         }

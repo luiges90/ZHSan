@@ -75,23 +75,23 @@ namespace youcelanPlugin
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             Microsoft.Xna.Framework.Rectangle? nullable;
             foreach (Tab tab in this.Tabs)
             {
-                tab.Draw(spriteBatch);
+                tab.Draw();
             }
             if ((((this.tabList.DrawFocused && !this.tabList.MovingHorizontalScrollBar) && !this.tabList.MovingVerticalScrollBar) && (this.SelectedTab != null)) && ((this.tabList.Focused >= (this.tabList.VisibleLowerClient.Top + this.tabList.columnheaderHeight)) && ((this.tabList.Focused + this.tabList.rowHeight) <= this.tabList.VisibleLowerClient.Bottom)))
             {
                 nullable = null;
-                spriteBatch.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Left, this.tabList.Focused, this.tabList.VisibleLowerClient.Width - 1, 1), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
+                CacheManager.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Left, this.tabList.Focused, this.tabList.VisibleLowerClient.Width - 1, 1), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
                 nullable = null;
-                spriteBatch.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Left, this.tabList.Focused, 1, this.tabList.rowHeight), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
+                CacheManager.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Left, this.tabList.Focused, 1, this.tabList.rowHeight), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
                 nullable = null;
-                spriteBatch.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Left, (this.tabList.Focused + this.tabList.rowHeight) - 1, this.tabList.VisibleLowerClient.Width - 1, 1), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
+                CacheManager.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Left, (this.tabList.Focused + this.tabList.rowHeight) - 1, this.tabList.VisibleLowerClient.Width - 1, 1), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
                 nullable = null;
-                spriteBatch.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Right - 1, this.tabList.Focused, 1, this.tabList.rowHeight), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
+                CacheManager.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Right - 1, this.tabList.Focused, 1, this.tabList.rowHeight), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
                 if (this.ShowPortrait)
                 {
                     Person person = null;
@@ -138,19 +138,19 @@ namespace youcelanPlugin
             if (this.tabList.ShowVerticalScrollBar)
             {
                 nullable = null;
-                spriteBatch.Draw(this.tabList.scrolltrackTexture, this.LeftScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
+                CacheManager.Draw(this.tabList.scrolltrackTexture, this.LeftScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
                 nullable = null;
-                spriteBatch.Draw(this.tabList.scrolltrackTexture, this.RightScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
+                CacheManager.Draw(this.tabList.scrolltrackTexture, this.RightScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
                 nullable = null;
-                spriteBatch.Draw(this.tabList.scrollbuttonTexture, this.VerticalScrollBar, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
+                CacheManager.Draw(this.tabList.scrollbuttonTexture, this.VerticalScrollBar, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
             }
             if (this.tabList.ShowHorizontalScrollBar)
             {
                 nullable = null;
-                spriteBatch.Draw(this.tabList.scrolltrackTexture, this.UpperScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
+                CacheManager.Draw(this.tabList.scrolltrackTexture, this.UpperScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
                 nullable = null;
-                spriteBatch.Draw(this.tabList.scrolltrackTexture, this.LowerScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
-                spriteBatch.Draw(this.tabList.scrollbuttonTexture, this.HorizontalScrollBar, null, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
+                CacheManager.Draw(this.tabList.scrolltrackTexture, this.LowerScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
+                CacheManager.Draw(this.tabList.scrollbuttonTexture, this.HorizontalScrollBar, null, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3498f);
             }
         }
 
@@ -219,7 +219,7 @@ namespace youcelanPlugin
                 //column.SmallToBig = !column.IsNumber;   //我添加的
 
                 StaticMethods.LoadFontAndColorFromXMLNode(node2, out font, out color);
-                column.ColumnTextList = new FreeTextList(this.tabList.graphicsDevice, font);
+                column.ColumnTextList = new FreeTextList(font);
                 column.ColumnTextList.TextColor = color;
                 //column.ColumnTextList.TextColor =new Microsoft.Xna.Framework.Color (0.5f,0.5f,0.5f);
                 column.ColumnTextList.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node2.Attributes.GetNamedItem("Align").Value);

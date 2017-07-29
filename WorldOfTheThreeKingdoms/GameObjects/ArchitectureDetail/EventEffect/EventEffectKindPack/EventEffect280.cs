@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using System;
 
 
@@ -26,7 +27,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
 
         public override void ApplyEffectKind(Person person, Event e)
         {
-            FactionList factionlist = person.Scenario.Factions;
+            FactionList factionlist = Session.Current.Scenario.Factions;
             Faction oldFaction = person .BelongedFaction ;
             Faction mergeFaction = factionlist.GetGameObject(mergeFactionID) as Faction;
 

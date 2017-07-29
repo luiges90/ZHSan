@@ -1,6 +1,6 @@
 ﻿using GameObjects;
 using System;
-
+using GameManager;
 
 using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.EventEffect
 {
@@ -11,7 +11,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
 
         public override void ApplyEffectKind(Person person, Event e)
         {
-            GameObjects.PersonDetail.Title title = person.Scenario.GameCommonData.AllTitles.GetTitle(increment);
+            GameObjects.PersonDetail.Title title = Session.Current.Scenario.GameCommonData.AllTitles.GetTitle(increment);
 
             if (person.RealTitles.Contains(title))
             {

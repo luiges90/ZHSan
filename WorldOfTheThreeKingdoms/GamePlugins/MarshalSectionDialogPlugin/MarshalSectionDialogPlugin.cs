@@ -20,7 +20,7 @@ namespace MarshalSectionDialogPlugin
         private string author = "clip_on";
         private const string DataPath = @"Content\Textures\GameComponents\MarshalSectionDialog\Data\";
         private string description = "编组军区对话框";
-        private GraphicsDevice graphicsDevice;
+        
         private MarshalSectionDialog marshalSectionDialog = new MarshalSectionDialog();
         private const string Path = @"Content\Textures\GameComponents\MarshalSectionDialog\";
         private string pluginName = "MarshalSectionDialogPlugin";
@@ -31,15 +31,15 @@ namespace MarshalSectionDialogPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.IsShowing)
             {
-                this.marshalSectionDialog.Draw(spriteBatch);
+                this.marshalSectionDialog.Draw();
             }
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -50,7 +50,7 @@ namespace MarshalSectionDialogPlugin
             document.LoadXml(xml);
             XmlNode nextSibling = document.FirstChild.NextSibling;
             XmlNode node = nextSibling.ChildNodes.Item(0);
-            this.marshalSectionDialog.BackgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.marshalSectionDialog.BackgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.marshalSectionDialog.BackgroundSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.marshalSectionDialog.BackgroundSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
             node = nextSibling.ChildNodes.Item(1);
@@ -61,44 +61,44 @@ namespace MarshalSectionDialogPlugin
                 LabelText item = new LabelText();
                 XmlNode node3 = node.ChildNodes.Item(i);
                 StaticMethods.LoadFontAndColorFromXMLNode(node3, out font, out color);
-                item.Label = new FreeText(this.graphicsDevice, font, color);
+                item.Label = new FreeText(font, color);
                 item.Label.Position = StaticMethods.LoadRectangleFromXMLNode(node3);
                 item.Label.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node3.Attributes.GetNamedItem("Align").Value);
                 item.Label.Text = node3.Attributes.GetNamedItem("Label").Value;
                 node3 = node.ChildNodes.Item(i + 1);
                 StaticMethods.LoadFontAndColorFromXMLNode(node3, out font, out color);
-                item.Text = new FreeText(this.graphicsDevice, font, color);
+                item.Text = new FreeText(font, color);
                 item.Text.Position = StaticMethods.LoadRectangleFromXMLNode(node3);
                 item.Text.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node3.Attributes.GetNamedItem("Align").Value);
                 item.PropertyName = node3.Attributes.GetNamedItem("PropertyName").Value;
                 this.marshalSectionDialog.LabelTexts.Add(item);
             }
             node = nextSibling.ChildNodes.Item(2);
-            this.marshalSectionDialog.OKButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.marshalSectionDialog.OKButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
-            this.marshalSectionDialog.OKButtonDisabledTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
+            this.marshalSectionDialog.OKButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.marshalSectionDialog.OKButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.marshalSectionDialog.OKButtonDisabledTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
             this.marshalSectionDialog.OKButtonPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             this.marshalSectionDialog.OKButtonDisplayTexture = this.marshalSectionDialog.OKButtonDisabledTexture;
             node = nextSibling.ChildNodes.Item(3);
-            this.marshalSectionDialog.CancelButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.marshalSectionDialog.CancelButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
-            this.marshalSectionDialog.CancelButtonDisabledTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
+            this.marshalSectionDialog.CancelButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.marshalSectionDialog.CancelButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.marshalSectionDialog.CancelButtonDisabledTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
             this.marshalSectionDialog.CancelButtonPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             this.marshalSectionDialog.CancelButtonDisplayTexture = this.marshalSectionDialog.CancelButtonTexture;
             node = nextSibling.ChildNodes.Item(4);
-            this.marshalSectionDialog.ArchitectureListButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.marshalSectionDialog.ArchitectureListButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.marshalSectionDialog.ArchitectureListButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.marshalSectionDialog.ArchitectureListButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             this.marshalSectionDialog.ArchitectureListButtonPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             this.marshalSectionDialog.ArchitectureListButtonDisplayTexture = this.marshalSectionDialog.ArchitectureListButtonTexture;
             node = nextSibling.ChildNodes.Item(5);
-            this.marshalSectionDialog.AIDetailButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.marshalSectionDialog.AIDetailButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.marshalSectionDialog.AIDetailButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.marshalSectionDialog.AIDetailButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             this.marshalSectionDialog.AIDetailButtonPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             this.marshalSectionDialog.AIDetailButtonDisplayTexture = this.marshalSectionDialog.AIDetailButtonTexture;
             node = nextSibling.ChildNodes.Item(6);
-            this.marshalSectionDialog.OrientationButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.marshalSectionDialog.OrientationButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
-            this.marshalSectionDialog.OrientationButtonDisabledTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
+            this.marshalSectionDialog.OrientationButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.marshalSectionDialog.OrientationButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.marshalSectionDialog.OrientationButtonDisabledTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MarshalSectionDialog\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
             this.marshalSectionDialog.OrientationButtonPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             this.marshalSectionDialog.OrientationButtonDisplayTexture = this.marshalSectionDialog.OrientationButtonDisabledTexture;
         }
@@ -113,9 +113,8 @@ namespace MarshalSectionDialogPlugin
             this.marshalSectionDialog.GameFramePlugin = iGameFrame;
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\MarshalSectionDialogData.xml");
         }
 
@@ -124,9 +123,9 @@ namespace MarshalSectionDialogPlugin
             this.marshalSectionDialog.SetDisplayOffset(showPosition);
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.marshalSectionDialog.Initialize(screen as Screen);
+            this.marshalSectionDialog.Initialize();
         }
 
         public void SetSection(object section)

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GameManager;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,11 @@ namespace GameObjects.Animations
         [DataMember]
         public Point Position;
 
-        public void DrawLeft(SpriteBatch spriteBatch, CombatNumberGenerator generator, Point start, float scale)
+        public void DrawLeft(CombatNumberGenerator generator, Point start, float scale)
         {
             int x = start.X;
-            spriteBatch.Draw(generator.Texture, new Vector2((float) x, start.Y - (generator.DigitHeight * scale)), new Rectangle?(generator.GetCurrentArrowRectangle(this.Kind, CombatNumberDirection.上)), Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.649f);
+            var rec = new Rectangle?(generator.GetCurrentArrowRectangle(this.Kind, CombatNumberDirection.上));
+            CacheManager.Draw(generator.Texture, new Vector2((float) x, start.Y - (generator.DigitHeight * scale)), rec, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.649f);
             int number = this.Number;
             List<int> list = new List<int>();
             if (number == 0)
@@ -38,14 +40,15 @@ namespace GameObjects.Animations
             foreach (int num3 in list)
             {
                 x += (int) (generator.DigitWidth * scale);
-                spriteBatch.Draw(generator.Texture, new Vector2((float) x, start.Y - (generator.DigitHeight * scale)), new Rectangle?(generator.GetCurrentDigitRectangle(this.Kind, CombatNumberDirection.上, num3)), Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.649f);
+                CacheManager.Draw(generator.Texture, new Vector2((float) x, start.Y - (generator.DigitHeight * scale)), new Rectangle?(generator.GetCurrentDigitRectangle(this.Kind, CombatNumberDirection.上, num3)), Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.649f);
             }
         }
 
-        public void DrawRight(SpriteBatch spriteBatch, CombatNumberGenerator generator, Point start, float scale)
+        public void DrawRight(CombatNumberGenerator generator, Point start, float scale)
         {
             int num = start.X - generator.DigitWidth;
-            spriteBatch.Draw(generator.Texture, new Vector2((float) num, (float) start.Y), new Rectangle?(generator.GetCurrentArrowRectangle(this.Kind, CombatNumberDirection.下)), Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.649f);
+            var rec = new Rectangle?(generator.GetCurrentArrowRectangle(this.Kind, CombatNumberDirection.下));
+            CacheManager.Draw(generator.Texture, new Vector2((float) num, (float) start.Y), rec, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.649f);
             int number = this.Number;
             int renshuYanseXuhao=0;
             float renshuFangdaBeishu=1f;
@@ -79,12 +82,14 @@ namespace GameObjects.Animations
                 if (this.Kind != CombatNumberKind.人数)
                 {
                     num -= (int)(generator.DigitWidth * scale);
-                    spriteBatch.Draw(generator.Texture, new Vector2((float)num , (float)start.Y), new Rectangle?(generator.GetCurrentDigitRectangle(this.Kind, CombatNumberDirection.下, number % 10)), Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.649f);
+                    var rec0 = new Rectangle?(generator.GetCurrentDigitRectangle(this.Kind, CombatNumberDirection.下, number % 10));
+                    CacheManager.Draw(generator.Texture, new Vector2((float)num , (float)start.Y), rec0, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.649f);
                 }
                 else
                 {
                     num -= (int)(generator.DigitWidth * scale * renshuFangdaBeishu);
-                    spriteBatch.Draw(generator.Texture, new Vector2((float)num , (float)start.Y), new Rectangle?(generator.GetCurrentDigitRectangle((CombatNumberKind)renshuYanseXuhao, CombatNumberDirection.下, number % 10)), Color.White, 0f, Vector2.Zero, renshuFangdaBeishu, SpriteEffects.None, 0.449f);
+                    var rec0 = new Rectangle ? (generator.GetCurrentDigitRectangle((CombatNumberKind)renshuYanseXuhao, CombatNumberDirection.下, number % 10));
+                    CacheManager.Draw(generator.Texture, new Vector2((float)num , (float)start.Y), rec0, Color.White, 0f, Vector2.Zero, renshuFangdaBeishu, SpriteEffects.None, 0.449f);
 
                 }
                 number /= 10;

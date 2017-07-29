@@ -19,10 +19,9 @@ namespace CreateTroopPlugin
     public class CreateTroopPlugin : GameObject, ICreateTroop, IBasePlugin, IPluginXML, IPluginGraphics
     {
         private string author = "clip_on";
-        private CreateTroop createTroop = new CreateTroop();
+        public CreateTroop createTroop = new CreateTroop();
         private const string DataPath = @"Content\Textures\GameComponents\CreateTroop\Data\";
         private string description = "创建部队对话框";
-        private GraphicsDevice graphicsDevice;
         private const string Path = @"Content\Textures\GameComponents\CreateTroop\";
         private string pluginName = "CreateTroopPlugin";
         private string version = "1.0.0";
@@ -32,15 +31,15 @@ namespace CreateTroopPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.createTroop.IsShowing)
             {
-                this.createTroop.Draw(spriteBatch);
+                this.createTroop.Draw();
             }
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -57,11 +56,11 @@ namespace CreateTroopPlugin
             XmlNode node = nextSibling.ChildNodes.Item(0);
             this.createTroop.BackgroundSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.createTroop.BackgroundSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.createTroop.BackgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.createTroop.BackgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(1);
             Microsoft.Xna.Framework.Rectangle rectangle = StaticMethods.LoadRectangleFromXMLNode(node);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.createTroop.TroopNameText = new FreeText(this.graphicsDevice, font, color);
+            this.createTroop.TroopNameText = new FreeText(font, color);
             this.createTroop.TroopNameText.Position = rectangle;
             this.createTroop.TroopNameText.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
             node = nextSibling.ChildNodes.Item(2);
@@ -73,14 +72,14 @@ namespace CreateTroopPlugin
                 XmlNode node3 = node.ChildNodes.Item(i);
                 rectangle = StaticMethods.LoadRectangleFromXMLNode(node3);
                 StaticMethods.LoadFontAndColorFromXMLNode(node3, out font, out color);
-                item.Label = new FreeText(this.graphicsDevice, font, color);
+                item.Label = new FreeText(font, color);
                 item.Label.Position = rectangle;
                 item.Label.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node3.Attributes.GetNamedItem("Align").Value);
                 item.Label.Text = node3.Attributes.GetNamedItem("Label").Value;
                 node3 = node.ChildNodes.Item(i + 1);
                 rectangle = StaticMethods.LoadRectangleFromXMLNode(node3);
                 StaticMethods.LoadFontAndColorFromXMLNode(node3, out font, out color);
-                item.Text = new FreeText(this.graphicsDevice, font, color);
+                item.Text = new FreeText(font, color);
                 item.Text.Position = rectangle;
                 item.Text.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node3.Attributes.GetNamedItem("Align").Value);
                 item.PropertyName = node3.Attributes.GetNamedItem("PropertyName").Value;
@@ -92,7 +91,7 @@ namespace CreateTroopPlugin
             this.createTroop.OtherPersonText.ClientHeight = this.createTroop.OtherPersonClient.Height;
             this.createTroop.OtherPersonText.RowMargin = int.Parse(node.Attributes.GetNamedItem("RowMargin").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.createTroop.OtherPersonText.Builder = font; //.SetFreeTextBuilder(this.graphicsDevice, font);
+            this.createTroop.OtherPersonText.Builder = font; //.SetFreeTextBuilder(font);
             this.createTroop.OtherPersonText.DefaultColor = color;
             this.createTroop.OtherPersonText.TitleColor = StaticMethods.LoadColor(node.Attributes.GetNamedItem("TitleColor").Value);
             this.createTroop.OtherPersonText.SubTitleColor = StaticMethods.LoadColor(node.Attributes.GetNamedItem("SubTitleColor").Value);
@@ -105,7 +104,7 @@ namespace CreateTroopPlugin
             this.createTroop.CombatMethodText.SubTitleColor = StaticMethods.LoadColor(node.Attributes.GetNamedItem("SubTitleColor").Value);
             this.createTroop.CombatMethodText.SubTitleColor2 = StaticMethods.LoadColor(node.Attributes.GetNamedItem("SubTitleColor2").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.createTroop.CombatMethodText.Builder = font; //.SetFreeTextBuilder(this.graphicsDevice, font);
+            this.createTroop.CombatMethodText.Builder = font; //.SetFreeTextBuilder(font);
             this.createTroop.CombatMethodText.DefaultColor = color;
             node = nextSibling.ChildNodes.Item(6);
             this.createTroop.StuntClient = StaticMethods.LoadRectangleFromXMLNode(node);
@@ -117,7 +116,7 @@ namespace CreateTroopPlugin
             this.createTroop.StuntText.SubTitleColor2 = StaticMethods.LoadColor(node.Attributes.GetNamedItem("SubTitleColor2").Value);
             this.createTroop.StuntText.SubTitleColor3 = StaticMethods.LoadColor(node.Attributes.GetNamedItem("SubTitleColor3").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.createTroop.StuntText.Builder = font; //.SetFreeTextBuilder(this.graphicsDevice, font);
+            this.createTroop.StuntText.Builder = font; //.SetFreeTextBuilder(font);
             this.createTroop.StuntText.DefaultColor = color;
             node = nextSibling.ChildNodes.Item(7);
             this.createTroop.InfluenceClient = StaticMethods.LoadRectangleFromXMLNode(node);
@@ -129,42 +128,42 @@ namespace CreateTroopPlugin
             this.createTroop.InfluenceText.SubTitleColor2 = StaticMethods.LoadColor(node.Attributes.GetNamedItem("SubTitleColor2").Value);
             this.createTroop.InfluenceText.SubTitleColor3 = StaticMethods.LoadColor(node.Attributes.GetNamedItem("SubTitleColor3").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.createTroop.InfluenceText.Builder = font;  //.SetFreeTextBuilder(this.graphicsDevice, font);
+            this.createTroop.InfluenceText.Builder = font;  //.SetFreeTextBuilder(font);
             this.createTroop.InfluenceText.DefaultColor = color;
             node = nextSibling.ChildNodes.Item(8);
-            this.createTroop.MilitaryButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.createTroop.MilitaryButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Selected").Value);
-            this.createTroop.MilitaryButtonDisabledTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
+            this.createTroop.MilitaryButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.createTroop.MilitaryButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.createTroop.MilitaryButtonDisabledTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
             this.createTroop.MilitaryButtonPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             this.createTroop.MilitaryButtonDisplayTexture = this.createTroop.MilitaryButtonTexture;
             node = nextSibling.ChildNodes.Item(9);
-            this.createTroop.PersonButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.createTroop.PersonButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Selected").Value);
-            this.createTroop.PersonButtonDisabledTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
+            this.createTroop.PersonButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.createTroop.PersonButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.createTroop.PersonButtonDisabledTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
             this.createTroop.PersonButtonPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             this.createTroop.PersonButtonDisplayTexture = this.createTroop.PersonButtonTexture;
             node = nextSibling.ChildNodes.Item(10);
-            this.createTroop.LeaderButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.createTroop.LeaderButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Selected").Value);
-            this.createTroop.LeaderButtonDisabledTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
+            this.createTroop.LeaderButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.createTroop.LeaderButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.createTroop.LeaderButtonDisabledTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
             this.createTroop.LeaderButtonPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             this.createTroop.LeaderButtonDisplayTexture = this.createTroop.LeaderButtonTexture;
             node = nextSibling.ChildNodes.Item(11);
-            this.createTroop.RationButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.createTroop.RationButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Selected").Value);
-            this.createTroop.RationButtonDisabledTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
+            this.createTroop.RationButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.createTroop.RationButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.createTroop.RationButtonDisabledTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
             this.createTroop.RationButtonPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             this.createTroop.RationButtonDisplayTexture = this.createTroop.RationButtonTexture;
             node = nextSibling.ChildNodes.Item(12);
-            this.createTroop.CreateButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.createTroop.CreateButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Selected").Value);
-            this.createTroop.CreateButtonDisabledTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
+            this.createTroop.CreateButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.createTroop.CreateButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.createTroop.CreateButtonDisabledTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
             this.createTroop.CreateButtonPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             this.createTroop.CreateButtonDisplayTexture = this.createTroop.CreateButtonTexture;
             node = nextSibling.ChildNodes.Item(13);
-            this.createTroop.zijinButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.createTroop.zijinButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Selected").Value);
-            this.createTroop.zijinButtonDisabledTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
+            this.createTroop.zijinButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.createTroop.zijinButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.createTroop.zijinButtonDisabledTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\CreateTroop\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
             this.createTroop.zijinButtonPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             this.createTroop.zijinButtonDisplayTexture = this.createTroop.zijinButtonTexture;
         }
@@ -184,9 +183,8 @@ namespace CreateTroopPlugin
             this.createTroop.GameFramePlugin = iGameFrame;
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\CreateTroopData.xml");
         }
 
@@ -200,9 +198,9 @@ namespace CreateTroopPlugin
             this.createTroop.SetPosition(showPosition);
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.createTroop.Initialize(screen as Screen);
+            this.createTroop.Initialize();
         }
 
         public void SetShellMilitaryKind(object kind)

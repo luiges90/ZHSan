@@ -19,6 +19,7 @@ using System.Linq;
 using Tools;
 using GameManager;
 using Platforms;
+using WorldOfTheThreeKingdoms.GameScreens;
 
 namespace GameObjects
 {
@@ -29,7 +30,13 @@ namespace GameObjects
     {
         //public GameFreeText.FreeText GameProgressCaution;
 
-        public static readonly string SCENARIO_ERROR_TEXT_FILE = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/GameData/ScenarioErrors.txt";
+        public static string SCENARIO_ERROR_TEXT_FILE
+        {
+            get
+            {
+                return Platform.Current.DirectoryName(Platform.Current.Location) + "/GameData/ScenarioErrors.txt";
+            }
+        }
 
         private Dictionary<int, Architecture> AllArchitectures = new Dictionary<int, Architecture>();
         private Dictionary<int, Person> AllPersons = new Dictionary<int, Person>();
@@ -64,33 +71,6 @@ namespace GameObjects
             return this.MemberwiseClone() as GameScenario;
         }
 
-        public void Init()
-        {
-            //public static readonly string SCENARIO_ERROR_TEXT_FILE = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/GameData/ScenarioErrors.txt";
-            AllArchitectures = new Dictionary<int, Architecture>();
-            AllPersons = new Dictionary<int, Person>();
-
-            PlayerFactions = new FactionList();
-            PreparedAvailablePersons = new PersonList();
-            Preparing = false;
-
-            TroopEventsToApply = new Dictionary<TroopEvent, TroopList>();
-
-            EventsToApply = new Dictionary<Event, Architecture>();
-            YesEventsToApply = new Dictionary<Event, Architecture>();
-            NoEventsToApply = new Dictionary<Event, Architecture>();
-
-            // 缓存地图上有几支部队在埋伏
-            numberOfAmbushTroop = -1;
-
-            EnableLoadAndSave = true;
-
-            emptyPersonList = new PersonList();
-            emptyCaptiveList = new CaptiveList();
-
-            pathCache = new Dictionary<PathCacheKey, List<Point>>();
-        }
-
         [DataMember]
         public Dictionary<int, int[]> AiBattlingArchitectureStrings = new Dictionary<int, int[]>();
 
@@ -117,8 +97,7 @@ namespace GameObjects
 
         [DataMember]
         public CommonData GameCommonData = new CommonData();
-
-        public Screen GameScreen;
+        
         public TileAnimationGenerator GeneratorOfTileAnimation;
 
         [DataMember]
@@ -262,15 +241,38 @@ namespace GameObjects
         [DataMember]
         public GlobalVariables GlobalVariables { get; set; }
 
-        public GameScenario(Screen screen)
+        public GameScenario()
         {
-            Init(screen);
+
         }
 
-        public void Init(Screen screen)
+        public void Init()
         {
-            this.GameScreen = screen;
-            this.GeneratorOfTileAnimation = new TileAnimationGenerator(this);
+            this.GeneratorOfTileAnimation = new TileAnimationGenerator();
+
+            //public static readonly string SCENARIO_ERROR_TEXT_FILE = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/GameData/ScenarioErrors.txt";
+            AllArchitectures = new Dictionary<int, Architecture>();
+            AllPersons = new Dictionary<int, Person>();
+
+            PlayerFactions = new FactionList();
+            PreparedAvailablePersons = new PersonList();
+            Preparing = false;
+
+            TroopEventsToApply = new Dictionary<TroopEvent, TroopList>();
+
+            EventsToApply = new Dictionary<Event, Architecture>();
+            YesEventsToApply = new Dictionary<Event, Architecture>();
+            NoEventsToApply = new Dictionary<Event, Architecture>();
+
+            // 缓存地图上有几支部队在埋伏
+            numberOfAmbushTroop = -1;
+
+            EnableLoadAndSave = true;
+
+            emptyPersonList = new PersonList();
+            emptyCaptiveList = new CaptiveList();
+
+            pathCache = new Dictionary<PathCacheKey, List<Point>>();
         }
 
         private Dictionary<Architecture, PersonList>
@@ -686,8 +688,8 @@ namespace GameObjects
                             {
                                 p.LocationArchitecture.AddPerson(person);
                                 p.BelongedFaction.AddPerson(person);
-                                this.GameScreen.xianshishijiantupian(p.BelongedFaction.Leader,(this.Persons.GetGameObject(person.Father) as Person).Name,"ChildJoin","","",person.Name ,false);
-                                this.GameScreen.xianshishijiantupian(person, p.LocationArchitecture.Name, "ChildJoinSelfTalk", "", "",  false);
+                                Session.MainGame.mainGameScreen.xianshishijiantupian(p.BelongedFaction.Leader,(this.Persons.GetGameObject(person.Father) as Person).Name,"ChildJoin","","",person.Name ,false);
+                                Session.MainGame.mainGameScreen.xianshishijiantupian(person, p.LocationArchitecture.Name, "ChildJoinSelfTalk", "", "",  false);
 
                             }
                         }
@@ -703,8 +705,8 @@ namespace GameObjects
                             {
                                 p.LocationArchitecture.AddPerson(person);
                                 p.BelongedFaction.AddPerson(person);
-                                this.GameScreen.xianshishijiantupian(p.BelongedFaction.Leader, (this.Persons.GetGameObject(person.Mother) as Person).Name, "ChildJoin", "", "", person.Name, false);
-                                this.GameScreen.xianshishijiantupian(person, p.LocationArchitecture.Name, "ChildJoinSelfTalk", "", "", false);
+                                Session.MainGame.mainGameScreen.xianshishijiantupian(p.BelongedFaction.Leader, (this.Persons.GetGameObject(person.Mother) as Person).Name, "ChildJoin", "", "", person.Name, false);
+                                Session.MainGame.mainGameScreen.xianshishijiantupian(person, p.LocationArchitecture.Name, "ChildJoinSelfTalk", "", "", false);
 
                             }
                         }
@@ -722,11 +724,11 @@ namespace GameObjects
                                 p.BelongedFaction.AddPerson(person);
                                 if (person.Sex) //女的
                                 {
-                                    this.GameScreen.xianshishijiantupian(person, (this.Persons.GetGameObject(person.Spouse) as Person).Name, "FemaleSpouseJoin", "", "", false);
+                                    Session.MainGame.mainGameScreen.xianshishijiantupian(person, (this.Persons.GetGameObject(person.Spouse) as Person).Name, "FemaleSpouseJoin", "", "", false);
                                 }
                                 else
                                 {
-                                    this.GameScreen.xianshishijiantupian(person, (this.Persons.GetGameObject(person.Spouse) as Person).Name, "MaleSpouseJoin", "", "", false);
+                                    Session.MainGame.mainGameScreen.xianshishijiantupian(person, (this.Persons.GetGameObject(person.Spouse) as Person).Name, "MaleSpouseJoin", "", "", false);
 
                                 }
 
@@ -761,13 +763,13 @@ namespace GameObjects
                     person.LocationArchitecture = joinToPerson.BelongedArchitecture;
                     person.Status = PersonStatus.Normal;
                     person.YearJoin = this.Date.Year;
-                    this.GameScreen.xianshishijiantupian(joinToPerson.BelongedFaction.Leader, joinToPerson.Name, TextMessageKind.ChildJoin, "ChildJoin", "", "", person.Name, false);
+                    Session.MainGame.mainGameScreen.xianshishijiantupian(joinToPerson.BelongedFaction.Leader, joinToPerson.Name, TextMessageKind.ChildJoin, "ChildJoin", "", "", person.Name, false);
                     if (person.LocationArchitecture != null)
                     {
-                        this.GameScreen.xianshishijiantupian(person, person.LocationArchitecture.Name, TextMessageKind.ChildJoinSelfTalk, "ChildJoinSelfTalk", "", "", false);
+                        Session.MainGame.mainGameScreen.xianshishijiantupian(person, person.LocationArchitecture.Name, TextMessageKind.ChildJoinSelfTalk, "ChildJoinSelfTalk", "", "", false);
                     }
                     this.AvailablePersons.Add(person);
-                    this.GameScreen.haizizhangdachengren(joinToPerson, person, false);
+                    Session.MainGame.mainGameScreen.haizizhangdachengren(joinToPerson, person, false);
                     this.YearTable.addGrownBecomeAvailableEntry(this.Date, person);
                     continue;
                 }
@@ -778,10 +780,10 @@ namespace GameObjects
                     person.LocationArchitecture = joinToPerson.BelongedArchitecture;
                     person.Status = PersonStatus.Normal;
                     person.YearJoin = this.Date.Year;
-                    this.GameScreen.xianshishijiantupian(joinToPerson.BelongedFaction.Leader, joinToPerson.Name, TextMessageKind.ChildJoin, "ChildJoin", "", "", person.Name, false);
-                    this.GameScreen.xianshishijiantupian(person, person.LocationArchitecture.Name, TextMessageKind.ChildJoinSelfTalk, "ChildJoinSelfTalk", "", "", false);
+                    Session.MainGame.mainGameScreen.xianshishijiantupian(joinToPerson.BelongedFaction.Leader, joinToPerson.Name, TextMessageKind.ChildJoin, "ChildJoin", "", "", person.Name, false);
+                    Session.MainGame.mainGameScreen.xianshishijiantupian(person, person.LocationArchitecture.Name, TextMessageKind.ChildJoinSelfTalk, "ChildJoinSelfTalk", "", "", false);
                     this.AvailablePersons.Add(person);
-                    this.GameScreen.haizizhangdachengren(joinToPerson, person, false);
+                    Session.MainGame.mainGameScreen.haizizhangdachengren(joinToPerson, person, false);
                     this.YearTable.addGrownBecomeAvailableEntry(this.Date, person);
                     continue;
                 }
@@ -794,15 +796,15 @@ namespace GameObjects
                     person.YearJoin = this.Date.Year;
                     if (person.Sex) //女的
                     {
-                        this.GameScreen.xianshishijiantupian(person, joinToPerson.Name, TextMessageKind.FemaleSpouseJoin, "FemaleSpouseJoin", "", "", false);
+                        Session.MainGame.mainGameScreen.xianshishijiantupian(person, joinToPerson.Name, TextMessageKind.FemaleSpouseJoin, "FemaleSpouseJoin", "", "", false);
                     }
                     else
                     {
-                        this.GameScreen.xianshishijiantupian(person, joinToPerson.Name, TextMessageKind.MaleSpouseJoin, "MaleSpouseJoin", "", "", false);
+                        Session.MainGame.mainGameScreen.xianshishijiantupian(person, joinToPerson.Name, TextMessageKind.MaleSpouseJoin, "MaleSpouseJoin", "", "", false);
 
                     }
                     this.AvailablePersons.Add(person);
-                    this.GameScreen.haizizhangdachengren(joinToPerson, person, false);
+                    Session.MainGame.mainGameScreen.haizizhangdachengren(joinToPerson, person, false);
                     this.YearTable.addGrownBecomeAvailableEntry(this.Date, person);
                     continue;
                 }
@@ -817,9 +819,9 @@ namespace GameObjects
                         person.LocationArchitecture = f.Capital;
                         person.Status = PersonStatus.Normal;
                         person.YearJoin = this.Date.Year;
-                        this.GameScreen.xianshishijiantupian(person, f.Capital.Name, TextMessageKind.PersonJoin, "PersonJoin", "", "", f.Name, false);
+                        Session.MainGame.mainGameScreen.xianshishijiantupian(person, f.Capital.Name, TextMessageKind.PersonJoin, "PersonJoin", "", "", f.Name, false);
                         this.YearTable.addGrownBecomeAvailableEntry(this.Date, person);
-                        this.GameScreen.haizizhangdachengren(joinToPerson, person, false);
+                        Session.MainGame.mainGameScreen.haizizhangdachengren(joinToPerson, person, false);
                         joined = true;
                         break;
                     }
@@ -845,12 +847,12 @@ namespace GameObjects
 
             if (muqin.IsCaptive)
             {
-                Captive.Create(this, person, muqin.BelongedArchitecture.BelongedFaction);
+                Captive.Create(person, muqin.BelongedArchitecture.BelongedFaction);
             }
 
             ExtensionInterface.call("ChildrenJoinFaction", new Object[] { this, person });
 
-            this.GameScreen.haizizhangdachengren(person, person, true);
+            Session.MainGame.mainGameScreen.haizizhangdachengren(person, person, true);
         }
 
         public void ApplyFireTable()
@@ -946,7 +948,7 @@ namespace GameObjects
         {
             if (faction1 != faction2)
             {
-                DiplomaticRelation diplomaticRelation = this.DiplomaticRelations.GetDiplomaticRelation(this, faction1, faction2);
+                DiplomaticRelation diplomaticRelation = this.DiplomaticRelations.GetDiplomaticRelation(faction1, faction2);
                 if (diplomaticRelation != null)
                 {
                     diplomaticRelation.Relation += offset;
@@ -958,7 +960,7 @@ namespace GameObjects
         {
             if (faction1 != faction2)
             {
-                DiplomaticRelation diplomaticRelation = this.DiplomaticRelations.GetDiplomaticRelation(this, faction1, faction2);
+                DiplomaticRelation diplomaticRelation = this.DiplomaticRelations.GetDiplomaticRelation(faction1, faction2);
                 if (diplomaticRelation != null)
                 {
                     if (diplomaticRelation.Relation > value)
@@ -973,7 +975,7 @@ namespace GameObjects
         {
             if (faction1 != faction2)
             {
-                DiplomaticRelation diplomaticRelation = this.DiplomaticRelations.GetDiplomaticRelation(this, faction1, faction2);
+                DiplomaticRelation diplomaticRelation = this.DiplomaticRelations.GetDiplomaticRelation(faction1, faction2);
                 if (diplomaticRelation != null)
                 {
                     diplomaticRelation.Truce = value;
@@ -1000,9 +1002,9 @@ namespace GameObjects
             if (this.Factions.Count == 1)
             {
                 ExtensionInterface.call("GameEnd", new Object[] { this });
-                if (this.CurrentPlayer != null && !this.runScenarioEnd(this.CurrentPlayer.Capital))
+                if (this.CurrentPlayer != null && !this.runScenarioEnd(this.CurrentPlayer.Capital, Session.MainGame.mainGameScreen))
                 {
-                    this.GameScreen.GameEndWithUnite(this.Factions[0] as Faction);
+                    Session.MainGame.mainGameScreen.GameEndWithUnite(this.Factions[0] as Faction);
                 }
             }
         }
@@ -1040,7 +1042,9 @@ namespace GameObjects
             this.DiplomaticRelations.Clear();
             this.GeneratorOfTileAnimation.Clear();
             this.YearTable.Clear();
-            this.GameCommonData.Clear();
+
+            //this.GameCommonData.Clear();
+
             this.CurrentFaction = null;
             this.CurrentPlayer = null;
         }
@@ -1072,14 +1076,13 @@ namespace GameObjects
             if (leader.Status != PersonStatus.Normal && leader.Status != PersonStatus.NoFaction) return;
 
             Faction newFaction = new Faction();
-            newFaction.Scenario = this;
             newFaction.ID = this.Factions.GetFreeGameObjectID();
             this.Factions.AddFactionWithEvent(newFaction);
             foreach (Faction faction2 in this.Factions)
             {
                 if (faction2 != newFaction)
                 {
-                    this.DiplomaticRelations.AddDiplomaticRelation(this, newFaction.ID, faction2.ID, 0);
+                    this.DiplomaticRelations.AddDiplomaticRelation(newFaction.ID, faction2.ID, 0);
                 }
             }
             newFaction.Leader = leader;
@@ -1095,7 +1098,7 @@ namespace GameObjects
             }
             else
             {
-                newFaction.BaseMilitaryKinds.AddBasicMilitaryKinds(this);
+                newFaction.BaseMilitaryKinds.AddBasicMilitaryKinds();
                 newFaction.ColorIndex = -1;
             }
 
@@ -1254,7 +1257,7 @@ namespace GameObjects
             ExtensionInterface.call("DayEvent", new Object[] { this });
 
             //this.GameProgressCaution.Text = "开始";
-            Parameters.DayEvent(this.PlayerArchitectureCount);
+            Session.Parameters.DayEvent(this.PlayerArchitectureCount);
 
             /*this.ClearPersonStatusCache();
             this.ClearPersonWorkCache();*/
@@ -1347,11 +1350,11 @@ namespace GameObjects
 
             ExtensionInterface.call("PostDayEvent", new Object[] { this });
 
-            this.scenarioJustLoaded = false;
-            this.GameScreen.LoadScenarioInInitialization = false;
+            scenarioJustLoaded = false;
+            Session.MainGame.mainGameScreen.LoadScenarioInInitialization = false;
             numberOfAmbushTroop = -1; // 缓存有几支部队在埋伏，绝大多数时候地图上根本没有埋伏部队，这时候不需要叫浪费时间的函数detectAmbushTroop
 
-            this.GameScreen.DisposeMapTileMemory();
+            Session.MainGame.mainGameScreen.DisposeMapTileMemory(false, false);
         }
 
         private void militaryKindEvent()
@@ -1367,7 +1370,7 @@ namespace GameObjects
                             if (p.BelongedFaction != null && !p.BelongedFaction.BaseMilitaryKinds.MilitaryKinds.ContainsValue(m))
                             {
                                 p.BelongedFaction.BaseMilitaryKinds.AddMilitaryKind(m);
-                                this.GameScreen.xianshishijiantupian(p, m.Name, TextMessageKind.ObtainMilitaryKind, "ObtainMilitaryKind", "", "", false);
+                                Session.MainGame.mainGameScreen.xianshishijiantupian(p, m.Name, TextMessageKind.ObtainMilitaryKind, "ObtainMilitaryKind", "", "", false);
                             }
                         }
                     }
@@ -1407,7 +1410,7 @@ namespace GameObjects
                     }
                     foreach (Person p in candidates)
                     {
-                        if ((!this.IsPlayer(p.BelongedFaction) || GlobalVariables.PermitManualAwardTitleAutoLearn) && !p.HasHigherLevelTitle(t) && !t.ManualAward && t.CanLearn(p, true))
+                        if ((!this.IsPlayer(p.BelongedFaction) || Session.GlobalVariables.PermitManualAwardTitleAutoLearn) && !p.HasHigherLevelTitle(t) && !t.ManualAward && t.CanLearn(p, true))
                         {
                             p.AwardTitle(t);
                         }
@@ -1448,7 +1451,7 @@ namespace GameObjects
                         if (!p.HasHigherLevelTitle(t) && t.CanLearn(p, true) && !t.ManualAward)
                         {
                             p.LearnTitle(t);
-                            this.GameScreen.AutoLearnTitle(p, courier, t);
+                            Session.MainGame.mainGameScreen.AutoLearnTitle(p, courier, t);
                         }
                         else if (p.HasTitle() && t.WillLose(p))
                         {
@@ -1480,11 +1483,11 @@ namespace GameObjects
                     if (!architecture.hostileTroopInViewLastDay)  //如果已经提醒过就不再提醒
                     {
                         //architecture.JustAttacked = true;
-                        architecture.BelongedFaction.StopToControl = GlobalVariables.StopToControlOnAttack;
+                        architecture.BelongedFaction.StopToControl = Session.GlobalVariables.StopToControlOnAttack;
                         architecture.RecentlyAttacked = 5;
-                        if (this.GameScreen != null)
+                        if (Session.MainGame.mainGameScreen != null)
                         {
-                            this.GameScreen.ArchitectureBeginRecentlyAttacked(architecture);  //提示玩家建筑视野范围内出现敌军。
+                            Session.MainGame.mainGameScreen.ArchitectureBeginRecentlyAttacked(architecture);  //提示玩家建筑视野范围内出现敌军。
                         }
 
                     }
@@ -1536,9 +1539,9 @@ namespace GameObjects
                 faction.BattleState = ZhandouZhuangtai.攻守兼备;
             }
 
-            if (originalBattleState != faction.BattleState && this.GameScreen != null)
+            if (originalBattleState != faction.BattleState && Session.MainGame.mainGameScreen != null)
             {
-                this.GameScreen.SwichMusic(this.Date.Season);
+                Session.MainGame.mainGameScreen.SwichMusic(this.Date.Season);
             }
 
         }
@@ -1568,7 +1571,7 @@ namespace GameObjects
             List<Point> list = new List<Point>();
             foreach (Point point in this.FireTable.Positions)
             {
-                if (GameObject.Chance(Parameters.FireStayProb))
+                if (GameObject.Chance(Session.Parameters.FireStayProb))
                 {
                     list.Add(point);
                 }
@@ -1618,7 +1621,7 @@ namespace GameObjects
                             chance = 6;
                             break;
                     }
-                    if (GameObject.Chance((int)(chance * Parameters.FireSpreadProbMultiply)))
+                    if (GameObject.Chance((int)(chance * Session.Parameters.FireSpreadProbMultiply)))
                     {
                         this.SetPositionOnFire(point);
                         Troop troopByPosition = this.GetTroopByPosition(point);
@@ -1759,7 +1762,7 @@ namespace GameObjects
         {
             if (faction1 != faction2)
             {
-                DiplomaticRelation diplomaticRelation = this.DiplomaticRelations.GetDiplomaticRelation(this, faction1, faction2);
+                DiplomaticRelation diplomaticRelation = this.DiplomaticRelations.GetDiplomaticRelation(faction1, faction2);
                 if (diplomaticRelation != null)
                 {
                     return diplomaticRelation.Relation;
@@ -1772,7 +1775,7 @@ namespace GameObjects
         {
             if (faction1 != faction2)
             {
-                DiplomaticRelation diplomaticRelation = this.DiplomaticRelations.GetDiplomaticRelation(this, faction1, faction2);
+                DiplomaticRelation diplomaticRelation = this.DiplomaticRelations.GetDiplomaticRelation(faction1, faction2);
                 if (diplomaticRelation != null)
                 {
                     return diplomaticRelation.Truce;
@@ -1873,10 +1876,10 @@ namespace GameObjects
             return "电脑";
         }
 
-        public Texture2D GetPortrait(float id)
-        {
-            return this.GameScreen.GetPortrait(id);
-        }
+        //public Texture2D GetPortrait(float id)
+        //{
+        //    return Session.MainGame.mainGameScreen.GetPortrait(id);
+        //}
 
         public int GetPositionHostileOffencingDiscredit(Troop troop, Point position)
         {
@@ -2018,19 +2021,19 @@ namespace GameObjects
             return num;
         }
 
-        public Texture2D GetSmallPortrait(float id)
-        {
-            return this.GameScreen.GetSmallPortrait(id);
-        }
+        //public Texture2D GetSmallPortrait(float id)
+        //{
+        //    return Session.MainGame.mainGameScreen.GetSmallPortrait(id);
+        //}
 
-        public Texture2D GetTroopPortrait(float id)
-        {
-            return this.GameScreen.GetTroopPortrait(id);
-        }
-        public Texture2D GetFullPortrait(float id)
-        {
-            return this.GameScreen.GetFullPortrait(id);
-        }
+        //public Texture2D GetTroopPortrait(float id)
+        //{
+        //    return Session.MainGame.mainGameScreen.GetTroopPortrait(id);
+        //}
+        //public Texture2D GetFullPortrait(float id)
+        //{
+        //    return Session.MainGame.mainGameScreen.GetFullPortrait(id);
+        //}
 
         public ArchitectureList GetSupplyArchitecturesByPositionAndFaction(Point position, Faction faction)
         {
@@ -2079,12 +2082,12 @@ namespace GameObjects
             {
                 return null;
             }
-            return this.GameCommonData.AllTerrainDetails.GetTerrainDetail(this.ScenarioMap.MapData[position.X, position.Y]);
+            return this.GameCommonData.AllTerrainDetails.GetTerrainDetail(ScenarioMap.MapData[position.X, position.Y]);
         }
 
         public TerrainDetail GetTerrainDetailByPositionNoCheck(Point position)
         {
-            return this.GameCommonData.AllTerrainDetails.GetTerrainDetail(this.ScenarioMap.MapData[position.X, position.Y]);
+            return this.GameCommonData.AllTerrainDetails.GetTerrainDetail(ScenarioMap.MapData[position.X, position.Y]);
         }
 
         public TerrainKind GetTerrainKindByPosition(Point position)
@@ -2093,12 +2096,12 @@ namespace GameObjects
             {
                 return TerrainKind.无;
             }
-            return (TerrainKind)this.ScenarioMap.MapData[position.X, position.Y];
+            return (TerrainKind)ScenarioMap.MapData[position.X, position.Y];
         }
 
         public TerrainKind GetTerrainKindByPositionNoCheck(Point position)
         {
-            return (TerrainKind)this.ScenarioMap.MapData[position.X, position.Y];
+            return (TerrainKind)ScenarioMap.MapData[position.X, position.Y];
         }
 
         public string GetTerrainNameByPosition(Point position)
@@ -2107,7 +2110,7 @@ namespace GameObjects
             {
                 return "----";
             }
-            return this.GameCommonData.AllTerrainDetails.GetTerrainDetail(this.ScenarioMap.MapData[position.X, position.Y]).Name;
+            return this.GameCommonData.AllTerrainDetails.GetTerrainDetail(ScenarioMap.MapData[position.X, position.Y]).Name;
         }
 
         public int GetTransferFundDays(Architecture from, Architecture to)
@@ -2149,9 +2152,9 @@ namespace GameObjects
 
         public int GetWaterPositionMapCost(MilitaryKind kind, Point position)
         {
-            if (this.ScenarioMap.MapData[position.X, position.Y] == 6)
+            if (ScenarioMap.MapData[position.X, position.Y] == 6)
             {
-                if (GlobalVariables.LandArmyCanGoDownWater)
+                if (Session.GlobalVariables.LandArmyCanGoDownWater)
                 {
                     return 0;
                 }
@@ -2166,17 +2169,17 @@ namespace GameObjects
                 }
                 int num = 0;
                 Point point = new Point(position.X - 1, position.Y);
-                if (!(this.PositionOutOfRange(point) || (this.ScenarioMap.MapData[point.X, point.Y] != 6)))
+                if (!(this.PositionOutOfRange(point) || (ScenarioMap.MapData[point.X, point.Y] != 6)))
                 {
                     num++;
                 }
                 Point point2 = new Point(position.X, position.Y - 1);
-                if (!(this.PositionOutOfRange(point2) || (this.ScenarioMap.MapData[point2.X, point2.Y] != 6)))
+                if (!(this.PositionOutOfRange(point2) || (ScenarioMap.MapData[point2.X, point2.Y] != 6)))
                 {
                     num++;
                 }
                 Point point3 = new Point(position.X + 1, position.Y);
-                if (!(this.PositionOutOfRange(point3) || (this.ScenarioMap.MapData[point3.X, point3.Y] != 6)))
+                if (!(this.PositionOutOfRange(point3) || (ScenarioMap.MapData[point3.X, point3.Y] != 6)))
                 {
                     num++;
                 }
@@ -2185,7 +2188,7 @@ namespace GameObjects
                     return 0xdac;
                 }
                 Point point4 = new Point(position.X, position.Y + 1);
-                if (!(this.PositionOutOfRange(point4) || (this.ScenarioMap.MapData[point4.X, point4.Y] != 6)))
+                if (!(this.PositionOutOfRange(point4) || (ScenarioMap.MapData[point4.X, point4.Y] != 6)))
                 {
                     num++;
                 }
@@ -2255,7 +2258,7 @@ namespace GameObjects
 
         public void InitialGameData()
         {
-            Parameters.DayEvent(this.PlayerArchitectureCount);
+            Session.Parameters.DayEvent(this.PlayerArchitectureCount);
             this.InitializeSectionData();
             this.InitializeRoutewayData();
             this.InitializeArchitectureData();
@@ -2277,7 +2280,7 @@ namespace GameObjects
                 }
             }
             /*
-            this.GameProgressCaution = new GameFreeText.FreeText(this.GameScreen.spriteBatch.GraphicsDevice,new System.Drawing.Font("宋体", 16f), new Color(1f, 1f, 1f));
+            this.GameProgressCaution = new GameFreeText.FreeText(new System.Drawing.Font("宋体", 16f), new Color(1f, 1f, 1f));
             this.GameProgressCaution.Text = "——";
             this.GameProgressCaution.Align=TextAlign.Middle;
             */
@@ -2404,8 +2407,8 @@ namespace GameObjects
 
         public void InitializeMapData()
         {
-            this.MapTileData = new TileData[this.ScenarioMap.MapDimensions.X, this.ScenarioMap.MapDimensions.Y];
-            this.PenalizedMapData = new int[this.ScenarioMap.MapDimensions.X, this.ScenarioMap.MapDimensions.Y];
+            this.MapTileData = new TileData[ScenarioMap.MapDimensions.X, ScenarioMap.MapDimensions.Y];
+            this.PenalizedMapData = new int[ScenarioMap.MapDimensions.X, ScenarioMap.MapDimensions.Y];
         }
 
         private void InitializeMilitaryData()
@@ -2577,7 +2580,7 @@ namespace GameObjects
 
         public bool HasAIResourceBonus(Section section)
         {
-            if (GlobalVariables.PlayerAutoSectionHasAIResourceBonus)
+            if (Session.GlobalVariables.PlayerAutoSectionHasAIResourceBonus)
             {
                 return section != null && (!IsPlayer(section.BelongedFaction) || !section.AIDetail.AutoRun);
             }
@@ -2594,7 +2597,7 @@ namespace GameObjects
 
         public bool IsPositionDisplayable(Point position)
         {
-            return (this.GameScreen.TileInScreen(position) && ((GlobalVariables.SkyEye || (this.CurrentPlayer == null)) || this.CurrentPlayer.IsPositionKnown(position)));
+            return (Session.MainGame.mainGameScreen.TileInScreen(position) && ((Session.GlobalVariables.SkyEye || (this.CurrentPlayer == null)) || this.CurrentPlayer.IsPositionKnown(position)));
         }
 
         public bool IsPositionEmpty(Point position)
@@ -2636,21 +2639,21 @@ namespace GameObjects
 
         public bool IsWaterPositionRoutewayable(Point position)
         {
-            if (this.ScenarioMap.MapData[position.X, position.Y] == 6)
+            if (ScenarioMap.MapData[position.X, position.Y] == 6)
             {
                 int num = 0;
                 Point point = new Point(position.X - 1, position.Y);
-                if (!(this.PositionOutOfRange(point) || (this.ScenarioMap.MapData[point.X, point.Y] != 6)))
+                if (!(this.PositionOutOfRange(point) || (ScenarioMap.MapData[point.X, point.Y] != 6)))
                 {
                     num++;
                 }
                 Point point2 = new Point(position.X, position.Y - 1);
-                if (!(this.PositionOutOfRange(point2) || (this.ScenarioMap.MapData[point2.X, point2.Y] != 6)))
+                if (!(this.PositionOutOfRange(point2) || (ScenarioMap.MapData[point2.X, point2.Y] != 6)))
                 {
                     num++;
                 }
                 Point point3 = new Point(position.X + 1, position.Y);
-                if (!(this.PositionOutOfRange(point3) || (this.ScenarioMap.MapData[point3.X, point3.Y] != 6)))
+                if (!(this.PositionOutOfRange(point3) || (ScenarioMap.MapData[point3.X, point3.Y] != 6)))
                 {
                     num++;
                 }
@@ -2659,7 +2662,7 @@ namespace GameObjects
                     return false;
                 }
                 Point point4 = new Point(position.X, position.Y + 1);
-                if (!(this.PositionOutOfRange(point4) || (this.ScenarioMap.MapData[point4.X, point4.Y] != 6)))
+                if (!(this.PositionOutOfRange(point4) || (ScenarioMap.MapData[point4.X, point4.Y] != 6)))
                 {
                     num++;
                 }
@@ -2673,12 +2676,12 @@ namespace GameObjects
 
         public bool SaveAvail()
         {
-            return (this.IsPlayerControlling() && this.EnableLoadAndSave && !GlobalVariables.HardcoreMode);
+            return (this.IsPlayerControlling() && this.EnableLoadAndSave && !Session.GlobalVariables.HardcoreMode);
         }
 
         public bool LoadAvail()
         {
-            return (this.IsPlayerControlling() && this.EnableLoadAndSave && !GlobalVariables.HardcoreMode);
+            return (this.IsPlayerControlling() && this.EnableLoadAndSave && !Session.GlobalVariables.HardcoreMode);
         }
 
         public bool isInCaptiveList(int personId)
@@ -2841,11 +2844,17 @@ namespace GameObjects
             List<string> errorMsg = new List<string>();
 
             Init();
-                        
-            this.scenarioJustLoaded = true;
-                        
-            this.ScenarioMap.LoadMapData(this.ScenarioMap.MapDataString, this.ScenarioMap.MapDimensions.X, this.ScenarioMap.MapDimensions.Y);
             
+            scenarioJustLoaded = true;
+                        
+            ScenarioMap.LoadMapData(ScenarioMap.MapDataString, ScenarioMap.MapDimensions.X, ScenarioMap.MapDimensions.Y);
+                       
+            //if (Platform.PlatFormType == PlatFormType.Android || Platform.PlatFormType == PlatFormType.iOS || Platform.PlatFormType == PlatFormType.Win)
+            //{
+                ScenarioMap.TileWidth = 60;
+                ScenarioMap.TileHeight = 60;
+            //}
+
             foreach (State state in this.States)
             {
                 state.Init();
@@ -2964,7 +2973,7 @@ namespace GameObjects
                 p.Spouse = q;
                 if (q != null && fromScenario)
                 {
-                    p.EnsureRelationAtLeast(q, Parameters.VeryCloseThreshold);
+                    p.EnsureRelationAtLeast(q, Session.Parameters.VeryCloseThreshold);
                 }
             }
 
@@ -2981,7 +2990,7 @@ namespace GameObjects
                             p.Brothers.Add(q);
                             if (q != null && fromScenario)
                             {
-                                p.EnsureRelationAtLeast(q, Parameters.VeryCloseThreshold);
+                                p.EnsureRelationAtLeast(q, Session.Parameters.VeryCloseThreshold);
                             }
                         }
                     }
@@ -2997,7 +3006,7 @@ namespace GameObjects
                             p.Brothers.Add(q);
                             if (q != null && fromScenario)
                             {
-                                p.EnsureRelationAtLeast(q, Parameters.VeryCloseThreshold);
+                                p.EnsureRelationAtLeast(q, Session.Parameters.VeryCloseThreshold);
                             }
                         }
                         else
@@ -3105,7 +3114,7 @@ namespace GameObjects
                 {
                     p.PersonBiography = new Biography();
                     p.PersonBiography.FactionColor = 52;
-                    p.PersonBiography.MilitaryKinds.AddBasicMilitaryKinds(this);
+                    p.PersonBiography.MilitaryKinds.AddBasicMilitaryKinds();
                     p.PersonBiography.Brief = "";
                     p.PersonBiography.History = "";
                     p.PersonBiography.Romance = "";
@@ -3290,10 +3299,10 @@ namespace GameObjects
                     errorMsg.Add("建筑ID" + architecture.ID + "：");
                     errorMsg.AddRange(e);
                 }
-                else
-                {
-                    //this.AllArchitectures.Add(architecture.ID, architecture);
-                }
+                //else
+                //{
+                    this.Architectures.AddArchitectureWithEvent(architecture, false);
+                //}
 
             }
 
@@ -3367,14 +3376,16 @@ namespace GameObjects
                 //}
 
                 //troop.CaptivesString = reader["Captives"].ToString();
-                errors.AddRange(troop.LoadCaptivesFromString(this.Captives, troop.CaptivesString));
+                errors.AddRange(troop.LoadCaptivesFromString(this.Captives, troop.CaptivesString.NullToString("")));
 
                 //troop.EventInfluencesString = reader["EventInfluences"].ToString();
-                errors.AddRange(troop.EventInfluences.LoadFromString(this.GameCommonData.AllInfluences, troop.EventInfluencesString));
+                errors.AddRange(troop.EventInfluences.LoadFromString(this.GameCommonData.AllInfluences, troop.EventInfluencesString.NullToString("")));
+
+                errors.AddRange(troop.LoadCombatMethodFromString(this.GameCommonData.AllCombatMethods, troop.CombatMethodsString.NullToString("")));
 
                 //troop.CurrentStuntIDString = (short)reader["CurrentStunt"];
                 troop.CurrentStunt = this.GameCommonData.AllStunts.GetStunt(troop.CurrentStuntIDString);
-
+                
                 if (errors.Count > 0)
                 {
                     errors.Add("部队ID" + troop.ID + "：");
@@ -3664,7 +3675,7 @@ namespace GameObjects
         private void alterTransportShipAdaptibility()
         {
             MilitaryKind militaryKind = this.GameCommonData.AllMilitaryKinds.GetMilitaryKind(28);
-            if (GlobalVariables.LandArmyCanGoDownWater)
+            if (Session.GlobalVariables.LandArmyCanGoDownWater)
             {
                 militaryKind.OneAdaptabilityKind = 0;
                 /*militaryKind.PlainAdaptability = 5;
@@ -3706,31 +3717,28 @@ namespace GameObjects
         {
             if (this.PlayerFactions.Count == 0)
             {
-                GlobalVariables.SkyEye = true;
-                GlobalVariables.EnableCheat = true;
-                GlobalVariables.HardcoreMode = false;
+                Session.GlobalVariables.SkyEye = true;
+                Session.GlobalVariables.EnableCheat = true;
+                Session.GlobalVariables.HardcoreMode = false;
             }
         }
 
-        public void InitPluginsWithScenario()
+        public void InitPluginsWithScenario(MainGameScreen screen)
         {
-            if (this.GameScreen != null)
+            foreach (GameObject plugin in screen.PluginList)
             {
-                foreach (GameObject plugin in this.GameScreen.PluginList)
+                if (plugin is IScenarioAwarePlugin)
                 {
-                    if (plugin is IScenarioAwarePlugin)
-                    {
-                        ((IScenarioAwarePlugin)plugin).SetScenario(this);
-                    }
+                    ((IScenarioAwarePlugin)plugin).SetScenario();
                 }
             }
         }
 
-        public void AfterLoadGameScenario()
+        public void AfterLoadGameScenario(MainGameScreen screen)
         {
-            this.InitPluginsWithScenario();
+            this.InitPluginsWithScenario(screen);
             this.InitializeMapData();
-            this.TroopAnimations.UpdateDirectionAnimations(this.ScenarioMap.TileWidth);
+            this.TroopAnimations.UpdateDirectionAnimations(ScenarioMap.TileWidth);
             this.ApplyFireTable();
             this.InitializeArchitectureMapTile();
             this.InitializeFactionData();
@@ -3745,7 +3753,7 @@ namespace GameObjects
 
             if (this.OnAfterLoadScenario != null)
             {
-                this.OnAfterLoadScenario(this);
+                this.OnAfterLoadScenario();
             }
 
             this.detectCurrentPlayerBattleState(this.CurrentPlayer);
@@ -3755,11 +3763,11 @@ namespace GameObjects
             this.sessionStartTime = DateTime.Now;
         }
 
-        public void AfterLoadSaveFile()
+        public void AfterLoadSaveFile(MainGameScreen screen)
         {
-            this.InitPluginsWithScenario();
+            this.InitPluginsWithScenario(screen);
             this.InitializeMapData();
-            this.TroopAnimations.UpdateDirectionAnimations(this.ScenarioMap.TileWidth);
+            this.TroopAnimations.UpdateDirectionAnimations(ScenarioMap.TileWidth);
             this.ApplyFireTable();
             this.InitializeArchitectureMapTile();
             this.InitializeFactionData();
@@ -3775,20 +3783,20 @@ namespace GameObjects
 
             if (this.OnAfterLoadScenario != null)
             {
-                this.OnAfterLoadScenario(this);
+                this.OnAfterLoadScenario();
             }
             this.detectCurrentPlayerBattleState(this.CurrentPlayer);
 
             if (this.PlayerFactions.Count == 0)
             {
-                oldDialogShowTime = GlobalVariables.DialogShowTime;
-                GlobalVariables.DialogShowTime = 0;
+                oldDialogShowTime = Session.GlobalVariables.DialogShowTime;
+                Session.GlobalVariables.DialogShowTime = 0;
             }
             else
             {
                 if (oldDialogShowTime >= 0)
                 {
-                    GlobalVariables.DialogShowTime = oldDialogShowTime;
+                    Session.GlobalVariables.DialogShowTime = oldDialogShowTime;
                 }
             }
             this.ForceOptionsOnAutoplay();
@@ -3802,8 +3810,8 @@ namespace GameObjects
         {
             if (this.PlayerFactions.Count == 0) return;
             if (this.Factions.Count < 3) return;
-            if (!GlobalVariables.PermitFactionMerge) return;
-            if (GlobalVariables.AIMergeAgainstPlayer < 0) return;
+            if (!Session.GlobalVariables.PermitFactionMerge) return;
+            if (Session.GlobalVariables.AIMergeAgainstPlayer < 0) return;
 
             Faction strongestAI = null;
             Faction strongestPlayer = null;
@@ -3846,7 +3854,7 @@ namespace GameObjects
             if (strongestAI == null || strongestPlayer == null) return;
 
 
-            if (GameObject.Chance((int)(((float)strongestPlayerPower / strongestAIPower - GlobalVariables.AIMergeAgainstPlayer) * 100)))
+            if (GameObject.Chance((int)(((float)strongestPlayerPower / strongestAIPower - Session.GlobalVariables.AIMergeAgainstPlayer) * 100)))
             {
                 GameObjectList fl = this.Factions.GetList();
                 fl.IsNumber = true;
@@ -3880,7 +3888,7 @@ namespace GameObjects
                         toMerge = strongestAI;
                         strongestAI = temp;
                     }
-                    this.GameScreen.OnAIMergeAgainstPlayer(strongestPlayer, strongestAI, toMerge);
+                    Session.MainGame.mainGameScreen.OnAIMergeAgainstPlayer(strongestPlayer, strongestAI, toMerge);
                     this.YearTable.addChangeFactionEntry(this.Date, toMerge, strongestAI);
                     toMerge.ChangeFaction(strongestAI);
                     toMerge.AfterChangeLeader(strongestAI, toMerge.Leader, strongestAI.Leader);
@@ -3914,19 +3922,21 @@ namespace GameObjects
             }
             foreach (MilitaryKind kind in this.GameCommonData.AllMilitaryKinds.MilitaryKinds.Values)
             {
+#pragma warning disable CS0219 // The variable 'flag' is assigned but its value is never used
                 bool flag = true;
+#pragma warning restore CS0219 // The variable 'flag' is assigned but its value is never used
                 foreach (Troop troop in this.Troops)
                 {
-                    if ((troop.Army.Kind == kind) && this.GameScreen.TileInScreen(troop.Position))
+                    if ((troop.Army.Kind == kind) && Session.MainGame.mainGameScreen.TileInScreen(troop.Position))
                     {
                         flag = false;
                         break;
                     }
                 }
-                if (flag)
-                {
-                    kind.Textures.Dispose();
-                }
+                //if (flag)
+                //{
+                //    kind.Textures.Dispose();
+                //}
             }
         }
 
@@ -3975,7 +3985,7 @@ namespace GameObjects
                         {
                             if (!p.Closes(q) && GameObject.Chance((5 - p.PersonalLoyalty) * 20 - 10))
                             {
-                                float d = Parameters.CloseThreshold / Math.Max(10, p.GetRelation(q));
+                                float d = Session.Parameters.CloseThreshold / Math.Max(10, p.GetRelation(q));
                                 if (p.LocationArchitecture == q.LocationArchitecture || p.LocationTroop == q.LocationTroop)
                                 {
                                     p.AdjustRelation(q, -d / 20f, 0);
@@ -3995,7 +4005,7 @@ namespace GameObjects
                         {
                             if (!p.Hates(q))
                             {
-                                float d = Parameters.HateThreshold / -p.GetRelation(q) / 5;
+                                float d = Session.Parameters.HateThreshold / -p.GetRelation(q) / 5;
                                 if (p.Status == PersonStatus.Princess && q.Status == PersonStatus.Princess)
                                 {
                                     d *= 4;
@@ -4026,7 +4036,7 @@ namespace GameObjects
 
         public void SeasonChangeEvent()
         {
-            if (!this.scenarioJustLoaded)
+            if (!scenarioJustLoaded)
             {
                 ExtensionInterface.call("SeasonEvent", new Object[] { this });
                 if ((this.Date.Month == 3 || this.Date.Month == 6 || this.Date.Month == 9 || this.Date.Month == 12) && this.Date.Day == 1)
@@ -4058,7 +4068,7 @@ namespace GameObjects
 
         public void NewFaction(PersonList candidates, bool leaderChange, bool nonInherited)
         {
-            if (GlobalVariables.WujiangYoukenengDuli == false) return;
+            if (Session.GlobalVariables.WujiangYoukenengDuli == false) return;
 
             PersonList list = new PersonList();
             foreach (Person person in candidates)
@@ -4157,7 +4167,7 @@ namespace GameObjects
 
         public bool PositionOutOfRange(Point position)
         {
-            return this.ScenarioMap.PositionOutOfRange(position);
+            return ScenarioMap.PositionOutOfRange(position);
         }
 
         public string PositionString(Point position)
@@ -4183,8 +4193,8 @@ namespace GameObjects
                 int theOtherFactionID = relation.GetTheOtherFactionID(des);
                 if ((theOtherFactionID != src) && (Math.Abs(relation.Relation) >= 100))
                 {
-                    int num2 = this.DiplomaticRelations.GetDiplomaticRelation(this, src, theOtherFactionID).Relation;
-                    if ((num2 > -GlobalVariables.FriendlyDiplomacyThreshold) && (num2 < GlobalVariables.FriendlyDiplomacyThreshold))
+                    int num2 = this.DiplomaticRelations.GetDiplomaticRelation(src, theOtherFactionID).Relation;
+                    if ((num2 > -GlobalVariables.FriendlyDiplomacyThreshold) && (num2 < Session.GlobalVariables.FriendlyDiplomacyThreshold))
                     {
                         int num3 = relation.Relation;
                         if (num3 > 0x3e8)
@@ -4384,7 +4394,7 @@ namespace GameObjects
             }
         }
 
-        public bool SaveGameScenario(string LoadedFileName, bool saveMap, bool saveCommonData, bool saveSettings, bool doNotDisposeMemory, bool fullPath)
+        public bool SaveGameScenario(string LoadedFileName, bool saveMap, bool saveCommonData, bool saveSettings)
         {
             this.GameTime += (int)DateTime.Now.Subtract(sessionStartTime).TotalSeconds;
 
@@ -4394,10 +4404,7 @@ namespace GameObjects
             ClearPersonWorkCache();
             //try
             //{
-            if (!doNotDisposeMemory)
-            {
-                this.DisposeLotsOfMemory();
-            }
+            this.DisposeLotsOfMemory();
 
             foreach (Faction faction in this.Factions)
             {
@@ -4519,6 +4526,8 @@ namespace GameObjects
                 troop.CaptivesString = troop.Captives.SaveToString();
 
                 troop.EventInfluencesString = troop.EventInfluences.SaveToString();
+
+                troop.CombatMethodsString = troop.CombatMethods.SaveToString();
 
                 troop.CurrentStuntIDString = (troop.CurrentStunt != null) ? troop.CurrentStunt.ID : -1;
             }
@@ -4777,11 +4786,11 @@ namespace GameObjects
 
             this.PlayerInfo = this.GetPlayerInfo();
 
-            //row["JumpPosition"] = StaticMethods.SaveToString(new Point?(this.ScenarioMap.JumpPosition));
+            //row["JumpPosition"] = StaticMethods.SaveToString(new Point?(ScenarioMap.JumpPosition));
 
             if (this.OnAfterSaveScenario != null)
             {
-                this.OnAfterSaveScenario(this);
+                this.OnAfterSaveScenario();
             }
 
             foreach (Biography i in this.AllBiographies.Biographys.Values)
@@ -4800,27 +4809,22 @@ namespace GameObjects
                 scenarioClone.GameCommonData = null;
             }
 
+
             if (saveSettings)
             {
 
             }
             else
             {
-                scenarioClone.Parameters = null;
-                scenarioClone.GlobalVariables = null;
+                //scenarioClone.Parameters = null;
+                //scenarioClone.GlobalVariables = null;
             }
 
             var saves = LoadScenarioSaves();
 
-            bool result;
-            if (!fullPath)
-            {
-                string file = @"Save\" + LoadedFileName;
-                result = SimpleSerializer.SerializeJsonFile(scenarioClone, file, true);
-            } else
-            {
-                result = SimpleSerializer.SerializeJsonFile(scenarioClone, LoadedFileName, false, false, true);
-            }
+            string file = @"Save\" + LoadedFileName;
+            
+            bool result = SimpleSerializer.SerializeJsonFile(scenarioClone, file, true);
 
             if (result)
             {
@@ -4852,7 +4856,9 @@ namespace GameObjects
                 }
             }
 
-            ExtensionInterface.call("Save", new Object[] { this });
+            scenarioClone = null;
+
+            //ExtensionInterface.call("Save", new Object[] { this });
 
             return true;
         }
@@ -4894,6 +4900,10 @@ namespace GameObjects
                 {
                     ck.ID = num;
                     ck.Name = influenceKind.Value.Name;
+                    ck.Type = influenceKind.Value.Type;
+                    ck.Combat = influenceKind.Value.Combat;
+                    ck.AIPersonValue = influenceKind.Value.AIPersonValue;
+                    ck.AIPersonValuePow = influenceKind.Value.AIPersonValuePow;
                     influenceKinds.AddInfluenceKind(ck);
                 }
                 else
@@ -5127,120 +5137,120 @@ namespace GameObjects
 
         public void DisposeLotsOfMemory()
         {
-            foreach (MilitaryKind kind in this.GameCommonData.AllMilitaryKinds.MilitaryKinds.Values)
-            {
-                kind.Textures.Dispose();
-            }
-            foreach (Animation a in this.GameCommonData.AllTroopAnimations.Animations.Values)
-            {
-                a.disposeTexture();
-            }
-            foreach (Architecture a in this.Architectures)
-            {
-                if (a.CaptionTexture != null)
-                {
-                    a.CaptionTexture.Dispose();
-                    a.CaptionTexture = null;
-                }
-            }
-            foreach (ArchitectureKind k in this.GameCommonData.AllArchitectureKinds.ArchitectureKinds.Values)
-            {
-                if (k.Texture != null)
-                {
-                    k.ClearTexture();
-                }
-            }
-            foreach (Treasure t in this.Treasures)
-            {
-                t.disposeTexture();
-            }
-            foreach (TerrainDetail t in this.GameCommonData.AllTerrainDetails.TerrainDetails.Values)
-            {
-                if (t.Textures != null)
-                {
-                    //foreach (var u in t.Textures.BasicTextures)
-                    //{
-                    //    u.Dispose();
-                    //}
-                    foreach (Texture u in t.Textures.BottomEdgeTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.BottomLeftCornerTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.BottomLeftTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.BottomRightCornerTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.BottomRightTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.BottomTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.CentreTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.LeftEdgeTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.LeftTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.RightEdgeTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.RightTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.LeftEdgeTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.TopEdgeTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.TopLeftCornerTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.TopLeftTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.TopRightCornerTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.TopRightTextures)
-                    {
-                        u.Dispose();
-                    }
-                    foreach (Texture u in t.Textures.TopTextures)
-                    {
-                        u.Dispose();
-                    }
-                }
-                t.Textures = null;
-            }
+            //foreach (MilitaryKind kind in this.GameCommonData.AllMilitaryKinds.MilitaryKinds.Values)
+            //{
+            //    kind.Textures.Dispose();
+            //}
+            //foreach (Animation a in this.GameCommonData.AllTroopAnimations.Animations.Values)
+            //{
+            //    a.disposeTexture();
+            //}
+            //foreach (Architecture a in this.Architectures)
+            //{
+            //    if (a.CaptionTexture != null)
+            //    {
+            //        a.CaptionTexture.Dispose();
+            //        a.CaptionTexture = null;
+            //    }
+            //}
+            //foreach (ArchitectureKind k in this.GameCommonData.AllArchitectureKinds.ArchitectureKinds.Values)
+            //{
+            //    if (k.Texture != null)
+            //    {
+            //        k.ClearTexture();
+            //    }
+            //}
+            //foreach (Treasure t in this.Treasures)
+            //{
+            //    t.disposeTexture();
+            //}
+            //foreach (TerrainDetail t in this.GameCommonData.AllTerrainDetails.TerrainDetails.Values)
+            //{
+            //    if (t.Textures != null)
+            //    {
+            //        //foreach (var u in t.Textures.BasicTextures)
+            //        //{
+            //        //    u.Dispose();
+            //        //}
+            //        foreach (Texture u in t.Textures.BottomEdgeTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.BottomLeftCornerTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.BottomLeftTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.BottomRightCornerTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.BottomRightTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.BottomTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.CentreTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.LeftEdgeTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.LeftTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.RightEdgeTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.RightTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.LeftEdgeTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.TopEdgeTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.TopLeftCornerTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.TopLeftTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.TopRightCornerTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.TopRightTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //        foreach (Texture u in t.Textures.TopTextures)
+            //        {
+            //            u.Dispose();
+            //        }
+            //    }
+            //    t.Textures = null;
+            //}
 
-            if (this.GameScreen != null)
+            if (Session.MainGame.mainGameScreen != null)
             {
-                this.GameScreen.DisposeMapTileMemory();
+                Session.MainGame.mainGameScreen.DisposeMapTileMemory(true, false);
             }
         }
 
@@ -5339,7 +5349,7 @@ namespace GameObjects
             }
             foreach (Person p in this.Persons)
             {
-                if (p.Available && p.IsGeneratedChildren && p.Age >= GlobalVariables.ChildrenAvailableAge)
+                if (p.Available && p.IsGeneratedChildren && p.Age >= Session.GlobalVariables.ChildrenAvailableAge)
                 {
                     p.IsGeneratedChildren = false;
                 }
@@ -5408,9 +5418,9 @@ namespace GameObjects
             return false;
         }
 
-        public delegate void AfterLoadScenario(GameScenario scenario);
+        public delegate void AfterLoadScenario();
 
-        public delegate void AfterSaveScenario(GameScenario scenario);
+        public delegate void AfterSaveScenario();
 
         public delegate void NewFactionAppear(Faction faction);
 
@@ -5442,7 +5452,7 @@ namespace GameObjects
                 }
             }
 
-            this.GameScreen.xianshishijiantupian(neutralPerson, "汉朝", "FactionDestroy", "shilimiewang.jpg", "shilimiewang", true);
+            Session.MainGame.mainGameScreen.xianshishijiantupian(neutralPerson, "汉朝", "FactionDestroy", "shilimiewang.jpg", "shilimiewang", true);
 
         }
 
@@ -5451,7 +5461,7 @@ namespace GameObjects
             YearTable result = new YearTable();
             foreach (YearTableEntry i in this.YearTable)
             {
-                if (i.IsGloballyKnown || i.Factions.GameObjects.Contains(f) || GlobalVariables.SkyEye)
+                if (i.IsGloballyKnown || i.Factions.GameObjects.Contains(f) || Session.GlobalVariables.SkyEye)
                 {
                     result.Add(i);
                 }
@@ -5464,7 +5474,7 @@ namespace GameObjects
             YearTable result = new YearTable();
             foreach (YearTableEntry i in this.YearTable)
             {
-                if ((i.IsGloballyKnown || i.Factions.GameObjects.Contains(f) || GlobalVariables.SkyEye) &&
+                if ((i.IsGloballyKnown || i.Factions.GameObjects.Contains(f) || Session.GlobalVariables.SkyEye) &&
                     i.Date.Year > this.Date.Year - y)
                 {
                     result.Add(i);
@@ -5485,17 +5495,17 @@ namespace GameObjects
             }
             return result;
         }
-        public bool runScenarioStart(Architecture triggerArch)
+        public bool runScenarioStart(Architecture triggerArch, Screen screen)
         {
             bool ran = false;
             foreach (Event e in this.AllEvents)
             {
-                if ((e.IsStart(this) && e.matchEventPersons(triggerArch)) || e.checkConditions(triggerArch))
+                if ((e.IsStart() && e.matchEventPersons(triggerArch)) || e.checkConditions(triggerArch))
                 {
                     if (!this.EventsToApply.ContainsKey(e))
                     {
                         this.EventsToApply.Add(e, triggerArch);
-                        e.ApplyEventDialogs(triggerArch);
+                        e.ApplyEventDialogs(triggerArch, screen);
                         ran = true;
                     }
                     if (!this.YesEventsToApply.ContainsKey(e) && e.yesEffect.Count > 0)
@@ -5528,17 +5538,17 @@ namespace GameObjects
             return ran;
         }
 
-        public bool runScenarioEnd(Architecture triggerArch)
+        public bool runScenarioEnd(Architecture triggerArch, Screen screen)
         {
             bool ran = false;
             foreach (Event e in this.AllEvents)
             {
-                if ((e.IsEnd(this) && e.matchEventPersons(triggerArch)) || e.checkConditions(triggerArch))
+                if ((e.IsEnd() && e.matchEventPersons(triggerArch)) || e.checkConditions(triggerArch))
                 {
                     if (!this.EventsToApply.ContainsKey(e))
                     {
                         this.EventsToApply.Add(e, triggerArch);
-                        e.ApplyEventDialogs(triggerArch);
+                        e.ApplyEventDialogs(triggerArch, screen);
                         ran = true;
                     }
 
@@ -5601,7 +5611,7 @@ namespace GameObjects
         {
             get
             {
-                return GlobalVariables.zhaoxianOfficerMax;
+                return Session.GlobalVariables.zhaoxianOfficerMax;
             }
         }
 
@@ -5620,7 +5630,7 @@ namespace GameObjects
 
         public bool IsKnownToAnyPlayer(Architecture a)
         {
-            if (GlobalVariables.SkyEye) return true;
+            if (Session.GlobalVariables.SkyEye) return true;
             foreach (Faction f in this.PlayerFactions)
             {
                 if (f.IsArchitectureKnown(a)) return true;
@@ -5630,7 +5640,7 @@ namespace GameObjects
 
         public bool IsKnownToAnyPlayer(Troop a)
         {
-            if (GlobalVariables.SkyEye) return true;
+            if (Session.GlobalVariables.SkyEye) return true;
             foreach (Faction f in this.PlayerFactions)
             {
                 if (f.IsTroopKnown(a)) return true;
@@ -5761,7 +5771,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    if (rel.Value > Parameters.HateThreshold)
+                                                    if (rel.Value > Session.Parameters.HateThreshold)
                                                     {
                                                         p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                     }
@@ -5818,7 +5828,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    if (rel.Value > Parameters.HateThreshold)
+                                                    if (rel.Value > Session.Parameters.HateThreshold)
                                                     {
                                                         p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                     }
@@ -5874,7 +5884,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    if (rel.Value > Parameters.HateThreshold)
+                                                    if (rel.Value > Session.Parameters.HateThreshold)
                                                     {
                                                         p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                     }
@@ -5931,7 +5941,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    if (rel.Value > Parameters.HateThreshold)
+                                                    if (rel.Value > Session.Parameters.HateThreshold)
                                                     {
                                                         p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                     }
@@ -5988,7 +5998,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    if (rel.Value > Parameters.HateThreshold)
+                                                    if (rel.Value > Session.Parameters.HateThreshold)
                                                     {
                                                         p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                     }
@@ -6061,7 +6071,7 @@ namespace GameObjects
                                                 {
                                                     if (GameObject.Chance(100 / rels.Count))
                                                     {
-                                                        if (rel.Value > Parameters.HateThreshold)
+                                                        if (rel.Value > Session.Parameters.HateThreshold)
                                                         {
                                                             p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                         }
@@ -6130,7 +6140,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    if (rel.Value > Parameters.HateThreshold)
+                                                    if (rel.Value > Session.Parameters.HateThreshold)
                                                     {
                                                         p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                     }
@@ -6235,7 +6245,7 @@ namespace GameObjects
                                                     {
                                                         if (GameObject.Chance(100 / rels.Count))
                                                         {
-                                                            if (rel.Value > Parameters.HateThreshold)
+                                                            if (rel.Value > Session.Parameters.HateThreshold)
                                                             {
                                                                 p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                             }

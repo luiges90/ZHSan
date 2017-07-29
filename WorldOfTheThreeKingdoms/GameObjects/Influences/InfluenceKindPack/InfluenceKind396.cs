@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Influences;
 using Microsoft.Xna.Framework;
 using System;
@@ -21,7 +22,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
             //position = 0;
             position = new Point(0, 0);
             int num = 0;
-            if (((source.BelongedLegion == null) || source.Scenario.PositionIsOnFireNoCheck(source.Position)) || (GameObject.Random(source.BelongedLegion.Troops.Count) <= 0))
+            if (((source.BelongedLegion == null) || Session.Current.Scenario.PositionIsOnFireNoCheck(source.Position)) || (GameObject.Random(source.BelongedLegion.Troops.Count) <= 0))
             {
                 int pureFightingForce = source.PureFightingForce;
                 int num3 = source.TroopIntelligence + source.ChanceIncrementOfStratagem;
@@ -35,11 +36,11 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
                     List<Point> list = new List<Point>();
                     foreach (Point point in source.GetStratagemArea(source.Position).Area)
                     {
-                        if (source.Scenario.PositionIsOnFire(point))
+                        if (Session.Current.Scenario.PositionIsOnFire(point))
                         {
                             num += num3 / 40;
                             list.Add(point);
-                            Troop troopByPosition = source.Scenario.GetTroopByPosition(point);
+                            Troop troopByPosition = Session.Current.Scenario.GetTroopByPosition(point);
                             if (troopByPosition == source)
                             {
                                 num += num3 * 3;

@@ -6,12 +6,14 @@ using Microsoft.CSharp;
 using System.CodeDom.Compiler;
 using GameObjects;
 using GameGlobal;
-
+using GameManager;
 
 
 public class ExtensionInterface
 {
+#pragma warning disable CS0414 // The field 'ExtensionInterface.extensionFiles' is assigned but its value is never used
     private static Dictionary<String, String> extensionFiles = null;
+#pragma warning restore CS0414 // The field 'ExtensionInterface.extensionFiles' is assigned but its value is never used
     private static List<Type> compiledTypes = null;
 
     //private static void loadAllExtensionFiles()
@@ -55,7 +57,7 @@ public class ExtensionInterface
 
     public static void loadCompiledTypes()
     {
-        if (!GlobalVariables.EnableExtensions)
+        if (!Session.GlobalVariables.EnableExtensions)
         {
             // extensions not enabled
             return;
@@ -75,7 +77,7 @@ public class ExtensionInterface
                     var parameters = new CompilerParameters(new[] { "mscorlib.dll", "System.Core.dll", 
                         ProgramFilesx86() + @"/Microsoft XNA/XNA Game Studio/v3.0/References/Windows/x86/Microsoft.Xna.Framework.dll", 
                         "GameObjects.dll", "GameGlobal.dll" });
-                    parameters.GenerateExecutable = false;
+                    Session.Parameters.GenerateExecutable = false;
                     CompilerResults results = csc.CompileAssemblyFromSource(parameters, file.Value);
                     if (results.Errors.Count <= 0)
                     {
@@ -112,12 +114,11 @@ public class ExtensionInterface
 
     public static void call(String methodName, Object[] param)
     {
-        if (!GlobalVariables.EnableExtensions)
+        if (!Session.GlobalVariables.EnableExtensions)
         {
             // extensions not enabled
             return;
         }
-        /*
         foreach (Type t in compiledTypes)
         {
             try
@@ -128,7 +129,9 @@ public class ExtensionInterface
                     m.Invoke(Activator.CreateInstance(t), param);
                 }
             }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
             {
                 //StreamWriter w = null;
                 //try
@@ -156,7 +159,6 @@ public class ExtensionInterface
                 //}
             }
         }
-        */
     }
 
 }

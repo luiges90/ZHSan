@@ -1,5 +1,6 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -19,18 +20,18 @@ namespace OptionDialogPlugin
         private List<GameDelegates.VoidFunction> OptionFunctions = new List<GameDelegates.VoidFunction>();
         private List<object> OptionObjects = new List<object>();
         private List<bool> OptionObjectsSelected = new List<bool>();
-        internal Texture2D OptionSelectedTexture;
+        internal PlatformTexture OptionSelectedTexture;
         internal FreeTextList OptionTextList;
-        internal Texture2D OptionTexture;
-        private List<Texture2D> OptionTextures = new List<Texture2D>();
+        internal PlatformTexture OptionTexture;
+        private List<PlatformTexture> OptionTextures = new List<PlatformTexture>();
         internal GameDelegates.ObjectFunction ReturnObjectFunction;
-        private Screen screen;
+        
         internal Dictionary<string, OptionStyle> Styles = new Dictionary<string, OptionStyle>();
         private Rectangle TitleDisplayPosition;
         internal int TitleHeight;
         internal int TitleMargin;
         internal FreeText TitleText;
-        internal Texture2D TitleTexture;
+        internal PlatformTexture TitleTexture;
         internal int TitleWidth;
 
         internal void AddOptionItem(string Text, object obj, GameDelegates.VoidFunction optionFunction)
@@ -50,19 +51,20 @@ namespace OptionDialogPlugin
             this.OptionFunctions.Clear();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.OptionTextList.Count != 0)
             {
                 Rectangle? sourceRectangle = null;
-                spriteBatch.Draw(this.TitleTexture, this.TitleDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
-                this.TitleText.Draw(spriteBatch, 0.1999f);
+                CacheManager.Draw(this.TitleTexture, this.TitleDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                this.TitleText.Draw(0.1999f);
                 for (int i = 0; i < this.OptionTextures.Count; i++)
                 {
                     sourceRectangle = null;
-                    spriteBatch.Draw(this.OptionTextures[i], this.OptionTextList.DisplayPosition(i), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                    CacheManager.Draw(this.OptionTextures[i], this.OptionTextList.DisplayPosition(i), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
                 }
-                this.OptionTextList.Draw(spriteBatch, (float) 0.1999f);
+                float optionText = 0.1999f;
+                this.OptionTextList.Draw(optionText);
             }
         }
 
@@ -78,7 +80,7 @@ namespace OptionDialogPlugin
 
         internal void Initialize(Screen screen)
         {
-            this.screen = screen;
+            
         }
 
         private void InvokeFunction(int i)
@@ -143,7 +145,7 @@ namespace OptionDialogPlugin
             }
             if (this.dragging)
             {
-                this.OptionTextList.DisplayOffset = new Point(this.OptionTextList.DisplayOffset.X + this.screen.MouseOffset.X, this.OptionTextList.DisplayOffset.Y + this.screen.MouseOffset.Y);
+                this.OptionTextList.DisplayOffset = new Point(this.OptionTextList.DisplayOffset.X + Session.MainGame.mainGameScreen.MouseOffset.X, this.OptionTextList.DisplayOffset.Y + Session.MainGame.mainGameScreen.MouseOffset.Y);
                 this.TitleDisplayPosition = StaticMethods.GetCenterRectangle(new Rectangle(this.OptionTextList.DisplayOffset.X, (this.OptionTextList.DisplayOffset.Y - this.TitleHeight) - this.TitleMargin, this.ItemWidth, this.TitleHeight), new Rectangle(0, 0, this.TitleWidth, this.TitleHeight));
                 this.TitleText.DisplayOffset = new Point(this.TitleDisplayPosition.X, this.TitleDisplayPosition.Y);
             }
@@ -156,7 +158,7 @@ namespace OptionDialogPlugin
 
         internal void SetDisplayOffset(ShowPosition showPosition)
         {
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
             Rectangle rect = new Rectangle(0, 0, this.Width, this.Height);
             switch (showPosition)
             {
@@ -197,8 +199,8 @@ namespace OptionDialogPlugin
                     break;
 
                 case ShowPosition.Mouse:
-                    rect.X = this.screen.MousePosition.X;
-                    rect.Y = this.screen.MousePosition.Y;
+                    rect.X = Session.MainGame.mainGameScreen.MousePosition.X;
+                    rect.Y = Session.MainGame.mainGameScreen.MousePosition.Y;
                     break;
             }
             this.OptionTextList.DisplayOffset = new Point(rect.X, rect.Y);
@@ -275,19 +277,19 @@ namespace OptionDialogPlugin
                                 this.OptionObjectsSelected.Add(obj2.Selected);
                             }
                         }
-                        this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, DialogKind.Options));
-                        this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                        this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.screen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                        Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, DialogKind.Options));
+                        Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                        Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                        Session.MainGame.mainGameScreen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
                     }
                     else
                     {
-                        this.screen.PopUndoneWork();
-                        this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                        this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.screen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                        Session.MainGame.mainGameScreen.PopUndoneWork();
+                        Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                        Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                        Session.MainGame.mainGameScreen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
                         foreach (GameObject obj2 in this.OptionObjects)
                         {
                             if (obj2 != null)

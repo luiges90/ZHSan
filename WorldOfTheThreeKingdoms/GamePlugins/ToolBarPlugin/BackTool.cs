@@ -4,6 +4,7 @@ using GamePanels;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using PluginInterface;
+using System;
 using WorldOfTheThreeKingdoms.GameScreens;
 
 namespace WorldOfTheThreeKingdoms.GamePlugins.ToolBarPlugin
@@ -44,6 +45,7 @@ namespace WorldOfTheThreeKingdoms.GamePlugins.ToolBarPlugin
                 var optionDialog = Session.MainGame.mainGameScreen.Plugins.OptionDialogPlugin as OptionDialogPlugin.OptionDialogPlugin;
                 var troopDetail = Session.MainGame.mainGameScreen.Plugins.TroopDetailPlugin;
                 var createTroop = Session.MainGame.mainGameScreen.Plugins.CreateTroopPlugin;
+                var transPort = Session.MainGame.mainGameScreen.Plugins.TransportDialogPlugin;
 
                 if (architectureDetail.IsShowing)
                 {
@@ -73,6 +75,10 @@ namespace WorldOfTheThreeKingdoms.GamePlugins.ToolBarPlugin
                 {
                     createTroop.IsShowing = false;
                 }
+                else if (transPort.IsShowing)
+                {
+                    transPort.IsShowing = false;
+                }
             };          
         }
 
@@ -84,9 +90,11 @@ namespace WorldOfTheThreeKingdoms.GamePlugins.ToolBarPlugin
             var factionTech = Session.MainGame.mainGameScreen.Plugins.FactionTechniquesPlugin;
             var optionDialog = Session.MainGame.mainGameScreen.Plugins.OptionDialogPlugin as OptionDialogPlugin.OptionDialogPlugin;
             var troopDetail = Session.MainGame.mainGameScreen.Plugins.TroopDetailPlugin;
-            var createTroop = Session.MainGame.mainGameScreen.Plugins.CreateTroopPlugin;
+            var createTroop = Session.MainGame.mainGameScreen.Plugins.CreateTroopPlugin as CreateTroopPlugin.CreateTroopPlugin;
+            var transPort = Session.MainGame.mainGameScreen.Plugins.TransportDialogPlugin as TransportDialogPlugin.TransportDialogPlugin;
 
-            if (architectureDetail.IsShowing || personDetail.IsShowing || treasureDetail.IsShowing || troopDetail.IsShowing || createTroop.IsShowing
+            if (architectureDetail.IsShowing || personDetail.IsShowing || treasureDetail.IsShowing || troopDetail.IsShowing 
+                || createTroop.IsShowing && createTroop.createTroop.IsDialog || transPort.transportDialog.IsShowing
                 || factionTech.IsShowing || optionDialog.OptionTitle != "系统选项" && optionDialog.IsShowing)
             {
                 btBack.Visible = true;
@@ -99,10 +107,17 @@ namespace WorldOfTheThreeKingdoms.GamePlugins.ToolBarPlugin
             btBack.Update();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            btBack.Draw();
-
+            if (btBack.Visible)
+            {
+                //throw new Exception("SaveGame");
+                btBack.Draw();
+            }
+            else
+            {
+                
+            }
         }
 
     }

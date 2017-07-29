@@ -69,7 +69,9 @@ namespace GameObjects.TroopDetail
         private bool self;
         private int techniquePoint;
 
+#pragma warning disable CS0169 // The field 'Stratagem.requireInfluenceToUse' is never used
         private bool requireInfluenceToUse;
+#pragma warning restore CS0169 // The field 'Stratagem.requireInfluenceToUse' is never used
 
         public void Apply(Troop troop)
         {
@@ -205,7 +207,9 @@ namespace GameObjects.TroopDetail
             }
         }
         [DataMember]
+#pragma warning disable CS0108 // 'Stratagem.Chance' hides inherited member 'GameObject.Chance(int)'. Use the new keyword if hiding was intended.
         public int Chance
+#pragma warning restore CS0108 // 'Stratagem.Chance' hides inherited member 'GameObject.Chance(int)'. Use the new keyword if hiding was intended.
         {
             get
             {

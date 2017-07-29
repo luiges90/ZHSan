@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using System;
 using System.Runtime.Serialization;
 
@@ -20,11 +21,10 @@ namespace GameObjects.FactionDetail
             this.relationFaction2ID = -1;
         }
 
-        public DiplomaticRelation(GameScenario scenario, int faction1ID, int faction2ID, int relation)
+        public DiplomaticRelation(int faction1ID, int faction2ID, int relation)
         {
             this.relationFaction1ID = -1;
             this.relationFaction2ID = -1;
-            base.Scenario = scenario;
             this.RelationFaction1ID = faction1ID;
             this.RelationFaction2ID = faction2ID;
             this.Relation = relation;
@@ -87,7 +87,7 @@ namespace GameObjects.FactionDetail
             {
                 if (this.relationFaction1 == null)
                 {
-                    this.relationFaction1 = base.Scenario.Factions.GetGameObject(this.relationFaction1ID) as Faction;
+                    this.relationFaction1 = Session.Current.Scenario.Factions.GetGameObject(this.relationFaction1ID) as Faction;
                 }
                 return this.relationFaction1;
             }
@@ -124,7 +124,7 @@ namespace GameObjects.FactionDetail
             {
                 if (this.relationFaction2 == null)
                 {
-                    this.relationFaction2 = base.Scenario.Factions.GetGameObject(this.relationFaction2ID) as Faction;
+                    this.relationFaction2 = Session.Current.Scenario.Factions.GetGameObject(this.relationFaction2ID) as Faction;
                 }
                 return this.relationFaction2;
             }

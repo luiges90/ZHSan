@@ -9,6 +9,7 @@ using PluginInterface.BaseInterface;
 using System;
 using System.Xml;
 using WorldOfTheThreeKingdoms;
+using WorldOfTheThreeKingdoms.GameScreens;
 
 namespace MapLayerPlugin
 {
@@ -18,7 +19,7 @@ namespace MapLayerPlugin
         private string author = "clip_on";
         private const string DataPath = @"Content\Textures\GameComponents\MapLayer\Data\";
         private string description = "地图层次";
-        private GraphicsDevice graphicsDevice;
+        
         private MapLayer mapLayer = new MapLayer();
         private const string Path = @"Content\Textures\GameComponents\MapLayer\";
         private string pluginName = "MapLayerPlugin";
@@ -29,12 +30,12 @@ namespace MapLayerPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            this.mapLayer.Draw(spriteBatch);
+            this.mapLayer.Draw();
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -48,24 +49,23 @@ namespace MapLayerPlugin
             this.mapLayer.Align = (ToolAlign) Enum.Parse(typeof(ToolAlign), node.Attributes.GetNamedItem("Align").Value);
             this.mapLayer.Width = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             node = nextSibling.ChildNodes.Item(1);
-            this.mapLayer.NormalLayerTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.mapLayer.NormalLayerActiveTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("Active").Value);
+            this.mapLayer.NormalLayerTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.mapLayer.NormalLayerActiveTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("Active").Value);
             this.mapLayer.NormalLayerPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             node = nextSibling.ChildNodes.Item(2);
-            this.mapLayer.RoutewayLayerTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.mapLayer.RoutewayLayerActiveTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("Active").Value);
+            this.mapLayer.RoutewayLayerTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.mapLayer.RoutewayLayerActiveTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("Active").Value);
             this.mapLayer.RoutewayLayerPosition = StaticMethods.LoadRectangleFromXMLNode(node);
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\MapLayerData.xml");
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.mapLayer.Initialize(screen as Screen);
+            this.mapLayer.Initialize(screen as MainGameScreen);
         }
 
         public void Update(GameTime gameTime)

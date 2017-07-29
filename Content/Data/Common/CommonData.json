@@ -1,4 +1,4 @@
-{
+﻿{
   "AllArchitectureKinds": {
     "ArchitectureKinds": [
       {
@@ -30805,11 +30805,11 @@
         "Value": {
           "ID": 6830,
           "Name": "每天统率经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -30817,11 +30817,11 @@
         "Value": {
           "ID": 6835,
           "Name": "每天武勇经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -30829,11 +30829,11 @@
         "Value": {
           "ID": 6840,
           "Name": "每天智力经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -30841,11 +30841,11 @@
         "Value": {
           "ID": 6845,
           "Name": "每天政治经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -30853,11 +30853,11 @@
         "Value": {
           "ID": 6850,
           "Name": "每天魅力经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -30865,11 +30865,11 @@
         "Value": {
           "ID": 6855,
           "Name": "每天声望增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.12,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -30877,11 +30877,11 @@
         "Value": {
           "ID": 6900,
           "Name": "计略成功时敌军疲累度增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 20,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -30889,11 +30889,11 @@
         "Value": {
           "ID": 6905,
           "Name": "计略成功时能夺取敌方士兵",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 0.4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -30901,11 +30901,11 @@
         "Value": {
           "ID": 6910,
           "Name": "计略成功时能夺取敌方伤兵",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 0.16,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -30913,11 +30913,11 @@
         "Value": {
           "ID": 6915,
           "Name": "计略成功时敌方士气减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 25,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -30925,11 +30925,11 @@
         "Value": {
           "ID": 6920,
           "Name": "计略成功时敌方战意减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -30937,11 +30937,11 @@
         "Value": {
           "ID": 6925,
           "Name": "计略成功时敌方士兵减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 0.2,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -30951,7 +30951,7 @@
           "Name": "某兵种有效",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
           "Type": 0
         }
@@ -30961,11 +30961,11 @@
         "Value": {
           "ID": 6180,
           "Name": "减少武将移动天数",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 240,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -30973,11 +30973,11 @@
         "Value": {
           "ID": 0,
           "Name": "农业能力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.1,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -30985,11 +30985,11 @@
         "Value": {
           "ID": 1,
           "Name": "商业能力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.1,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -30997,11 +30997,11 @@
         "Value": {
           "ID": 2,
           "Name": "技术能力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.1,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31009,11 +31009,11 @@
         "Value": {
           "ID": 3,
           "Name": "统治能力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.1,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31021,11 +31021,11 @@
         "Value": {
           "ID": 4,
           "Name": "民心能力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.1,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31033,11 +31033,11 @@
         "Value": {
           "ID": 5,
           "Name": "耐久能力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.1,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31045,11 +31045,11 @@
         "Value": {
           "ID": 10,
           "Name": "农业能力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31057,11 +31057,11 @@
         "Value": {
           "ID": 11,
           "Name": "商业能力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31069,11 +31069,11 @@
         "Value": {
           "ID": 12,
           "Name": "技术能力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31081,11 +31081,11 @@
         "Value": {
           "ID": 13,
           "Name": "统治能力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31093,11 +31093,11 @@
         "Value": {
           "ID": 14,
           "Name": "民心能力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31105,11 +31105,11 @@
         "Value": {
           "ID": 15,
           "Name": "耐久能力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31117,11 +31117,11 @@
         "Value": {
           "ID": 20,
           "Name": "农业获得势力声望加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31129,11 +31129,11 @@
         "Value": {
           "ID": 21,
           "Name": "商业获得势力声望加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31141,11 +31141,11 @@
         "Value": {
           "ID": 22,
           "Name": "技术获得势力声望加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31153,11 +31153,11 @@
         "Value": {
           "ID": 23,
           "Name": "统治获得势力声望加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31165,11 +31165,11 @@
         "Value": {
           "ID": 24,
           "Name": "民心获得势力声望加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31177,11 +31177,11 @@
         "Value": {
           "ID": 25,
           "Name": "耐久获得势力声望加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31189,11 +31189,11 @@
         "Value": {
           "ID": 30,
           "Name": "内政工作不需要消耗资金",
-          "AIPersonValue": 0,
+          "AIPersonValue": 40,
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31201,11 +31201,11 @@
         "Value": {
           "ID": 40,
           "Name": "内政获得技巧点数加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 26.7,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31213,11 +31213,11 @@
         "Value": {
           "ID": 41,
           "Name": "策略获得技巧点数加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 26.7,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31225,11 +31225,11 @@
         "Value": {
           "ID": 42,
           "Name": "战斗获得技巧点数加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 26.7,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31237,11 +31237,11 @@
         "Value": {
           "ID": 43,
           "Name": "计略获得技巧点数加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 26.7,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31249,11 +31249,11 @@
         "Value": {
           "ID": 50,
           "Name": "所在建筑当天的内政效果增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -31261,11 +31261,11 @@
         "Value": {
           "ID": 60,
           "Name": "农业获得技巧点数加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31273,11 +31273,11 @@
         "Value": {
           "ID": 61,
           "Name": "商业获得技巧点数加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31285,11 +31285,11 @@
         "Value": {
           "ID": 62,
           "Name": "技术获得技巧点数加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31297,11 +31297,11 @@
         "Value": {
           "ID": 63,
           "Name": "统治获得技巧点数加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31309,11 +31309,11 @@
         "Value": {
           "ID": 64,
           "Name": "民心获得技巧点数加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31321,11 +31321,11 @@
         "Value": {
           "ID": 65,
           "Name": "耐久获得技巧点数加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31333,11 +31333,11 @@
         "Value": {
           "ID": 80,
           "Name": "训练能力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.1,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31345,11 +31345,11 @@
         "Value": {
           "ID": 81,
           "Name": "补充能力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.1,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31357,11 +31357,11 @@
         "Value": {
           "ID": 90,
           "Name": "训练能力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31369,11 +31369,11 @@
         "Value": {
           "ID": 91,
           "Name": "补充能力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31381,11 +31381,11 @@
         "Value": {
           "ID": 100,
           "Name": "每月自动获得技巧点数",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.003,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31393,11 +31393,11 @@
         "Value": {
           "ID": 120,
           "Name": "所在处人物获评称号所需时间只需一个月",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 900,
+          "AIPersonValuePow": -1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -31405,11 +31405,11 @@
         "Value": {
           "ID": 121,
           "Name": "所在处人物忠诚度增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 8,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -31417,11 +31417,11 @@
         "Value": {
           "ID": 122,
           "Name": "所在建筑在战争状态下人口增长率不会受到影响",
-          "AIPersonValue": 0,
+          "AIPersonValue": 40,
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -31429,11 +31429,11 @@
         "Value": {
           "ID": 123,
           "Name": "所在建筑人口不会迁出",
-          "AIPersonValue": 0,
+          "AIPersonValue": 40,
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -31441,11 +31441,11 @@
         "Value": {
           "ID": 124,
           "Name": "所在建筑在战争状态下内政值不会自动下降",
-          "AIPersonValue": 0,
+          "AIPersonValue": 40,
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -31453,11 +31453,11 @@
         "Value": {
           "ID": 160,
           "Name": "所在势力每月势力声望增长",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31465,11 +31465,11 @@
         "Value": {
           "ID": 200,
           "Name": "某地形快速移动",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 20,
+          "AIPersonValuePow": 2,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31477,11 +31477,11 @@
         "Value": {
           "ID": 220,
           "Name": "某地形暴击几率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 1.5,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31489,11 +31489,11 @@
         "Value": {
           "ID": 250,
           "Name": "所在部队行动力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 2,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31501,11 +31501,11 @@
         "Value": {
           "ID": 251,
           "Name": "部队移动力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 2.5,
+          "AIPersonValuePow": 1.5,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31513,11 +31513,11 @@
         "Value": {
           "ID": 260,
           "Name": "自身不会被俘",
-          "AIPersonValue": 0,
+          "AIPersonValue": 50,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31525,11 +31525,11 @@
         "Value": {
           "ID": 261,
           "Name": "同部队的人物不会被俘",
-          "AIPersonValue": 0,
+          "AIPersonValue": 80,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31537,11 +31537,11 @@
         "Value": {
           "ID": 262,
           "Name": "自身不会战死",
-          "AIPersonValue": 0,
+          "AIPersonValue": 30,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -31549,11 +31549,11 @@
         "Value": {
           "ID": 263,
           "Name": "同部队武将不会战死",
-          "AIPersonValue": 0,
+          "AIPersonValue": 48,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31561,11 +31561,11 @@
         "Value": {
           "ID": 270,
           "Name": "斜向视野",
-          "AIPersonValue": 0,
+          "AIPersonValue": 50,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31573,11 +31573,11 @@
         "Value": {
           "ID": 271,
           "Name": "斜向攻击",
-          "AIPersonValue": 0,
+          "AIPersonValue": 50,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31585,11 +31585,11 @@
         "Value": {
           "ID": 272,
           "Name": "斜向计略",
-          "AIPersonValue": 0,
+          "AIPersonValue": 60,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31599,7 +31599,7 @@
           "Name": "君主有效",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
           "Type": 0
         }
@@ -31611,7 +31611,7 @@
           "Name": "队长有效",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
           "Type": 0
         }
@@ -31647,9 +31647,9 @@
           "Name": "某类别兵种有效",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 1
         }
       },
       {
@@ -31657,11 +31657,11 @@
         "Value": {
           "ID": 320,
           "Name": "可施行某战法",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 3,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31669,11 +31669,11 @@
         "Value": {
           "ID": 330,
           "Name": "可施行某特技",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 3,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31681,11 +31681,11 @@
         "Value": {
           "ID": 350,
           "Name": "受暴击伤害减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 28,
+          "AIPersonValuePow": -1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31693,11 +31693,11 @@
         "Value": {
           "ID": 351,
           "Name": "暴击时敌军伤兵几率减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 2.5,
+          "AIPersonValuePow": -1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31705,11 +31705,11 @@
         "Value": {
           "ID": 352,
           "Name": "部队水域乘数提高（上限为1）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 300,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31717,11 +31717,11 @@
         "Value": {
           "ID": 353,
           "Name": "暴击对建筑造成伤害加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 33.3,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31729,11 +31729,11 @@
         "Value": {
           "ID": 354,
           "Name": "部队水域乘数提高",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 300,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31741,11 +31741,11 @@
         "Value": {
           "ID": 360,
           "Name": "暴击使敌方士气减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31753,11 +31753,11 @@
         "Value": {
           "ID": 370,
           "Name": "暴击使建筑物统治度减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31765,11 +31765,11 @@
         "Value": {
           "ID": 380,
           "Name": "对骑兵的伤害加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 150,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31777,11 +31777,11 @@
         "Value": {
           "ID": 381,
           "Name": "破甲效果",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 60000,
+          "AIPersonValuePow": -1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31789,11 +31789,11 @@
         "Value": {
           "ID": 382,
           "Name": "攻击附加燃烧几率",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 2,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31801,11 +31801,11 @@
         "Value": {
           "ID": 383,
           "Name": "对本队与攻击目标之间的所有部队造成伤害",
-          "AIPersonValue": 0,
+          "AIPersonValue": 100,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31813,11 +31813,11 @@
         "Value": {
           "ID": 384,
           "Name": "对攻击目标周围相邻的所有部队造成伤害",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 250,
+          "AIPersonValuePow": 1.5,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31825,11 +31825,11 @@
         "Value": {
           "ID": 385,
           "Name": "攻击所有邻接部队（无视城墙）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 250,
+          "AIPersonValuePow": 1.5,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31837,11 +31837,11 @@
         "Value": {
           "ID": 386,
           "Name": "攻击攻击范围内的所有部队",
-          "AIPersonValue": 0,
+          "AIPersonValue": 800,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31849,11 +31849,11 @@
         "Value": {
           "ID": 387,
           "Name": "攻击本回合所有可攻击到的部队（每个一次）",
-          "AIPersonValue": 0,
+          "AIPersonValue": 500,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31861,11 +31861,11 @@
         "Value": {
           "ID": 388,
           "Name": "不会受到反击",
-          "AIPersonValue": 0,
+          "AIPersonValue": 70,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31875,9 +31875,9 @@
           "Name": "攻心计略",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31887,9 +31887,9 @@
           "Name": "扰乱计略",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31899,9 +31899,9 @@
           "Name": "侦查计略",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31911,9 +31911,9 @@
           "Name": "埋伏计略",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31923,9 +31923,9 @@
           "Name": "火攻计略",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31935,9 +31935,9 @@
           "Name": "镇静计略",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31947,9 +31947,9 @@
           "Name": "灭火计略",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31959,9 +31959,9 @@
           "Name": "鼓舞计略",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31971,9 +31971,9 @@
           "Name": "点火计略",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31983,9 +31983,9 @@
           "Name": "医治计略",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -31993,11 +31993,11 @@
         "Value": {
           "ID": 400,
           "Name": "暴击几率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 5,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32005,11 +32005,11 @@
         "Value": {
           "ID": 405,
           "Name": "被暴击几率减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 5,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 4
         }
       },
       {
@@ -32017,11 +32017,11 @@
         "Value": {
           "ID": 410,
           "Name": "部队攻击力提高",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 600,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32029,11 +32029,11 @@
         "Value": {
           "ID": 415,
           "Name": "部队攻击力降低",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": -600,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32041,11 +32041,11 @@
         "Value": {
           "ID": 420,
           "Name": "部队防御力提高",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 600,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32053,11 +32053,11 @@
         "Value": {
           "ID": 425,
           "Name": "部队防御力降低",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": -600,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32065,11 +32065,11 @@
         "Value": {
           "ID": 430,
           "Name": "所在部队经验值加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32077,11 +32077,11 @@
         "Value": {
           "ID": 431,
           "Name": "获得士兵信任度加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32089,11 +32089,11 @@
         "Value": {
           "ID": 440,
           "Name": "所在部队伤兵几率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 5,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32101,11 +32101,11 @@
         "Value": {
           "ID": 450,
           "Name": "攻心加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 26.7,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32113,11 +32113,11 @@
         "Value": {
           "ID": 451,
           "Name": "扰乱加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32125,11 +32125,11 @@
         "Value": {
           "ID": 452,
           "Name": "侦查加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32137,11 +32137,11 @@
         "Value": {
           "ID": 453,
           "Name": "埋伏加强",
-          "AIPersonValue": 0,
+          "AIPersonValue": 40,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32149,11 +32149,11 @@
         "Value": {
           "ID": 454,
           "Name": "火攻加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 26.7,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32161,11 +32161,11 @@
         "Value": {
           "ID": 455,
           "Name": "防火",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32173,11 +32173,11 @@
         "Value": {
           "ID": 456,
           "Name": "鼓舞加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 26.7,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32185,11 +32185,11 @@
         "Value": {
           "ID": 457,
           "Name": "伪报加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32197,11 +32197,11 @@
         "Value": {
           "ID": 458,
           "Name": "挑醒加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32209,11 +32209,11 @@
         "Value": {
           "ID": 460,
           "Name": "情报加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -32221,11 +32221,11 @@
         "Value": {
           "ID": 461,
           "Name": "劫牢加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -32233,11 +32233,11 @@
         "Value": {
           "ID": 462,
           "Name": "破坏加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 80,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -32245,11 +32245,11 @@
         "Value": {
           "ID": 463,
           "Name": "煽动加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 80,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -32257,11 +32257,11 @@
         "Value": {
           "ID": 464,
           "Name": "流言加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 80,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -32269,11 +32269,11 @@
         "Value": {
           "ID": 465,
           "Name": "搜索加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 80,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -32281,11 +32281,11 @@
         "Value": {
           "ID": 466,
           "Name": "说服加强",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 80,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -32293,11 +32293,11 @@
         "Value": {
           "ID": 471,
           "Name": "劫牢必成功",
-          "AIPersonValue": 0,
+          "AIPersonValue": 80,
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -32305,11 +32305,11 @@
         "Value": {
           "ID": 472,
           "Name": "破坏必成功",
-          "AIPersonValue": 0,
+          "AIPersonValue": 80,
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -32317,11 +32317,11 @@
         "Value": {
           "ID": 473,
           "Name": "煽动必成功",
-          "AIPersonValue": 0,
+          "AIPersonValue": 80,
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -32329,11 +32329,11 @@
         "Value": {
           "ID": 474,
           "Name": "流言必成功",
-          "AIPersonValue": 0,
+          "AIPersonValue": 80,
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -32341,11 +32341,11 @@
         "Value": {
           "ID": 475,
           "Name": "搜索必成功",
-          "AIPersonValue": 0,
+          "AIPersonValue": 80,
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -32353,11 +32353,11 @@
         "Value": {
           "ID": 500,
           "Name": "计略成功率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32365,11 +32365,11 @@
         "Value": {
           "ID": 510,
           "Name": "中计几率减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32377,11 +32377,11 @@
         "Value": {
           "ID": 520,
           "Name": "主动攻击使敌方战意减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 8,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32389,11 +32389,11 @@
         "Value": {
           "ID": 530,
           "Name": "反击使敌方战意减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32401,11 +32401,11 @@
         "Value": {
           "ID": 540,
           "Name": "击破部队后战意增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 2,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32413,11 +32413,11 @@
         "Value": {
           "ID": 550,
           "Name": "暴击致敌混乱几率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 5,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32425,11 +32425,11 @@
         "Value": {
           "ID": 560,
           "Name": "计略成功致敌混乱几率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 2.5,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32437,11 +32437,11 @@
         "Value": {
           "ID": 570,
           "Name": "对智谋较低的敌方部队使用计略时必成功",
-          "AIPersonValue": 0,
+          "AIPersonValue": 180,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32449,11 +32449,11 @@
         "Value": {
           "ID": 571,
           "Name": "必然看穿智谋较低的敌方部队的计略",
-          "AIPersonValue": 0,
+          "AIPersonValue": 80,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32461,11 +32461,11 @@
         "Value": {
           "ID": 572,
           "Name": "计略可以影响到相邻部队",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 150,
+          "AIPersonValuePow": 1.5,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32473,11 +32473,11 @@
         "Value": {
           "ID": 573,
           "Name": "计略范围增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 60,
+          "AIPersonValuePow": 1.5,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32485,11 +32485,11 @@
         "Value": {
           "ID": 580,
           "Name": "对智谋较低的部队『攻心』必成功",
-          "AIPersonValue": 0,
+          "AIPersonValue": 100,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32497,11 +32497,11 @@
         "Value": {
           "ID": 581,
           "Name": "对智谋较低的部队『扰乱』必成功",
-          "AIPersonValue": 0,
+          "AIPersonValue": 120,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32509,11 +32509,11 @@
         "Value": {
           "ID": 582,
           "Name": "伏击成功时必造成敌方混乱",
-          "AIPersonValue": 0,
+          "AIPersonValue": 60,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32521,11 +32521,11 @@
         "Value": {
           "ID": 583,
           "Name": "『侦查』得到的情报等级为高级",
-          "AIPersonValue": 0,
+          "AIPersonValue": 70,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32533,11 +32533,11 @@
         "Value": {
           "ID": 584,
           "Name": "对智谋较低的部队『火攻』必成功",
-          "AIPersonValue": 0,
+          "AIPersonValue": 90,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32547,9 +32547,9 @@
           "Name": "对智谋较低的部队『伪报』必成功",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32559,9 +32559,9 @@
           "Name": "对智谋较低的部队『挑醒』必成功",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32569,11 +32569,11 @@
         "Value": {
           "ID": 590,
           "Name": "被『攻心』时无效",
-          "AIPersonValue": 0,
+          "AIPersonValue": 50,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32581,11 +32581,11 @@
         "Value": {
           "ID": 591,
           "Name": "被『扰乱』时无效",
-          "AIPersonValue": 0,
+          "AIPersonValue": 60,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32593,11 +32593,11 @@
         "Value": {
           "ID": 592,
           "Name": "被伏击时不会混乱",
-          "AIPersonValue": 0,
+          "AIPersonValue": 20,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32605,11 +32605,11 @@
         "Value": {
           "ID": 593,
           "Name": "被获得情报的等级降低一级",
-          "AIPersonValue": 0,
+          "AIPersonValue": 30,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32617,11 +32617,11 @@
         "Value": {
           "ID": 594,
           "Name": "被『火攻』时无效",
-          "AIPersonValue": 0,
+          "AIPersonValue": 40,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32631,9 +32631,9 @@
           "Name": "被『伪报』时无效",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32643,9 +32643,9 @@
           "Name": "被『挑醒』时无效",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32653,11 +32653,11 @@
         "Value": {
           "ID": 600,
           "Name": "混乱缩短",
-          "AIPersonValue": 0,
+          "AIPersonValue": 80,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32665,11 +32665,11 @@
         "Value": {
           "ID": 601,
           "Name": "混乱、伪报免疫",
-          "AIPersonValue": 0,
+          "AIPersonValue": 100,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32677,11 +32677,11 @@
         "Value": {
           "ID": 602,
           "Name": "主动攻击无战斗称号部队使之士气减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32689,11 +32689,11 @@
         "Value": {
           "ID": 603,
           "Name": "主动攻击无战斗称号部队使之战意减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 2,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32701,11 +32701,11 @@
         "Value": {
           "ID": 604,
           "Name": "战法的战意消耗减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 12,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32713,11 +32713,11 @@
         "Value": {
           "ID": 605,
           "Name": "计略的战意消耗减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 12,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32725,11 +32725,11 @@
         "Value": {
           "ID": 606,
           "Name": "被火攻不会造成额外伤害",
-          "AIPersonValue": 0,
+          "AIPersonValue": 40,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32737,11 +32737,11 @@
         "Value": {
           "ID": 607,
           "Name": "守城时防御力加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 25,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32749,11 +32749,11 @@
         "Value": {
           "ID": 608,
           "Name": "所在部队在战斗中缺粮状态每天士气下降减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 30,
+          "AIPersonValuePow": -1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32761,11 +32761,11 @@
         "Value": {
           "ID": 609,
           "Name": "混乱时防御力不下降",
-          "AIPersonValue": 0,
+          "AIPersonValue": 90,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32773,11 +32773,11 @@
         "Value": {
           "ID": 610,
           "Name": "不会误伤友军部队",
-          "AIPersonValue": 0,
+          "AIPersonValue": 50,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32785,11 +32785,11 @@
         "Value": {
           "ID": 611,
           "Name": "散射可以影响到斜向",
-          "AIPersonValue": 0,
+          "AIPersonValue": 90,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32797,11 +32797,11 @@
         "Value": {
           "ID": 612,
           "Name": "伤兵每天自动恢复若干个基本单位",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32809,11 +32809,11 @@
         "Value": {
           "ID": 613,
           "Name": "击破部队后可以再次攻击",
-          "AIPersonValue": 0,
+          "AIPersonValue": 60,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32821,11 +32821,11 @@
         "Value": {
           "ID": 615,
           "Name": "所在部队口粮天数增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32833,11 +32833,11 @@
         "Value": {
           "ID": 620,
           "Name": "所在部队每天战意增长",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32845,11 +32845,11 @@
         "Value": {
           "ID": 630,
           "Name": "名声攻击力",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 1800,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32857,11 +32857,11 @@
         "Value": {
           "ID": 640,
           "Name": "名声防御力",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 1800,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32869,11 +32869,11 @@
         "Value": {
           "ID": 650,
           "Name": "视野范围内友军暴击几率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 15,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32881,11 +32881,11 @@
         "Value": {
           "ID": 655,
           "Name": "视野范围内友军被暴击几率减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 15,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32893,11 +32893,11 @@
         "Value": {
           "ID": 660,
           "Name": "视野范围内友军战意每天增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 18,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32905,11 +32905,11 @@
         "Value": {
           "ID": 665,
           "Name": "视野范围内非友军战意每天减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 18,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32917,11 +32917,11 @@
         "Value": {
           "ID": 670,
           "Name": "视野范围内友军计略成功率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 12,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32929,11 +32929,11 @@
         "Value": {
           "ID": 675,
           "Name": "视野范围内友军中计几率减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 12,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32941,11 +32941,11 @@
         "Value": {
           "ID": 680,
           "Name": "视野范围内友军攻击力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 1800,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32953,11 +32953,11 @@
         "Value": {
           "ID": 685,
           "Name": "视野范围内非友军攻击力减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 1800,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32965,11 +32965,11 @@
         "Value": {
           "ID": 690,
           "Name": "视野范围内友军防御力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 1800,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32977,11 +32977,11 @@
         "Value": {
           "ID": 695,
           "Name": "视野范围内非友军防御力减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 1800,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -32989,11 +32989,11 @@
         "Value": {
           "ID": 700,
           "Name": "避免被围攻几率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 2,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33001,11 +33001,11 @@
         "Value": {
           "ID": 710,
           "Name": "围攻致乱率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33015,9 +33015,9 @@
           "Name": "伪报",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33027,9 +33027,9 @@
           "Name": "挑衅",
           "AIPersonValue": 0,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33037,11 +33037,11 @@
         "Value": {
           "ID": 800,
           "Name": "克弩兵（攻）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33049,11 +33049,11 @@
         "Value": {
           "ID": 801,
           "Name": "克弩兵（防）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33061,11 +33061,11 @@
         "Value": {
           "ID": 802,
           "Name": "克骑兵（攻）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33073,11 +33073,11 @@
         "Value": {
           "ID": 803,
           "Name": "克骑兵（防）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33085,11 +33085,11 @@
         "Value": {
           "ID": 804,
           "Name": "克步兵（攻）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33097,11 +33097,11 @@
         "Value": {
           "ID": 805,
           "Name": "克步兵（防）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33109,11 +33109,11 @@
         "Value": {
           "ID": 824,
           "Name": "克水军（攻）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33121,11 +33121,11 @@
         "Value": {
           "ID": 825,
           "Name": "克水军（防）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33133,11 +33133,11 @@
         "Value": {
           "ID": 832,
           "Name": "克器械（攻）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33145,11 +33145,11 @@
         "Value": {
           "ID": 833,
           "Name": "克器械（防）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33157,11 +33157,11 @@
         "Value": {
           "ID": 850,
           "Name": "不能使用战法",
-          "AIPersonValue": 0,
+          "AIPersonValue": -200,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33169,11 +33169,11 @@
         "Value": {
           "ID": 851,
           "Name": "不能使用计略",
-          "AIPersonValue": 0,
+          "AIPersonValue": -400,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33181,11 +33181,11 @@
         "Value": {
           "ID": 852,
           "Name": "只能移动",
-          "AIPersonValue": 0,
+          "AIPersonValue": -1000,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33193,11 +33193,11 @@
         "Value": {
           "ID": 860,
           "Name": "允许使用特定计略",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 5,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -33205,11 +33205,11 @@
         "Value": {
           "ID": 900,
           "Name": "单挑胜利几率提高",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 3,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -33217,11 +33217,11 @@
         "Value": {
           "ID": 910,
           "Name": "论战胜利几率提高",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 3,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -33229,11 +33229,11 @@
         "Value": {
           "ID": 1000,
           "Name": "农业上限增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.375,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33241,11 +33241,11 @@
         "Value": {
           "ID": 1001,
           "Name": "商业上限增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.375,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33253,11 +33253,11 @@
         "Value": {
           "ID": 1002,
           "Name": "技术上限增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.375,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33265,11 +33265,11 @@
         "Value": {
           "ID": 1003,
           "Name": "耐久上限增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.375,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33277,11 +33277,11 @@
         "Value": {
           "ID": 1004,
           "Name": "统治上限增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 3.75,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33289,11 +33289,11 @@
         "Value": {
           "ID": 1005,
           "Name": "民心上限增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.375,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33301,11 +33301,11 @@
         "Value": {
           "ID": 1020,
           "Name": "设施空间增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.375,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33313,11 +33313,11 @@
         "Value": {
           "ID": 1030,
           "Name": "疏通粮道的费用减半",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.375,
+          "AIPersonValuePow": -1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33325,11 +33325,11 @@
         "Value": {
           "ID": 1040,
           "Name": "可以编组运兵船",
-          "AIPersonValue": 0,
+          "AIPersonValue": 0.375,
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33337,11 +33337,11 @@
         "Value": {
           "ID": 1050,
           "Name": "人口上限加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 750,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33349,11 +33349,11 @@
         "Value": {
           "ID": 1060,
           "Name": "资金上限增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 5E-05,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33361,11 +33361,11 @@
         "Value": {
           "ID": 1070,
           "Name": "粮草上限增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 5E-07,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33373,11 +33373,11 @@
         "Value": {
           "ID": 1100,
           "Name": "新建某类兵种编队所需资金减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 12.5,
+          "AIPersonValuePow": -1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33389,7 +33389,7 @@
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33397,11 +33397,11 @@
         "Value": {
           "ID": 1200,
           "Name": "出征某类兵种的攻击力提高若干",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 1000,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33409,11 +33409,11 @@
         "Value": {
           "ID": 1300,
           "Name": "出征某类兵种的防御力提高若干",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 1000,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33421,11 +33421,11 @@
         "Value": {
           "ID": 2000,
           "Name": "某类兵种使用战法时防御力提高",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 100,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33433,11 +33433,11 @@
         "Value": {
           "ID": 2010,
           "Name": "某类兵种使用战法时攻击力提高",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 100,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33445,11 +33445,11 @@
         "Value": {
           "ID": 2020,
           "Name": "某类兵种使用战法时暴击几率提高",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.83,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33457,11 +33457,11 @@
         "Value": {
           "ID": 2030,
           "Name": "某类兵种使用战法时抗暴几率提高",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.83,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33473,7 +33473,7 @@
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33481,11 +33481,11 @@
         "Value": {
           "ID": 2200,
           "Name": "某类兵种一定几率抵御弓箭攻击",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33493,11 +33493,11 @@
         "Value": {
           "ID": 2210,
           "Name": "某类兵种攻击范围增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 100,
+          "AIPersonValuePow": 1.5,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33505,11 +33505,11 @@
         "Value": {
           "ID": 2220,
           "Name": "某类兵种一定几率攻击不受到反击",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 1,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33521,7 +33521,7 @@
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33529,11 +33529,11 @@
         "Value": {
           "ID": 2240,
           "Name": "某类兵种攻击力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 300,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33541,11 +33541,11 @@
         "Value": {
           "ID": 2250,
           "Name": "某类兵种防御力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 300,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33553,11 +33553,11 @@
         "Value": {
           "ID": 2300,
           "Name": "部队的战意上限增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 2,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33565,11 +33565,11 @@
         "Value": {
           "ID": 2310,
           "Name": "部队地形乘数增加（上限为1）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 500,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33577,11 +33577,11 @@
         "Value": {
           "ID": 2320,
           "Name": "部队视野内情报等级为高级",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 30,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33589,11 +33589,11 @@
         "Value": {
           "ID": 2321,
           "Name": "部队视野范围增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 150,
+          "AIPersonValuePow": 1.5,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33601,11 +33601,11 @@
         "Value": {
           "ID": 2330,
           "Name": "部队被暴击几率减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 5,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33613,11 +33613,11 @@
         "Value": {
           "ID": 2331,
           "Name": "部队暴击几率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 5,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33625,11 +33625,11 @@
         "Value": {
           "ID": 2340,
           "Name": "物理攻击致敌混乱持续时间增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 80,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33637,11 +33637,11 @@
         "Value": {
           "ID": 2350,
           "Name": "部队被攻击时战意增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 400,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33649,11 +33649,11 @@
         "Value": {
           "ID": 2360,
           "Name": "中计几率减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33661,11 +33661,11 @@
         "Value": {
           "ID": 2361,
           "Name": "计略成功几率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33673,11 +33673,11 @@
         "Value": {
           "ID": 2370,
           "Name": "计略失败时战意增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33685,11 +33685,11 @@
         "Value": {
           "ID": 2371,
           "Name": "计略成功时战意增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 300,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33697,11 +33697,11 @@
         "Value": {
           "ID": 2400,
           "Name": "粮道疏通能力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 3,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33713,7 +33713,7 @@
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33721,11 +33721,11 @@
         "Value": {
           "ID": 2420,
           "Name": "粮道补给半径增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 100,
+          "AIPersonValuePow": 1.5,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33733,11 +33733,11 @@
         "Value": {
           "ID": 2430,
           "Name": "粮道消耗率减半",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 400,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33745,11 +33745,11 @@
         "Value": {
           "ID": 2500,
           "Name": "某类兵种暴击率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 2,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33757,11 +33757,11 @@
         "Value": {
           "ID": 2510,
           "Name": "某类兵种抗暴率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 2,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33769,11 +33769,11 @@
         "Value": {
           "ID": 2520,
           "Name": "某类兵种破坏力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33781,11 +33781,11 @@
         "Value": {
           "ID": 2530,
           "Name": "某类兵种速度加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 20,
+          "AIPersonValuePow": 2,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33793,11 +33793,11 @@
         "Value": {
           "ID": 2540,
           "Name": "某类兵种视野增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 75,
+          "AIPersonValuePow": 1.5,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33805,11 +33805,11 @@
         "Value": {
           "ID": 2550,
           "Name": "某类兵种计略成功率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 1.6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33817,11 +33817,11 @@
         "Value": {
           "ID": 2560,
           "Name": "某类兵种计略抵抗率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 1.6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 6
         }
       },
       {
@@ -33829,11 +33829,11 @@
         "Value": {
           "ID": 3000,
           "Name": "建筑每月获得资金增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.05,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33841,11 +33841,11 @@
         "Value": {
           "ID": 3010,
           "Name": "建筑每月获得粮草增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.0008,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33853,11 +33853,11 @@
         "Value": {
           "ID": 3020,
           "Name": "建筑每月获得资金加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 1000,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33865,11 +33865,11 @@
         "Value": {
           "ID": 3030,
           "Name": "建筑每月获得粮草加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 1000,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33877,11 +33877,11 @@
         "Value": {
           "ID": 3040,
           "Name": "建筑内人物工作效率提高",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 2500,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33889,11 +33889,11 @@
         "Value": {
           "ID": 3050,
           "Name": "建筑视野范围增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 50,
+          "AIPersonValuePow": 1.5,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33901,11 +33901,11 @@
         "Value": {
           "ID": 3060,
           "Name": "建筑高级视野范围内友军每天战意增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 25,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33917,7 +33917,7 @@
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33925,11 +33925,11 @@
         "Value": {
           "ID": 3090,
           "Name": "建筑内录用所需费用减半",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 25,
+          "AIPersonValuePow": -1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33937,11 +33937,11 @@
         "Value": {
           "ID": 3091,
           "Name": "建筑内褒奖所需费用减半",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 25,
+          "AIPersonValuePow": -1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33949,11 +33949,11 @@
         "Value": {
           "ID": 3092,
           "Name": "说服所需费用减半",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 25,
+          "AIPersonValuePow": -1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33961,11 +33961,11 @@
         "Value": {
           "ID": 3100,
           "Name": "建筑内训练速度加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 25,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33973,11 +33973,11 @@
         "Value": {
           "ID": 3110,
           "Name": "建筑内新补充的士兵有更高的士气",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.67,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33985,11 +33985,11 @@
         "Value": {
           "ID": 3120,
           "Name": "建筑内新补充的士兵有更高的战意",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.67,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -33997,11 +33997,11 @@
         "Value": {
           "ID": 3130,
           "Name": "建筑内伤兵恢复速度加倍",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 50,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34009,11 +34009,11 @@
         "Value": {
           "ID": 3140,
           "Name": "设施保护",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 50,
+          "AIPersonValuePow": -1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34021,11 +34021,11 @@
         "Value": {
           "ID": 3152,
           "Name": "破坏费用减半",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 2.5,
+          "AIPersonValuePow": -1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34033,11 +34033,11 @@
         "Value": {
           "ID": 3153,
           "Name": "煽动费用减半",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 2.5,
+          "AIPersonValuePow": -1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34045,11 +34045,11 @@
         "Value": {
           "ID": 3154,
           "Name": "流言费用减半",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 2.5,
+          "AIPersonValuePow": -1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34057,11 +34057,11 @@
         "Value": {
           "ID": 3156,
           "Name": "清野费用减半",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 2.5,
+          "AIPersonValuePow": -1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34069,11 +34069,11 @@
         "Value": {
           "ID": 3157,
           "Name": "劫牢费用减半",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 2.5,
+          "AIPersonValuePow": -1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34081,11 +34081,11 @@
         "Value": {
           "ID": 3200,
           "Name": "农业每天增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 30,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34093,11 +34093,11 @@
         "Value": {
           "ID": 3210,
           "Name": "商业每天增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 30,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34105,11 +34105,11 @@
         "Value": {
           "ID": 3220,
           "Name": "技术每天增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 30,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34117,11 +34117,11 @@
         "Value": {
           "ID": 3230,
           "Name": "统治每天增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 30,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34129,11 +34129,11 @@
         "Value": {
           "ID": 3240,
           "Name": "民心每天增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 30,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34141,11 +34141,11 @@
         "Value": {
           "ID": 3250,
           "Name": "耐久每天增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 30,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34153,11 +34153,11 @@
         "Value": {
           "ID": 3260,
           "Name": "人口增长率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 1E+07,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34169,7 +34169,7 @@
           "AIPersonValuePow": 0,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34177,11 +34177,11 @@
         "Value": {
           "ID": 3300,
           "Name": "势力声望每天增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34189,11 +34189,11 @@
         "Value": {
           "ID": 3310,
           "Name": "势力技巧点数每天增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.03,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34201,11 +34201,11 @@
         "Value": {
           "ID": 3400,
           "Name": "建筑内粮草衰减率变化",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 30,
+          "AIPersonValuePow": -1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34213,11 +34213,11 @@
         "Value": {
           "ID": 4000,
           "Name": "攻击力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 600,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34225,11 +34225,11 @@
         "Value": {
           "ID": 4010,
           "Name": "防御力加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 600,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34237,11 +34237,11 @@
         "Value": {
           "ID": 4020,
           "Name": "对建筑的伤害率加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 50,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34249,11 +34249,11 @@
         "Value": {
           "ID": 4030,
           "Name": "击破部队后可以再次攻击",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 60,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34261,11 +34261,11 @@
         "Value": {
           "ID": 4040,
           "Name": "每天恢复混乱状态",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 90,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34273,11 +34273,11 @@
         "Value": {
           "ID": 4050,
           "Name": "必然发起围攻",
-          "AIPersonValue": 0,
+          "AIPersonValue": 120,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34285,11 +34285,11 @@
         "Value": {
           "ID": 4051,
           "Name": "必然不会被围攻",
-          "AIPersonValue": 0,
+          "AIPersonValue": 120,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34297,11 +34297,11 @@
         "Value": {
           "ID": 4060,
           "Name": "攻击波及周边部队",
-          "AIPersonValue": 0,
+          "AIPersonValue": 250,
           "AIPersonValuePow": 0,
-          "Combat": false,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34309,11 +34309,11 @@
         "Value": {
           "ID": 5000,
           "Name": "攻击有若干几率必暴击",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34321,11 +34321,11 @@
         "Value": {
           "ID": 5010,
           "Name": "被攻击时士气不会下降",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 60,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34333,11 +34333,11 @@
         "Value": {
           "ID": 5020,
           "Name": "被攻击时战意不会下降",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 60,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34345,11 +34345,11 @@
         "Value": {
           "ID": 5030,
           "Name": "攻击使敌方特技持续时间减少若干天",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 80,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34357,11 +34357,11 @@
         "Value": {
           "ID": 5040,
           "Name": "攻击有若干几率产生破甲效果（破甲效果为100）",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34369,11 +34369,11 @@
         "Value": {
           "ID": 5050,
           "Name": "攻击时有若干几率造成双倍伤害",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34381,11 +34381,11 @@
         "Value": {
           "ID": 5055,
           "Name": "攻击时有若干几率造成三倍伤害",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34393,11 +34393,11 @@
         "Value": {
           "ID": 5060,
           "Name": "被攻击时有若干几率伤害减半",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34405,11 +34405,11 @@
         "Value": {
           "ID": 5070,
           "Name": "攻击使敌军士气下降若干",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 20,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34417,11 +34417,11 @@
         "Value": {
           "ID": 5080,
           "Name": "有若干几率抵抗攻击",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 8,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34429,11 +34429,11 @@
         "Value": {
           "ID": 5090,
           "Name": "有若干几率抵抗弓箭攻击",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34441,11 +34441,11 @@
         "Value": {
           "ID": 5100,
           "Name": "攻击有若干几率使敌军混乱",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 8,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34453,11 +34453,11 @@
         "Value": {
           "ID": 5110,
           "Name": "部队被击破时有额外的若干几率不被俘虏",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 0.5,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34465,11 +34465,11 @@
         "Value": {
           "ID": 6000,
           "Name": "统率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34477,11 +34477,11 @@
         "Value": {
           "ID": 6010,
           "Name": "武力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34489,11 +34489,11 @@
         "Value": {
           "ID": 6020,
           "Name": "智力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34501,11 +34501,11 @@
         "Value": {
           "ID": 6030,
           "Name": "政治增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34513,11 +34513,11 @@
         "Value": {
           "ID": 6040,
           "Name": "魅力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34525,11 +34525,11 @@
         "Value": {
           "ID": 6050,
           "Name": "自身经验获得率加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 120,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34537,11 +34537,11 @@
         "Value": {
           "ID": 6060,
           "Name": "所在部队经验获得率加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 240,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -34549,11 +34549,11 @@
         "Value": {
           "ID": 6070,
           "Name": "所在建筑经验获得率加成",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 600,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34561,11 +34561,11 @@
         "Value": {
           "ID": 6100,
           "Name": "击破部队时增加捕获机率",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -34573,11 +34573,11 @@
         "Value": {
           "ID": 6110,
           "Name": "增加城池捕获机率",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 3,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34585,11 +34585,11 @@
         "Value": {
           "ID": 6120,
           "Name": "降低城池俘虏逃跑机率",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 3,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34597,11 +34597,11 @@
         "Value": {
           "ID": 6130,
           "Name": "自身被俘时增加逃跑机率",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 2,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34609,11 +34609,11 @@
         "Value": {
           "ID": 6140,
           "Name": "所在城池忠诚不多于某值的俘虏忠诚每天下降增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 1,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34621,11 +34621,11 @@
         "Value": {
           "ID": 6150,
           "Name": "建筑武将每天统率经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 60,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34633,11 +34633,11 @@
         "Value": {
           "ID": 6155,
           "Name": "建筑武将每天武勇经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 60,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34645,11 +34645,11 @@
         "Value": {
           "ID": 6160,
           "Name": "建筑武将每天智力经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 60,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34657,11 +34657,11 @@
         "Value": {
           "ID": 6165,
           "Name": "建筑武将每天政治经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 60,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34669,11 +34669,11 @@
         "Value": {
           "ID": 6170,
           "Name": "建筑武将每天魅力经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 60,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34681,11 +34681,11 @@
         "Value": {
           "ID": 6175,
           "Name": "建筑武将每天名声增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 1.2,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34693,11 +34693,11 @@
         "Value": {
           "ID": 6190,
           "Name": "说服时无视一定的相性限制",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34705,11 +34705,11 @@
         "Value": {
           "ID": 6210,
           "Name": "部队视野增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1.5,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -34717,11 +34717,11 @@
         "Value": {
           "ID": 6220,
           "Name": "部队射程增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 80,
+          "AIPersonValuePow": 1.5,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -34729,11 +34729,11 @@
         "Value": {
           "ID": 6230,
           "Name": "对城内的部队攻击力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 100,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -34741,11 +34741,11 @@
         "Value": {
           "ID": 6240,
           "Name": "部队每天士气增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 12,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -34753,11 +34753,11 @@
         "Value": {
           "ID": 6250,
           "Name": "特技天数增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 40,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -34765,11 +34765,11 @@
         "Value": {
           "ID": 6260,
           "Name": "视野范围内友军行动力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 7.5,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -34777,11 +34777,11 @@
         "Value": {
           "ID": 6265,
           "Name": "视野范围内敌军行动力减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 15,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -34789,11 +34789,11 @@
         "Value": {
           "ID": 6270,
           "Name": "移动速率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 5,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -34801,11 +34801,11 @@
         "Value": {
           "ID": 6280,
           "Name": "视野范围内友军移动速率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 15,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -34813,11 +34813,11 @@
         "Value": {
           "ID": 6285,
           "Name": "视野范围内敌军移动速率减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 15,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -34825,11 +34825,11 @@
         "Value": {
           "ID": 6300,
           "Name": "怀孕或致孕机率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34837,11 +34837,11 @@
         "Value": {
           "ID": 6310,
           "Name": "诞下子女能力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 30,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34849,11 +34849,11 @@
         "Value": {
           "ID": 6320,
           "Name": "诞下子女有较高机率取得技能",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34861,11 +34861,11 @@
         "Value": {
           "ID": 6330,
           "Name": "诞下子女有较高机率取得特技",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34873,11 +34873,11 @@
         "Value": {
           "ID": 6340,
           "Name": "诞下子女有较高机率取得更高级称号",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 100,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34885,11 +34885,11 @@
         "Value": {
           "ID": 6350,
           "Name": "有机率诞下胞胎",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 5,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34897,11 +34897,11 @@
         "Value": {
           "ID": 6360,
           "Name": "同势力的子女忠诚度增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 1.6,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34909,11 +34909,11 @@
         "Value": {
           "ID": 6370,
           "Name": "诞下子女名声增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.02,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -34921,11 +34921,11 @@
         "Value": {
           "ID": 6400,
           "Name": "城池设施不需要资金运作",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 70,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34933,11 +34933,11 @@
         "Value": {
           "ID": 6410,
           "Name": "增加设施耐久恢复度",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 30,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34945,11 +34945,11 @@
         "Value": {
           "ID": 6420,
           "Name": "降低发生某灾难的机率",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 0.1,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34957,11 +34957,11 @@
         "Value": {
           "ID": 6430,
           "Name": "降低某灾难的破坏率",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34969,11 +34969,11 @@
         "Value": {
           "ID": 6440,
           "Name": "减少设施兴建时间",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 300,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34981,11 +34981,11 @@
         "Value": {
           "ID": 6450,
           "Name": "增加邻近城池出现灾害机率(万分之)",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -34993,11 +34993,11 @@
         "Value": {
           "ID": 6460,
           "Name": "增加兵役人口比例上限",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 100,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -35005,11 +35005,11 @@
         "Value": {
           "ID": 6470,
           "Name": "减少城墙的破坏",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 300,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -35017,11 +35017,11 @@
         "Value": {
           "ID": 6480,
           "Name": "减少部队运输时的移动天数",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 240,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -35029,11 +35029,11 @@
         "Value": {
           "ID": 6490,
           "Name": "减少部队运输时的资金消耗",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 80,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -35041,11 +35041,11 @@
         "Value": {
           "ID": 6495,
           "Name": "减少部队运输时的粮草消耗",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 80,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -35053,11 +35053,11 @@
         "Value": {
           "ID": 6500,
           "Name": "击破部队时有机率夺取敌方宝物",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 1,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35065,11 +35065,11 @@
         "Value": {
           "ID": 6505,
           "Name": "攻击时敌军伤兵率为某值",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 7,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35077,11 +35077,11 @@
         "Value": {
           "ID": 6510,
           "Name": "自身疲累度一定机率不会增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 2,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35089,11 +35089,11 @@
         "Value": {
           "ID": 6515,
           "Name": "同部队武将疲累度一定机率不会增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35101,11 +35101,11 @@
         "Value": {
           "ID": 6520,
           "Name": "视野范围内友军疲累度一定机率下降",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 12,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35113,11 +35113,11 @@
         "Value": {
           "ID": 6525,
           "Name": "视野范围内非友军疲累度一定机率增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 12,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35125,11 +35125,11 @@
         "Value": {
           "ID": 6530,
           "Name": "攻击时敌军伤兵减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 30,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35137,11 +35137,11 @@
         "Value": {
           "ID": 6535,
           "Name": "暴击时敌军伤兵减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35149,11 +35149,11 @@
         "Value": {
           "ID": 6540,
           "Name": "视野范围内友军伤兵回复",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 7.2,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35161,11 +35161,11 @@
         "Value": {
           "ID": 6545,
           "Name": "视野范围内非友军伤兵减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 7.2,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35173,11 +35173,11 @@
         "Value": {
           "ID": 6550,
           "Name": "视野范围内友军兵力增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 10.8,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35185,11 +35185,11 @@
         "Value": {
           "ID": 6555,
           "Name": "视野范围内非友军兵力减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 10.8,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35197,11 +35197,11 @@
         "Value": {
           "ID": 6560,
           "Name": "视野范围内友军士气增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 36,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35209,11 +35209,11 @@
         "Value": {
           "ID": 6565,
           "Name": "视野范围内非友军士气减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 105,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35221,11 +35221,11 @@
         "Value": {
           "ID": 6570,
           "Name": "攻击时能夺取敌方士兵",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 3600,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35233,11 +35233,11 @@
         "Value": {
           "ID": 6575,
           "Name": "攻击时能夺取敌方伤兵",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 2400,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35245,11 +35245,11 @@
         "Value": {
           "ID": 6580,
           "Name": "攻击时敌军疲累度增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 50,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35257,11 +35257,11 @@
         "Value": {
           "ID": 6585,
           "Name": "暴击时敌军疲累度增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 20,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35269,11 +35269,11 @@
         "Value": {
           "ID": 6595,
           "Name": "攻击时可夺得敌军粮草",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 0.0004,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35281,11 +35281,11 @@
         "Value": {
           "ID": 6600,
           "Name": "减少开发技术所需声望",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 400,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -35293,11 +35293,11 @@
         "Value": {
           "ID": 6610,
           "Name": "减少开发技术所需技巧点",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 500,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -35305,11 +35305,11 @@
         "Value": {
           "ID": 6620,
           "Name": "减少开发技术所需时间",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 300,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -35317,11 +35317,11 @@
         "Value": {
           "ID": 6630,
           "Name": "减少开发技术所需资金",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 200,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 5
         }
       },
       {
@@ -35329,11 +35329,11 @@
         "Value": {
           "ID": 6700,
           "Name": "击破敌军时敌方主将统率一定机率下降",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35341,11 +35341,11 @@
         "Value": {
           "ID": 6705,
           "Name": "击破部队时自己统率一定机率上升",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35353,11 +35353,11 @@
         "Value": {
           "ID": 6710,
           "Name": "击破敌军时敌方主将武力一定机率下降",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35365,11 +35365,11 @@
         "Value": {
           "ID": 6715,
           "Name": "击破部队时自己武力一定机率上升",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35377,11 +35377,11 @@
         "Value": {
           "ID": 6720,
           "Name": "击破敌军时敌方主将智力一定机率下降",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35389,11 +35389,11 @@
         "Value": {
           "ID": 6725,
           "Name": "击破部队时自己智力一定机率上升",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35401,11 +35401,11 @@
         "Value": {
           "ID": 6730,
           "Name": "击破敌军时敌方主将政治一定机率下降",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35413,11 +35413,11 @@
         "Value": {
           "ID": 6735,
           "Name": "击破部队时自己政治一定机率上升",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35425,11 +35425,11 @@
         "Value": {
           "ID": 6740,
           "Name": "击破敌军时敌方主将魅力一定机率下降",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35437,11 +35437,11 @@
         "Value": {
           "ID": 6745,
           "Name": "击破部队时自己魅力一定机率上升",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 4,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35449,11 +35449,11 @@
         "Value": {
           "ID": 6750,
           "Name": "击破敌军时敌方主将名声一定机率下降",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 0.2,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35461,11 +35461,11 @@
         "Value": {
           "ID": 6755,
           "Name": "击破部队时自己名声一定机率上升",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 0.2,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35473,11 +35473,11 @@
         "Value": {
           "ID": 6760,
           "Name": "击破敌军时敌方主将一定机率忘记技能",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35485,11 +35485,11 @@
         "Value": {
           "ID": 6770,
           "Name": "部队武将每天统率经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 12,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35497,11 +35497,11 @@
         "Value": {
           "ID": 6775,
           "Name": "部队武将每天武勇经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 12,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35509,11 +35509,11 @@
         "Value": {
           "ID": 6780,
           "Name": "部队武将每天智力经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 12,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35521,11 +35521,11 @@
         "Value": {
           "ID": 6785,
           "Name": "部队武将每天政治经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 12,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35533,11 +35533,11 @@
         "Value": {
           "ID": 6790,
           "Name": "部队武将每天魅力经验增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 12,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35545,11 +35545,11 @@
         "Value": {
           "ID": 6795,
           "Name": "部队武将每天声望增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 0.24,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35557,11 +35557,11 @@
         "Value": {
           "ID": 6800,
           "Name": "勇猛度增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 20,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35569,11 +35569,11 @@
         "Value": {
           "ID": 6810,
           "Name": "冷静度增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 20,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35581,11 +35581,11 @@
         "Value": {
           "ID": 6820,
           "Name": "寿命增加",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
+          "AIPersonValue": 10,
+          "AIPersonValuePow": 1,
           "Combat": false,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 2
         }
       },
       {
@@ -35593,11 +35593,11 @@
         "Value": {
           "ID": 6930,
           "Name": "计略成功时敌方伤兵减少",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 0.08,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35605,11 +35605,11 @@
         "Value": {
           "ID": 6935,
           "Name": "计略成功时敌方武将忠诚度下降",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 50,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35617,11 +35617,11 @@
         "Value": {
           "ID": 6945,
           "Name": "计略成功时可夺得敌军粮草",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 0.0002,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35629,11 +35629,11 @@
         "Value": {
           "ID": 6990,
           "Name": "视野范围内友军有一定机率从混乱回复",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 3.6,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       },
       {
@@ -35641,11 +35641,11 @@
         "Value": {
           "ID": 6995,
           "Name": "视野范围内非友军有一定机率陷入混乱",
-          "AIPersonValue": 0,
-          "AIPersonValuePow": 0,
-          "Combat": false,
+          "AIPersonValue": 16.2,
+          "AIPersonValuePow": 1,
+          "Combat": true,
           "TroopLeaderValid": false,
-          "Type": 0
+          "Type": 3
         }
       }
     ]

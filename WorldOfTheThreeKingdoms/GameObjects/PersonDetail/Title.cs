@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Conditions;
 using GameObjects.Influences;
 using GameObjects.TroopDetail;
@@ -248,10 +249,10 @@ namespace GameObjects.PersonDetail
                 }
                 if (cnt >= this.FactionLimit) return false;
             }
-            if (base.Scenario.Persons.Count > this.MapLimit)
+            if (Session.Current.Scenario.Persons.Count > this.MapLimit)
             {
                 int cnt = 0;
-                foreach (Person p in base.Scenario.Persons)
+                foreach (Person p in Session.Current.Scenario.Persons)
                 {
                     if ((p.Alive || p.Available) && p.Titles.Contains(this))
                     {
@@ -608,9 +609,9 @@ namespace GameObjects.PersonDetail
             }
         }
 
-        public static Dictionary<TitleKind, List<Title>> GetKindTitleDictionary(GameScenario scen)
+        public static Dictionary<TitleKind, List<Title>> GetKindTitleDictionary()
         {
-            GameObjectList rawTitles = scen.GameCommonData.AllTitles.GetTitleList().GetRandomList();
+            GameObjectList rawTitles = Session.Current.Scenario.GameCommonData.AllTitles.GetTitleList().GetRandomList();
             Dictionary<TitleKind, List<Title>> titles = new Dictionary<TitleKind, List<Title>>();
             foreach (Title t in rawTitles)
             {

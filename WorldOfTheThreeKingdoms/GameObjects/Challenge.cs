@@ -14,7 +14,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Diagnostics;
-
+using GameManager;
 
 namespace GameObjects
 {
@@ -23,7 +23,7 @@ namespace GameObjects
         private bool ChallengeOftenShow = false;  //暴击必然触发单挑，调试单挑程序用，默认为false
 
 
-        public void ChallgenEvent(Troop sourceTroop, Troop troop, TroopDamage damage, GameScenario gameScenario)
+        public void ChallgenEvent(Troop sourceTroop, Troop troop, TroopDamage damage)
         {
             if ((!sourceTroop.IsFriendly(troop.BelongedFaction) && !sourceTroop.AirOffence) && (this.ChallengeOftenShow || GameObject.Chance(20)))
             {
@@ -38,18 +38,18 @@ namespace GameObjects
                     int chance = Person.ChanlengeWinningChance(maxStrengthPerson, destination);
                     if (this.ChallengeOftenShow || (maxStrengthPerson.Character.ChallengeChance + chance) >= 60)
                     {
-                        this.challengeHappen(damage, maxStrengthPerson, destination, chance, gameScenario);
+                        this.challengeHappen(damage, maxStrengthPerson, destination, chance);
                     }
                 }
             }
         }
 
-        private void challengeHappen(TroopDamage damage, Person maxStrengthPerson, Person destination, int chance,GameScenario scenario)
+        private void challengeHappen(TroopDamage damage, Person maxStrengthPerson, Person destination, int chance)
         {
             int flag = 0;
             damage.ChallengeHappened = true;  //单挑发生
-            if ((GlobalVariables.ShowChallengeAnimation) &&
-                (scenario.IsPlayer(maxStrengthPerson.BelongedFaction) || scenario.IsPlayer(destination.BelongedFaction) || GlobalVariables.SkyEye || this.ChallengeOftenShow))  //单挑双方有玩家的武将才演示
+            if ((Session.GlobalVariables.ShowChallengeAnimation) &&
+                (Session.Current.Scenario.IsPlayer(maxStrengthPerson.BelongedFaction) || Session.Current.Scenario.IsPlayer(destination.BelongedFaction) || Session.GlobalVariables.SkyEye || this.ChallengeOftenShow))  //单挑双方有玩家的武将才演示
             {
                 
                 try
@@ -142,28 +142,28 @@ namespace GameObjects
             //return myProcess.ExitCode;
         }
 
-        public void HandleChallengeResult(TroopDamage damage, int result, Troop sourceTroop, Person sourcePerson, Troop destinationTroop, Person destinationPerson, GameScenario scenario)
+        public void HandleChallengeResult(TroopDamage damage, int result, Troop sourceTroop, Person sourcePerson, Troop destinationTroop, Person destinationPerson)
         {
-            scenario.GameScreen.TroopPersonChallenge(result, sourceTroop, sourcePerson, destinationTroop, destinationPerson);
+            Session.MainGame.mainGameScreen.TroopPersonChallenge(result, sourceTroop, sourcePerson, destinationTroop, destinationPerson);
 
             switch (result)
             {
                 case 1: //P1武将胜利
-                    sourcePerson.Scenario.YearTable.addChallengeEntry(sourcePerson.Scenario.Date, sourcePerson, destinationPerson, "被打下馬");
+                    Session.Current.Scenario.YearTable.addChallengeEntry(Session.Current.Scenario.Date, sourcePerson, destinationPerson, "被打下馬");
                     damage.SourceMoraleChange += 20;
                     damage.DestinationMoraleChange -= 20;
                     damage.SourceCombativityChange += 20;
                     damage.DestinationCombativityChange -= 20;  //第2只军队战意下降
                     break;
                 case 2: //2：P2武将胜利
-                    sourcePerson.Scenario.YearTable.addChallengeEntry(sourcePerson.Scenario.Date, destinationPerson, sourcePerson, "被打下馬");
+                    Session.Current.Scenario.YearTable.addChallengeEntry(Session.Current.Scenario.Date, destinationPerson, sourcePerson, "被打下馬");
                     damage.SourceMoraleChange -= 20;
                     damage.DestinationMoraleChange += 20;
                     damage.SourceCombativityChange -= 20;
                     damage.DestinationCombativityChange += 20;
                     break;
                 case 3: //3：P1武将被杀
-                    sourcePerson.Scenario.YearTable.addChallengeEntry(sourcePerson.Scenario.Date, destinationPerson, sourcePerson, "被擊殺");
+                    Session.Current.Scenario.YearTable.addChallengeEntry(Session.Current.Scenario.Date, destinationPerson, sourcePerson, "被擊殺");
                     this.challengePersonDie(sourcePerson,sourceTroop, destinationPerson);
                     damage.SourceMoraleChange -= 30;
                     damage.DestinationMoraleChange += 30;
@@ -171,7 +171,7 @@ namespace GameObjects
                     damage.DestinationCombativityChange += 30;
                     break;
                 case 4: //4：P2武将被杀
-                    sourcePerson.Scenario.YearTable.addChallengeEntry(sourcePerson.Scenario.Date, sourcePerson, destinationPerson, "被擊殺");
+                    Session.Current.Scenario.YearTable.addChallengeEntry(Session.Current.Scenario.Date, sourcePerson, destinationPerson, "被擊殺");
                     this.challengePersonDie(destinationPerson, destinationTroop, sourcePerson);
                     damage.SourceMoraleChange += 30;
                     damage.DestinationMoraleChange -= 30;
@@ -179,17 +179,17 @@ namespace GameObjects
                     damage.DestinationCombativityChange -= 30;
                     break;
                 case 5: //5：P1武将逃跑
-                    sourcePerson.Scenario.YearTable.addChallengeEntry(sourcePerson.Scenario.Date, destinationPerson, sourcePerson, "逃跑");
+                    Session.Current.Scenario.YearTable.addChallengeEntry(Session.Current.Scenario.Date, destinationPerson, sourcePerson, "逃跑");
                     damage.SourceMoraleChange -= 20;
                     damage.DestinationMoraleChange += 20;
                     break;
                 case 6: //6：P2武将逃跑
-                    sourcePerson.Scenario.YearTable.addChallengeEntry(sourcePerson.Scenario.Date, sourcePerson, destinationPerson, "逃跑");
+                    Session.Current.Scenario.YearTable.addChallengeEntry(Session.Current.Scenario.Date, sourcePerson, destinationPerson, "逃跑");
                     damage.SourceMoraleChange += 20;
                     damage.DestinationMoraleChange -= 20;
                     break;
                 case 7: //7、P1武将被俘虏
-                    sourcePerson.Scenario.YearTable.addChallengeEntry(sourcePerson.Scenario.Date, destinationPerson, sourcePerson, "被俘虜");
+                    Session.Current.Scenario.YearTable.addChallengeEntry(Session.Current.Scenario.Date, destinationPerson, sourcePerson, "被俘虜");
                     destinationTroop.CatchCaptiveFromTroop(sourcePerson);
                     sourceTroop.RefreshAfterLosePerson();
                     damage.SourceMoraleChange -= 20;
@@ -198,7 +198,7 @@ namespace GameObjects
                     damage.DestinationCombativityChange += 20;
                     break;
                 case 8: //8、P2武将被俘虏
-                    sourcePerson.Scenario.YearTable.addChallengeEntry(sourcePerson.Scenario.Date, sourcePerson, destinationPerson, "被俘虜");
+                    Session.Current.Scenario.YearTable.addChallengeEntry(Session.Current.Scenario.Date, sourcePerson, destinationPerson, "被俘虜");
                     sourceTroop.CatchCaptiveFromTroop(destinationPerson);
                     destinationTroop.RefreshAfterLosePerson();
                     damage.SourceMoraleChange += 20;
@@ -207,30 +207,30 @@ namespace GameObjects
                     damage.DestinationCombativityChange -= 20; 
                     break;
                 case 9: //9、P1武将被说服
-                    sourcePerson.Scenario.YearTable.addChallengeEntry(sourcePerson.Scenario.Date, destinationPerson, sourcePerson, "被说服");
+                    Session.Current.Scenario.YearTable.addChallengeEntry(Session.Current.Scenario.Date, destinationPerson, sourcePerson, "被说服");
                     destinationPerson.ConvincePersonSuccess(sourcePerson);
                     damage.SourceCombativityChange -= 30;
                     damage.DestinationCombativityChange += 30;
                     break;
                 case 10: //10、P2武将被说服
-                    sourcePerson.Scenario.YearTable.addChallengeEntry(sourcePerson.Scenario.Date, sourcePerson, destinationPerson, "被说服");
+                    Session.Current.Scenario.YearTable.addChallengeEntry(Session.Current.Scenario.Date, sourcePerson, destinationPerson, "被说服");
                     sourcePerson.ConvincePersonSuccess(destinationPerson);
                     damage.SourceCombativityChange += 30;
                     damage.DestinationCombativityChange -= 30; 
                     break;
                 case -1: //-1：平局
-                    sourcePerson.Scenario.YearTable.addChallengeDrawEntry(sourcePerson.Scenario.Date, sourcePerson, destinationPerson);
+                    Session.Current.Scenario.YearTable.addChallengeDrawEntry(Session.Current.Scenario.Date, sourcePerson, destinationPerson);
                     break;
                 case -2: //-2：平局：P1武将被杀
-                    sourcePerson.Scenario.YearTable.addChallengeDrawKilledEntry(sourcePerson.Scenario.Date, destinationPerson, sourcePerson);
+                    Session.Current.Scenario.YearTable.addChallengeDrawKilledEntry(Session.Current.Scenario.Date, destinationPerson, sourcePerson);
                     this.challengePersonDie(sourcePerson, sourceTroop, destinationPerson);
                     break;
                 case -3: //-3：平局：P2武将被杀
-                    sourcePerson.Scenario.YearTable.addChallengeDrawKilledEntry(sourcePerson.Scenario.Date, sourcePerson, destinationPerson);
+                    Session.Current.Scenario.YearTable.addChallengeDrawKilledEntry(Session.Current.Scenario.Date, sourcePerson, destinationPerson);
                     this.challengePersonDie(destinationPerson, destinationTroop, sourcePerson);
                     break;
                 case -4: //-4：平局：双方武将被杀
-                    sourcePerson.Scenario.YearTable.addChallengeDrawBothKilledEntry(sourcePerson.Scenario.Date, sourcePerson, destinationPerson);
+                    Session.Current.Scenario.YearTable.addChallengeDrawBothKilledEntry(Session.Current.Scenario.Date, sourcePerson, destinationPerson);
                     this.challengePersonDie(sourcePerson, sourceTroop, destinationPerson);
                     this.challengePersonDie(destinationPerson, destinationTroop, sourcePerson);
                     break;
@@ -243,7 +243,7 @@ namespace GameObjects
 
         private void challengePersonDie(Person challengePerson,Troop troop, Person killer)
         {
-            if (GlobalVariables.PersonDieInChallenge)
+            if (Session.GlobalVariables.PersonDieInChallenge)
             {
                 if (troop == troop.StartingArchitecture.RobberTroop)
                 {

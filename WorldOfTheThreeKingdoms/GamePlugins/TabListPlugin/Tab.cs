@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using GameManager;
 
 namespace TabListPlugin
 {
@@ -59,30 +60,30 @@ namespace TabListPlugin
         {
             get
             {
-                return this.LeastDetailLevel <= GlobalVariables.TabListDetailLevel;
+                return this.LeastDetailLevel <= Session.GlobalVariables.TabListDetailLevel;
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.Visible)
             {
                 if (this.selected)
                 {
-                    spriteBatch.Draw(this.tabList.tabbuttonselectedTexture, this.Position, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
-                    this.Text.Draw(spriteBatch, Color.White, 0.03499f);
+                    CacheManager.Draw(this.tabList.tabbuttonselectedTexture, this.Position, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
+                    this.Text.Draw(Color.White, 0.03499f);
                     foreach (Column column in this.Columns)
                     {
                         if (column.Visible)
                         {
-                            column.Draw(spriteBatch);
+                            column.Draw();
                         }
                     }
                 }
                 else
                 {
-                    spriteBatch.Draw(this.tabList.tabbuttonTexture, this.Position, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
-                    this.Text.Draw(spriteBatch, 0.03499f);
+                    CacheManager.Draw(this.tabList.tabbuttonTexture, this.Position, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
+                    this.Text.Draw(0.03499f);
                 }
             }
         }

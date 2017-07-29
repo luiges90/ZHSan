@@ -3,6 +3,7 @@ using GameObjects;
 using System;
 using GameObjects.TroopDetail;
 using System.Runtime.Serialization;
+using GameManager;
 
 namespace GameObjects.MapDetail
 {
@@ -282,7 +283,7 @@ namespace GameObjects.MapDetail
                 if (troopPassable == null)
                 {
                     troopPassable = false;
-                    foreach (MilitaryKind mk in base.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKindList())
+                    foreach (MilitaryKind mk in Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKindList())
                     {
                         bool passable = false;
                         switch (this.ID)

@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Conditions;
 using System;
 
@@ -14,7 +15,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
             int friendly = 0;
             foreach (Microsoft.Xna.Framework.Point point in a.LongViewArea.Area)
             {
-                Troop troopByPosition = base.Scenario.GetTroopByPosition(point);
+                Troop troopByPosition = Session.Current.Scenario.GetTroopByPosition(point);
                 if (troopByPosition != null)
                 {
                     if (troopByPosition.IsFriendly(a.BelongedFaction))

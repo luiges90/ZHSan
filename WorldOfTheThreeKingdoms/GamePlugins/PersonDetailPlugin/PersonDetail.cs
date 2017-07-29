@@ -18,10 +18,10 @@
         internal FreeTextList AllSkillTexts;
         internal Point BackgroundSize;
         internal Rectangle BackgroundClient;
-        internal Texture2D BackgroundMask1;
-        internal Texture2D BackgroundMask2;
-        internal Texture2D BackgroundTexture;
-        internal Texture2D PictureNull;
+        internal PlatformTexture BackgroundMask1;
+        internal PlatformTexture BackgroundMask2;
+        internal PlatformTexture BackgroundTexture;
+        internal PlatformTexture PictureNull;
         internal Rectangle BiographyClient;
         internal FreeRichText BiographyText = new FreeRichText();
         internal FreeText CalledNameText;
@@ -42,7 +42,7 @@
         internal FreeRichText TitleText = new FreeRichText();
         internal FreeTextList PersonSkillTexts;
         internal Rectangle PortraitClient;
-        internal Screen screen;
+
         internal Person ShowingPerson;
         internal Point SkillBlockSize;
         internal Point SkillDisplayOffset;
@@ -110,41 +110,41 @@
         private string ThePersonSound;
         ////↓主页面按钮        
         internal Rectangle BiographyButtonClient;
-        internal Texture2D BiographyButtonTexture;
-        internal Texture2D BiographyPressedTexture;
+        internal PlatformTexture BiographyButtonTexture;
+        internal PlatformTexture BiographyPressedTexture;
         ////↓主页面UI
         internal Rectangle InformationBackgroundClient;
-        internal Texture2D InformationBackgroundTexture;
-        internal Texture2D InformationMask1Texture;
-        internal Texture2D InformationMask2Texture;
+        internal PlatformTexture InformationBackgroundTexture;
+        internal PlatformTexture InformationMask1Texture;
+        internal PlatformTexture InformationMask2Texture;
         internal Rectangle DetailBackgroundClient;
-        internal Texture2D DetailBackgroundTexture;
-        internal Texture2D DetailMask1Texture;
-        internal Texture2D DetailMask2Texture;
+        internal PlatformTexture DetailBackgroundTexture;
+        internal PlatformTexture DetailMask1Texture;
+        internal PlatformTexture DetailMask2Texture;
         internal Rectangle TreasureBackgroundClient;
-        internal Texture2D TreasureBackgroundTexture;
-        internal Texture2D TreasureMask1Texture;
-        internal Texture2D TreasureMask2Texture;
+        internal PlatformTexture TreasureBackgroundTexture;
+        internal PlatformTexture TreasureMask1Texture;
+        internal PlatformTexture TreasureMask2Texture;
         internal Rectangle TitleBackgroundClient;
-        internal Texture2D TitleBackgroundTexture;
-        internal Texture2D TitleMask1Texture;
-        internal Texture2D TitleMask2Texture;
+        internal PlatformTexture TitleBackgroundTexture;
+        internal PlatformTexture TitleMask1Texture;
+        internal PlatformTexture TitleMask2Texture;
         internal Rectangle SkillBackgroundClient;
-        internal Texture2D SkillBackgroundTexture;
-        internal Texture2D SkillMask1Texture;
-        internal Texture2D SkillMask2Texture;
+        internal PlatformTexture SkillBackgroundTexture;
+        internal PlatformTexture SkillMask1Texture;
+        internal PlatformTexture SkillMask2Texture;
         internal Rectangle StuntBackgroundClient;
-        internal Texture2D StuntBackgroundTexture;
-        internal Texture2D StuntMask1Texture;
-        internal Texture2D StuntMask2Texture;
+        internal PlatformTexture StuntBackgroundTexture;
+        internal PlatformTexture StuntMask1Texture;
+        internal PlatformTexture StuntMask2Texture;
         internal Rectangle BiographyBackgroundClient;
-        internal Texture2D BiographyBackgroundTexture;
-        internal Texture2D BiographyMask1Texture;
-        internal Texture2D BiographyMask2Texture;
+        internal PlatformTexture BiographyBackgroundTexture;
+        internal PlatformTexture BiographyMask1Texture;
+        internal PlatformTexture BiographyMask2Texture;
         internal Rectangle SpecialtyShowBackgroundClient;
-        internal Texture2D SpecialtyShowBackgroundTexture;
-        internal Texture2D SpecialtyShowMask1Texture;
-        internal Texture2D SpecialtyShowMask2Texture;
+        internal PlatformTexture SpecialtyShowBackgroundTexture;
+        internal PlatformTexture SpecialtyShowMask1Texture;
+        internal PlatformTexture SpecialtyShowMask2Texture;
         //↓人物头像
         internal string PortraitKindInInformation;
         internal Rectangle PortraitInInformationClient;       
@@ -156,7 +156,7 @@
         internal string FactionName;
         internal string FactionNameKind;
         internal string ShowFactionNameBackground;
-        internal Texture2D FactionNameBackground;
+        internal PlatformTexture FactionNameBackground;
         internal Rectangle FactionNameBackgroundClient;
         internal FreeText FactionNameText;
         private Color TheFactionColor
@@ -168,41 +168,41 @@
                 { return Color.White; }
             }
         }
-        internal Texture2D FactionColour;
-        internal Texture2D FactionColourBackground;
+        internal PlatformTexture FactionColour;
+        internal PlatformTexture FactionColourBackground;
         internal Rectangle FactionColourClient;  
         //↓重要宝物 
         internal Rectangle ImportantTreasureButtonClient;
-        internal Texture2D ImportantTreasureButtonTexture;
-        internal Texture2D ImportantTreasurePressedTexture;
+        internal PlatformTexture ImportantTreasureButtonTexture;
+        internal PlatformTexture ImportantTreasurePressedTexture;
 
-        internal Texture2D ImportantTreasureShowMask;
-        internal Texture2D ImportantTreasureMask;
-        internal Texture2D ImportantTreasureBackground;
+        internal PlatformTexture ImportantTreasureShowMask;
+        internal PlatformTexture ImportantTreasureMask;
+        internal PlatformTexture ImportantTreasureBackground;
         internal Rectangle ImportantTreasureBackgroundClient;
         internal int MaxImportantTreasureShowNumber;
         internal string ShowNullTreasurePicture;
-        internal Texture2D GeneralTreasureMask;
-        internal Texture2D GeneralTreasureBackground;
+        internal PlatformTexture GeneralTreasureMask;
+        internal PlatformTexture GeneralTreasureBackground;
         internal Rectangle GeneralTreasureBackgroundClient;
         internal int MaxGeneralTreasureShowNumber;
         
         internal string ImportantTreasureTextFollowTheMouse;        
-        internal Texture2D ImportantTreasureTextBackground;
+        internal PlatformTexture ImportantTreasureTextBackground;
         internal Rectangle ImportantTreasureTextBackgroundClient;
         internal Rectangle ImportantTreasureTextClient;
-        internal Texture2D ImportantTreasureTextMask;
+        internal PlatformTexture ImportantTreasureTextMask;
         internal FreeRichText ImportantTreasureText = new FreeRichText();
         internal string ImportantTreasureText1;
         internal string ImportantTreasureText2;
         internal string ImportantTreasureText3;
         internal string ImportantTreasureText4;
         internal string ImportantTreasureText5;
-        internal Texture2D ImportantTreasureTextPicture;
+        internal PlatformTexture ImportantTreasureTextPicture;
         internal Rectangle ImportantTreasureTextPictureClient;
               
         internal Rectangle ThePersonPictureInTreasureClient;
-        private Texture2D SexPicture
+        private PlatformTexture SexPicture
         { get
             { if (SexN == true)
                 {return TheSexPicture1;}
@@ -210,8 +210,8 @@
                 {return TheSexPicture2;}
             }
         }
-        internal Texture2D TheSexPicture1;
-        internal Texture2D TheSexPicture2;
+        internal PlatformTexture TheSexPicture1;
+        internal PlatformTexture TheSexPicture2;
         internal string ThePersonPictureKindInTreasure;
         internal bool SexN;
 
@@ -257,8 +257,8 @@
         internal Rectangle ImportantTreasure19Client;
         internal Rectangle ImportantTreasure20Client;
 
-        internal Texture2D GeneralTreasureShowMask;
-        internal Texture2D GeneralTreasureShowBackground;
+        internal PlatformTexture GeneralTreasureShowMask;
+        internal PlatformTexture GeneralTreasureShowBackground;
         internal Rectangle GeneralTreasureShowClient;
         internal int GeneralTreasureHSpace;
         internal int GeneralTreasureVSpace;
@@ -270,7 +270,7 @@
         internal string ShowImportantTitleNameBackground;
         internal string ShowImportantTitlePicture;
         internal string ImportantTitleTextFollowTheMouse;
-        internal Texture2D ImportantTitleTextBackground;
+        internal PlatformTexture ImportantTitleTextBackground;
         internal Rectangle ImportantTitleTextBackgroundClient;
         internal FreeRichText ImportantTitleText = new FreeRichText();
         internal Rectangle ImportantTitleTextClient;
@@ -321,26 +321,26 @@
         internal FreeText ImportantTitle18NameText;
         internal FreeText ImportantTitle19NameText;
         internal FreeText ImportantTitle20NameText;  
-        internal Texture2D ImportantTitle1Background;
-        internal Texture2D ImportantTitle2Background;
-        internal Texture2D ImportantTitle3Background;
-        internal Texture2D ImportantTitle4Background;
-        internal Texture2D ImportantTitle5Background;
-        internal Texture2D ImportantTitle6Background;
-        internal Texture2D ImportantTitle7Background;
-        internal Texture2D ImportantTitle8Background;
-        internal Texture2D ImportantTitle9Background;
-        internal Texture2D ImportantTitle10Background;
-        internal Texture2D ImportantTitle11Background;
-        internal Texture2D ImportantTitle12Background;
-        internal Texture2D ImportantTitle13Background;
-        internal Texture2D ImportantTitle14Background;
-        internal Texture2D ImportantTitle15Background;
-        internal Texture2D ImportantTitle16Background;
-        internal Texture2D ImportantTitle17Background;
-        internal Texture2D ImportantTitle18Background;
-        internal Texture2D ImportantTitle19Background;
-        internal Texture2D ImportantTitle20Background;
+        internal PlatformTexture ImportantTitle1Background;
+        internal PlatformTexture ImportantTitle2Background;
+        internal PlatformTexture ImportantTitle3Background;
+        internal PlatformTexture ImportantTitle4Background;
+        internal PlatformTexture ImportantTitle5Background;
+        internal PlatformTexture ImportantTitle6Background;
+        internal PlatformTexture ImportantTitle7Background;
+        internal PlatformTexture ImportantTitle8Background;
+        internal PlatformTexture ImportantTitle9Background;
+        internal PlatformTexture ImportantTitle10Background;
+        internal PlatformTexture ImportantTitle11Background;
+        internal PlatformTexture ImportantTitle12Background;
+        internal PlatformTexture ImportantTitle13Background;
+        internal PlatformTexture ImportantTitle14Background;
+        internal PlatformTexture ImportantTitle15Background;
+        internal PlatformTexture ImportantTitle16Background;
+        internal PlatformTexture ImportantTitle17Background;
+        internal PlatformTexture ImportantTitle18Background;
+        internal PlatformTexture ImportantTitle19Background;
+        internal PlatformTexture ImportantTitle20Background;
         internal Rectangle ImportantTitle1Client;
         internal Rectangle ImportantTitle2Client;
         internal Rectangle ImportantTitle3Client;
@@ -382,26 +382,26 @@
         internal string ImportantStunt19Description;
         internal string ImportantStunt20Description;
 
-        internal Texture2D ImportantTitle1Picture;
-        internal Texture2D ImportantTitle2Picture;
-        internal Texture2D ImportantTitle3Picture;
-        internal Texture2D ImportantTitle4Picture;
-        internal Texture2D ImportantTitle5Picture;
-        internal Texture2D ImportantTitle6Picture;
-        internal Texture2D ImportantTitle7Picture;
-        internal Texture2D ImportantTitle8Picture;
-        internal Texture2D ImportantTitle9Picture;
-        internal Texture2D ImportantTitle10Picture;
-        internal Texture2D ImportantTitle11Picture;
-        internal Texture2D ImportantTitle12Picture;
-        internal Texture2D ImportantTitle13Picture;
-        internal Texture2D ImportantTitle14Picture;
-        internal Texture2D ImportantTitle15Picture;
-        internal Texture2D ImportantTitle16Picture;
-        internal Texture2D ImportantTitle17Picture;
-        internal Texture2D ImportantTitle18Picture;
-        internal Texture2D ImportantTitle19Picture;
-        internal Texture2D ImportantTitle20Picture;
+        internal PlatformTexture ImportantTitle1Picture;
+        internal PlatformTexture ImportantTitle2Picture;
+        internal PlatformTexture ImportantTitle3Picture;
+        internal PlatformTexture ImportantTitle4Picture;
+        internal PlatformTexture ImportantTitle5Picture;
+        internal PlatformTexture ImportantTitle6Picture;
+        internal PlatformTexture ImportantTitle7Picture;
+        internal PlatformTexture ImportantTitle8Picture;
+        internal PlatformTexture ImportantTitle9Picture;
+        internal PlatformTexture ImportantTitle10Picture;
+        internal PlatformTexture ImportantTitle11Picture;
+        internal PlatformTexture ImportantTitle12Picture;
+        internal PlatformTexture ImportantTitle13Picture;
+        internal PlatformTexture ImportantTitle14Picture;
+        internal PlatformTexture ImportantTitle15Picture;
+        internal PlatformTexture ImportantTitle16Picture;
+        internal PlatformTexture ImportantTitle17Picture;
+        internal PlatformTexture ImportantTitle18Picture;
+        internal PlatformTexture ImportantTitle19Picture;
+        internal PlatformTexture ImportantTitle20Picture;
         internal Rectangle ImportantTitle1PictureClient;
         internal Rectangle ImportantTitle2PictureClient;
         internal Rectangle ImportantTitle3PictureClient;
@@ -429,7 +429,7 @@
         internal string ShowImportantStuntNameBackground;
         internal string ShowImportantStuntPicture;
         internal string ImportantStuntTextFollowTheMouse;
-        internal Texture2D ImportantStuntTextBackground;
+        internal PlatformTexture ImportantStuntTextBackground;
         internal Rectangle ImportantStuntTextBackgroundClient;
         internal FreeRichText ImportantStuntText = new FreeRichText();
         internal Rectangle ImportantStuntTextClient;
@@ -480,26 +480,26 @@
         internal FreeText ImportantStunt18NameText;
         internal FreeText ImportantStunt19NameText;
         internal FreeText ImportantStunt20NameText;
-        internal Texture2D ImportantStunt1Background;
-        internal Texture2D ImportantStunt2Background;
-        internal Texture2D ImportantStunt3Background;
-        internal Texture2D ImportantStunt4Background;
-        internal Texture2D ImportantStunt5Background;
-        internal Texture2D ImportantStunt6Background;
-        internal Texture2D ImportantStunt7Background;
-        internal Texture2D ImportantStunt8Background;
-        internal Texture2D ImportantStunt9Background;
-        internal Texture2D ImportantStunt10Background;
-        internal Texture2D ImportantStunt11Background;
-        internal Texture2D ImportantStunt12Background;
-        internal Texture2D ImportantStunt13Background;
-        internal Texture2D ImportantStunt14Background;
-        internal Texture2D ImportantStunt15Background;
-        internal Texture2D ImportantStunt16Background;
-        internal Texture2D ImportantStunt17Background;
-        internal Texture2D ImportantStunt18Background;
-        internal Texture2D ImportantStunt19Background;
-        internal Texture2D ImportantStunt20Background;
+        internal PlatformTexture ImportantStunt1Background;
+        internal PlatformTexture ImportantStunt2Background;
+        internal PlatformTexture ImportantStunt3Background;
+        internal PlatformTexture ImportantStunt4Background;
+        internal PlatformTexture ImportantStunt5Background;
+        internal PlatformTexture ImportantStunt6Background;
+        internal PlatformTexture ImportantStunt7Background;
+        internal PlatformTexture ImportantStunt8Background;
+        internal PlatformTexture ImportantStunt9Background;
+        internal PlatformTexture ImportantStunt10Background;
+        internal PlatformTexture ImportantStunt11Background;
+        internal PlatformTexture ImportantStunt12Background;
+        internal PlatformTexture ImportantStunt13Background;
+        internal PlatformTexture ImportantStunt14Background;
+        internal PlatformTexture ImportantStunt15Background;
+        internal PlatformTexture ImportantStunt16Background;
+        internal PlatformTexture ImportantStunt17Background;
+        internal PlatformTexture ImportantStunt18Background;
+        internal PlatformTexture ImportantStunt19Background;
+        internal PlatformTexture ImportantStunt20Background;
         internal Rectangle ImportantStunt1Client;
         internal Rectangle ImportantStunt2Client;
         internal Rectangle ImportantStunt3Client;
@@ -521,26 +521,26 @@
         internal Rectangle ImportantStunt19Client;
         internal Rectangle ImportantStunt20Client;
 
-        internal Texture2D ImportantStunt1Picture;
-        internal Texture2D ImportantStunt2Picture;
-        internal Texture2D ImportantStunt3Picture;
-        internal Texture2D ImportantStunt4Picture;
-        internal Texture2D ImportantStunt5Picture;
-        internal Texture2D ImportantStunt6Picture;
-        internal Texture2D ImportantStunt7Picture;
-        internal Texture2D ImportantStunt8Picture;
-        internal Texture2D ImportantStunt9Picture;
-        internal Texture2D ImportantStunt10Picture;
-        internal Texture2D ImportantStunt11Picture;
-        internal Texture2D ImportantStunt12Picture;
-        internal Texture2D ImportantStunt13Picture;
-        internal Texture2D ImportantStunt14Picture;
-        internal Texture2D ImportantStunt15Picture;
-        internal Texture2D ImportantStunt16Picture;
-        internal Texture2D ImportantStunt17Picture;
-        internal Texture2D ImportantStunt18Picture;
-        internal Texture2D ImportantStunt19Picture;
-        internal Texture2D ImportantStunt20Picture;
+        internal PlatformTexture ImportantStunt1Picture;
+        internal PlatformTexture ImportantStunt2Picture;
+        internal PlatformTexture ImportantStunt3Picture;
+        internal PlatformTexture ImportantStunt4Picture;
+        internal PlatformTexture ImportantStunt5Picture;
+        internal PlatformTexture ImportantStunt6Picture;
+        internal PlatformTexture ImportantStunt7Picture;
+        internal PlatformTexture ImportantStunt8Picture;
+        internal PlatformTexture ImportantStunt9Picture;
+        internal PlatformTexture ImportantStunt10Picture;
+        internal PlatformTexture ImportantStunt11Picture;
+        internal PlatformTexture ImportantStunt12Picture;
+        internal PlatformTexture ImportantStunt13Picture;
+        internal PlatformTexture ImportantStunt14Picture;
+        internal PlatformTexture ImportantStunt15Picture;
+        internal PlatformTexture ImportantStunt16Picture;
+        internal PlatformTexture ImportantStunt17Picture;
+        internal PlatformTexture ImportantStunt18Picture;
+        internal PlatformTexture ImportantStunt19Picture;
+        internal PlatformTexture ImportantStunt20Picture;
         internal Rectangle ImportantStunt1PictureClient;
         internal Rectangle ImportantStunt2PictureClient;
         internal Rectangle ImportantStunt3PictureClient;
@@ -564,17 +564,17 @@
 
         //↓列传        
         internal Rectangle BiographyBriefButtonClient;
-        internal Texture2D BiographyBriefButtonTexture;
-        internal Texture2D BiographyBriefPressedTexture;
+        internal PlatformTexture BiographyBriefButtonTexture;
+        internal PlatformTexture BiographyBriefPressedTexture;
         internal Rectangle BiographyRomanceButtonClient;
-        internal Texture2D BiographyRomanceButtonTexture;
-        internal Texture2D BiographyRomancePressedTexture;
+        internal PlatformTexture BiographyRomanceButtonTexture;
+        internal PlatformTexture BiographyRomancePressedTexture;
         internal Rectangle BiographyHistoryButtonClient;
-        internal Texture2D BiographyHistoryButtonTexture;
-        internal Texture2D BiographyHistoryPressedTexture;
+        internal PlatformTexture BiographyHistoryButtonTexture;
+        internal PlatformTexture BiographyHistoryPressedTexture;
         internal Rectangle BiographyInGameButtonClient;
-        internal Texture2D BiographyInGameButtonTexture;
-        internal Texture2D BiographyInGamePressedTexture;
+        internal PlatformTexture BiographyInGameButtonTexture;
+        internal PlatformTexture BiographyInGamePressedTexture;
 
         internal Rectangle PersonBiographyTextClient;
         internal FreeRichText PersonBiographyText = new FreeRichText();
@@ -586,20 +586,20 @@
 
         ////↓人物关系
         internal Rectangle RelativeButtonClient;
-        internal Texture2D RelativeButtonTexture;
-        internal Texture2D RelativePressedTexture;
+        internal PlatformTexture RelativeButtonTexture;
+        internal PlatformTexture RelativePressedTexture;
         internal Rectangle RelationButtonClient;
-        internal Texture2D RelationButtonTexture;
-        internal Texture2D RelationPressedTexture;
+        internal PlatformTexture RelationButtonTexture;
+        internal PlatformTexture RelationPressedTexture;
         internal Rectangle StandingsButtonClient;
-        internal Texture2D StandingsButtonTexture;
-        internal Texture2D StandingsPressedTexture;
+        internal PlatformTexture StandingsButtonTexture;
+        internal PlatformTexture StandingsPressedTexture;
         internal Rectangle PersonRelationButtonClient;
-        internal Texture2D PersonRelationButtonTexture;
-        internal Texture2D PersonRelationPressedTexture;
+        internal PlatformTexture PersonRelationButtonTexture;
+        internal PlatformTexture PersonRelationPressedTexture;
         //↓亲人
-        internal Texture2D RelativeMask;
-        internal Texture2D RelativeBackground;
+        internal PlatformTexture RelativeMask;
+        internal PlatformTexture RelativeBackground;
         internal Rectangle RelativeBackgroundClient;
 
         internal int GenerationN;
@@ -632,8 +632,8 @@
         internal string ChildrenText5;
 
         //↓兄弟喜恶
-        internal Texture2D RelationMask;
-        internal Texture2D RelationBackground;
+        internal PlatformTexture RelationMask;
+        internal PlatformTexture RelationBackground;
         internal Rectangle RelationBackgroundClient;
 
         internal Rectangle BrothersTextClient;
@@ -663,8 +663,8 @@
         internal string HatedPersonsText4;
         internal string HatedPersonsText5;
         //↓人物关系
-        internal Texture2D PersonRelationMask;
-        internal Texture2D PersonRelationBackground;
+        internal PlatformTexture PersonRelationMask;
+        internal PlatformTexture PersonRelationBackground;
         internal Rectangle PersonRelationBackgroundClient;
 
         internal Rectangle PersonRelationTextClient;
@@ -675,25 +675,25 @@
         internal string PersonRelationText4;
         internal string PersonRelationText5;
         //↓战绩
-        internal Texture2D StandingsMask;
-        internal Texture2D StandingsBackground;
+        internal PlatformTexture StandingsMask;
+        internal PlatformTexture StandingsBackground;
         internal Rectangle StandingsBackgroundClient;
         internal List<LabelText> StandingsTexts = new List<LabelText>();
 
         ////↓人物特长        
-        internal Texture2D ConditionBackground;
+        internal PlatformTexture ConditionBackground;
         internal Rectangle ConditionBackgroundClient;
-        internal Texture2D InfluenceBackground;
+        internal PlatformTexture InfluenceBackground;
         internal Rectangle InfluenceBackgroundClient;
         internal int AllSkillTitleCount;
-        internal Texture2D PersonSkillTextBackground;
-        internal Texture2D LearnableSkillTextBackground;
-        internal Texture2D AllSkillTextBackground;
-        internal Texture2D TitleTextBackground;
+        internal PlatformTexture PersonSkillTextBackground;
+        internal PlatformTexture LearnableSkillTextBackground;
+        internal PlatformTexture AllSkillTextBackground;
+        internal PlatformTexture TitleTextBackground;
         internal int TitleTextHeight;
         internal int TitleCountN;
         internal Rectangle TitleTextBackgroundClient;
-        internal Texture2D StuntTextBackground;
+        internal PlatformTexture StuntTextBackground;
         internal Rectangle StuntTextBackgroundClient;
         internal int StuntTextHeight;
         internal int StuntCountN;
@@ -736,488 +736,481 @@
         bool PersonRelationButton = false;
         bool StandingsButton = false;
 
-        bool ConditionAndInfluenceText = false;     
+        bool ConditionAndInfluenceText = false;
 
-       
+
 
         //////////上面是添加的内容
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw()
         {
             if (this.ShowingPerson != null)
             {
                 Rectangle? sourceRectangle = null;
-                try
+
+                if (Switch1 == "on")//新界面打开
                 {
-                    if (Switch1 == "on")//新界面打开
+
+                    //↓人物信息页内容
+                    if (InformationButton == true)
                     {
-                        
-                        //↓人物信息页内容
-                        if (InformationButton == true)
+                        if ((Switch114 == "on" || Switch115 == "on") && BiographyButton == false)//人物宝物
                         {
-                            if ((Switch114 == "on" || Switch115 == "on")&& BiographyButton == false)//人物宝物
-                            {
-                                spriteBatch.Draw(this.ImportantTreasureButtonTexture, this.ImportantTreasureButtonClientDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);  //0.1821f)
-                                spriteBatch.Draw(this.ImportantTreasurePressedTexture, this.ImportantTreasurePressedClientDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                            }
-                            if (Switch121 == "on" && BiographyButton == false)//人物亲人
-                            {
-                                spriteBatch.Draw(this.RelativeButtonTexture, this.RelativeButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                                spriteBatch.Draw(this.RelativePressedTexture, this.RelativeButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                            }
-                            if (Switch122 == "on" && BiographyButton == false)//人物兄弟喜恶
-                            {
-                                spriteBatch.Draw(this.RelationButtonTexture, this.RelationButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                                spriteBatch.Draw(this.RelationPressedTexture, this.RelationButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                            }
-                            if (Switch123 == "on" && RelationButton == true)//人物关系
-                            {
-                                spriteBatch.Draw(this.PersonRelationButtonTexture, this.PersonRelationButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                                spriteBatch.Draw(this.PersonRelationPressedTexture, this.PersonRelationButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                            }
-                            if (Switch124 == "on" && BiographyButton == false)//在人物详情页显示人物战绩
-                            {
-                                spriteBatch.Draw(this.StandingsButtonTexture, this.StandingsButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                                spriteBatch.Draw(this.StandingsPressedTexture, this.StandingsButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                            }
-                            if (Switch21 == "on")//在人物列传
-                            {
-                                spriteBatch.Draw(this.BiographyButtonTexture, this.BiographyButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                                spriteBatch.Draw(this.BiographyPressedTexture, this.BiographyButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                            }
-
-                            spriteBatch.Draw(this.InformationBackgroundTexture, this.InformationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0185f);
-                            spriteBatch.Draw(this.InformationMask2Texture, this.InformationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01849f);                      
-                            
-                            try
-                            {
-                                if (PortraitKindInInformation == "1")//人物半身像
-                                {
-                                    //spriteBatch.Draw(this.ShowingPerson.Portrait, this.PortraitInInformationDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1847f);
-
-                                    CacheManager.DrawZhsanAvatar(this.ShowingPerson, "", this.PortraitInInformationDisplayPosition, Color.White, 0.01847f);
-
-                                }
-                                else if (PortraitKindInInformation == "2")//人物全身像
-                                {
-                                    //spriteBatch.Draw(this.ShowingPerson.FullPortrait, this.PortraitInInformationDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1847f);
-
-                                    CacheManager.DrawZhsanAvatar(this.ShowingPerson, "f", this.PortraitInInformationDisplayPosition, Color.White, 0.01847f);
-                                }
-
-                                //if (PortraitKindInInformation == "1")//人物半身像
-                                //{
-                                //    spriteBatch.Draw(this.ShowingPerson.Portrait, this.PortraitInInformationDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1847f);
-                                //}
-                                //else if (PortraitKindInInformation == "2")//人物全身像
-                                //{
-                                //    spriteBatch.Draw(this.ShowingPerson.FullPortrait, this.PortraitInInformationDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1847f);
-
-                                //}                               
-                            }
-                            catch { }
-
-                            if (Switch106 == "on")//势力颜色
-                            {
-                                spriteBatch.Draw(this.FactionColour, this.FactionColourDisplayPosition, null, this.TheFactionColor, 0f, Vector2.Zero, SpriteEffects.None, 0.01845f);
-                                spriteBatch.Draw(this.FactionColourBackground, this.FactionColourDisplayPosition, null, this.TheFactionColor, 0f, Vector2.Zero, SpriteEffects.None, 0.01846f);
-                            }
-                            if (Switch105 == "on")//势力名称
-                            {
-                                this.FactionNameText.Draw(spriteBatch, 0.01843f);
-                            }
-                            if (BiographyButton == false)
-                            {
-                                spriteBatch.Draw(this.DetailBackgroundTexture, this.TitleBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01844f);
-                                spriteBatch.Draw(this.DetailMask2Texture, this.TitleBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018435f);
-                                foreach (LabelText text in this.PersonInInformationTexts)
-                                {
-                                    text.Label.Draw(spriteBatch, 0.01843f);
-                                    text.Text.Draw(spriteBatch, 0.01843f);
-                                }
-                                spriteBatch.Draw(this.DetailMask1Texture, this.TitleBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01842f);
-                            }
-                            this.ThePersonSkillTexts.Draw(spriteBatch, (float)0.018271f);
-                            this.TheLearnableSkillTexts.Draw(spriteBatch, (float)0.018273f);
-                            this.TheAllSkillTexts.Draw(spriteBatch, (float)0.018275f);
-                            if (Switch132 == "on")//技能背景图片
-                            {
-                                foreach (Skill skill in this.screen.Scenario.GameCommonData.AllSkills.Skills.Values)
-                                {
-                                    Rectangle skillposition = new Rectangle(this.DisplayOffset.X + this.TheSkillDisplayOffset.X + (skill.DisplayCol * this.TheSkillBlockSize.X), this.DisplayOffset.Y + this.TheSkillDisplayOffset.Y + (skill.DisplayRow * this.TheSkillBlockSize.Y), this.TheSkillBlockSize.X, this.TheSkillBlockSize.Y);
-                                    spriteBatch.Draw(this.AllSkillTextBackground, skillposition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018285f);
-                                    if (ShowingPerson.Skills.GetSkill(skill.ID) != null)
-                                    {
-                                        spriteBatch.Draw(this.PersonSkillTextBackground, skillposition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018281f);
-                                    }
-                                    else if (skill.CanLearn(ShowingPerson))
-                                    {
-                                        spriteBatch.Draw(this.LearnableSkillTextBackground, skillposition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018283f);
-                                    }
-                                }
-                            }
-                            this.TheInfluenceText.Draw(spriteBatch, 0.01813f);
-                            this.TheConditionText.Draw(spriteBatch, 0.01813f);
-                            if (Switch131 == "on")//条件与影响背景图片
-                            {
-                                spriteBatch.Draw(this.ConditionBackground, this.ConditionBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01815f);
-                                spriteBatch.Draw(this.InfluenceBackground, this.InfluenceBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01815f);
-                            }
-
-                            spriteBatch.Draw(this.InformationMask1Texture, this.InformationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0183f);
-                                                    
-                            if (Switch117 == "on" && BiographyButton == false) //重要称号显示
-                            {
-                                spriteBatch.Draw(this.TitleBackgroundTexture, this.TitleBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
-                                spriteBatch.Draw(this.TitleMask2Texture, this.TitleBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018249f);                      
-                            
-                                try
-                                {
-                                    spriteBatch.Draw(this.ImportantTitleTextBackground, this.ImportantTitleTextBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0182f);
-                                    this.ImportantTitleText.Draw(spriteBatch, 0.01813f);
-                                    
-                                    if (ShowImportantTitlePicture == "on")
-                                    {
-                                        for (int t = 1; t <= MaxImportantTitleShowNumber; t++)
-                                        {
-                                            if (HasTheImportantTitle(t) == true)
-                                            {
-                                                spriteBatch.Draw(this.TheImportantTitlePicture(t), this.TheImportantTitlePictureDisplayPosition(t), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018247f);
-                                            }
-                                        }
-                                    }
-                                    if (ShowImportantTitleNameBackground == "on")
-                                    {
-                                        for (int t = 1; t <= MaxImportantTitleShowNumber; t++)
-                                        {
-                                            if (HasTheImportantTitle(t) == true)
-                                            {
-                                                spriteBatch.Draw(this.TheImportantTitleBackground(t), this.TheImportantTitleDisplayPosition(t), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018245f);
-                                            }
-                                        }
-                                    }
-                                    if (ShowImportantTitleName == "on")
-                                    {
-                                        if (HasTheImportantTitle(1) == true && MaxImportantTitleShowNumber > 0) { this.ImportantTitle1NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(2) == true && MaxImportantTitleShowNumber > 1) { this.ImportantTitle2NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(3) == true && MaxImportantTitleShowNumber > 2) { this.ImportantTitle3NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(4) == true && MaxImportantTitleShowNumber > 3) { this.ImportantTitle4NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(5) == true && MaxImportantTitleShowNumber > 4) { this.ImportantTitle5NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(6) == true && MaxImportantTitleShowNumber > 5) { this.ImportantTitle6NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(7) == true && MaxImportantTitleShowNumber > 6) { this.ImportantTitle7NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(8) == true && MaxImportantTitleShowNumber > 7) { this.ImportantTitle8NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(9) == true && MaxImportantTitleShowNumber > 8) { this.ImportantTitle9NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(10) == true && MaxImportantTitleShowNumber > 9) { this.ImportantTitle10NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(11) == true && MaxImportantTitleShowNumber > 10) { this.ImportantTitle11NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(12) == true && MaxImportantTitleShowNumber > 11) { this.ImportantTitle12NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(13) == true && MaxImportantTitleShowNumber > 12) { this.ImportantTitle13NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(14) == true && MaxImportantTitleShowNumber > 13) { this.ImportantTitle14NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(15) == true && MaxImportantTitleShowNumber > 14) { this.ImportantTitle15NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(16) == true && MaxImportantTitleShowNumber > 15) { this.ImportantTitle16NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(17) == true && MaxImportantTitleShowNumber > 16) { this.ImportantTitle17NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(18) == true && MaxImportantTitleShowNumber > 17) { this.ImportantTitle18NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(19) == true && MaxImportantTitleShowNumber > 18) { this.ImportantTitle19NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantTitle(20) == true && MaxImportantTitleShowNumber > 19) { this.ImportantTitle20NameText.Draw(spriteBatch, 0.018243f); }
-                                    }
-                                }
-                                catch { }
-                                spriteBatch.Draw(this.TitleMask1Texture, this.TitleBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);                      
-                            
-                            }
-                            if (Switch118 == "on" && BiographyButton == false)//重要特技显示
-                            {
-                                spriteBatch.Draw(this.StuntBackgroundTexture, this.StuntBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
-                                spriteBatch.Draw(this.StuntMask2Texture, this.StuntBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018249f);                      
-                            
-                                try
-                                {
-                                    spriteBatch.Draw(this.ImportantStuntTextBackground, this.ImportantStuntTextBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0182f);
-                                    this.ImportantStuntText.Draw(spriteBatch, 0.1813f);
-
-                                    if (ShowImportantStuntPicture == "on")
-                                    {
-                                        for (int t = 1; t <= MaxImportantStuntShowNumber; t++)
-                                        {
-                                            if (HasTheImportantStunt(t) == true)
-                                            {
-                                                spriteBatch.Draw(this.TheImportantStuntPicture(t), this.TheImportantStuntPictureDisplayPosition(t), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018247f);
-                                            }
-                                        }
-                                    }
-                                    if (ShowImportantStuntNameBackground == "on")
-                                    {
-                                        for (int t = 1; t <= MaxImportantStuntShowNumber; t++)
-                                        {
-                                            if (HasTheImportantStunt(t) == true)
-                                            {
-                                                spriteBatch.Draw(this.TheImportantStuntBackground(t), this.TheImportantStuntDisplayPosition(t), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018245f);
-                                            }
-                                        }
-                                    }
-                                    if (ShowImportantStuntName == "on")
-                                    {
-                                        if (HasTheImportantStunt(1) == true && MaxImportantStuntShowNumber> 0) { this.ImportantStunt1NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(2) == true && MaxImportantStuntShowNumber > 1) { this.ImportantStunt2NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(3) == true && MaxImportantStuntShowNumber > 2) { this.ImportantStunt3NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(4) == true && MaxImportantStuntShowNumber > 3) { this.ImportantStunt4NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(5) == true && MaxImportantStuntShowNumber > 4) { this.ImportantStunt5NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(6) == true && MaxImportantStuntShowNumber > 5) { this.ImportantStunt6NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(7) == true && MaxImportantStuntShowNumber > 6) { this.ImportantStunt7NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(8) == true && MaxImportantStuntShowNumber > 7) { this.ImportantStunt8NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(9) == true && MaxImportantStuntShowNumber > 8) { this.ImportantStunt9NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(10) == true && MaxImportantStuntShowNumber > 9) { this.ImportantStunt10NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(11) == true && MaxImportantStuntShowNumber > 10) { this.ImportantStunt11NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(12) == true && MaxImportantStuntShowNumber > 11) { this.ImportantStunt12NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(13) == true && MaxImportantStuntShowNumber > 12) { this.ImportantStunt13NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(14) == true && MaxImportantStuntShowNumber > 13) { this.ImportantStunt14NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(15) == true && MaxImportantStuntShowNumber > 14) { this.ImportantStunt15NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(16) == true && MaxImportantStuntShowNumber > 15) { this.ImportantStunt16NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(17) == true && MaxImportantStuntShowNumber > 16) { this.ImportantStunt17NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(18) == true && MaxImportantStuntShowNumber > 17) { this.ImportantStunt18NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(19) == true && MaxImportantStuntShowNumber > 18) { this.ImportantStunt19NameText.Draw(spriteBatch, 0.018243f); }
-                                        if (HasTheImportantStunt(20) == true && MaxImportantStuntShowNumber > 19) { this.ImportantStunt20NameText.Draw(spriteBatch, 0.018243f); }
-                                    }
-                                }
-                                catch { }
-                                spriteBatch.Draw(this.StuntMask1Texture, this.StuntBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);                      
-                            
-                            }
-                            if (ImportantTreasureButton == true)
-                            {
-                                spriteBatch.Draw(this.TreasureBackgroundTexture, this.StuntBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
-                                spriteBatch.Draw(this.TreasureMask2Texture, this.StuntBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018249f);                      
-                            
-                                if (Switch114 == "on")//重要宝物显示
-                                {                                    
-                                    spriteBatch.Draw(this.ImportantTreasureBackground, this.ImportantTreasureBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018247f);
-                                    try
-                                    {
-                                        if (Switch116 == "on")
-                                        {
-                                            if (ThePersonPictureKindInTreasure == "1")//性别像
-                                            {
-                                                spriteBatch.Draw(this.SexPicture, this.ThePersonPictureInTreasureDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018246f);
-                                            }
-                                            if (ThePersonPictureKindInTreasure == "2")//全身像
-                                            {
-                                                CacheManager.DrawZhsanAvatar(this.ShowingPerson, "f", this.ThePersonPictureInTreasureDisplayPosition, Color.White, 0.018246f);
-                                                //spriteBatch.Draw(this.ShowingPerson.FullPortrait, this.ThePersonPictureInTreasureDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18246f);
-                                            }
-                                        }
-
-                                        for (int t = 1; t <= MaxImportantTreasureShowNumber; t++)
-                                        {
-                                            if (HasTheImportantTreasure(t) == true)
-                                            {
-                                                spriteBatch.Draw(this.TheImportantTreasurePicture(t), this.TheImportantTreasureDisplayPosition(t), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018245f);
-                                                spriteBatch.Draw(this.ImportantTreasureShowMask, this.TheImportantTreasureDisplayPosition(t), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018244f);
-                                            }
-                                        }
-                                    }
-                                    catch { }
-                                    spriteBatch.Draw(this.ImportantTreasureMask, this.ImportantTreasureBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018243f);
-                                }
-                                if (Switch115 == "on")
-                                {                                                                      
-                                    spriteBatch.Draw(this.GeneralTreasureBackground, this.GeneralTreasureBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018247f);
-                                    try
-                                    {
-                                        for (int i = 0; i < MaxGeneralTreasureShowNumber; i++)
-                                        {                                            
-                                            spriteBatch.Draw(this.TheGeneralTreasurePicture(i), this.TheGeneralTreasureDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018245f);
-                                            spriteBatch.Draw(this.GeneralTreasureShowMask, this.TheGeneralTreasureDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018244f);
-                                            if (ShowNullTreasurePicture == "on")
-                                            {
-                                                spriteBatch.Draw(this.GeneralTreasureShowBackground, this.GeneralTreasureDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018246f);
-                                            }
-                                        }
-                                    }
-                                    catch { }
-                                    spriteBatch.Draw(this.GeneralTreasureMask, this.GeneralTreasureBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018243f); 
-                                }
-                                spriteBatch.Draw(this.TreasureMask1Texture, this.StuntBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
-                                try
-                                {
-                                    spriteBatch.Draw(this.ImportantTreasureTextPicture, this.ImportantTreasureTextPictureDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01815f);
-                                    spriteBatch.Draw(this.ImportantTreasureTextBackground, this.ImportantTreasureTextBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0182f);
-                                    spriteBatch.Draw(this.ImportantTreasureTextMask, this.ImportantTreasureTextBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0181f);
-                                    this.ImportantTreasureText.Draw(spriteBatch, 0.1813f);
-                                }
-                                catch { }
-                            }
-                           
+                            CacheManager.Draw(this.ImportantTreasureButtonTexture, this.ImportantTreasureButtonClientDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);  //0.1821f)
+                            CacheManager.Draw(this.ImportantTreasurePressedTexture, this.ImportantTreasurePressedClientDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
                         }
-                        if (RelativeButton == true)//人物亲人
+                        if (Switch121 == "on" && BiographyButton == false)//人物亲人
                         {
-                            spriteBatch.Draw(this.RelativeMask, this.RelativeBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
-                            spriteBatch.Draw(this.RelativeBackground, this.RelativeBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
-                            this.GenerationText.Draw(spriteBatch, 0.018243f);
-                            this.StrainText.Draw(spriteBatch, 0.018243f);
-
-                            Person person = null;
-                            float depth = 0.018247f;
-                            person = this.ShowingPerson;
-
-                            CacheManager.DrawZhsanAvatar(person, "s", this.SmallPortraitDisplayPosition, Color.White, depth);
-
-                            //spriteBatch.Draw(this.ShowingPerson.SmallPortrait, this.SmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
-                            if (HasFather == true)
-                            {
-                                person = this.ShowingPerson.Father;
-                                CacheManager.DrawZhsanAvatar(person, "s", this.FatherSmallPortraitDisplayPosition, Color.White, depth);
-                                //spriteBatch.Draw(this.ShowingPerson.FatherSmallPortrait, this.FatherSmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
-                            }
-                            this.FatherNameText.Draw(spriteBatch, 0.018243f);
-                            if (HasMother == true)
-                            {
-                                person = this.ShowingPerson.Mother;
-                                CacheManager.DrawZhsanAvatar(person, "s", this.MotherSmallPortraitDisplayPosition, Color.White, depth);
-                                //spriteBatch.Draw(this.ShowingPerson.MotherSmallPortrait, this.MotherSmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
-                            }
-                            this.MotherNameText.Draw(spriteBatch, 0.18243f);
-                            if (HasSpouse == true)
-                            {
-                                person = this.ShowingPerson.Spouse;
-                                CacheManager.DrawZhsanAvatar(person, "s", this.SpouseSmallPortraitDisplayPosition, Color.White, depth);
-                                //spriteBatch.Draw(this.ShowingPerson.SpouseSmallPortrait, this.SpouseSmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
-                            }
-
-                            ////spriteBatch.Draw(this.ShowingPerson.SmallPortrait, this.SmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
-                            //if (HasFather == true)
-                            //{
-                            //    spriteBatch.Draw(this.ShowingPerson.FatherSmallPortrait, this.FatherSmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
-                            //}
-                            //this.FatherNameText.Draw(spriteBatch, 0.18243f);
-                            //if (HasMother == true)
-                            //{
-                            //    spriteBatch.Draw(this.ShowingPerson.MotherSmallPortrait, this.MotherSmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
-                            //}
-                            //this.MotherNameText.Draw(spriteBatch, 0.18243f);
-                            //if (HasSpouse == true)
-                            //{
-                            //    spriteBatch.Draw(this.ShowingPerson.SpouseSmallPortrait, this.SpouseSmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
-                            //}
-                            this.SpouseNameText.Draw(spriteBatch, 0.018243f);
-                            this.ChildrenNumberText.Draw(spriteBatch, 0.018243f);
-                            if (ChildrenN > 0)
-                            {
-                                this.ChildrenText.Draw(spriteBatch, 0.018243f);
-                            }
+                            CacheManager.Draw(this.RelativeButtonTexture, this.RelativeButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                            CacheManager.Draw(this.RelativePressedTexture, this.RelativeButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
                         }
-                        if (RelationButton == true)//人物兄弟喜恶
+                        if (Switch122 == "on" && BiographyButton == false)//人物兄弟喜恶
                         {
-                            spriteBatch.Draw(this.RelationMask, this.RelationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
-                            spriteBatch.Draw(this.RelationBackground, this.RelationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
-                            this.BrothersText.Draw(spriteBatch, 0.018243f);
-                            this.ClosePersonsText.Draw(spriteBatch, 0.018243f);
-                            this.HatedPersonsText.Draw(spriteBatch, 0.018243f);
+                            CacheManager.Draw(this.RelationButtonTexture, this.RelationButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                            CacheManager.Draw(this.RelationPressedTexture, this.RelationButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                        }
+                        if (Switch123 == "on" && RelationButton == true)//人物关系
+                        {
+                            CacheManager.Draw(this.PersonRelationButtonTexture, this.PersonRelationButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                            CacheManager.Draw(this.PersonRelationPressedTexture, this.PersonRelationButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                        }
+                        if (Switch124 == "on" && BiographyButton == false)//在人物详情页显示人物战绩
+                        {
+                            CacheManager.Draw(this.StandingsButtonTexture, this.StandingsButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                            CacheManager.Draw(this.StandingsPressedTexture, this.StandingsButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                        }
+                        if (Switch21 == "on")//在人物列传
+                        {
+                            CacheManager.Draw(this.BiographyButtonTexture, this.BiographyButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                            CacheManager.Draw(this.BiographyPressedTexture, this.BiographyButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
                         }
 
-                        if (PersonRelationButton == true)//人物关系
-                        {
-                            spriteBatch.Draw(this.PersonRelationMask, this.PersonRelationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
-                            spriteBatch.Draw(this.PersonRelationBackground, this.PersonRelationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
-                            this.PersonRelationText.Draw(spriteBatch, 0.18243f);
-                        }
+                        CacheManager.Draw(this.InformationBackgroundTexture, this.InformationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0185f);
+                        CacheManager.Draw(this.InformationMask2Texture, this.InformationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01849f);
 
-
-                        if (StandingsButton == true)//人物战绩
-                        {
-                            spriteBatch.Draw(this.StandingsMask, this.StandingsBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
-                            spriteBatch.Draw(this.StandingsBackground, this.StandingsBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
-                            foreach (LabelText text in this.StandingsTexts)
-                            {
-                                text.Label.Draw(spriteBatch, 0.018243f);
-                                text.Text.Draw(spriteBatch, 0.018243f);
-                            }
-                        }
-                        /////////
-                        if (BiographyButton == true)//↓人物列传
-                        {
-                            spriteBatch.Draw(this.BiographyBackgroundTexture, this.BiographyBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
-                            spriteBatch.Draw(this.BiographyMask2Texture, this.BiographyBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018249f);
-                            
-                            if (Switch24 == "on")//在人物列传分页
-                            {
-                                if (Switch26 == "on")//列传
-                                {
-                                    spriteBatch.Draw(this.BiographyBriefButtonTexture, this.BiographyBriefButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                                    spriteBatch.Draw(this.BiographyBriefPressedTexture, this.BiographyBriefButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                                }
-                                if (Switch27 == "on")//演义
-                                {
-                                    spriteBatch.Draw(this.BiographyRomanceButtonTexture, this.BiographyRomanceButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                                    spriteBatch.Draw(this.BiographyRomancePressedTexture, this.BiographyRomanceButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                                }
-                                if (Switch28 == "on")//历史
-                                {
-                                    spriteBatch.Draw(this.BiographyHistoryButtonTexture, this.BiographyHistoryButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                                    spriteBatch.Draw(this.BiographyHistoryPressedTexture, this.BiographyHistoryButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                                }
-                                if (Switch29 == "on")//剧本
-                                {
-                                    spriteBatch.Draw(this.BiographyInGameButtonTexture, this.BiographyInGameButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                                    spriteBatch.Draw(this.BiographyInGamePressedTexture, this.BiographyInGameButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
-                                }
-                                this.PersonBiographyText.Draw(spriteBatch, 0.018235f);
-                            }
-                            else
-                            {
-                                this.PersonBiographyText.Draw(spriteBatch, 0.018235f);
-                            }
-                            if (Switch133 == "on")//称号背景图片
-                            {
-                                spriteBatch.Draw(this.TitleTextBackground, this.TitleTextBackgroundDisplayPosition, this.TitleCountDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018245f);
-                            }
-                            this.TheTitleText.Draw(spriteBatch, 0.018243f);
-                            if (Switch134 == "on")//称号背景图片
-                            {
-                                spriteBatch.Draw(this.StuntTextBackground, this.StuntTextBackgroundDisplayPosition, this.StuntCountDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018245f);
-                            }                            
-                            this.TheStuntText.Draw(spriteBatch, 0.018243f);
-                            spriteBatch.Draw(this.BiographyMask1Texture, this.BiographyBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
-
-
-                        }                        
-                        
-                    }
-                    ///////
-                    if (Switch1 == "off")//旧界面
-                    {
                         try
                         {
-                            spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.019f);
-                            spriteBatch.Draw(this.BackgroundMask2, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0189f);
-                            //spriteBatch.Draw(this.ShowingPerson.Portrait, this.PortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.185f);
-                            spriteBatch.Draw(this.BackgroundMask1, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0183f);
+                            if (PortraitKindInInformation == "1")//人物半身像
+                            {
+                                //CacheManager.Draw(this.ShowingPerson.Portrait, this.PortraitInInformationDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1847f);
+
+                                CacheManager.DrawZhsanAvatar(this.ShowingPerson, "", this.PortraitInInformationDisplayPosition, Color.White, 0.01847f);
+
+                            }
+                            else if (PortraitKindInInformation == "2")//人物全身像
+                            {
+                                //CacheManager.Draw(this.ShowingPerson.FullPortrait, this.PortraitInInformationDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1847f);
+
+                                CacheManager.DrawZhsanAvatar(this.ShowingPerson, "f", this.PortraitInInformationDisplayPosition, Color.White, 0.01847f);
+                            }
+
+                            //if (PortraitKindInInformation == "1")//人物半身像
+                            //{
+                            //    CacheManager.Draw(this.ShowingPerson.Portrait, this.PortraitInInformationDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1847f);
+                            //}
+                            //else if (PortraitKindInInformation == "2")//人物全身像
+                            //{
+                            //    CacheManager.Draw(this.ShowingPerson.FullPortrait, this.PortraitInInformationDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1847f);
+
+                            //}                               
                         }
                         catch { }
-                        foreach (LabelText text in this.LabelTexts)
+
+                        if (Switch106 == "on")//势力颜色
                         {
-                            text.Label.Draw(spriteBatch, 0.0184f);
-                            text.Text.Draw(spriteBatch, 0.0184f);
+                            CacheManager.Draw(this.FactionColour, this.FactionColourDisplayPosition, null, this.TheFactionColor, 0f, Vector2.Zero, SpriteEffects.None, 0.01845f);
+                            CacheManager.Draw(this.FactionColourBackground, this.FactionColourDisplayPosition, null, this.TheFactionColor, 0f, Vector2.Zero, SpriteEffects.None, 0.01846f);
                         }
-                        this.TitleText.Draw(spriteBatch, 0.0184f);
-                        //this.GuanzhiText.Draw(spriteBatch, 0.184f);
-                        this.AllSkillTexts.Draw(spriteBatch, (float)0.01837f);
-                        this.PersonSkillTexts.Draw(spriteBatch, (float)0.01833f);
-                        this.LearnableSkillTexts.Draw(spriteBatch, (float)0.01835f);
-                        this.StuntText.Draw(spriteBatch, 0.0184f);
-                        this.InfluenceText.Draw(spriteBatch, 0.01831f);
-                        this.ConditionText.Draw(spriteBatch, 0.01831f);
-                        this.BiographyText.Draw(spriteBatch, 0.0184f);
-                        this.PersonTreasuresText.Draw(spriteBatch, 0.0184f);//宝物显示
+                        if (Switch105 == "on")//势力名称
+                        {
+                            this.FactionNameText.Draw(0.01843f);
+                        }
+                        if (BiographyButton == false)
+                        {
+                            CacheManager.Draw(this.DetailBackgroundTexture, this.TitleBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01844f);
+                            CacheManager.Draw(this.DetailMask2Texture, this.TitleBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018435f);
+                            foreach (LabelText text in this.PersonInInformationTexts)
+                            {
+                                text.Label.Draw(0.01843f);
+                                text.Text.Draw(0.01843f);
+                            }
+                            CacheManager.Draw(this.DetailMask1Texture, this.TitleBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01842f);
+                        }
+                        this.ThePersonSkillTexts.Draw((float)0.018271f);
+                        this.TheLearnableSkillTexts.Draw((float)0.018273f);
+                        this.TheAllSkillTexts.Draw((float)0.018275f);
+                        if (Switch132 == "on")//技能背景图片
+                        {
+                            foreach (Skill skill in Session.Current.Scenario.GameCommonData.AllSkills.Skills.Values)
+                            {
+                                Rectangle skillposition = new Rectangle(this.DisplayOffset.X + this.TheSkillDisplayOffset.X + (skill.DisplayCol * this.TheSkillBlockSize.X), this.DisplayOffset.Y + this.TheSkillDisplayOffset.Y + (skill.DisplayRow * this.TheSkillBlockSize.Y), this.TheSkillBlockSize.X, this.TheSkillBlockSize.Y);
+                                CacheManager.Draw(this.AllSkillTextBackground, skillposition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018285f);
+                                if (ShowingPerson.Skills.GetSkill(skill.ID) != null)
+                                {
+                                    CacheManager.Draw(this.PersonSkillTextBackground, skillposition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018281f);
+                                }
+                                else if (skill.CanLearn(ShowingPerson))
+                                {
+                                    CacheManager.Draw(this.LearnableSkillTextBackground, skillposition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018283f);
+                                }
+                            }
+                        }
+                        this.TheInfluenceText.Draw(0.01813f);
+                        this.TheConditionText.Draw(0.01813f);
+                        if (Switch131 == "on")//条件与影响背景图片
+                        {
+                            CacheManager.Draw(this.ConditionBackground, this.ConditionBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01815f);
+                            CacheManager.Draw(this.InfluenceBackground, this.InfluenceBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01815f);
+                        }
+
+                        CacheManager.Draw(this.InformationMask1Texture, this.InformationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0183f);
+
+                        if (Switch117 == "on" && BiographyButton == false) //重要称号显示
+                        {
+                            CacheManager.Draw(this.TitleBackgroundTexture, this.TitleBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
+                            CacheManager.Draw(this.TitleMask2Texture, this.TitleBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018249f);
+
+                            try
+                            {
+                                CacheManager.Draw(this.ImportantTitleTextBackground, this.ImportantTitleTextBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0182f);
+                                this.ImportantTitleText.Draw(0.01813f);
+
+                                if (ShowImportantTitlePicture == "on")
+                                {
+                                    for (int t = 1; t <= MaxImportantTitleShowNumber; t++)
+                                    {
+                                        if (HasTheImportantTitle(t) == true)
+                                        {
+                                            CacheManager.Draw(this.TheImportantTitlePicture(t), this.TheImportantTitlePictureDisplayPosition(t), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018247f);
+                                        }
+                                    }
+                                }
+                                if (ShowImportantTitleNameBackground == "on")
+                                {
+                                    for (int t = 1; t <= MaxImportantTitleShowNumber; t++)
+                                    {
+                                        if (HasTheImportantTitle(t) == true)
+                                        {
+                                            CacheManager.Draw(this.TheImportantTitleBackground(t), this.TheImportantTitleDisplayPosition(t), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018245f);
+                                        }
+                                    }
+                                }
+                                if (ShowImportantTitleName == "on")
+                                {
+                                    if (HasTheImportantTitle(1) == true && MaxImportantTitleShowNumber > 0) { this.ImportantTitle1NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(2) == true && MaxImportantTitleShowNumber > 1) { this.ImportantTitle2NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(3) == true && MaxImportantTitleShowNumber > 2) { this.ImportantTitle3NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(4) == true && MaxImportantTitleShowNumber > 3) { this.ImportantTitle4NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(5) == true && MaxImportantTitleShowNumber > 4) { this.ImportantTitle5NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(6) == true && MaxImportantTitleShowNumber > 5) { this.ImportantTitle6NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(7) == true && MaxImportantTitleShowNumber > 6) { this.ImportantTitle7NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(8) == true && MaxImportantTitleShowNumber > 7) { this.ImportantTitle8NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(9) == true && MaxImportantTitleShowNumber > 8) { this.ImportantTitle9NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(10) == true && MaxImportantTitleShowNumber > 9) { this.ImportantTitle10NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(11) == true && MaxImportantTitleShowNumber > 10) { this.ImportantTitle11NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(12) == true && MaxImportantTitleShowNumber > 11) { this.ImportantTitle12NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(13) == true && MaxImportantTitleShowNumber > 12) { this.ImportantTitle13NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(14) == true && MaxImportantTitleShowNumber > 13) { this.ImportantTitle14NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(15) == true && MaxImportantTitleShowNumber > 14) { this.ImportantTitle15NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(16) == true && MaxImportantTitleShowNumber > 15) { this.ImportantTitle16NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(17) == true && MaxImportantTitleShowNumber > 16) { this.ImportantTitle17NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(18) == true && MaxImportantTitleShowNumber > 17) { this.ImportantTitle18NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(19) == true && MaxImportantTitleShowNumber > 18) { this.ImportantTitle19NameText.Draw(0.018243f); }
+                                    if (HasTheImportantTitle(20) == true && MaxImportantTitleShowNumber > 19) { this.ImportantTitle20NameText.Draw(0.018243f); }
+                                }
+                            }
+                            catch { }
+                            CacheManager.Draw(this.TitleMask1Texture, this.TitleBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
+
+                        }
+                        if (Switch118 == "on" && BiographyButton == false)//重要特技显示
+                        {
+                            CacheManager.Draw(this.StuntBackgroundTexture, this.StuntBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
+                            CacheManager.Draw(this.StuntMask2Texture, this.StuntBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018249f);
+
+                            try
+                            {
+                                CacheManager.Draw(this.ImportantStuntTextBackground, this.ImportantStuntTextBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0182f);
+                                this.ImportantStuntText.Draw(0.1813f);
+
+                                if (ShowImportantStuntPicture == "on")
+                                {
+                                    for (int t = 1; t <= MaxImportantStuntShowNumber; t++)
+                                    {
+                                        if (HasTheImportantStunt(t) == true)
+                                        {
+                                            CacheManager.Draw(this.TheImportantStuntPicture(t), this.TheImportantStuntPictureDisplayPosition(t), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018247f);
+                                        }
+                                    }
+                                }
+                                if (ShowImportantStuntNameBackground == "on")
+                                {
+                                    for (int t = 1; t <= MaxImportantStuntShowNumber; t++)
+                                    {
+                                        if (HasTheImportantStunt(t) == true)
+                                        {
+                                            CacheManager.Draw(this.TheImportantStuntBackground(t), this.TheImportantStuntDisplayPosition(t), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018245f);
+                                        }
+                                    }
+                                }
+                                if (ShowImportantStuntName == "on")
+                                {
+                                    if (HasTheImportantStunt(1) == true && MaxImportantStuntShowNumber > 0) { this.ImportantStunt1NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(2) == true && MaxImportantStuntShowNumber > 1) { this.ImportantStunt2NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(3) == true && MaxImportantStuntShowNumber > 2) { this.ImportantStunt3NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(4) == true && MaxImportantStuntShowNumber > 3) { this.ImportantStunt4NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(5) == true && MaxImportantStuntShowNumber > 4) { this.ImportantStunt5NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(6) == true && MaxImportantStuntShowNumber > 5) { this.ImportantStunt6NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(7) == true && MaxImportantStuntShowNumber > 6) { this.ImportantStunt7NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(8) == true && MaxImportantStuntShowNumber > 7) { this.ImportantStunt8NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(9) == true && MaxImportantStuntShowNumber > 8) { this.ImportantStunt9NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(10) == true && MaxImportantStuntShowNumber > 9) { this.ImportantStunt10NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(11) == true && MaxImportantStuntShowNumber > 10) { this.ImportantStunt11NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(12) == true && MaxImportantStuntShowNumber > 11) { this.ImportantStunt12NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(13) == true && MaxImportantStuntShowNumber > 12) { this.ImportantStunt13NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(14) == true && MaxImportantStuntShowNumber > 13) { this.ImportantStunt14NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(15) == true && MaxImportantStuntShowNumber > 14) { this.ImportantStunt15NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(16) == true && MaxImportantStuntShowNumber > 15) { this.ImportantStunt16NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(17) == true && MaxImportantStuntShowNumber > 16) { this.ImportantStunt17NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(18) == true && MaxImportantStuntShowNumber > 17) { this.ImportantStunt18NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(19) == true && MaxImportantStuntShowNumber > 18) { this.ImportantStunt19NameText.Draw(0.018243f); }
+                                    if (HasTheImportantStunt(20) == true && MaxImportantStuntShowNumber > 19) { this.ImportantStunt20NameText.Draw(0.018243f); }
+                                }
+                            }
+                            catch { }
+                            CacheManager.Draw(this.StuntMask1Texture, this.StuntBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
+
+                        }
+                        if (ImportantTreasureButton == true)
+                        {
+                            CacheManager.Draw(this.TreasureBackgroundTexture, this.StuntBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
+                            CacheManager.Draw(this.TreasureMask2Texture, this.StuntBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018249f);
+
+                            if (Switch114 == "on")//重要宝物显示
+                            {
+                                CacheManager.Draw(this.ImportantTreasureBackground, this.ImportantTreasureBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018247f);
+                                try
+                                {
+                                    if (Switch116 == "on")
+                                    {
+                                        if (ThePersonPictureKindInTreasure == "1")//性别像
+                                        {
+                                            CacheManager.Draw(this.SexPicture, this.ThePersonPictureInTreasureDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018246f);
+                                        }
+                                        if (ThePersonPictureKindInTreasure == "2")//全身像
+                                        {
+                                            CacheManager.DrawZhsanAvatar(this.ShowingPerson, "f", this.ThePersonPictureInTreasureDisplayPosition, Color.White, 0.018246f);
+                                            //CacheManager.Draw(this.ShowingPerson.FullPortrait, this.ThePersonPictureInTreasureDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18246f);
+                                        }
+                                    }
+
+                                    for (int t = 1; t <= MaxImportantTreasureShowNumber; t++)
+                                    {
+                                        if (HasTheImportantTreasure(t) == true)
+                                        {
+                                            CacheManager.Draw(this.TheImportantTreasurePicture(t), this.TheImportantTreasureDisplayPosition(t), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018245f);
+                                            CacheManager.Draw(this.ImportantTreasureShowMask, this.TheImportantTreasureDisplayPosition(t), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018244f);
+                                        }
+                                    }
+                                }
+                                catch { }
+                                CacheManager.Draw(this.ImportantTreasureMask, this.ImportantTreasureBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018243f);
+                            }
+                            if (Switch115 == "on")
+                            {
+                                CacheManager.Draw(this.GeneralTreasureBackground, this.GeneralTreasureBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018247f);
+
+                                for (int i = 0; i < MaxGeneralTreasureShowNumber; i++)
+                                {
+                                    CacheManager.Draw(this.TheGeneralTreasurePicture(i), this.TheGeneralTreasureDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018245f);
+                                    CacheManager.Draw(this.GeneralTreasureShowMask, this.TheGeneralTreasureDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018244f);
+                                    if (ShowNullTreasurePicture == "on")
+                                    {
+                                        CacheManager.Draw(this.GeneralTreasureShowBackground, this.GeneralTreasureDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018246f);
+                                    }
+                                }
+
+                                CacheManager.Draw(this.GeneralTreasureMask, this.GeneralTreasureBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018243f);
+                            }
+
+                            CacheManager.Draw(this.TreasureMask1Texture, this.StuntBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
+
+                            CacheManager.Draw(this.ImportantTreasureTextPicture, this.ImportantTreasureTextPictureDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01815f);
+                            CacheManager.Draw(this.ImportantTreasureTextBackground, this.ImportantTreasureTextBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0182f);
+                            CacheManager.Draw(this.ImportantTreasureTextMask, this.ImportantTreasureTextBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0181f);
+                            this.ImportantTreasureText.Draw(0.1813f);
+
+                        }
+
                     }
+                    if (RelativeButton == true)//人物亲人
+                    {
+                        CacheManager.Draw(this.RelativeMask, this.RelativeBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
+                        CacheManager.Draw(this.RelativeBackground, this.RelativeBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
+                        this.GenerationText.Draw(0.018243f);
+                        this.StrainText.Draw(0.018243f);
+
+                        Person person = null;
+                        float depth = 0.018247f;
+                        person = this.ShowingPerson;
+
+                        CacheManager.DrawZhsanAvatar(person, "s", this.SmallPortraitDisplayPosition, Color.White, depth);
+
+                        //CacheManager.Draw(this.ShowingPerson.SmallPortrait, this.SmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
+                        if (HasFather == true)
+                        {
+                            person = this.ShowingPerson.Father;
+                            CacheManager.DrawZhsanAvatar(person, "s", this.FatherSmallPortraitDisplayPosition, Color.White, depth);
+                            //CacheManager.Draw(this.ShowingPerson.FatherSmallPortrait, this.FatherSmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
+                        }
+                        this.FatherNameText.Draw(0.018243f);
+                        if (HasMother == true)
+                        {
+                            person = this.ShowingPerson.Mother;
+                            CacheManager.DrawZhsanAvatar(person, "s", this.MotherSmallPortraitDisplayPosition, Color.White, depth);
+                            //CacheManager.Draw(this.ShowingPerson.MotherSmallPortrait, this.MotherSmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
+                        }
+                        this.MotherNameText.Draw(0.18243f);
+                        if (HasSpouse == true)
+                        {
+                            person = this.ShowingPerson.Spouse;
+                            CacheManager.DrawZhsanAvatar(person, "s", this.SpouseSmallPortraitDisplayPosition, Color.White, depth);
+                            //CacheManager.Draw(this.ShowingPerson.SpouseSmallPortrait, this.SpouseSmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
+                        }
+
+                        ////CacheManager.Draw(this.ShowingPerson.SmallPortrait, this.SmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
+                        //if (HasFather == true)
+                        //{
+                        //    CacheManager.Draw(this.ShowingPerson.FatherSmallPortrait, this.FatherSmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
+                        //}
+                        //this.FatherNameText.Draw(0.18243f);
+                        //if (HasMother == true)
+                        //{
+                        //    CacheManager.Draw(this.ShowingPerson.MotherSmallPortrait, this.MotherSmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
+                        //}
+                        //this.MotherNameText.Draw(0.18243f);
+                        //if (HasSpouse == true)
+                        //{
+                        //    CacheManager.Draw(this.ShowingPerson.SpouseSmallPortrait, this.SpouseSmallPortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18247f);
+                        //}
+                        this.SpouseNameText.Draw(0.018243f);
+                        this.ChildrenNumberText.Draw(0.018243f);
+                        if (ChildrenN > 0)
+                        {
+                            this.ChildrenText.Draw(0.018243f);
+                        }
+                    }
+                    if (RelationButton == true)//人物兄弟喜恶
+                    {
+                        CacheManager.Draw(this.RelationMask, this.RelationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
+                        CacheManager.Draw(this.RelationBackground, this.RelationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
+                        this.BrothersText.Draw(0.018243f);
+                        this.ClosePersonsText.Draw(0.018243f);
+                        this.HatedPersonsText.Draw(0.018243f);
+                    }
+
+                    if (PersonRelationButton == true)//人物关系
+                    {
+                        CacheManager.Draw(this.PersonRelationMask, this.PersonRelationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
+                        CacheManager.Draw(this.PersonRelationBackground, this.PersonRelationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
+                        this.PersonRelationText.Draw(0.18243f);
+                    }
+
+
+                    if (StandingsButton == true)//人物战绩
+                    {
+                        CacheManager.Draw(this.StandingsMask, this.StandingsBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
+                        CacheManager.Draw(this.StandingsBackground, this.StandingsBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
+                        foreach (LabelText text in this.StandingsTexts)
+                        {
+                            text.Label.Draw(0.018243f);
+                            text.Text.Draw(0.018243f);
+                        }
+                    }
+                    /////////
+                    if (BiographyButton == true)//↓人物列传
+                    {
+                        CacheManager.Draw(this.BiographyBackgroundTexture, this.BiographyBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01825f);
+                        CacheManager.Draw(this.BiographyMask2Texture, this.BiographyBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018249f);
+
+                        if (Switch24 == "on")//在人物列传分页
+                        {
+                            if (Switch26 == "on")//列传
+                            {
+                                CacheManager.Draw(this.BiographyBriefButtonTexture, this.BiographyBriefButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                                CacheManager.Draw(this.BiographyBriefPressedTexture, this.BiographyBriefButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                            }
+                            if (Switch27 == "on")//演义
+                            {
+                                CacheManager.Draw(this.BiographyRomanceButtonTexture, this.BiographyRomanceButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                                CacheManager.Draw(this.BiographyRomancePressedTexture, this.BiographyRomanceButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                            }
+                            if (Switch28 == "on")//历史
+                            {
+                                CacheManager.Draw(this.BiographyHistoryButtonTexture, this.BiographyHistoryButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                                CacheManager.Draw(this.BiographyHistoryPressedTexture, this.BiographyHistoryButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                            }
+                            if (Switch29 == "on")//剧本
+                            {
+                                CacheManager.Draw(this.BiographyInGameButtonTexture, this.BiographyInGameButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                                CacheManager.Draw(this.BiographyInGamePressedTexture, this.BiographyInGameButtonPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01821f);
+                            }
+                            this.PersonBiographyText.Draw(0.018235f);
+                        }
+                        else
+                        {
+                            this.PersonBiographyText.Draw(0.018235f);
+                        }
+                        if (Switch133 == "on")//称号背景图片
+                        {
+                            CacheManager.Draw(this.TitleTextBackground, this.TitleTextBackgroundDisplayPosition, this.TitleCountDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018245f);
+                        }
+                        this.TheTitleText.Draw(0.018243f);
+                        if (Switch134 == "on")//称号背景图片
+                        {
+                            CacheManager.Draw(this.StuntTextBackground, this.StuntTextBackgroundDisplayPosition, this.StuntCountDisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018245f);
+                        }
+                        this.TheStuntText.Draw(0.018243f);
+                        CacheManager.Draw(this.BiographyMask1Texture, this.BiographyBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01823f);
+
+
+                    }
+
                 }
-                catch { }
-                this.SurNameText.Draw(spriteBatch, 0.01827f);
-                this.GivenNameText.Draw(spriteBatch, 0.01827f);
-                this.CalledNameText.Draw(spriteBatch, 0.01827f);               
+                ///////
+                if (Switch1 == "off")//旧界面
+                {
+
+                    CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.019f);
+                    CacheManager.Draw(this.BackgroundMask2, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0189f);
+                    //CacheManager.Draw(this.ShowingPerson.Portrait, this.PortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.185f);
+                    CacheManager.Draw(this.BackgroundMask1, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0183f);
+
+                    foreach (LabelText text in this.LabelTexts)
+                    {
+                        text.Label.Draw(0.0184f);
+                        text.Text.Draw(0.0184f);
+                    }
+                    this.TitleText.Draw(0.0184f);
+                    //this.GuanzhiText.Draw(0.184f);
+                    this.AllSkillTexts.Draw((float)0.01837f);
+                    this.PersonSkillTexts.Draw((float)0.01833f);
+                    this.LearnableSkillTexts.Draw((float)0.01835f);
+                    this.StuntText.Draw(0.0184f);
+                    this.InfluenceText.Draw(0.01831f);
+                    this.ConditionText.Draw(0.01831f);
+                    this.BiographyText.Draw(0.0184f);
+                    this.PersonTreasuresText.Draw(0.0184f);//宝物显示
+                }
+
+                this.SurNameText.Draw(0.01827f);
+                this.GivenNameText.Draw(0.01827f);
+                this.CalledNameText.Draw(0.01827f);
             }
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         private void screen_OnMouseLeftDown(Point position)
@@ -1271,7 +1264,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Open");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Open");
                         }
                         ImportantTreasureButton = true;
                 }
@@ -1279,7 +1272,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Close");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Close");
                         }
                         ImportantTreasureButton = false;
                 }
@@ -1290,7 +1283,7 @@
                     {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Select");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                         }
                         BiographyBriefButton = true;
                         BiographyRomanceButton = false;
@@ -1306,7 +1299,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Select");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                         }
                         BiographyBriefButton = false;
                         BiographyRomanceButton = true;
@@ -1321,7 +1314,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Select");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                         }
                         BiographyBriefButton = false;
                         BiographyRomanceButton = false;
@@ -1336,7 +1329,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Select");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                         }
                         BiographyBriefButton = false;
                         BiographyRomanceButton = false;
@@ -1385,7 +1378,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Open");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Open");
                         }
                         BiographyButton = true;
                         RelativeButton = false;
@@ -1397,7 +1390,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Close");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Close");
                         }
                         BiographyButton = false;
                 }
@@ -1406,7 +1399,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Open");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Open");
                         }
                         PersonRelationButton = true;
                 }
@@ -1414,7 +1407,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Close");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Close");
                         }
                         PersonRelationButton = false;
                 }
@@ -1423,7 +1416,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Open");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Open");
                         }
                         RelativeButton = true;
                         RelationButton = false;
@@ -1434,7 +1427,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Open");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Open");
                         }
                         RelativeButton = false;
                         RelationButton = true;
@@ -1445,7 +1438,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Open");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Open");
                         }
                         RelativeButton = false;
                         RelationButton = false;
@@ -1456,7 +1449,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Close");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Close");
                         }
                         RelativeButton = false;
                 }
@@ -1464,7 +1457,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Close");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Close");
                         }
                         RelationButton = false;
                 }
@@ -1472,7 +1465,7 @@
                 {
                         if (Switch3 == "on")
                         {
-                            this.screen.PlayNormalSound("Content/Sound/Close");
+                            Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Close");
                         }
                         StandingsButton = false;
                 }
@@ -1870,7 +1863,11 @@
                 bool flag0 = false;
                 if (InformationButton == true && BiographyButton == true && StaticMethods.PointInRectangle(position, this.NewTitleDisplayPosition))
                 {
-                    int num2 = (position.Y - this.TheTitleText.DisplayOffset.Y) / this.TheTitleText.RowHeight;
+                    int num2 = 0;
+                    if (this.TheTitleText.RowHeight > 0)
+                    {
+                        num2 = (position.Y - this.TheTitleText.DisplayOffset.Y) / this.TheTitleText.RowHeight;
+                    }                     
                     if (num2 >= 0)
                     {
                         int num3 = num2;
@@ -1941,7 +1938,12 @@
                 }
                 if (InformationButton == true && BiographyButton == true && StaticMethods.PointInRectangle(position, this.NewStuntDisplayPosition))
                 {
-                    int num2 = (position.Y - this.TheStuntText.DisplayOffset.Y) / this.TheStuntText.RowHeight;
+                    int num2 = 0;
+
+                    if (this.TheStuntText.RowHeight > 0)
+                    {
+                        num2 = (position.Y - this.TheStuntText.DisplayOffset.Y) / this.TheStuntText.RowHeight;
+                    }
                     //if (num2 > 1)
                     if (num2 >= 0)
                     {
@@ -2087,7 +2089,7 @@
                                 {
                                     if (ImportantTreasureTextFollowTheMouse == "1")
                                     {
-                                        this.ImportantTreasureText.DisplayOffset = new Point(this.screen.MousePosition.X + this.ImportantTreasureTextClient.X, this.screen.MousePosition.Y + this.ImportantTreasureTextClient.Y);
+                                        this.ImportantTreasureText.DisplayOffset = new Point(Session.MainGame.mainGameScreen.MousePosition.X + this.ImportantTreasureTextClient.X, Session.MainGame.mainGameScreen.MousePosition.Y + this.ImportantTreasureTextClient.Y);
                                     }
                                     ImportantTreasureTextPicture = TheImportantTreasurePicture(t);
                                     this.ImportantTreasureText.Clear();
@@ -2111,7 +2113,7 @@
                                 {
                                     if (ImportantTreasureTextFollowTheMouse == "1")
                                     {
-                                        this.ImportantTreasureText.DisplayOffset = new Point(this.screen.MousePosition.X + this.ImportantTreasureTextClient.X, this.screen.MousePosition.Y + this.ImportantTreasureTextClient.Y);
+                                        this.ImportantTreasureText.DisplayOffset = new Point(Session.MainGame.mainGameScreen.MousePosition.X + this.ImportantTreasureTextClient.X, Session.MainGame.mainGameScreen.MousePosition.Y + this.ImportantTreasureTextClient.Y);
                                     }
                                     ImportantTreasureTextPicture = TheGeneralTreasurePicture(t);
                                     this.ImportantTreasureText.Clear();
@@ -2159,7 +2161,7 @@
                                 {
                                     if (ImportantTitleTextFollowTheMouse == "1")
                                     {
-                                        this.ImportantTitleText.DisplayOffset = new Point(this.screen.MousePosition.X + this.ImportantTitleTextClient.X, this.screen.MousePosition.Y + this.ImportantTitleTextClient.Y);
+                                        this.ImportantTitleText.DisplayOffset = new Point(Session.MainGame.mainGameScreen.MousePosition.X + this.ImportantTitleTextClient.X, Session.MainGame.mainGameScreen.MousePosition.Y + this.ImportantTitleTextClient.Y);
                                     }
                                     this.ImportantTitleText.Clear();
                                     this.ImportantTitleText.AddText(ImportantTitleText1, this.ImportantTitleText.TitleColor);
@@ -2203,7 +2205,7 @@
                                 {
                                     if (ImportantStuntTextFollowTheMouse == "1")
                                     {
-                                        this.ImportantStuntText.DisplayOffset = new Point(this.screen.MousePosition.X + this.ImportantStuntTextClient.X, this.screen.MousePosition.Y + this.ImportantStuntTextClient.Y);
+                                        this.ImportantStuntText.DisplayOffset = new Point(Session.MainGame.mainGameScreen.MousePosition.X + this.ImportantStuntTextClient.X, Session.MainGame.mainGameScreen.MousePosition.Y + this.ImportantStuntTextClient.Y);
                                     }
                                     this.ImportantStuntText.Clear();
                                     this.ImportantStuntText.AddText(ImportantStuntText1, this.ImportantStuntText.TitleColor);
@@ -2244,7 +2246,7 @@
         {
             if (Switch3 == "on")
             {
-                this.screen.PlayNormalSound("Content/Sound/Close");
+                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Close");
             }
             this.IsShowing = false;
         }
@@ -2255,7 +2257,7 @@
             {                
                 this.PersonSkillTexts.SimpleClear();
                 this.LearnableSkillTexts.SimpleClear();
-                foreach (Skill skill in this.screen.Scenario.GameCommonData.AllSkills.Skills.Values)
+                foreach (Skill skill in Session.Current.Scenario.GameCommonData.AllSkills.Skills.Values)
                 {
                     Rectangle position = new Rectangle(this.SkillDisplayOffset.X + (skill.DisplayCol * this.SkillBlockSize.X), this.SkillDisplayOffset.Y + (skill.DisplayRow * this.SkillBlockSize.Y), this.SkillBlockSize.X, this.SkillBlockSize.Y);
                     if (person.Skills.GetSkill(skill.ID) != null)
@@ -2461,7 +2463,7 @@
                     //else
                     //{ this.ThePersonSound = "Content/Sound/Open"; }
 
-                    this.screen.PlayNormalSound(this.ThePersonSound);
+                    Session.MainGame.mainGameScreen.PlayNormalSound(this.ThePersonSound);
                 }
                 SexN = person.Sex;
                 //
@@ -2559,7 +2561,7 @@
                 //
                 this.ThePersonSkillTexts.SimpleClear();
                 this.TheLearnableSkillTexts.SimpleClear();
-                foreach (Skill skill in this.screen.Scenario.GameCommonData.AllSkills.Skills.Values)
+                foreach (Skill skill in Session.Current.Scenario.GameCommonData.AllSkills.Skills.Values)
                 {
                     Rectangle position = new Rectangle(this.TheSkillDisplayOffset.X + (skill.DisplayCol * this.TheSkillBlockSize.X), this.TheSkillDisplayOffset.Y + (skill.DisplayRow * this.TheSkillBlockSize.Y), this.TheSkillBlockSize.X, this.TheSkillBlockSize.Y);
                     if (person.Skills.GetSkill(skill.ID) != null)
@@ -2792,7 +2794,7 @@
 
         internal void SetPosition(ShowPosition showPosition)
         {
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
             Rectangle rect = new Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
             switch (showPosition)
             {
@@ -2832,7 +2834,7 @@
                     rect = StaticMethods.GetBottomRightRectangle(rectDes, rect);
                     break;
             }
-            this.DisplayOffset = new Point(rect.X, rect.Y);
+            this.DisplayOffset = new Point(rect.X, rect.Y + 15);
             this.SurNameText.DisplayOffset = this.DisplayOffset;
             this.GivenNameText.DisplayOffset = this.DisplayOffset;
             this.CalledNameText.DisplayOffset = this.DisplayOffset;
@@ -2958,22 +2960,22 @@
                 this.isShowing = value;
                 if (value)
                 {
-                    this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.SubDialog, DialogKind.PersonDetail));
-                    this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                    //this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                    this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftDown);
-                    this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.SubDialog, DialogKind.PersonDetail));
+                    Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                    //Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                 }
                 else
                 {
-                    if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.SubDialog)
+                    if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.SubDialog)
                     {
                         throw new Exception("The UndoneWork is not a SubDialog.");
                     }
-                    this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                    //this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                    this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftDown);
-                    this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                    //Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                     this.current = null;
                     this.InfluenceText.Clear();
                     this.ConditionText.Clear();
@@ -3188,7 +3190,7 @@
                 {
                     if (ImportantTreasureTextFollowTheMouse == "1")
                     {
-                        return new Rectangle(this.ImportantTreasureTextBackgroundClient.X + this.screen.MousePosition.X, this.ImportantTreasureTextBackgroundClient.Y + this.screen.MousePosition.Y, this.ImportantTreasureTextBackgroundClient.Width, this.ImportantTreasureTextBackgroundClient.Height);
+                        return new Rectangle(this.ImportantTreasureTextBackgroundClient.X + Session.MainGame.mainGameScreen.MousePosition.X, this.ImportantTreasureTextBackgroundClient.Y + Session.MainGame.mainGameScreen.MousePosition.Y, this.ImportantTreasureTextBackgroundClient.Width, this.ImportantTreasureTextBackgroundClient.Height);
                     }
                     return new Rectangle(this.ImportantTreasureTextBackgroundClient.X + this.DisplayOffset.X, this.ImportantTreasureTextBackgroundClient.Y + this.DisplayOffset.Y, this.ImportantTreasureTextBackgroundClient.Width, this.ImportantTreasureTextBackgroundClient.Height);
                 }
@@ -3211,7 +3213,7 @@
                 {
                     if (ImportantTreasureTextFollowTheMouse == "1")
                     {
-                        return new Rectangle(this.ImportantTreasureTextPictureClient.X + this.screen.MousePosition.X, this.ImportantTreasureTextPictureClient.Y + this.screen.MousePosition.Y, this.ImportantTreasureTextPictureClient.Width, this.ImportantTreasureTextPictureClient.Height);
+                        return new Rectangle(this.ImportantTreasureTextPictureClient.X + Session.MainGame.mainGameScreen.MousePosition.X, this.ImportantTreasureTextPictureClient.Y + Session.MainGame.mainGameScreen.MousePosition.Y, this.ImportantTreasureTextPictureClient.Width, this.ImportantTreasureTextPictureClient.Height);
                     }
                     return new Rectangle(this.ImportantTreasureTextPictureClient.X + this.DisplayOffset.X, this.ImportantTreasureTextPictureClient.Y + this.DisplayOffset.Y, this.ImportantTreasureTextPictureClient.Width, this.ImportantTreasureTextPictureClient.Height);
                 }
@@ -3250,9 +3252,9 @@
             else if (t == 20) { D = this.ImportantTreasure20DisplayPosition; }
             return D;
         }
-        private Texture2D TheImportantTreasurePicture(int t)
+        private PlatformTexture TheImportantTreasurePicture(int t)
         {
-            Texture2D P = this.PictureNull;
+            PlatformTexture P = this.PictureNull;
             if (t == 1) { P = this.ShowingPerson.TreasurePictureforGroup(ImportantTreasure1Group); }
             else if (t == 2) { P = this.ShowingPerson.TreasurePictureforGroup(ImportantTreasure2Group); }
             else if (t == 3) { P = this.ShowingPerson.TreasurePictureforGroup(ImportantTreasure3Group); }
@@ -3622,9 +3624,9 @@
              else if (i == ImportantTreasure20Group && MaxImportantTreasureShowNumber >= 20) { Is = true; }
              return Is;
          }
-         private Texture2D TheGeneralTreasurePicture(int i)
+         private PlatformTexture TheGeneralTreasurePicture(int i)
          {
-             Texture2D P = this.PictureNull;
+            PlatformTexture P = this.PictureNull;
              int n = 0;
              foreach (Treasure t in this.ShowingPerson.effectiveTreasures.Values)
              {
@@ -3761,16 +3763,16 @@
                 {
                     if (ImportantTitleTextFollowTheMouse == "1")
                     {
-                        return new Rectangle(this.ImportantTitleTextBackgroundClient.X + this.screen.MousePosition.X, this.ImportantTitleTextBackgroundClient.Y + this.screen.MousePosition.Y, this.ImportantTitleTextBackgroundClient.Width, this.ImportantTitleTextBackgroundClient.Height);
+                        return new Rectangle(this.ImportantTitleTextBackgroundClient.X + Session.MainGame.mainGameScreen.MousePosition.X, this.ImportantTitleTextBackgroundClient.Y + Session.MainGame.mainGameScreen.MousePosition.Y, this.ImportantTitleTextBackgroundClient.Width, this.ImportantTitleTextBackgroundClient.Height);
                     }
                     return new Rectangle(this.ImportantTitleTextBackgroundClient.X + this.DisplayOffset.X, this.ImportantTitleTextBackgroundClient.Y + this.DisplayOffset.Y, this.ImportantTitleTextBackgroundClient.Width, this.ImportantTitleTextBackgroundClient.Height);
                 }
                 return new Rectangle(this.ImportantTitleTextBackgroundClient.X + this.DisplayOffset.X, this.ImportantTitleTextBackgroundClient.Y + this.DisplayOffset.Y, 0, 0);
             }
         }
-        private Texture2D TheImportantTitleBackground(int t)
+        private PlatformTexture TheImportantTitleBackground(int t)
         {
-            Texture2D P = this.PictureNull;
+            PlatformTexture P = this.PictureNull;
             if (t == 1) { P = this.ImportantTitle1Background; }
             else if (t == 2) { P = this.ImportantTitle2Background; }
             else if (t == 3) { P = this.ImportantTitle3Background; }
@@ -3793,9 +3795,9 @@
             else if (t == 20) { P = this.ImportantTitle20Background; }
             return P;
         }
-        private Texture2D TheImportantTitlePicture(int t)
+        private PlatformTexture TheImportantTitlePicture(int t)
         {
-            Texture2D P = this.PictureNull;
+            PlatformTexture P = this.PictureNull;
             if (t == 1) { P = this.ImportantTitle1Picture; }
             else if (t == 2) { P = this.ImportantTitle2Picture; }
             else if (t == 3) { P = this.ImportantTitle3Picture; }
@@ -4424,16 +4426,16 @@
                 {
                     if (ImportantStuntTextFollowTheMouse == "1")
                     {
-                        return new Rectangle(this.ImportantStuntTextBackgroundClient.X + this.screen.MousePosition.X, this.ImportantStuntTextBackgroundClient.Y + this.screen.MousePosition.Y, this.ImportantStuntTextBackgroundClient.Width, this.ImportantStuntTextBackgroundClient.Height);
+                        return new Rectangle(this.ImportantStuntTextBackgroundClient.X + Session.MainGame.mainGameScreen.MousePosition.X, this.ImportantStuntTextBackgroundClient.Y + Session.MainGame.mainGameScreen.MousePosition.Y, this.ImportantStuntTextBackgroundClient.Width, this.ImportantStuntTextBackgroundClient.Height);
                     }
                     return new Rectangle(this.ImportantStuntTextBackgroundClient.X + this.DisplayOffset.X, this.ImportantStuntTextBackgroundClient.Y + this.DisplayOffset.Y, this.ImportantStuntTextBackgroundClient.Width, this.ImportantStuntTextBackgroundClient.Height);
                 }
                 return new Rectangle(this.ImportantStuntTextBackgroundClient.X + this.DisplayOffset.X, this.ImportantStuntTextBackgroundClient.Y + this.DisplayOffset.Y, 0, 0);
             }
         }
-        private Texture2D TheImportantStuntBackground(int t)
+        private PlatformTexture TheImportantStuntBackground(int t)
         {
-            Texture2D P = this.PictureNull;
+            PlatformTexture P = this.PictureNull;
             if (t == 1) { P = this.ImportantStunt1Background; }
             else if (t == 2) { P = this.ImportantStunt2Background; }
             else if (t == 3) { P = this.ImportantStunt3Background; }
@@ -4456,9 +4458,9 @@
             else if (t == 20) { P = this.ImportantStunt20Background; }
             return P;
         }
-        private Texture2D TheImportantStuntPicture(int t)
+        private PlatformTexture TheImportantStuntPicture(int t)
         {
-            Texture2D P = this.PictureNull;
+            PlatformTexture P = this.PictureNull;
             if (t == 1) { P = this.ImportantStunt1Picture; }
             else if (t == 2) { P = this.ImportantStunt2Picture; }
             else if (t == 3) { P = this.ImportantStunt3Picture; }

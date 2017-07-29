@@ -5,11 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.Serialization;
+using GameManager;
 
 namespace GameObjects
 {
     [DataContract]
+#pragma warning disable CS0659 // 'GameArea' overrides Object.Equals(object o) but does not override Object.GetHashCode()
     public class GameArea
+#pragma warning restore CS0659 // 'GameArea' overrides Object.Equals(object o) but does not override Object.GetHashCode()
     {
         [DataMember]
         public List<Point> Area = new List<Point>();
@@ -23,16 +26,16 @@ namespace GameObjects
             this.topleft = null;
         }
 
-        private static void CheckPoint(GameArea Area, List<Point> BlackAngles, Point point, GameScenario Scenario, Faction faction)
+        private static void CheckPoint(GameArea Area, List<Point> BlackAngles, Point point, Faction faction)
         {
-            TerrainDetail terrainDetailByPosition = Scenario.GetTerrainDetailByPosition(point);
+            TerrainDetail terrainDetailByPosition = Session.Current.Scenario.GetTerrainDetailByPosition(point);
             if (terrainDetailByPosition != null)
             {
                 if (terrainDetailByPosition.ViewThrough)
                 {
                     if (faction != null)
                     {
-                        Architecture architectureByPosition = Scenario.GetArchitectureByPosition(point);
+                        Architecture architectureByPosition = Session.Current.Scenario.GetArchitectureByPosition(point);
                         if (!(architectureByPosition == null || architectureByPosition.Endurance <= 0 || faction.IsFriendlyWithoutTruce(architectureByPosition.BelongedFaction)))
                         {
                             BlackAngles.Add(point);
@@ -137,7 +140,7 @@ namespace GameObjects
             return area;
         }
 
-        public static GameArea GetAreaFromArea(GameArea area, int radius, bool oblique, GameScenario Scenario, Faction faction)
+        public static GameArea GetAreaFromArea(GameArea area, int radius, bool oblique, Faction faction)
         {
             /*int longRadius;
             if (area.Count <= 1)
@@ -170,7 +173,7 @@ namespace GameObjects
             GameArea area2 = new GameArea();
             foreach (Point point in area.Area)
             {
-                area2.CombineArea(GetViewArea(point, radius, oblique, Scenario, faction), closedList);
+                area2.CombineArea(GetViewArea(point, radius, oblique, faction), closedList);
             }
             foreach (Point point in closedList.Keys)
             {
@@ -181,21 +184,21 @@ namespace GameObjects
 
         public GameArea GetContactArea(bool oblique)
         {
-            return GetContactArea(oblique, null, false, false);
+            return GetContactArea(oblique, false, false);
         }
 
-        public GameArea GetContactArea(bool oblique, GameScenario scen, bool waterOnly, bool landOnly)
+        public GameArea GetContactArea(bool oblique, bool waterOnly, bool landOnly)
         {
             GameArea area = new GameArea();
             Dictionary<Point, object> dictionary = new Dictionary<Point, object>();
             foreach (Point point2 in this.Area)
             {
                 bool ok = true;
-                if (waterOnly && scen.GetTerrainDetailByPositionNoCheck(point2).ID != 6)
+                if (waterOnly && Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(point2).ID != 6)
                 {
                     ok = false;
                 }
-                if (landOnly && scen.GetTerrainDetailByPositionNoCheck(point2).ID == 6)
+                if (landOnly && Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(point2).ID == 6)
                 {
                     ok = false;
                 }
@@ -207,25 +210,25 @@ namespace GameObjects
             foreach (Point point2 in this.Area)
             {
                 Point key = new Point(point2.X - 1, point2.Y);
-                if (!dictionary.ContainsKey(key) && (!waterOnly || scen.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
+                if (!dictionary.ContainsKey(key) && (!waterOnly || Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
                 {
                     dictionary.Add(key, null);
                     area.AddPoint(key);
                 }
                 key = new Point(point2.X + 1, point2.Y);
-                if (!dictionary.ContainsKey(key) && (!waterOnly || scen.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
+                if (!dictionary.ContainsKey(key) && (!waterOnly || Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
                 {
                     dictionary.Add(key, null);
                     area.AddPoint(key);
                 }
                 key = new Point(point2.X, point2.Y - 1);
-                if (!dictionary.ContainsKey(key) && (!waterOnly || scen.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
+                if (!dictionary.ContainsKey(key) && (!waterOnly || Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
                 {
                     dictionary.Add(key, null);
                     area.AddPoint(key);
                 }
                 key = new Point(point2.X, point2.Y + 1);
-                if (!dictionary.ContainsKey(key) && (!waterOnly || scen.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
+                if (!dictionary.ContainsKey(key) && (!waterOnly || Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
                 {
                     dictionary.Add(key, null);
                     area.AddPoint(key);
@@ -233,25 +236,25 @@ namespace GameObjects
                 if (oblique)
                 {
                     key = new Point(point2.X - 1, point2.Y - 1);
-                    if (!dictionary.ContainsKey(key) && (!waterOnly || scen.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
+                    if (!dictionary.ContainsKey(key) && (!waterOnly || Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
                     {
                         dictionary.Add(key, null);
                         area.AddPoint(key);
                     }
                     key = new Point(point2.X + 1, point2.Y - 1);
-                    if (!dictionary.ContainsKey(key) && (!waterOnly || scen.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
+                    if (!dictionary.ContainsKey(key) && (!waterOnly || Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
                     {
                         dictionary.Add(key, null);
                         area.AddPoint(key);
                     }
                     key = new Point(point2.X - 1, point2.Y + 1);
-                    if (!dictionary.ContainsKey(key) && (!waterOnly || scen.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
+                    if (!dictionary.ContainsKey(key) && (!waterOnly || Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
                     {
                         dictionary.Add(key, null);
                         area.AddPoint(key);
                     }
                     key = new Point(point2.X + 1, point2.Y + 1);
-                    if (!dictionary.ContainsKey(key) && (!waterOnly || scen.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
+                    if (!dictionary.ContainsKey(key) && (!waterOnly || Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(point2).ID == 6))
                     {
                         dictionary.Add(key, null);
                         area.AddPoint(key);
@@ -273,7 +276,7 @@ namespace GameObjects
             return -1;
         }
 
-        public static GameArea GetViewArea(Point Centre, int Radius, bool Oblique, GameScenario Scenario, Faction faction)
+        public static GameArea GetViewArea(Point Centre, int Radius, bool Oblique, Faction faction)
         {
             GameArea area = new GameArea();
             List<Point> blackAngles = new List<Point>();
@@ -295,8 +298,8 @@ namespace GameObjects
                     {
                         if (num2 != 0)
                         {
-                            CheckPoint(area, blackAngles, new Point(Centre.X, Centre.Y + num2), Scenario, faction);
-                            CheckPoint(area, blackAngles, new Point(Centre.X, Centre.Y - num2), Scenario, faction);
+                            CheckPoint(area, blackAngles, new Point(Centre.X, Centre.Y + num2), faction);
+                            CheckPoint(area, blackAngles, new Point(Centre.X, Centre.Y - num2), faction);
                         }
                         else
                         {
@@ -315,19 +318,19 @@ namespace GameObjects
                     num2 = 0;
                     while (num2 <= (Radius - num3))
                     {
-                        CheckPoint(area, blackAngles, new Point(Centre.X + i, Centre.Y + num2), Scenario, faction);
+                        CheckPoint(area, blackAngles, new Point(Centre.X + i, Centre.Y + num2), faction);
                         if (num2 != 0)
                         {
-                            CheckPoint(area, blackAngles, new Point(Centre.X + i, Centre.Y - num2), Scenario, faction);
+                            CheckPoint(area, blackAngles, new Point(Centre.X + i, Centre.Y - num2), faction);
                         }
                         num2++;
                     }
                     for (num2 = 0; num2 <= (Radius - num3); num2++)
                     {
-                        CheckPoint(area, blackAngles, new Point(Centre.X - i, Centre.Y + num2), Scenario, faction);
+                        CheckPoint(area, blackAngles, new Point(Centre.X - i, Centre.Y + num2), faction);
                         if (num2 != 0)
                         {
-                            CheckPoint(area, blackAngles, new Point(Centre.X - i, Centre.Y - num2), Scenario, faction);
+                            CheckPoint(area, blackAngles, new Point(Centre.X - i, Centre.Y - num2), faction);
                         }
                     }
                 }

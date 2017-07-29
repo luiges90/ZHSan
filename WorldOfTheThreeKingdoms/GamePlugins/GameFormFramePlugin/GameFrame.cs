@@ -1,5 +1,6 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,85 +12,103 @@ namespace GameFormFramePlugin
     internal class GameFrame
     {
         private Rectangle TopLeftRectangle;
-        internal Texture2D TopLeftTexture;
+        internal PlatformTexture TopLeftTexture;
         //internal int TopLeftWidth;
         private Rectangle TopRightRectangle;
-        internal Texture2D TopRightTexture;
+        internal PlatformTexture TopRightTexture;
         //internal int TopRightWidth;
         private Rectangle BottomLeftRectangle;
-        internal Texture2D BottomLeftTexture;
+        internal PlatformTexture BottomLeftTexture;
         //internal int BottomLeftWidth;
         private Rectangle BottomRightRectangle;
-        internal Texture2D BottomRightTexture;
+        internal PlatformTexture BottomRightTexture;
         //internal int BottomRightWidth;
 
         private Rectangle backgroundRectangle;
-        internal Texture2D backgroundTexture;
+        internal PlatformTexture backgroundTexture;
         private Rectangle bottomedgeRectangle;
-        internal Texture2D bottomedgeTexture;
+        internal PlatformTexture bottomedgeTexture;
         internal int bottomedgeWidth;
         private float buttonDepthOffset = -0.01f;
-        internal Texture2D cancelbuttonDisabledTexture;
+        internal PlatformTexture cancelbuttonDisabledTexture;
         private Point cancelbuttonPosition;
-        internal Texture2D cancelbuttonPressedTexture;
+        internal PlatformTexture cancelbuttonPressedTexture;
         private Rectangle cancelbuttonRectangle;
-        internal Texture2D cancelbuttonSelectedTexture;
+        internal PlatformTexture cancelbuttonSelectedTexture;
         internal Point cancelbuttonSize;
         private FrameButtonState CancelButtonState;
-        internal Texture2D cancelbuttonTexture;
+        internal PlatformTexture cancelbuttonTexture;
         internal string CancelSoundFile;
         private bool Draging;
         private FrameContent frameContent = null;
         internal FrameFunction Function;
         internal FrameKind Kind;
         private Rectangle leftedgeRectangle;
-        internal Texture2D leftedgeTexture;
+        internal PlatformTexture leftedgeTexture;
         internal int leftedgeWidth;
         private Point mapviewselectorbuttonPosition;
         private Rectangle mapviewselectorButtonRectangle;
         private bool MapViewSelectorButtonSelected;
-        internal Texture2D MapViewSelectorButtonSelectedTexture;
+        internal PlatformTexture MapViewSelectorButtonSelectedTexture;
         internal Point mapviewselectorbuttonSize;
-        internal Texture2D MapViewSelectorButtonTexture;
-        internal Texture2D okbuttonDisabledTexture;
+        internal PlatformTexture MapViewSelectorButtonTexture;
+        internal PlatformTexture okbuttonDisabledTexture;
         private Point okbuttonPosition;
-        internal Texture2D okbuttonPressedTexture;
+        internal PlatformTexture okbuttonPressedTexture;
         private Rectangle okbuttonRectangle;
-        internal Texture2D okbuttonSelectedTexture;
+        internal PlatformTexture okbuttonSelectedTexture;
         internal Point okbuttonSize;
         private FrameButtonState OKButtonState;
-        internal Texture2D okbuttonTexture;
+        internal PlatformTexture okbuttonTexture;
         internal string OKSoundFile;
         //全选
-        internal Texture2D selectallbuttonDisabledTexture;
+#pragma warning disable CS0649 // Field 'GameFrame.selectallbuttonDisabledTexture' is never assigned to, and will always have its default value null
+        internal PlatformTexture selectallbuttonDisabledTexture;
+#pragma warning restore CS0649 // Field 'GameFrame.selectallbuttonDisabledTexture' is never assigned to, and will always have its default value null
+#pragma warning disable CS0169 // The field 'GameFrame.selectallbuttonPosition' is never used
         private Point selectallbuttonPosition;
-        internal Texture2D selectallbuttonPressedTexture;
+#pragma warning restore CS0169 // The field 'GameFrame.selectallbuttonPosition' is never used
+#pragma warning disable CS0649 // Field 'GameFrame.selectallbuttonPressedTexture' is never assigned to, and will always have its default value null
+        internal PlatformTexture selectallbuttonPressedTexture;
+#pragma warning restore CS0649 // Field 'GameFrame.selectallbuttonPressedTexture' is never assigned to, and will always have its default value null
+#pragma warning disable CS0169 // The field 'GameFrame.selectallbuttonRectangle' is never used
         private Rectangle selectallbuttonRectangle;
-        internal Texture2D selectallbuttonSelectedTexture;
+#pragma warning restore CS0169 // The field 'GameFrame.selectallbuttonRectangle' is never used
+#pragma warning disable CS0649 // Field 'GameFrame.selectallbuttonSelectedTexture' is never assigned to, and will always have its default value null
+        internal PlatformTexture selectallbuttonSelectedTexture;
+#pragma warning restore CS0649 // Field 'GameFrame.selectallbuttonSelectedTexture' is never assigned to, and will always have its default value null
+#pragma warning disable CS0649 // Field 'GameFrame.selectallbuttonSize' is never assigned to, and will always have its default value
         internal Point selectallbuttonSize;
+#pragma warning restore CS0649 // Field 'GameFrame.selectallbuttonSize' is never assigned to, and will always have its default value
+#pragma warning disable CS0169 // The field 'GameFrame.SelectAllButtonState' is never used
         private FrameButtonState SelectAllButtonState;
-        internal Texture2D selectallbuttonTexture;
+#pragma warning restore CS0169 // The field 'GameFrame.SelectAllButtonState' is never used
+#pragma warning disable CS0649 // Field 'GameFrame.selectallbuttonTexture' is never assigned to, and will always have its default value null
+        internal PlatformTexture selectallbuttonTexture;
+#pragma warning restore CS0649 // Field 'GameFrame.selectallbuttonTexture' is never assigned to, and will always have its default value null
+#pragma warning disable CS0649 // Field 'GameFrame.SelectAllSoundFile' is never assigned to, and will always have its default value null
         internal string SelectAllSoundFile;
+#pragma warning restore CS0649 // Field 'GameFrame.SelectAllSoundFile' is never assigned to, and will always have its default value null
         internal Rectangle Position;
         internal FrameResult Result = FrameResult.Cancel;
         private Rectangle rightedgeRectangle;
-        internal Texture2D rightedgeTexture;
+        internal PlatformTexture rightedgeTexture;
         internal int rightedgeWidth;
-        private Screen screen;
+        
         internal int titleHeight;
         private Rectangle titleRectangle;
         internal FreeText TitleText;
-        internal Texture2D titleTexture;
+        internal PlatformTexture titleTexture;
         internal int titleWidth;
         private Rectangle topedgeRectangle;
-        internal Texture2D topedgeTexture;
+        internal PlatformTexture topedgeTexture;
         internal int topedgeWidth;
 
         float depth = 0.04f;
 
         internal void DoCancel()
         {
-            this.screen.PlayNormalSound(this.CancelSoundFile);
+            Session.MainGame.mainGameScreen.PlayNormalSound(this.CancelSoundFile);
             this.Result = FrameResult.Cancel;
             this.IsShowing = false;
         }
@@ -98,7 +117,7 @@ namespace GameFormFramePlugin
         {
             if (this.OKButtonEnabled)
             {
-                this.screen.PlayNormalSound(this.OKSoundFile);
+                Session.MainGame.mainGameScreen.PlayNormalSound(this.OKSoundFile);
                 this.Result = FrameResult.OK;
                 if (this.frameContent.OKFunction != null)
                 {
@@ -113,7 +132,7 @@ namespace GameFormFramePlugin
         {
             if (this.SelectAllButtonEnabled)
             {
-                this.screen.PlayNormalSound(this.SelectAllSoundFile);
+                Session.MainGame.mainGameScreen.PlayNormalSound(this.SelectAllSoundFile);
                 this.Result = FrameResult.SelectAll;
                 if (this.frameContent.SelectAllFunction != null)
                 {
@@ -125,27 +144,27 @@ namespace GameFormFramePlugin
         }
         */
 
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw()
         {
             Rectangle? sourceRectangle = null;
-            spriteBatch.Draw(this.titleTexture, this.titleRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
-            this.TitleText.Draw(spriteBatch, 0.03999f);
+            CacheManager.Draw(this.titleTexture, this.titleRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+            this.TitleText.Draw(0.03999f);
             sourceRectangle = null;
-            spriteBatch.Draw(this.leftedgeTexture, this.leftedgeRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+            CacheManager.Draw(this.leftedgeTexture, this.leftedgeRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
             sourceRectangle = null;
-            spriteBatch.Draw(this.rightedgeTexture, this.rightedgeRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+            CacheManager.Draw(this.rightedgeTexture, this.rightedgeRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
             sourceRectangle = null;
-            spriteBatch.Draw(this.topedgeTexture, this.topedgeRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+            CacheManager.Draw(this.topedgeTexture, this.topedgeRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
             sourceRectangle = null;
-            spriteBatch.Draw(this.bottomedgeTexture, this.bottomedgeRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+            CacheManager.Draw(this.bottomedgeTexture, this.bottomedgeRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
             sourceRectangle = null;
 
-            spriteBatch.Draw(this.TopLeftTexture, this.TopLeftRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
-            spriteBatch.Draw(this.TopRightTexture, this.TopRightRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
-            spriteBatch.Draw(this.BottomLeftTexture, this.BottomLeftRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
-            spriteBatch.Draw(this.BottomRightTexture, this.BottomRightRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+            CacheManager.Draw(this.TopLeftTexture, this.TopLeftRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+            CacheManager.Draw(this.TopRightTexture, this.TopRightRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+            CacheManager.Draw(this.BottomLeftTexture, this.BottomLeftRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+            CacheManager.Draw(this.BottomRightTexture, this.BottomRightRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
 
-            spriteBatch.Draw(this.backgroundTexture, this.backgroundRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+            CacheManager.Draw(this.backgroundTexture, this.backgroundRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
 
             if (this.OKButtonEnabled)
             {
@@ -153,23 +172,23 @@ namespace GameFormFramePlugin
                 {
                     case FrameButtonState.Normal:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.okbuttonTexture, this.okbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                        CacheManager.Draw(this.okbuttonTexture, this.okbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
                         break;
 
                     case FrameButtonState.Selected:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.okbuttonSelectedTexture, this.okbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                        CacheManager.Draw(this.okbuttonSelectedTexture, this.okbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
                         break;
                     case FrameButtonState.Pressed:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.okbuttonPressedTexture, this.okbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                        CacheManager.Draw(this.okbuttonPressedTexture, this.okbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
                         break;
                 }
             }
             else
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.okbuttonDisabledTexture, this.okbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                CacheManager.Draw(this.okbuttonDisabledTexture, this.okbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
             }
         //Label_024F:
             /*if (this.SelectAllButtonEnabled)
@@ -178,23 +197,23 @@ namespace GameFormFramePlugin
                 {
                     case FrameButtonState.Normal:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.selectallbuttonTexture, this.selectallbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                        CacheManager.Draw(this.selectallbuttonTexture, this.selectallbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
                         break;
 
                     case FrameButtonState.Selected:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.selectallbuttonSelectedTexture, this.selectallbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                        CacheManager.Draw(this.selectallbuttonSelectedTexture, this.selectallbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
                         break;
                     case FrameButtonState.Pressed:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.selectallbuttonPressedTexture, this.selectallbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                        CacheManager.Draw(this.selectallbuttonPressedTexture, this.selectallbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
                         break;
                 }
             }
             else
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.selectallbuttonDisabledTexture, this.selectallbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                CacheManager.Draw(this.selectallbuttonDisabledTexture, this.selectallbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
             }
              */
             if (this.CancelButtonEnabled)
@@ -203,40 +222,40 @@ namespace GameFormFramePlugin
                 {
                     case FrameButtonState.Normal:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.cancelbuttonTexture, this.cancelbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                        CacheManager.Draw(this.cancelbuttonTexture, this.cancelbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
                         break;
 
                     case FrameButtonState.Selected:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.cancelbuttonSelectedTexture, this.cancelbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                        CacheManager.Draw(this.cancelbuttonSelectedTexture, this.cancelbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
                         break;
 
                     case FrameButtonState.Pressed:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.cancelbuttonPressedTexture, this.cancelbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                        CacheManager.Draw(this.cancelbuttonPressedTexture, this.cancelbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
                         break;
                 }
             }
             else
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.cancelbuttonDisabledTexture, this.cancelbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                CacheManager.Draw(this.cancelbuttonDisabledTexture, this.cancelbuttonRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
             }
         //Label_0365:
             if (this.frameContent.MapViewSelectorButtonEnabled)
             {
                 if (this.MapViewSelectorButtonSelected)
                 {
-                    spriteBatch.Draw(this.MapViewSelectorButtonSelectedTexture, this.mapviewselectorButtonRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                    CacheManager.Draw(this.MapViewSelectorButtonSelectedTexture, this.mapviewselectorButtonRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
                 }
                 else
                 {
-                    spriteBatch.Draw(this.MapViewSelectorButtonTexture, this.mapviewselectorButtonRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
+                    CacheManager.Draw(this.MapViewSelectorButtonTexture, this.mapviewselectorButtonRectangle, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth + this.buttonDepthOffset);
                 }
             }
             if (this.frameContent != null)
             {
-                this.frameContent.Draw(spriteBatch);
+                this.frameContent.Draw();
             }
         }
 
@@ -248,9 +267,9 @@ namespace GameFormFramePlugin
             }
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         private void ResetRectangles()
@@ -274,7 +293,7 @@ namespace GameFormFramePlugin
 
         private void screen_OnMouseLeftDown(Point position)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Frame)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame)
             {
                 if (this.OKButtonEnabled)
                 {
@@ -318,12 +337,12 @@ namespace GameFormFramePlugin
 
         private void screen_OnMouseLeftUp(Point position)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Frame)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame)
             {
                 this.Draging = false;
                 if ((this.OKButtonEnabled && (this.OKButtonState == FrameButtonState.Pressed)) && StaticMethods.PointInRectangle(position, this.okbuttonRectangle))
                 {
-                    this.screen.PlayNormalSound(this.OKSoundFile);
+                    Session.MainGame.mainGameScreen.PlayNormalSound(this.OKSoundFile);
                     this.OKButtonState = FrameButtonState.Selected;
                     this.Result = FrameResult.OK;
                     if (this.frameContent.OKFunction != null)
@@ -335,7 +354,7 @@ namespace GameFormFramePlugin
                 }
                 if ((this.CancelButtonEnabled && (this.CancelButtonState == FrameButtonState.Pressed)) && StaticMethods.PointInRectangle(position, this.cancelbuttonRectangle))
                 {
-                    this.screen.PlayNormalSound(this.CancelSoundFile);
+                    Session.MainGame.mainGameScreen.PlayNormalSound(this.CancelSoundFile);
                     this.CancelButtonState = FrameButtonState.Selected;
                     this.Result = FrameResult.Cancel;
                     this.IsShowing = false;
@@ -346,7 +365,7 @@ namespace GameFormFramePlugin
                 //}
                /* if ((this.SelectAllButtonEnabled && (this.SelectAllButtonState == FrameButtonState.Pressed)) && StaticMethods.PointInRectangle(position, this.selectallbuttonRectangle))
                 {
-                    this.screen.PlayNormalSound(this.SelectAllSoundFile);
+                    Session.MainGame.mainGameScreen.PlayNormalSound(this.SelectAllSoundFile);
                     this.SelectAllButtonState = FrameButtonState.Selected;
                     this.Result = FrameResult.SelectAll;
                     if (this.frameContent.SelectAllFunction != null)
@@ -361,7 +380,7 @@ namespace GameFormFramePlugin
 
         private void screen_OnMouseMove(Point position, bool leftDown)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Frame)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame)
             {
                 if (this.OKButtonEnabled)
                 {
@@ -436,7 +455,7 @@ namespace GameFormFramePlugin
                     }
                     if (this.Draging)
                     {
-                        this.frameContent.FramePosition = new Rectangle(this.frameContent.FramePosition.X + this.screen.MouseOffset.X, this.frameContent.FramePosition.Y + this.screen.MouseOffset.Y, this.frameContent.FramePosition.Width, this.frameContent.FramePosition.Height);
+                        this.frameContent.FramePosition = new Rectangle(this.frameContent.FramePosition.X + Session.MainGame.mainGameScreen.MouseOffset.X, this.frameContent.FramePosition.Y + Session.MainGame.mainGameScreen.MouseOffset.Y, this.frameContent.FramePosition.Width, this.frameContent.FramePosition.Height);
                         this.SetPosition(this.frameContent.FramePosition);
                         this.frameContent.ReCalculate();
                     }
@@ -446,9 +465,9 @@ namespace GameFormFramePlugin
 
         private void screen_OnMouseRightUp(Point position)
         {
-            if ((this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && (this.CancelButtonEnabled && this.frameContent.CanClose))
+            if ((Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && (this.CancelButtonEnabled && this.frameContent.CanClose))
             {
-                this.screen.PlayNormalSound(this.CancelSoundFile);
+                Session.MainGame.mainGameScreen.PlayNormalSound(this.CancelSoundFile);
                 this.Result = FrameResult.Cancel;
                 this.IsShowing = false;
             }
@@ -539,24 +558,24 @@ namespace GameFormFramePlugin
                         if (this.frameContent != null)
                         {
                             this.frameContent.IsShowing = true;
-                            this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Frame, UndoneWorkSubKind.None));
-                            this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                            this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                            this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                            this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                            Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Frame, UndoneWorkSubKind.None));
+                            Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                            Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                            Session.MainGame.mainGameScreen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                            Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                         }
                     }
                     else
                     {
                         this.frameContent.IsShowing = false;
-                        if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.Frame)
+                        if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.Frame)
                         {
                             throw new Exception("The UndoneWork is not a Frame.");
                         }
-                        this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                        this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                        Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                        Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                        Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                         this.frameContent.OKFunction = null;
                     }
                 }

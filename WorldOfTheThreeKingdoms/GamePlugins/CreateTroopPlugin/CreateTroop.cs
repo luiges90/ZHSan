@@ -14,24 +14,26 @@ using System.Collections.Generic;
 namespace CreateTroopPlugin
 {
 
-    internal class CreateTroop
+    public class CreateTroop
     {
         internal Point BackgroundSize;
-        internal Texture2D BackgroundTexture;
+        internal PlatformTexture BackgroundTexture;
         internal Rectangle CombatMethodClient;
         internal FreeRichText CombatMethodText = new FreeRichText();
-        internal Texture2D CreateButtonDisabledTexture;
-        internal Texture2D CreateButtonDisplayTexture;
+        internal PlatformTexture CreateButtonDisabledTexture;
+        internal PlatformTexture CreateButtonDisplayTexture;
         internal bool CreateButtonEnabled;
         internal Rectangle CreateButtonPosition;
-        internal Texture2D CreateButtonSelectedTexture;
-        internal Texture2D CreateButtonTexture;
+        internal PlatformTexture CreateButtonSelectedTexture;
+        internal PlatformTexture CreateButtonTexture;
         internal GameDelegates.VoidFunction CreateFunction;
         internal Architecture CreatingArchitecture;
         internal Person CreatingLeader;
         internal Military CreatingMilitary;
         internal GameObjectList CreatingPersons;
+#pragma warning disable CS0649 // Field 'CreateTroop.CreatingShelledMilitary' is never assigned to, and will always have its default value null
         internal Military CreatingShelledMilitary;
+#pragma warning restore CS0649 // Field 'CreateTroop.CreatingShelledMilitary' is never assigned to, and will always have its default value null
         internal Troop CreatingTroop;
         private Point DisplayOffset;
         internal IGameFrame GameFramePlugin;
@@ -39,36 +41,36 @@ namespace CreateTroopPlugin
         internal FreeRichText InfluenceText = new FreeRichText();
         private bool isShowing;
         internal List<LabelText> LabelTexts = new List<LabelText>();
-        internal Texture2D LeaderButtonDisabledTexture;
-        internal Texture2D LeaderButtonDisplayTexture;
+        internal PlatformTexture LeaderButtonDisabledTexture;
+        internal PlatformTexture LeaderButtonDisplayTexture;
         internal bool LeaderButtonEnabled;
         internal Rectangle LeaderButtonPosition;
-        internal Texture2D LeaderButtonSelectedTexture;
-        internal Texture2D LeaderButtonTexture;
-        internal Texture2D MilitaryButtonDisabledTexture;
-        internal Texture2D MilitaryButtonDisplayTexture;
+        internal PlatformTexture LeaderButtonSelectedTexture;
+        internal PlatformTexture LeaderButtonTexture;
+        internal PlatformTexture MilitaryButtonDisabledTexture;
+        internal PlatformTexture MilitaryButtonDisplayTexture;
         internal bool MilitaryButtonEnabled;
         internal Rectangle MilitaryButtonPosition;
-        internal Texture2D MilitaryButtonSelectedTexture;
-        internal Texture2D MilitaryButtonTexture;
+        internal PlatformTexture MilitaryButtonSelectedTexture;
+        internal PlatformTexture MilitaryButtonTexture;
         internal INumberInputer NumberInputerPlugin;
         internal Rectangle OtherPersonClient;
         internal FreeRichText OtherPersonText = new FreeRichText();
-        internal Texture2D PersonButtonDisabledTexture;
-        internal Texture2D PersonButtonDisplayTexture;
+        internal PlatformTexture PersonButtonDisabledTexture;
+        internal PlatformTexture PersonButtonDisplayTexture;
         internal bool PersonButtonEnabled;
         internal Rectangle PersonButtonPosition;
-        internal Texture2D PersonButtonSelectedTexture;
-        internal Texture2D PersonButtonTexture;
+        internal PlatformTexture PersonButtonSelectedTexture;
+        internal PlatformTexture PersonButtonTexture;
         internal Rectangle PortraitClient;
-        internal Texture2D RationButtonDisabledTexture;
-        internal Texture2D RationButtonDisplayTexture;
+        internal PlatformTexture RationButtonDisabledTexture;
+        internal PlatformTexture RationButtonDisplayTexture;
         internal bool RationButtonEnabled;
         internal Rectangle RationButtonPosition;
-        internal Texture2D RationButtonSelectedTexture;
-        internal Texture2D RationButtonTexture;
+        internal PlatformTexture RationButtonSelectedTexture;
+        internal PlatformTexture RationButtonTexture;
         internal int RationDays;
-        internal Screen screen;
+
         private bool setttingRation = false;
         internal MilitaryKind ShellMilitaryKind;
         internal Rectangle StuntClient;
@@ -76,12 +78,12 @@ namespace CreateTroopPlugin
         internal ITabList TabListPlugin;
         internal FreeText TroopNameText;
 
-        internal Texture2D zijinButtonDisabledTexture;
-        internal Texture2D zijinButtonDisplayTexture;
+        internal PlatformTexture zijinButtonDisabledTexture;
+        internal PlatformTexture zijinButtonDisplayTexture;
         internal bool zijinButtonEnabled;
         internal Rectangle zijinButtonPosition;
-        internal Texture2D zijinButtonSelectedTexture;
-        internal Texture2D zijinButtonTexture;
+        internal PlatformTexture zijinButtonSelectedTexture;
+        internal PlatformTexture zijinButtonTexture;
         internal int zijin=0;
 
         private bool shezhizijin = false;
@@ -175,91 +177,91 @@ namespace CreateTroopPlugin
             this.AddLeaderPreferredPersons();
         }
 
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw()
         {
             Rectangle? sourceRectangle = null;
-            spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+            CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
             if (this.MilitaryButtonEnabled)
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.MilitaryButtonDisplayTexture, this.MilitaryButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                CacheManager.Draw(this.MilitaryButtonDisplayTexture, this.MilitaryButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
             }
             else
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.MilitaryButtonDisabledTexture, this.MilitaryButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                CacheManager.Draw(this.MilitaryButtonDisabledTexture, this.MilitaryButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
             }
             if (this.PersonButtonEnabled)
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.PersonButtonDisplayTexture, this.PersonButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                CacheManager.Draw(this.PersonButtonDisplayTexture, this.PersonButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
             }
             else
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.PersonButtonDisabledTexture, this.PersonButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                CacheManager.Draw(this.PersonButtonDisabledTexture, this.PersonButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
             }
             if (this.LeaderButtonEnabled)
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.LeaderButtonDisplayTexture, this.LeaderButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                CacheManager.Draw(this.LeaderButtonDisplayTexture, this.LeaderButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
             }
             else
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.LeaderButtonDisabledTexture, this.LeaderButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                CacheManager.Draw(this.LeaderButtonDisabledTexture, this.LeaderButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
             }
             if (this.RationButtonEnabled)
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.RationButtonDisplayTexture, this.RationButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                CacheManager.Draw(this.RationButtonDisplayTexture, this.RationButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
             }
             else
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.RationButtonDisabledTexture, this.RationButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                CacheManager.Draw(this.RationButtonDisabledTexture, this.RationButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
             }
             if (this.zijinButtonEnabled)
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.zijinButtonDisplayTexture, this.zijinButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                CacheManager.Draw(this.zijinButtonDisplayTexture, this.zijinButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
             }
             else
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.zijinButtonDisabledTexture, this.zijinButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                CacheManager.Draw(this.zijinButtonDisabledTexture, this.zijinButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
             }
             if (this.CreateButtonEnabled)
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.CreateButtonDisplayTexture, this.CreateButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                CacheManager.Draw(this.CreateButtonDisplayTexture, this.CreateButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
             }
             else
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.CreateButtonDisabledTexture, this.CreateButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                CacheManager.Draw(this.CreateButtonDisabledTexture, this.CreateButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
             }
             if (this.CreatingTroop.Leader != null)
             {
                 //try
                 //{
-                //    spriteBatch.Draw(this.CreatingTroop.Leader.SmallPortrait, this.PortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+                //    CacheManager.Draw(this.CreatingTroop.Leader.SmallPortrait, this.PortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
                 //}
                 //catch
                 //{
                 //}
                 CacheManager.DrawZhsanAvatar(this.CreatingTroop.Leader, "s", this.PortraitDisplayPosition, Color.White, 0.199f);
             }
-            this.TroopNameText.Draw(spriteBatch, 0.1999f);
+            this.TroopNameText.Draw(0.1999f);
             foreach (LabelText text in this.LabelTexts)
             {
-                text.Label.Draw(spriteBatch, 0.1999f);
-                text.Text.Draw(spriteBatch, 0.1999f);
+                text.Label.Draw(0.1999f);
+                text.Text.Draw(0.1999f);
             }
-            this.OtherPersonText.Draw(spriteBatch, 0.1999f);
-            this.CombatMethodText.Draw(spriteBatch, 0.1999f);
-            this.StuntText.Draw(spriteBatch, 0.1999f);
-            this.InfluenceText.Draw(spriteBatch, 0.1999f);
+            this.OtherPersonText.Draw(0.1999f);
+            this.CombatMethodText.Draw(0.1999f);
+            this.StuntText.Draw(0.1999f);
+            this.InfluenceText.Draw(0.1999f);
         }
 
         private void InitialCreateingTroop()
@@ -276,7 +278,7 @@ namespace CreateTroopPlugin
             }
             else
             {
-                this.CreatingMilitary = Military.SimCreate(this.screen.Scenario, this.CreatingArchitecture, this.ShellMilitaryKind);
+                this.CreatingMilitary = Military.SimCreate(this.CreatingArchitecture, this.ShellMilitaryKind);
                 if (this.CreatingArchitecture.GetCampaignMilitaryList().Count == 1)
                 {
                     this.CreatingTroop = Troop.CreateSimulateTroop(this.CreatingArchitecture, this.CreatingPersons, this.CreatingLeader, this.CreatingMilitary, this.RationDays, this.CreatingArchitecture.Position);
@@ -288,9 +290,9 @@ namespace CreateTroopPlugin
             this.RefreshDetailDisplay();
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         private void MoveCandidatesToPersons()
@@ -475,9 +477,17 @@ namespace CreateTroopPlugin
             }
         }
 
+        public bool IsDialog
+        {
+            get
+            {
+                return Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Dialog;
+            }
+        }
+
         private void screen_OnMouseLeftUp(Point position)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Dialog)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Dialog)
             {
                 if (StaticMethods.PointInRectangle(position, this.OtherPersonDisplayPosition))
                 {
@@ -556,7 +566,7 @@ namespace CreateTroopPlugin
 
         private void screen_OnMouseMove(Point position, bool leftDown)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Dialog)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Dialog)
             {
                 if (StaticMethods.PointInRectangle(position, this.MilitaryButtonDisplayPosition))
                 {
@@ -752,7 +762,7 @@ namespace CreateTroopPlugin
 
         private void screen_OnMouseRightDown(Point position)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Dialog)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Dialog)
             {
                 if (this.CreatingTroop.Army != null)
                 {
@@ -838,7 +848,7 @@ namespace CreateTroopPlugin
                 this.CreateFunction();
             }
             this.IsShowing = false;
-            this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.ArchitectureAvailableContactArea));
+            Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.ArchitectureAvailableContactArea));
         }
 
         internal void SetArchitecture(Architecture architecture)
@@ -848,7 +858,7 @@ namespace CreateTroopPlugin
 
         internal void SetPosition(ShowPosition showPosition)
         {
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
             Rectangle rect = new Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
             switch (showPosition)
             {
@@ -952,10 +962,10 @@ namespace CreateTroopPlugin
         {
             this.GameFramePlugin.Kind = kind;
             this.GameFramePlugin.Function = function;
-            this.TabListPlugin.InitialValues(gameObjectList, selectedObjectList, this.screen.MouseState.ScrollWheelValue, title);
+            this.TabListPlugin.InitialValues(gameObjectList, selectedObjectList, InputManager.NowMouse.ScrollWheelValue, title);
             this.TabListPlugin.SetListKindByName(kind.ToString(), showCheckBox, multiselecting);
             this.TabListPlugin.SetSelectedTab(tabName);
-            this.GameFramePlugin.SetFrameContent(this.TabListPlugin.TabList, this.screen.viewportSizeFull);
+            this.GameFramePlugin.SetFrameContent(this.TabListPlugin.TabList, Session.MainGame.mainGameScreen.viewportSizeFull);
             this.GameFramePlugin.OKButtonEnabled = OKEnabled;
             this.GameFramePlugin.CancelButtonEnabled = CancelEnabled;
             this.GameFramePlugin.IsShowing = true;
@@ -1005,20 +1015,20 @@ namespace CreateTroopPlugin
                 if (value)
                 {
                     this.InitialCreateingTroop();
-                    this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, DialogKind.TreasureDetail));
-                    this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                    this.screen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                    Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, DialogKind.TreasureDetail));
+                    Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                    Session.MainGame.mainGameScreen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
                 }
                 else
                 {
-                    if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.Dialog)
+                    if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.Dialog)
                     {
                         throw new Exception("The UndoneWork is not a Dialog.");
                     }
-                    this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                    this.screen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                    Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                    Session.MainGame.mainGameScreen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
                     this.OtherPersonText.Clear();
                     this.CombatMethodText.Clear();
                     this.StuntText.Clear();

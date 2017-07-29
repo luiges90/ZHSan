@@ -1,5 +1,6 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,8 +13,8 @@ namespace MapViewSelectorPlugin
     internal class MapViewSelector
     {
         internal Point BackgroundSize;
-        internal Texture2D ButtonSelectedTexture;
-        internal Texture2D ButtonTexture;
+        internal PlatformTexture ButtonSelectedTexture;
+        internal PlatformTexture ButtonTexture;
         internal bool CancelButtonSelected;
         internal FreeText CancelButtonText;
         internal Point DisplayOffset;
@@ -21,8 +22,8 @@ namespace MapViewSelectorPlugin
         internal IGameFrame iGameFrame;
         private bool isShowing;
         internal ITabList iTabList;
-        internal Texture2D ItemInListTexture;
-        internal Texture2D ItemSelectedTexture;
+        internal PlatformTexture ItemInListTexture;
+        internal PlatformTexture ItemSelectedTexture;
         internal MapViewSelectorKind Kind;
         internal bool MultiSelecting;
         internal bool OKButtonSelected;
@@ -30,52 +31,52 @@ namespace MapViewSelectorPlugin
         internal GameDelegates.VoidFunction OKFunction;
         internal bool ReturnToListButtonSelected;
         internal FreeText ReturnToListButtonText;
-        private Screen screen;
+        
         internal GameObjectList SelectingGameObjectList;
         internal Point TitleSize;
-        internal Texture2D TitleTexture;
+        internal PlatformTexture TitleTexture;
 
         internal void AddDisableRects()
         {
-            this.screen.AddDisableRectangle(this.screen.LaterMouseEventDisableRects, this.BackgroundDisplayPosition);
+            Session.MainGame.mainGameScreen.AddDisableRectangle(Session.MainGame.mainGameScreen.LaterMouseEventDisableRects, this.BackgroundDisplayPosition);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             Rectangle? sourceRectangle = null;
-            spriteBatch.Draw(this.TitleTexture, this.TitleDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.179f);
-            this.ReturnToListButtonText.Draw(spriteBatch, 0.1797f);
+            CacheManager.Draw(this.TitleTexture, this.TitleDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.179f);
+            this.ReturnToListButtonText.Draw(0.1797f);
             if (this.ReturnToListButtonSelected)
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.ButtonSelectedTexture, this.ReturnToListButtonText.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1798f);
+                CacheManager.Draw(this.ButtonSelectedTexture, this.ReturnToListButtonText.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1798f);
             }
             else
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.ButtonTexture, this.ReturnToListButtonText.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1798f);
+                CacheManager.Draw(this.ButtonTexture, this.ReturnToListButtonText.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1798f);
             }
-            this.OKButtonText.Draw(spriteBatch, 0.1797f);
+            this.OKButtonText.Draw(0.1797f);
             if (this.OKButtonSelected)
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.ButtonSelectedTexture, this.OKButtonText.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1798f);
+                CacheManager.Draw(this.ButtonSelectedTexture, this.OKButtonText.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1798f);
             }
             else
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.ButtonTexture, this.OKButtonText.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1798f);
+                CacheManager.Draw(this.ButtonTexture, this.OKButtonText.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1798f);
             }
-            this.CancelButtonText.Draw(spriteBatch, 0.1797f);
+            this.CancelButtonText.Draw(0.1797f);
             if (this.CancelButtonSelected)
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.ButtonSelectedTexture, this.CancelButtonText.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1798f);
+                CacheManager.Draw(this.ButtonSelectedTexture, this.CancelButtonText.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1798f);
             }
             else
             {
                 sourceRectangle = null;
-                spriteBatch.Draw(this.ButtonTexture, this.CancelButtonText.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1798f);
+                CacheManager.Draw(this.ButtonTexture, this.CancelButtonText.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1798f);
             }
             if (this.Kind == MapViewSelectorKind.建筑)
             {
@@ -83,17 +84,17 @@ namespace MapViewSelectorPlugin
                 {
                     foreach (Point point in architecture.ArchitectureArea.Area)
                     {
-                        if (this.screen.TileInScreen(point))
+                        if (Session.MainGame.mainGameScreen.TileInScreen(point))
                         {
                             if (architecture.Selected)
                             {
                                 sourceRectangle = null;
-                                spriteBatch.Draw(this.ItemSelectedTexture, this.screen.GetDestination(point), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
+                                CacheManager.Draw(this.ItemSelectedTexture, Session.MainGame.mainGameScreen.GetDestination(point), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
                             }
                             else
                             {
                                 sourceRectangle = null;
-                                spriteBatch.Draw(this.ItemInListTexture, this.screen.GetDestination(point), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
+                                CacheManager.Draw(this.ItemInListTexture, Session.MainGame.mainGameScreen.GetDestination(point), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
                             }
                         }
                     }
@@ -101,14 +102,14 @@ namespace MapViewSelectorPlugin
             }
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         internal void RemoveDisableRects()
         {
-            this.screen.RemoveDisableRectangle(this.screen.LaterMouseEventDisableRects, this.BackgroundDisplayPosition);
+            Session.MainGame.mainGameScreen.RemoveDisableRectangle(Session.MainGame.mainGameScreen.LaterMouseEventDisableRects, this.BackgroundDisplayPosition);
         }
 
         private void screen_OnMouseLeftDown(Point position)
@@ -142,17 +143,17 @@ namespace MapViewSelectorPlugin
                 }
                 else
                 {
-                    Point positionByPoint = this.screen.GetPositionByPoint(position);
-                    if (this.screen.TileInScreen(positionByPoint) && (this.Kind == MapViewSelectorKind.建筑))
+                    Point positionByPoint = Session.MainGame.mainGameScreen.GetPositionByPoint(position);
+                    if (Session.MainGame.mainGameScreen.TileInScreen(positionByPoint) && (this.Kind == MapViewSelectorKind.建筑))
                     {
-                        Architecture architectureByPosition = this.screen.Scenario.GetArchitectureByPosition(positionByPoint);
+                        Architecture architectureByPosition = Session.Current.Scenario.GetArchitectureByPosition(positionByPoint);
                         if ((architectureByPosition != null) && this.SelectingGameObjectList.HasGameObject(architectureByPosition.ID))
                         {
                             architectureByPosition.Selected = !architectureByPosition.Selected;
                             if (!this.MultiSelecting && architectureByPosition.Selected)
                             {
                                 this.SelectingGameObjectList.SetOtherUnSelected(architectureByPosition);
-                                if (GlobalVariables.SingleSelectionOneClick)
+                                if (Session.GlobalVariables.SingleSelectionOneClick)
                                 {
                                     this.iTabList.RefreshEditable();
                                     this.IsShowing = false;
@@ -194,7 +195,7 @@ namespace MapViewSelectorPlugin
             if (this.dragging)
             {
                 this.RemoveDisableRects();
-                this.DisplayOffset = new Point(this.DisplayOffset.X + this.screen.MouseOffset.X, this.DisplayOffset.Y + this.screen.MouseOffset.Y);
+                this.DisplayOffset = new Point(this.DisplayOffset.X + Session.MainGame.mainGameScreen.MouseOffset.X, this.DisplayOffset.Y + Session.MainGame.mainGameScreen.MouseOffset.Y);
                 this.ReturnToListButtonText.DisplayOffset = this.DisplayOffset;
                 this.OKButtonText.DisplayOffset = this.DisplayOffset;
                 this.CancelButtonText.DisplayOffset = this.DisplayOffset;
@@ -210,7 +211,7 @@ namespace MapViewSelectorPlugin
 
         internal void SetDisplayOffset(ShowPosition showPosition)
         {
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
             int num = 0;
             num += this.ReturnToListButtonText.Position.Height;
             num += this.OKButtonText.Position.Height;
@@ -283,23 +284,23 @@ namespace MapViewSelectorPlugin
                 this.isShowing = value;
                 if (value)
                 {
-                    this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.MapViewSelector, UndoneWorkSubKind.None));
-                    this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                    this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                    this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                    Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.MapViewSelector, UndoneWorkSubKind.None));
+                    Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
                     this.AddDisableRects();
                 }
                 else
                 {
-                    if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.MapViewSelector)
+                    if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.MapViewSelector)
                     {
                         throw new Exception("The UndoneWork is not a MapViewSelector Dialog.");
                     }
-                    this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                    this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                    this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                    Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
                     this.RemoveDisableRects();
                 }
             }

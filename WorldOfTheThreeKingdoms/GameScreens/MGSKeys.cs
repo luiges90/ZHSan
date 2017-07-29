@@ -20,6 +20,7 @@ using WorldOfTheThreeKingdoms.GameScreens;
 using WorldOfTheThreeKingdoms.GameScreens.ScreenLayers;
 using WorldOfTheThreeKingdoms.Resources;
 using System.Diagnostics;
+using GameManager;
 
 //using GameObjects.PersonDetail.PersonMessages;
 
@@ -38,7 +39,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
                 this.currentKey = Keys.None;
             }
-            if ((base.Scenario.CurrentPlayer != null) && base.Scenario.CurrentPlayer.Controlling)
+            if ((Session.Current.Scenario.CurrentPlayer != null) && Session.Current.Scenario.CurrentPlayer.Controlling)
             {
                 if (this.keyState.IsKeyDown(Keys.D1))
                 {
@@ -195,7 +196,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 else if (this.keyState.IsKeyDown(Keys.W))
                 {
                     this.currentKey = Keys.W;
-                    GlobalVariables.ShowGrid = !GlobalVariables.ShowGrid;
+                    Session.GlobalVariables.ShowGrid = !Session.GlobalVariables.ShowGrid;
                 }
                 else if (this.keyState.IsKeyDown(Keys.OemPlus) || this.keyState.IsKeyDown(Keys.Add))
                 {
@@ -205,7 +206,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     this.currentKey = Keys.OemMinus;
                 }
-                else if (this.keyState.IsKeyDown(Keys.LeftAlt) && this.keyState.IsKeyDown(Keys.C) && GlobalVariables.EnableCheat)
+                else if (this.keyState.IsKeyDown(Keys.LeftAlt) && this.keyState.IsKeyDown(Keys.C) && Session.GlobalVariables.EnableCheat)
                 {
                     this.currentKey = Keys.C;
                     if (!this.editMode)
@@ -213,7 +214,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         changeFaction();
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.LeftAlt) && this.keyState.IsKeyDown(Keys.E) && GlobalVariables.EnableCheat)
+                else if (this.keyState.IsKeyDown(Keys.LeftAlt) && this.keyState.IsKeyDown(Keys.E) && Session.GlobalVariables.EnableCheat)
                 {
                     this.currentKey = Keys.E;
                     this.editMode = true;
@@ -221,7 +222,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.Plugins.youcelanPlugin.IsShowing = false;
                     this.mapEdited = true;
                 }
-                else if (this.keyState.IsKeyDown(Keys.LeftAlt) && this.keyState.IsKeyDown(Keys.Q) && GlobalVariables.EnableCheat)
+                else if (this.keyState.IsKeyDown(Keys.LeftAlt) && this.keyState.IsKeyDown(Keys.Q) && Session.GlobalVariables.EnableCheat)
                 {
                     this.currentKey = Keys.Q;
                     this.editMode = false;

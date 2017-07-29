@@ -34,14 +34,16 @@ namespace Platforms
         public static Platform Current = new Platform();
         //System.IO.File.Exists(GameApplicationUrl))
         //System.Reflection.AssemblyName.GetAssemblyName(GameApplicationUrl).Version.ToString();
-        public static string GameVersion = "1.0.0.0";
+        public static string GameVersion = "1.0.2.0";
 
-        public static string PreferResolution = "1120*630";
+        public static string PreferResolution = "925*520";
 
         public virtual bool? IsTrialCheck()
         {
             return true;
         }
+
+        public static bool IsMobile = true;
 
         public bool DebugMode = true;
         public bool ProcessGameData = false;
@@ -65,15 +67,28 @@ namespace Platforms
 
         public string PreferFullMode = "Full";
 
+        public string Location = "";
+
+        //IGraphicsDeviceService service = base.Game.Services.GetService(typeof(IGraphicsDeviceService)) as IGraphicsDeviceService;
+        //this.batch = new SpriteBatch(service.GraphicsDevice);
+
         /// <summary>
         /// 解決方案文件夾
         /// </summary>
         public string SolutionDir = "";
 
         /// <summary>
-        /// 內存使用狀況
+        /// 內存使用占用
         /// </summary>
-        public string MemoryUsage = "";
+        public string MemoryUsage
+        {
+            get
+            {
+                return (System.GC.GetTotalMemory(false) / 1024).ToString();
+                //Android.Activity1.os.Debug.getNativeHeapAllocatedSize()
+                //return "";
+            }
+        }
 
         /// <summary>
         /// 程序路徑
@@ -356,7 +371,9 @@ namespace Platforms
 			{
 				MediaPlayer.Volume = Convert.ToSingle(volume) / 100;
 			}
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
 			catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
 			{
 				//Why?
 			}
@@ -383,7 +400,9 @@ namespace Platforms
             //string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
 
 			}
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
 			catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
 			{
 				//监控此
 			}
@@ -395,7 +414,9 @@ namespace Platforms
                 Session.Current.MusicContent.Unload();
                 MediaPlayer.Stop();
             }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
             {
 
             }
@@ -406,7 +427,9 @@ namespace Platforms
             {
                 MediaPlayer.Pause();
             }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
             {
                 
             }
@@ -417,7 +440,9 @@ namespace Platforms
             {
                 MediaPlayer.Resume();
             }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
             {
 
             }
@@ -438,7 +463,9 @@ namespace Platforms
 				effect.Play(Convert.ToSingle(Setting.Current.SoundVolume) / 100, 0.0f, 0.0f);
                 return true;
 			}
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
 			catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
 			{
                 //监控此
                 return false;
@@ -549,6 +576,11 @@ namespace Platforms
         public virtual void DirectoryCreateDirectory(string dir)
         {
             
+        }
+
+        public virtual string DirectoryName(string dir)
+        {
+            return "";
         }
 
         public virtual string GetFileNameFromPath(string file)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameManager;
+using System;
 using System.Runtime.Serialization;
 
 namespace GameObjects
@@ -30,17 +31,17 @@ namespace GameObjects
 
         private void captive_OnPlayerRelease(Faction from, Faction to, Captive captive)
         {
-            from.Scenario.GameScreen.CaptivePlayerRelease(from, to, captive);
+            Session.MainGame.mainGameScreen.CaptivePlayerRelease(from, to, captive);
         }
 
         private void captive_OnRelease(bool success, Faction from, Faction to, Person person)
         {
-            from.Scenario.GameScreen.CaptiveRelease(success, from, to, person);
+            Session.MainGame.mainGameScreen.CaptiveRelease(success, from, to, person);
         }
 
         private void captive_OnSelfRelease(Captive captive)
         {
-            captive.Scenario.GameScreen.SelfCaptiveRelease(captive);
+            Session.MainGame.mainGameScreen.SelfCaptiveRelease(captive);
         }
 
         private void captive_OnEscape(Captive captive)

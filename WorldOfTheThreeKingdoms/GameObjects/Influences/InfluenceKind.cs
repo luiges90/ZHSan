@@ -420,12 +420,17 @@ namespace GameObjects.Influences
         private bool combat;
 
         [DataMember]
-        public float AIPersonValue { get; set; }
-
-        [DataMember]
-        public float AIPersonValuePow { get; set; }
-
-        private float p1, p2;
+        public InfluenceType Type
+        {
+            get
+            {
+                return this.type;
+            }
+            set
+            {
+                this.type = value;
+            }
+        }
 
         [DataMember]
         public bool Combat
@@ -439,6 +444,18 @@ namespace GameObjects.Influences
                 combat = value;
             }
         }
+
+        [DataMember]
+        public float AIPersonValue { get; set; }
+
+        [DataMember]
+        public float AIPersonValuePow { get; set; }
+
+#pragma warning disable CS0169 // The field 'InfluenceKind.p1' is never used
+#pragma warning disable CS0169 // The field 'InfluenceKind.p2' is never used
+        private float p1, p2;
+#pragma warning restore CS0169 // The field 'InfluenceKind.p2' is never used
+#pragma warning restore CS0169 // The field 'InfluenceKind.p1' is never used
 
         public virtual void ApplyInfluenceKind(Architecture a)
         {
@@ -669,18 +686,6 @@ namespace GameObjects.Influences
         public virtual double AIFacilityValue(Architecture a)
         {
             return 0;
-        }
-        [DataMember]
-        public InfluenceType Type
-        {
-            get
-            {
-                return this.type;
-            }
-            set
-            {
-                this.type = value;
-            }
         }
 
     }

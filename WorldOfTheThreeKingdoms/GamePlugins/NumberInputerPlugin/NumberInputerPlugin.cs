@@ -20,7 +20,7 @@ namespace NumberInputerPlugin
         private string author = "clip_on";
         private const string DataPath = @"Content\Textures\GameComponents\NumberInputer\Data\";
         private string description = "数字输入器";
-        private GraphicsDevice graphicsDevice;
+        
         private NumberInputer numberInputer = new NumberInputer();
         private const string Path = @"Content\Textures\GameComponents\NumberInputer\";
         private string pluginName = "NumberInputerPlugin";
@@ -31,15 +31,15 @@ namespace NumberInputerPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.IsShowing)
             {
-                this.numberInputer.Draw(spriteBatch);
+                this.numberInputer.Draw();
             }
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -52,19 +52,19 @@ namespace NumberInputerPlugin
             document.LoadXml(xml);
             XmlNode nextSibling = document.FirstChild.NextSibling;
             XmlNode node = nextSibling.ChildNodes.Item(0);
-            this.numberInputer.BackgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.numberInputer.BackgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.numberInputer.BackgroundSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.numberInputer.BackgroundSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
             node = nextSibling.ChildNodes.Item(1);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.numberInputer.RangeText = new FreeText(this.graphicsDevice, font, color);
+            this.numberInputer.RangeText = new FreeText(font, color);
             this.numberInputer.RangeText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
             this.numberInputer.RangeText.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
             node = nextSibling.ChildNodes.Item(2);
-            this.numberInputer.FrameTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.numberInputer.FrameTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.numberInputer.FramePosition = StaticMethods.LoadRectangleFromXMLNode(node);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.numberInputer.FrameText = new FreeText(this.graphicsDevice, font, color);
+            this.numberInputer.FrameText = new FreeText(font, color);
             this.numberInputer.FrameText.Position = this.numberInputer.FramePosition;
             this.numberInputer.FrameText.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
             node = nextSibling.ChildNodes.Item(3);
@@ -73,27 +73,27 @@ namespace NumberInputerPlugin
                 Number item = new Number {
                     Position = StaticMethods.LoadRectangleFromXMLNode(node3),
                     Num = int.Parse(node3.Attributes.GetNamedItem("Num").Value),
-                    Texture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node3.Attributes.GetNamedItem("FileName").Value)
+                    Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node3.Attributes.GetNamedItem("FileName").Value)
                 };
                 this.numberInputer.Numbers.Add(item);
             }
             node = nextSibling.ChildNodes.Item(4);
-            this.numberInputer.ClearTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.numberInputer.ClearTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.numberInputer.ClearPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             node = nextSibling.ChildNodes.Item(5);
-            this.numberInputer.EnterTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.numberInputer.EnterTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.numberInputer.EnterPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             node = nextSibling.ChildNodes.Item(6);
-            this.numberInputer.BackspaceTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.numberInputer.BackspaceTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.numberInputer.BackspacePosition = StaticMethods.LoadRectangleFromXMLNode(node);
             node = nextSibling.ChildNodes.Item(7);
-            this.numberInputer.MaxTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.numberInputer.MaxTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.numberInputer.MaxPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             node = nextSibling.ChildNodes.Item(8);
-            this.numberInputer.ExitTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.numberInputer.ExitTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.numberInputer.ExitPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             node = nextSibling.ChildNodes.Item(9);
-            this.numberInputer.SelectionTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.numberInputer.SelectionTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
         }
 
         public void SetDepthOffset(float offset)
@@ -116,9 +116,8 @@ namespace NumberInputerPlugin
             this.numberInputer.Scale = scale;
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\NumberInputerData.xml");
         }
 
@@ -132,9 +131,9 @@ namespace NumberInputerPlugin
             this.numberInputer.Max = max / Scale;
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.numberInputer.Initialize(screen as Screen);
+            this.numberInputer.Initialize();
         }
 
         public void Update(GameTime gameTime)
@@ -181,7 +180,9 @@ namespace NumberInputerPlugin
             }
         }
 
+#pragma warning disable CS0108 // 'NumberInputerPlugin.Scale' hides inherited member 'GameObject.Scale'. Use the new keyword if hiding was intended.
         public int Scale
+#pragma warning restore CS0108 // 'NumberInputerPlugin.Scale' hides inherited member 'GameObject.Scale'. Use the new keyword if hiding was intended.
         {
             get
             {

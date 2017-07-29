@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -122,7 +123,7 @@ namespace GameObjects.TroopDetail
                 }
                 if (num >= square.G)
                 {
-                    if (!troop.Scenario.PositionIsTroop(square.Position))
+                    if (!Session.Current.Scenario.PositionIsTroop(square.Position))
                     {
                         area.AddPoint(square.Position);
                     }

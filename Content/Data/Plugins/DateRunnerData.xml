@@ -6,15 +6,15 @@
   <PlayTexture FileName="Play.png" Selected="PlaySelected.png"></PlayTexture>
   <PauseTexture FileName="Pause.png" Selected="PauseSelected.png"></PauseTexture>
   <StopTexture FileName="Stop.png" Selected="StopSelected.png"></StopTexture>
-  <FirstDigitUpperArrowPosition X="5" Y="10" Width="20" Height="6"></FirstDigitUpperArrowPosition>
-  <FirstDigitLowerArrowPosition X="5" Y="37" Width="20" Height="6"></FirstDigitLowerArrowPosition>
+  <FirstDigitUpperArrowPosition X="15" Y="10" Width="20" Height="6"></FirstDigitUpperArrowPosition>
+  <FirstDigitLowerArrowPosition X="15" Y="37" Width="20" Height="6"></FirstDigitLowerArrowPosition>
   <FirstDigitTextPosition X="5" Y="12" Width="20" Height="28"></FirstDigitTextPosition>
-  <SecondDigitUpperArrowPosition X="30" Y="10" Width="20" Height="6"></SecondDigitUpperArrowPosition>
-  <SecondDigitLowerArrowPosition X="30" Y="37" Width="20" Height="6"></SecondDigitLowerArrowPosition>
-  <SecondDigitTextPosition X="30" Y="12" Width="20" Height="28"></SecondDigitTextPosition>
-  <PlayPosition X="60" Y="10" Width="33" Height="33"></PlayPosition>
-  <StopPosition X="95" Y="10" Width="33" Height="33"></StopPosition>
-  <DaysLeftTextPosition X="140" Y="12" Width="40" Height="28"></DaysLeftTextPosition>
+  <SecondDigitUpperArrowPosition X="40" Y="10" Width="20" Height="6"></SecondDigitUpperArrowPosition>
+  <SecondDigitLowerArrowPosition X="40" Y="37" Width="20" Height="6"></SecondDigitLowerArrowPosition>
+  <SecondDigitTextPosition X="40" Y="12" Width="20" Height="28"></SecondDigitTextPosition>
+  <PlayPosition X="65" Y="10" Width="33" Height="33"></PlayPosition>
+  <StopPosition X="115" Y="10" Width="33" Height="33"></StopPosition>
+  <DaysLeftTextPosition X="160" Y="12" Width="40" Height="28"></DaysLeftTextPosition>
   <DaysToGo DefaultDays ="1"
             FontName="Courier New"
             FontSize="10"

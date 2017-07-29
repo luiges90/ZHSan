@@ -12,18 +12,18 @@ namespace SanguoSeason.Encryption
         public static string Encrypt(string dataToEncrypt, string password)
         {
             var data = Encoding.UTF8.GetBytes(dataToEncrypt);
-            var key = Encoding.UTF8.GetBytes("seasonsalts");
+            var key = Encoding.UTF8.GetBytes("WorldOfTheThreeKingdoms");
             //string dataEncryptStr = Des_DataEncrypt.TripleDesDeEncryptUseIvKey(null, key, data); 
            //string dataEncryptStr = Convert.ToBase64String(dataEncryptBytes,0,dataEncryptBytes.Length); 
                         
-            var bytes = Encrypt(dataToEncrypt, password, "seasonsalts", Encoding.UTF8);
+            var bytes = Encrypt(dataToEncrypt, password, "WorldOfTheThreeKingdoms", Encoding.UTF8);
             return Convert.ToBase64String(bytes.ToArray());
         }
 
         public static string Decrypt(string dataToDecrypt, string password)
         {
             var bytes = Convert.FromBase64String(dataToDecrypt);
-            return Decrypt(bytes, password, "seasonsalts", Encoding.UTF8);
+            return Decrypt(bytes, password, "WorldOfTheThreeKingdoms", Encoding.UTF8);
         }
 
         public static byte[] Encrypt(string dataToEncrypt, string password, string salt, Encoding encoding)
@@ -56,7 +56,9 @@ namespace SanguoSeason.Encryption
                 return memoryStream.ToArray();
 
             }
+#pragma warning disable CS0168 // The variable 'eEncrypt' is declared but never used
             catch (Exception eEncrypt)
+#pragma warning restore CS0168 // The variable 'eEncrypt' is declared but never used
             {
                 return null;
             }
@@ -103,7 +105,9 @@ namespace SanguoSeason.Encryption
                 byte[] decryptBytes = memoryStream.ToArray();
                 decryptedText = encoding.GetString(decryptBytes, 0, decryptBytes.Length);
             }
+#pragma warning disable CS0168 // The variable 'eDecrypt' is declared but never used
             catch (Exception eDecrypt)
+#pragma warning restore CS0168 // The variable 'eDecrypt' is declared but never used
             {
 
             }

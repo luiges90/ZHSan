@@ -14,33 +14,33 @@ namespace TroopTitlePlugin
 {
     internal class TroopTitle
     {
-        internal Texture2D ActionAutoDoneTexture;
-        internal Texture2D ActionAutoTexture;
-        internal Texture2D ActionDoneTexture;
+        internal PlatformTexture ActionAutoDoneTexture;
+        internal PlatformTexture ActionAutoTexture;
+        internal PlatformTexture ActionDoneTexture;
         internal Rectangle ActionIconPosition;
-        internal Texture2D ActionUndoneTexture;
+        internal PlatformTexture ActionUndoneTexture;
         public Point BackgroundSize;
-        public Texture2D BackgroundTexture;
-        internal Texture2D PictureNull;
+        public PlatformTexture BackgroundTexture;
+        internal PlatformTexture PictureNull;
         private Point displayOffset;
         public Rectangle FactionPosition;
-        public Texture2D FactionTexture;
+        public PlatformTexture FactionTexture;
         internal Rectangle FoodIconPosition;
-        internal Texture2D FoodNormalTexture;
-        internal Texture2D FoodShortageTexture;
+        internal PlatformTexture FoodNormalTexture;
+        internal PlatformTexture FoodShortageTexture;
         private bool isShowing = true;
         public FreeText NameText;
         public FreeText binglitext;
         internal Rectangle NoControlIconPosition;
-        internal Texture2D NoControlTexture;
+        internal PlatformTexture NoControlTexture;
         public Rectangle PortraitPosition;
         internal Rectangle StuntIconPosition;
-        internal Texture2D StuntTexture;
+        internal PlatformTexture StuntTexture;
 
         internal Rectangle shiqicaoweizhi;
-        internal Texture2D shiqicaotupian;
+        internal PlatformTexture shiqicaotupian;
         internal Rectangle shiqitiaoweizhi;
-        internal Texture2D shiqitiaotupian;
+        internal PlatformTexture shiqitiaotupian;
 
        
         //////////以下新加
@@ -61,17 +61,17 @@ namespace TroopTitlePlugin
         */
         private string UIKind;
 
-        internal Texture2D TheBackground1;
-        internal Texture2D TheMask11;
-        internal Texture2D TheMask12;
-        internal Texture2D TheMask13;
-        internal Texture2D TheMask14;
+        internal PlatformTexture TheBackground1;
+        internal PlatformTexture TheMask11;
+        internal PlatformTexture TheMask12;
+        internal PlatformTexture TheMask13;
+        internal PlatformTexture TheMask14;
         internal Rectangle TheBackground1Position;
-        internal Texture2D TheBackground2;
-        internal Texture2D TheMask21;
-        internal Texture2D TheMask22;
-        internal Texture2D TheMask23;
-        internal Texture2D TheMask24;
+        internal PlatformTexture TheBackground2;
+        internal PlatformTexture TheMask21;
+        internal PlatformTexture TheMask22;
+        internal PlatformTexture TheMask23;
+        internal PlatformTexture TheMask24;
         internal Rectangle TheBackground2Position;
 
         internal int PersonID;
@@ -96,7 +96,7 @@ namespace TroopTitlePlugin
                 { return this.PictureNull; }
             }
         }
-        internal Texture2D ThePersonPicture;
+        internal PlatformTexture ThePersonPicture;
         internal Rectangle PersonPicture1Position;
         internal Rectangle PersonPicture2Position;
         
@@ -119,7 +119,7 @@ namespace TroopTitlePlugin
                 { return this.PictureNull; }
             }
         }
-        internal Texture2D TheFactionPicture;
+        internal PlatformTexture TheFactionPicture;
         internal Rectangle FactionPicture1Position;
         internal Rectangle FactionPicture2Position;
         */
@@ -129,14 +129,14 @@ namespace TroopTitlePlugin
         internal string FactionName2Kind;
         internal string ShowFactionName1Background;
         internal string ShowFactionName2Background;
-        internal Texture2D FactionName1Background;
-        internal Texture2D FactionName2Background;
+        internal PlatformTexture FactionName1Background;
+        internal PlatformTexture FactionName2Background;
         internal Rectangle FactionName1Position;
         internal Rectangle FactionName2Position;
-        internal Texture2D FactionColor1Picture;
-        internal Texture2D FactionColor1Background;
-        internal Texture2D FactionColor2Picture;
-        internal Texture2D FactionColor2Background;
+        internal PlatformTexture FactionColor1Picture;
+        internal PlatformTexture FactionColor1Background;
+        internal PlatformTexture FactionColor2Picture;
+        internal PlatformTexture FactionColor2Background;
         internal Rectangle FactionColor1Position;
         internal Rectangle FactionColor2Position;
 
@@ -145,69 +145,69 @@ namespace TroopTitlePlugin
         
 
         internal int TheTroopKind;
-        internal Texture2D TheTroopKindPicture;
-        internal Texture2D TheTroopKind11Picture;
-        internal Texture2D TheTroopKind12Picture;
-        internal Texture2D TheTroopKind13Picture;
-        internal Texture2D TheTroopKind14Picture;
-        internal Texture2D TheTroopKind15Picture;
+        internal PlatformTexture TheTroopKindPicture;
+        internal PlatformTexture TheTroopKind11Picture;
+        internal PlatformTexture TheTroopKind12Picture;
+        internal PlatformTexture TheTroopKind13Picture;
+        internal PlatformTexture TheTroopKind14Picture;
+        internal PlatformTexture TheTroopKind15Picture;
         internal Rectangle TheTroopKind1Position;
-        internal Texture2D TheTroopKind21Picture;
-        internal Texture2D TheTroopKind22Picture;
-        internal Texture2D TheTroopKind23Picture;
-        internal Texture2D TheTroopKind24Picture;
-        internal Texture2D TheTroopKind25Picture;
+        internal PlatformTexture TheTroopKind21Picture;
+        internal PlatformTexture TheTroopKind22Picture;
+        internal PlatformTexture TheTroopKind23Picture;
+        internal PlatformTexture TheTroopKind24Picture;
+        internal PlatformTexture TheTroopKind25Picture;
         internal Rectangle TheTroopKind2Position;
         internal FreeText Thebingli1Text;
         internal FreeText Thebingli2Text;
 
-        internal Texture2D TheActionAutoDone1Texture;
-        internal Texture2D TheActionAuto1Texture;
-        internal Texture2D TheActionDone1Texture;
-        internal Texture2D TheActionUndone1Texture;
+        internal PlatformTexture TheActionAutoDone1Texture;
+        internal PlatformTexture TheActionAuto1Texture;
+        internal PlatformTexture TheActionDone1Texture;
+        internal PlatformTexture TheActionUndone1Texture;
         internal Rectangle TheActionIcon1Position;
         
-        internal Texture2D TheActionAutoDone2Texture;
-        internal Texture2D TheActionAuto2Texture;
-        internal Texture2D TheActionDone2Texture;
-        internal Texture2D TheActionUndone2Texture;
+        internal PlatformTexture TheActionAutoDone2Texture;
+        internal PlatformTexture TheActionAuto2Texture;
+        internal PlatformTexture TheActionDone2Texture;
+        internal PlatformTexture TheActionUndone2Texture;
         internal Rectangle TheActionIcon2Position;
         
-        internal Texture2D TheFoodNormal1Texture;
-        internal Texture2D TheFoodShortage1Texture;
+        internal PlatformTexture TheFoodNormal1Texture;
+        internal PlatformTexture TheFoodShortage1Texture;
         internal Rectangle TheFoodIcon1Position;
 
-        internal Texture2D TheFoodNormal2Texture;
-        internal Texture2D TheFoodShortage2Texture;
+        internal PlatformTexture TheFoodNormal2Texture;
+        internal PlatformTexture TheFoodShortage2Texture;
         internal Rectangle TheFoodIcon2Position;
 
-        internal Texture2D TheNoControl1Texture;
+        internal PlatformTexture TheNoControl1Texture;
         internal Rectangle TheNoControlIcon1Position;
 
-        internal Texture2D TheNoControl2Texture;
+        internal PlatformTexture TheNoControl2Texture;
         internal Rectangle TheNoControlIcon2Position;
         
-        internal Texture2D TheStunt1Texture;
+        internal PlatformTexture TheStunt1Texture;
         internal Rectangle TheStuntIcon1Position;
-        internal Texture2D TheStunt2Texture;
+        internal PlatformTexture TheStunt2Texture;
         internal Rectangle TheStuntIcon2Position;
 
-        internal Texture2D Theshiqi1Texture;
+        internal PlatformTexture Theshiqi1Texture;
         internal Rectangle Theshiqi1Position;
-        internal Texture2D Theshiqi2Texture;
+        internal PlatformTexture Theshiqi2Texture;
         internal Rectangle Theshiqi2Position;
-        internal Texture2D Thezhanyi1Texture;
+        internal PlatformTexture Thezhanyi1Texture;
         internal Rectangle Thezhanyi1Position;
-        internal Texture2D Thezhanyi2Texture;
+        internal PlatformTexture Thezhanyi2Texture;
         internal Rectangle Thezhanyi2Position;
 
 
-        internal void DrawTroop(SpriteBatch spriteBatch, Troop troop, bool playerControlling)
+        internal void DrawTroop(Troop troop, bool playerControlling)
         {
-            if (troop.Scenario.ScenarioMap.TileWidth >= 50)
+            if (Session.Current.Scenario.ScenarioMap.TileWidth >= 50)
             {
                 Color white = Color.White;
-                this.DisplayOffset = troop.Scenario.GameScreen.GetPointByPosition(troop.Position);
+                this.DisplayOffset = Session.MainGame.mainGameScreen.GetPointByPosition(troop.Position);
                 this.DisplayOffset = new Point(this.DisplayOffset.X, this.DisplayOffset.Y - 13);
                 if (troop.BelongedFaction != null)
                 {
@@ -243,32 +243,32 @@ namespace TroopTitlePlugin
                 if (UIKind == "Old")
                 {                    
                     Rectangle? sourceRectangle = null;
-                    spriteBatch.Draw(this.BackgroundTexture, new Rectangle(this.displayOffset.X, this.displayOffset.Y, this.BackgroundSize.X, this.BackgroundSize.Y), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.47f);
-                    spriteBatch.Draw(this.shiqicaotupian, new Rectangle(this.displayOffset.X + this.shiqicaoweizhi.X, this.displayOffset.Y + this.shiqicaoweizhi.Y, this.shiqicaoweizhi.Width, this.shiqicaoweizhi.Height), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.469f);
-                    spriteBatch.Draw(this.shiqitiaotupian, new Rectangle(this.displayOffset.X + this.shiqitiaoweizhi.X, this.displayOffset.Y + this.shiqitiaoweizhi.Y, shiqitiaokuandu(troop), this.shiqitiaoweizhi.Height), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.469f);
+                    CacheManager.Draw(this.BackgroundTexture, new Rectangle(this.displayOffset.X, this.displayOffset.Y, this.BackgroundSize.X, this.BackgroundSize.Y), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.47f);
+                    CacheManager.Draw(this.shiqicaotupian, new Rectangle(this.displayOffset.X + this.shiqicaoweizhi.X, this.displayOffset.Y + this.shiqicaoweizhi.Y, this.shiqicaoweizhi.Width, this.shiqicaoweizhi.Height), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.469f);
+                    CacheManager.Draw(this.shiqitiaotupian, new Rectangle(this.displayOffset.X + this.shiqitiaoweizhi.X, this.displayOffset.Y + this.shiqitiaoweizhi.Y, shiqitiaokuandu(troop), this.shiqitiaoweizhi.Height), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.469f);
                     sourceRectangle = null;
-                    spriteBatch.Draw(this.FactionTexture, new Rectangle(this.displayOffset.X + this.FactionPosition.X, this.displayOffset.Y + this.FactionPosition.Y, this.FactionPosition.Width, this.FactionPosition.Height), sourceRectangle, white, 0f, Vector2.Zero, SpriteEffects.None, 0.469f);
+                    CacheManager.Draw(this.FactionTexture, new Rectangle(this.displayOffset.X + this.FactionPosition.X, this.displayOffset.Y + this.FactionPosition.Y, this.FactionPosition.Width, this.FactionPosition.Height), sourceRectangle, white, 0f, Vector2.Zero, SpriteEffects.None, 0.469f);
                     this.NameText.Text = troop.Leader.Name;
                     this.binglitext.Text = troop.Army.Quantity.ToString();
-                    this.NameText.Draw(spriteBatch, 0.47f);
-                    this.binglitext.Draw(spriteBatch, 0.47f);
+                    this.NameText.Draw(0.47f);
+                    this.binglitext.Draw(0.47f);
                     sourceRectangle = null;
                     
                     //try
                     //{
-                    //spriteBatch.Draw(troop.Leader.TroopPortrait, new Rectangle(this.displayOffset.X + this.PortraitPosition.X, this.displayOffset.Y + this.PortraitPosition.Y, this.PortraitPosition.Width, this.PortraitPosition.Height), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4687f);
+                    //CacheManager.Draw(troop.Leader.TroopPortrait, new Rectangle(this.displayOffset.X + this.PortraitPosition.X, this.displayOffset.Y + this.PortraitPosition.Y, this.PortraitPosition.Width, this.PortraitPosition.Height), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4687f);
 
                     CacheManager.DrawZhsanAvatar(troop.Leader, "t", new Rectangle(this.displayOffset.X + this.PortraitPosition.X, this.displayOffset.Y + this.PortraitPosition.Y, this.PortraitPosition.Width, this.PortraitPosition.Height), Color.White, 0.4687f);
 
                     //}
                     //catch { }
 
-                    if (playerControlling && (GlobalVariables.SkyEye || troop.Scenario.IsCurrentPlayer(troop.BelongedFaction)))
+                    if (playerControlling && (Session.GlobalVariables.SkyEye || Session.Current.Scenario.IsCurrentPlayer(troop.BelongedFaction)))
                     {
                         if (!troop.ControlAvail())
                         {
                             sourceRectangle = null;
-                            spriteBatch.Draw(this.NoControlTexture, this.NoControlIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
+                            CacheManager.Draw(this.NoControlTexture, this.NoControlIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
                         }
                         else
                         {
@@ -276,42 +276,42 @@ namespace TroopTitlePlugin
                             {
                                 case TroopControlState.Undone:
                                     sourceRectangle = null;
-                                    spriteBatch.Draw(this.ActionUndoneTexture, this.ActionIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
+                                    CacheManager.Draw(this.ActionUndoneTexture, this.ActionIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
                                     break;
 
                                 case TroopControlState.Done:
                                     sourceRectangle = null;
-                                    spriteBatch.Draw(this.ActionDoneTexture, this.ActionIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
+                                    CacheManager.Draw(this.ActionDoneTexture, this.ActionIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
                                     break;
 
                                 case TroopControlState.Auto:
                                     sourceRectangle = null;
-                                    spriteBatch.Draw(this.ActionAutoTexture, this.ActionIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
+                                    CacheManager.Draw(this.ActionAutoTexture, this.ActionIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
                                     break;
 
                                 case TroopControlState.AutoDone:
                                     sourceRectangle = null;
-                                    spriteBatch.Draw(this.ActionAutoDoneTexture, this.ActionIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
+                                    CacheManager.Draw(this.ActionAutoDoneTexture, this.ActionIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
                                     break;
                             }
                         }
                         if (troop.Food < troop.FoodCostPerDay)
                         {
                             sourceRectangle = null;
-                            spriteBatch.Draw(this.FoodShortageTexture, this.FoodIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
+                            CacheManager.Draw(this.FoodShortageTexture, this.FoodIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
                         }
                         /*
                         else
                         {
                             sourceRectangle = null;
-                            spriteBatch.Draw(this.FoodNormalTexture, this.FoodIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
+                            CacheManager.Draw(this.FoodNormalTexture, this.FoodIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
                         }
                         */
 
                     }
                     if (troop.CurrentStunt != null)
                     {
-                        spriteBatch.Draw(this.StuntTexture, this.StuntIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
+                        CacheManager.Draw(this.StuntTexture, this.StuntIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
                     }
                 }
                 if (UIKind == "New1")
@@ -325,74 +325,74 @@ namespace TroopTitlePlugin
                     else if (TheTroopKind == 4) { TheTroopKindPicture = TheTroopKind15Picture; }
                     try
                     {
-                        spriteBatch.Draw(this.TheMask11, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.461f);
-                        spriteBatch.Draw(this.TheMask12, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.464f);
-                        spriteBatch.Draw(this.TheMask13, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.466f);
-                        spriteBatch.Draw(this.TheMask14, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.468f);
-                        spriteBatch.Draw(this.TheBackground1, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.47f);
+                        CacheManager.Draw(this.TheMask11, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.461f);
+                        CacheManager.Draw(this.TheMask12, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.464f);
+                        CacheManager.Draw(this.TheMask13, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.466f);
+                        CacheManager.Draw(this.TheMask14, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.468f);
+                        CacheManager.Draw(this.TheBackground1, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.47f);
                     }
                     catch { }
                     //try
                     //{ 
-                        //spriteBatch.Draw(troop.Leader.TroopPortrait, this.ThePortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.469f);
+                        //CacheManager.Draw(troop.Leader.TroopPortrait, this.ThePortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.469f);
 
                         CacheManager.DrawZhsanAvatar(troop.Leader, "t", this.ThePortraitDisplayPosition, Color.White, 0.469f);
 
                         if (ShowFactionName1Background == "on")
                         {
-                            spriteBatch.Draw(this.FactionName1Background, this.FactionNameDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.462f);
+                            CacheManager.Draw(this.FactionName1Background, this.FactionNameDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.462f);
                         }
-                        spriteBatch.Draw(this.FactionColor1Picture, this.FactionColorDisplayPosition, null, white, 0f, Vector2.Zero, SpriteEffects.None, 0.463f);
-                        spriteBatch.Draw(this.FactionColor1Background, this.FactionColorDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                        CacheManager.Draw(this.FactionColor1Picture, this.FactionColorDisplayPosition, null, white, 0f, Vector2.Zero, SpriteEffects.None, 0.463f);
+                        CacheManager.Draw(this.FactionColor1Background, this.FactionColorDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                     //}
                     //catch { }
                     try
                     { 
-                        spriteBatch.Draw(this.TheTroopKindPicture, this.TheTroopKindDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                        CacheManager.Draw(this.TheTroopKindPicture, this.TheTroopKindDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                     }
                     catch { }
                     try
                     {
-                        spriteBatch.Draw(this.Theshiqi1Texture, this.TheshiqiDisplayPosition(troop), this.TheshiqiPosition(troop), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.467f);
-                        spriteBatch.Draw(this.Thezhanyi1Texture, this.ThezhanyiDisplayPosition(troop), this.ThezhanyiPosition(troop), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.467f);
+                        CacheManager.Draw(this.Theshiqi1Texture, this.TheshiqiDisplayPosition(troop), this.TheshiqiPosition(troop), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.467f);
+                        CacheManager.Draw(this.Thezhanyi1Texture, this.ThezhanyiDisplayPosition(troop), this.ThezhanyiPosition(troop), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.467f);
 
                     }                    
                     catch { }
-                    if (playerControlling && (GlobalVariables.SkyEye || troop.Scenario.IsCurrentPlayer(troop.BelongedFaction)))
+                    if (playerControlling && (Session.GlobalVariables.SkyEye || Session.Current.Scenario.IsCurrentPlayer(troop.BelongedFaction)))
                     {
                         if (!troop.ControlAvail())
                         {
-                            spriteBatch.Draw(this.TheNoControl1Texture, this.TheNoControlIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                            CacheManager.Draw(this.TheNoControl1Texture, this.TheNoControlIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                         }
                         else
                         {
                             switch (troop.ControlState)
                             {
                                 case TroopControlState.Undone:
-                                    spriteBatch.Draw(this.TheActionUndone1Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                                    CacheManager.Draw(this.TheActionUndone1Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                                     break;
 
                                 case TroopControlState.Done:
-                                    spriteBatch.Draw(this.TheActionDone1Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                                    CacheManager.Draw(this.TheActionDone1Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                                     break;
 
                                 case TroopControlState.Auto:
-                                    spriteBatch.Draw(this.TheActionAuto1Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                                    CacheManager.Draw(this.TheActionAuto1Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                                     break;
 
                                 case TroopControlState.AutoDone:
-                                    spriteBatch.Draw(this.TheActionAutoDone1Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                                    CacheManager.Draw(this.TheActionAutoDone1Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                                     break;
                             }
                         }
                         if (troop.Food < troop.FoodCostPerDay)
                         {
-                            spriteBatch.Draw(this.TheFoodShortage1Texture, this.TheFoodIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.463f);
+                            CacheManager.Draw(this.TheFoodShortage1Texture, this.TheFoodIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.463f);
                         }
                     }
                     if (troop.CurrentStunt != null)
                     {
-                        spriteBatch.Draw(this.TheStunt1Texture, this.TheStuntIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.463f);
+                        CacheManager.Draw(this.TheStunt1Texture, this.TheStuntIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.463f);
                     }
                     if (FactionName1Kind == "1")
                     {
@@ -412,9 +412,9 @@ namespace TroopTitlePlugin
                     }
                     this.TroopName1Text.Text = troop.Leader.Name;
                     this.Thebingli1Text.Text = troop.Army.Quantity.ToString();
-                    this.FactionName1Text.Draw(spriteBatch, 0.462f);
-                    this.TroopName1Text.Draw(spriteBatch, 0.462f);
-                    this.Thebingli1Text.Draw(spriteBatch, 0.462f);
+                    this.FactionName1Text.Draw(0.462f);
+                    this.TroopName1Text.Draw(0.462f);
+                    this.Thebingli1Text.Draw(0.462f);
                 }
                 
                 if (UIKind == "New2")
@@ -429,41 +429,41 @@ namespace TroopTitlePlugin
                     //{
                     if (this.TheMask21 != null)
                     {
-                        spriteBatch.Draw(this.TheMask21, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.461f);
+                        CacheManager.Draw(this.TheMask21, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.461f);
                     }
                     if (this.TheMask22 != null)
                     {
-                        spriteBatch.Draw(this.TheMask22, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.464f);
+                        CacheManager.Draw(this.TheMask22, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.464f);
                     }
                     if (this.TheMask23 != null)
                     {
-                        spriteBatch.Draw(this.TheMask23, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.466f);
+                        CacheManager.Draw(this.TheMask23, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.466f);
                     }
                     if (this.TheMask24 != null)
                     {
-                        spriteBatch.Draw(this.TheMask24, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.468f);
+                        CacheManager.Draw(this.TheMask24, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.468f);
                     }
                     if (this.TheBackground2 != null)
                     {
-                        spriteBatch.Draw(this.TheBackground2, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.47f);
+                        CacheManager.Draw(this.TheBackground2, this.TheBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.47f);
                     }
                     //}
                     //catch { }
                     //try
                     //{
                     CacheManager.DrawZhsanAvatar(troop.Leader, "t", this.ThePortraitDisplayPosition, Color.White, 0.469f);
-                    //spriteBatch.Draw(troop.Leader.TroopPortrait, this.ThePortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.469f);
+                    //CacheManager.Draw(troop.Leader.TroopPortrait, this.ThePortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.469f);
                         if (ShowFactionName2Background == "on" && this.FactionName2Background != null)
                         {
-                            spriteBatch.Draw(this.FactionName2Background, this.FactionNameDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.462f);
+                            CacheManager.Draw(this.FactionName2Background, this.FactionNameDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.462f);
                         }
                     if (this.FactionColor2Picture != null)
                     {
-                        spriteBatch.Draw(this.FactionColor2Picture, this.FactionColorDisplayPosition, null, white, 0f, Vector2.Zero, SpriteEffects.None, 0.463f);
+                        CacheManager.Draw(this.FactionColor2Picture, this.FactionColorDisplayPosition, null, white, 0f, Vector2.Zero, SpriteEffects.None, 0.463f);
                     }
                     if (this.FactionColor2Background != null)
                     {
-                        spriteBatch.Draw(this.FactionColor2Background, this.FactionColorDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                        CacheManager.Draw(this.FactionColor2Background, this.FactionColorDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                     }
                     //}
                     //catch { }
@@ -471,7 +471,7 @@ namespace TroopTitlePlugin
                     //{
                     if (this.TheTroopKindPicture != null)
                     {
-                        spriteBatch.Draw(this.TheTroopKindPicture, this.TheTroopKindDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                        CacheManager.Draw(this.TheTroopKindPicture, this.TheTroopKindDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                     }
                     //}
                     //catch { }
@@ -479,49 +479,49 @@ namespace TroopTitlePlugin
                     //{
                     if (this.Theshiqi2Texture != null)
                     {
-                        spriteBatch.Draw(this.Theshiqi2Texture, this.TheshiqiDisplayPosition(troop), this.TheshiqiPosition(troop), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.467f);
+                        CacheManager.Draw(this.Theshiqi2Texture, this.TheshiqiDisplayPosition(troop), this.TheshiqiPosition(troop), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.467f);
                     }
                     if (this.Thezhanyi2Texture != null)
                     {
-                        spriteBatch.Draw(this.Thezhanyi2Texture, this.ThezhanyiDisplayPosition(troop), this.ThezhanyiPosition(troop), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.467f);
+                        CacheManager.Draw(this.Thezhanyi2Texture, this.ThezhanyiDisplayPosition(troop), this.ThezhanyiPosition(troop), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.467f);
                     }
                     //}
                     //catch { }
-                    if (playerControlling && (GlobalVariables.SkyEye || troop.Scenario.IsCurrentPlayer(troop.BelongedFaction)))
+                    if (playerControlling && (Session.GlobalVariables.SkyEye || Session.Current.Scenario.IsCurrentPlayer(troop.BelongedFaction)))
                     {
                         if (!troop.ControlAvail())
                         {
-                            spriteBatch.Draw(this.TheNoControl2Texture, this.TheNoControlIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                            CacheManager.Draw(this.TheNoControl2Texture, this.TheNoControlIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                         }
                         else
                         {
                             switch (troop.ControlState)
                             {
                                 case TroopControlState.Undone:
-                                    spriteBatch.Draw(this.TheActionUndone2Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                                    CacheManager.Draw(this.TheActionUndone2Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                                     break;
 
                                 case TroopControlState.Done:
-                                    spriteBatch.Draw(this.TheActionDone2Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                                    CacheManager.Draw(this.TheActionDone2Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                                     break;
 
                                 case TroopControlState.Auto:
-                                    spriteBatch.Draw(this.TheActionAuto2Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                                    CacheManager.Draw(this.TheActionAuto2Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                                     break;
 
                                 case TroopControlState.AutoDone:
-                                    spriteBatch.Draw(this.TheActionAutoDone2Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                                    CacheManager.Draw(this.TheActionAutoDone2Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                                     break;
                             }
                         }
                         if (troop.Food < troop.FoodCostPerDay)
                         {
-                            spriteBatch.Draw(this.TheFoodShortage2Texture, this.TheFoodIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.463f);
+                            CacheManager.Draw(this.TheFoodShortage2Texture, this.TheFoodIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.463f);
                         }
                     }
                     if (troop.CurrentStunt != null)
                     {
-                        spriteBatch.Draw(this.TheStunt2Texture, this.TheStuntIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.463f);
+                        CacheManager.Draw(this.TheStunt2Texture, this.TheStuntIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.463f);
                     }
                     if (FactionName2Kind == "1")
                     {
@@ -541,9 +541,9 @@ namespace TroopTitlePlugin
                     }
                     this.TroopName2Text.Text = troop.Leader.Name;
                     this.Thebingli2Text.Text = troop.Army.Quantity.ToString();
-                    this.FactionName2Text.Draw(spriteBatch, 0.462f);
-                    this.TroopName2Text.Draw(spriteBatch, 0.462f);
-                    this.Thebingli2Text.Draw(spriteBatch, 0.462f);
+                    this.FactionName2Text.Draw(0.462f);
+                    this.TroopName2Text.Draw(0.462f);
+                    this.Thebingli2Text.Draw(0.462f);
                 }
                 
             }

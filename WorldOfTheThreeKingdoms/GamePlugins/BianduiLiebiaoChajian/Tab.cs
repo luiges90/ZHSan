@@ -1,4 +1,5 @@
 ﻿using GameFreeText;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -38,22 +39,22 @@ namespace BianduiLiebiaoChajian
             this.Columns = new List<Column>();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.selected)
             {
-                spriteBatch.Draw(this.tabList.tabbuttonselectedTexture, this.Position, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.35f);
+                CacheManager.Draw(this.tabList.tabbuttonselectedTexture, this.Position, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.35f);
                 //this.Text.Text = "兵役："+this.Bingyi.ToString();
-                this.Text.Draw(spriteBatch, Color.White, 0.3499f);
+                this.Text.Draw(Color.White, 0.3499f);
                 foreach (Column column in this.Columns)
                 {
-                    column.Draw(spriteBatch);
+                    column.Draw();
                 }
             }
             else
             {
-                spriteBatch.Draw(this.tabList.tabbuttonTexture, this.Position, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.35f);
-                this.Text.Draw(spriteBatch, 0.3499f);
+                CacheManager.Draw(this.tabList.tabbuttonTexture, this.Position, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.35f);
+                this.Text.Draw(0.3499f);
             }
         }
 

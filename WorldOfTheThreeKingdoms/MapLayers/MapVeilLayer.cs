@@ -7,9 +7,7 @@ using GameObjects;
 using Microsoft.Xna.Framework;
 using WorldOfTheThreeKingdoms;
 using Microsoft.Xna.Framework.Graphics;
-
-
-
+using GameManager;
 
 namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
 
@@ -21,55 +19,52 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
         private Color BlendColorLow = new Color(new Vector4(0.8f, 0.8f, 0.8f, 0.27f));
         private Color BlendColorMiddle = new Color(new Vector4(0.8f, 0.8f, 0.8f, 0.18f));
         private Color BlendColorNone = new Color(new Vector4(0.8f, 0.8f, 0.8f, 0.6f));
-        private MainMapLayer mainMapLayer;
-        private GameScenario scenario;
-        private Texture2D veilTexture;
 
-        public void Draw(SpriteBatch spriteBatch, Point viewportSize)
+        private PlatformTexture veilTexture;
+
+        public void Draw(Point viewportSize)
         {
-            if ((GlobalVariables.DrawMapVeil && !GlobalVariables.SkyEye) && !this.scenario.NoCurrentPlayer)
+            if ((Session.GlobalVariables.DrawMapVeil && !Session.GlobalVariables.SkyEye) && !Session.Current.Scenario.NoCurrentPlayer)
             {
-                foreach (Tile tile in this.mainMapLayer.DisplayingTiles)
+                foreach (Tile tile in Session.MainGame.mainGameScreen.mainMapLayer.DisplayingTiles)
                 {
                     Rectangle? nullable;
                     switch (this.CurrentPlayer.GetKnownAreaDataNoCheck(tile.Position))
                     {
                         case InformationLevel.无:
                             nullable = null;
-                            spriteBatch.Draw(this.veilTexture, tile.Destination, nullable, this.BlendColorNone, 0f, Vector2.Zero, SpriteEffects.None, 0.6f);
+                            CacheManager.Draw(this.veilTexture, tile.Destination, nullable, this.BlendColorNone, 0f, Vector2.Zero, SpriteEffects.None, 0.6f);
                             break;
 
                         case InformationLevel.低:
                             nullable = null;
-                            spriteBatch.Draw(this.veilTexture, tile.Destination, nullable, this.BlendColorLow, 0f, Vector2.Zero, SpriteEffects.None, 0.6f);
+                            CacheManager.Draw(this.veilTexture, tile.Destination, nullable, this.BlendColorLow, 0f, Vector2.Zero, SpriteEffects.None, 0.6f);
                             break;
 
                         case InformationLevel.中:
                             nullable = null;
-                            spriteBatch.Draw(this.veilTexture, tile.Destination, nullable, this.BlendColorMiddle, 0f, Vector2.Zero, SpriteEffects.None, 0.6f);
+                            CacheManager.Draw(this.veilTexture, tile.Destination, nullable, this.BlendColorMiddle, 0f, Vector2.Zero, SpriteEffects.None, 0.6f);
                             break;
 
                         case InformationLevel.高:
                             nullable = null;
-                            spriteBatch.Draw(this.veilTexture, tile.Destination, nullable, this.BlendColorHigh, 0f, Vector2.Zero, SpriteEffects.None, 0.6f);
+                            CacheManager.Draw(this.veilTexture, tile.Destination, nullable, this.BlendColorHigh, 0f, Vector2.Zero, SpriteEffects.None, 0.6f);
                             break;
                     }
                 }
             }
         }
 
-        public void Initialize(MainMapLayer mainMapLayer, GameScenario scenario)
+        public void Initialize(MainGameScreen screen)
         {
-            this.mainMapLayer = mainMapLayer;
-            this.scenario = scenario;
-            this.veilTexture = mainMapLayer.screen.Textures.MapVeilTextures[0];
+            this.veilTexture = screen.Textures.MapVeilTextures[0];
         }
 
         private Faction CurrentPlayer
         {
             get
             {
-                return this.scenario.CurrentPlayer;
+                return Session.Current.Scenario.CurrentPlayer;
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Conditions;
 using System;
 
@@ -10,8 +11,8 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
     {
         public override bool CheckConditionKind(Troop troop)
         {
-            return troop.Scenario.GetArchitectureByPosition(troop.Position) != null &&
-                troop.Scenario.GetArchitectureByPosition(troop.Position).BelongedFaction == troop.BelongedFaction;
+            return Session.Current.Scenario.GetArchitectureByPosition(troop.Position) != null &&
+                Session.Current.Scenario.GetArchitectureByPosition(troop.Position).BelongedFaction == troop.BelongedFaction;
         }
     }
 }

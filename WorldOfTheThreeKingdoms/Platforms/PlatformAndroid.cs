@@ -55,18 +55,18 @@ namespace Platforms
             }
         }
 
-        /// <summary>
-        /// 內存使用占用
-        /// </summary>
-        public new string MemoryUsage
-        {
-            get
-            {
-                return (System.GC.GetTotalMemory(false) / 1024).ToString();
-                //Android.Activity1.os.Debug.getNativeHeapAllocatedSize()
-                //return "";
-            }
-        }
+        ///// <summary>
+        ///// 內存使用占用
+        ///// </summary>
+        //public new string MemoryUsage
+        //{
+        //    get
+        //    {
+        //        return (System.GC.GetTotalMemory(false) / 1024).ToString();
+        //        //Android.Activity1.os.Debug.getNativeHeapAllocatedSize()
+        //        //return "";
+        //    }
+        //}
 
         public static AndroidGameActivity Activity1;
 
@@ -77,7 +77,7 @@ namespace Platforms
 
         public static bool IsPhone;
 
-        public static string PreferResolution = "1120*630";
+        public static new string PreferResolution = "925*520";
 
         public new bool KeyBoardAvailable = false;
 
@@ -1461,6 +1461,7 @@ namespace Platforms
     public class PlatformTask
     {
         System.Threading.Thread thread;
+        public bool IsStop = false;
         public string[] ParamArray = null;
         public string[] ParamArrayResult = null;
         public byte[] ParamArrayResultBytes = null;
@@ -1476,6 +1477,18 @@ namespace Platforms
                         Platform.platformTask = null;
                     }
                 });
+        }
+        public bool IsAlive
+        {
+            get
+            {
+                return thread != null && thread.ThreadState == System.Threading.ThreadState.Running;
+            }
+        }
+
+        public void Abort()
+        {
+            IsStop = true;
         }
         public void Start()
         {

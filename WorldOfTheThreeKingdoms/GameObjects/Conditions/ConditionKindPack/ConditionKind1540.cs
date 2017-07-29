@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Conditions;
 using System;
 
@@ -12,7 +13,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
 
         public override bool CheckConditionKind(Troop troop)
         {
-            return (int) troop.Scenario.GetTerrainKindByPosition(troop.Position) == terrain;
+            return (int) Session.Current.Scenario.GetTerrainKindByPosition(troop.Position) == terrain;
         }
 
         public override void InitializeParameter(string parameter)

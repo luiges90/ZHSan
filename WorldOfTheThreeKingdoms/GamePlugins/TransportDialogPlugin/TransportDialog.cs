@@ -1,5 +1,6 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,21 +14,21 @@ namespace TransportDialogPlugin
     public class TransportDialog
     {
         internal Point BackgroundSize;
-        internal Texture2D BackgroundTexture;
+        internal PlatformTexture BackgroundTexture;
         internal int Days;
         private Architecture destinationArchitecture;
-        internal Texture2D DestinationButtonDisplayTexture;
+        internal PlatformTexture DestinationButtonDisplayTexture;
         internal Rectangle DestinationButtonPosition;
-        internal Texture2D DestinationButtonSelectedTexture;
-        internal Texture2D DestinationButtonTexture;
+        internal PlatformTexture DestinationButtonSelectedTexture;
+        internal PlatformTexture DestinationButtonTexture;
         internal FreeText DestinationCommentText;
         internal FreeText DestinationText;
         internal Point DisplayOffset;
         internal IGameFrame GameFramePlugin;
-        internal Texture2D InputNumberButtonDisplayTexture;
+        internal PlatformTexture InputNumberButtonDisplayTexture;
         internal Rectangle InputNumberButtonPosition;
-        internal Texture2D InputNumberButtonSelectedTexture;
-        internal Texture2D InputNumberButtonTexture;
+        internal PlatformTexture InputNumberButtonSelectedTexture;
+        internal PlatformTexture InputNumberButtonTexture;
         internal FreeText InputNumberText;
         private bool isShowing;
         internal TransportKind Kind;
@@ -35,57 +36,59 @@ namespace TransportDialogPlugin
         private int number;
         internal INumberInputer NumberInputerPlugin;
         internal IGameRecord GameRecordPlugin;
-        private Screen screen;
+        
         internal Architecture SourceArchitecture;
-        internal Texture2D StartButtonDisabledTexture;
-        internal Texture2D StartButtonDisplayTexture;
+        internal PlatformTexture StartButtonDisabledTexture;
+        internal PlatformTexture StartButtonDisplayTexture;
         internal bool StartButtonEnabled;
         internal Rectangle StartButtonPosition;
-        internal Texture2D StartButtonSelectedTexture;
-        internal Texture2D StartButtonTexture;
+        internal PlatformTexture StartButtonSelectedTexture;
+        internal PlatformTexture StartButtonTexture;
+#pragma warning disable CS0649 // Field 'TransportDialog.SurplusRate' is never assigned to, and will always have its default value 0
         internal float SurplusRate;
+#pragma warning restore CS0649 // Field 'TransportDialog.SurplusRate' is never assigned to, and will always have its default value 0
         internal ITabList TabListPlugin;
         internal FreeText TitleText;
 
-        internal Texture2D EmperorDestinationButtonDisplayTexture;
+        internal PlatformTexture EmperorDestinationButtonDisplayTexture;
         internal Rectangle EmperorDestinationButtonPosition;
-        internal Texture2D EmperorDestinationButtonSelectedTexture;
-        internal Texture2D EmperorDestinationButtonTexture;
+        internal PlatformTexture EmperorDestinationButtonSelectedTexture;
+        internal PlatformTexture EmperorDestinationButtonTexture;
         internal FreeText EmperorDestinationCommentText;
         internal FreeText EmperorDestinationText;
-        internal Texture2D EmperorInputNumberButtonDisplayTexture;
+        internal PlatformTexture EmperorInputNumberButtonDisplayTexture;
         internal Rectangle EmperorInputNumberButtonPosition;
-        internal Texture2D EmperorInputNumberButtonSelectedTexture;
-        internal Texture2D EmperorInputNumberButtonTexture;
+        internal PlatformTexture EmperorInputNumberButtonSelectedTexture;
+        internal PlatformTexture EmperorInputNumberButtonTexture;
         internal FreeText EmperorInputNumberText;
-        internal Texture2D EmperorStartButtonDisabledTexture;
-        internal Texture2D EmperorStartButtonDisplayTexture;
+        internal PlatformTexture EmperorStartButtonDisabledTexture;
+        internal PlatformTexture EmperorStartButtonDisplayTexture;
         internal Rectangle EmperorStartButtonPosition;
-        internal Texture2D EmperorStartButtonSelectedTexture;
-        internal Texture2D EmperorStartButtonTexture;
+        internal PlatformTexture EmperorStartButtonSelectedTexture;
+        internal PlatformTexture EmperorStartButtonTexture;
 
-        internal Texture2D FundDestinationButtonDisplayTexture;
+        internal PlatformTexture FundDestinationButtonDisplayTexture;
         internal Rectangle FundDestinationButtonPosition;
-        internal Texture2D FundDestinationButtonSelectedTexture;
-        internal Texture2D FundDestinationButtonTexture;
+        internal PlatformTexture FundDestinationButtonSelectedTexture;
+        internal PlatformTexture FundDestinationButtonTexture;
         internal FreeText FundDestinationCommentText;
         internal FreeText FundDestinationText;
-        internal Texture2D FundInputNumberButtonDisplayTexture;
+        internal PlatformTexture FundInputNumberButtonDisplayTexture;
         internal Rectangle FundInputNumberButtonPosition;
-        internal Texture2D FundInputNumberButtonSelectedTexture;
-        internal Texture2D FundInputNumberButtonTexture;
+        internal PlatformTexture FundInputNumberButtonSelectedTexture;
+        internal PlatformTexture FundInputNumberButtonTexture;
         internal FreeText FundInputNumberText;
-        internal Texture2D FundStartButtonDisabledTexture;
-        internal Texture2D FundStartButtonDisplayTexture;
+        internal PlatformTexture FundStartButtonDisabledTexture;
+        internal PlatformTexture FundStartButtonDisplayTexture;
         internal Rectangle FundStartButtonPosition;
-        internal Texture2D FundStartButtonSelectedTexture;
-        internal Texture2D FundStartButtonTexture;
+        internal PlatformTexture FundStartButtonSelectedTexture;
+        internal PlatformTexture FundStartButtonTexture;
 
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw()
         {
             Rectangle? sourceRectangle = null;
-            spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
-            this.TitleText.Draw(spriteBatch, 0.1999f);
+            CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+            this.TitleText.Draw(0.1999f);
             int index = 0;
             foreach (LabelText text in this.LabelTexts)
             {
@@ -93,11 +96,11 @@ namespace TransportDialogPlugin
                 //if (index == 1 && (this.Kind == TransportKind.Resource)) continue;
                 if (index == 1 && (this.Kind == TransportKind.Food || this.Kind == TransportKind.Fund)) continue;
                 if (index == 2 && (this.Kind == TransportKind.EmperorFood || this.Kind == TransportKind.EmperorFund)) continue;
-                text.Label.Draw(spriteBatch, 0.1999f);
-                text.Text.Draw(spriteBatch, 0.1999f);
+                text.Label.Draw(0.1999f);
+                text.Text.Draw(0.1999f);
             }
 
-            Texture2D destinationTexture, inputNumberTexture, startTexture;
+            PlatformTexture destinationTexture, inputNumberTexture, startTexture;
             Rectangle destinationPosition, inputNumberPosition, startPosition;
 
            // Texture2D destinationTexture2, inputNumberTexture2, startTexture2;
@@ -162,9 +165,9 @@ namespace TransportDialogPlugin
                 inputNumberPosition2.Width, inputNumberPosition2.Height);
             startPosition2 = new Rectangle(startPosition2.X + BackgroundDisplayPosition.X, startPosition2.Y + BackgroundDisplayPosition.Y,
                 startPosition2.Width, startPosition2.Height);
-            spriteBatch.Draw(destinationTexture2, destinationPosition2, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
-            spriteBatch.Draw(inputNumberTexture2, inputNumberPosition2, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
-            spriteBatch.Draw(startTexture2, startPosition2, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+            CacheManager.Draw(destinationTexture2, destinationPosition2, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+            CacheManager.Draw(inputNumberTexture2, inputNumberPosition2, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+            CacheManager.Draw(startTexture2, startPosition2, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
              */
             ///////////////////////////////////////////////////////////////////////////////////////////////////
             destinationPosition = new Rectangle(destinationPosition.X + BackgroundDisplayPosition.X, destinationPosition.Y + BackgroundDisplayPosition.Y,
@@ -174,17 +177,17 @@ namespace TransportDialogPlugin
             startPosition = new Rectangle(startPosition.X + BackgroundDisplayPosition.X, startPosition.Y + BackgroundDisplayPosition.Y,
                 startPosition.Width, startPosition.Height);
 
-            spriteBatch.Draw(destinationTexture, destinationPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
-            spriteBatch.Draw(inputNumberTexture, inputNumberPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
-            this.DestinationText.Draw(spriteBatch, 0.1999f);
-            this.DestinationCommentText.Draw(spriteBatch, 0.1999f);
-            this.InputNumberText.Draw(spriteBatch, 0.1999f);
-            spriteBatch.Draw(startTexture, startPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+            CacheManager.Draw(destinationTexture, destinationPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+            CacheManager.Draw(inputNumberTexture, inputNumberPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+            this.DestinationText.Draw(0.1999f);
+            this.DestinationCommentText.Draw(0.1999f);
+            this.InputNumberText.Draw(0.1999f);
+            CacheManager.Draw(startTexture, startPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+
         }
 
         private void RefreshStartButton()
@@ -194,7 +197,7 @@ namespace TransportDialogPlugin
 
         private void screen_OnMouseLeftup(Point position)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Dialog)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Dialog)
             {
                 if (StaticMethods.PointInRectangle(position, this.DestinationButtonDisplayPosition))
                 {
@@ -213,7 +216,7 @@ namespace TransportDialogPlugin
 
         private void screen_OnMouseMove(Point position, bool leftDown)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Dialog)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Dialog)
             {
                 if (StaticMethods.PointInRectangle(position, this.DestinationButtonDisplayPosition))
                 {
@@ -256,7 +259,7 @@ namespace TransportDialogPlugin
 
         private void screen_OnMouseRightDown(Point position)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Dialog)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Dialog)
             {
                 this.IsShowing = false;
             }
@@ -264,7 +267,7 @@ namespace TransportDialogPlugin
 
         internal void SetDisplayOffset(ShowPosition showPosition)
         {
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
             Rectangle rect = new Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
             switch (showPosition)
             {
@@ -381,7 +384,7 @@ namespace TransportDialogPlugin
             this.TabListPlugin.SetSelectedTab("");
             this.GameFramePlugin.Kind = FrameKind.Architecture;
             this.GameFramePlugin.Function = FrameFunction.Transport;
-            this.GameFramePlugin.SetFrameContent(this.TabListPlugin.TabList, this.screen.viewportSizeFull);
+            this.GameFramePlugin.SetFrameContent(this.TabListPlugin.TabList, Session.MainGame.mainGameScreen.viewportSizeFull);
             this.GameFramePlugin.OKButtonEnabled = false;
             this.GameFramePlugin.CancelButtonEnabled = true;
             this.GameFramePlugin.SetOKFunction(delegate
@@ -429,7 +432,7 @@ namespace TransportDialogPlugin
                 {
                     case TransportKind.EmperorFund:
                         this.SourceArchitecture.DecreaseFund(this.Number);
-                        if (this.screen.Scenario.huangdisuozaijianzhu().BelongedFaction != this.SourceArchitecture.BelongedFaction)
+                        if (Session.Current.Scenario.huangdisuozaijianzhu().BelongedFaction != this.SourceArchitecture.BelongedFaction)
                         {
                             this.DestinationArchitecture.AddFundPack(this.Number, this.Days);
                         }
@@ -444,7 +447,7 @@ namespace TransportDialogPlugin
 
                     case TransportKind.EmperorFood:
                         this.SourceArchitecture.DecreaseFood(this.Number);
-                        if (this.screen.Scenario.huangdisuozaijianzhu().BelongedFaction != this.SourceArchitecture.BelongedFaction)
+                        if (Session.Current.Scenario.huangdisuozaijianzhu().BelongedFaction != this.SourceArchitecture.BelongedFaction)
                         {
                             this.DestinationArchitecture.IncreaseFood(this.Number);
                         }
@@ -459,19 +462,19 @@ namespace TransportDialogPlugin
                         /*
                     case TransportKind.Resource:
                         this.SourceArchitecture.DecreaseFund(this.Number);
-                        this.DestinationArchitecture.AddFundPack((int)(this.Number / this.SourceArchitecture.Scenario.GetResourceConsumptionRate(this.SourceArchitecture, this.destinationArchitecture)), this.Days);
+                        this.DestinationArchitecture.AddFundPack((int)(this.Number / this.Session.Current.Scenario.GetResourceConsumptionRate(this.SourceArchitecture, this.destinationArchitecture)), this.Days);
                         this.SourceArchitecture.DecreaseFood(this.Number);
-                        this.DestinationArchitecture.AddFoodPack((int)(this.Number / this.SourceArchitecture.Scenario.GetResourceConsumptionRate(this.SourceArchitecture, this.destinationArchitecture)), this.Days);
+                        this.DestinationArchitecture.AddFoodPack((int)(this.Number / this.Session.Current.Scenario.GetResourceConsumptionRate(this.SourceArchitecture, this.destinationArchitecture)), this.Days);
                         break;
                         */
                     case TransportKind.Fund:
                         this.SourceArchitecture.DecreaseFund(this.Number);
-                        this.DestinationArchitecture.AddFundPack((int)(this.Number / this.SourceArchitecture.Scenario.GetResourceConsumptionRate(this.SourceArchitecture, this.destinationArchitecture)), this.Days);
+                        this.DestinationArchitecture.AddFundPack((int)(this.Number / Session.Current.Scenario.GetResourceConsumptionRate(this.SourceArchitecture, this.destinationArchitecture)), this.Days);
                         break;
 
                     case TransportKind.Food:
                         this.SourceArchitecture.DecreaseFood(this.Number);
-                        this.DestinationArchitecture.AddFoodPack((int)(this.Number / this.SourceArchitecture.Scenario.GetResourceConsumptionRate(this.SourceArchitecture, this.destinationArchitecture)), this.Days);
+                        this.DestinationArchitecture.AddFoodPack((int)(this.Number / Session.Current.Scenario.GetResourceConsumptionRate(this.SourceArchitecture, this.destinationArchitecture)), this.Days);
                         break;
                          
                 }
@@ -515,7 +518,7 @@ namespace TransportDialogPlugin
                         //case TransportKind.Resource:
                         case TransportKind.Fund:
                         case TransportKind.Food:
-                            this.Days = this.screen.Scenario.GetTransferFundDays(this.SourceArchitecture, this.DestinationArchitecture);
+                            this.Days = Session.Current.Scenario.GetTransferFundDays(this.SourceArchitecture, this.DestinationArchitecture);
                             this.DestinationCommentText.Text = "运抵时间：" + this.Days.ToString() + "天";
                             break;
 
@@ -558,20 +561,20 @@ namespace TransportDialogPlugin
                 this.isShowing = value;
                 if (value)
                 {
-                    this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, UndoneWorkSubKind.None));
-                    this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftup);
-                    this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                    Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, UndoneWorkSubKind.None));
+                    Session.MainGame.mainGameScreen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftup);
+                    Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
                 }
                 else
                 {
-                    if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.Dialog)
+                    if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.Dialog)
                     {
                         throw new Exception("The UndoneWork is not a TransportDialog.");
                     }
-                    this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftup);
-                    this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                    Session.MainGame.mainGameScreen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftup);
+                    Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
                     this.DestinationArchitecture = null;
                     this.Number = 0;
                 }

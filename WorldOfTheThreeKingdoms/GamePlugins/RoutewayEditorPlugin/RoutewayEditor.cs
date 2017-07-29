@@ -1,5 +1,6 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using GameObjects.MapDetail;
 using Microsoft.Xna.Framework;
@@ -13,62 +14,64 @@ namespace RoutewayEditorPlugin
     internal class RoutewayEditor
     {
         internal Point BackgroundSize;
-        internal Texture2D BackgroundTexture;
-        internal Texture2D BuildButtonDownTexture;
+        internal PlatformTexture BackgroundTexture;
+        internal PlatformTexture BuildButtonDownTexture;
         internal Rectangle BuildButtonPosition;
-        internal Texture2D BuildButtonSelectedTexture;
+        internal PlatformTexture BuildButtonSelectedTexture;
         private ButtonState BuildButtonState;
-        internal Texture2D BuildButtonTexture;
+        internal PlatformTexture BuildButtonTexture;
         internal FreeRichText Comment = new FreeRichText();
-        internal Texture2D CommentBackgroundTexture;
+        internal PlatformTexture CommentBackgroundTexture;
         internal int CommentClientWidth;
         private bool commentDrawing;
         private ArchitectureList CurrentPositionArchitectures;
-        internal Texture2D CutButtonDisabledTexture;
-        internal Texture2D CutButtonDownTexture;
+        internal PlatformTexture CutButtonDisabledTexture;
+        internal PlatformTexture CutButtonDownTexture;
         internal Rectangle CutButtonPosition;
-        internal Texture2D CutButtonSelectedTexture;
+        internal PlatformTexture CutButtonSelectedTexture;
         private ButtonState CutButtonState;
-        internal Texture2D CutButtonTexture;
-        internal Texture2D CutDisabledMouseArrowTexture;
+        internal PlatformTexture CutButtonTexture;
+        internal PlatformTexture CutDisabledMouseArrowTexture;
         internal Point CutMouseArrowSize;
-        internal Texture2D CutMouseArrowTexture;
-        private Texture2D DefaultMouseArrowTexture;
-        internal Texture2D DirectionSwitchDisabledTexture;
+        internal PlatformTexture CutMouseArrowTexture;
+        private PlatformTexture DefaultMouseArrowTexture;
+        internal PlatformTexture DirectionSwitchDisabledTexture;
         internal Rectangle DirectionSwitchPosition;
-        internal Texture2D DirectionSwitchSelectedTexture;
+        internal PlatformTexture DirectionSwitchSelectedTexture;
+#pragma warning disable CS0169 // The field 'RoutewayEditor.DirectionSwitchSpinning' is never used
         private bool DirectionSwitchSpinning;
+#pragma warning restore CS0169 // The field 'RoutewayEditor.DirectionSwitchSpinning' is never used
         private ButtonState DirectionSwitchState;
-        internal Texture2D DirectionSwitchTexture;
+        internal PlatformTexture DirectionSwitchTexture;
         internal Point DisplayOffset;
         private bool draging;
         private Routeway EditingRouteway;
-        internal Texture2D EndButtonDownTexture;
+        internal PlatformTexture EndButtonDownTexture;
         internal Rectangle EndButtonPosition;
-        internal Texture2D EndButtonSelectedTexture;
+        internal PlatformTexture EndButtonSelectedTexture;
         private ButtonState EndButtonState;
-        internal Texture2D EndButtonTexture;
-        internal Texture2D ExtendButtonDisabledTexture;
-        internal Texture2D ExtendButtonDownTexture;
+        internal PlatformTexture EndButtonTexture;
+        internal PlatformTexture ExtendButtonDisabledTexture;
+        internal PlatformTexture ExtendButtonDownTexture;
         internal Rectangle ExtendButtonPosition;
-        internal Texture2D ExtendButtonSelectedTexture;
+        internal PlatformTexture ExtendButtonSelectedTexture;
         private ButtonState ExtendButtonState;
-        internal Texture2D ExtendButtonTexture;
-        internal Texture2D ExtendDisabledMouseArrowTexture;
+        internal PlatformTexture ExtendButtonTexture;
+        internal PlatformTexture ExtendDisabledMouseArrowTexture;
         private bool extending;
         internal Point ExtendMouseArrowSize;
-        internal Texture2D ExtendMouseArrowTexture;
-        internal Texture2D ExtendPointEndTexture;
+        internal PlatformTexture ExtendMouseArrowTexture;
+        internal PlatformTexture ExtendPointEndTexture;
         internal List<FreeText> ExtendPointTexts = new List<FreeText>();
-        internal Texture2D ExtendPointTexture;
+        internal PlatformTexture ExtendPointTexture;
         private bool isShowing;
-        private Screen screen;
+        
         internal FreeText TitleText;
 
         internal void AddDisableRects()
         {
-            this.screen.AddDisableRectangle(this.screen.LaterMouseEventDisableRects, this.BackgroundDisplayPosition);
-            this.screen.AddDisableRectangle(this.screen.SelectingDisableRects, this.BackgroundDisplayPosition);
+            Session.MainGame.mainGameScreen.AddDisableRectangle(Session.MainGame.mainGameScreen.LaterMouseEventDisableRects, this.BackgroundDisplayPosition);
+            Session.MainGame.mainGameScreen.AddDisableRectangle(Session.MainGame.mainGameScreen.SelectingDisableRects, this.BackgroundDisplayPosition);
         }
 
         private void ClearExtendPointTexts()
@@ -85,7 +88,7 @@ namespace RoutewayEditorPlugin
             {
                 return true;
             }
-            ArchitectureList routewayArchitecturesByPosition = this.screen.Scenario.GetRoutewayArchitecturesByPosition(this.EditingRouteway, this.EditingRouteway.LastPoint.Position);
+            ArchitectureList routewayArchitecturesByPosition = Session.Current.Scenario.GetRoutewayArchitecturesByPosition(this.EditingRouteway, this.EditingRouteway.LastPoint.Position);
             if (routewayArchitecturesByPosition.Count > 0)
             {
                 if (routewayArchitecturesByPosition.Count > 1)
@@ -112,111 +115,111 @@ namespace RoutewayEditorPlugin
         private void Drag()
         {
             this.RemoveDisableRects();
-            this.DisplayOffset = new Point(this.DisplayOffset.X + this.screen.MouseOffset.X, this.DisplayOffset.Y + this.screen.MouseOffset.Y);
+            this.DisplayOffset = new Point(this.DisplayOffset.X + Session.MainGame.mainGameScreen.MouseOffset.X, this.DisplayOffset.Y + Session.MainGame.mainGameScreen.MouseOffset.Y);
             this.AddDisableRects();
             this.TitleText.DisplayOffset = this.DisplayOffset;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.EditingRouteway.RoutePoints.Count != 0)
             {
                 Rectangle? sourceRectangle = null;
-                spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.25f);
-                this.TitleText.Draw(spriteBatch, 0.2499f);
+                CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.25f);
+                this.TitleText.Draw(0.2499f);
                 switch (this.ExtendButtonState)
                 {
                     case ButtonState.Normal:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.ExtendButtonTexture, this.ExtendButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.ExtendButtonTexture, this.ExtendButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
 
                     case ButtonState.Selected:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.ExtendButtonSelectedTexture, this.ExtendButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.ExtendButtonSelectedTexture, this.ExtendButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
 
                     case ButtonState.Down:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.ExtendButtonDownTexture, this.ExtendButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.ExtendButtonDownTexture, this.ExtendButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
 
                     case ButtonState.Disabled:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.ExtendButtonDisabledTexture, this.ExtendButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.ExtendButtonDisabledTexture, this.ExtendButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
                 }
                 switch (this.CutButtonState)
                 {
                     case ButtonState.Normal:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.CutButtonTexture, this.CutButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.CutButtonTexture, this.CutButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
 
                     case ButtonState.Selected:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.CutButtonSelectedTexture, this.CutButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.CutButtonSelectedTexture, this.CutButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
 
                     case ButtonState.Down:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.CutButtonDownTexture, this.CutButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.CutButtonDownTexture, this.CutButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
 
                     case ButtonState.Disabled:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.CutButtonDisabledTexture, this.CutButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.CutButtonDisabledTexture, this.CutButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
                 }
                 switch (this.DirectionSwitchState)
                 {
                     case ButtonState.Normal:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.DirectionSwitchTexture, this.DirectionSwitchDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.DirectionSwitchTexture, this.DirectionSwitchDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
 
                     case ButtonState.Selected:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.DirectionSwitchSelectedTexture, this.DirectionSwitchDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.DirectionSwitchSelectedTexture, this.DirectionSwitchDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
 
                     case ButtonState.Disabled:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.DirectionSwitchDisabledTexture, this.DirectionSwitchDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.DirectionSwitchDisabledTexture, this.DirectionSwitchDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
                 }
                 switch (this.BuildButtonState)
                 {
                     case ButtonState.Normal:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.BuildButtonTexture, this.BuildButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.BuildButtonTexture, this.BuildButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
 
                     case ButtonState.Selected:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.BuildButtonSelectedTexture, this.BuildButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.BuildButtonSelectedTexture, this.BuildButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
 
                     case ButtonState.Down:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.BuildButtonDownTexture, this.BuildButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.BuildButtonDownTexture, this.BuildButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
                 }
                 switch (this.EndButtonState)
                 {
                     case ButtonState.Normal:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.EndButtonTexture, this.EndButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.EndButtonTexture, this.EndButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
 
                     case ButtonState.Selected:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.EndButtonSelectedTexture, this.EndButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.EndButtonSelectedTexture, this.EndButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
 
                     case ButtonState.Down:
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.EndButtonDownTexture, this.EndButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
+                        CacheManager.Draw(this.EndButtonDownTexture, this.EndButtonDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.249f);
                         break;
                 }
                 if (this.ExtendButtonState == ButtonState.Down)
@@ -225,20 +228,20 @@ namespace RoutewayEditorPlugin
                     GameArea currentExtendArea = this.EditingRouteway.CurrentExtendArea;
                     for (int i = 0; i < currentExtendArea.Count; i++)
                     {
-                        if (this.screen.TileInScreen(currentExtendArea[i]))
+                        if (Session.MainGame.mainGameScreen.TileInScreen(currentExtendArea[i]))
                         {
-                            Rectangle destination = this.screen.GetDestination(currentExtendArea[i]);
-                            if (this.screen.Scenario.GetRoutewayArchitecturesByPosition(this.EditingRouteway, currentExtendArea[i]).Count > 0)
+                            Rectangle destination = Session.MainGame.mainGameScreen.GetDestination(currentExtendArea[i]);
+                            if (Session.Current.Scenario.GetRoutewayArchitecturesByPosition(this.EditingRouteway, currentExtendArea[i]).Count > 0)
                             {
                                 sourceRectangle = null;
-                                spriteBatch.Draw(this.ExtendPointEndTexture, destination, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.8498001f);
+                                CacheManager.Draw(this.ExtendPointEndTexture, destination, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.8498001f);
                             }
                             else
                             {
                                 sourceRectangle = null;
-                                spriteBatch.Draw(this.ExtendPointTexture, destination, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.8498001f);
+                                CacheManager.Draw(this.ExtendPointTexture, destination, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.8498001f);
                             }
-                            TerrainDetail terrainDetailByPosition = this.screen.Scenario.GetTerrainDetailByPosition(currentExtendArea[i]);
+                            TerrainDetail terrainDetailByPosition = Session.Current.Scenario.GetTerrainDetailByPosition(currentExtendArea[i]);
                             this.ExtendPointTexts[i].Position = new Rectangle(0, 0, destination.Width, destination.Height);
                             this.ExtendPointTexts[i].Text = StaticMethods.GetPercentString((terrainDetailByPosition.RoutewayConsumptionRate * this.EditingRouteway.BelongedFaction.RateOfRoutewayConsumption) + this.EditingRouteway.LastPoint.ConsumptionRate, 1);
                             this.ExtendPointTexts[i].DisplayOffset = new Point(destination.X, destination.Y);
@@ -246,13 +249,13 @@ namespace RoutewayEditorPlugin
                     }
                     foreach (FreeText text in this.ExtendPointTexts)
                     {
-                        text.Draw(spriteBatch, 0.8499f);
+                        text.Draw(0.8499f);
                     }
                 }
                 if (!((!this.commentDrawing || this.draging) || this.extending))
                 {
-                    spriteBatch.Draw(this.CommentBackgroundTexture, this.CommentDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.25f);
-                    this.Comment.Draw(spriteBatch, 0.2499f);
+                    CacheManager.Draw(this.CommentBackgroundTexture, this.CommentDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.25f);
+                    this.Comment.Draw(0.2499f);
                 }
             }
         }
@@ -278,9 +281,9 @@ namespace RoutewayEditorPlugin
             this.RefreshDirectionSwitchState();
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         private void RefreshDirectionSwitchState()
@@ -297,8 +300,8 @@ namespace RoutewayEditorPlugin
 
         internal void RemoveDisableRects()
         {
-            this.screen.RemoveDisableRectangle(this.screen.LaterMouseEventDisableRects, this.BackgroundDisplayPosition);
-            this.screen.RemoveDisableRectangle(this.screen.SelectingDisableRects, this.BackgroundDisplayPosition);
+            Session.MainGame.mainGameScreen.RemoveDisableRectangle(Session.MainGame.mainGameScreen.LaterMouseEventDisableRects, this.BackgroundDisplayPosition);
+            Session.MainGame.mainGameScreen.RemoveDisableRectangle(Session.MainGame.mainGameScreen.SelectingDisableRects, this.BackgroundDisplayPosition);
         }
 
         private void screen_OnMouseLeftDown(Point position)
@@ -367,10 +370,10 @@ namespace RoutewayEditorPlugin
                     GameArea currentExtendArea = this.EditingRouteway.CurrentExtendArea;
                     if (currentExtendArea != null)
                     {
-                        positionByPoint = this.screen.GetPositionByPoint(position);
+                        positionByPoint = Session.MainGame.mainGameScreen.GetPositionByPoint(position);
                         if (currentExtendArea.HasPoint(positionByPoint))
                         {
-                            TerrainDetail terrainDetailByPosition = this.screen.Scenario.GetTerrainDetailByPosition(positionByPoint);
+                            TerrainDetail terrainDetailByPosition = Session.Current.Scenario.GetTerrainDetailByPosition(positionByPoint);
                             if ((terrainDetailByPosition != null) && ((terrainDetailByPosition.RoutewayConsumptionRate + this.EditingRouteway.LastPoint.ConsumptionRate) < 1f))
                             {
                                 this.ExtendRouteway(positionByPoint);
@@ -381,10 +384,10 @@ namespace RoutewayEditorPlugin
                 }
                 else if (this.CutButtonState == ButtonState.Down)
                 {
-                    positionByPoint = this.screen.GetPositionByPoint(position);
+                    positionByPoint = Session.MainGame.mainGameScreen.GetPositionByPoint(position);
                     if (this.CutRouteway(positionByPoint))
                     {
-                        this.screen.Scenario.RemoveRouteway(this.EditingRouteway);
+                        Session.Current.Scenario.RemoveRouteway(this.EditingRouteway);
                         this.IsShowing = false;
                     }
                 }
@@ -414,7 +417,7 @@ namespace RoutewayEditorPlugin
             this.commentDrawing = false;
             if (StaticMethods.PointInRectangle(position, this.BackgroundDisplayPosition))
             {
-                this.screen.DefaultMouseArrowTexture = this.DefaultMouseArrowTexture;
+                Session.MainGame.mainGameScreen.DefaultMouseArrowTexture = this.DefaultMouseArrowTexture;
                 if (StaticMethods.PointInRectangle(position, this.ExtendButtonDisplayPosition))
                 {
                     if (this.ExtendButtonState == ButtonState.Normal)
@@ -621,12 +624,12 @@ namespace RoutewayEditorPlugin
                 {
                     this.EndButtonState = ButtonState.Normal;
                 }
-                Point positionByPoint = this.screen.GetPositionByPoint(position);
+                Point positionByPoint = Session.MainGame.mainGameScreen.GetPositionByPoint(position);
                 if (this.ExtendButtonState == ButtonState.Down)
                 {
                     if (this.EditingRouteway.CurrentExtendArea.HasPoint(positionByPoint))
                     {
-                        this.CurrentPositionArchitectures = this.screen.Scenario.GetRoutewayArchitecturesByPosition(this.EditingRouteway, positionByPoint);
+                        this.CurrentPositionArchitectures = Session.Current.Scenario.GetRoutewayArchitecturesByPosition(this.EditingRouteway, positionByPoint);
                         if (this.extending)
                         {
                             this.ExtendRouteway(positionByPoint);
@@ -644,9 +647,9 @@ namespace RoutewayEditorPlugin
                             this.Comment.AddText("连接到", this.Comment.TitleColor);
                             this.Comment.AddText(this.CurrentPositionArchitectures[0].Name, this.Comment.SubTitleColor);
                             this.Comment.ResortTexts();
-                            this.Comment.DisplayOffset = new Point(this.screen.GetDestination(positionByPoint).Right, this.screen.GetDestination(positionByPoint).Top);
+                            this.Comment.DisplayOffset = new Point(Session.MainGame.mainGameScreen.GetDestination(positionByPoint).Right, Session.MainGame.mainGameScreen.GetDestination(positionByPoint).Top);
                         }
-                        this.screen.DefaultMouseArrowTexture = this.ExtendMouseArrowTexture;
+                        Session.MainGame.mainGameScreen.DefaultMouseArrowTexture = this.ExtendMouseArrowTexture;
                     }
                     else
                     {
@@ -654,18 +657,18 @@ namespace RoutewayEditorPlugin
                         {
                             this.CutRouteway(this.EditingRouteway.LastPoint.Position);
                         }
-                        this.screen.DefaultMouseArrowTexture = this.ExtendDisabledMouseArrowTexture;
+                        Session.MainGame.mainGameScreen.DefaultMouseArrowTexture = this.ExtendDisabledMouseArrowTexture;
                     }
                 }
                 else if (this.CutButtonState == ButtonState.Down)
                 {
                     if (this.EditingRouteway.ContainsPoint(positionByPoint))
                     {
-                        this.screen.DefaultMouseArrowTexture = this.CutMouseArrowTexture;
+                        Session.MainGame.mainGameScreen.DefaultMouseArrowTexture = this.CutMouseArrowTexture;
                     }
                     else
                     {
-                        this.screen.DefaultMouseArrowTexture = this.CutDisabledMouseArrowTexture;
+                        Session.MainGame.mainGameScreen.DefaultMouseArrowTexture = this.CutDisabledMouseArrowTexture;
                     }
                 }
                 if (!this.draging && !this.extending)
@@ -687,7 +690,7 @@ namespace RoutewayEditorPlugin
                         this.Comment.AddText(point.ActiveFundCost.ToString());
                         this.Comment.AddNewLine();
                         this.Comment.ResortTexts();
-                        this.Comment.DisplayOffset = new Point(this.screen.GetDestination(positionByPoint).Right, this.screen.GetDestination(positionByPoint).Top);
+                        this.Comment.DisplayOffset = new Point(Session.MainGame.mainGameScreen.GetDestination(positionByPoint).Right, Session.MainGame.mainGameScreen.GetDestination(positionByPoint).Top);
                     }
                 }
             }
@@ -713,12 +716,12 @@ namespace RoutewayEditorPlugin
 
         private void Show()
         {
-            Point pointByPosition = this.screen.GetPointByPosition(this.screen.GetPositionByPoint(this.screen.MousePosition));
+            Point pointByPosition = Session.MainGame.mainGameScreen.GetPointByPosition(Session.MainGame.mainGameScreen.GetPositionByPoint(Session.MainGame.mainGameScreen.MousePosition));
             int x = pointByPosition.X;
             int y = pointByPosition.Y - this.BackgroundSize.Y;
-            if ((x + this.BackgroundSize.X) > this.screen.viewportSize.X)
+            if ((x + this.BackgroundSize.X) > Session.MainGame.mainGameScreen.viewportSize.X)
             {
-                x = this.screen.viewportSize.X - this.BackgroundSize.X;
+                x = Session.MainGame.mainGameScreen.viewportSize.X - this.BackgroundSize.X;
             }
             if (y < 0)
             {
@@ -726,7 +729,7 @@ namespace RoutewayEditorPlugin
             }
             this.DisplayOffset = new Point(x, y);
             this.TitleText.DisplayOffset = this.DisplayOffset;
-            GlobalVariables.CurrentMapLayer = MapLayerKind.Routeway;
+            Session.GlobalVariables.CurrentMapLayer = MapLayerKind.Routeway;
             this.ExtendButtonState = ButtonState.Down;
             this.CutButtonState = ButtonState.Normal;
             this.RefreshDirectionSwitchState();
@@ -807,28 +810,28 @@ namespace RoutewayEditorPlugin
                     if (value)
                     {
                         this.Show();
-                        this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.liangdaobianji , DialogKind.liangdaobianji ));
+                        Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.liangdaobianji , DialogKind.liangdaobianji ));
 
-                        this.DefaultMouseArrowTexture = this.screen.DefaultMouseArrowTexture;
-                        this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                        this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.screen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                        this.DefaultMouseArrowTexture = Session.MainGame.mainGameScreen.DefaultMouseArrowTexture;
+                        Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                        Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                        Session.MainGame.mainGameScreen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
                         this.AddDisableRects();
                     }
                     else
                     {
-                        if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.liangdaobianji )
+                        if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.liangdaobianji )
                         {
                             throw new Exception("The UndoneWork is not a liangdaobianji.");
                         }
 
                         this.EditingRouteway.Selected = false;
-                        this.screen.DefaultMouseArrowTexture = this.DefaultMouseArrowTexture;
-                        this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                        this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.screen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
+                        Session.MainGame.mainGameScreen.DefaultMouseArrowTexture = this.DefaultMouseArrowTexture;
+                        Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                        Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                        Session.MainGame.mainGameScreen.OnMouseRightDown -= new Screen.MouseRightDown(this.screen_OnMouseRightDown);
                         this.RemoveDisableRects();
                     }
                 }

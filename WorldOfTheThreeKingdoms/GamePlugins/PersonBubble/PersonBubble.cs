@@ -13,7 +13,7 @@ namespace PersonBubble
     internal class PersonBubble
     {
         internal Point BackgroundSize;
-        internal Texture2D BackgroundTexture;
+        internal PlatformTexture BackgroundTexture;
         internal List<Bubble> Bubbles = new List<Bubble>();
         internal Rectangle ClientPosition;
         private int count = 0;
@@ -23,7 +23,7 @@ namespace PersonBubble
         internal int PersonSpecialTextTimeLast;
         internal Point PopoutOffset;
         internal Rectangle PortraitClient;
-        private Screen screen;
+        
 
         internal Font TextBuilder = new Font();
 
@@ -34,9 +34,9 @@ namespace PersonBubble
 
         internal void AddPerson(Person person, Point p, string branchName)
         {
-            if (this.screen.TileInScreen(p))
+            if (Session.MainGame.mainGameScreen.TileInScreen(p))
             {
-                Point pointByPosition = this.screen.GetPointByPosition(p);
+                Point pointByPosition = Session.MainGame.mainGameScreen.GetPointByPosition(p);
                 Bubble item = new Bubble {
                     SpeakingPerson = person,
                     Position = new Point(pointByPosition.X, pointByPosition.Y + (this.PositionCount(person) * this.BackgroundSize.Y))
@@ -59,9 +59,9 @@ namespace PersonBubble
 
         internal void AddPersonText(Person person, Point p, string text)
         {
-            if (this.screen.TileInScreen(p))
+            if (Session.MainGame.mainGameScreen.TileInScreen(p))
             {
-                Point pointByPosition = this.screen.GetPointByPosition(p);
+                Point pointByPosition = Session.MainGame.mainGameScreen.GetPointByPosition(p);
                 Bubble item = new Bubble {
                     SpeakingPerson = person,
                     Position = new Point(pointByPosition.X, pointByPosition.Y + (this.PositionCount(person) * this.BackgroundSize.Y))
@@ -88,7 +88,7 @@ namespace PersonBubble
             return new Rectangle(position.X - this.PopoutOffset.X, position.Y - this.PopoutOffset.Y, this.BackgroundSize.X, this.BackgroundSize.Y);
         }
 
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw()
         {
             DateTime now = DateTime.Now;
             float layerDepth = 0.45f;
@@ -99,29 +99,20 @@ namespace PersonBubble
                     this.Bubbles[i].DrawingStarted = true;
                     this.Bubbles[i].StartingTime = now;
                 }
-                if (this.screen.TileInScreen(this.Bubbles[i].SpeakingPerson.Position))
+                if (Session.MainGame.mainGameScreen.TileInScreen(this.Bubbles[i].SpeakingPerson.Position))
                 {
                     layerDepth += -1E-06f;
                     Rectangle? sourceRectangle = null;
-                    spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition(this.Bubbles[i].Position), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, layerDepth);
+                    CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition(this.Bubbles[i].Position), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, layerDepth);
                     layerDepth += -1E-06f;
                     sourceRectangle = null;
-
-                    //try
-                    //{
-                    //    spriteBatch.Draw(this.Bubbles[i].SpeakingPerson.SmallPortrait, this.PortraitDisplayPosition(this.Bubbles[i].Position), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, layerDepth);
-                    //}
-                    //catch
-                    //{
-
-                    //}
 
                     CacheManager.DrawZhsanAvatar(this.Bubbles[i].SpeakingPerson, "s", this.PortraitDisplayPosition(this.Bubbles[i].Position), Color.White, layerDepth);
 
                     layerDepth += -1E-06f;
                     if (this.Bubbles[i].RichText != null)
                     {
-                        this.Bubbles[i].RichText.Draw(spriteBatch, layerDepth);
+                        this.Bubbles[i].RichText.Draw(layerDepth);
                     }
                 }
             }
@@ -153,9 +144,9 @@ namespace PersonBubble
             return -1;
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         private Rectangle PortraitDisplayPosition(Point position)
@@ -209,18 +200,18 @@ namespace PersonBubble
                             if (num2 < 0)
                             {
                                 positionCounts.Add(new PositionCount(position, 1));
-                                this.Bubbles[num].Position = this.screen.GetPointByPosition(position);
+                                this.Bubbles[num].Position = Session.MainGame.mainGameScreen.GetPointByPosition(position);
                             }
                             else
                             {
-                                this.Bubbles[num].Position = this.screen.GetPointByPosition(position);
+                                this.Bubbles[num].Position = Session.MainGame.mainGameScreen.GetPointByPosition(position);
                                 this.Bubbles[num].Position = new Point(this.Bubbles[num].Position.X, this.Bubbles[num].Position.Y + (positionCounts[num2].Count * this.BackgroundSize.Y));
                                 PositionCount local1 = positionCounts[num2];
                                 local1.Count++;
                             }
-                            if (((this.Bubbles[num].Position.X - this.PopoutOffset.X) + this.BackgroundSize.X) > this.screen.viewportSize.X)
+                            if (((this.Bubbles[num].Position.X - this.PopoutOffset.X) + this.BackgroundSize.X) > Session.MainGame.mainGameScreen.viewportSize.X)
                             {
-                                this.Bubbles[num].Position.X = (this.screen.viewportSize.X - this.BackgroundSize.X) + this.PopoutOffset.X;
+                                this.Bubbles[num].Position.X = (Session.MainGame.mainGameScreen.viewportSize.X - this.BackgroundSize.X) + this.PopoutOffset.X;
                             }
                             this.Bubbles[num].RichText.DisplayOffset = this.RichTextDisplayOffset(this.Bubbles[num].Position);
                         }

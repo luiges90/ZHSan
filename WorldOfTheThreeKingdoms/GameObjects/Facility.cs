@@ -1,4 +1,5 @@
-﻿using GameObjects.ArchitectureDetail;
+﻿using GameManager;
+using GameObjects.ArchitectureDetail;
 using GameObjects.Influences;
 using System;
 using System.Runtime.Serialization;
@@ -129,7 +130,7 @@ namespace GameObjects
             {
                 if (this.kind == null)
                 {
-                    this.kind = base.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(this.kindID);
+                    this.kind = Session.Current.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(this.kindID);
                 }
                 return this.kind;
             }
@@ -224,7 +225,7 @@ namespace GameObjects
         {
             get
             {
-                foreach (Architecture a in base.Scenario.Architectures)
+                foreach (Architecture a in Session.Current.Scenario.Architectures)
                 {
                     if (a.Facilities.GameObjects.Contains(this))
                     {

@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Influences;
 using System;
 
@@ -14,13 +15,13 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
         {
             if (troop.GetCurrentStratagemSuccess(troop.OrientationTroop, troop.InevitableHuogongOnLowerIntelligence || troop.InevitableStratagemOnLowerIntelligence, troop.OrientationTroop.InvincibleHuogong, troop.OrientationTroop.InvincibleStratagemFromLowerIntelligence))
             {
-                troop.OrientationTroop.SetOnFire(troop.GenerateFireDamageScale(this.scale, troop.Scenario.GetTerrainDetailByPositionNoCheck(troop.OrientationTroop.Position)));
+                troop.OrientationTroop.SetOnFire(troop.GenerateFireDamageScale(this.scale, Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(troop.OrientationTroop.Position)));
             }
             foreach (Troop troop2 in troop.AreaStratagemTroops)
             {
                 if (troop.GetCurrentStratagemSuccess(troop2, troop.InevitableHuogongOnLowerIntelligence || troop.InevitableStratagemOnLowerIntelligence, troop2.InvincibleHuogong, troop2.InvincibleStratagemFromLowerIntelligence))
                 {
-                    troop2.SetOnFire(troop.GenerateFireDamageScale(this.scale, troop.Scenario.GetTerrainDetailByPositionNoCheck(troop2.Position)));
+                    troop2.SetOnFire(troop.GenerateFireDamageScale(this.scale, Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(troop2.Position)));
                 }
             }
         }
@@ -65,7 +66,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
 
         public override bool IsVaild(Troop troop)
         {
-            return troop.Scenario.IsFireVaild(troop.Position, true, troop.Army.Kind.Type);
+            return Session.Current.Scenario.IsFireVaild(troop.Position, true, troop.Army.Kind.Type);
         }
     }
 }

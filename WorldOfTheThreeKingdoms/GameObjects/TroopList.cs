@@ -1,4 +1,5 @@
-﻿using GameObjects.PersonDetail;
+﻿using GameManager;
+using GameObjects.PersonDetail;
 using GameObjects.TroopDetail;
 using System;
 using System.Runtime.Serialization;
@@ -14,8 +15,8 @@ namespace GameObjects
             {
                 base.Add(troop);
             }
-            if (troop.Scenario.GameScreen != null)
-            {
+            //if (Session.MainGame.mainGameScreen != null)
+            //{
                 troop.OnTroopCreate += new Troop.TroopCreate(this.troop_OnTroopCreate);
                 troop.OnEndPath += new Troop.EndPath(this.troop_OnEndPath);
                 troop.OnPathNotFound += new Troop.PathNotFound(this.troop_OnPathNotFound);
@@ -56,7 +57,7 @@ namespace GameObjects
                 troop.OnOutburst += new Troop.Outburst(this.troop_OnOutburst);
                 troop.OnApplyStunt += new Troop.ApplyStunt(this.troop_OnApplyStunt);
                 troop.OnTransportArrived += new Troop.TransportArrived(this.troop_OnTransportArrived);
-            }
+            //}
         }
 
         public Troop GetMaxAntiCriticalAttackTroop(Troop target)
@@ -256,202 +257,202 @@ namespace GameObjects
 
         private void troop_OnAmbush(Troop troop)
         {
-            troop.Scenario.GameScreen.TroopAmbush(troop);
+            Session.MainGame.mainGameScreen.TroopAmbush(troop);
         }
 
         private void troop_OnAntiArrowAttack(Troop sending, Troop receiving)
         {
-            receiving.Scenario.GameScreen.TroopAntiArrowAttack(sending, receiving);
+            Session.MainGame.mainGameScreen.TroopAntiArrowAttack(sending, receiving);
         }
 
         private void troop_OnAntiAttack(Troop sending, Troop receiving)
         {
-            receiving.Scenario.GameScreen.TroopAntiAttack(sending, receiving);
+            Session.MainGame.mainGameScreen.TroopAntiAttack(sending, receiving);
         }
 
         private void troop_OnApplyStunt(Troop troop, Stunt stunt)
         {
-            troop.Scenario.GameScreen.TroopApplyStunt(troop, stunt);
+            Session.MainGame.mainGameScreen.TroopApplyStunt(troop, stunt);
         }
 
         private void troop_OnBreakWall(Troop troop, Architecture architecture)
         {
-            troop.Scenario.GameScreen.TroopBreakWall(troop, architecture);
+            Session.MainGame.mainGameScreen.TroopBreakWall(troop, architecture);
         }
 
         private void troop_OnCastDeepChaos(Troop sending, Troop receiving)
         {
-            sending.Scenario.GameScreen.TroopCastDeepChaos(sending, receiving);
+            Session.MainGame.mainGameScreen.TroopCastDeepChaos(sending, receiving);
         }
 
         private void troop_OnCastStratagem(Troop sending, Troop receiving, Stratagem stratagem)
         {
-            sending.Scenario.GameScreen.TroopCastStratagem(sending, receiving, stratagem);
+            Session.MainGame.mainGameScreen.TroopCastStratagem(sending, receiving, stratagem);
         }
 
         private void troop_OnChaos(Troop troop, bool deepChaos)
         {
-            troop.Scenario.GameScreen.TroopChaos(troop, deepChaos);
+            Session.MainGame.mainGameScreen.TroopChaos(troop, deepChaos);
         }
 
         private void troop_OnAttract(Troop troop, Troop caster)
         {
-            troop.Scenario.GameScreen.TroopAttract(troop, caster);
+            Session.MainGame.mainGameScreen.TroopAttract(troop, caster);
         }
 
         private void troop_OnRumour(Troop troop)
         {
-            troop.Scenario.GameScreen.TroopRumour(troop);
+            Session.MainGame.mainGameScreen.TroopRumour(troop);
         }
 
         private void troop_OnCombatMethodAttack(Troop sending, Troop receiving, CombatMethod combatMethod)
         {
-            sending.Scenario.GameScreen.TroopCombatMethodAttack(sending, receiving, combatMethod);
+            Session.MainGame.mainGameScreen.TroopCombatMethodAttack(sending, receiving, combatMethod);
         }
 
         private void troop_OnCriticalStrike(Troop sending, Troop receiving)
         {
-            sending.Scenario.GameScreen.TroopCriticalStrike(sending, receiving);
+            Session.MainGame.mainGameScreen.TroopCriticalStrike(sending, receiving);
         }
 
         private void troop_OnDiscoverAmbush(Troop sending, Troop receiving)
         {
-            receiving.Scenario.GameScreen.TroopDiscoverAmbush(sending, receiving);
+            Session.MainGame.mainGameScreen.TroopDiscoverAmbush(sending, receiving);
         }
 
         private void troop_OnEndCutRouteway(Troop troop, bool success)
         {
-            troop.Scenario.GameScreen.TroopEndCutRouteway(troop, success);
+            Session.MainGame.mainGameScreen.TroopEndCutRouteway(troop, success);
         }
 
         private void troop_OnEndPath(Troop troop)
         {
-            troop.Scenario.GameScreen.TroopEndPath(troop);
+            Session.MainGame.mainGameScreen.TroopEndPath(troop);
         }
 
         private void troop_OnGetNewCaptive(Troop troop, PersonList personlist)
         {
-            troop.Scenario.GameScreen.TroopGetNewCaptive(troop, personlist);
+            Session.MainGame.mainGameScreen.TroopGetNewCaptive(troop, personlist);
         }
 
         private void troop_OnGetSpreadBurnt(Troop troop)
         {
-            troop.Scenario.GameScreen.TroopGetSpreadBurnt(troop);
+            Session.MainGame.mainGameScreen.TroopGetSpreadBurnt(troop);
         }
 
         private void troop_OnLevyFieldFood(Troop troop, int food)
         {
-            troop.Scenario.GameScreen.TroopLevyFieldFood(troop, food);
+            Session.MainGame.mainGameScreen.TroopLevyFieldFood(troop, food);
         }
 
         private void troop_OnNormalAttack(Troop sending, Troop receiving)
         {
-            sending.Scenario.GameScreen.TroopNormalAttack(sending, receiving);
+            Session.MainGame.mainGameScreen.TroopNormalAttack(sending, receiving);
         }
 
         private void troop_OnOccupyArchitecture(Troop troop, Architecture architecture)
         {
-            troop.Scenario.GameScreen.TroopOccupyArchitecture(troop, architecture);
+            Session.MainGame.mainGameScreen.TroopOccupyArchitecture(troop, architecture);
         }
 
         private void troop_OnOutburst(Troop troop, OutburstKind kind)
         {
-            troop.Scenario.GameScreen.TroopOutburst(troop, kind);
+            Session.MainGame.mainGameScreen.TroopOutburst(troop, kind);
         }
 
         private void troop_OnPathNotFound(Troop troop)
         {
-            troop.Scenario.GameScreen.TroopPathNotFound(troop);
+            Session.MainGame.mainGameScreen.TroopPathNotFound(troop);
         }
 
         private void troop_OnPersonChallenge(int  win, Troop sourceTroop, Person source, Troop destinationTroop, Person destination)
         {
-            source.Scenario.GameScreen.TroopPersonChallenge(win, sourceTroop, source, destinationTroop, destination);
+            Session.MainGame.mainGameScreen.TroopPersonChallenge(win, sourceTroop, source, destinationTroop, destination);
         }
 
         private void troop_OnPersonControversy(bool win, Troop sourceTroop, Person source, Troop destinationTroop, Person destination)
         {
-            source.Scenario.GameScreen.TroopPersonControversy(win, sourceTroop, source, destinationTroop, destination);
+            Session.MainGame.mainGameScreen.TroopPersonControversy(win, sourceTroop, source, destinationTroop, destination);
         }
 
         private void troop_OnReceiveCriticalStrike(Troop sending, Troop receiving)
         {
-            sending.Scenario.GameScreen.TroopReceiveCriticalStrike(sending, receiving);
+            Session.MainGame.mainGameScreen.TroopReceiveCriticalStrike(sending, receiving);
         }
 
         private void troop_OnReceiveWaylay(Troop sending, Troop receiving)
         {
-            sending.Scenario.GameScreen.TroopReceiveWaylay(sending, receiving);
+            Session.MainGame.mainGameScreen.TroopReceiveWaylay(sending, receiving);
         }
 
         private void troop_OnRecoverFromChaos(Troop troop)
         {
-            troop.Scenario.GameScreen.TroopRecoverFromChaos(troop);
+            Session.MainGame.mainGameScreen.TroopRecoverFromChaos(troop);
         }
 
         private void troop_OnReleaseCaptive(Troop troop, PersonList personlist)
         {
-            troop.Scenario.GameScreen.TroopReleaseCaptive(troop, personlist);
+            Session.MainGame.mainGameScreen.TroopReleaseCaptive(troop, personlist);
         }
 
         private void troop_OnResistStratagem(Troop sending, Troop receiving, Stratagem stratagem, bool isHarmful)
         {
-            sending.Scenario.GameScreen.TroopResistStratagem(sending, receiving, stratagem, isHarmful);
+            Session.MainGame.mainGameScreen.TroopResistStratagem(sending, receiving, stratagem, isHarmful);
         }
 
         private void troop_OnRout(Troop sending, Troop receiving)
         {
-            sending.Scenario.GameScreen.TroopRout(sending, receiving);
+            Session.MainGame.mainGameScreen.TroopRout(sending, receiving);
         }
 
         private void troop_OnRouted(Troop sending, Troop receiving)
         {
-            receiving.Scenario.GameScreen.TroopRouted(sending, receiving);
+            Session.MainGame.mainGameScreen.TroopRouted(sending, receiving);
         }
 
         private void troop_OnSetCombatMethod(Troop troop, CombatMethod combatMethod)
         {
-            troop.Scenario.GameScreen.TroopSetCombatMethod(troop, combatMethod);
+            Session.MainGame.mainGameScreen.TroopSetCombatMethod(troop, combatMethod);
         }
 
         private void troop_OnSetStratagem(Troop troop, Stratagem stratagem)
         {
-            troop.Scenario.GameScreen.TroopSetStratagem(troop, stratagem);
+            Session.MainGame.mainGameScreen.TroopSetStratagem(troop, stratagem);
         }
 
         private void troop_OnStartCutRouteway(Troop troop, int days)
         {
-            troop.Scenario.GameScreen.TroopStartCutRouteway(troop, days);
+            Session.MainGame.mainGameScreen.TroopStartCutRouteway(troop, days);
         }
 
         private void troop_OnStopAmbush(Troop troop)
         {
-            troop.Scenario.GameScreen.TroopStopAmbush(troop);
+            Session.MainGame.mainGameScreen.TroopStopAmbush(troop);
         }
 
         private void troop_OnStratagemSuccess(Troop sending, Troop receiving, Stratagem stratagem, bool isHarmful)
         {
-            sending.Scenario.GameScreen.TroopStratagemSuccess(sending, receiving, stratagem, isHarmful);
+            Session.MainGame.mainGameScreen.TroopStratagemSuccess(sending, receiving, stratagem, isHarmful);
         }
 
         private void troop_OnSurround(Troop sending, Troop receiving)
         {
-            sending.Scenario.GameScreen.TroopSurround(sending, receiving);
+            Session.MainGame.mainGameScreen.TroopSurround(sending, receiving);
         }
 
         private void troop_OnTroopCreate(Troop troop)
         {
-            troop.Scenario.GameScreen.TroopCreate(troop);
+            Session.MainGame.mainGameScreen.TroopCreate(troop);
         }
 
         private void troop_OnWaylay(Troop sending, Troop receiving)
         {
-            sending.Scenario.GameScreen.TroopWaylay(sending, receiving);
+            Session.MainGame.mainGameScreen.TroopWaylay(sending, receiving);
         }
 
         private void troop_OnTransportArrived(Troop troop, Architecture destination)
         {
-            troop.Scenario.GameScreen.AskWhenTransportArrived(troop, destination);
+            Session.MainGame.mainGameScreen.AskWhenTransportArrived(troop, destination);
         }
 
         public bool HasAnimatingTroop

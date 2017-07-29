@@ -12,12 +12,12 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
 
         public override void ApplyInfluenceKind(Architecture architecture)
         {
-            architecture.PrivateMilitaryKinds.AddMilitaryKind(architecture.Scenario, this.kind);
+            architecture.PrivateMilitaryKinds.AddMilitaryKind(this.kind);
         }
 
         public override void PurifyInfluenceKind(Architecture architecture)
         {
-            architecture.PrivateMilitaryKinds.RemoveMilitaryKind(architecture.Scenario, this.kind);
+            architecture.PrivateMilitaryKinds.RemoveMilitaryKind(this.kind);
         }
 
         public override void InitializeParameter(string parameter)

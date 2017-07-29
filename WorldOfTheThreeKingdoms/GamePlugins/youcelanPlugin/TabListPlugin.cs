@@ -22,7 +22,7 @@ namespace youcelanPlugin
         private string description = "可选择类别的详细列表";
         private const string Path = @"Content\Textures\GameComponents\youcelan\";
         private string pluginName = "youcelanPlugin";
-        private TabListInFrame tabList = new TabListInFrame();
+        public TabListInFrame tabList = new TabListInFrame();
         private string version = "1.0.1";
         private const string XMLFilename = "youcelanData.xml";
 
@@ -58,12 +58,12 @@ namespace youcelanPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            this.tabList.Draw(spriteBatch);
+            this.tabList.Draw();
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -82,73 +82,67 @@ namespace youcelanPlugin
 
             XmlNode node = nextSibling.ChildNodes.Item(0);
             this.tabList.leftedgeWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.leftedgeTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.leftedgeTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(1);
             this.tabList.rightedgeWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.rightedgeTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.rightedgeTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(2);
             this.tabList.topedgeWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.topedgeTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.topedgeTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(3);
             this.tabList.bottomedgeWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.bottomedgeTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.bottomedgeTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(4);
-            this.tabList.backgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            
-
-
-
-
+            this.tabList.backgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
 
             node = nextSibling.ChildNodes.Item(5);
-            this.tabList.ToolTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.tabList.ToolSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.tabList.ToolTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.ToolSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             this.tabList.ToolDisplayTexture = this.tabList.ToolSelectedTexture;
             this.tabList.ToolPosition = StaticMethods.LoadRectangleFromXMLNode(node);
-
 
             node = nextSibling.ChildNodes.Item(6);
             this.tabList.tabbuttonWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.tabList.tabbuttonHeight = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.tabList.tabbuttonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.tabList.tabbuttonselectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
+            this.tabList.tabbuttonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.tabbuttonselectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
             node = nextSibling.ChildNodes.Item(7);
             this.tabList.columnheaderHeight = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.tabList.columnheaderTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.columnheaderTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(8);
             this.tabList.columnspliterWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.tabList.columnspliterHeight = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.tabList.columnspliterTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.columnspliterTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(9);
             this.tabList.scrollbuttonWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.scrollbuttonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.scrollbuttonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(10);
             this.tabList.scrolltrackWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.scrolltrackTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.scrolltrackTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(11);
-            this.tabList.leftArrowTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("LeftFileName").Value);
-            this.tabList.rightArrowTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("RightFileName").Value);
+            this.tabList.leftArrowTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("LeftFileName").Value);
+            this.tabList.rightArrowTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("RightFileName").Value);
             node = nextSibling.ChildNodes.Item(12);
-            this.tabList.focusTrackTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.focusTrackTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(13);
             this.tabList.checkboxName = node.Attributes.GetNamedItem("Name").Value;
             this.tabList.checkboxDisplayName = node.Attributes.GetNamedItem("DisplayName").Value;
             this.tabList.checkboxWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.checkboxTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.tabList.checkboxSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
-            this.tabList.roundcheckboxTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("RoundFileName").Value);
-            this.tabList.roundcheckboxSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("RoundSelectedFileName").Value);
+            this.tabList.checkboxTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.checkboxSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
+            this.tabList.roundcheckboxTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("RoundFileName").Value);
+            this.tabList.roundcheckboxSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("RoundSelectedFileName").Value);
             node = nextSibling.ChildNodes.Item(14);
             this.tabList.PortraitWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.tabList.PortraitHeight = int.Parse(node.Attributes.GetNamedItem("Height").Value);
             node = nextSibling.ChildNodes.Item(15);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.tabList.TabTextBuilder.SetFreeTextBuilder(this.tabList.graphicsDevice, font);
+            this.tabList.TabTextBuilder.SetFreeTextBuilder(font);
             this.tabList.TabTextColor = color;
             this.tabList.TabTextAlign = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
             node = nextSibling.ChildNodes.Item(16);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.tabList.ColumnTextBuilder.SetFreeTextBuilder(this.tabList.graphicsDevice, font);
+            this.tabList.ColumnTextBuilder.SetFreeTextBuilder(font);
             this.tabList.ColumnTextColor = color;
             this.tabList.ColumnTextAlign = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
             node = nextSibling.ChildNodes.Item(17);
@@ -159,16 +153,16 @@ namespace youcelanPlugin
 
             node = nextSibling.ChildNodes.Item(19);
             //this.gameFrame.TopLeftWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.TopLeftTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.TopLeftTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(20);
             //this.gameFrame.TopRightWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.TopRightTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.TopRightTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(21);
             //this.gameFrame.BottomLeftWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.BottomLeftTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.BottomLeftTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(22);
             //this.gameFrame.BottomRightWidth = int.Parse(node.Attributes.GetNamedItem("Width").Value);
-            this.tabList.BottomRightTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.tabList.BottomRightTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\youcelan\Data\" + node.Attributes.GetNamedItem("FileName").Value);
 
 
 
@@ -196,9 +190,8 @@ namespace youcelanPlugin
             this.tabList.iGameFrame = iGameFrame;
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.tabList.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\youcelanData.xml");
         }
 
@@ -218,9 +211,9 @@ namespace youcelanPlugin
             this.tabList.iPersonDetail = iPersonDetail;
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.tabList.Initialize(screen as Screen);
+            this.tabList.Initialize();
         }
 
         public void SetSelectedItemMaxCount(int max)

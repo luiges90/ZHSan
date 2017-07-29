@@ -89,10 +89,10 @@ namespace GameObjects.PersonDetail
                 }
                 if (cnt >= this.FactionLimit) return false;
             }
-            if (base.Scenario.Persons.Count > this.MapLimit)
+            if (Session.Current.Scenario.Persons.Count > this.MapLimit)
             {
                 int cnt = 0;
-                foreach (Person p in base.Scenario.Persons)
+                foreach (Person p in Session.Current.Scenario.Persons)
                 {
                     if ((p.Alive || p.Available) && p.Guanzhis.Contains(this))
                     {
@@ -231,7 +231,7 @@ namespace GameObjects.PersonDetail
             }
         }
 
-        public static Dictionary<GuanzhiKind, List<Guanzhi>> GetKindGuanzhiDictionary(GameScenario scen)
+        public static Dictionary<GuanzhiKind, List<Guanzhi>> GetKindGuanzhiDictionary()
         {
             GameObjectList rawGuanzhis = scen.GameCommonData.AllGuanzhis.GetGuanzhiList().GetRandomList();
             Dictionary<GuanzhiKind, List<Guanzhi>> guanzhis = new Dictionary<GuanzhiKind, List<Guanzhi>>();

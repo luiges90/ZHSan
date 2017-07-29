@@ -23,6 +23,7 @@ using WorldOfTheThreeKingdoms.Resources;
 using Platforms;
 using GameManager;
 using System.Diagnostics;
+using youcelanPlugin;
 
 //using GameObjects.PersonDetail.PersonMessages;
 
@@ -40,43 +41,68 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 this.LoadScenario(base.InitializationFileName, base.InitializationFactionIDs, true, this);
 
-                //this.mainMapLayer.jiazaibeijingtupian();
-                //base.Scenario.InitializeScenarioPlayerFactions(base.InitializationFactionIDs);
+                var globalVariables = Session.globalVariablesBasic.Clone();
 
-                if (base.Scenario.PlayerFactions.Count == 0)
+                var gameParameters = Session.parametersBasic.Clone();
+
+                if (Session.Current.Scenario.GlobalVariables != null)
                 {
-                    oldDialogShowTime = GlobalVariables.DialogShowTime;
-                    GlobalVariables.DialogShowTime = 0;
+                    if (Session.Current.Scenario.GlobalVariables.PersonNaturalDeath != null)
+                    {
+                        bool personNatureDeath = (bool)Session.Current.Scenario.GlobalVariables.PersonNaturalDeath;
+                        globalVariables.PersonNaturalDeath = personNatureDeath;
+                    }
+                }
+
+                if (InitializationFactionIDs.Count == 0)
+                {
+                    globalVariables.SkyEye = true;
+                }
+                else
+                {
+                    globalVariables.SkyEye = false;
+                }
+
+                Session.Current.Scenario.GlobalVariables = globalVariables;
+                Session.Current.Scenario.Parameters = gameParameters;
+
+                //this.mainMapLayer.jiazaibeijingtupian();
+                //Session.Current.Scenario.InitializeScenarioPlayerFactions(base.InitializationFactionIDs);
+
+                if (Session.Current.Scenario.PlayerFactions.Count == 0)
+                {
+                    oldDialogShowTime = Session.Current.Scenario.GlobalVariables.DialogShowTime;
+                    Session.Current.Scenario.GlobalVariables.DialogShowTime = 0;
                 }
                 else
                 {
                     if (oldDialogShowTime >= 0)
                     {
-                        GlobalVariables.DialogShowTime = oldDialogShowTime;
+                        Session.Current.Scenario.GlobalVariables.DialogShowTime = oldDialogShowTime;
                     }
                 }
 
-                if (base.Scenario.PlayerFactions.Count > 0)   //开始新游戏
+                if (Session.Current.Scenario.PlayerFactions.Count > 0)   //开始新游戏
                 {
-                    foreach (Faction faction in base.Scenario.PlayerFactions)
+                    foreach (Faction faction in Session.Current.Scenario.PlayerFactions)
                     {
                         if (faction.FirstSection != null)
                         {
-                            //faction.FirstSection.AIDetail = base.Scenario.GameCommonData.AllSectionAIDetails.GetSectionAIDetailsByConditions(0, false, false, false, false, false)[0] as SectionAIDetail;
-                            faction.FirstSection.AIDetail = base.Scenario.GameCommonData.AllSectionAIDetails.GetSectionAIDetailsByConditions(SectionOrientationKind.无, false, false, false, false, false)[0] as SectionAIDetail;
+                            //faction.FirstSection.AIDetail = Session.Current.Scenario.GameCommonData.AllSectionAIDetails.GetSectionAIDetailsByConditions(0, false, false, false, false, false)[0] as SectionAIDetail;
+                            faction.FirstSection.AIDetail = Session.Current.Scenario.GameCommonData.AllSectionAIDetails.GetSectionAIDetailsByConditions(SectionOrientationKind.无, false, false, false, false, false)[0] as SectionAIDetail;
                         }
                     }
-                    foreach (Architecture jianzhu in base.Scenario.Architectures)
+                    foreach (Architecture jianzhu in Session.Current.Scenario.Architectures)
                     {
                         jianzhu.youzainan = false;
-                        if (base.Scenario.IsPlayer(jianzhu.BelongedFaction))
+                        if (Session.Current.Scenario.IsPlayer(jianzhu.BelongedFaction))
                         {
                             jianzhu.AutoHiring = true;
                             jianzhu.AutoRewarding = true;
                         }
                     }
                     /*
-                    foreach (Person wujiang in base.Scenario.Persons)
+                    foreach (Person wujiang in Session.Current.Scenario.Persons)
                     {
                         wujiang.huaiyun = false;
                         wujiang.faxianhuaiyun = false;
@@ -84,7 +110,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         wujiang.suoshurenwu = -1;
                     }*/
 
-                    base.Scenario.CurrentPlayer = base.Scenario.PlayerFactions[0] as Faction;
+                    Session.Current.Scenario.CurrentPlayer = Session.Current.Scenario.PlayerFactions[0] as Faction;
                 }                
             }
             else  //从开始菜单读取游戏
@@ -98,21 +124,21 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 //this.Plugins.GameRecordPlugin.RemoveDisableRects();
                 //this.Plugins.AirViewPlugin.RemoveDisableRects();                
 
-                //base.Scenario.EnableLoadAndSave = false;
+                //Session.Current.Scenario.EnableLoadAndSave = false;
                 //string realPath = fileName.Substring(0, fileName.Length - 4) + ".mdb";
                 //if (this.LoadFileName.EndsWith(".zhs"))
                 //{
-                //    FileEncryptor.DecryptFile(fileName, realPath, GlobalVariables.cryptKey);
+                //    FileEncryptor.DecryptFile(fileName, realPath, Session.GlobalVariables.cryptKey);
                 //}
-                //if (GlobalVariables.EncryptSave)
+                //if (Session.GlobalVariables.EncryptSave)
                 //{
                 //    File.Delete(realPath);
                 //}
 
-                base.Scenario.EnableLoadAndSave = true;
+                Session.Current.Scenario.EnableLoadAndSave = true;
             }
 
-            this.mainMapLayer.Initialize(base.Scenario, this, base.spriteBatch.GraphicsDevice);
+            this.mainMapLayer.Initialize();
 
             this.Plugins.InitializePlugins(this);
 
@@ -133,34 +159,35 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             if (base.LoadScenarioInInitialization)
             {
-                base.Scenario.AfterLoadGameScenario();
+                Session.Current.Scenario.AfterLoadGameScenario(this);
             }
             else
             {
-                base.Scenario.AfterLoadSaveFile();
+                Session.Current.Scenario.AfterLoadSaveFile(this);
             }
 
-            this.architectureLayer.Initialize(this.mainMapLayer, base.Scenario,this);
-            this.mapVeilLayer.Initialize(this.mainMapLayer, base.Scenario);
-            this.troopLayer.Initialize(this.mainMapLayer, base.Scenario, this);
-            this.selectingLayer.Initialize(this.mainMapLayer, this);
-            this.tileAnimationLayer.Initialize(this.mainMapLayer, base.Scenario);
-            this.routewayLayer.Initialize(this.mainMapLayer, base.Scenario);
-            this.screenManager.Initialize(base.Scenario);
+            this.architectureLayer.Initialize();
+            this.mapVeilLayer.Initialize(this);
+            this.troopLayer.Initialize();
+            this.selectingLayer.Initialize(this);
+            this.tileAnimationLayer.Initialize();
+            this.routewayLayer.Initialize();
+            this.screenManager.Initialize();
 
             if (base.LoadScenarioInInitialization)
             {
-                if (base.Scenario.CurrentPlayer != null)
+                if (Session.Current.Scenario.CurrentPlayer != null)
                 {
-                    base.Scenario.runScenarioStart(base.Scenario.CurrentPlayer.Capital);
-                    this.JumpTo((base.Scenario.PlayerFactions[0] as Faction).Leader.Position);        //地图跳到玩家势力的首领处
+                    Session.Current.Scenario.runScenarioStart(Session.Current.Scenario.CurrentPlayer.Capital, this);
+                    this.JumpTo((Session.Current.Scenario.PlayerFactions[0] as Faction).Leader.Position);        //地图跳到玩家势力的首领处
                 }
             }
 
-            if (base.Scenario.CurrentPlayer != null)
+            if (Session.Current.Scenario.CurrentPlayer != null)
             {
-                this.Showyoucelan(UndoneWorkKind.None, FrameKind.Architecture, FrameFunction.Jump, false, true, false, false, base.Scenario.CurrentPlayer.FirstSection.Architectures, null, "", "");
-                this.Plugins.youcelanPlugin.IsShowing = true;
+                this.Showyoucelan(UndoneWorkKind.None, FrameKind.Architecture, FrameFunction.Jump, false, true, false, false, Session.Current.Scenario.CurrentPlayer.FirstSection.Architectures, null, "", "");
+                //this.Plugins.youcelanPlugin.IsShowing = true;
+                ((this.Plugins.youcelanPlugin as youcelanPlugin.TabListPlugin).TabList as TabListInFrame).SetMouseEvent(this, true);
             }
 
             //this.thisGame.jiazaitishi.jiazaijindu.Value = 90;
@@ -176,25 +203,25 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             //System.Drawing.Font font1 = new System.Drawing.Font("方正北魏楷书繁体", 30f);   //方正北魏楷书繁体
             //Microsoft.Xna.Framework.Color color1 = new Color(1f, 1f, 1f);
 
-            //qizidezi = new FreeText(base.spriteBatch.GraphicsDevice, new System.Drawing.Font("方正北魏楷书繁体", 30f), new Color(1f, 1f, 1f));
+            //qizidezi = new FreeText(new System.Drawing.Font("方正北魏楷书繁体", 30f), new Color(1f, 1f, 1f));
             
-            foreach (Architecture jianzhu in base.Scenario.Architectures)
+            foreach (Architecture jianzhu in Session.Current.Scenario.Architectures)
             {
 
-                //jianzhu.jianzhubiaoti = new FreeText(spriteBatch.GraphicsDevice, fontjianzhu, colorjianzhu);
+                //jianzhu.jianzhubiaoti = new FreeText(fontjianzhu, colorjianzhu);
                 ///////jianzhu.jianzhubiaoti.DisplayOffset = new Point(0, -mainMapLayer.TileWidth / 2);
                 //jianzhu.jianzhubiaoti.Text = jianzhu.Name;
                 //jianzhu.jianzhubiaoti.Align = TextAlign.Left;
                 jianzhu.jianzhuqizi = new qizi();
-                //jianzhu.jianzhuqizi.qizidezi = new FreeText(spriteBatch.GraphicsDevice, font1, color1);
-                try
-                {
-                    jianzhu.CaptionTexture = CacheManager.LoadTempTexture("Content/Textures/Resources/Architecture/Caption/" +jianzhu.CaptionID + ".png");
-                }
-                catch
-                {
-                    jianzhu.CaptionTexture = CacheManager.LoadTempTexture("Resources /Architecture/Caption/None.png");
-                }
+                //jianzhu.jianzhuqizi.qizidezi = new FreeText(font1, color1);
+                //try
+                //{
+                    jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/" + jianzhu.CaptionID + ".png");
+                //}
+                //catch
+                //{
+                //    jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/None.png");
+                //}
                 /*
                 if (jianzhu.BelongedFaction != null)
                 {
@@ -211,15 +238,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public bool LoadAvail()
         {
-            return base.Scenario.LoadAvail();
+            return Session.Current.Scenario.LoadAvail();
         }
 
         public bool SaveAvail()
         {
-            return base.Scenario.SaveAvail();
+            return Session.Current.Scenario.SaveAvail();
         }
 
+#pragma warning disable CS0108 // 'MainGameScreen.LoadContent()' hides inherited member 'Screen.LoadContent()'. Use the new keyword if hiding was intended.
         protected void LoadContent()
+#pragma warning restore CS0108 // 'MainGameScreen.LoadContent()' hides inherited member 'Screen.LoadContent()'. Use the new keyword if hiding was intended.
         {
             base.LoadContent();
         }
@@ -277,6 +306,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             if (!String.IsNullOrEmpty(sce.Title))
             {
+                mainMapLayer.StopThreads();
                 Session.StartScenario(sce, true);
             }
         }
@@ -391,7 +421,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             //thread = null;
         }
 
-        public static GameScenario LoadScenarioData(string scenarioName, bool fromScenario, MainGameScreen mainGameScreen)
+        public void LoadScenarioData(string scenarioName, bool fromScenario, MainGameScreen mainGameScreen)
         {
             //Stopwatch stopwatch = new Stopwatch();
             //stopwatch.Start();
@@ -613,14 +643,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
 
             }
-
-            scenario.Init(mainGameScreen);
-
+            
             Session.Current.Scenario = scenario;
 
             scenario.ProcessScenarioData(fromScenario);
-
-            return scenario;
         }
 
         public void LoadScenario(string filename, List<int> playerFactions, bool fromScenario, MainGameScreen mainGameScreen)
@@ -687,40 +713,40 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         
         public void InitEvents()
         {
-            base.Scenario.OnAfterLoadScenario += new GameScenario.AfterLoadScenario(this.Scenario_OnAfterLoadScenario);
-            base.Scenario.OnNewFactionAppear += new GameScenario.NewFactionAppear(this.Scenario_OnNewFactionAppear);
-            base.Scenario.Date.OnDayStarting += new GameDate.DayStartingEvent(this.Date_OnDayStarting);
-            base.Scenario.Date.OnDayPassed += new GameDate.DayPassedEvent(this.Date_OnDayPassed);
-            base.Scenario.Date.OnMonthPassed += new GameDate.MonthPassedEvent(this.Date_OnMonthPassed);
-            base.Scenario.Date.OnSeasonChange += new GameDate.SeasonChangeEvent(this.Date_OnSeasonChange);
-            base.Scenario.Date.OnYearStarting += new GameDate.YearStartingEvent(this.Date_OnYearStarting);
-            base.Scenario.Date.OnYearPassed += new GameDate.YearPassedEvent(this.Date_OnYearPassed);
+            Session.Current.Scenario.OnAfterLoadScenario += new GameScenario.AfterLoadScenario(Scenario_OnAfterLoadScenario);
+            Session.Current.Scenario.OnNewFactionAppear += new GameScenario.NewFactionAppear(Scenario_OnNewFactionAppear);
+            Session.Current.Scenario.Date.OnDayStarting += new GameDate.DayStartingEvent(this.Date_OnDayStarting);
+            Session.Current.Scenario.Date.OnDayPassed += new GameDate.DayPassedEvent(this.Date_OnDayPassed);
+            Session.Current.Scenario.Date.OnMonthPassed += new GameDate.MonthPassedEvent(this.Date_OnMonthPassed);
+            Session.Current.Scenario.Date.OnSeasonChange += new GameDate.SeasonChangeEvent(this.Date_OnSeasonChange);
+            Session.Current.Scenario.Date.OnYearStarting += new GameDate.YearStartingEvent(this.Date_OnYearStarting);
+            Session.Current.Scenario.Date.OnYearPassed += new GameDate.YearPassedEvent(this.Date_OnYearPassed);
             //this.Player.PlayStateChange += (new _WMPOCXEvents_PlayStateChangeEventHandler(this.Player_PlayStateChange));
         }
 
-        private void Scenario_OnAfterLoadScenario(GameScenario scenario)
+        private void Scenario_OnAfterLoadScenario()
         {
-            this.Textures.LoadTextures(base.spriteBatch.GraphicsDevice, base.Scenario);
+            this.Textures.LoadTextures();
 
             base.DefaultMouseArrowTexture = this.Textures.MouseArrowTextures[0];
 
-            if (this.mainMapLayer.mainMap != null)
+            if (Session.Current.Scenario.ScenarioMap != null)
             {
                 this.mainMapLayer.PrepareMap();
                 this.UpdateViewport();
                 this.ResetScreenEdge();
-                this.mainMapLayer.ReCalculateTileDestination(base.spriteBatch.GraphicsDevice);
-                this.JumpTo(this.mainMapLayer.mainMap.JumpPosition);
+                this.mainMapLayer.ReCalculateTileDestination(this);
+                this.JumpTo(Session.Current.Scenario.ScenarioMap.JumpPosition);
             }
             if (this.Plugins.GameRecordPlugin.IsRecordShowing)
             {
                 this.Plugins.GameRecordPlugin.AddDisableRects();
             }
-            this.Plugins.AirViewPlugin.ResetMapPosition();
+            this.Plugins.AirViewPlugin.ResetMapPosition(this);
             this.Plugins.AirViewPlugin.ResetFramePosition(base.viewportSize, this.mainMapLayer.LeftEdge, this.mainMapLayer.TopEdge, this.mainMapLayer.TotalMapSize);
-            if (base.Scenario.ScenarioMap.MapName != null)
+            if (Session.Current.Scenario.ScenarioMap.MapName != null)
             {
-                this.Plugins.AirViewPlugin.ReloadAirView(base.Scenario.ScenarioMap.MapName + ".jpg");
+                this.Plugins.AirViewPlugin.ReloadAirView(Session.Current.Scenario.ScenarioMap.MapName + ".jpg");
             }
             else
             {

@@ -8,6 +8,7 @@ using PluginInterface.BaseInterface;
 using System;
 using System.Xml;
 using WorldOfTheThreeKingdoms;
+using WorldOfTheThreeKingdoms.GameScreens;
 
 namespace ToolBarPlugin
 {
@@ -17,7 +18,7 @@ namespace ToolBarPlugin
         private string author = "clip_on";
         private const string DataPath = @"Content\Textures\GameComponents\ToolBar\Data\";
         private string description = "工具栏";
-        private GraphicsDevice graphicsDevice;
+        
         private const string Path = @"Content\Textures\GameComponents\ToolBar\";
         private string pluginName = "ToolBarPlugin";
         private ToolBar toolBar = new ToolBar();
@@ -35,19 +36,19 @@ namespace ToolBarPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public void Draw(GameTime gameTime)
         {
             if (this.IsShowing)
             {
-                this.toolBar.Draw(spriteBatch,gameTime);
+                this.toolBar.Draw(gameTime);
             }
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -57,10 +58,10 @@ namespace ToolBarPlugin
             string xml = Platform.Current.LoadText(filename);document.LoadXml(xml);
             XmlNode nextSibling = document.FirstChild.NextSibling;
             XmlNode node2 = nextSibling.ChildNodes.Item(0);
-            this.toolBar.BackgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ToolBar\Data\" + node2.Attributes.GetNamedItem("FileName").Value);
+            this.toolBar.BackgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ToolBar\Data\" + node2.Attributes.GetNamedItem("FileName").Value);
             this.toolBar.BackgroundHeight = int.Parse(node2.Attributes.GetNamedItem("Height").Value);
             node2 = nextSibling.ChildNodes.Item(1);
-            this.toolBar.SpliterTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ToolBar\Data\" + node2.Attributes.GetNamedItem("FileName").Value);
+            this.toolBar.SpliterTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ToolBar\Data\" + node2.Attributes.GetNamedItem("FileName").Value);
             this.toolBar.SpliterWidth = int.Parse(node2.Attributes.GetNamedItem("Width").Value);
             
             this.backTool = new WorldOfTheThreeKingdoms.GamePlugins.ToolBarPlugin.BackTool();
@@ -76,9 +77,8 @@ namespace ToolBarPlugin
             this.toolBar.ContextMenuPlugin = contextMenuPlugin;
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\ToolBarData.xml");
         }
 
@@ -95,9 +95,9 @@ namespace ToolBarPlugin
             backTool.Position = new Vector2(rec.X + 40, rec.Y - 10);
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.toolBar.Initialize(screen as Screen);
+            this.toolBar.Initialize(screen as MainGameScreen);
         }
 
         public void Update(GameTime gameTime)

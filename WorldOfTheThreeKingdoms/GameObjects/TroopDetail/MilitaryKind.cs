@@ -4,6 +4,7 @@ using GameObjects.Conditions;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using GameManager;
 
 namespace GameObjects.TroopDetail
 {
@@ -779,7 +780,7 @@ namespace GameObjects.TroopDetail
             {
                 if (!a.BelongedFaction.IsMilitaryKindOverLimit(id))
                 {
-                    result.Add(base.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(id));
+                    result.Add(Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(id));
                 }
             }
             return result;
@@ -1229,8 +1230,8 @@ namespace GameObjects.TroopDetail
         {
             get
             {
-                if (!base.Scenario.GameCommonData.AllMilitaryKinds.MilitaryKinds.ContainsKey(morphToKindId)) return null;
-                return base.Scenario.GameCommonData.AllMilitaryKinds.MilitaryKinds[this.morphToKindId];
+                if (!Session.Current.Scenario.GameCommonData.AllMilitaryKinds.MilitaryKinds.ContainsKey(morphToKindId)) return null;
+                return Session.Current.Scenario.GameCommonData.AllMilitaryKinds.MilitaryKinds[this.morphToKindId];
             }
         }
 
@@ -1249,7 +1250,7 @@ namespace GameObjects.TroopDetail
         public int EachMilitaryKindCount(Faction f)
         {
             int count = 0;
-           // MilitaryKind mk = base.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(id);
+           // MilitaryKind mk = Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(id);
             if (f != null)
             {
                 foreach (Military military in f.Militaries)

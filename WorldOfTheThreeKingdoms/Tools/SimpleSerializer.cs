@@ -49,7 +49,9 @@ namespace Tools
                         return o;
                     }
                 }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                 catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
                 {
                     return default(T);
                 }
@@ -59,7 +61,7 @@ namespace Tools
         public static void SerializeXML<T>(T t, string file)
         {
             string xml = SerializeXML(t);
-            Platform.Current.SaveUserFile(file, xml, false);
+            Platform.Current.SaveUserFile(file, xml);
         }
 
         public static T DeserializeXMLFile<T>(string file, bool isUserFile)
@@ -123,7 +125,9 @@ namespace Tools
                         t = JsonConvert.DeserializeObject<T>(s);
                     }
                 }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                 catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
                 {
                     t = DeserializeJson<T>(s, false, false);
                 }
@@ -150,12 +154,12 @@ namespace Tools
             return t;
         }
 
-        public static bool SerializeJsonFile<T>(T t, string file, bool zip = false, bool Net = false, bool fullPath = false)
+        public static bool SerializeJsonFile<T>(T t, string file, bool zip = false, bool Net = false)
         {
             try
             {
                 string json = SerializeJson(t, zip, Net);
-                Platform.Current.SaveUserFile(file, json, fullPath);
+                Platform.Current.SaveUserFile(file, json);
                 return true;
             }
             catch (Exception ex)

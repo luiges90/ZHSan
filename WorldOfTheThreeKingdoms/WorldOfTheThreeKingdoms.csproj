@@ -1397,13 +1397,13 @@
     <Compile Include="GameScreens\MGSStartLoad.cs" />
     <Compile Include="GameScreens\ScreenManager.cs" />
     <Compile Include="GameManager\TiShiText.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="GameGlobal\ArchitectureWorkKind.cs" />
     <Compile Include="GameGlobal\ContextMenuKind.cs" />
     <Compile Include="GameGlobal\ContextMenuResult.cs" />
     <Compile Include="GameGlobal\DialogKind.cs" />
     <Compile Include="GameGlobal\DialogResult.cs" />
-    <Compile Include="GameGlobal\FileEncryptor.cs" />
     <Compile Include="GameGlobal\FrameFunction.cs" />
     <Compile Include="GameGlobal\FrameKind.cs" />
     <Compile Include="GameGlobal\FrameResult.cs" />
@@ -42628,8 +42628,16 @@
       <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\AppointMayor.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Content\Textures\GameComponents\tupianwenzi\Data\tupian\AwardTitle.jpg">
+      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\AwardTitle.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\Content\Textures\GameComponents\tupianwenzi\Data\tupian\BecomeEmperor.jpg">
       <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\BecomeEmperor.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Textures\GameComponents\tupianwenzi\Data\tupian\beiyue.jpg">
+      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\beiyue.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Textures\GameComponents\tupianwenzi\Data\tupian\bianlun.jpg">
@@ -42862,6 +42870,10 @@
     </Content>
     <Content Include="..\Content\Textures\GameComponents\tupianwenzi\Data\tupian\taoyuanjieyi.jpg">
       <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\taoyuanjieyi.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Textures\GameComponents\tupianwenzi\Data\tupian\TruceDiplomaticRelation.jpg">
+      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\TruceDiplomaticRelation.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Textures\GameComponents\tupianwenzi\Data\tupian\wenbang.jpg">
@@ -48888,12 +48900,12 @@
       <Link>Content\Textures\Resources\Start\Scenario.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\Resources\Start\Start.jpg">
-      <Link>Content\Textures\Resources\Start\Start.jpg</Link>
+    <Content Include="..\Content\Textures\Resources\Start\Setting.png">
+      <Link>Content\Textures\Resources\Start\Setting.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\Resources\Start\Start01.jpg">
-      <Link>Content\Textures\Resources\Start\Start01.jpg</Link>
+    <Content Include="..\Content\Textures\Resources\Start\Start.jpg">
+      <Link>Content\Textures\Resources\Start\Start.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Textures\Resources\Start\Start1.jpg">
@@ -57377,18 +57389,6 @@
     </Content>
     <Content Include="..\Content\Data\ScenarioZip\280YXJJ.json">
       <Link>Content\Data\Scenario\280YXJJ.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Data\ScenarioZip\40WJQXGJ213.json">
-      <Link>Content\Data\Scenario\40WJQXGJ213.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Data\ScenarioZip\40WJQXGJ313.json">
-      <Link>Content\Data\Scenario\40WJQXGJ313.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Data\ScenarioZip\40WJQXGJ7.json">
-      <Link>Content\Data\Scenario\40WJQXGJ7.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Data\CommonZip\CommonData.json">

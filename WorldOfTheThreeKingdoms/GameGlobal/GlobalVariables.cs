@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Platforms;
+using GameManager;
 
 namespace GameGlobal
 {
@@ -11,23 +12,23 @@ namespace GameGlobal
     public class GlobalVariables
     {
         [DataMember]
-        public static bool WujiangYoukenengDuli = true;
+        public bool WujiangYoukenengDuli = true;
         [DataMember]
-        public static bool LiangdaoXitong = false;
+        public bool LiangdaoXitong = false;
         [DataMember]
-        public static bool ShowGrid = false;
+        public bool ShowGrid = false;
         [DataMember]
-        public static bool AdditionalPersonAvailable = false;
+        public bool AdditionalPersonAvailable = false;
         [DataMember]
-        public const float ArchitectureLayerDepth = 0.8f;
+        public float ArchitectureLayerDepth = 0.8f;
         [DataMember]
         public const float BackgroundDepthOffset = -1E-05f;
         [DataMember]
         public const float BackTileAnimationLayerDepth = 0.75f;
         [DataMember]
-        public static bool CalculateAverageCostOfTiers = false;
+        public bool CalculateAverageCostOfTiers = false;
         [DataMember]
-        public static bool CommonPersonAvailable = true;
+        public bool CommonPersonAvailable = true;
         [DataMember]
         public const float ConmentTextDepth = 0.15f;
         [DataMember]
@@ -35,17 +36,17 @@ namespace GameGlobal
         [DataMember]
         public const float ControlDepthOffset = -0.001f;
         [DataMember]
-        public static MapLayerKind CurrentMapLayer;
+        public MapLayerKind CurrentMapLayer;
         [DataMember]
         public const float DialogDepth = 0.2f;
         [DataMember]
-        public static bool DrawMapVeil = true;
+        public bool DrawMapVeil = true;
         [DataMember]
-        public static bool DrawTroopAnimation = true;
+        public bool DrawTroopAnimation = true;
         [DataMember]
-        public static long FactionRunningTicksLimitInOneFrame = 0x186a0;
+        public long FactionRunningTicksLimitInOneFrame = 0x186a0;
         [DataMember]
-        public static int FastBattleSpeed = 1;
+        public int FastBattleSpeed = 1;
         [DataMember]
         public const float FloatingPartDepth = 0.25f;
         [DataMember]
@@ -53,35 +54,35 @@ namespace GameGlobal
         [DataMember]
         public const float FrontTileAnimationLayerDepth = 0.65f;
         [DataMember]
-        public static string GameDifficulty;
+        public string GameDifficulty;
         [DataMember]
         public const float GameFrameDepth = 0.4f;
         [DataMember]
-        public static bool HintPopulation = true;
+        public bool HintPopulation = true;
         [DataMember]
-        public static bool HintPopulationUnder1000 = true;
+        public bool HintPopulationUnder1000 = true;
         [DataMember]
-        public static bool IdealTendencyValid = true;
+        public bool IdealTendencyValid = true;
         [DataMember]
         public const float LayerDepthOffset = -0.01f;
         [DataMember]
-        public static bool LoadBackGroundMapTexture = false;
+        public bool LoadBackGroundMapTexture = false;
         [DataMember]
         public const float MapLayerDepth = 0.9f;
         [DataMember]
-        public static float MapScrollSpeed;
+        public float MapScrollSpeed = 0.8f;
         [DataMember]
         public const float MapVeilLayerDepth = 0.6f;
         [DataMember]
         public const float MapViewSelectorDepth = 0.18f;
         [DataMember]
-        public static int MaxCountOfKnownPaths = 0x3e8;
+        public int MaxCountOfKnownPaths = 0x3e8;
         [DataMember]
         public const float MaxDepth = 1f;
         [DataMember]
-        public static int MaxTimeOfAnimationFrame = 0x19;
+        public int MaxTimeOfAnimationFrame = 0x19;
         [DataMember]
-        public static bool MilitaryKindSpeedValid = true;
+        public bool MilitaryKindSpeedValid = true;
         [DataMember]
         public const float MinDepth = 0f;
         [DataMember]
@@ -89,31 +90,31 @@ namespace GameGlobal
         [DataMember]
         public const float MovableControlDepthOffset = -0.0002f;
         [DataMember]
-        public static bool MultipleResource = false;
+        public bool MultipleResource = false;
         [DataMember]
-        public static bool NoHintOnSmallFacility = true;
+        public bool NoHintOnSmallFacility = true;
         [DataMember]
         public const float PersonBubbleDepth = 0.45f;
         [DataMember]
-        public static bool PersonNaturalDeath = true;
+        public bool? PersonNaturalDeath = true;
         [DataMember]
-        public static bool PlayBattleSound = true;
+        public bool PlayBattleSound = true;
         [DataMember]
-        public static bool PlayerPersonAvailable = true;
+        public bool PlayerPersonAvailable = true;
         [DataMember]
-        public static bool PlayMusic = true;
+        public bool PlayMusic = true;
         [DataMember]
-        public static bool PlayNormalSound = true;
+        public bool PlayNormalSound = true;
         [DataMember]
-        public static bool PopulationRecruitmentLimit = true;
+        public bool PopulationRecruitmentLimit = true;
         [DataMember]
-        public static InformationLevel RoutewayInformationLevel = InformationLevel.低;
+        public InformationLevel RoutewayInformationLevel = InformationLevel.低;
         [DataMember]
         public const float RoutewayLayerDepth = 0.85f;
         [DataMember]
-        public static bool RunWhileNotFocused = true;
+        public bool RunWhileNotFocused = true;
         [DataMember]
-        public static InformationLevel ScoutRoutewayInformationLevel = InformationLevel.高;
+        public InformationLevel ScoutRoutewayInformationLevel = InformationLevel.高;
         [DataMember]
         public const float ScreenBlindDepth = 0.43f;
         [DataMember]
@@ -121,9 +122,9 @@ namespace GameGlobal
         [DataMember]
         public const float SelectorDepth = 0.72f;
         [DataMember]
-        public static bool SingleSelectionOneClick = true;
+        public bool SingleSelectionOneClick = true;
         [DataMember]
-        public static bool SkyEye = false;
+        public bool SkyEye = false;
         [DataMember]
         public const float SurveyDepth = 0.05f;
         [DataMember]
@@ -133,145 +134,150 @@ namespace GameGlobal
         [DataMember]
         public const float TroopLayerDepth = 0.7f;
         [DataMember]
-        public static int TroopMoveFrameCount = 10;
+        public int TroopMoveFrameCount = 10;
         [DataMember]
-        public static int TroopMoveLimitOnce = 5;
+        public int TroopMoveLimitOnce = 5;
         [DataMember]
-        public static int TroopMoveSpeed = 2;
+        public int TroopMoveSpeed = 1;
         [DataMember]
         public const float TroopTitleDepth = 0.47f;
         [DataMember]
-        public static bool PinPointAtPlayer = false;
+        public bool PinPointAtPlayer = false;
         [DataMember]
-        public static bool IgnoreStrategyTendency = false;
+        public bool IgnoreStrategyTendency = false;
         [DataMember]
-        public static bool createChildren = true;
+        public bool createChildren = true;
         [DataMember]
-        public static int zainanfashengjilv = 3000;
+        public int zainanfashengjilv = 3000;
         [DataMember]
-        public static bool doAutoSave = true;
+        public bool doAutoSave = true;
         [DataMember]
-        public static bool createChildrenIgnoreLimit = true;
+        public bool createChildrenIgnoreLimit = true;
         [DataMember]
-        public static bool internalSurplusRateForPlayer = true;
+        public bool internalSurplusRateForPlayer = true;
         [DataMember]
-        public static bool internalSurplusRateForAI = false;
+        public bool internalSurplusRateForAI = false;
         [DataMember]
-        public static int getChildrenRate = 90;
+        public int getChildrenRate = 90;
         [DataMember]
-        public static int hougongGetChildrenRate = 90;
+        public int hougongGetChildrenRate = 90;
         [DataMember]
-        public static int getRaisedSoliderRate = 90;
+        public int getRaisedSoliderRate = 90;
         [DataMember]
-        public static int AIExecutionRate = 500;
+        public int AIExecutionRate = 500;
         [DataMember]
-        public static bool AIExecuteBetterOfficer = false;
+        public bool AIExecuteBetterOfficer = false;
         [DataMember]
-        public static int maxExperience = 10000;
+        public int maxExperience = 10000;
         [DataMember]
-        public static bool lockChildrenLoyalty = true;
+        public bool lockChildrenLoyalty = true;
         [DataMember]
-        public static bool AIAutoTakeNoFactionCaptives = false;
+        public bool AIAutoTakeNoFactionCaptives = false;
         [DataMember]
-        public static bool AIAutoTakeNoFactionPerson = false;
+        public bool AIAutoTakeNoFactionPerson = false;
         [DataMember]
-        public static bool AIAutoTakePlayerCaptives = false;
+        public bool AIAutoTakePlayerCaptives = false;
         [DataMember]
-        public static bool AIAutoTakePlayerCaptiveOnlyUnfull = false;
+        public bool AIAutoTakePlayerCaptiveOnlyUnfull = false;
         [DataMember]
-        public static float TechniquePointMultiple = 1.0f;
+        public float TechniquePointMultiple = 1.0f;
         [DataMember]
-        public static bool PermitFactionMerge = true;
+        public bool PermitFactionMerge = true;
         [DataMember]
-        public static float LeadershipOffenceRate = 0.0f;
+        public float LeadershipOffenceRate = 0.0f;
         [DataMember]
-        public static int DialogShowTime = 10;
+        public int DialogShowTime = 10;
         [DataMember]
-        public static bool AINoTeamTransfer = false;
+        public bool AINoTeamTransfer = false;
         [DataMember]
-        public static bool LandArmyCanGoDownWater = true;
+        public bool LandArmyCanGoDownWater = true;
         [DataMember]
-        public static bool EnableResposiveThreading = false;
+        public bool EnableResposiveThreading = false;
         [DataMember]
-        public static bool EnableCheat = false;
+        public bool EnableCheat = false;
         [DataMember]
-        public static bool HardcoreMode = false;
+        public bool HardcoreMode = false;
         [DataMember]
-        public static int MaxAbility = 150;
+        public int MaxAbility = 150;
         [DataMember]
-        public static int TirednessIncrease = 1;
+        public int TirednessIncrease = 1;
         [DataMember]
-        public static int TirednessDecrease = 1;
+        public int TirednessDecrease = 1;
         [DataMember]
-        public static bool EnableAgeAbilityFactor = true;
+        public bool EnableAgeAbilityFactor = true;
         [DataMember]
-        public static int TabListDetailLevel = 3;
+        public int TabListDetailLevel = 3;
         [DataMember]
-        public static bool EnableExtensions = true;
+        public bool EnableExtensions = false;
         [DataMember]
-        public static bool EncryptSave = false;
+        public bool EncryptSave = false;
         [DataMember]
-        public static int AutoSaveFrequency = 30;
+        public int AutoSaveFrequency = 30;
         [DataMember]
-        public static bool ShowChallengeAnimation = true;
+        public bool ShowChallengeAnimation = true;
         [DataMember]
-        public static bool PersonDieInChallenge = true;
+        public bool PersonDieInChallenge = true;
         [DataMember]
-        public static int OfficerDieInBattleRate = 10;
+        public int OfficerDieInBattleRate = 10;
         [DataMember]
-        public static int OfficerChildrenLimit = 20;
+        public int OfficerChildrenLimit = 20;
         [DataMember]
-        public static bool StopToControlOnAttack = true;
+        public bool StopToControlOnAttack = true;
         [DataMember]
-        public static int MaxMilitaryExperience = 3000;
+        public int MaxMilitaryExperience = 3000;
         [DataMember]
-        public static float ArmyPopulationCap = 1.0f; //兵力上限 
+        public float ArmyPopulationCap = 1.0f; //兵力上限 
         [DataMember]
-        public static int FactionMilitaryLimt = 5;
+        public int FactionMilitaryLimt = 9000;
         [DataMember]
-        public static float ZhaoXianSuccessRate = 30;
+        public float ZhaoXianSuccessRate = 30;
         [DataMember]
-        public static int TroopTirednessDecrease = 10;
+        public int TroopTirednessDecrease = 10;
         [DataMember]
-        public static float CreateRandomOfficerChance = 5;
+        public float CreateRandomOfficerChance = 5;
         [DataMember]
-        public static int ChildrenAvailableAge = 12;
+        public int ChildrenAvailableAge = 12;
         [DataMember]
-        public static float CreatedOfficerAbilityFactor = 0.8f;
+        public float CreatedOfficerAbilityFactor = 0.8f;
         [DataMember]
-        public static float ChildrenAbilityFactor = 1.0f;
+        public float ChildrenAbilityFactor = 1.0f;
         [DataMember]
-        public static bool EnablePersonRelations = true;
+        public bool EnablePersonRelations = true;
         [DataMember]
-        public static int FriendlyDiplomacyThreshold = 300;
+        public int FriendlyDiplomacyThreshold = 300;
         [DataMember]
-        public static int SurroundFactor = 5;
+        public int SurroundFactor = 5;
         [DataMember]
-        public static bool FullScreen = false;
+        public bool FullScreen = false;
         [DataMember]
-        public static bool PermitQuanXiang = true;
+        public bool PermitQuanXiang = true;
         [DataMember]
-        public static bool PermitManualAwardTitleAutoLearn = false;
+        public bool PermitManualAwardTitleAutoLearn = false;
         [DataMember]
-        public static int zhaoxianOfficerMax = 500;
+        public int zhaoxianOfficerMax = 500;
         [DataMember]
-        public static bool AIZhaoxianFixIdeal = false;
+        public bool AIZhaoxianFixIdeal = false;
         [DataMember]
-        public static bool PlayerZhaoxianFixIdeal = false;
+        public bool PlayerZhaoxianFixIdeal = false;
         [DataMember]
-        public static int FixedUnnaturalDeathAge = 80;
+        public int FixedUnnaturalDeathAge = 80;
         [DataMember]
-        public static bool AIQuickBattle = false;
+        public bool AIQuickBattle = false;
         [DataMember]
-        public static bool PlayerAutoSectionHasAIResourceBonus = false;
+        public bool PlayerAutoSectionHasAIResourceBonus = false;
         [DataMember]
-        public static float ProhibitFactionAgainstDestroyer = 1.0f;
+        public float ProhibitFactionAgainstDestroyer = 1.0f;
         [DataMember]
-        public static float AIMergeAgainstPlayer = 1.0f;
+        public float AIMergeAgainstPlayer = -1f;
         [DataMember]
         public const string cryptKey = "A3g0c3%2";
 
-        public static List<String> getFieldsExcludedFromSave()
+        public GlobalVariables Clone()
+        {
+            return this.MemberwiseClone() as GlobalVariables;
+        }
+
+        public List<String> getFieldsExcludedFromSave()
         {
             List<String> s = new List<string>();
             s.Add("MapScrollSpeed");

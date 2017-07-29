@@ -1,4 +1,5 @@
 ﻿using GameFreeText;
+using GameManager;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
@@ -10,13 +11,13 @@ namespace OptionDialogPlugin
         internal int ItemHeight;
         internal int Margin;
         internal string Name;
-        internal Texture2D OptionSelectedTexture;
+        internal PlatformTexture OptionSelectedTexture;
         internal FreeTextList OptionTextList;
-        internal Texture2D OptionTexture;
+        internal PlatformTexture OptionTexture;
         internal int TitleHeight;
         internal int TitleMargin;
         internal FreeText TitleText;
-        internal Texture2D TitleTexture;
+        internal PlatformTexture TitleTexture;
         internal int TitleWidth;
     }
 }

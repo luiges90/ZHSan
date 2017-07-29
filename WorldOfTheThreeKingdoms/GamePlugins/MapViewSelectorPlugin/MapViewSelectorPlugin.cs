@@ -20,7 +20,7 @@ namespace MapViewSelectorPlugin
         private string author = "clip_on";
         private const string DataPath = @"Content\Textures\GameComponents\MapViewSelector\Data\";
         private string description = "地图视角选择器";
-        private GraphicsDevice graphicsDevice;
+        
         private MapViewSelector mapViewSelector = new MapViewSelector();
         private const string Path = @"Content\Textures\GameComponents\MapViewSelector\";
         private string pluginName = "MapViewSelectorPlugin";
@@ -36,15 +36,15 @@ namespace MapViewSelectorPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.IsShowing)
             {
-                this.mapViewSelector.Draw(spriteBatch);
+                this.mapViewSelector.Draw();
             }
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -60,34 +60,34 @@ namespace MapViewSelectorPlugin
             this.mapViewSelector.BackgroundSize.X = int.Parse(node2.Attributes.GetNamedItem("Width").Value);
             this.mapViewSelector.BackgroundSize.Y = int.Parse(node2.Attributes.GetNamedItem("Height").Value);
             node2 = nextSibling.ChildNodes.Item(1);
-            this.mapViewSelector.TitleTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MapViewSelector\Data\" + node2.Attributes.GetNamedItem("FileName").Value);
+            this.mapViewSelector.TitleTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapViewSelector\Data\" + node2.Attributes.GetNamedItem("FileName").Value);
             this.mapViewSelector.TitleSize.X = int.Parse(node2.Attributes.GetNamedItem("Width").Value);
             this.mapViewSelector.TitleSize.Y = int.Parse(node2.Attributes.GetNamedItem("Height").Value);
             node2 = nextSibling.ChildNodes.Item(2);
-            this.mapViewSelector.ButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MapViewSelector\Data\" + node2.Attributes.GetNamedItem("FileName").Value);
-            this.mapViewSelector.ButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MapViewSelector\Data\" + node2.Attributes.GetNamedItem("Selected").Value);
+            this.mapViewSelector.ButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapViewSelector\Data\" + node2.Attributes.GetNamedItem("FileName").Value);
+            this.mapViewSelector.ButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapViewSelector\Data\" + node2.Attributes.GetNamedItem("Selected").Value);
             node2 = nextSibling.ChildNodes.Item(3);
             XmlNode node = node2.ChildNodes.Item(0);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.mapViewSelector.ReturnToListButtonText = new FreeText(this.graphicsDevice, font, color);
+            this.mapViewSelector.ReturnToListButtonText = new FreeText(font, color);
             this.mapViewSelector.ReturnToListButtonText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
             this.mapViewSelector.ReturnToListButtonText.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
             this.mapViewSelector.ReturnToListButtonText.Text = node.Attributes.GetNamedItem("Label").Value;
             node = node2.ChildNodes.Item(1);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.mapViewSelector.OKButtonText = new FreeText(this.graphicsDevice, font, color);
+            this.mapViewSelector.OKButtonText = new FreeText(font, color);
             this.mapViewSelector.OKButtonText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
             this.mapViewSelector.OKButtonText.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
             this.mapViewSelector.OKButtonText.Text = node.Attributes.GetNamedItem("Label").Value;
             node = node2.ChildNodes.Item(2);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.mapViewSelector.CancelButtonText = new FreeText(this.graphicsDevice, font, color);
+            this.mapViewSelector.CancelButtonText = new FreeText(font, color);
             this.mapViewSelector.CancelButtonText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
             this.mapViewSelector.CancelButtonText.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
             this.mapViewSelector.CancelButtonText.Text = node.Attributes.GetNamedItem("Label").Value;
             node2 = nextSibling.ChildNodes.Item(4);
-            this.mapViewSelector.ItemInListTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MapViewSelector\Data\" + node2.Attributes.GetNamedItem("InList").Value);
-            this.mapViewSelector.ItemSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\MapViewSelector\Data\" + node2.Attributes.GetNamedItem("Selected").Value);
+            this.mapViewSelector.ItemInListTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapViewSelector\Data\" + node2.Attributes.GetNamedItem("InList").Value);
+            this.mapViewSelector.ItemSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapViewSelector\Data\" + node2.Attributes.GetNamedItem("Selected").Value);
         }
 
         public void RemoveDisableRects()
@@ -105,9 +105,8 @@ namespace MapViewSelectorPlugin
             this.mapViewSelector.SelectingGameObjectList = gameObjectList as GameObjectList;
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\MapViewSelectorData.xml");
         }
 
@@ -126,9 +125,9 @@ namespace MapViewSelectorPlugin
             this.mapViewSelector.OKFunction = function;
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.mapViewSelector.Initialize(screen as Screen);
+            this.mapViewSelector.Initialize();
         }
 
         public void SetTabList(ITabList iTabList)

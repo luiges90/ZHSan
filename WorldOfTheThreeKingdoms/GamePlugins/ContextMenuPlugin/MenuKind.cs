@@ -30,15 +30,15 @@ namespace ContextMenuPlugin
             this.MenuItems = new List<MenuItem>();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             foreach (MenuItem item in this.MenuItems)
             {
-                item.Draw(spriteBatch);
+                item.Draw();
             }
             if (this.contextMenu.HelpPlugin != null)
             {
-                this.contextMenu.HelpPlugin.DrawButton(spriteBatch, 0.04f);
+                this.contextMenu.HelpPlugin.DrawButton(0.04f);
             }
         }
 

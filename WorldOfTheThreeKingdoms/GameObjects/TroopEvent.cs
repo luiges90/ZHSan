@@ -1,4 +1,5 @@
-﻿using GameObjects.Conditions;
+﻿using GameManager;
+using GameObjects.Conditions;
 using GameObjects.TroopDetail.EventEffect;
 using Microsoft.Xna.Framework;
 using System;
@@ -147,7 +148,7 @@ namespace GameObjects
                     {
                         if (self.BelongedFaction.IsPositionKnown(point))
                         {
-                            troopByPositionNoCheck = base.Scenario.GetTroopByPositionNoCheck(point);
+                            troopByPositionNoCheck = Session.Current.Scenario.GetTroopByPositionNoCheck(point);
                             if (troopByPositionNoCheck != null)
                             {
                                 switch (area.Kind)
@@ -176,7 +177,7 @@ namespace GameObjects
                     {
                         if (self.BelongedFaction.IsPositionKnown(point))
                         {
-                            troopByPositionNoCheck = base.Scenario.GetTroopByPositionNoCheck(point);
+                            troopByPositionNoCheck = Session.Current.Scenario.GetTroopByPositionNoCheck(point);
                             if (troopByPositionNoCheck != null)
                             {
                                 switch (area.Kind)
@@ -208,7 +209,7 @@ namespace GameObjects
                         {
                             continue;
                         }
-                        troopByPositionNoCheck = base.Scenario.GetTroopByPositionNoCheck(point);
+                        troopByPositionNoCheck = Session.Current.Scenario.GetTroopByPositionNoCheck(point);
                         if (troopByPositionNoCheck != null)
                         {
                             switch (area.Kind)
@@ -295,7 +296,7 @@ namespace GameObjects
                             {
                                 if (troop.BelongedFaction.IsPositionKnown(point))
                                 {
-                                    Troop troopByPositionNoCheck = base.Scenario.GetTroopByPositionNoCheck(point);
+                                    Troop troopByPositionNoCheck = Session.Current.Scenario.GetTroopByPositionNoCheck(point);
                                     if (troopByPositionNoCheck != null)
                                     {
                                         foreach (PersonRelation relation in this.TargetPersons)

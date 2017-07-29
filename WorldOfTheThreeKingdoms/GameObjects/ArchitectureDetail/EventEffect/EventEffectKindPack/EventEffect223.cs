@@ -1,6 +1,6 @@
 ﻿using GameObjects;
 using System;
-
+using GameManager;
 
 using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.EventEffect
 {
@@ -9,7 +9,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
     {
         public override void ApplyEffectKind(Person person, Event e)
         {
-            foreach (Person p in person.Scenario.Persons)
+            foreach (Person p in Session.Current.Scenario.Persons)
             {
                 if (p.Brothers.GameObjects.Contains(p))
                 {

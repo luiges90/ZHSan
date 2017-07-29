@@ -32,7 +32,7 @@ namespace GameFreeText
             //this.Builder = new FreeTextBuilder();
         }
 
-        public FreeTextList(GraphicsDevice device, Font font)
+        public FreeTextList(Font font)
         {
             this.TextList = new List<TextItem>();
             this.displayOffset = Microsoft.Xna.Framework.Point.Zero;
@@ -43,7 +43,7 @@ namespace GameFreeText
             //this.Builder.SetFreeTextBuilder(device, font);
         }
 
-        public FreeTextList(GraphicsDevice device, Font font, Microsoft.Xna.Framework.Color color)
+        public FreeTextList(Font font, Microsoft.Xna.Framework.Color color)
         {
             this.TextList = new List<TextItem>();
             this.displayOffset = Microsoft.Xna.Framework.Point.Zero;
@@ -77,56 +77,44 @@ namespace GameFreeText
             return new Microsoft.Xna.Framework.Rectangle(this.TextList[index].Position.X + this.displayOffset.X, this.TextList[index].Position.Y + this.displayOffset.Y, this.TextList[index].Position.Width, this.TextList[index].Position.Height);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             for (int i = 0; i < this.Count; i++)
-            {
-                //spriteBatch.Draw(this.TextList[i].TextTexture, this.TextList[i].AlignedPosition, this.textColor);
-                
+            {                
                 var pos = new Vector2(this.TextList[i].AlignedPosition.X, this.TextList[i].AlignedPosition.Y);
 
                 CacheManager.DrawString(Session.Current.Font, this.TextList[i].Text, pos, this.textColor, 0f, Vector2.Zero, Font.Scale, SpriteEffects.None, 1f);
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, int index)
-        {
-            //spriteBatch.Draw(this.TextList[index].TextTexture, this.TextList[index].AlignedPosition, this.textColor);
-            
+        public void Draw(int index)
+        {            
             var pos = new Vector2(this.TextList[index].AlignedPosition.X, this.TextList[index].AlignedPosition.Y);
 
             CacheManager.DrawString(Session.Current.Font, this.TextList[index].Text, pos, this.textColor, 0f, Vector2.Zero, Font.Scale, SpriteEffects.None, 1f);
         }
 
-        public void Draw(SpriteBatch spriteBatch, float Depth)
+        public void Draw(float Depth)
         {
             for (int i = 0; i < this.Count; i++)
             {
-                //Microsoft.Xna.Framework.Rectangle? sourceRectangle = null;
-                //spriteBatch.Draw(this.TextList[i].TextTexture, this.TextList[i].AlignedPosition, sourceRectangle, this.textColor, 0f, Vector2.Zero, SpriteEffects.None, Depth + -0.0001f);
-                
                 var pos = new Vector2(this.TextList[i].AlignedPosition.X, this.TextList[i].AlignedPosition.Y);
 
                 CacheManager.DrawString(Session.Current.Font, this.TextList[i].Text, pos, this.textColor, 0f, Vector2.Zero, Font.Scale, SpriteEffects.None, Depth + -0.0001f);
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, int index, float Depth)
+        public void Draw(int index, float Depth)
         {
-            //spriteBatch.Draw(this.TextList[index].TextTexture, this.TextList[index].AlignedPosition, null, this.textColor, 0f, Vector2.Zero, SpriteEffects.None, Depth + -0.0001f);
-            
             var pos = new Vector2(this.TextList[index].AlignedPosition.X, this.TextList[index].AlignedPosition.Y);
 
             CacheManager.DrawString(Session.Current.Font, this.TextList[index].Text, pos, this.textColor, 0f, Vector2.Zero, Font.Scale, SpriteEffects.None, Depth + -0.0001f);
         }
 
-        public void Draw(SpriteBatch spriteBatch, float Rotation, float Depth)
+        public void Draw(float Rotation, float Depth)
         {
             for (int i = 0; i < this.Count; i++)
             {
-                //Microsoft.Xna.Framework.Rectangle? sourceRectangle = null;
-                //spriteBatch.Draw(this.TextList[i].TextTexture, this.TextList[i].AlignedPosition, sourceRectangle, this.textColor, Rotation, Vector2.Zero, SpriteEffects.None, Depth + -0.0001f);
-
                 float scale = Font.Size / 20f;
 
                 var pos = new Vector2(this.TextList[i].AlignedPosition.X, this.TextList[i].AlignedPosition.Y);
@@ -135,14 +123,13 @@ namespace GameFreeText
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, int index, float Rotation, float Depth)
+        public void Draw(int index, float Rotation, float Depth)
         {
 
             var pos = new Vector2(this.TextList[index].AlignedPosition.X, this.TextList[index].AlignedPosition.Y);
 
             CacheManager.DrawString(Session.Current.Font, this.TextList[index].Text, pos, this.textColor, Rotation, Vector2.Zero, Font.Scale, SpriteEffects.None, Depth + -0.0001f);
 
-            //spriteBatch.Draw(this.TextList[index].TextTexture, this.TextList[index].AlignedPosition, null, this.textColor, Rotation, Vector2.Zero, SpriteEffects.None, Depth + -0.0001f);
         }
 
         private void ResetAlignedPosition(int index)

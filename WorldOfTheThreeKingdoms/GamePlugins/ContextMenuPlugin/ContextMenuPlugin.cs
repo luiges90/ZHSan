@@ -21,7 +21,6 @@ namespace ContextMenuPlugin
         private ContextMenu contextMenu = new ContextMenu();
         private const string DataPath = @"Content\Textures\GameComponents\ContextMenu\Data\";
         private string description = "上下文菜单";
-        private GraphicsDevice graphicsDevice;
         private const string Path = @"Content\Textures\GameComponents\ContextMenu\";
         private string pluginName = "ContextMenuPlugin";
         private string version = "1.0.0";
@@ -31,12 +30,12 @@ namespace ContextMenuPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            this.contextMenu.Draw(spriteBatch);
+            this.contextMenu.Draw();
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -51,43 +50,43 @@ namespace ContextMenuPlugin
 
             XmlNode nextSibling = document.FirstChild.NextSibling;
             XmlNode node = nextSibling.ChildNodes.Item(0);
-            this.contextMenu.RightClickItemTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.contextMenu.RightClickItemSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
+            this.contextMenu.RightClickItemTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.contextMenu.RightClickItemSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
 
             this.contextMenu.RightClickFreeTextBuilder = font;
-            //this.contextMenu.RightClickFreeTextBuilder.SetFreeTextBuilder(this.graphicsDevice, font);
+            //this.contextMenu.RightClickFreeTextBuilder.SetFreeTextBuilder(font);
 
             this.contextMenu.RightClickTextColor = color;
             node = nextSibling.ChildNodes.Item(1);
-            this.contextMenu.LeftClickItemTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.contextMenu.LeftClickItemSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
+            this.contextMenu.LeftClickItemTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.contextMenu.LeftClickItemSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
 
             this.contextMenu.LeftClickFreeTextBuilder = font;
-            //this.contextMenu.LeftClickFreeTextBuilder.SetFreeTextBuilder(this.graphicsDevice, font);
+            //this.contextMenu.LeftClickFreeTextBuilder.SetFreeTextBuilder(font);
 
             this.contextMenu.LeftClickTextColor = color;
             node = nextSibling.ChildNodes.Item(2);
-            this.contextMenu.DisabledItemTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.contextMenu.DisabledItemSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
+            this.contextMenu.DisabledItemTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.contextMenu.DisabledItemSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
 
             this.contextMenu.DisabledFreeTextBuilder = font;
-            //this.contextMenu.DisabledFreeTextBuilder.SetFreeTextBuilder(this.graphicsDevice, font);
+            //this.contextMenu.DisabledFreeTextBuilder.SetFreeTextBuilder(font);
 
             this.contextMenu.DisabledTextColor = color;
             node = nextSibling.ChildNodes.Item(3);
-            this.contextMenu.RightDisabledItemTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.contextMenu.RightDisabledItemSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
+            this.contextMenu.RightDisabledItemTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.contextMenu.RightDisabledItemSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("SelectedFileName").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
 
             this.contextMenu.RightDisabledFreeTextBuilder = font;
-            //this.contextMenu.RightDisabledFreeTextBuilder.SetFreeTextBuilder(this.graphicsDevice, font);
+            //this.contextMenu.RightDisabledFreeTextBuilder.SetFreeTextBuilder(font);
 
             this.contextMenu.RightDisabledTextColor = color;
             node = nextSibling.ChildNodes.Item(4);
-            this.contextMenu.HasChildTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.contextMenu.HasChildTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ContextMenu\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(5);
             this.contextMenu.ClickSoundFile = @"Content\Sound\" + node.Attributes.GetNamedItem("Click").Value;
             this.contextMenu.OpenSoundFile = @"Content\Sound\" + node.Attributes.GetNamedItem("Open").Value;
@@ -106,13 +105,12 @@ namespace ContextMenuPlugin
             this.contextMenu.CurrentGameObject = gameObject;
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\ContextMenuData.xml");
         }
 
-        public void SetScenario(GameScenario scen)
+        public void SetScenario()
         {
             foreach (MenuKind kind in this.contextMenu.MenuKinds)
             {
@@ -123,7 +121,7 @@ namespace ContextMenuPlugin
                         if (i.Name.Equals("TroopCombatMethod"))
                         {
                             i.MenuItems.Clear();
-                            foreach (GameObjects.TroopDetail.CombatMethod m in scen.GameCommonData.AllCombatMethods.CombatMethods.Values)
+                            foreach (GameObjects.TroopDetail.CombatMethod m in Session.Current.Scenario.GameCommonData.AllCombatMethods.CombatMethods.Values)
                             {
                                 MenuItem item = new MenuItem(i, kind, kind.contextMenu);
                                 item.ID = m.ID;
@@ -139,7 +137,7 @@ namespace ContextMenuPlugin
                         else if (i.Name.Equals("TroopStratagem"))
                         {
                             i.MenuItems.Clear();
-                            foreach (GameObjects.TroopDetail.Stratagem m in scen.GameCommonData.AllStratagems.Stratagems.Values)
+                            foreach (GameObjects.TroopDetail.Stratagem m in Session.Current.Scenario.GameCommonData.AllStratagems.Stratagems.Values)
                             {
                                 MenuItem item = new MenuItem(i, kind, kind.contextMenu);
                                 item.ID = m.ID;
@@ -154,7 +152,7 @@ namespace ContextMenuPlugin
                         else if (i.Name.Equals("TroopStunt"))
                         {
                             i.MenuItems.Clear();
-                            foreach (GameObjects.PersonDetail.Stunt m in scen.GameCommonData.AllStunts.Stunts.Values)
+                            foreach (GameObjects.PersonDetail.Stunt m in Session.Current.Scenario.GameCommonData.AllStunts.Stunts.Values)
                             {
                                 MenuItem item = new MenuItem(i, kind, kind.contextMenu);
                                 item.ID = m.ID;
@@ -187,9 +185,9 @@ namespace ContextMenuPlugin
             this.contextMenu.SetMenuKindByName(Name);
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.contextMenu.Initialize(screen as Screen);
+            this.contextMenu.Initialize();
         }
 
         public void Update(GameTime gameTime)

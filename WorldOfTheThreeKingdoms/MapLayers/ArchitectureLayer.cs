@@ -18,149 +18,136 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
 {
     public class ArchitectureLayer
     {
-        private ArchitectureList Architectures;
-        private GameScenario gameScenario;
-        private MainMapLayer mainMapLayer;
-        private MainGameScreen screen;
+        //private ArchitectureList Architectures;
+        
         static Point currentFrame = new Point(0, 0);
         int timeSinceLastFrame = 0;
         int millisecondsPerFrame = 180;
         Point frameSize = new Point(100, 100);
         Point sheetSize = new Point(6, 1);
 
-
-        
-
-        public void Draw(SpriteBatch spriteBatch, Point viewportSize,  GameTime gameTime)
+        public void Draw(Point viewportSize, GameTime gameTime)
         {
-
-
-            if (spriteBatch != null)
+            foreach (Architecture architecture in Session.Current.Scenario.Architectures)
             {
-                foreach (Architecture architecture in this.Architectures)
+                if (Session.MainGame.mainGameScreen.ShowArchitectureConnectedLine && Session.MainGame.mainGameScreen.mainMapLayer.TileInScreen(architecture.zhongxindian))
                 {
-                    if (this.screen.ShowArchitectureConnectedLine && this.mainMapLayer.TileInScreen(architecture.zhongxindian))
-                    {
-                        this.drawArchitectureConnectedLine(architecture, spriteBatch);
-                    }
+                    this.drawArchitectureConnectedLine(architecture);
+                }
 
-                    Color zainanyanse = new Color();
-                    if (architecture.youzainan )
-                    {
-                        zainanyanse=Color.Red ;
-                    }
-                    else
-                    {
-                        zainanyanse=Color.White;
-                    }
+                Color zainanyanse = new Color();
+                if (architecture.youzainan)
+                {
+                    zainanyanse = Color.Red;
+                }
+                else
+                {
+                    zainanyanse = Color.White;
+                }
 
 
-                    foreach (Point point in architecture.ArchitectureArea.Area)
+                foreach (Point point in architecture.ArchitectureArea.Area)
+                {
+                    if (Session.MainGame.mainGameScreen.mainMapLayer.TileInScreen(point))
                     {
-                        if (this.mainMapLayer.TileInScreen(point))
+                        if ((point == architecture.zhongxindian || Session.Current.Scenario.ScenarioMap.UseSimpleArchImages))
                         {
-                            if ((point == architecture.zhongxindian || architecture.Scenario.ScenarioMap.UseSimpleArchImages))
+                            var texture = this.huoqujianzhutupian(architecture);
+                            if (texture != null)
                             {
-                                Texture2D texture = this.huoqujianzhutupian(architecture);
-                                if (texture != null)
+                                CacheManager.Draw(texture, Session.MainGame.mainGameScreen.mainMapLayer.huoqujianzhujuxing(point, architecture), null, zainanyanse, 0, Vector2.Zero, SpriteEffects.None, 0.8f);
+                            }
+                        }
+
+                        if (point == architecture.dingdian && point.Y > 0)
+                        {
+                            //////////////////////////////////////////////////////////
+                            //architecture.jianzhubiaoti.Position = this.mainMapLayer.GetDestination(point);
+                            Point pointXiaYige = new Point(point.X, point.Y + 1);
+                            Rectangle jianzhubiaotiPosition = Session.MainGame.mainGameScreen.mainMapLayer.GetDestination(point);
+                            //////////architecture.jianzhubiaoti.DisplayOffset = new Point(0, -this.mainMapLayer.TileWidth / 2);
+                            //architecture.jianzhubiaoti.Draw(0.7999f);
+
+                            if (architecture.CaptionTexture == null)
+                            {
+                                try
                                 {
-                                    spriteBatch.Draw(texture, this.mainMapLayer.huoqujianzhujuxing(point, architecture), null, zainanyanse, 0, Vector2.Zero, SpriteEffects.None, 0.8f);
+                                    architecture.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/" + architecture.CaptionID + ".png");
+                                    architecture.CaptionTexture.Width = 120;
+                                    architecture.CaptionTexture.Height = 28;
+                                }
+                                catch
+                                {
+                                    architecture.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/None.png");
                                 }
                             }
 
-                            if (point == architecture.dingdian  && point.Y>0)
+                            Rectangle jianzhubiaotibeijingweizhi;
+                            jianzhubiaotibeijingweizhi = new Rectangle(jianzhubiaotiPosition.X + Session.MainGame.mainGameScreen.mainMapLayer.TileWidth / 2 - architecture.CaptionTexture.Width / 2, jianzhubiaotiPosition.Y + Session.MainGame.mainGameScreen.mainMapLayer.TileHeight / 2 - architecture.CaptionTexture.Height / 2, architecture.CaptionTexture.Width, architecture.CaptionTexture.Height);
+                            //CacheManager.Draw(Session.MainGame.mainGameScreen.Textures.jianzhubiaotibeijing, jianzhubiaotibeijingweizhi, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.79996f);
+                            CacheManager.Draw(architecture.CaptionTexture, jianzhubiaotibeijingweizhi, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.79996f);
+
+                            if (architecture.BelongedFaction != null && Session.MainGame.mainGameScreen.mainMapLayer.TileInScreen(architecture.jianzhuqizi.qizipoint))      //不是空城的话绘制旗子
                             {
-                                //////////////////////////////////////////////////////////
-                                //architecture.jianzhubiaoti.Position = this.mainMapLayer.GetDestination(point);
-                                Point pointXiaYige = new Point(point.X, point.Y + 1);
-                                Rectangle jianzhubiaotiPosition = this.mainMapLayer.GetDestination(point);
-                                //////////architecture.jianzhubiaoti.DisplayOffset = new Point(0, -this.mainMapLayer.TileWidth / 2);
-                                //architecture.jianzhubiaoti.Draw(spriteBatch, 0.7999f);
-
-                                if (architecture.CaptionTexture == null)
+                                timeSinceLastFrame += gameTime.ElapsedGameTime.Milliseconds;
+                                if (timeSinceLastFrame > millisecondsPerFrame)
                                 {
-                                    try
+                                    timeSinceLastFrame -= millisecondsPerFrame;
+                                    ++currentFrame.X;
+                                    if (currentFrame.X >= sheetSize.X)
                                     {
-                                        architecture.CaptionTexture = CacheManager.LoadTempTexture("Content/Textures/Resources/Architecture/Caption/" + architecture.CaptionID + ".png");
-                                    }
-                                    catch
-                                    {
-                                        architecture.CaptionTexture = CacheManager.LoadTempTexture("Content/Textures/Resources/Architecture/Caption/None.png");
+                                        currentFrame.X = 0;
+                                        //++currentFrame.Y;
+                                        //if (currentFrame.Y >= sheetSize.Y)
+                                        //    currentFrame.Y = 0;
                                     }
                                 }
 
-                                Rectangle jianzhubiaotibeijingweizhi;
-                                jianzhubiaotibeijingweizhi = new Rectangle(jianzhubiaotiPosition.X + this.mainMapLayer.TileWidth / 2 - architecture.CaptionTexture.Width / 2, jianzhubiaotiPosition.Y + this.mainMapLayer.TileHeight / 2 - architecture.CaptionTexture.Height / 2, architecture.CaptionTexture.Width, architecture.CaptionTexture.Height);
-                                //spriteBatch.Draw(this.screen.Textures.jianzhubiaotibeijing, jianzhubiaotibeijingweizhi, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.79996f);
-                                spriteBatch.Draw(architecture.CaptionTexture , jianzhubiaotibeijingweizhi, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.79996f);
+                                var des = Session.MainGame.mainGameScreen.mainMapLayer.GetDestination(architecture.jianzhuqizi.qizipoint);
 
-                                if (architecture.BelongedFaction != null && this.mainMapLayer.TileInScreen(architecture.jianzhuqizi.qizipoint))      //不是空城的话绘制旗子
+                                var rec = new Rectangle(currentFrame.X * frameSize.X,
+                                      currentFrame.Y * frameSize.Y,
+                                      frameSize.X,
+                                      frameSize.Y);
+
+                                CacheManager.Draw(Session.MainGame.mainGameScreen.Textures.qizitupian, des, rec,
+                                architecture.BelongedFaction.FactionColor, 0, Vector2.Zero, SpriteEffects.None, 0.79998f);
+
+                                //Session.MainGame.mainGameScreen.qizidezi.Text = architecture.BelongedFaction.ToString().Substring(0, 1);
+                                //Session.MainGame.mainGameScreen.qizidezi.Position = this.mainMapLayer.huoquqizijuxing (architecture.jianzhuqizi.qizipoint);
+                                //Session.MainGame.mainGameScreen.qizidezi.Draw(0.7999f, Session.MainGame.mainGameScreen.qizidezi.Position);
+
+                                var scale = Convert.ToSingle(des.Width) / 30f;
+
+                                var text = architecture.BelongedFaction.ToString().Substring(0, 1);
+                                var pos = Session.MainGame.mainGameScreen.mainMapLayer.huoquqizijuxing(architecture.jianzhuqizi.qizipoint);
+                                var color = Color.White;  // architecture.BelongedFaction.FactionColor;
+
+                                //"方正北魏楷书繁体", 30f
+                                //depth:  0.7999f
+                                CacheManager.DrawString(Session.Current.Font, architecture.BelongedFaction.ToString().Substring(0, 1), new Vector2(pos.X, pos.Y), color, 0f, Vector2.Zero, 0.5f * scale, SpriteEffects.None, 0.7999f);
+
+                                if (architecture.huangdisuozai)
                                 {
-                                    timeSinceLastFrame += gameTime.ElapsedGameTime.Milliseconds; 
-                                    if (timeSinceLastFrame > millisecondsPerFrame) 
-                                    { 
-                                         timeSinceLastFrame-= millisecondsPerFrame; 
-                                        ++currentFrame.X;
-                                        if (currentFrame.X >= sheetSize.X)
-                                        {
-                                            currentFrame.X = 0;
-                                            //++currentFrame.Y;
-                                            //if (currentFrame.Y >= sheetSize.Y)
-                                            //    currentFrame.Y = 0;
-                                        }
-                                    }
-
-                                    var des = this.mainMapLayer.GetDestination(architecture.jianzhuqizi.qizipoint);
-
-                                    var rec = new Rectangle(currentFrame.X * frameSize.X,
-                                          currentFrame.Y * frameSize.Y,
-                                          frameSize.X,
-                                          frameSize.Y);
-
-                                    spriteBatch.Draw(this.screen.Textures.qizitupian, des, rec,
-                                    architecture.BelongedFaction.FactionColor, 0, Vector2.Zero, SpriteEffects.None, 0.79998f);
-
-                                    //this.screen.qizidezi.Text = architecture.BelongedFaction.ToString().Substring(0, 1);
-                                    //this.screen.qizidezi.Position = this.mainMapLayer.huoquqizijuxing (architecture.jianzhuqizi.qizipoint);
-                                    //this.screen.qizidezi.Draw(spriteBatch, 0.7999f, this.screen.qizidezi.Position);
-
-                                    var scale = Convert.ToSingle(des.Width) / 30f;
-
-                                    var text = architecture.BelongedFaction.ToString().Substring(0, 1);
-                                    var pos = this.mainMapLayer.huoquqizijuxing(architecture.jianzhuqizi.qizipoint);
-                                    var color = Color.White;  // architecture.BelongedFaction.FactionColor;
-
-                                    //"方正北魏楷书繁体", 30f
-                                    //depth:  0.7999f
-                                    CacheManager.DrawString(Session.Current.Font, architecture.BelongedFaction.ToString().Substring(0, 1), new Vector2(pos.X, pos.Y), color, 0f, Vector2.Zero, 0.5f * scale, SpriteEffects.None, 0.7999f);
-
-                                    if (architecture.huangdisuozai)
-                                    {
-                                        spriteBatch.Draw(this.screen.Textures.huangditupian ,
-                                            this.mainMapLayer.GetDestination(new Point(architecture.jianzhuqizi.qizipoint.X+1,architecture.jianzhuqizi.qizipoint.Y)),
-                                            null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.8f);
-                                    }
-                                
+                                    CacheManager.Draw(Session.MainGame.mainGameScreen.Textures.huangditupian,
+                                        Session.MainGame.mainGameScreen.mainMapLayer.GetDestination(new Point(architecture.jianzhuqizi.qizipoint.X + 1, architecture.jianzhuqizi.qizipoint.Y)),
+                                        null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.8f);
                                 }
-                            } //end      if (point == architecture.ArchitectureArea.TopLeft && point.Y>0)
 
-                            if ((GlobalVariables.SkyEye || this.gameScenario.NoCurrentPlayer) || this.gameScenario.CurrentPlayer.IsArchitectureKnown(architecture))
-                            {
-                                if (!architecture.IncrementNumberList.IsEmpty)
-                                {
-                                    architecture.IncrementNumberList.Draw(this.gameScenario.GameScreen, spriteBatch, this.mainMapLayer.screen.Scenario.GameCommonData.NumberGenerator, new GetDisplayRectangle(this.mainMapLayer.GetDestination), this.mainMapLayer.TileWidth, gameTime);
-                                }
-                                if (!architecture.DecrementNumberList.IsEmpty)
-                                {
-                                    architecture.DecrementNumberList.Draw(this.gameScenario.GameScreen, spriteBatch, this.mainMapLayer.screen.Scenario.GameCommonData.NumberGenerator, new GetDisplayRectangle(this.mainMapLayer.GetDestination), this.mainMapLayer.TileWidth, gameTime);
-                                    //sourceRectangle = null;
-                                    spriteBatch.Draw(this.mainMapLayer.screen.Textures.TileFrameTextures[2], this.mainMapLayer.GetDestination(point), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.799f);
-                                }
                             }
-                            else
+                        } //end      if (point == architecture.ArchitectureArea.TopLeft && point.Y>0)
+
+                        if ((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || Session.Current.Scenario.CurrentPlayer.IsArchitectureKnown(architecture))
+                        {
+                            if (!architecture.IncrementNumberList.IsEmpty)
                             {
-                                architecture.IncrementNumberList.Clear();
-                                architecture.DecrementNumberList.Clear();
+                                architecture.IncrementNumberList.Draw(Session.Current.Scenario.GameCommonData.NumberGenerator, new GetDisplayRectangle(Session.MainGame.mainGameScreen.mainMapLayer.GetDestination), Session.MainGame.mainGameScreen.mainMapLayer.TileWidth, gameTime);
+                            }
+                            if (!architecture.DecrementNumberList.IsEmpty)
+                            {
+                                architecture.DecrementNumberList.Draw(Session.Current.Scenario.GameCommonData.NumberGenerator, new GetDisplayRectangle(Session.MainGame.mainGameScreen.mainMapLayer.GetDestination), Session.MainGame.mainGameScreen.mainMapLayer.TileWidth, gameTime);
+                                //sourceRectangle = null;
+                                CacheManager.Draw(Session.MainGame.mainGameScreen.Textures.TileFrameTextures[2], Session.MainGame.mainGameScreen.mainMapLayer.GetDestination(point), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.799f);
                             }
                         }
                         else
@@ -169,11 +156,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                             architecture.DecrementNumberList.Clear();
                         }
                     }
+                    else
+                    {
+                        architecture.IncrementNumberList.Clear();
+                        architecture.DecrementNumberList.Clear();
+                    }
                 }
             }
         }
 
-        private void drawArchitectureConnectedLine(Architecture architecture, SpriteBatch spriteBatch)
+        private void drawArchitectureConnectedLine(Architecture architecture)
         {
             int linkType;
             foreach (Architecture connectedArchitecture in architecture.AILandLinks)
@@ -186,7 +178,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                 {
                     linkType = 2;
                 }
-                this.drawConnectedLineArchitectureToArchitecture(architecture, connectedArchitecture, spriteBatch, linkType);
+                this.drawConnectedLineArchitectureToArchitecture(architecture, connectedArchitecture, linkType);
 
             }
             foreach (Architecture connectedArchitecture in architecture.AIWaterLinks)
@@ -199,16 +191,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                 {
                     linkType = 2;
                 }
-                this.drawConnectedLineArchitectureToArchitecture(architecture, connectedArchitecture, spriteBatch, linkType);
+                this.drawConnectedLineArchitectureToArchitecture(architecture, connectedArchitecture, linkType);
             }
         }
 
-        private void drawConnectedLineArchitectureToArchitecture(Architecture architecture, Architecture connectedArchitecture, SpriteBatch spriteBatch, int linkType)
+        private void drawConnectedLineArchitectureToArchitecture(Architecture architecture, Architecture connectedArchitecture, int linkType)
         {
-            this.drawPointToPointLine(this.mainMapLayer.GetCenterCoordinate(architecture.zhongxindian), this.mainMapLayer.GetCenterCoordinate(connectedArchitecture.zhongxindian),spriteBatch,linkType);
+            this.drawPointToPointLine(Session.MainGame.mainGameScreen.mainMapLayer.GetCenterCoordinate(architecture.zhongxindian), Session.MainGame.mainGameScreen.mainMapLayer.GetCenterCoordinate(connectedArchitecture.zhongxindian), linkType);
         }
 
-        private void drawPointToPointLine(Point point1, Point point2, SpriteBatch spriteBatch,int linkType)
+        private void drawPointToPointLine(Point point1, Point point2, int linkType)
         {
 
             if (Math.Abs(point2.Y - point1.Y) <= Math.Abs(point2.X - point1.X))
@@ -228,7 +220,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                 {
                     Rectangle rectangle = new Rectangle(x, (x - point1.X) * (point2.Y - point1.Y) / (point2.X - point1.X) + point1.Y, 3, 3);
 
-                    this.drawLinkLinePoint(linkType, rectangle, spriteBatch);
+                    this.drawLinkLinePoint(linkType, rectangle);
 
                 }
             }
@@ -249,34 +241,34 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                 {
                     Rectangle rectangle = new Rectangle((y - point1.Y) * (point2.X - point1.X) / (point2.Y - point1.Y) + point1.X , y, 3, 3);
 
-                    this.drawLinkLinePoint(linkType, rectangle, spriteBatch);
+                    this.drawLinkLinePoint(linkType, rectangle);
                 }
             }
         }
 
-        private void drawLinkLinePoint(int linkType, Rectangle rectangle, SpriteBatch spriteBatch)
+        private void drawLinkLinePoint(int linkType, Rectangle rectangle)
         {
             if (linkType == 0)
             {
-                spriteBatch.Draw(this.screen.Textures.LandConnect, rectangle, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.7999f);
+                CacheManager.Draw(Session.MainGame.mainGameScreen.Textures.LandConnect, rectangle, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.7999f);
 
             }
             else if (linkType == 1)
             {
-                spriteBatch.Draw(this.screen.Textures.WaterConnect , rectangle, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.7999f);
+                CacheManager.Draw(Session.MainGame.mainGameScreen.Textures.WaterConnect , rectangle, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.7999f);
 
             }
             else if (linkType == 2)
             {
-                spriteBatch.Draw(this.screen.Textures.SingleConnect , rectangle, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.7999f);
+                CacheManager.Draw(Session.MainGame.mainGameScreen.Textures.SingleConnect , rectangle, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.7999f);
             }
         }
 
 
-        private Texture2D huoqujianzhutupian(Architecture architecture)
+        private PlatformTexture huoqujianzhutupian(Architecture architecture)
         {
-            Texture2D tupian=architecture.Texture;
-            if (architecture.Scenario.ScenarioMap.UseSimpleArchImages)
+            PlatformTexture tupian = architecture.Texture;
+            if (Session.Current.Scenario.ScenarioMap.UseSimpleArchImages)
             {
                 return tupian;
             }
@@ -291,19 +283,19 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                     if (architecture.ArchitectureArea.Area[0].X == architecture.ArchitectureArea.Area[1].X) //竖关
                     {
 
-                        tupian = this.screen.Textures.guandetupian[1];
+                        tupian = Session.MainGame.mainGameScreen.Textures.guandetupian[1];
                     }
                     else //横关
                     {
 
-                        tupian = this.screen.Textures.guandetupian[0];
+                        tupian = Session.MainGame.mainGameScreen.Textures.guandetupian[0];
                     }
                 }
                 else if (architecture.JianzhuGuimo == 5)//大关
                 {
                     if (architecture.ArchitectureArea.Area[0].X == architecture.ArchitectureArea.Area[1].X) //竖关
                     {
-                        tupian = this.screen.Textures.guandetupian[2];
+                        tupian = Session.MainGame.mainGameScreen.Textures.guandetupian[2];
 
                     }
                     else //横关
@@ -317,36 +309,32 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
             }
             else
             {
-                try
+                //try
+                //{
+                if (architecture.JianzhuGuimo == 13 && Session.MainGame.mainGameScreen.Textures.largeCityImg.ContainsKey(architecture.Kind.ID))
                 {
-                    if (architecture.JianzhuGuimo == 13)
-                    {
-                        tupian = this.screen.Textures.largeCityImg[architecture.Kind.ID];
-                    }
-                    else if (architecture.JianzhuGuimo == 5)
-                    {
-                        tupian = this.screen.Textures.mediumCityImg[architecture.Kind.ID];
-                    }
+                    tupian = Session.MainGame.mainGameScreen.Textures.largeCityImg[architecture.Kind.ID];
                 }
-                catch (KeyNotFoundException)
+                else if (architecture.JianzhuGuimo == 5 && Session.MainGame.mainGameScreen.Textures.mediumCityImg.ContainsKey(architecture.Kind.ID))
+                {
+                    tupian = Session.MainGame.mainGameScreen.Textures.mediumCityImg[architecture.Kind.ID];
+                }
+                else
                 {
                     tupian = architecture.Texture;
                 }
+                //}
+                //catch (KeyNotFoundException)
+                //{
+                //    tupian = architecture.Texture;
+                //}
             }
             return tupian;
         }
 
 
-
-
-
-        public void Initialize(MainMapLayer mainMapLayer, GameScenario scenario, MainGameScreen mainGameScreen)
+        public void Initialize()
         {
-            this.screen  = mainGameScreen;
-            this.mainMapLayer = mainMapLayer;
-            this.Architectures = scenario.Architectures;
-            this.gameScenario = scenario;
-            
         }
     }
 

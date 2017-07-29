@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -21,13 +22,13 @@ namespace GameObjects.TroopDetail
             return true;
         }
 
-        public bool AddMilitaryKind(GameScenario scenario, int kind)
+        public bool AddMilitaryKind(int kind)
         {
             if (this.MilitaryKinds.ContainsKey(kind))
             {
                 return false;
             }
-            MilitaryKind militaryKind = scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(kind);
+            MilitaryKind militaryKind = Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(kind);
             if (militaryKind != null)
             {
                 this.MilitaryKinds.Add(kind, militaryKind);
@@ -35,13 +36,13 @@ namespace GameObjects.TroopDetail
             return true;
         }
 
-        public bool RemoveMilitaryKind(GameScenario scenario, int kind)
+        public bool RemoveMilitaryKind(int kind)
         {
             if (!this.MilitaryKinds.ContainsKey(kind))
             {
                 return false;
             }
-            MilitaryKind militaryKind = scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(kind);
+            MilitaryKind militaryKind = Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(kind);
             if (militaryKind != null)
             {
                 this.MilitaryKinds.Remove(militaryKind.ID);
@@ -71,12 +72,12 @@ namespace GameObjects.TroopDetail
             return list;
         }
 
-        public void AddBasicMilitaryKinds(GameScenario scen)
+        public void AddBasicMilitaryKinds()
         {
-            this.AddMilitaryKind(scen.GameCommonData.AllMilitaryKinds.GetMilitaryKindList().GetGameObject(0) as MilitaryKind);
-            this.AddMilitaryKind(scen.GameCommonData.AllMilitaryKinds.GetMilitaryKindList().GetGameObject(1) as MilitaryKind);
-            this.AddMilitaryKind(scen.GameCommonData.AllMilitaryKinds.GetMilitaryKindList().GetGameObject(2) as MilitaryKind);
-            this.AddMilitaryKind(scen.GameCommonData.AllMilitaryKinds.GetMilitaryKindList().GetGameObject(30) as MilitaryKind);
+            this.AddMilitaryKind(Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKindList().GetGameObject(0) as MilitaryKind);
+            this.AddMilitaryKind(Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKindList().GetGameObject(1) as MilitaryKind);
+            this.AddMilitaryKind(Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKindList().GetGameObject(2) as MilitaryKind);
+            this.AddMilitaryKind(Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKindList().GetGameObject(30) as MilitaryKind);
         }
 
         public List<string> LoadFromString(MilitaryKindTable allMilitaryKinds, string militaryKindIDs)

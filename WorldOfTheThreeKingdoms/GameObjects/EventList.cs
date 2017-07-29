@@ -1,5 +1,6 @@
 ﻿
 
+using GameManager;
 using System.Runtime.Serialization;
 
 namespace GameObjects
@@ -16,9 +17,9 @@ namespace GameObjects
             te.OnApplyEvent += new Event.ApplyEvent(this.te_OnApplyEvent);
         }
 
-        private void te_OnApplyEvent(Event te, Architecture a)
+        private void te_OnApplyEvent(Event te, Architecture a, Screen screen)
         {
-            te.Scenario.GameScreen.ApplyEvent(te, a);
+            screen.ApplyEvent(te, a, screen);
         }
     }
 }

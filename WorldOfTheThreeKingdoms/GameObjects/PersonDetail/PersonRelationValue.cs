@@ -10,7 +10,9 @@ namespace GameObjects.PersonDetail
         public Person Person { get; set; }
         public int RelationValue { get; set; }
 
+#pragma warning disable CS0108 // 'PersonRelationValue.Name' hides inherited member 'GameObject.Name'. Use the new keyword if hiding was intended.
         public String Name
+#pragma warning restore CS0108 // 'PersonRelationValue.Name' hides inherited member 'GameObject.Name'. Use the new keyword if hiding was intended.
         {
             get
             {

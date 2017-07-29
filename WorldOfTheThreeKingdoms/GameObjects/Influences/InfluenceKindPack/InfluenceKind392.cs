@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Influences;
 using Microsoft.Xna.Framework;
 using System;
@@ -14,7 +15,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
 
         public override void ApplyInfluenceKind(Troop troop)
         {
-            if ((troop.Scenario.IsPlayer(troop.BelongedFaction) && !troop.Auto) && ((((troop.StartingArchitecture == null) || (troop.StartingArchitecture.BelongedFaction != troop.BelongedFaction)) || (troop.StartingArchitecture.BelongedSection == null)) || !troop.StartingArchitecture.BelongedSection.AIDetail.AutoRun))
+            if ((Session.Current.Scenario.IsPlayer(troop.BelongedFaction) && !troop.Auto) && ((((troop.StartingArchitecture == null) || (troop.StartingArchitecture.BelongedFaction != troop.BelongedFaction)) || (troop.StartingArchitecture.BelongedSection == null)) || !troop.StartingArchitecture.BelongedSection.AIDetail.AutoRun))
             {
                 troop.Investigate(this.days);
             }
@@ -43,7 +44,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
                 bool flag = false;
                 foreach (Point point in source.BaseViewArea.Area)
                 {
-                    Architecture architectureByPosition = source.Scenario.GetArchitectureByPosition(point);
+                    Architecture architectureByPosition = Session.Current.Scenario.GetArchitectureByPosition(point);
                     if (source.BelongedLegion.WillArchitecture == architectureByPosition)
                     {
                         flag = true;

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GameManager;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Runtime.InteropServices;
@@ -10,7 +11,7 @@ namespace NumberInputerPlugin
     internal struct Number
     {
         internal int Num;
-        internal Texture2D Texture;
+        internal PlatformTexture Texture;
         internal Rectangle Position;
         internal Rectangle GetDisplayPosition(Point offset)
         {

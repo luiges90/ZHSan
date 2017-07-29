@@ -32,7 +32,7 @@ namespace TroopDetailPlugin
 
 		private TroopDetail troopDetail;
 
-		private GraphicsDevice graphicsDevice;
+		
 
 		public string Author
 		{
@@ -105,16 +105,16 @@ namespace TroopDetailPlugin
 		{
 		}
 
-		public void Draw(SpriteBatch spriteBatch)
+		public void Draw()
 		{
 			bool isShowing = !this.troopDetail.IsShowing;
 			if (!isShowing)
 			{
-				this.troopDetail.Draw(spriteBatch);
+				this.troopDetail.Draw();
 			}
 		}
 
-		public void Initialize()
+		public void Initialize(Screen screen)
 		{
 		}
 
@@ -131,11 +131,11 @@ namespace TroopDetailPlugin
 			XmlNode xmlNodes = nextSibling.ChildNodes.Item(0);
 			this.troopDetail.BackgroundSize.X = int.Parse(xmlNodes.Attributes.GetNamedItem("Width").Value);
 			this.troopDetail.BackgroundSize.Y = int.Parse(xmlNodes.Attributes.GetNamedItem("Height").Value);
-			this.troopDetail.BackgroundTexture = CacheManager.LoadTempTexture(string.Concat(@"Content\Textures\GameComponents\TroopDetail\Data\", xmlNodes.Attributes.GetNamedItem("FileName").Value));
+			this.troopDetail.BackgroundTexture = CacheManager.GetTempTexture(string.Concat(@"Content\Textures\GameComponents\TroopDetail\Data\", xmlNodes.Attributes.GetNamedItem("FileName").Value));
 			xmlNodes = nextSibling.ChildNodes.Item(1);
             Microsoft.Xna.Framework.Rectangle rectangle = StaticMethods.LoadRectangleFromXMLNode(xmlNodes);
             StaticMethods.LoadFontAndColorFromXMLNode(xmlNodes, out font, out color);
-			this.troopDetail.TroopNameText = new FreeText(this.graphicsDevice, font, color);
+			this.troopDetail.TroopNameText = new FreeText(font, color);
 			this.troopDetail.TroopNameText.Position = rectangle;
 			this.troopDetail.TroopNameText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), xmlNodes.Attributes.GetNamedItem("Align").Value);
 			xmlNodes = nextSibling.ChildNodes.Item(2);
@@ -153,14 +153,14 @@ namespace TroopDetailPlugin
 				XmlNode xmlNodes1 = xmlNodes.ChildNodes.Item(num);
 				rectangle = StaticMethods.LoadRectangleFromXMLNode(xmlNodes1);
                 StaticMethods.LoadFontAndColorFromXMLNode(xmlNodes1, out font, out color);
-				labelText.Label = new FreeText(this.graphicsDevice, font, color);
+				labelText.Label = new FreeText(font, color);
 				labelText.Label.Position = rectangle;
 				labelText.Label.Align = (TextAlign)Enum.Parse(typeof(TextAlign), xmlNodes1.Attributes.GetNamedItem("Align").Value);
 				labelText.Label.Text = xmlNodes1.Attributes.GetNamedItem("Label").Value;
 				xmlNodes1 = xmlNodes.ChildNodes.Item(num + 1);
 				rectangle = StaticMethods.LoadRectangleFromXMLNode(xmlNodes1);
                 StaticMethods.LoadFontAndColorFromXMLNode(xmlNodes1, out font, out color);
-				labelText.Text = new FreeText(this.graphicsDevice, font, color);
+				labelText.Text = new FreeText(font, color);
 				labelText.Text.Position = rectangle;
 				labelText.Text.Align = (TextAlign)Enum.Parse(typeof(TextAlign), xmlNodes1.Attributes.GetNamedItem("Align").Value);
 				labelText.PropertyName = xmlNodes1.Attributes.GetNamedItem("PropertyName").Value;
@@ -176,7 +176,7 @@ namespace TroopDetailPlugin
             this.troopDetail.OtherPersonText.SubTitleColor = StaticMethods.LoadColor(xmlNodes.Attributes.GetNamedItem("SubTitleColor").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(xmlNodes, out font, out color);
 
-			//this.troopDetail.OtherPersonText.Builder.SetFreeTextBuilder(this.graphicsDevice, font);
+			//this.troopDetail.OtherPersonText.Builder.SetFreeTextBuilder(font);
 
 			this.troopDetail.OtherPersonText.DefaultColor = color;
 			xmlNodes = nextSibling.ChildNodes.Item(5);
@@ -190,7 +190,7 @@ namespace TroopDetailPlugin
             StaticMethods.LoadFontAndColorFromXMLNode(xmlNodes, out font, out color);
 
             this.troopDetail.CombatMethodText.Builder = font;
-            //this.troopDetail.CombatMethodText.Builder.SetFreeTextBuilder(this.graphicsDevice, font);
+            //this.troopDetail.CombatMethodText.Builder.SetFreeTextBuilder(font);
 
 			this.troopDetail.CombatMethodText.DefaultColor = color;
 			xmlNodes = nextSibling.ChildNodes.Item(6);
@@ -205,7 +205,7 @@ namespace TroopDetailPlugin
             StaticMethods.LoadFontAndColorFromXMLNode(xmlNodes, out font, out color);
 
             this.troopDetail.StuntText.Builder = font;
-            //this.troopDetail.StuntText.Builder.SetFreeTextBuilder(this.graphicsDevice, font);
+            //this.troopDetail.StuntText.Builder.SetFreeTextBuilder(font);
 
 			this.troopDetail.StuntText.DefaultColor = color;
 			xmlNodes = nextSibling.ChildNodes.Item(7);
@@ -220,14 +220,13 @@ namespace TroopDetailPlugin
             StaticMethods.LoadFontAndColorFromXMLNode(xmlNodes, out font, out color);
 
             this.troopDetail.InfluenceText.Builder = font;
-            //this.troopDetail.InfluenceText.Builder.SetFreeTextBuilder(this.graphicsDevice, font);
+            //this.troopDetail.InfluenceText.Builder.SetFreeTextBuilder(font);
 
 			this.troopDetail.InfluenceText.DefaultColor = color;
 		}
 
-		public void SetGraphicsDevice(GraphicsDevice device)
+		public void SetGraphicsDevice()
 		{
-			this.graphicsDevice = device;
 			this.LoadDataFromXMLDocument(@"Content\Data\Plugins\TroopDetailData.xml");
 		}
 
@@ -236,9 +235,9 @@ namespace TroopDetailPlugin
 			this.troopDetail.SetPosition(showPosition);
 		}
 
-		public void SetScreen(object screen)
+		public void SetScreen(Screen screen)
 		{
-			this.troopDetail.Initialize(screen as Screen);
+			this.troopDetail.Initialize();
 		}
 
 		public void SetTroop(object troop)

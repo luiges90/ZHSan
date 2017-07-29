@@ -26,7 +26,9 @@ namespace GamePanels
         float totalElapse;
         bool displaycursor;
 
+#pragma warning disable CS0414 // The field 'TextBox.lastInputTime' is assigned but its value is never used
         float lastInputTime = 0f;
+#pragma warning restore CS0414 // The field 'TextBox.lastInputTime' is assigned but its value is never used
         float afterLastInputTime = 0f;
 		float afterLastTextTime = 0f;
 

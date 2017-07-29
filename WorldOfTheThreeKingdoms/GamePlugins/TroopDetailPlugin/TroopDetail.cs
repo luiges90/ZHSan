@@ -16,7 +16,7 @@ namespace TroopDetailPlugin
 {
 	internal class TroopDetail
 	{
-		internal Texture2D BackgroundTexture;
+		internal PlatformTexture BackgroundTexture;
 
 		internal Point BackgroundSize;
 
@@ -43,9 +43,7 @@ namespace TroopDetailPlugin
 		internal FreeRichText InfluenceText;
 
 		internal Rectangle InfluenceClient;
-
-		internal Screen screen;
-
+        
 		private bool isShowing;
 
 		private Point DisplayOffset;
@@ -90,12 +88,12 @@ namespace TroopDetailPlugin
 				bool kind = !value;
 				if (kind)
 				{
-                    kind = this.screen.PopUndoneWork().Kind == UndoneWorkKind.SubDialog;
+                    kind = Session.MainGame.mainGameScreen.PopUndoneWork().Kind == UndoneWorkKind.SubDialog;
 					if (kind)
 					{
-						this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-						this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-						this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+						Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+						Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+						Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
 						this.OtherPersonText.Clear();
 						this.CombatMethodText.Clear();
 						this.StuntText.Clear();
@@ -108,10 +106,10 @@ namespace TroopDetailPlugin
 				}
 				else
 				{
-					this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.SubDialog, DialogKind.TroopDetail));
-					this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-					this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-					this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+					Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.SubDialog, DialogKind.TroopDetail));
+					Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+					Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+					Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
 				}
 			}
 		}
@@ -152,25 +150,18 @@ namespace TroopDetailPlugin
 			this.InfluenceText = new FreeRichText();
 		}
 
-		internal void Draw(SpriteBatch spriteBatch)
+		internal void Draw()
 		{
 			bool showingTroop = this.ShowingTroop != null;
 			if (showingTroop)
 			{
 				Rectangle? nullable = null;
-				spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+				CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
 				nullable = null;
-                //try
-                //{
-                //    spriteBatch.Draw(this.ShowingTroop.Leader.SmallPortrait, this.PortraitDisplayPosition, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
-                //}
-                //catch
-                //{
-                //}
 
                 CacheManager.DrawZhsanAvatar(this.ShowingTroop.Leader, "s", this.PortraitDisplayPosition, Color.White, 0.199f);
 
-				this.TroopNameText.Draw(spriteBatch, 0.1999f);
+				this.TroopNameText.Draw(0.1999f);
 				List<LabelText>.Enumerator enumerator = this.LabelTexts.GetEnumerator();
 				try
 				{
@@ -182,24 +173,24 @@ namespace TroopDetailPlugin
 							break;
 						}
 						LabelText current = enumerator.Current;
-						current.Label.Draw(spriteBatch, 0.1999f);
-						current.Text.Draw(spriteBatch, 0.1999f);
+						current.Label.Draw(0.1999f);
+						current.Text.Draw(0.1999f);
 					}
 				}
 				finally
 				{
 					enumerator.Dispose();
 				}
-				this.OtherPersonText.Draw(spriteBatch, 0.1999f);
-				this.CombatMethodText.Draw(spriteBatch, 0.1999f);
-				this.StuntText.Draw(spriteBatch, 0.1999f);
-				this.InfluenceText.Draw(spriteBatch, 0.1999f);
+				this.OtherPersonText.Draw(0.1999f);
+				this.CombatMethodText.Draw(0.1999f);
+				this.StuntText.Draw(0.1999f);
+				this.InfluenceText.Draw(0.1999f);
 			}
 		}
 
-		internal void Initialize(Screen screen)
+		internal void Initialize()
 		{
-			this.screen = screen;
+			
 		}
 
 		private void screen_OnMouseLeftDown(Point position)
@@ -294,7 +285,7 @@ namespace TroopDetailPlugin
 
 		internal void SetPosition(ShowPosition showPosition)
 		{
-			Rectangle rectangle = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+			Rectangle rectangle = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
 			Rectangle centerRectangle = new Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
 			ShowPosition showPosition1 = showPosition;
 			switch (showPosition1)

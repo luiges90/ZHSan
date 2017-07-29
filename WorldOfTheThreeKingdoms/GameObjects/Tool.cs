@@ -16,15 +16,15 @@ namespace GameObjects
         public string Name;
         public int Width;
 
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw()
         {
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public virtual void Draw(GameTime gameTime)
         {
         }
 
-        public virtual void DrawBackground(SpriteBatch spriteBatch, Rectangle Position)
+        public virtual void DrawBackground(Rectangle Position)
         {
         }
 

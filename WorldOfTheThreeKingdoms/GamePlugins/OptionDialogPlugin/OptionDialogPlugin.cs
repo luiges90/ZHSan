@@ -20,7 +20,7 @@ namespace OptionDialogPlugin
         private string author = "clip_on";
         private const string DataPath = @"Content\Textures\GameComponents\OptionDialog\Data\";
         private string description = "选项对话框";
-        private GraphicsDevice graphicsDevice;
+        
         private OptionDialog optionDialog = new OptionDialog();
         private const string Path = @"Content\Textures\GameComponents\OptionDialog\";
         private string pluginName = "OptionDialogPlugin";
@@ -61,11 +61,11 @@ namespace OptionDialogPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.optionDialog.IsShowing)
             {
-                this.optionDialog.Draw(spriteBatch);
+                this.optionDialog.Draw();
             }
         }
 
@@ -79,7 +79,7 @@ namespace OptionDialogPlugin
             this.optionDialog.IsShowing = false;
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -98,30 +98,29 @@ namespace OptionDialogPlugin
                     Name = node4.Attributes.GetNamedItem("Name").Value
                 };
                 XmlNode node = node4.ChildNodes.Item(0);
-                style.TitleTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\OptionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+                style.TitleTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\OptionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
                 style.TitleWidth = int.Parse(node.Attributes.GetNamedItem("TitleWidth").Value);
                 style.TitleHeight = int.Parse(node.Attributes.GetNamedItem("TitleHeight").Value);
                 style.TitleMargin = int.Parse(node.Attributes.GetNamedItem("Margin").Value);
                 StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-                style.TitleText = new FreeText(this.graphicsDevice, font, color);
+                style.TitleText = new FreeText(font, color);
                 style.TitleText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
                 style.TitleText.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
                 node = node4.ChildNodes.Item(1);
-                style.OptionTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\OptionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-                style.OptionSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\OptionDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+                style.OptionTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\OptionDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+                style.OptionSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\OptionDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
                 style.ItemHeight = int.Parse(node.Attributes.GetNamedItem("ItemHeight").Value);
                 style.Margin = int.Parse(node.Attributes.GetNamedItem("Margin").Value);
                 node = node4.ChildNodes.Item(2);
                 StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-                style.OptionTextList = new FreeTextList(this.graphicsDevice, font, color);
+                style.OptionTextList = new FreeTextList(font, color);
                 style.OptionTextList.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
                 this.optionDialog.Styles.Add(style.Name, style);
             }
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\OptionDialogData.xml");
         }
 
@@ -130,9 +129,9 @@ namespace OptionDialogPlugin
             this.optionDialog.ReturnObjectFunction = returnobjectFunction;
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.optionDialog.Initialize(screen as Screen);
+            this.optionDialog.Initialize(screen);
         }
 
         public void SetStyle(string style)

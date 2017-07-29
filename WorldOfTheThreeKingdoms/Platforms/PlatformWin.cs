@@ -52,6 +52,19 @@ namespace Platforms
 
         public static WindowInputCapturer wic;
 
+        /// <summary>
+        /// 內存使用占用
+        /// </summary>
+        public new string MemoryUsage
+        {
+            get
+            {
+                return (System.GC.GetTotalMemory(false) / 1024).ToString();
+                //Android.Activity1.os.Debug.getNativeHeapAllocatedSize()
+                //return "";
+            }
+        }
+
         //static bool IsTrialOrigin = true;
         //public static bool? isTrial;
         //public static bool IsTrial
@@ -78,6 +91,14 @@ namespace Platforms
         //        return Session.GameUser != null && !String.IsNullOrEmpty(Session.GameUser.UserRole) && Session.GameUser.UserRole.Contains("SanguoWind");
         //    }
         //}
+
+        public new string Location
+        {
+            get
+            {
+                return Assembly.GetExecutingAssembly().Location;
+            }
+        }
 
         public static bool IsActive
         {
@@ -359,6 +380,18 @@ namespace Platforms
             Directory.CreateDirectory(dir);
         }
 
+        public override string DirectoryName(string dir)
+        {
+            if (String.IsNullOrEmpty(dir))
+            {
+                return "";
+            }
+            else
+            {
+                return Path.GetDirectoryName(dir);
+            }
+        }
+
         public override string GetFileNameFromPath(string file)
         {
             return Path.GetFileName(file);
@@ -420,7 +453,14 @@ namespace Platforms
             }
             catch (Exception ex)
             {
-                WebTools.TakeWarnMsg("加载游戏材质失败:" + res, "LoadTexture:" + UserApplicationDataPath + res, ex);
+                if (res.Contains("yueluo_1.0"))
+                {
+
+                }
+                else
+                {
+                    WebTools.TakeWarnMsg("加载游戏材质失败:" + res, "LoadTexture:" + UserApplicationDataPath + res, ex);
+                }
                 return null;
             }
         }
@@ -723,21 +763,14 @@ namespace Platforms
         /// </summary>
         /// <param name="res"></param>
         /// <param name="content"></param>
-        public void SaveUserFile(string res, string content, bool fullPath)
+        public void SaveUserFile(string res, string content)
         {
             try
             {
                 DelUserFiles(new string[] { res }, null);
                 lock (Platform.IoLock)
                 {
-                    if (fullPath)
-                    {
-                        File.WriteAllText(res, content);
-                    }
-                    else
-                    {
-                        File.WriteAllText(UserApplicationDataPath + res, content);
-                    }
+                    File.WriteAllText(UserApplicationDataPath + res, content);
                 }
             }
             catch (Exception ex)
@@ -993,7 +1026,9 @@ namespace Platforms
                 startInfo.UseShellExecute = true;
                 Process.Start(startInfo);
             }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
             {
                 //SeasonTools.SendErrMsg("ProcessStartInfo打開Web出錯：", ex);
                 //try
@@ -1046,7 +1081,9 @@ namespace Platforms
             {
                 MainGame.Exit();
             }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
             {
                 //退出失敗，當不要緊
             }
@@ -1411,6 +1448,7 @@ namespace Platforms
     public class PlatformTask
     {
         Action act;
+        public bool IsStop = false;
         public string[] ParamArray = null;
         public string[] ParamArrayResult = null;
         public byte[] ParamArrayResultBytes = null;
@@ -1418,6 +1456,18 @@ namespace Platforms
         public PlatformTask(Action action)
         {
             act = action;
+        }
+        public bool IsAlive
+        {
+            get
+            {
+                return act != null;
+            }
+        }
+
+        public void Abort()
+        {
+            IsStop = true;
         }
         public void Start()
         {

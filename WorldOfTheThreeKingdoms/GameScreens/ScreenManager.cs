@@ -11,6 +11,7 @@ using GameObjects.FactionDetail;
 using GameObjects.TroopDetail;
 using GameObjects.SectionDetail;
 using GameObjects.PersonDetail;
+using GameManager;
 
 namespace WorldOfTheThreeKingdoms.GameScreens
 
@@ -32,31 +33,29 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         public Routeway CurrentRouteway;
         public Troop CurrentTroop;
         public DiplomaticRelationDisplay CurrentDiplomaticRelationDisplay;
-        private GameScenario gameScenario;
+        
         private FrameFunction lastFrameFunction;
-        private MainGameScreen mainGameScreen;
 
-        public ScreenManager(MainGameScreen mainGameScreen)
+        public ScreenManager()
         {
-            this.mainGameScreen = mainGameScreen;
         }
 
         private void FrameFunction_Architecture_AfterGetAwardTreasure() // 赏赐宝物
         {
-            this.CurrentGameObject = this.mainGameScreen.Plugins.TabListPlugin.SelectedItem as GameObject;            
+            this.CurrentGameObject = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as GameObject;            
             if (this.CurrentGameObject != null)
             {
                 Treasure currentGameObject = this.CurrentGameObject as Treasure;
                 if (currentGameObject.BelongedPerson != null)
                 {
-                    this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetAwardTreasurePerson, false, true, true, false, this.CurrentArchitecture.BelongedFaction.PersonsInArchitecturesExceptLeader, null, "", "");
+                    Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetAwardTreasurePerson, false, true, true, false, this.CurrentArchitecture.BelongedFaction.PersonsInArchitecturesExceptLeader, null, "", "");
                 }
             }
         }
 
         private void FrameFunction_Architecture_AfterGetAwardTreasurePerson() // 赏赐宝物
         {
-            this.CurrentPerson = this.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
+            this.CurrentPerson = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
             if (this.CurrentPerson != null)
             {
                 Treasure currentGameObject = this.CurrentGameObject as Treasure;
@@ -70,26 +69,26 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Architecture_Afterxuanzemeinv() // 纳妃
         {
-            this.CurrentPerson = this.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
+            this.CurrentPerson = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
             if (this.CurrentPerson != null)
             {
-                this.mainGameScreen.xianshishijiantupian(this.CurrentPerson, (this.gameScenario.CurrentFaction.Leader).Name, TextMessageKind.TakePrincess, "nafei", "nafei.jpg", "nafei",true );
-                Person tookSpouse = this.gameScenario.CurrentFaction.Leader.XuanZeMeiNv(this.CurrentPerson);
+                Session.MainGame.mainGameScreen.xianshishijiantupian(this.CurrentPerson, (Session.Current.Scenario.CurrentFaction.Leader).Name, TextMessageKind.TakePrincess, "nafei", "nafei.jpg", "nafei",true );
+                Person tookSpouse = Session.Current.Scenario.CurrentFaction.Leader.XuanZeMeiNv(this.CurrentPerson);
                 if (tookSpouse != null)
                 {
-                    this.mainGameScreen.PersonBeiDuoqi(tookSpouse, this.CurrentArchitecture.BelongedFaction);
+                    Session.MainGame.mainGameScreen.PersonBeiDuoqi(tookSpouse, this.CurrentArchitecture.BelongedFaction);
                 }
             }
         }
 
         private void FrameFunction_Architecture_chongxingmeinv() // 宠幸
         {
-            this.CurrentPerson = this.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
+            this.CurrentPerson = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
             if (this.CurrentPerson != null)
             {
 
-                this.gameScenario.CurrentFaction.Leader.GoForHouGong(this.CurrentPerson);
-                this.mainGameScreen.xianshishijiantupian(this.CurrentPerson, this.gameScenario.CurrentFaction.Leader.Name, TextMessageKind.Hougong, "chongxing", this.CurrentPerson.ID.ToString() + ".jpg", "hougong", true);
+                Session.Current.Scenario.CurrentFaction.Leader.GoForHouGong(this.CurrentPerson);
+                Session.MainGame.mainGameScreen.xianshishijiantupian(this.CurrentPerson, Session.Current.Scenario.CurrentFaction.Leader.Name, TextMessageKind.Hougong, "chongxing", this.CurrentPerson.ID.ToString() + ".jpg", "hougong", true);
                 //this.mainGameScreen.DateGo(1);
             }
         }
@@ -131,14 +130,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     this.CurrentArchitecture.RemoveMilitary(military);
                     this.CurrentArchitecture.BelongedFaction.RemoveMilitary(military);
-                    this.CurrentArchitecture.Scenario.Militaries.Remove(military);
+                    Session.Current.Scenario.Militaries.Remove(military);
                 }
             }
         }
 
         private void FrameFunction_Architecture_AfterGetConfiscateTreasure() // 没收
         {
-            this.CurrentGameObject = this.mainGameScreen.Plugins.TabListPlugin.SelectedItem as GameObject;
+            this.CurrentGameObject = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as GameObject;
             if (this.CurrentGameObject != null)
             {
                 Treasure currentGameObject = this.CurrentGameObject as Treasure;
@@ -159,7 +158,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     person.GoForConvince(this.CurrentGameObjects[0] as Person);
                 }
-                this.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
+                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
             }
         }
 
@@ -169,7 +168,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (this.CurrentGameObjects != null)
             {
                 this.CurrentPersons = this.CurrentGameObjects.GetList();
-                this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.ConvincePersonPosition));
+                Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.ConvincePersonPosition));
             }
         }
 
@@ -179,7 +178,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (this.CurrentGameObjects != null)
             {
                 this.CurrentPersons = this.CurrentGameObjects.GetList();
-                this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.DestroyPosition));
+                Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.DestroyPosition));
             }
         }
 
@@ -212,7 +211,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 foreach (DiplomaticRelationDisplay display in selectedList)
                 {
-                    this.mainGameScreen.xianshishijiantupian(this.CurrentArchitecture.Scenario.NeutralPerson, this.CurrentArchitecture.BelongedFaction.Leader.Name, "ResetDiplomaticRelation", "ResetDiplomaticRelation.jpg", "ResetDiplomaticRelation", display.FactionName, true);
+                    Session.MainGame.mainGameScreen.xianshishijiantupian(Session.Current.Scenario.NeutralPerson, this.CurrentArchitecture.BelongedFaction.Leader.Name, "ResetDiplomaticRelation", "ResetDiplomaticRelation.jpg", "ResetDiplomaticRelation", display.FactionName, true);
                     display.Relation = 0;
                 }
             }
@@ -225,7 +224,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (selectedList != null && (selectedList.Count == 1))
             {
                 this.CurrentDiplomaticRelationDisplay = selectedList[0] as DiplomaticRelationDisplay;
-                this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetEnhanceDiplomaticRelationPerson, true, true, true, true, this.CurrentArchitecture.Persons, null, "外交人员", "Ability");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetEnhanceDiplomaticRelationPerson, true, true, true, true, this.CurrentArchitecture.Persons, null, "外交人员", "Ability");
             }
         }
 
@@ -236,7 +235,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (selectedList != null && (selectedList.Count == 1))
             {
                 this.CurrentDiplomaticRelationDisplay = selectedList[0] as DiplomaticRelationDisplay;
-                this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetTruceDiplomaticRelationPerson, true, true, true, true, this.CurrentArchitecture.Persons, null, "外交人员", "Ability");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetTruceDiplomaticRelationPerson, true, true, true, true, this.CurrentArchitecture.Persons, null, "外交人员", "Ability");
             }
         }
 
@@ -247,7 +246,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (selectedList != null && (selectedList.Count == 1))
             {
                 this.CurrentDiplomaticRelationDisplay = selectedList[0] as DiplomaticRelationDisplay;
-                this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetQuanXiangDiplomaticRelationPerson, false, true, true, false, this.CurrentArchitecture.MovablePersons, null, "外交人员", "Ability");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetQuanXiangDiplomaticRelationPerson, false, true, true, false, this.CurrentArchitecture.MovablePersons, null, "外交人员", "Ability");
             }
         }
 
@@ -277,7 +276,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.CurrentDiplomaticRelationDisplay = selectedList[0] as DiplomaticRelationDisplay;
                 //this.CurrentDiplomaticRelationDisplay.Relation = 301;
                 //this.mainGameScreen.xianshishijiantupian(this.CurrentArchitecture.BelongedFaction.Leader, this.CurrentArchitecture.BelongedFaction.Leader.Name, "AllyDiplomaticRelation", "AllyDiplomaticRelation.jpg", "AllyDiplomaticRelation", this.CurrentDiplomaticRelationDisplay.FactionName, true);
-                this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetAllyDiplomaticRelationPerson, true, true, true, true, this.CurrentArchitecture.Persons, null, "外交人员", "Ability");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetAllyDiplomaticRelationPerson, true, true, true, true, this.CurrentArchitecture.Persons, null, "外交人员", "Ability");
             }
         }
 
@@ -355,7 +354,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (this.CurrentGameObjects != null)
             {
                 this.CurrentPersons = this.CurrentGameObjects.GetList();
-                this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.GossipPosition));
+                Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.GossipPosition));
             }
         }
 
@@ -365,7 +364,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (this.CurrentGameObjects != null)
             {
                 this.CurrentPersons = this.CurrentGameObjects.GetList();
-                this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.JailBreakPosition));
+                Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.JailBreakPosition));
             }
         }
 
@@ -375,7 +374,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (this.CurrentGameObjects != null)
             {
                 this.CurrentPersons = this.CurrentGameObjects.GetList();
-                this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.AssassinatePosition));
+                Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.AssassinatePosition));
             }
         }
 
@@ -388,7 +387,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     person.GoForAssassinate(this.CurrentGameObjects[0] as Person);
                 }
-                this.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
+                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
             }
         }
 
@@ -401,7 +400,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     i.Purify();
                     this.CurrentArchitecture.RemoveInformation(i);
-                    i.Scenario.Informations.Remove(i);
+                    Session.Current.Scenario.Informations.Remove(i);
                 }
             }
         }
@@ -413,7 +412,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
             {
 
-                //this.CurrentGameObject = this.gameScenario.GameCommonData.PlayerGeneratorTypes.GetSelectedList()[0] as PersonGeneratorType;
+                //this.CurrentGameObject = Session.Current.Scenario.GameCommonData.PlayerGeneratorTypes.GetSelectedList()[0] as PersonGeneratorType;
                 PersonGeneratorType preferredType = this.CurrentArchitecture.AvailGeneratorTypeList().GetSelectedList()[0] as PersonGeneratorType;
                 this.CurrentArchitecture.DoZhaoXian(preferredType);
                 //this.CurrentArchitecture.DecreaseFund(preferredType.CostFund);
@@ -422,7 +421,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Architecture_AfterGetInformationKind()
         {
-            this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetInformationPerson, false, true, true, false, this.CurrentArchitecture.MovablePersons, null, "情报", "情报");
+            Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetInformationPerson, false, true, true, false, this.CurrentArchitecture.MovablePersons, null, "情报", "情报");
         }
 
         private void FrameFunction_Architecture_AfterGetInformationPerson() // 情报
@@ -431,8 +430,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
             {
                 this.CurrentPerson = this.CurrentGameObjects[0] as Person;
-                this.CurrentPerson.CurrentInformationKind = this.CurrentPerson.Scenario.GameCommonData.AllInformationKinds.GetSelectedList()[0] as InformationKind;
-                this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.InformationPosition));
+                this.CurrentPerson.CurrentInformationKind = Session.Current.Scenario.GameCommonData.AllInformationKinds.GetSelectedList()[0] as InformationKind;
+                Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.InformationPosition));
             }
         }
 
@@ -442,7 +441,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (this.CurrentGameObjects != null)
             {
                 this.CurrentPersons = this.CurrentGameObjects.GetList();
-                this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.InstigatePosition));
+                Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.InstigatePosition));
             }
         }
 
@@ -466,7 +465,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
                 {
                     this.CurrentMilitary = (Military) this.CurrentGameObjects[0];
-                    this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.MilitaryKind, FrameFunction.GetLevelUpMiliaryKind, true, true, true, false, this.CurrentArchitecture.GetUpgradableMilitaryKindList(this.CurrentMilitary), null, "编队升级", "编队升级");
+                    Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.MilitaryKind, FrameFunction.GetLevelUpMiliaryKind, true, true, true, false, this.CurrentArchitecture.GetUpgradableMilitaryKindList(this.CurrentMilitary), null, "编队升级", "编队升级");
                 }
             }
         }
@@ -477,7 +476,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((selectedList != null) && (selectedList.Count == 1))
             {
                 this.CurrentMilitary = selectedList[0] as Military;
-                this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Military, FrameFunction.GetBeMergedMilitaries, false, true, true, false, this.CurrentArchitecture.GetBeMergedMilitaryList(this.CurrentMilitary), null, "选择编队", "");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Military, FrameFunction.GetBeMergedMilitaries, false, true, true, false, this.CurrentArchitecture.GetBeMergedMilitaryList(this.CurrentMilitary), null, "选择编队", "");
             }
         }
 
@@ -487,7 +486,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((selectedList != null) && (selectedList.Count == 1))
             {
                 this.CurrentPerson = selectedList[0] as Person;
-                this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectMarryTo, false, true, true, false, this.CurrentPerson.MakeMarryable(), null, "选择对象", "");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectMarryTo, false, true, true, false, this.CurrentPerson.MakeMarryable(), null, "选择对象", "");
             }
         }
 
@@ -514,14 +513,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((selectedList != null) && (selectedList.Count == 1))
             {
                 this.CurrentPerson = selectedList[0] as Person;
-                this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.TrainPolicy, FrameFunction.SelectTrainPolicy, false, true, true, false, this.CurrentPerson.TrainPolicies(), null, "选择培育方针", "");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.TrainPolicy, FrameFunction.SelectTrainPolicy, false, true, true, false, this.CurrentPerson.TrainPolicies(), null, "选择培育方针", "");
             }
             this.CurrentArchitecture.Persons.ClearSelected();
         }
 
         private void FrameFunction_Architecture_AfterSelectTrainPolicy()
         {
-            GameObjectList selectedList = this.gameScenario.GameCommonData.AllTrainPolicies.GetSelectedList();
+            GameObjectList selectedList = Session.Current.Scenario.GameCommonData.AllTrainPolicies.GetSelectedList();
             if ((selectedList != null) && (selectedList.Count == 1))
             {
                 this.CurrentPerson.TrainPolicy = (TrainPolicy) selectedList[0];
@@ -575,7 +574,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     captive.CaptivePerson.MoveToArchitecture(architecture);
                 }
-                this.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
+                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
             }
         }
 
@@ -588,7 +587,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     Architecture targetArchitecture = this.CurrentGameObjects[0] as Architecture;
 
-                    double distance = (double)gameScenario.GetDistance(this.CurrentArchitecture.ArchitectureArea, targetArchitecture.ArchitectureArea);
+                    double distance = (double)Session.Current.Scenario.GetDistance(this.CurrentArchitecture.ArchitectureArea, targetArchitecture.ArchitectureArea);
 
                     foreach (Military military in this.CurrentMilitaries)
                     {
@@ -607,7 +606,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         }
                     }
                 }
-                this.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
+                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
             }
         }
 
@@ -619,7 +618,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     person.MoveToArchitecture(architecture);                    
                 }
-                this.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
+                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
             }            
         }
 
@@ -629,7 +628,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((selectedList != null) && (selectedList.Count == 1))
             {
                 this.CurrentMilitary = selectedList[0] as Military;
-                this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetRecruitmentPerson, false, true, true, false, this.CurrentArchitecture.Persons, null, "补充", "补充");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetRecruitmentPerson, false, true, true, false, this.CurrentArchitecture.Persons, null, "补充", "补充");
             }
         }
 
@@ -643,7 +642,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     //this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Architecture, FrameFunction.GetOneArchitecture, false, true, true, false, this.CurrentArchitecture.GetTransferArchitectureList(), null, "目标", "");
                     //this.mainGameScreen.ShowMapViewSelector(false , this.CurrentArchitecture.GetTransferArchitectureList());
                     this.CurrentPersons = this.CurrentGameObjects.GetList();
-                    this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.MoveCaptive));
+                    Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.MoveCaptive));
 
                 }
             }
@@ -660,7 +659,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     //this.CurrentArchitecture.RemoveMilitary(m);
                     this.CurrentMilitaries = this.CurrentGameObjects.GetList();
-                    this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Architecture, FrameFunction.GetTransferArchitecture, false, true, true, false, this.CurrentArchitecture.BelongedFaction .ArchitecturesExcluding(this.CurrentArchitecture), null, "运兵", "运兵");
+                    Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Architecture, FrameFunction.GetTransferArchitecture, false, true, true, false, this.CurrentArchitecture.BelongedFaction .ArchitecturesExcluding(this.CurrentArchitecture), null, "运兵", "运兵");
                     //this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.MilitaryTransfer));
 
 
@@ -689,7 +688,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
             {
                 (this.CurrentGameObjects[0] as Captive).SendRansom((this.CurrentGameObjects[0] as Captive).BelongedFaction.Capital, this.CurrentArchitecture);
-                this.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
+                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
             }
         }
 
@@ -719,7 +718,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     person.shoudongjinxingsousuo();
                 }
-                this.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
+                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
             }
         }
 
@@ -731,7 +730,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 foreach (Section section in this.CurrentGameObjects)
                 {
                     this.CurrentArchitecture.BelongedFaction.RemoveSection(section);
-                    this.CurrentArchitecture.Scenario.Sections.Remove(section);
+                    Session.Current.Scenario.Sections.Remove(section);
                     Section anotherSection = this.CurrentArchitecture.BelongedFaction.GetAnotherSection(section);
                     if (anotherSection != null)
                     {
@@ -745,7 +744,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     if ((section.OrientationSection != null) && !this.CurrentArchitecture.BelongedFaction.Sections.HasGameObject(section.OrientationSection))
                     {
-                        foreach (SectionAIDetail detail in this.CurrentArchitecture.BelongedFaction.Scenario.GameCommonData.AllSectionAIDetails.SectionAIDetails.Values)
+                        foreach (SectionAIDetail detail in Session.Current.Scenario.GameCommonData.AllSectionAIDetails.SectionAIDetails.Values)
                         {
                             if (detail.OrientationKind == SectionOrientationKind.无)
                             {
@@ -762,7 +761,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Architecture_AfterGetShortestNoWaterRouteway()
         {
-            this.CurrentGameObjects = this.mainGameScreen.Plugins.TabListPlugin.SelectedItemList as GameObjectList;
+            this.CurrentGameObjects = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItemList as GameObjectList;
             if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count > 0))
             {
                 foreach (Architecture architecture in this.CurrentGameObjects)
@@ -773,13 +772,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         routeway.Building = true;
                     }
                 }
-                GlobalVariables.CurrentMapLayer = MapLayerKind.Routeway;
+                Session.GlobalVariables.CurrentMapLayer = MapLayerKind.Routeway;
             }
         }
 
         private void FrameFunction_Architecture_AfterGetShortestRouteway()   //粮道最短
         {
-            this.CurrentGameObjects = this.mainGameScreen.Plugins.TabListPlugin.SelectedItemList as GameObjectList;
+            this.CurrentGameObjects = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItemList as GameObjectList;
             if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count > 0))
             {
                 foreach (Architecture architecture in this.CurrentGameObjects)
@@ -790,7 +789,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         routeway.Building = true;
                     }
                 }
-                GlobalVariables.CurrentMapLayer = MapLayerKind.Routeway;
+                Session.GlobalVariables.CurrentMapLayer = MapLayerKind.Routeway;
             }
         }
 
@@ -816,7 +815,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     person.GoForStudySkill();
                     person.ManualStudy = true;
                 }
-                this.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
+                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
             }
         }
 
@@ -827,7 +826,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 this.CurrentPerson.GoForStudyStunt(this.CurrentGameObjects[0] as Stunt);
                 this.CurrentPerson.ManualStudy = true;
-                this.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
+                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
             }
         }
 
@@ -840,7 +839,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if (person != null)
                 {
                     this.CurrentPerson = person;
-                    this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Stunt, FrameFunction.GetStudyStunt, false, true, true, false, person.GetStudyStuntList(), null, "研习", "");
+                    Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Stunt, FrameFunction.GetStudyStunt, false, true, true, false, person.GetStudyStuntList(), null, "研习", "");
                 }
             }
         }
@@ -852,7 +851,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 this.CurrentPerson.GoForStudyTitle(this.CurrentGameObjects[0] as Title);
                 this.CurrentPerson.ManualStudy = true;
-                this.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
+                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
             }
         }
 
@@ -865,7 +864,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if (person != null)
                 {
                     this.CurrentPerson = person;
-                    this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Title, FrameFunction.GetStudyTitle, false, true, true, false, person.GetStudyTitleList(), null, "研习", "");
+                    Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Title, FrameFunction.GetStudyTitle, false, true, true, false, person.GetStudyTitleList(), null, "研习", "");
                 }
             }
         }
@@ -890,7 +889,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if (person != null)
                 {
                     this.CurrentPerson = person;
-                    this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Title, FrameFunction.GetAppointableTitle, false, true, true, false, person.GetAppointableTitleList(), null, "任命官职", "");
+                    Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Title, FrameFunction.GetAppointableTitle, false, true, true, false, person.GetAppointableTitleList(), null, "任命官职", "");
                 }
             }
         }
@@ -904,7 +903,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if (person != null)
                 {
                     this.CurrentPerson = person;
-                    this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Title, FrameFunction.GetRecallableTitle, false, true, true, true, person.RecallableTitleList(), null, "免除职位", "");
+                    Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Title, FrameFunction.GetRecallableTitle, false, true, true, true, person.RecallableTitleList(), null, "免除职位", "");
                 }
             }
         }
@@ -930,7 +929,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((selectedList != null) && (selectedList.Count == 1))
             {
                 this.CurrentMilitary = selectedList[0] as Military;
-                this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetTrainingPerson, false, true, true, false, this.CurrentArchitecture.Persons, null, "训练", "训练");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetTrainingPerson, false, true, true, false, this.CurrentArchitecture.Persons, null, "训练", "训练");
             }
         }
 
@@ -959,7 +958,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     //this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Architecture, FrameFunction.GetOneArchitecture, false, true, true, false, this.CurrentArchitecture.GetTransferArchitectureList(), null, "目标", "");
                     //this.mainGameScreen.ShowMapViewSelector(false , this.CurrentArchitecture.GetTransferArchitectureList());
                     this.CurrentPersons = this.CurrentGameObjects.GetList();
-                    this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.WujiangDiaodong));
+                    Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.WujiangDiaodong));
 
                 }
             }
@@ -975,7 +974,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     //this.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Architecture, FrameFunction.GetOneArchitecture, false, true, true, false, this.CurrentArchitecture.GetTransferArchitectureList(), null, "目标", "");
                     //this.mainGameScreen.ShowMapViewSelector(false , this.CurrentArchitecture.GetTransferArchitectureList());
                     this.CurrentPersons = this.CurrentGameObjects.GetList();
-                    this.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.MoveFeizi));
+                    Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Selecting, SelectingUndoneWorkKind.MoveFeizi));
 
                 }
             }
@@ -1029,7 +1028,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Person extremePersonFromWorkingList = this.CurrentArchitecture.GetExtremePersonFromWorkingList(this.CurrentArchitectureWorkKind, true);
                     if (extremePersonFromWorkingList != null)
                     {
-                        this.mainGameScreen.Plugins.PersonBubblePlugin.AddPerson(extremePersonFromWorkingList, this.CurrentArchitecture.Position, TextMessageKind.StartWork, "Work");
+                        Session.MainGame.mainGameScreen.Plugins.PersonBubblePlugin.AddPerson(extremePersonFromWorkingList, this.CurrentArchitecture.Position, TextMessageKind.StartWork, "Work");
                     }
                 }
                 else
@@ -1048,7 +1047,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Troop_AfterGetAttackDefaultKind()
         {
-            this.CurrentGameObjects = this.CurrentTroop.Scenario.GameCommonData.AllAttackDefaultKinds.GetSelectedList();
+            this.CurrentGameObjects = Session.Current.Scenario.GameCommonData.AllAttackDefaultKinds.GetSelectedList();
             if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
             {
                 (this.CurrentGameObjects[0] as AttackDefaultKind).Apply(this.CurrentTroop);
@@ -1057,7 +1056,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Troop_AfterGetAttackTargetKind()
         {
-            this.CurrentGameObjects = this.CurrentTroop.Scenario.GameCommonData.AllAttackTargetKinds.GetSelectedList();
+            this.CurrentGameObjects = Session.Current.Scenario.GameCommonData.AllAttackTargetKinds.GetSelectedList();
             if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
             {
                 (this.CurrentGameObjects[0] as AttackTargetKind).Apply(this.CurrentTroop);
@@ -1066,7 +1065,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Troop_AfterGetCastDefaultKind()
         {
-            this.CurrentGameObjects = this.CurrentTroop.Scenario.GameCommonData.AllCastDefaultKinds.GetSelectedList();
+            this.CurrentGameObjects = Session.Current.Scenario.GameCommonData.AllCastDefaultKinds.GetSelectedList();
             if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
             {
                 (this.CurrentGameObjects[0] as CastDefaultKind).Apply(this.CurrentTroop);
@@ -1075,7 +1074,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Troop_AfterGetCastTargetKind()
         {
-            this.CurrentGameObjects = this.CurrentTroop.Scenario.GameCommonData.AllCastTargetKinds.GetSelectedList();
+            this.CurrentGameObjects = Session.Current.Scenario.GameCommonData.AllCastTargetKinds.GetSelectedList();
             if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
             {
                 (this.CurrentGameObjects[0] as CastTargetKind).Apply(this.CurrentTroop);
@@ -1426,11 +1425,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Architecture_SelectPrince()//立储的作用
         {
-            this.CurrentPerson = this.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
+            this.CurrentPerson = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
             if (this.CurrentPerson != null)
             {
                 this.CurrentArchitecture.BelongedFaction.PrinceID = this.CurrentPerson.ID;
-                this.CurrentArchitecture.DecreaseFund(Parameters.SelectPrinceCost);
+                this.CurrentArchitecture.DecreaseFund(Session.Parameters.SelectPrinceCost);
                 this.CurrentArchitecture.SelectPrince(this.CurrentPerson);
                 //this.mainGameScreen.xianshishijiantupian(this.CurrentArchitecture.BelongedFaction.Leader, this.CurrentPerson.Name, "SelectPrince", "", "", true );
                 
@@ -1439,7 +1438,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Architecture_AppointMayor()  //太守
         {
-            this.CurrentPerson = this.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
+            this.CurrentPerson = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
             if (this.CurrentPerson != null)
             {
                 this.CurrentArchitecture.MayorID = this.CurrentPerson.ID;
@@ -1450,10 +1449,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Architecture_ReleaseSelfPerson()
         {
-            this.CurrentPerson = this.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
+            this.CurrentPerson = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
             if (this.CurrentPerson != null)
             {
-                this.mainGameScreen.xianshishijiantupian(this.CurrentPerson.BelongedFaction.Leader, this.CurrentPerson.Name, TextMessageKind.ReleaseSelfPerson, "ReleaseSelfPerson", "", "", false );
+                Session.MainGame.mainGameScreen.xianshishijiantupian(this.CurrentPerson.BelongedFaction.Leader, this.CurrentPerson.Name, TextMessageKind.ReleaseSelfPerson, "ReleaseSelfPerson", "", "", false );
                 this.CurrentPerson.BeLeaveToNoFaction();
             }
         }
@@ -1461,30 +1460,30 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         private void FrameFunction_Architecture_KillCaptive()
         {
             Captive captive = new Captive();
-            captive = this.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Captive;
+            captive = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Captive;
             if (captive != null)
             {
                 Person leader = captive.BelongedFaction.Leader;
 
-                this.mainGameScreen.OnExecute(leader, captive.CaptivePerson);
+                Session.MainGame.mainGameScreen.OnExecute(leader, captive.CaptivePerson);
                 captive.CaptivePerson.execute(captive.BelongedFaction);
             }
         }
 
         private void FrameFunction_Architecture_KillPerson()
         {
-            this.CurrentPerson = this.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
+            this.CurrentPerson = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
             if (this.CurrentPerson != null)
             {
-                this.mainGameScreen.xianshishijiantupian(this.gameScenario.NeutralPerson, this.CurrentPerson.BelongedFaction.Leader.Name, "KillSelfPerson", "chuzhan.jpg", "chuzhan", this.CurrentPerson.Name, true);
+                Session.MainGame.mainGameScreen.xianshishijiantupian(Session.Current.Scenario.NeutralPerson, this.CurrentPerson.BelongedFaction.Leader.Name, "KillSelfPerson", "chuzhan.jpg", "chuzhan", this.CurrentPerson.Name, true);
                 Person leader = this.CurrentPerson.BelongedFaction.Leader;
                 this.CurrentPerson.execute(this.CurrentPerson.BelongedFaction);
             }
         }
 
-        public void Initialize(GameScenario scenario)
+        public void Initialize()
         {
-            this.gameScenario = scenario;
+
         }
 
         public void SetCreatingTroopPosition(Point position)
@@ -1499,8 +1498,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.CurrentArchitecture.CreateDefensiveLegion();
             }
             this.CurrentArchitecture.DefensiveLegion.AddTroop(this.CurrentTroop);
-           // this.CurrentArchitecture.PostCreateTroop(this.CurrentTroop, true);
-            this.mainGameScreen.Plugins.PersonBubblePlugin.AddPerson(this.CurrentPerson, this.CurrentTroop.Position, TextMessageKind.StartCampaign, "Campaign");
+            // this.CurrentArchitecture.PostCreateTroop(this.CurrentTroop, true);
+            Session.MainGame.mainGameScreen.Plugins.PersonBubblePlugin.AddPerson(this.CurrentPerson, this.CurrentTroop.Position, TextMessageKind.StartCampaign, "Campaign");
             //this.mainGameScreen.Plugins.AirViewPlugin.ReloadTroopView();
         }
 

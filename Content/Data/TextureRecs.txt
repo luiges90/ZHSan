@@ -21,4 +21,5 @@ Content\Textures\Resources\Start\TextBox-Desc:png:TextBox-Desc:1080:270:540:270:
 Content\Textures\Resources\Start\TextBox-Plus:png:TextBox-Plus:300:50:100:50:3:Page;
 Content\Textures\Resources\Start\TextBox-Wide:png:TextBox-Wide:421:106:421:106:1:Page;
 Content\Textures\Resources\Start\Back:png:Back:201:51:67:51:3:Scene;
-Content\Textures\Resources\Start\Light:png:Light:35:35:35:35:1:Scene
+Content\Textures\Resources\Start\Light:png:Light:35:35:35:35:1:Scene;
+Content\Textures\Resources\Start\Setting:png:Setting:144:72:72:72:2:Scene

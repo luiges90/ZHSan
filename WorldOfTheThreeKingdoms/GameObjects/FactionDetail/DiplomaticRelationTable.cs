@@ -23,7 +23,7 @@ namespace GameObjects.FactionDetail
             return true;
         }
 
-        public bool AddDiplomaticRelation(GameScenario scenario, int faction1ID, int faction2ID, int relation)
+        public bool AddDiplomaticRelation(int faction1ID, int faction2ID, int relation)
         {
             int hashCode = this.GetHashCode(faction1ID, faction2ID);
             int key = this.GetHashCode(faction2ID, faction1ID);
@@ -31,7 +31,7 @@ namespace GameObjects.FactionDetail
             {
                 return false;
             }
-            this.DiplomaticRelations.Add(hashCode, new DiplomaticRelation(scenario, faction1ID, faction2ID, relation));
+            this.DiplomaticRelations.Add(hashCode, new DiplomaticRelation(faction1ID, faction2ID, relation));
             return true;
         }
 
@@ -40,7 +40,7 @@ namespace GameObjects.FactionDetail
             this.DiplomaticRelations.Clear();
         }
 
-        public DiplomaticRelation GetDiplomaticRelation(GameScenario scenario, int faction1ID, int faction2ID)
+        public DiplomaticRelation GetDiplomaticRelation(int faction1ID, int faction2ID)
         {
             int hashCode = this.GetHashCode(faction1ID, faction2ID);
             DiplomaticRelation relation = null;
@@ -52,7 +52,7 @@ namespace GameObjects.FactionDetail
             }
             if (relation == null)
             {
-                this.AddDiplomaticRelation(scenario, faction1ID, faction2ID, 0);
+                this.AddDiplomaticRelation(faction1ID, faction2ID, 0);
                 this.DiplomaticRelations.TryGetValue(this.GetHashCode(faction1ID, faction2ID), out relation);
             }
             return relation;

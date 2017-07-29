@@ -1,7 +1,7 @@
 ﻿using GameObjects;
 using GameObjects.Conditions;
 using System;
-
+using GameManager;
 
 using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKindPack
 {
@@ -10,7 +10,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
     {
         public override bool CheckConditionKind(Troop troop)
         {
-            GameObjectList viewingArchitecturesByPosition = troop.Scenario.GetViewingArchitecturesByPosition(troop.Position);
+            GameObjectList viewingArchitecturesByPosition = Session.Current.Scenario.GetViewingArchitecturesByPosition(troop.Position);
             if (viewingArchitecturesByPosition.Count > 0)
             {
                 foreach (Architecture architecture in viewingArchitecturesByPosition)

@@ -43,18 +43,6 @@ namespace GameObjects
         private string name;
 
         public float Scale;
-        
-        public GameScenario Scenario
-        {
-            get
-            {
-                return Session.Current.Scenario;
-            }
-            set
-            {
-
-            }
-        }
 
         private bool selected;
         private string textDestinationString;

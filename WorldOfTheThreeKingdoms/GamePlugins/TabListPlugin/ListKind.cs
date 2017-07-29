@@ -74,25 +74,25 @@ namespace TabListPlugin
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             float depth = 0.03498f;
 
             Microsoft.Xna.Framework.Rectangle? nullable;
             foreach (Tab tab in this.Tabs)
             {
-                tab.Draw(spriteBatch);
+                tab.Draw();
             }
             if ((((this.tabList.DrawFocused && !this.tabList.MovingHorizontalScrollBar) && !this.tabList.MovingVerticalScrollBar) && (this.SelectedTab != null)) && ((this.tabList.Focused >= (this.tabList.VisibleLowerClient.Top + this.tabList.columnheaderHeight)) && ((this.tabList.Focused + this.tabList.rowHeight) <= this.tabList.VisibleLowerClient.Bottom)))
             {
                 nullable = null;
-                spriteBatch.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Left, this.tabList.Focused, this.tabList.VisibleLowerClient.Width - 1, 1), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.03498f);
+                CacheManager.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Left, this.tabList.Focused, this.tabList.VisibleLowerClient.Width - 1, 1), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.03498f);
                 nullable = null;
-                spriteBatch.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Left, this.tabList.Focused, 1, this.tabList.rowHeight), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.03498f);
+                CacheManager.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Left, this.tabList.Focused, 1, this.tabList.rowHeight), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.03498f);
                 nullable = null;
-                spriteBatch.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Left, (this.tabList.Focused + this.tabList.rowHeight) - 1, this.tabList.VisibleLowerClient.Width - 1, 1), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.03498f);
+                CacheManager.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Left, (this.tabList.Focused + this.tabList.rowHeight) - 1, this.tabList.VisibleLowerClient.Width - 1, 1), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.03498f);
                 nullable = null;
-                spriteBatch.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Right - 1, this.tabList.Focused, 1, this.tabList.rowHeight), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.03498f);
+                CacheManager.Draw(this.tabList.focusTrackTexture, new Microsoft.Xna.Framework.Rectangle(this.tabList.VisibleLowerClient.Right - 1, this.tabList.Focused, 1, this.tabList.rowHeight), nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.03498f);
                 if (this.ShowPortrait)
                 {
                     //try
@@ -130,7 +130,7 @@ namespace TabListPlugin
                         }
                     }
 
-                    //spriteBatch.Draw(person.SmallPortrait, rec, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+                    //CacheManager.Draw(person.SmallPortrait, rec, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
 
                     CacheManager.DrawZhsanAvatar(person, "s", rec, Color.White, depth);
 
@@ -143,19 +143,19 @@ namespace TabListPlugin
             if (this.tabList.ShowVerticalScrollBar)
             {
                 nullable = null;
-                spriteBatch.Draw(this.tabList.scrolltrackTexture, this.LeftScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+                CacheManager.Draw(this.tabList.scrolltrackTexture, this.LeftScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
                 nullable = null;
-                spriteBatch.Draw(this.tabList.scrolltrackTexture, this.RightScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+                CacheManager.Draw(this.tabList.scrolltrackTexture, this.RightScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
                 nullable = null;
-                spriteBatch.Draw(this.tabList.scrollbuttonTexture, this.VerticalScrollBar, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+                CacheManager.Draw(this.tabList.scrollbuttonTexture, this.VerticalScrollBar, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
             }
             if (this.tabList.ShowHorizontalScrollBar)
             {
                 nullable = null;
-                spriteBatch.Draw(this.tabList.scrolltrackTexture, this.UpperScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+                CacheManager.Draw(this.tabList.scrolltrackTexture, this.UpperScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
                 nullable = null;
-                spriteBatch.Draw(this.tabList.scrolltrackTexture, this.LowerScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
-                spriteBatch.Draw(this.tabList.scrollbuttonTexture, this.HorizontalScrollBar, null, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+                CacheManager.Draw(this.tabList.scrolltrackTexture, this.LowerScrollTrack, nullable, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+                CacheManager.Draw(this.tabList.scrollbuttonTexture, this.HorizontalScrollBar, null, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
             }
         }
 
@@ -226,7 +226,7 @@ namespace TabListPlugin
                 }
                 item.SmallToBig = !item.IsNumber;
                 StaticMethods.LoadFontAndColorFromXMLNode(node2, out font, out color);
-                item.ColumnTextList = new FreeTextList(this.tabList.graphicsDevice, font);
+                item.ColumnTextList = new FreeTextList(font);
                 item.ColumnTextList.TextColor = color;
                 item.ColumnTextList.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node2.Attributes.GetNamedItem("Align").Value);
                 item.Text.Text = item.DisplayName;

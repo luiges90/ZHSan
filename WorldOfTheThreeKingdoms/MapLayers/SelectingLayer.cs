@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework;
 using WorldOfTheThreeKingdoms;
 using Microsoft.Xna.Framework.Graphics;
 using Platforms;
+using GameManager;
 
 
 //using	System.Drawing;
@@ -20,79 +21,75 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
         private bool allowToSelectOutsideArea = false;
         public GameArea Area;
         private SelectingUndoneWorkKind areaFrameKind;
-        private Texture2D areaFrameTexture;
+        private PlatformTexture areaFrameTexture;
         public bool Canceled = false;
         public bool CanSelectArchitecture = true;
         private FreeText Conment;
-        private Texture2D currentPositionTexture;
+        private PlatformTexture currentPositionTexture;
         private GameArea effectingArea;
         public bool EffectingAreaOblique;
         public int EffectingAreaRadius;
-        private Texture2D EffectingAreaTexture;
+        private PlatformTexture EffectingAreaTexture;
         public GameArea FromArea;
         private bool isShowing = false;
-        private MainMapLayer mainMapLayer;
-        private MainGameScreen screen;
         public Point SelectedPoint;
         public bool ShowComment = false;
         public bool SingleWay;
 
-        public void Draw(SpriteBatch spriteBatch, Point viewportSize)
+        public void Draw(Point viewportSize)
         {
             if (this.Area != null)
             {
                 Rectangle? nullable;
                 foreach (Point point in this.Area.Area)
                 {
-                    if (this.mainMapLayer.TileInScreen(point))
+                    if (Session.MainGame.mainGameScreen.mainMapLayer.TileInScreen(point))
                     {
                         nullable = null;
-                        spriteBatch.Draw(this.areaFrameTexture, this.mainMapLayer.Tiles[point.X, point.Y].Destination, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.5f);
+                        CacheManager.Draw(this.areaFrameTexture, Session.MainGame.mainGameScreen.mainMapLayer.Tiles[point.X, point.Y].Destination, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.5f);
                     }
                 }
                 if (this.allowToSelectOutsideArea || this.Area.HasPoint(this.SelectedPoint))
                 {
-                    int xpt = Math.Max(Math.Min(this.mainMapLayer.mainMap.MapDimensions.X - 1, this.SelectedPoint.X), 0);
-                    int ypt = Math.Max(Math.Min(this.mainMapLayer.mainMap.MapDimensions.Y - 1, this.SelectedPoint.Y), 0);
+                    int xpt = Math.Max(Math.Min(Session.Current.Scenario.ScenarioMap.MapDimensions.X - 1, this.SelectedPoint.X), 0);
+                    int ypt = Math.Max(Math.Min(Session.Current.Scenario.ScenarioMap.MapDimensions.Y - 1, this.SelectedPoint.Y), 0);
                     nullable = null;
-                    spriteBatch.Draw(this.currentPositionTexture, this.mainMapLayer.Tiles[xpt, ypt].Destination, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4998f);
+                    CacheManager.Draw(this.currentPositionTexture, Session.MainGame.mainGameScreen.mainMapLayer.Tiles[xpt, ypt].Destination, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4998f);
                     if (this.EffectingAreaRadius > 0)
                     {
                         foreach (Point point in this.EffectingArea.Area)
                         {
-                            if (!this.screen.Scenario.PositionOutOfRange(point) && this.mainMapLayer.TileInScreen(point))
+                            if (!Session.Current.Scenario.PositionOutOfRange(point) && Session.MainGame.mainGameScreen.mainMapLayer.TileInScreen(point))
                             {
                                 nullable = null;
-                                spriteBatch.Draw(this.EffectingAreaTexture, this.mainMapLayer.Tiles[point.X, point.Y].Destination, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4998f);
+                                CacheManager.Draw(this.EffectingAreaTexture, Session.MainGame.mainGameScreen.mainMapLayer.Tiles[point.X, point.Y].Destination, nullable, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4998f);
                             }
                         }
                     }
                     if (this.ShowComment)
                     {
-                        this.Conment.Position = new Rectangle(0, 0, this.mainMapLayer.TileWidth, this.mainMapLayer.TileHeight);
-                        this.Conment.DisplayOffset = new Point(this.mainMapLayer.Tiles[this.SelectedPoint.X, this.SelectedPoint.Y].Destination.X, this.mainMapLayer.Tiles[this.SelectedPoint.X, this.SelectedPoint.Y].Destination.Y);
+                        this.Conment.Position = new Rectangle(0, 0, Session.MainGame.mainGameScreen.mainMapLayer.TileWidth, Session.MainGame.mainGameScreen.mainMapLayer.TileHeight);
+                        this.Conment.DisplayOffset = new Point(Session.MainGame.mainGameScreen.mainMapLayer.Tiles[this.SelectedPoint.X, this.SelectedPoint.Y].Destination.X, Session.MainGame.mainGameScreen.mainMapLayer.Tiles[this.SelectedPoint.X, this.SelectedPoint.Y].Destination.Y);
                         int returnDays = 0;
                         if (this.SingleWay)
                         {
-                            returnDays = Math.Max(this.screen.Scenario.GetReturnDays(this.SelectedPoint, this.FromArea) / 2, 1);
+                            returnDays = Math.Max(Session.Current.Scenario.GetReturnDays(this.SelectedPoint, this.FromArea) / 2, 1);
                         }
                         else
                         {
-                            returnDays = this.screen.Scenario.GetReturnDays(this.SelectedPoint, this.FromArea);
+                            returnDays = Session.Current.Scenario.GetReturnDays(this.SelectedPoint, this.FromArea);
                         }
                         this.Conment.Text = returnDays.ToString() + "天";
-                        this.Conment.Draw(spriteBatch, 0.5f);
+                        this.Conment.Draw(0.5f);
                     }
                 }
             }
         }
 
-        public void Initialize(MainMapLayer mainMapLayer, MainGameScreen screen)
+        public void Initialize(MainGameScreen screen)
         {
-            this.mainMapLayer = mainMapLayer;
-            this.screen = screen;
             //this.Conment = new FreeText(screen.GraphicsDevice, new System.Drawing.Font("宋体", 10f), Color.White);
-            this.Conment = new FreeText(Platform.GraphicsDevice, new Font("宋体", 10f, ""), Color.White);
+            this.Conment = new FreeText(new Font("宋体", 10f, ""), Color.White);
             this.Conment.Align = TextAlign.Middle;
 
             this.currentPositionTexture = screen.Textures.TileFrameTextures[0];
@@ -101,7 +98,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
 
         private void screen_OnMouseLeftUp(Point position)
         {
-            if (((this.Area != null) && this.screen.EnableSelecting) && ((this.screen.ViewMoveDirection == ViewMove.Stop) && ((!this.screen.PositionOutOfScreen(position) && (this.CanSelectArchitecture || (this.screen.Scenario.GetArchitectureByPositionNoCheck(this.SelectedPoint) == null))) && (this.allowToSelectOutsideArea || this.Area.HasPoint(this.SelectedPoint)))))
+            if (((this.Area != null) && Session.MainGame.mainGameScreen.EnableSelecting) && ((Session.MainGame.mainGameScreen.ViewMoveDirection == ViewMove.Stop) && ((!Session.MainGame.mainGameScreen.PositionOutOfScreen(position) && (this.CanSelectArchitecture || (Session.Current.Scenario.GetArchitectureByPositionNoCheck(this.SelectedPoint) == null))) && (this.allowToSelectOutsideArea || this.Area.HasPoint(this.SelectedPoint)))))
             {
                 this.AreaFrameKind = SelectingUndoneWorkKind.None;
                 this.Area = null;
@@ -115,10 +112,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
 
         private void screen_OnMouseMove(Point position, bool leftDown)
         {
-            if (this.screen.EnableSelecting && (this.screen.ViewMoveDirection == ViewMove.Stop))
+            if (Session.MainGame.mainGameScreen.EnableSelecting && (Session.MainGame.mainGameScreen.ViewMoveDirection == ViewMove.Stop))
             {
-                Point point = this.mainMapLayer.TranslateCoordinateToTilePosition(position.X, position.Y);
-                if (!this.screen.Scenario.PositionOutOfRange(point))
+                Point point = Session.MainGame.mainGameScreen.mainMapLayer.TranslateCoordinateToTilePosition(position.X, position.Y);
+                if (!Session.Current.Scenario.PositionOutOfRange(point))
                 {
                     if (this.SelectedPoint != point)
                     {
@@ -131,7 +128,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
 
         private void screen_OnMouseRightUp(Point position)
         {
-            if (this.screen.EnableSelecting)
+            if (Session.MainGame.mainGameScreen.EnableSelecting)
             {
                 this.AreaFrameKind = SelectingUndoneWorkKind.None;
                 this.Area = null;
@@ -174,17 +171,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                 switch (this.areaFrameKind)
                 {
                     case SelectingUndoneWorkKind.ArchitectureAvailableContactArea:
-                        this.areaFrameTexture = this.screen.Textures.TileFrameTextures[3];
+                        this.areaFrameTexture = Session.MainGame.mainGameScreen.Textures.TileFrameTextures[3];
                         this.allowToSelectOutsideArea = false;
                         return;
 
                     case SelectingUndoneWorkKind.InformationPosition:
-                        this.areaFrameTexture = this.screen.Textures.TileFrameTextures[0];
+                        this.areaFrameTexture = Session.MainGame.mainGameScreen.Textures.TileFrameTextures[0];
                         this.allowToSelectOutsideArea = true;
                         return;
 
                     case SelectingUndoneWorkKind.TroopDestination:
-                        this.areaFrameTexture = this.screen.Textures.TileFrameTextures[3];
+                        this.areaFrameTexture = Session.MainGame.mainGameScreen.Textures.TileFrameTextures[3];
                         this.allowToSelectOutsideArea = true;
                         return;
 
@@ -193,41 +190,41 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                         return;
 
                     case SelectingUndoneWorkKind.TroopTarget:
-                        this.areaFrameTexture = this.screen.Textures.TileFrameTextures[5];
+                        this.areaFrameTexture = Session.MainGame.mainGameScreen.Textures.TileFrameTextures[5];
                         this.allowToSelectOutsideArea = false;
                         return;
 
                     case SelectingUndoneWorkKind.Trooprucheng:
-                        this.areaFrameTexture = this.screen.Textures.TileFrameTextures[3];
+                        this.areaFrameTexture = Session.MainGame.mainGameScreen.Textures.TileFrameTextures[3];
                         this.allowToSelectOutsideArea = false;
                         return;
 
                     case SelectingUndoneWorkKind.TroopInvestigatePosition:
-                        this.areaFrameTexture = this.screen.Textures.TileFrameTextures[0];
+                        this.areaFrameTexture = Session.MainGame.mainGameScreen.Textures.TileFrameTextures[0];
                         this.allowToSelectOutsideArea = false;
                         return;
 
                     case SelectingUndoneWorkKind.TroopSetFirePosition:
-                        this.areaFrameTexture = this.screen.Textures.TileFrameTextures[0];
+                        this.areaFrameTexture = Session.MainGame.mainGameScreen.Textures.TileFrameTextures[0];
                         this.allowToSelectOutsideArea = false;
                         return;
 
                     case SelectingUndoneWorkKind.ArchitectureRoutewayStartPoint:
-                        this.areaFrameTexture = this.screen.Textures.TileFrameTextures[6];
+                        this.areaFrameTexture = Session.MainGame.mainGameScreen.Textures.TileFrameTextures[6];
                         this.allowToSelectOutsideArea = false;
                         return;
 
                     case SelectingUndoneWorkKind.RoutewayPointShortestNormal:
-                        this.areaFrameTexture = this.screen.Textures.TileFrameTextures[0];
+                        this.areaFrameTexture = Session.MainGame.mainGameScreen.Textures.TileFrameTextures[0];
                         this.allowToSelectOutsideArea = true;
                         return;
 
                     case SelectingUndoneWorkKind.RoutewayPointShortestNoWater:
-                        this.areaFrameTexture = this.screen.Textures.TileFrameTextures[0];
+                        this.areaFrameTexture = Session.MainGame.mainGameScreen.Textures.TileFrameTextures[0];
                         this.allowToSelectOutsideArea = true;
                         return;
                 }
-                this.areaFrameTexture = this.screen.Textures.TileFrameTextures[0];
+                this.areaFrameTexture = Session.MainGame.mainGameScreen.Textures.TileFrameTextures[0];
                 this.allowToSelectOutsideArea = false;
             }
         }
@@ -255,17 +252,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                 this.isShowing = value;
                 if (value)
                 {
-                    this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                    this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                    this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.SelectedPoint = this.screen.GetPositionByPoint(this.screen.MousePosition);
+                    Session.MainGame.mainGameScreen.OnMouseLeftUp += new Screen.MouseLeftUp(screen_OnMouseLeftUp);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(screen_OnMouseMove);
+                    this.SelectedPoint = Session.MainGame.mainGameScreen.GetPositionByPoint(Session.MainGame.mainGameScreen.MousePosition);
                 }
                 else
                 {
-                    this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                    this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                    this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.PopUndoneWork();
+                    Session.MainGame.mainGameScreen.OnMouseLeftUp -= new Screen.MouseLeftUp(screen_OnMouseLeftUp);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.PopUndoneWork();
                     this.ShowComment = false;
                     this.CanSelectArchitecture = true;
                     this.allowToSelectOutsideArea = false;

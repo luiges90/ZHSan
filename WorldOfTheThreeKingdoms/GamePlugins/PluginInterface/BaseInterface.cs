@@ -5,8 +5,7 @@ using GameFreeText;
 using GameGlobal;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-
+using GameObjects;
 
 namespace PluginInterface.BaseInterface
 {
@@ -18,7 +17,7 @@ namespace PluginInterface.BaseInterface
     public interface IBasePlugin
     {
         void Dispose();
-        void Initialize();
+        void Initialize(Screen screen);
 
         string Author { get; }
         string Description { get; }
@@ -29,9 +28,9 @@ namespace PluginInterface.BaseInterface
 
     public interface IPluginGraphics
     {
-        void Draw(SpriteBatch spriteBatch);
+        void Draw();
 
-        void SetGraphicsDevice(GraphicsDevice device);
+        void SetGraphicsDevice();
         void Update(GameTime gameTime);
     }
 

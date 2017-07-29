@@ -34,9 +34,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             base.EarlyMouseLeftDown();
 
             this.scrollSpeedScale = this.scrollSpeedScaleSpeedy;
-            /*if (!base.Scenario.LoadAndSaveAvail())
+            /*if (!Session.Current.Scenario.LoadAndSaveAvail())
             {
-                GlobalVariables.FastBattleSpeed = this.mouseState.LeftButton == ButtonState.Pressed;
+                Session.GlobalVariables.FastBattleSpeed = InputManager.NowMouse.LeftButton == ButtonState.Pressed;
             }*/
         }
 
@@ -79,9 +79,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 else
                 {
                     this.ResetCurrentStatus();
-                    this.CurrentArchitecture = base.Scenario.GetArchitectureByPosition(this.position);
-                    this.CurrentTroop = base.Scenario.GetTroopByPosition(this.position);
-                    this.CurrentRouteway = base.Scenario.GetRoutewayByPositionAndFaction(this.position, base.Scenario.CurrentPlayer);
+                    this.CurrentArchitecture = Session.Current.Scenario.GetArchitectureByPosition(this.position);
+                    this.CurrentTroop = Session.Current.Scenario.GetTroopByPosition(this.position);
+                    this.CurrentRouteway = Session.Current.Scenario.GetRoutewayByPositionAndFaction(this.position, Session.Current.Scenario.CurrentPlayer);
                     this.HandleLaterMouseMove();
                     this.HandleLaterMouseScroll();
                     if (this.viewMove == ViewMove.Stop)
@@ -101,16 +101,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         //{
         //    if (base.EnableMouseEvent && base.EnableLaterMouseEvent)
         //    {
-        //        if (!StaticMethods.PointInViewport(new Point(this.mouseState.X, this.mouseState.Y), base.viewportSize))
+        //        if (!StaticMethods.PointInViewport(new Point(InputManager.NowMouse.X, InputManager.NowMouse.Y), base.viewportSize))
         //        {
         //            this.UpdateViewMove();
         //        }
         //        else
         //        {
         //            this.ResetCurrentStatus();
-        //            this.CurrentArchitecture = base.Scenario.GetArchitectureByPosition(this.position);
-        //            this.CurrentTroop = base.Scenario.GetTroopByPosition(this.position);
-        //            this.CurrentRouteway = base.Scenario.GetRoutewayByPositionAndFaction(this.position, base.Scenario.CurrentPlayer);
+        //            this.CurrentArchitecture = Session.Current.Scenario.GetArchitectureByPosition(this.position);
+        //            this.CurrentTroop = Session.Current.Scenario.GetTroopByPosition(this.position);
+        //            this.CurrentRouteway = Session.Current.Scenario.GetRoutewayByPositionAndFaction(this.position, Session.Current.Scenario.CurrentPlayer);
         //            this.HandleLaterMouseMove();
         //            this.HandleLaterMouseScroll();
         //            if (this.viewMove == ViewMove.Stop)
@@ -128,18 +128,18 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void HandleLaterMouseLeftDown()
         {
-            //if (((this.previousMouseState.LeftButton == ButtonState.Released) && (this.mouseState.LeftButton == ButtonState.Pressed)) && (this.viewMove == ViewMove.Stop))
+            //if (((this.previousMouseState.LeftButton == ButtonState.Released) && (InputManager.NowMouse.LeftButton == ButtonState.Pressed)) && (this.viewMove == ViewMove.Stop))
             if (InputManager.IsReleasePre && InputManager.IsDown && this.viewMove == ViewMove.Stop)
             {
                 if (this.editMode)
                 {
-                    int x = (InputManager.PoX - this.mainMapLayer.LeftEdge) / base.Scenario.ScenarioMap.TileWidth;
-                    int y = (InputManager.PoY - this.mainMapLayer.TopEdge) / base.Scenario.ScenarioMap.TileHeight;
-                    this.mainMapLayer.mainMap.MapData[x, y] = this.ditukuaidezhi;
+                    int x = (InputManager.PoX - this.mainMapLayer.LeftEdge) / Session.Current.Scenario.ScenarioMap.TileWidth;
+                    int y = (InputManager.PoY - this.mainMapLayer.TopEdge) / Session.Current.Scenario.ScenarioMap.TileHeight;
+                    Session.Current.Scenario.ScenarioMap.MapData[x, y] = this.ditukuaidezhi;
                     this.mainMapLayer.chongsheditukuaitupian(x, y);
                 } 
-                else if (base.Scenario.CurrentPlayer != null && 
-                    this.PeekUndoneWork().Kind == UndoneWorkKind.None && base.Scenario.CurrentPlayer == base.Scenario.CurrentFaction)
+                else if (Session.Current.Scenario.CurrentPlayer != null && 
+                    this.PeekUndoneWork().Kind == UndoneWorkKind.None && Session.Current.Scenario.CurrentPlayer == Session.Current.Scenario.CurrentFaction)
                 {
                     if (this.CurrentArchitecture == null && this.CurrentTroop == null && this.CurrentRouteway == null)
                     {
@@ -154,30 +154,30 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
             }
             /*
-            if (base.Scenario.CurrentPlayer == null) return;
-            if (((this.previousMouseState.LeftButton == ButtonState.Released) && (this.mouseState.LeftButton == ButtonState.Pressed)) && (this.viewMove == ViewMove.Stop))
+            if (Session.Current.Scenario.CurrentPlayer == null) return;
+            if (((this.previousMouseState.LeftButton == ButtonState.Released) && (InputManager.NowMouse.LeftButton == ButtonState.Pressed)) && (this.viewMove == ViewMove.Stop))
             {
-                if (((GlobalVariables.SkyEye || base.Scenario.NoCurrentPlayer) || base.Scenario.CurrentPlayer.IsPositionKnown(this.position)) && ((this.Plugins.ContextMenuPlugin != null) && (this.PeekUndoneWork().Kind == UndoneWorkKind.None)))
+                if (((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || Session.Current.Scenario.CurrentPlayer.IsPositionKnown(this.position)) && ((this.Plugins.ContextMenuPlugin != null) && (this.PeekUndoneWork().Kind == UndoneWorkKind.None)))
                 {
-                    if ((((this.CurrentArchitecture != null) && (this.CurrentTroop != null)) && (this.CurrentTroop.BelongedFaction == base.Scenario.CurrentPlayer)) && (this.CurrentArchitecture.BelongedFaction == base.Scenario.CurrentPlayer) && this.CurrentTroop.Operated == false)
+                    if ((((this.CurrentArchitecture != null) && (this.CurrentTroop != null)) && (this.CurrentTroop.BelongedFaction == Session.Current.Scenario.CurrentPlayer)) && (this.CurrentArchitecture.BelongedFaction == Session.Current.Scenario.CurrentPlayer) && this.CurrentTroop.Operated == false)
                     {
-                        if (!(this.Plugins.ContextMenuPlugin.IsShowing || !base.Scenario.CurrentPlayer.Controlling))
+                        if (!(this.Plugins.ContextMenuPlugin.IsShowing || !Session.Current.Scenario.CurrentPlayer.Controlling))
                         {
                             this.Plugins.ContextMenuPlugin.IsShowing = true;
                             this.Plugins.ContextMenuPlugin.SetCurrentGameObject(this);
                             this.Plugins.ContextMenuPlugin.SetMenuKindByName("ArchitectureTroopLeftClick");
-                            this.Plugins.ContextMenuPlugin.Prepare(this.mouseState.X, this.mouseState.Y, base.viewportSize);
+                            this.Plugins.ContextMenuPlugin.Prepare(InputManager.NowMouse.X, InputManager.NowMouse.Y, base.viewportSize);
                             this.bianduiLiebiaoBiaoji = "ArchitectureTroopLeftClick";
                         }
                     }
-                    else if ((this.CurrentTroop != null) && (this.CurrentTroop.BelongedFaction == base.Scenario.CurrentPlayer) && this.CurrentTroop.Operated == false )
+                    else if ((this.CurrentTroop != null) && (this.CurrentTroop.BelongedFaction == Session.Current.Scenario.CurrentPlayer) && this.CurrentTroop.Operated == false )
                     {
-                        if (!this.Plugins.ContextMenuPlugin.IsShowing && base.Scenario.IsPlayerControlling())
+                        if (!this.Plugins.ContextMenuPlugin.IsShowing && Session.Current.Scenario.IsPlayerControlling())
                         {
                             this.Plugins.ContextMenuPlugin.IsShowing = true;
                             this.Plugins.ContextMenuPlugin.SetCurrentGameObject(this.CurrentTroop);
                             this.Plugins.ContextMenuPlugin.SetMenuKindByName("TroopLeftClick");
-                            this.Plugins.ContextMenuPlugin.Prepare(this.mouseState.X, this.mouseState.Y, base.viewportSize);
+                            this.Plugins.ContextMenuPlugin.Prepare(InputManager.NowMouse.X, InputManager.NowMouse.Y, base.viewportSize);
                             this.bianduiLiebiaoBiaoji="TroopLeftClick";
                             if (!this.Plugins.ContextMenuPlugin.IsShowing && (this.CurrentTroop.CutRoutewayDays > 0))
                             {
@@ -189,12 +189,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             }
                         }
                     }
-                    else if (((this.CurrentArchitecture != null) && (this.CurrentArchitecture.BelongedFaction == base.Scenario.CurrentPlayer)) && !(this.Plugins.ContextMenuPlugin.IsShowing || !base.Scenario.IsPlayerControlling()))
+                    else if (((this.CurrentArchitecture != null) && (this.CurrentArchitecture.BelongedFaction == Session.Current.Scenario.CurrentPlayer)) && !(this.Plugins.ContextMenuPlugin.IsShowing || !Session.Current.Scenario.IsPlayerControlling()))
                     {
                         this.Plugins.ContextMenuPlugin.IsShowing = true;
                         this.Plugins.ContextMenuPlugin.SetCurrentGameObject(this.CurrentArchitecture);
                         this.Plugins.ContextMenuPlugin.SetMenuKindByName("ArchitectureLeftClick");
-                        this.Plugins.ContextMenuPlugin.Prepare(this.mouseState.X, this.mouseState.Y, base.viewportSize);
+                        this.Plugins.ContextMenuPlugin.Prepare(InputManager.NowMouse.X, InputManager.NowMouse.Y, base.viewportSize);
                         
                         this.bianduiLiebiaoBiaoji = "ArchitectureLeftClick";
                         this.ShowBianduiLiebiao(UndoneWorkKind.None, FrameKind.Military, FrameFunction.Browse , false, true, false ,true,
@@ -208,21 +208,21 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void HandleLaterMouseLeftUp()
         {
-            if (base.Scenario.CurrentPlayer == null||this.editMode) return;
+            if (Session.Current.Scenario.CurrentPlayer == null||this.editMode) return;
 
             if (this.Plugins.youcelanPlugin.IsShowing && StaticMethods.PointInRectangle(this.MousePosition, this.Plugins.youcelanPlugin.FrameRectangle))
             {
                 return;
             }
 
-            //if ((this.previousMouseState.LeftButton == ButtonState.Pressed) && (this.mouseState.LeftButton == ButtonState.Released) && (this.viewMove == ViewMove.Stop))
+            //if ((this.previousMouseState.LeftButton == ButtonState.Pressed) && (InputManager.NowMouse.LeftButton == ButtonState.Released) && (this.viewMove == ViewMove.Stop))
             if (InputManager.IsDownPre && InputManager.IsReleased && this.viewMove == ViewMove.Stop)
             {
-                if (((GlobalVariables.SkyEye || base.Scenario.NoCurrentPlayer) || base.Scenario.CurrentPlayer.IsPositionKnown(this.position)) && ((this.Plugins.ContextMenuPlugin != null) && (this.PeekUndoneWork().Kind == UndoneWorkKind.None)))
+                if (((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || Session.Current.Scenario.CurrentPlayer.IsPositionKnown(this.position)) && ((this.Plugins.ContextMenuPlugin != null) && (this.PeekUndoneWork().Kind == UndoneWorkKind.None)))
                 {
-                    if ((((this.CurrentArchitecture != null) && (this.CurrentTroop != null)) && (this.CurrentTroop.BelongedFaction == base.Scenario.CurrentPlayer)) && (this.CurrentArchitecture.BelongedFaction == base.Scenario.CurrentPlayer) && this.CurrentTroop.Operated == false)
+                    if ((((this.CurrentArchitecture != null) && (this.CurrentTroop != null)) && (this.CurrentTroop.BelongedFaction == Session.Current.Scenario.CurrentPlayer)) && (this.CurrentArchitecture.BelongedFaction == Session.Current.Scenario.CurrentPlayer) && this.CurrentTroop.Operated == false)
                     {
-                        if (!(this.Plugins.ContextMenuPlugin.IsShowing || !base.Scenario.CurrentPlayer.Controlling))
+                        if (!(this.Plugins.ContextMenuPlugin.IsShowing || !Session.Current.Scenario.CurrentPlayer.Controlling))
                         {
                             this.Plugins.ContextMenuPlugin.IsShowing = true;
                             this.Plugins.ContextMenuPlugin.SetCurrentGameObject(this);
@@ -231,9 +231,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             this.bianduiLiebiaoBiaoji = "ArchitectureTroopLeftClick";
                         }
                     }
-                    else if ((this.CurrentTroop != null) && (this.CurrentTroop.BelongedFaction == base.Scenario.CurrentPlayer) && this.CurrentTroop.Operated == false)
+                    else if ((this.CurrentTroop != null) && (this.CurrentTroop.BelongedFaction == Session.Current.Scenario.CurrentPlayer) && this.CurrentTroop.Operated == false)
                     {
-                        if (!this.Plugins.ContextMenuPlugin.IsShowing && base.Scenario.IsPlayerControlling())
+                        if (!this.Plugins.ContextMenuPlugin.IsShowing && Session.Current.Scenario.IsPlayerControlling())
                         {
                             this.Plugins.ContextMenuPlugin.IsShowing = true;
                             this.Plugins.ContextMenuPlugin.SetCurrentGameObject(this.CurrentTroop);
@@ -250,7 +250,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             }
                         }
                     }
-                    else if (((this.CurrentArchitecture != null) && (this.CurrentArchitecture.BelongedFaction == base.Scenario.CurrentPlayer)) && !(this.Plugins.ContextMenuPlugin.IsShowing || !base.Scenario.IsPlayerControlling()))
+                    else if (((this.CurrentArchitecture != null) && (this.CurrentArchitecture.BelongedFaction == Session.Current.Scenario.CurrentPlayer)) && !(this.Plugins.ContextMenuPlugin.IsShowing || !Session.Current.Scenario.IsPlayerControlling()))
                     {
                         this.Plugins.ContextMenuPlugin.IsShowing = true;
                         this.Plugins.ContextMenuPlugin.SetCurrentGameObject(this.CurrentArchitecture);
@@ -269,10 +269,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         private void HandleLaterMouseMove()
         {
             /*
-            if ((this.mouseState.X != this.previousMouseState.X) || (this.mouseState.Y != this.previousMouseState.Y))
+            if ((InputManager.NowMouse.X != this.previousMouseState.X) || (InputManager.NowMouse.Y != this.previousMouseState.Y))
             {
                 this.UpdateViewMove();
-                if ((this.mouseState.LeftButton != ButtonState.Pressed) && (this.mouseState.RightButton != ButtonState.Pressed))
+                if ((InputManager.NowMouse.LeftButton != ButtonState.Pressed) && (InputManager.NowMouse.RightButton != ButtonState.Pressed))
                 {
                 }
             }
@@ -283,24 +283,24 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.UpdateViewMove();
                 if (this.editMode)
                 {
-                    if (InputManager.IsDown && (this.mouseState.RightButton != ButtonState.Pressed))
+                    if (InputManager.IsDown && (InputManager.NowMouse.RightButton != ButtonState.Pressed))
                     {
-                        int x = (InputManager.PoX - this.mainMapLayer.LeftEdge) / base.Scenario.ScenarioMap.TileWidth;
-                        int y = (InputManager.PoY - this.mainMapLayer.TopEdge) / base.Scenario.ScenarioMap.TileHeight;
-                        if (this.mainMapLayer.mainMap.MapData[x, y] != this.ditukuaidezhi)
+                        int x = (InputManager.PoX - this.mainMapLayer.LeftEdge) / Session.Current.Scenario.ScenarioMap.TileWidth;
+                        int y = (InputManager.PoY - this.mainMapLayer.TopEdge) / Session.Current.Scenario.ScenarioMap.TileHeight;
+                        if (Session.Current.Scenario.ScenarioMap.MapData[x, y] != this.ditukuaidezhi)
                         {
-                            this.mainMapLayer.mainMap.MapData[x, y] = this.ditukuaidezhi;
+                            Session.Current.Scenario.ScenarioMap.MapData[x, y] = this.ditukuaidezhi;
                             this.mainMapLayer.chongsheditukuaitupian(x, y);
 
                         }
                     }
-                    if (InputManager.IsDown && (this.mouseState.RightButton == ButtonState.Pressed))
+                    if (InputManager.IsDown && (InputManager.NowMouse.RightButton == ButtonState.Pressed))
                     {
-                        int x = (InputManager.PoX - this.mainMapLayer.LeftEdge) / base.Scenario.ScenarioMap.TileWidth;
-                        int y = (InputManager.PoY - this.mainMapLayer.TopEdge) / base.Scenario.ScenarioMap.TileHeight;
-                        if (this.mainMapLayer.mainMap.MapData[x, y] != 0)
+                        int x = (InputManager.PoX - this.mainMapLayer.LeftEdge) / Session.Current.Scenario.ScenarioMap.TileWidth;
+                        int y = (InputManager.PoY - this.mainMapLayer.TopEdge) / Session.Current.Scenario.ScenarioMap.TileHeight;
+                        if (Session.Current.Scenario.ScenarioMap.MapData[x, y] != 0)
                         {
-                            this.mainMapLayer.mainMap.MapData[x, y] = 0;
+                            Session.Current.Scenario.ScenarioMap.MapData[x, y] = 0;
                             this.mainMapLayer.chongsheditukuaitupian(x, y);
 
                         }
@@ -315,11 +315,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             if (this.editMode)
             {
-                if ((this.previousMouseState.RightButton == ButtonState.Released) && (this.mouseState.RightButton == ButtonState.Pressed))
+                if ((InputManager.MouseStatePre.RightButton == ButtonState.Released) && (InputManager.NowMouse.RightButton == ButtonState.Pressed))
                 {
-                    int x = (this.mouseState.X - this.mainMapLayer.LeftEdge) / base.Scenario.ScenarioMap.TileWidth;
-                    int y = (this.mouseState.Y - this.mainMapLayer.TopEdge) / base.Scenario.ScenarioMap.TileHeight;
-                    this.mainMapLayer.mainMap.MapData[x, y] = 0;
+                    int x = (InputManager.NowMouse.X - this.mainMapLayer.LeftEdge) / Session.Current.Scenario.ScenarioMap.TileWidth;
+                    int y = (InputManager.NowMouse.Y - this.mainMapLayer.TopEdge) / Session.Current.Scenario.ScenarioMap.TileHeight;
+                    Session.Current.Scenario.ScenarioMap.MapData[x, y] = 0;
                     this.mainMapLayer.chongsheditukuaitupian(x, y);
                 }
             }
@@ -327,11 +327,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
 
                 GameDelegates.VoidFunction optionFunction = null;
-                if ((this.previousMouseState.RightButton == ButtonState.Released) && (this.mouseState.RightButton == ButtonState.Pressed))
+                if ((InputManager.MouseStatePre.RightButton == ButtonState.Released) && (InputManager.NowMouse.RightButton == ButtonState.Pressed))
                 {
-                    if ((this.Plugins.OptionDialogPlugin != null) && (GlobalVariables.CurrentMapLayer == MapLayerKind.Routeway))
+                    if ((this.Plugins.OptionDialogPlugin != null) && (Session.GlobalVariables.CurrentMapLayer == MapLayerKind.Routeway))
                     {
-                        List<Routeway> routewaysByPositionAndFaction = base.Scenario.GetRoutewaysByPositionAndFaction(this.position, base.Scenario.CurrentPlayer);
+                        List<Routeway> routewaysByPositionAndFaction = Session.Current.Scenario.GetRoutewaysByPositionAndFaction(this.position, Session.Current.Scenario.CurrentPlayer);
                         List<Routeway> list2 = new List<Routeway>();
                         foreach (Routeway routeway in routewaysByPositionAndFaction)
                         {
@@ -344,7 +344,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         {
                             routewaysByPositionAndFaction.Remove(routeway);
                         }
-                        if ((routewaysByPositionAndFaction.Count > 1) && !base.Scenario.PositionIsTroop(this.position))
+                        if ((routewaysByPositionAndFaction.Count > 1) && !Session.Current.Scenario.PositionIsTroop(this.position))
                         {
                             this.Plugins.OptionDialogPlugin.SetStyle("Small");
                             this.Plugins.OptionDialogPlugin.SetTitle("粮道");
@@ -373,17 +373,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void HandleLaterMouseRightUp()
         {
-            if ((this.previousMouseState.RightButton == ButtonState.Pressed) && (this.mouseState.RightButton == ButtonState.Released))
+            if ((InputManager.MouseStatePre.RightButton == ButtonState.Pressed) && (InputManager.NowMouse.RightButton == ButtonState.Released))
             {
             }
         }
 
         private void HandleLaterMouseScroll()
         {
-            if (this.currentKey == Keys.OemPlus || this.currentKey == Keys.OemMinus || (this.mouseState.ScrollWheelValue != this.previousMouseState.ScrollWheelValue && this.oldScrollWheelValue != this.mouseState.ScrollWheelValue))
+            if (this.currentKey == Keys.OemPlus || this.currentKey == Keys.OemMinus || (InputManager.NowMouse.ScrollWheelValue != InputManager.MouseStatePre.ScrollWheelValue && this.oldScrollWheelValue != InputManager.NowMouse.ScrollWheelValue))
             {
-                float num = this.mouseState.ScrollWheelValue - this.oldScrollWheelValue;
-                this.oldScrollWheelValue = this.mouseState.ScrollWheelValue;
+                float num = InputManager.NowMouse.ScrollWheelValue - this.oldScrollWheelValue;
+                this.oldScrollWheelValue = InputManager.NowMouse.ScrollWheelValue;
 
                 if (this.currentKey == Keys.OemPlus)
                 {
@@ -397,7 +397,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if (num > 0f)
                 {
                     num = 0.1f;
-                    if (this.mainMapLayer.TileWidth == this.mainMapLayer.tileWidthMax)
+                    if (Session.MainGame.mainGameScreen.mainMapLayer.TileWidth == this.mainMapLayer.tileWidthMax)
                     {
                         return;
                     }
@@ -405,7 +405,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if (num < 0f)
                 {
                     num = -0.1f;
-                    if (this.mainMapLayer.TileWidth == this.mainMapLayer.tileWidthMin)
+                    if (Session.MainGame.mainGameScreen.mainMapLayer.TileWidth == this.mainMapLayer.tileWidthMin)
                     {
                         return;
                     }
@@ -439,8 +439,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             int tileWidth = this.mainMapLayer.TileWidth;
             this.mainMapLayer.TileWidth = tileWidthMax;
             num = (((float)tileWidthMax) / ((float)tileWidth)) - 1f;
-            int num4 = this.mainMapLayer.LeftEdge + ((int)(num * (this.mainMapLayer.LeftEdge - InputManager.PoX)));  // this.mouseState.X)));
-            int num5 = this.mainMapLayer.TopEdge + ((int)(num * (this.mainMapLayer.TopEdge - InputManager.PoY)));  // this.mouseState.Y)));
+            int num4 = this.mainMapLayer.LeftEdge + ((int)(num * (Session.MainGame.mainGameScreen.mainMapLayer.LeftEdge - InputManager.PoX)));  // InputManager.NowMouse.X)));
+            int num5 = this.mainMapLayer.TopEdge + ((int)(num * (Session.MainGame.mainGameScreen.mainMapLayer.TopEdge - InputManager.PoY)));  // InputManager.NowMouse.Y)));
             if (((((this.viewportSize.X - num4) <= this.mainMapLayer.TotalTileWidth) && (num4 <= 0)) && ((this.viewportSize.Y - num5) <= this.mainMapLayer.TotalTileHeight)) && (num5 <= 0))
             {
                 this.mainMapLayer.LeftEdge = num4;
@@ -451,10 +451,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.mainMapLayer.TileWidth = tileWidth;
             }
             this.ResetScreenEdge();
-            this.mainMapLayer.ReCalculateTileDestination(base.spriteBatch.GraphicsDevice);
-            base.Scenario.TroopAnimations.UpdateDirectionAnimations(this.mainMapLayer.TileWidth);
-            this.Plugins.AirViewPlugin.ResetFrameSize(base.viewportSize, this.mainMapLayer.TotalMapSize);
-            this.Plugins.AirViewPlugin.ResetFramePosition(base.viewportSize, this.mainMapLayer.LeftEdge, this.mainMapLayer.TopEdge, this.mainMapLayer.TotalMapSize);
+            this.mainMapLayer.ReCalculateTileDestination(this);
+            Session.Current.Scenario.TroopAnimations.UpdateDirectionAnimations(Session.MainGame.mainGameScreen.mainMapLayer.TileWidth);
+            this.Plugins.AirViewPlugin.ResetFrameSize(base.viewportSize, Session.MainGame.mainGameScreen.mainMapLayer.TotalMapSize);
+            this.Plugins.AirViewPlugin.ResetFramePosition(base.viewportSize, Session.MainGame.mainGameScreen.mainMapLayer.LeftEdge, Session.MainGame.mainGameScreen.mainMapLayer.TopEdge, Session.MainGame.mainGameScreen.mainMapLayer.TotalMapSize);
         }
 
 

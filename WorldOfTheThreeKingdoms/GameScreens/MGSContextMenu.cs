@@ -32,7 +32,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             if ((this.Plugins.ContextMenuPlugin != null) && (this.PeekUndoneWork().Kind == UndoneWorkKind.None))
             {
-                if (((this.CurrentArchitecture != null) && (this.CurrentTroop != null)) && ((GlobalVariables.SkyEye || base.Scenario.NoCurrentPlayer) || base.Scenario.CurrentPlayer.IsPositionKnown(this.position)))
+                if (((this.CurrentArchitecture != null) && (this.CurrentTroop != null)) && ((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || Session.Current.Scenario.CurrentPlayer.IsPositionKnown(this.position)))
                 {
                     if (!this.Plugins.ContextMenuPlugin.IsShowing)
                     {
@@ -43,7 +43,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.Plugins.ContextMenuPlugin.Prepare(InputManager.PoX, InputManager.PoY, base.viewportSize);
                     }
                 }
-                else if ((((((this.CurrentRouteway != null) && (GlobalVariables.CurrentMapLayer == MapLayerKind.Routeway)) && (base.Scenario.IsCurrentPlayer(this.CurrentRouteway.BelongedFaction) && (this.CurrentRouteway.StartArchitecture != null))) && (((this.CurrentRouteway.DestinationArchitecture == null) || !this.CurrentRouteway.StartArchitecture.BelongedSection.AIDetail.AutoRun) || (this.CurrentRouteway.Building || (this.CurrentRouteway.LastActivePointIndex >= 0)))) && (this.CurrentTroop != null)) && ((GlobalVariables.SkyEye || base.Scenario.NoCurrentPlayer) || base.Scenario.CurrentPlayer.IsPositionKnown(this.position)))
+                else if ((((((this.CurrentRouteway != null) && (Session.GlobalVariables.CurrentMapLayer == MapLayerKind.Routeway)) && (Session.Current.Scenario.IsCurrentPlayer(this.CurrentRouteway.BelongedFaction) && (this.CurrentRouteway.StartArchitecture != null))) && (((this.CurrentRouteway.DestinationArchitecture == null) || !this.CurrentRouteway.StartArchitecture.BelongedSection.AIDetail.AutoRun) || (this.CurrentRouteway.Building || (this.CurrentRouteway.LastActivePointIndex >= 0)))) && (this.CurrentTroop != null)) && ((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || Session.Current.Scenario.CurrentPlayer.IsPositionKnown(this.position)))
                 {
                     if (!this.Plugins.ContextMenuPlugin.IsShowing)
                     {
@@ -54,7 +54,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.bianduiLiebiaoBiaoji = "TroopRoutewayRightClick";
                     }
                 }
-                else if ((this.CurrentTroop != null) && ((GlobalVariables.SkyEye || base.Scenario.NoCurrentPlayer) || base.Scenario.CurrentPlayer.IsPositionKnown(this.position)))
+                else if ((this.CurrentTroop != null) && ((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || Session.Current.Scenario.CurrentPlayer.IsPositionKnown(this.position)))
                 {
                     if (!this.Plugins.ContextMenuPlugin.IsShowing)
                     {
@@ -65,7 +65,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.bianduiLiebiaoBiaoji = "TroopRightClick";
                     }
                 }
-                else if ((this.CurrentArchitecture != null) && ((GlobalVariables.SkyEye || base.Scenario.NoCurrentPlayer) || base.Scenario.CurrentPlayer.IsPositionKnown(this.position)))
+                else if ((this.CurrentArchitecture != null) && ((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || Session.Current.Scenario.CurrentPlayer.IsPositionKnown(this.position)))
                 {
                     if (!this.Plugins.ContextMenuPlugin.IsShowing)
                     {
@@ -76,7 +76,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.bianduiLiebiaoBiaoji = "ArchitectureRightClick";
                     }
                 }
-                else if (((((this.CurrentRouteway != null) && (GlobalVariables.CurrentMapLayer == MapLayerKind.Routeway)) && (base.Scenario.IsCurrentPlayer(this.CurrentRouteway.BelongedFaction) && (this.CurrentRouteway.StartArchitecture != null))) && (((this.CurrentRouteway.DestinationArchitecture == null) || !this.CurrentRouteway.StartArchitecture.BelongedSection.AIDetail.AutoRun) || (this.CurrentRouteway.Building || (this.CurrentRouteway.LastActivePointIndex >= 0)))) && ((GlobalVariables.SkyEye || base.Scenario.NoCurrentPlayer) || base.Scenario.CurrentPlayer.IsPositionKnown(this.position)))
+                else if (((((this.CurrentRouteway != null) && (Session.GlobalVariables.CurrentMapLayer == MapLayerKind.Routeway)) && (Session.Current.Scenario.IsCurrentPlayer(this.CurrentRouteway.BelongedFaction) && (this.CurrentRouteway.StartArchitecture != null))) && (((this.CurrentRouteway.DestinationArchitecture == null) || !this.CurrentRouteway.StartArchitecture.BelongedSection.AIDetail.AutoRun) || (this.CurrentRouteway.Building || (this.CurrentRouteway.LastActivePointIndex >= 0)))) && ((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || Session.Current.Scenario.CurrentPlayer.IsPositionKnown(this.position)))
                 {
                     if (!this.Plugins.ContextMenuPlugin.IsShowing)
                     {
@@ -249,7 +249,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case ContextMenuResult.Faction_DiplomaticRelations:
                     if (this.CurrentArchitecture.BelongedFaction != null)
                     {
-                        this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.DiplomaticRelation, FrameFunction.Browse, false, true, false, false, this.CurrentArchitecture.Scenario.DiplomaticRelations.GetDiplomaticRelationDisplayListByFactionID(this.CurrentArchitecture.BelongedFaction.ID), null, "", "");
+                        this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.DiplomaticRelation, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelationDisplayListByFactionID(this.CurrentArchitecture.BelongedFaction.ID), null, "", "");
                     }
                     break;
 
@@ -401,7 +401,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         };
                     }
                     this.Plugins.CreateTroopPlugin.SetCreateFunction(function4);
-                    this.Plugins.CreateTroopPlugin.SetShellMilitaryKind(base.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(0x1c));
+                    this.Plugins.CreateTroopPlugin.SetShellMilitaryKind(Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(0x1c));
                     this.Plugins.CreateTroopPlugin.SetArchitecture(this.CurrentArchitecture);
                     this.Plugins.CreateTroopPlugin.SetPosition(ShowPosition.Center);
                     this.Plugins.CreateTroopPlugin.IsShowing = true;
@@ -574,7 +574,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case ContextMenuResult.Tactics_Information:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.InformationKind, FrameFunction.GetInformationKind, false, true, true, false, base.Scenario.GameCommonData.AllInformationKinds.GetAvailList(this.CurrentArchitecture), null, "情报种类", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.InformationKind, FrameFunction.GetInformationKind, false, true, true, false, Session.Current.Scenario.GameCommonData.AllInformationKinds.GetAvailList(this.CurrentArchitecture), null, "情报种类", "");
                     break;
 
                 case ContextMenuResult.Tactics_StopInformation:
@@ -806,7 +806,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case ContextMenuResult.AllEnter:
                     this.CurrentArchitecture.AllEnter();
                     //this.Plugins.AirViewPlugin.ReloadTroopView();
-                    this.Scenario.ClearPersonStatusCache();
+                    Session.Current.Scenario.ClearPersonStatusCache();
                     break;
 
                 case ContextMenuResult.DateGo_1Day:
@@ -830,24 +830,24 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case ContextMenuResult.Jump_Architecture:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Architecture, FrameFunction.Jump, false, true, false, false, base.Scenario.CurrentPlayer.Architectures, null, "跳转", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Architecture, FrameFunction.Jump, false, true, false, false, Session.Current.Scenario.CurrentPlayer.Architectures, null, "跳转", "");
 
                     break;
 
                 case ContextMenuResult.Jump_Troop:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Troop, FrameFunction.Jump, false, true, false, false, base.Scenario.CurrentPlayer.Troops, null, "跳转", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Troop, FrameFunction.Jump, false, true, false, false, Session.Current.Scenario.CurrentPlayer.Troops, null, "跳转", "");
                     break;
 
                 case ContextMenuResult.Jump_Person:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.Jump, false, true, false, false, base.Scenario.CurrentPlayer.Persons, null, "跳转", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.Jump, false, true, false, false, Session.Current.Scenario.CurrentPlayer.Persons, null, "跳转", "");
                     break;
 
                 case ContextMenuResult.Switch_Smog:
-                    GlobalVariables.DrawMapVeil = !GlobalVariables.DrawMapVeil;
+                    Session.GlobalVariables.DrawMapVeil = !Session.GlobalVariables.DrawMapVeil;
                     break;
 
                 case ContextMenuResult.Switch_StopOnAttack:
-                    GlobalVariables.StopToControlOnAttack = !GlobalVariables.StopToControlOnAttack;
+                    Session.GlobalVariables.StopToControlOnAttack = !Session.GlobalVariables.StopToControlOnAttack;
                     break;
 
                 case ContextMenuResult.Switch_TroopTitle:
@@ -855,10 +855,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case ContextMenuResult.Switch_Music:
-                    GlobalVariables.PlayMusic = !GlobalVariables.PlayMusic;
-                    if (GlobalVariables.PlayMusic)
+                    Session.GlobalVariables.PlayMusic = !Session.GlobalVariables.PlayMusic;
+                    if (Session.GlobalVariables.PlayMusic)
                     {
-                        this.Date_OnSeasonChange(base.Scenario.Date.Season);
+                        this.Date_OnSeasonChange(Session.Current.Scenario.Date.Season);
                     }
                     else
                     {
@@ -868,15 +868,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case ContextMenuResult.Switch_NormalSound:
-                    GlobalVariables.PlayNormalSound = !GlobalVariables.PlayNormalSound;
+                    Session.GlobalVariables.PlayNormalSound = !Session.GlobalVariables.PlayNormalSound;
                     break;
 
                 case ContextMenuResult.Switch_BattleSound:
-                    GlobalVariables.PlayBattleSound = !GlobalVariables.PlayBattleSound;
+                    Session.GlobalVariables.PlayBattleSound = !Session.GlobalVariables.PlayBattleSound;
                     break;
 
                 case ContextMenuResult.Switch_TroopAnimation:
-                    GlobalVariables.DrawTroopAnimation = !GlobalVariables.DrawTroopAnimation;
+                    Session.GlobalVariables.DrawTroopAnimation = !Session.GlobalVariables.DrawTroopAnimation;
                     break;
 
                 case ContextMenuResult.Switch_FullScreen:
@@ -884,79 +884,79 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case ContextMenuResult.Switch_SkyEye:
-                    GlobalVariables.SkyEye = !GlobalVariables.SkyEye;
+                    Session.GlobalVariables.SkyEye = !Session.GlobalVariables.SkyEye;
                     break;
 
                 case ContextMenuResult.Switch_MultipleResource:
-                    GlobalVariables.MultipleResource = !GlobalVariables.MultipleResource;
+                    Session.GlobalVariables.MultipleResource = !Session.GlobalVariables.MultipleResource;
                     break;
 
                 case ContextMenuResult.Information_AllSkills:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Skill, FrameFunction.Browse, false, true, false, false, base.Scenario.GameCommonData.AllSkills.GetSkillList(), null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Skill, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.GameCommonData.AllSkills.GetSkillList(), null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllTitles:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Title, FrameFunction.Browse, false, true, false, false, base.Scenario.GameCommonData.AllTitles.GetTitleList(), null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Title, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.GameCommonData.AllTitles.GetTitleList(), null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllMilitaryKinds:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.MilitaryKind, FrameFunction.Browse, false, true, false, false, base.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKindList(), null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.MilitaryKind, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKindList(), null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllStunts:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Stunt, FrameFunction.Browse, false, true, false, false, base.Scenario.GameCommonData.AllStunts.GetStuntList(), null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Stunt, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.GameCommonData.AllStunts.GetStuntList(), null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllFactions:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Faction, FrameFunction.Browse, false, true, false, false, base.Scenario.Factions, null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Faction, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.Factions, null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllArchitectures:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Architecture, FrameFunction.Browse, false, true, false, false, base.Scenario.Architectures, null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Architecture, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.Architectures, null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllTroops:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Troop, FrameFunction.Browse, false, true, false, false, base.Scenario.Troops, null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Troop, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.Troops, null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllPersons:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.Browse, false, true, false, false, base.Scenario.AvailablePersons, null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.AvailablePersons, null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllDeadPersons:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.Browse, false, true, false, false, base.Scenario.DeadPersons, null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.DeadPersons, null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllMilitaries:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Military, FrameFunction.Browse, false, true, false, false, base.Scenario.Militaries, null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Military, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.Militaries, null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllFacilities:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Facility, FrameFunction.Browse, false, true, false, false, base.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKindList(), null, "设施种类", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Facility, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKindList(), null, "设施种类", "");
                     break;
 
                 case ContextMenuResult.Information_AllTerrainDetails:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.TerrainDetail, FrameFunction.Browse, false, true, false, false, base.Scenario.GameCommonData.AllTerrainDetails.GetTerrainDetailList(), null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.TerrainDetail, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.GameCommonData.AllTerrainDetails.GetTerrainDetailList(), null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllSections:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Section, FrameFunction.Browse, false, true, false, false, base.Scenario.Sections, null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Section, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.Sections, null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllRegions:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Region, FrameFunction.Browse, false, true, false, false, base.Scenario.Regions, null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Region, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.Regions, null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllStates:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.State, FrameFunction.Browse, false, true, false, false, base.Scenario.States, null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.State, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.States, null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllTreasures:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Treasure, FrameFunction.Browse, false, true, false, false, base.Scenario.Treasures, null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Treasure, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.Treasures, null, "", "");
                     break;
 
                 case ContextMenuResult.Information_AllGuanjues:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Guanjue, FrameFunction.Browse, false, true, false, false, base.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhongleiliebiao(), null, "", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Guanjue, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhongleiliebiao(), null, "", "");
                     break;
 
                 case ContextMenuResult.Load:
@@ -1094,7 +1094,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     this.CurrentTroop.RealDestination = this.CurrentTroop.Position ;
                     this.CurrentTroop.TargetTroop = null;
-                    this.CurrentTroop.TargetArchitecture = base.Scenario.GetArchitectureByPosition(this.CurrentTroop.Position);
+                    this.CurrentTroop.TargetArchitecture = Session.Current.Scenario.GetArchitectureByPosition(this.CurrentTroop.Position);
                     this.CurrentTroop.mingling = "入城";
                     this.CurrentTroop.minglingweizhi = this.CurrentTroop.Position;
 
@@ -1116,19 +1116,19 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case ContextMenuResult.TroopConfig_AttackDefaultKind:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.AttackDefaultKind, FrameFunction.GetAttackDefaultKind, false, true, true, false, base.Scenario.GameCommonData.AllAttackDefaultKinds, base.Scenario.GameCommonData.AllAttackDefaultKinds.GetSelectedList(this.CurrentTroop.AttackDefaultKind), "攻击默认", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.AttackDefaultKind, FrameFunction.GetAttackDefaultKind, false, true, true, false, Session.Current.Scenario.GameCommonData.AllAttackDefaultKinds, Session.Current.Scenario.GameCommonData.AllAttackDefaultKinds.GetSelectedList(this.CurrentTroop.AttackDefaultKind), "攻击默认", "");
                     break;
 
                 case ContextMenuResult.TroopConfig_AttackTargetKind:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.AttackTargetKind, FrameFunction.GetAttackTargetKind, false, true, true, false, base.Scenario.GameCommonData.AllAttackTargetKinds, base.Scenario.GameCommonData.AllAttackTargetKinds.GetSelectedList(this.CurrentTroop.AttackTargetKind), "攻击目标", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.AttackTargetKind, FrameFunction.GetAttackTargetKind, false, true, true, false, Session.Current.Scenario.GameCommonData.AllAttackTargetKinds, Session.Current.Scenario.GameCommonData.AllAttackTargetKinds.GetSelectedList(this.CurrentTroop.AttackTargetKind), "攻击目标", "");
                     break;
 
                 case ContextMenuResult.TroopConfig_CastDefaultKind:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.CastDefaultKind, FrameFunction.GetCastDefaultKind, false, true, true, false, base.Scenario.GameCommonData.AllCastDefaultKinds, base.Scenario.GameCommonData.AllCastDefaultKinds.GetSelectedList(this.CurrentTroop.CastDefaultKind), "施展默认", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.CastDefaultKind, FrameFunction.GetCastDefaultKind, false, true, true, false, Session.Current.Scenario.GameCommonData.AllCastDefaultKinds, Session.Current.Scenario.GameCommonData.AllCastDefaultKinds.GetSelectedList(this.CurrentTroop.CastDefaultKind), "施展默认", "");
                     break;
 
                 case ContextMenuResult.TroopConfig_CastTargetKind:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.CastTargetKind, FrameFunction.GetCastTargetKind, false, true, true, false, base.Scenario.GameCommonData.AllCastTargetKinds, base.Scenario.GameCommonData.AllCastTargetKinds.GetSelectedList(this.CurrentTroop.CastTargetKind), "施展目标", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.CastTargetKind, FrameFunction.GetCastTargetKind, false, true, true, false, Session.Current.Scenario.GameCommonData.AllCastTargetKinds, Session.Current.Scenario.GameCommonData.AllCastTargetKinds.GetSelectedList(this.CurrentTroop.CastTargetKind), "施展目标", "");
                     break;
 
                 case ContextMenuResult.TroopSetAuto:
@@ -1260,10 +1260,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
                     break;
                 case ContextMenuResult.YearTable_Year5:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.YearTable, FrameFunction.Browse, false, true, false, false, base.Scenario.getFactionYearTableRecentYears(base.Scenario.CurrentPlayer, 5), null, "年表", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.YearTable, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.getFactionYearTableRecentYears(Session.Current.Scenario.CurrentPlayer, 5), null, "年表", "");
                     break;
                 case ContextMenuResult.YearTable_OwnFaction:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.YearTable, FrameFunction.Browse, false, true, false, false, base.Scenario.getOnlyFactionYearTable(base.Scenario.CurrentPlayer), null, "年表", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.YearTable, FrameFunction.Browse, false, true, false, false, Session.Current.Scenario.getOnlyFactionYearTable(Session.Current.Scenario.CurrentPlayer), null, "年表", "");
                     break;
                 case ContextMenuResult.ChangeFaction:
                     this.changeFaction();

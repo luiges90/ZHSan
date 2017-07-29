@@ -13,12 +13,11 @@ namespace GameObjects.Animations
     [DataContract]
     public class CombatNumberGenerator
     {
-        public GraphicsDevice Device;
         [DataMember]
         public int DigitHeight = 20;
         [DataMember]
         public int DigitWidth = 12;
-        private Texture2D texture;
+        private PlatformTexture texture;
         [DataMember]
         public string TextureFileName;
 
@@ -32,15 +31,15 @@ namespace GameObjects.Animations
             return new Rectangle(this.DigitWidth * digit, this.DigitHeight * (((int) kind *(int)  CombatNumberKind.战意) + ( ((int) direction))), this.DigitWidth, this.DigitHeight);
         }
 
-        public Texture2D Texture
+        public PlatformTexture Texture
         {
             get
             {
                 if (this.texture == null)
                 {
-                    this.texture = CacheManager.LoadTempTexture(this.TextureFileName);
-                    this.DigitWidth = this.texture.Width / 12;
-                    this.DigitHeight = (this.texture.Height / Enum.GetValues(typeof(CombatNumberKind)).Length) / 2;
+                    this.texture = CacheManager.GetTempTexture(this.TextureFileName);
+                    this.DigitWidth = 144 / 12;  // this.texture.Width / 12;
+                    this.DigitHeight = (200 / Enum.GetValues(typeof(CombatNumberKind)).Length) / 2;   //this.texture.Height
                 }
                 return this.texture;
             }

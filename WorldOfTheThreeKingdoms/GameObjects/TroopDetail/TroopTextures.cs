@@ -13,114 +13,123 @@ namespace GameObjects.TroopDetail
     [StructLayout(LayoutKind.Sequential)]
     public struct TroopTextures
     {
-        //public GraphicsDevice Device;
         public string MoveTextureFileName;
-        private Texture2D moveTexture;
+        private PlatformTexture moveTexture;
         public string AttackTextureFileName;
-        private Texture2D attackTexture;
+        private PlatformTexture attackTexture;
         public string BeAttackedTextureFileName;
-        private Texture2D beAttackedTexture;
+        private PlatformTexture beAttackedTexture;
         public string CastTextureFileName;
-        private Texture2D castTexture;
+        private PlatformTexture castTexture;
         public string BeCastedTextureFileName;
-        private Texture2D beCastedTexture;
-        public Texture2D MoveTexture
+        private PlatformTexture beCastedTexture;
+        public PlatformTexture MoveTexture
         {
             get
             {
-                try
-                {
+                //try
+                //{
                     if (this.moveTexture == null)
                     {
-                        this.moveTexture = CacheManager.LoadTempTexture(this.MoveTextureFileName);
+                        this.moveTexture = CacheManager.GetTempTexture(this.MoveTextureFileName);
+                    this.moveTexture.Width = 600;
+                    this.moveTexture.Height = 480;
                     }
-                }
-                catch
-                {
-                    if (this.moveTexture == null)
-                    {
-                        this.moveTexture = new Texture2D(Platform.GraphicsDevice, 1, 1);
-                    }
-                }
+                //}
+                //catch
+                //{
+                //    if (this.moveTexture == null)
+                //    {
+                //        this.moveTexture = new PlatformTexture(1, 1);
+                //    }
+                //}
                 return this.moveTexture;
             }
         }
-        public Texture2D AttackTexture
+        public PlatformTexture AttackTexture
         {
             get
             {
-                try
-                {
+                //try
+                //{
                     if (this.attackTexture == null)
                     {
-                        this.attackTexture = CacheManager.LoadTempTexture(this.AttackTextureFileName);
-                    }
+                        this.attackTexture = CacheManager.GetTempTexture(this.AttackTextureFileName);
+                    this.attackTexture.Width = 600;
+                    this.attackTexture.Height = 480;
                 }
-                catch
-                {
-                    if (this.attackTexture == null)
-                    {
-                        this.attackTexture = new Texture2D(Platform.GraphicsDevice, 1, 1);
-                    }
-                }
+                //}
+                //catch
+                //{
+                //    if (this.attackTexture == null)
+                //    {
+                //        this.attackTexture = new Texture2D(1, 1);
+                //    }
+                //}
                 return this.attackTexture;
             }
         }
-        public Texture2D BeAttackedTexture
+        public PlatformTexture BeAttackedTexture
         {
             get
             {
-                try
-                {
+                //try
+                //{
                     if (this.beAttackedTexture == null)
                     {
-                        this.beAttackedTexture = CacheManager.LoadTempTexture(this.BeAttackedTextureFileName);
-                    }
+                        this.beAttackedTexture = CacheManager.GetTempTexture(this.BeAttackedTextureFileName);
+                    this.beAttackedTexture.Width = 600;
+                    this.beAttackedTexture.Height = 480;
                 }
-                catch
-                {
-                    if (this.beAttackedTexture == null)
-                    {
-                        this.beAttackedTexture = new Texture2D(Platform.GraphicsDevice, 1, 1);
-                    }
-                }
+                //}
+                //catch
+                //{
+                //    if (this.beAttackedTexture == null)
+                //    {
+                //        this.beAttackedTexture = new Texture2D(1, 1);
+                //    }
+                //}
                 return this.beAttackedTexture;
             }
         }
-        public Texture2D CastTexture
+        public PlatformTexture CastTexture
         {
             get
             {
-                try
-                {
+                //try
+                //{
                     if (this.castTexture == null)
                     {
                         if (this.CastTextureFileName == this.AttackTextureFileName)
                         {
                             this.castTexture = this.AttackTexture;
-                        }
+                        this.castTexture.Width = 600;
+                        this.castTexture.Height = 480;
+                    }
                         else
                         {
-                            this.castTexture = CacheManager.LoadTempTexture(this.CastTextureFileName);
-                        }
+                            this.castTexture = CacheManager.GetTempTexture(this.CastTextureFileName);
+                        this.castTexture.Width = 600;
+                        this.castTexture.Height = 480;
                     }
-                }
-                catch
-                {
-                    if (this.castTexture == null)
-                    {
-                        this.castTexture = new Texture2D(Platform.GraphicsDevice, 1, 1);
                     }
-                }
+                //}
+                //catch
+                //{
+                //    if (this.castTexture == null)
+                //    {
+                //        this.castTexture = new Texture2D(1, 1);
+                //    }
+                //}
                 return this.castTexture;
             }
         }
-        public Texture2D BeCastedTexture
+        public PlatformTexture BeCastedTexture
         {
             get
             {
-                try
-                {
+                //try
+                //{
                     if (this.beCastedTexture == null)
                     {
                         if (this.BeCastedTextureFileName == this.BeAttackedTextureFileName)
@@ -129,48 +138,50 @@ namespace GameObjects.TroopDetail
                         }
                         else
                         {
-                            this.beCastedTexture = CacheManager.LoadTempTexture(this.BeCastedTextureFileName);
+                            this.beCastedTexture = CacheManager.GetTempTexture(this.BeCastedTextureFileName);
                         }
-                    }
+                    this.beCastedTexture.Width = 600;
+                    this.beCastedTexture.Height = 480;
                 }
-                catch
-                {
-                    if (this.beCastedTexture == null)
-                    {
-                        this.beCastedTexture = new Texture2D(Platform.GraphicsDevice, 1, 1);
-                    }
-                }
+                //}
+                //catch
+                //{
+                //    if (this.beCastedTexture == null)
+                //    {
+                //        this.beCastedTexture = new PlatformTexture(1, 1);
+                //    }
+                //}
                 return this.beCastedTexture;
             }
         }
-        public void Dispose()
-        {
-            if (this.moveTexture != null)
-            {
-                this.moveTexture.Dispose();
-                this.moveTexture = null;
-            }
-            if (this.attackTexture != null)
-            {
-                this.attackTexture.Dispose();
-                this.attackTexture = null;
-            }
-            if (this.beAttackedTexture != null)
-            {
-                this.beAttackedTexture.Dispose();
-                this.beAttackedTexture = null;
-            }
-            if (this.castTexture != null)
-            {
-                this.castTexture.Dispose();
-                this.castTexture = null;
-            }
-            if (this.beCastedTexture != null)
-            {
-                this.beCastedTexture.Dispose();
-                this.beCastedTexture = null;
-            }
-        }
+        //public void Dispose()
+        //{
+        //    if (this.moveTexture != null)
+        //    {
+        //        this.moveTexture.Dispose();
+        //        this.moveTexture = null;
+        //    }
+        //    if (this.attackTexture != null)
+        //    {
+        //        this.attackTexture.Dispose();
+        //        this.attackTexture = null;
+        //    }
+        //    if (this.beAttackedTexture != null)
+        //    {
+        //        this.beAttackedTexture.Dispose();
+        //        this.beAttackedTexture = null;
+        //    }
+        //    if (this.castTexture != null)
+        //    {
+        //        this.castTexture.Dispose();
+        //        this.castTexture = null;
+        //    }
+        //    if (this.beCastedTexture != null)
+        //    {
+        //        this.beCastedTexture.Dispose();
+        //        this.beCastedTexture = null;
+        //    }
+        //}
     }
 }
 

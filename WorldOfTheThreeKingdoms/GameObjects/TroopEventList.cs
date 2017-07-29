@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameManager;
+using System;
 using System.Runtime.Serialization;
 
 namespace GameObjects
@@ -17,7 +18,7 @@ namespace GameObjects
 
         private void te_OnApplyTroopEvent(TroopEvent te, Troop troop)
         {
-            te.Scenario.GameScreen.TroopApplyTroopEvent(te, troop);
+            Session.MainGame.mainGameScreen.TroopApplyTroopEvent(te, troop);
         }
     }
 }

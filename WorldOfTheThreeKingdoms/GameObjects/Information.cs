@@ -1,4 +1,5 @@
 ﻿using GameGlobal;
+using GameManager;
 using Microsoft.Xna.Framework;
 using System;
 using System.Runtime.Serialization;
@@ -45,7 +46,7 @@ namespace GameObjects
 
         private void CheckAmbushTroop(Point p)
         {
-            Troop troopByPosition = base.Scenario.GetTroopByPosition(p);
+            Troop troopByPosition = Session.Current.Scenario.GetTroopByPosition(p);
             if (troopByPosition != null && troopByPosition.Status == TroopStatus.埋伏 && 
                 ((this.BelongedArchitecture != null && !this.BelongedArchitecture.IsFriendly(troopByPosition.BelongedFaction)) || 
                 (this.BelongedFaction != null && !this.BelongedFaction.IsFriendly(troopByPosition.BelongedFaction))))
@@ -113,7 +114,7 @@ namespace GameObjects
             {
                 if (this.area == null)
                 {
-                    this.area = GameArea.GetViewArea(this.position, this.radius, this.oblique, base.Scenario, null);
+                    this.area = GameArea.GetViewArea(this.position, this.radius, this.oblique, null);
                 }
                 return this.area;
             }

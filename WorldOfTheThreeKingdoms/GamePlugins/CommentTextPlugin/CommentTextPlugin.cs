@@ -19,7 +19,6 @@ namespace CommentTextPlugin
         private CommentText conmentText = new CommentText();
         private const string DataPath = @"Content\Textures\GameComponents\CommentText\Data\";
         private string description = "用来设置主界面注释的各个属性";
-        private GraphicsDevice graphicsDevice;
         private const string Path = @"Content\Textures\GameComponents\CommentText\";
         private string pluginName = "CommentTextPlugin";
         private float ScaleHeight;
@@ -51,12 +50,12 @@ namespace CommentTextPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            this.conmentText.Draw(spriteBatch);
+            this.conmentText.Draw();
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -79,25 +78,24 @@ namespace CommentTextPlugin
             this.conmentText.FirstTextDecorationLeft = node.Attributes.GetNamedItem("Left").Value;
             this.conmentText.FirstTextDecorationRight = node.Attributes.GetNamedItem("Right").Value;
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.conmentText.FirstText = new FreeText(this.graphicsDevice, font, color);
+            this.conmentText.FirstText = new FreeText(font, color);
             this.conmentText.FirstText.Align = TextAlign.Left;
             node = nextSibling.ChildNodes.Item(2);
             this.conmentText.SecondTextDecorationLeft = node.Attributes.GetNamedItem("Left").Value;
             this.conmentText.SecondTextDecorationRight = node.Attributes.GetNamedItem("Right").Value;
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.conmentText.SecondText = new FreeText(this.graphicsDevice, font, color);
+            this.conmentText.SecondText = new FreeText(font, color);
             this.conmentText.SecondText.Align = TextAlign.Left;
             node = nextSibling.ChildNodes.Item(3);
             this.conmentText.ThirdTextDecorationLeft = node.Attributes.GetNamedItem("Left").Value;
             this.conmentText.ThirdTextDecorationRight = node.Attributes.GetNamedItem("Right").Value;
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.conmentText.ThirdText = new FreeText(this.graphicsDevice, font, color);
+            this.conmentText.ThirdText = new FreeText(font, color);
             this.conmentText.ThirdText.Align = TextAlign.Left;
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\CommentTextData.xml");
         }
 

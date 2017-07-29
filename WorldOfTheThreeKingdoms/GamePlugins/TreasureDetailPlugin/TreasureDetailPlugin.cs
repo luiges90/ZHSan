@@ -20,7 +20,7 @@ namespace TreasureDetailPlugin
         private string author = "clip_on";
         private const string DataPath = @"Content\Textures\GameComponents\TreasureDetail\Data\";
         private string description = "宝物细节显示";
-        private GraphicsDevice graphicsDevice;
+        
         private const string Path = @"Content\Textures\GameComponents\TreasureDetail\";
         private string pluginName = "TreasureDetailPlugin";
         private TreasureDetail treasureDetail = new TreasureDetail();
@@ -31,15 +31,15 @@ namespace TreasureDetailPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.treasureDetail.IsShowing)
             {
-                this.treasureDetail.Draw(spriteBatch);
+                this.treasureDetail.Draw();
             }
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -53,7 +53,7 @@ namespace TreasureDetailPlugin
             XmlNode node = nextSibling.ChildNodes.Item(0);
             this.treasureDetail.BackgroundSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.treasureDetail.BackgroundSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.treasureDetail.BackgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\TreasureDetail\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.treasureDetail.BackgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TreasureDetail\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(1);
             this.treasureDetail.PictureClient = StaticMethods.LoadRectangleFromXMLNode(node);
             node = nextSibling.ChildNodes.Item(2);
@@ -63,14 +63,14 @@ namespace TreasureDetailPlugin
                 XmlNode node3 = node.ChildNodes.Item(i);
                 Microsoft.Xna.Framework.Rectangle rectangle = StaticMethods.LoadRectangleFromXMLNode(node3);
                 StaticMethods.LoadFontAndColorFromXMLNode(node3, out font, out color);
-                item.Label = new FreeText(this.graphicsDevice, font, color);
+                item.Label = new FreeText(font, color);
                 item.Label.Position = rectangle;
                 item.Label.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node3.Attributes.GetNamedItem("Align").Value);
                 item.Label.Text = node3.Attributes.GetNamedItem("Label").Value;
                 node3 = node.ChildNodes.Item(i + 1);
                 rectangle = StaticMethods.LoadRectangleFromXMLNode(node3);
                 StaticMethods.LoadFontAndColorFromXMLNode(node3, out font, out color);
-                item.Text = new FreeText(this.graphicsDevice, font, color);
+                item.Text = new FreeText(font, color);
                 item.Text.Position = rectangle;
                 item.Text.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node3.Attributes.GetNamedItem("Align").Value);
                 item.PropertyName = node3.Attributes.GetNamedItem("PropertyName").Value;
@@ -85,7 +85,7 @@ namespace TreasureDetailPlugin
             this.treasureDetail.DescriptionText.SubTitleColor = StaticMethods.LoadColor(node.Attributes.GetNamedItem("SubTitleColor").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
 
-            this.treasureDetail.DescriptionText.Builder = font;  //.SetFreeTextBuilder(this.graphicsDevice, font);
+            this.treasureDetail.DescriptionText.Builder = font;  //.SetFreeTextBuilder(font);
 
             this.treasureDetail.DescriptionText.DefaultColor = color;
             node = nextSibling.ChildNodes.Item(4);
@@ -96,14 +96,13 @@ namespace TreasureDetailPlugin
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
 
 
-            this.treasureDetail.InfluenceText.Builder = font; //.SetFreeTextBuilder(this.graphicsDevice, font);
+            this.treasureDetail.InfluenceText.Builder = font; //.SetFreeTextBuilder(font);
 
             this.treasureDetail.InfluenceText.DefaultColor = color;
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\TreasureDetailData.xml");
         }
 
@@ -112,9 +111,9 @@ namespace TreasureDetailPlugin
             this.treasureDetail.SetPosition(showPosition);
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.treasureDetail.Initialize(screen as Screen);
+            this.treasureDetail.Initialize();
         }
 
         public void SetTreasure(object treasure)

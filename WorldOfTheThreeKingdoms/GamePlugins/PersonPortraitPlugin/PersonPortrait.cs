@@ -13,12 +13,13 @@ namespace PersonPortraitPlugin
 
     public class PersonPortrait
     {
-        public GraphicsDevice Device;
         public Dictionary<float, PlayerImage> PlayerImages = new Dictionary<float, PlayerImage>();
-        private Dictionary<float, PortraitItem> portraits = new Dictionary<float, PortraitItem>();
+        //private Dictionary<float, PortraitItem> portraits = new Dictionary<float, PortraitItem>();
         public string TempImageFileName;
 
+#pragma warning disable CS0169 // The field 'PersonPortrait.defaultImage' is never used
         private PlayerImage defaultImage;
+#pragma warning restore CS0169 // The field 'PersonPortrait.defaultImage' is never used
 
         public PersonPortrait()
         {
@@ -75,13 +76,13 @@ namespace PersonPortraitPlugin
         //        item = new PortraitItem();
 
         //        image.Portrait.Save(this.TempImageFileName);
-        //        //item.PortraitTexture = CacheManager.LoadTempTexture(this.TempImageFileName);
+        //        //item.PortraitTexture = CacheManager.GetTempTexture(this.TempImageFileName);
         //        image.SmallPortrait.Save(this.TempImageFileName);
-        //        //item.SmallPortraitTexture = CacheManager.LoadTempTexture(this.TempImageFileName);
+        //        //item.SmallPortraitTexture = CacheManager.GetTempTexture(this.TempImageFileName);
         //        image.TroopPortrait.Save(this.TempImageFileName);
-        //        //item.TroopPortraitTexture = CacheManager.LoadTempTexture(this.TempImageFileName);
+        //        //item.TroopPortraitTexture = CacheManager.GetTempTexture(this.TempImageFileName);
         //        image.FullPortrait.Save(this.TempImageFileName);
-        //        //item.FullPortraitTexture = CacheManager.LoadTempTexture(this.TempImageFileName);
+        //        //item.FullPortraitTexture = CacheManager.GetTempTexture(this.TempImageFileName);
 
         //        this.portraits.Add(id, item);
         //    }

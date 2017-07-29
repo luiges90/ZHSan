@@ -20,7 +20,7 @@ namespace SimpleTextDialogPlugin
         private string author = "clip_on";
         private const string DataPath = @"Content\Textures\GameComponents\SimpleTextDialog\Data\";
         private string description = "简单文本对话框";
-        private GraphicsDevice graphicsDevice;
+        
         private const string Path = @"Content\Textures\GameComponents\SimpleTextDialog\";
         private string pluginName = "SimpleTextDialogPlugin";
         private SimpleTextDialog simpleTextDialog = new SimpleTextDialog();
@@ -31,15 +31,15 @@ namespace SimpleTextDialogPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.simpleTextDialog.IsShowing)
             {
-                this.simpleTextDialog.Draw(spriteBatch);
+                this.simpleTextDialog.Draw();
             }
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -51,7 +51,7 @@ namespace SimpleTextDialogPlugin
             string xml = Platform.Current.LoadText(filename);document.LoadXml(xml);
             XmlNode nextSibling = document.FirstChild.NextSibling;
             XmlNode node = nextSibling.ChildNodes.Item(0);
-            this.simpleTextDialog.BackgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\SimpleTextDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.simpleTextDialog.BackgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\SimpleTextDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.simpleTextDialog.BackgroundSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.simpleTextDialog.BackgroundSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
             node = nextSibling.ChildNodes.Item(1);
@@ -61,13 +61,13 @@ namespace SimpleTextDialogPlugin
             this.simpleTextDialog.RichText.RowMargin = int.Parse(node.Attributes.GetNamedItem("RowMargin").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
 
-            this.simpleTextDialog.RichText.Builder = font; //.SetFreeTextBuilder(this.graphicsDevice, font);
+            this.simpleTextDialog.RichText.Builder = font; //.SetFreeTextBuilder(font);
 
             this.simpleTextDialog.RichText.DefaultColor = color;
             node = nextSibling.ChildNodes.Item(2);
-            this.simpleTextDialog.FirstPageButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\SimpleTextDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.simpleTextDialog.FirstPageButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\SimpleTextDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
-            this.simpleTextDialog.FirstPageButtonDisabledTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\SimpleTextDialog\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
+            this.simpleTextDialog.FirstPageButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\SimpleTextDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.simpleTextDialog.FirstPageButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\SimpleTextDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.simpleTextDialog.FirstPageButtonDisabledTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\SimpleTextDialog\Data\" + node.Attributes.GetNamedItem("Disabled").Value);
             this.simpleTextDialog.FirstPageButtonPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             node = nextSibling.ChildNodes.Item(3);
             this.simpleTextDialog.ShowingSeconds = int.Parse(node.Attributes.GetNamedItem("Time").Value);
@@ -89,9 +89,8 @@ namespace SimpleTextDialogPlugin
             this.simpleTextDialog.RichText.SetGameObjectTextBranch(gameObject as GameObject, this.simpleTextDialog.TextTree.GetBranch(branchName));
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\SimpleTextDialogData.xml");
         }
 
@@ -100,9 +99,9 @@ namespace SimpleTextDialogPlugin
             this.simpleTextDialog.SetPosition(showPosition);
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.simpleTextDialog.Initialize(screen as Screen);
+            this.simpleTextDialog.Initialize();
         }
 
         public void Update(GameTime gameTime)

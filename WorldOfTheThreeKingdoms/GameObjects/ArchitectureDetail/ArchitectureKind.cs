@@ -41,46 +41,34 @@ namespace GameObjects.ArchitectureDetail
         private int populationUnit;
         private int technologyBase;
         private int technologyUnit;
-        private Texture2D texture;
+        private PlatformTexture texture;
         public String TextureFileName;
-        //public GraphicsDevice Device;
         private int viewDistance;
         private int viewDistanceIncrementDivisor;
         private bool countToMerit;
         private int expandable;
         private bool shipCanEnter;
 
-        public Texture2D Texture
+        public PlatformTexture Texture
         {
             get
             {
-                //if (this.Device == null) return null;
-                try
+                if (this.texture == null)
                 {
-                    if (this.texture == null)
-                    {
-                        this.texture = CacheManager.LoadTempTexture("Content/Textures/Resources/Architecture/" + this.ID.ToString() + ".png");
-                    }
-                }
-                catch
-                {
-                    if (this.texture == null)
-                    {
-                        this.texture = new Texture2D(Platform.GraphicsDevice, 1, 1);
-                    }
+                    this.texture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/" + this.ID.ToString() + ".png");
                 }
                 return this.texture;
             }
         }
 
-        public void ClearTexture()
-        {
-            if (this.texture != null)
-            {
-                this.texture.Dispose();
-                this.texture = null;
-            }
-        }
+        //public void ClearTexture()
+        //{
+        //    if (this.texture != null)
+        //    {
+        //        this.texture.Dispose();
+        //        this.texture = null;
+        //    }
+        //}
 
         [DataMember]
         public int AgricultureBase

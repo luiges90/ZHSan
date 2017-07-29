@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Influences;
 using System;
 
@@ -39,7 +40,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
         {
             foreach (Microsoft.Xna.Framework.Point point in architecture.ViewArea.Area)
             {
-                Troop troopByPosition = base.Scenario.GetTroopByPosition(point);
+                Troop troopByPosition = Session.Current.Scenario.GetTroopByPosition(point);
                 if ((troopByPosition != null) && architecture.IsFriendly(troopByPosition.BelongedFaction))
                 {
                     troopByPosition.RateOfOffence += this.rate;
@@ -51,7 +52,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
         {
             foreach (Microsoft.Xna.Framework.Point point in architecture.ViewArea.Area)
             {
-                Troop troopByPosition = base.Scenario.GetTroopByPosition(point);
+                Troop troopByPosition = Session.Current.Scenario.GetTroopByPosition(point);
                 if ((troopByPosition != null) && architecture.IsFriendly(troopByPosition.BelongedFaction))
                 {
                     troopByPosition.RateOfOffence -= this.rate;

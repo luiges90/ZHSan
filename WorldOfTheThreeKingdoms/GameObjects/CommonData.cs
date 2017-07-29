@@ -64,6 +64,7 @@ namespace GameObjects
         //性能优化
         [DataMember]
         public InfluenceKindTable AllInfluenceKinds = new InfluenceKindTable();
+
         [DataMember]
         public InfluenceTable AllInfluences = new InfluenceTable();
 

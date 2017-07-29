@@ -35,7 +35,7 @@ namespace GameObjects
         */
         public event ItemClick OnItemClick;
 
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw()
         {
         }
 

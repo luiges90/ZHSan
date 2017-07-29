@@ -16,7 +16,7 @@ namespace GameFreeText
     //{
     //    private Brush brush;
     //    public Font font;
-    //    private GraphicsDevice graphicsDevice;
+    //    
     //    private Graphics myDrawing;
     //    private Dictionary<string, Texture2D> textTexturePool;
     //    private int textTexturePoolSize;

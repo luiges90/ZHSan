@@ -1,4 +1,5 @@
 ﻿using GameManager;
+using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -30,7 +31,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             LoadScreenEvent = null;
         }
 
-        public LoadingScreen(MainGame game)
+        public LoadingScreen()
         {
             int ran = new Random().Next(1, 60);
 
@@ -72,11 +73,32 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     {
                         IsLoading = true;
 
-                        CacheManager.Clear(CacheType.Scene);
+                        if (Session.MainGame.mainGameScreen != null)
+                        {
+                            Session.MainGame.mainGameScreen.mainMapLayer.StopThreads();
 
-                        new Platforms.PlatformTask2(() =>
+                            Session.MainGame.mainGameScreen.DisposeMapTileMemory(false, true);
+
+                            Session.MainGame.mainGameScreen.Dispose();
+
+                            Session.MainGame.mainGameScreen = null;
+
+                            GameScenario.ProcessCommonData(CommonData.Current);
+                        }
+
+                        Session.Current.Clear();
+
+                        CacheManager.Clear(CacheType.Live);
+
+                        GC.Collect();
+
+                        new Platforms.PlatformTask(() =>
                         {
                             LoadScreenEvent.Invoke(null, null);
+
+                            ClearEvent();
+                            IsComplete = true;
+                            Session.MainGame.loadingScreen = null;
                         }).Start();
                         
                     }

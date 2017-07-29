@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using System;
 
 
@@ -11,12 +12,12 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
 
         public override void ApplyEffectKind(Person person, Event e)
         {
-            Treasure t = person.Scenario.Treasures.GetGameObject(type) as Treasure;
+            Treasure t = Session.Current.Scenario.Treasures.GetGameObject(type) as Treasure;
             if (t.BelongedPerson != null && t.BelongedPerson == person)
             {
                 person.LoseTreasure(t);
                 t.Available = false;
-                t.HidePlace = person.Scenario.Architectures.GameObjects[GameObject.Random(person.Scenario.Architectures.GameObjects.Count)] as Architecture;
+                t.HidePlace = Session.Current.Scenario.Architectures.GameObjects[GameObject.Random(Session.Current.Scenario.Architectures.GameObjects.Count)] as Architecture;
             }
         }
 

@@ -17,39 +17,37 @@ namespace WorldOfTheThreeKingdoms.Properties
     [CompilerGenerated, GeneratedCode("System.Resources.Tools.StronglyTypedResourceBuilder", "2.0.0.0"), DebuggerNonUserCode]
     public class Resources
     {
-        private static CultureInfo resourceCulture;
-        private static ResourceManager resourceMan;
 
         public Resources()
         {
         }
 
-        [EditorBrowsable(EditorBrowsableState.Advanced)]
-        public static CultureInfo Culture
-        {
-            get
-            {
-                return resourceCulture;
-            }
-            set
-            {
-                resourceCulture = value;
-            }
-        }
+        //[EditorBrowsable(EditorBrowsableState.Advanced)]
+        //public static CultureInfo Culture
+        //{
+        //    get
+        //    {
+        //        return resourceCulture;
+        //    }
+        //    set
+        //    {
+        //        resourceCulture = value;
+        //    }
+        //}
 
-        [EditorBrowsable(EditorBrowsableState.Advanced)]
-        public static ResourceManager ResourceManager
-        {
-            get
-            {
-                if (object.ReferenceEquals(resourceMan, null))
-                {
-                    ResourceManager manager = new ResourceManager("WorldOfTheThreeKingdoms.Properties.Resources", typeof(Resources).Assembly);
-                    resourceMan = manager;
-                }
-                return resourceMan;
-            }
-        }
+        //[EditorBrowsable(EditorBrowsableState.Advanced)]
+        //public static ResourceManager ResourceManager
+        //{
+        //    get
+        //    {
+        //        if (object.ReferenceEquals(resourceMan, null))
+        //        {
+        //            ResourceManager manager = new ResourceManager("WorldOfTheThreeKingdoms.Properties.Resources", typeof(Resources).Assembly);
+        //            resourceMan = manager;
+        //        }
+        //        return resourceMan;
+        //    }
+        //}
     }
 
  

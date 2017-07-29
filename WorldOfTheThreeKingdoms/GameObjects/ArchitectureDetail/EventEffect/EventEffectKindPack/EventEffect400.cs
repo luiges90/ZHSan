@@ -1,6 +1,6 @@
 ﻿using GameObjects;
 using System;
-
+using GameManager;
 
 using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.EventEffect
 {
@@ -11,7 +11,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
 
         public override void ApplyEffectKind(Person person, Event e)
         {
-            person.Character = person.Scenario.GameCommonData.AllCharacterKinds[this.type];
+            person.Character = Session.Current.Scenario.GameCommonData.AllCharacterKinds[this.type];
         }
 
         public override void InitializeParameter(string parameter)

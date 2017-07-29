@@ -17,14 +17,13 @@ namespace GameObjects.Animations
     public class Animation : GameObject
     {
         private bool back;
-        //public GraphicsDevice Device;
         private int frameCount;
         [DataMember]
         public string MaleSoundPath;
         [DataMember]
         public string FemaleSoundPath;
         private int stayCount;
-        private Texture2D texture;
+        private PlatformTexture texture;
         [DataMember]
         public string TextureFileName;
 
@@ -34,7 +33,7 @@ namespace GameObjects.Animations
             if (!hold)
             {
                 stayIndex++;
-                if (stayIndex >= this.StayCount * GlobalVariables.TroopMoveSpeed / 4)
+                if (stayIndex >= this.StayCount * Session.GlobalVariables.TroopMoveSpeed / 4)
                 {
                     stayIndex = 0;
                     frameIndex++;
@@ -83,29 +82,29 @@ namespace GameObjects.Animations
             }
         }
 
-        public void disposeTexture()
-        {
-            if (this.texture != null)
-            {
-                this.texture.Dispose();
-                this.texture = null;
-            }
-        }
+        //public void disposeTexture()
+        //{
+        //    if (this.texture != null)
+        //    {
+        //        this.texture.Dispose();
+        //        this.texture = null;
+        //    }
+        //}
 
-        public Texture2D Texture
+        public PlatformTexture Texture
         {
             get
             {
                 if (this.texture == null)
                 {
-                    try
-                    {
-                        this.texture = CacheManager.LoadTempTexture(this.TextureFileName);
-                    }
-                    catch (OutOfMemoryException)
-                    {
-                        this.texture = new Texture2D(Platform.GraphicsDevice, 1, 1);
-                    }
+                    //try
+                    //{
+                        this.texture = CacheManager.GetTempTexture(this.TextureFileName);
+                    //}
+                    //catch (OutOfMemoryException)
+                    //{
+                    //    this.texture = new Texture2D(1, 1);
+                    //}
                 }
                 return this.texture;
             }

@@ -1,4 +1,5 @@
-﻿using GameObjects.ArchitectureDetail.EventEffect;
+﻿using GameManager;
+using GameObjects.ArchitectureDetail.EventEffect;
 using GameObjects.Conditions;
 using System;
 using System.Collections.Generic;
@@ -154,26 +155,26 @@ namespace GameObjects
             noArchitectureEffect = new List<EventEffect>();
         }
 
-        public void ApplyEventDialogs(Architecture a)
+        public void ApplyEventDialogs(Architecture a, Screen screen)
         {
-            this.Scenario = a.Scenario;
+            Session.Current.Scenario = Session.Current.Scenario;
             if (this.OnApplyEvent != null)
             {
-                this.OnApplyEvent(this, a);
+                this.OnApplyEvent(this, a, screen);
             }
             foreach (PersonDialog i in matchedScenBiography) 
             {
                 if (i.SpeakingPerson != null)
                 {
-                    this.Scenario.YearTable.addPersonInGameBiography(i.SpeakingPerson, this.Scenario.Date, i.Text);
+                    Session.Current.Scenario.YearTable.addPersonInGameBiography(i.SpeakingPerson, Session.Current.Scenario.Date, i.Text);
                 }
             }
             if (nextScenario.Length > 0)
             {
-                base.Scenario.EnableLoadAndSave = false;
+                Session.Current.Scenario.EnableLoadAndSave = false;
 
                 List<int> factionIds = new List<int>();
-                foreach (Faction f in this.Scenario.PlayerFactions) 
+                foreach (Faction f in Session.Current.Scenario.PlayerFactions) 
                 {
                     factionIds.Add(f.ID);
                 }
@@ -184,11 +185,11 @@ namespace GameObjects
                 //    DataSource = "GameData/Scenario/" + nextScenario,
                 //    Provider = "Microsoft.Jet.OLEDB.4.0"
                 //};
-                //this.Scenario.LoadGameScenarioFromDatabase(builder.ConnectionString, factionIds);
+                //Session.Current.Scenario.LoadGameScenarioFromDatabase(builder.ConnectionString, factionIds);
 
-                //this.Scenario.GameScreen.ReloadScreenData();
+                //Session.MainGame.mainGameScreen.ReloadScreenData();
 
-                //base.Scenario.EnableLoadAndSave = true;
+                //Session.Current.Scenario.EnableLoadAndSave = true;
             }
         }
 
@@ -208,11 +209,11 @@ namespace GameObjects
                 {
                     if (yesdialog.SpeakingPerson != null)
                     {
-                        this.Scenario.GameScreen.xianshishijiantupian(yesdialog.SpeakingPerson, null, yesdialog.Text, true);
+                        Session.MainGame.mainGameScreen.xianshishijiantupian(yesdialog.SpeakingPerson, null, yesdialog.Text, true);
                     }
                     else
                     {
-                        this.Scenario.GameScreen.xianshishijiantupian(a.BelongedFaction.Leader, null, yesdialog.Text, true);
+                        Session.MainGame.mainGameScreen.xianshishijiantupian(a.BelongedFaction.Leader, null, yesdialog.Text, true);
                     }
                 }
             }
@@ -241,11 +242,11 @@ namespace GameObjects
                 {
                     if (nodialog.SpeakingPerson != null)
                     {
-                        this.Scenario.GameScreen.xianshishijiantupian(nodialog.SpeakingPerson, null, nodialog.Text, true);
+                        Session.MainGame.mainGameScreen.xianshishijiantupian(nodialog.SpeakingPerson, null, nodialog.Text, true);
                     }
                     else
                     {
-                        this.Scenario.GameScreen.xianshishijiantupian(a.BelongedFaction.Leader, null, nodialog.Text, true);
+                        Session.MainGame.mainGameScreen.xianshishijiantupian(a.BelongedFaction.Leader, null, nodialog.Text, true);
                     }
                 }
             }
@@ -490,22 +491,22 @@ namespace GameObjects
 
             if (this.AfterEventHappened >= 0)
             {
-                if (!(base.Scenario.AllEvents.GetGameObject(this.AfterEventHappened) as Event).happened)
+                if (!(Session.Current.Scenario.AllEvents.GetGameObject(this.AfterEventHappened) as Event).happened)
                 {
                     return false;
                 }
             }
 
-            if (this.Scenario.Date.Year < this.StartYear || this.Scenario.Date.Year > this.EndYear) return false;
+            if (Session.Current.Scenario.Date.Year < this.StartYear || Session.Current.Scenario.Date.Year > this.EndYear) return false;
 
-            if (this.Scenario.Date.Year == this.StartYear)
+            if (Session.Current.Scenario.Date.Year == this.StartYear)
             {
-                if (this.Scenario.Date.Month < this.StartMonth) return false;
+                if (Session.Current.Scenario.Date.Month < this.StartMonth) return false;
             }
 
-            if (this.Scenario.Date.Year == this.EndYear)
+            if (Session.Current.Scenario.Date.Year == this.EndYear)
             {
-                if (this.Scenario.Date.Month > this.EndMonth) return false;
+                if (Session.Current.Scenario.Date.Month > this.EndMonth) return false;
             }
 
             foreach (Condition i in this.architectureCond)
@@ -566,16 +567,16 @@ namespace GameObjects
             return this.matchEventPersons(a);
         }
 
-        public bool IsStart(GameScenario scenario)
+        public bool IsStart()
         {
-            Condition cstart = scenario.GameCommonData.AllConditions.GetCondition(9998);
+            Condition cstart = Session.Current.Scenario.GameCommonData.AllConditions.GetCondition(9998);
             if (cstart == null) return false;
             return this.architectureCond.Contains(cstart) || this.factionCond.Contains(cstart);
         }
 
-        public bool IsEnd(GameScenario scenario)
+        public bool IsEnd()
         {
-            Condition cend = scenario.GameCommonData.AllConditions.GetCondition(9999);
+            Condition cend = Session.Current.Scenario.GameCommonData.AllConditions.GetCondition(9999);
             if (cend == null) return false;
             return this.architectureCond.Contains(cend) || this.factionCond.Contains(cend);
         }
@@ -1018,7 +1019,7 @@ namespace GameObjects
             return false ;
         }
         */
-        public delegate void ApplyEvent(Event te, Architecture a);
+        public delegate void ApplyEvent(Event te, Architecture a, Screen screen);
 
     }
 }

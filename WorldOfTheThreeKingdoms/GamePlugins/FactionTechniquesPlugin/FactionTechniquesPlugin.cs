@@ -21,7 +21,7 @@ namespace FactionTechniquesPlugin
         private const string DataPath = @"Content\Textures\GameComponents\FactionTechniques\Data\";
         private string description = "势力技巧界面";
         private FactionTechniques factionTechniques = new FactionTechniques();
-        private GraphicsDevice graphicsDevice;
+        
         private const string Path = @"Content\Textures\GameComponents\FactionTechniques\";
         private string pluginName = "FactionTechniquesPlugin";
         private string version = "1.0.0";
@@ -31,15 +31,15 @@ namespace FactionTechniquesPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.factionTechniques.IsShowing)
             {
-                this.factionTechniques.Draw(spriteBatch);
+                this.factionTechniques.Draw();
             }
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -56,7 +56,7 @@ namespace FactionTechniquesPlugin
             XmlNode node = nextSibling.ChildNodes.Item(0);
             this.factionTechniques.BackgroundSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.factionTechniques.BackgroundSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.factionTechniques.BackgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\FactionTechniques\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.factionTechniques.BackgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\FactionTechniques\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(1);
             for (int i = 0; i < node.ChildNodes.Count; i += 2)
             {
@@ -64,14 +64,14 @@ namespace FactionTechniquesPlugin
                 XmlNode node3 = node.ChildNodes.Item(i);
                 Microsoft.Xna.Framework.Rectangle rectangle = StaticMethods.LoadRectangleFromXMLNode(node3);
                 StaticMethods.LoadFontAndColorFromXMLNode(node3, out font, out color);
-                item.Label = new FreeText(this.graphicsDevice, font, color);
+                item.Label = new FreeText(font, color);
                 item.Label.Position = rectangle;
                 item.Label.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node3.Attributes.GetNamedItem("Align").Value);
                 item.Label.Text = node3.Attributes.GetNamedItem("Label").Value;
                 node3 = node.ChildNodes.Item(i + 1);
                 rectangle = StaticMethods.LoadRectangleFromXMLNode(node3);
                 StaticMethods.LoadFontAndColorFromXMLNode(node3, out font, out color);
-                item.Text = new FreeText(this.graphicsDevice, font, color);
+                item.Text = new FreeText(font, color);
                 item.Text.Position = rectangle;
                 item.Text.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node3.Attributes.GetNamedItem("Align").Value);
                 item.PropertyName = node3.Attributes.GetNamedItem("PropertyName").Value;
@@ -87,10 +87,10 @@ namespace FactionTechniquesPlugin
             node = nextSibling.ChildNodes.Item(3);
             this.factionTechniques.ButtonSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.factionTechniques.ButtonSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
-            this.factionTechniques.ButtonBasicTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\FactionTechniques\Data\" + node.Attributes.GetNamedItem("Basic").Value);
-            this.factionTechniques.ButtonAvailableTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\FactionTechniques\Data\" + node.Attributes.GetNamedItem("Available").Value);
-            this.factionTechniques.ButtonUpgradingTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\FactionTechniques\Data\" + node.Attributes.GetNamedItem("Upgrading").Value);
-            this.factionTechniques.ButtonUpgradedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\FactionTechniques\Data\" + node.Attributes.GetNamedItem("Upgraded").Value);
+            this.factionTechniques.ButtonBasicTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\FactionTechniques\Data\" + node.Attributes.GetNamedItem("Basic").Value);
+            this.factionTechniques.ButtonAvailableTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\FactionTechniques\Data\" + node.Attributes.GetNamedItem("Available").Value);
+            this.factionTechniques.ButtonUpgradingTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\FactionTechniques\Data\" + node.Attributes.GetNamedItem("Upgrading").Value);
+            this.factionTechniques.ButtonUpgradedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\FactionTechniques\Data\" + node.Attributes.GetNamedItem("Upgraded").Value);
             node = nextSibling.ChildNodes.Item(4);
             this.factionTechniques.CommentsClient = StaticMethods.LoadRectangleFromXMLNode(node);
             this.factionTechniques.CommentsText.ClientWidth = this.factionTechniques.CommentsClient.Width;
@@ -102,7 +102,7 @@ namespace FactionTechniquesPlugin
             this.factionTechniques.CommentsText.SubTitleColor = StaticMethods.LoadColor(node.Attributes.GetNamedItem("SubTitleColor").Value);
             this.factionTechniques.CommentsText.SubTitleColor2 = StaticMethods.LoadColor(node.Attributes.GetNamedItem("SubTitleColor2").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.factionTechniques.CommentsText.Builder = font;  //.SetFreeTextBuilder(this.graphicsDevice, font);
+            this.factionTechniques.CommentsText.Builder = font;  //.SetFreeTextBuilder(font);
             this.factionTechniques.CommentsText.DefaultColor = color;
         }
 
@@ -116,10 +116,8 @@ namespace FactionTechniquesPlugin
             this.factionTechniques.SetFaction(faction as Faction, control);
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
-            this.factionTechniques.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\FactionTechniquesData.xml");
         }
 
@@ -128,9 +126,9 @@ namespace FactionTechniquesPlugin
             this.factionTechniques.SetPosition(showPosition);
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.factionTechniques.Initialize(screen as Screen);
+            this.factionTechniques.Initialize();
         }
 
         public void Update(GameTime gameTime)

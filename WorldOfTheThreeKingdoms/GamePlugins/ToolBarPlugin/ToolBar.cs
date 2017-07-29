@@ -1,10 +1,12 @@
 ﻿using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using PluginInterface;
 using System;
 using System.Collections.Generic;
+using WorldOfTheThreeKingdoms.GameScreens;
 
 namespace ToolBarPlugin
 {
@@ -13,38 +15,37 @@ namespace ToolBarPlugin
     {
         internal int BackgroundHeight;
         public Rectangle BackgroundPosition;
-        internal Texture2D BackgroundTexture;
+        internal PlatformTexture BackgroundTexture;
         internal IGameContextMenu ContextMenuPlugin;
         private bool drawTools = true;
         internal bool Enabled = true;
         private bool isShowing = true;
-        private Screen screen;
-        internal Texture2D SpliterTexture;
+        
+        internal PlatformTexture SpliterTexture;
         internal int SpliterWidth;
         internal List<Tool> Tools = new List<Tool>();
 
-        internal void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        internal void Draw(GameTime gameTime)
         {
-            spriteBatch.Draw(this.BackgroundTexture, this.BackgroundPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
+            CacheManager.Draw(this.BackgroundTexture, this.BackgroundPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
             if (this.DrawTools)
             {
                 foreach (Tool tool in this.Tools)
                 {
                     if (tool.Name == "AirViewPlugin")
                     {
-                        tool.Draw(spriteBatch,gameTime);
+                        tool.Draw(gameTime);
                     }
                     else
                     {
-                        tool.Draw(spriteBatch);
+                        tool.Draw();
                     }
                 }
             }
         }
 
-        internal void Initialize(Screen screen)
-        {
-            this.screen = screen;
+        internal void Initialize(MainGameScreen screen)
+        {            
             screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
             screen.OnMouseRightDown += new Screen.MouseRightDown(this.screen_OnMouseRightDown);
         }
@@ -81,7 +82,7 @@ namespace ToolBarPlugin
             {
                 this.ContextMenuPlugin.IsShowing = true;
                 this.ContextMenuPlugin.SetMenuKindByName("ToolBarRightClick");
-                this.ContextMenuPlugin.Prepare(position.X, position.Y, this.screen.RealViewportSize);
+                this.ContextMenuPlugin.Prepare(position.X, position.Y, Session.MainGame.mainGameScreen.RealViewportSize);
             }
         }
 

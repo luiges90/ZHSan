@@ -20,7 +20,7 @@ namespace HelpPlugin
         private string author = "clip_on";
         private const string DataPath = @"Content\Textures\GameComponents\Help\Data\";
         private string description = "帮助";
-        private GraphicsDevice graphicsDevice;
+        
         private Help help = new Help();
         private const string Path = @"Content\Textures\GameComponents\Help\";
         private string pluginName = "HelpPlugin";
@@ -31,17 +31,17 @@ namespace HelpPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            this.help.Draw(spriteBatch);
+            this.help.Draw();
         }
 
-        public void DrawButton(SpriteBatch spriteBatch, float depth)
+        public void DrawButton(float depth)
         {
-            this.help.DrawButton(spriteBatch, depth);
+            this.help.DrawButton(depth);
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -54,12 +54,12 @@ namespace HelpPlugin
             document.LoadXml(xml);
             XmlNode nextSibling = document.FirstChild.NextSibling;
             XmlNode node = nextSibling.ChildNodes.Item(0);
-            this.help.BackgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\Help\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.help.BackgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\Help\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.help.BackgroundSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.help.BackgroundSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
             node = nextSibling.ChildNodes.Item(1);
-            this.help.ButtonTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\Help\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.help.ButtonSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\Help\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.help.ButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\Help\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.help.ButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\Help\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             node = nextSibling.ChildNodes.Item(2);
             this.help.RichText.ClientWidth = this.help.BackgroundSize.X;
             this.help.RichText.ClientHeight = this.help.BackgroundSize.Y;
@@ -67,7 +67,7 @@ namespace HelpPlugin
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
 
             this.help.RichText.Builder = font;
-            //this.help.RichText.Builder.SetFreeTextBuilder(this.graphicsDevice, font);
+            //this.help.RichText.Builder.SetFreeTextBuilder(font);
 
             this.help.RichText.DefaultColor = color;
             this.help.RichText.TitleColor = StaticMethods.LoadColor(node.Attributes.GetNamedItem("TitleColor").Value);
@@ -94,15 +94,14 @@ namespace HelpPlugin
             return (this.help.CurrentBranch != null);
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\HelpData.xml");
         }
 
-        public void SetScenario(GameScenario scen)
+        public void SetScenario()
         {
-            foreach (GameObjects.TroopDetail.CombatMethod m in scen.GameCommonData.AllCombatMethods.CombatMethods.Values)
+            foreach (GameObjects.TroopDetail.CombatMethod m in Session.Current.Scenario.GameCommonData.AllCombatMethods.CombatMethods.Values)
             {
                 if (!this.help.TextTree.HasItem("TroopCombatMethod_" + m.ID))
                 {
@@ -119,7 +118,7 @@ namespace HelpPlugin
                     this.help.TextTree.AddItem("TroopCombatMethod_" + m.ID, branch);
                 }
             }
-            foreach (GameObjects.TroopDetail.Stratagem m in scen.GameCommonData.AllStratagems.Stratagems.Values)
+            foreach (GameObjects.TroopDetail.Stratagem m in Session.Current.Scenario.GameCommonData.AllStratagems.Stratagems.Values)
             {
                 if (!this.help.TextTree.HasItem("TroopStratagem_" + m.ID))
                 {
@@ -136,7 +135,7 @@ namespace HelpPlugin
                     this.help.TextTree.AddItem("TroopStratagem_" + m.ID, branch);
                 }
             }
-            foreach (GameObjects.PersonDetail.Stunt m in scen.GameCommonData.AllStunts.Stunts.Values)
+            foreach (GameObjects.PersonDetail.Stunt m in Session.Current.Scenario.GameCommonData.AllStunts.Stunts.Values)
             {
                 if (!this.help.TextTree.HasItem("TroopStunt_" + m.ID))
                 {
@@ -160,9 +159,9 @@ namespace HelpPlugin
             this.help.SetDisplayOffset(showPosition);
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.help.Initialize(screen as Screen);
+            this.help.Initialize();
         }
 
         public void Update(GameTime gameTime)

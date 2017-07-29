@@ -13,13 +13,15 @@ namespace AirViewPlugin
 {
     public class AirView : Tool
     {
-        internal Texture2D ArchitectureTexture;
-        internal Texture2D ArchitectureUnitTexture;
+#pragma warning disable CS0649 // Field 'AirView.ArchitectureTexture' is never assigned to, and will always have its default value null
+        internal PlatformTexture ArchitectureTexture;
+#pragma warning restore CS0649 // Field 'AirView.ArchitectureTexture' is never assigned to, and will always have its default value null
+        internal PlatformTexture ArchitectureUnitTexture;
         internal FreeText Conment;
-        internal Texture2D ConmentBackgroundTexture;
+        internal PlatformTexture ConmentBackgroundTexture;
         internal int DefaultTileLength;
         private Rectangle framePosition;
-        internal Texture2D FrameTexture;
+        internal PlatformTexture FrameTexture;
         private bool isMapShowing;
         private bool isPreparedToJump = false;
         private Point MapDisplayOffset;
@@ -27,24 +29,25 @@ namespace AirViewPlugin
         internal int MapMaxWidth;
         internal ShowPosition MapShowPosition = ShowPosition.BottomRight;
         private Point mapSize;
-        internal Texture2D MapTexture;
-        internal GameScenario scenario;
-        private Screen screen;
+        internal PlatformTexture MapTexture;
+        
         internal int TileLength;
         internal int TileLengthMax;
-        internal Texture2D ToolDisplayTexture;
+        internal PlatformTexture ToolDisplayTexture;
         internal Rectangle ToolPosition;
-        internal Texture2D ToolSelectedTexture;
-        internal Texture2D ToolTexture;
+        internal PlatformTexture ToolSelectedTexture;
+        internal PlatformTexture ToolTexture;
 
-        internal Texture2D TroopToolDisplayTexture;
+        internal PlatformTexture TroopToolDisplayTexture;
         internal Rectangle TroopToolPosition;
-        internal Texture2D TroopToolSelectedTexture;
-        internal Texture2D TroopToolTexture;
+        internal PlatformTexture TroopToolSelectedTexture;
+        internal PlatformTexture TroopToolTexture;
 
         internal float Transparent = 1f;
-        internal Texture2D TroopTexture;
-        internal Texture2D TroopFactionColorTexture;
+#pragma warning disable CS0649 // Field 'AirView.TroopTexture' is never assigned to, and will always have its default value null
+        internal PlatformTexture TroopTexture;
+#pragma warning restore CS0649 // Field 'AirView.TroopTexture' is never assigned to, and will always have its default value null
+        internal PlatformTexture TroopFactionColorTexture;
         int timeSinceLastFrame = 0;
         int millisecondsPerFrame = 240;
         bool drawTroopFlag = true;
@@ -52,28 +55,28 @@ namespace AirViewPlugin
 
         internal void AddDisableRects()
         {
-            this.screen.AddDisableRectangle(this.screen.LaterMouseEventDisableRects, this.MapPosition);
-            this.screen.AddDisableRectangle(this.screen.SelectingDisableRects, this.MapPosition);
+            Session.MainGame.mainGameScreen.AddDisableRectangle(Session.MainGame.mainGameScreen.LaterMouseEventDisableRects, this.MapPosition);
+            Session.MainGame.mainGameScreen.AddDisableRectangle(Session.MainGame.mainGameScreen.SelectingDisableRects, this.MapPosition);
         }
 
-        public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public override void Draw(GameTime gameTime)
         {
             Rectangle? sourceRectangle = null;
-            spriteBatch.Draw(this.ToolDisplayTexture, this.ToolDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
+            CacheManager.Draw(this.ToolDisplayTexture, this.ToolDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
             if (this.IsMapShowing)
             {
-                spriteBatch.Draw(this.TroopToolDisplayTexture, this.TroopToolDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
+                CacheManager.Draw(this.TroopToolDisplayTexture, this.TroopToolDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
 
                 if (this.MapTexture != null)
                 {
                     sourceRectangle = null;
-                    spriteBatch.Draw(this.MapTexture, this.MapPosition, sourceRectangle, new Color(1f, 1f, 1f, this.Transparent), 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
+                    CacheManager.Draw(this.MapTexture, this.MapPosition, sourceRectangle, new Color(1f, 1f, 1f, this.Transparent), 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
                 }
                 /*
                 if (this.TroopTexture != null)
                 {
                     sourceRectangle = null;
-                    spriteBatch.Draw(this.TroopTexture, this.MapPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.09999f);
+                    CacheManager.Draw(this.TroopTexture, this.MapPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.09999f);
                 }
                 */
                 if (this.showTroop)
@@ -87,10 +90,10 @@ namespace AirViewPlugin
                     }
                     if (this.drawTroopFlag)
                     {
-                        this.drawTroop(spriteBatch, gameTime);
+                        this.drawTroop( gameTime);
                     }
                 }
-                foreach (Architecture architecture in this.scenario.Architectures)
+                foreach (Architecture architecture in Session.Current.Scenario.Architectures)
                 {
                     Color white = Color.White;
                     if (architecture.BelongedFaction != null)
@@ -100,24 +103,24 @@ namespace AirViewPlugin
                     foreach (Point point in architecture.ArchitectureArea.Area)
                     {
                         sourceRectangle = null;
-                        spriteBatch.Draw(this.ArchitectureUnitTexture, new Rectangle(((point.X * this.TileLength) + this.MapDisplayOffset.X) - 1, ((point.Y * this.TileLength) + this.MapDisplayOffset.Y) - 1, this.TileLength + 2, this.TileLength + 2), sourceRectangle, white, 0f, Vector2.Zero, SpriteEffects.None, 0.09999f);
+                        CacheManager.Draw(this.ArchitectureUnitTexture, new Rectangle(((point.X * this.TileLength) + this.MapDisplayOffset.X) - 1, ((point.Y * this.TileLength) + this.MapDisplayOffset.Y) - 1, this.TileLength + 2, this.TileLength + 2), sourceRectangle, white, 0f, Vector2.Zero, SpriteEffects.None, 0.09999f);
                     }
                 }
                 sourceRectangle = null;
-                //spriteBatch.Draw(this.FrameTexture, this.FrameDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0998f);
-                spriteBatch.Draw(this.FrameTexture, this.frameTopPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0998f);
-                spriteBatch.Draw(this.FrameTexture, this.frameLeftPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0998f);
-                spriteBatch.Draw(this.FrameTexture, this.frameBottomPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0998f);
-                spriteBatch.Draw(this.FrameTexture, this.frameRightPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0998f);
+                //CacheManager.Draw(this.FrameTexture, this.FrameDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0998f);
+                CacheManager.Draw(this.FrameTexture, this.frameTopPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0998f);
+                CacheManager.Draw(this.FrameTexture, this.frameLeftPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0998f);
+                CacheManager.Draw(this.FrameTexture, this.frameBottomPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0998f);
+                CacheManager.Draw(this.FrameTexture, this.frameRightPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0998f);
                 if (this.Conment.Text != "")
                 {
-                    spriteBatch.Draw(this.ConmentBackgroundTexture, this.Conment.AlignedPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.09999f);
-                    this.Conment.Draw(spriteBatch, 0.0999f);
+                    CacheManager.Draw(this.ConmentBackgroundTexture, this.Conment.AlignedPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.09999f);
+                    this.Conment.Draw(0.0999f);
                 }
             }
         }
 
-        private void renderTroop(SpriteBatch spriteBatch, GameTime gameTime, Troop troop)
+        private void renderTroop(GameTime gameTime, Troop troop)
         {
             Color color = Color.White;
             if (troop.Destroyed) return;
@@ -125,29 +128,29 @@ namespace AirViewPlugin
             {
                 color = troop.BelongedFaction.FactionColor;
             }
-            spriteBatch.Draw(TroopFactionColorTexture, 
+            CacheManager.Draw(TroopFactionColorTexture, 
                 new Rectangle(troop.Position.X * this.TileLength + this.MapDisplayOffset.X - 1,
                             troop.Position.Y * this.TileLength + this.MapDisplayOffset.Y - 1, this.TileLength * 4, this.TileLength * 4), 
                             null, color, 0f, Vector2.Zero, SpriteEffects.None, 0.09998f);
         }
 
-        private void drawTroop(SpriteBatch spriteBatch, GameTime gameTime)
+        private void drawTroop(GameTime gameTime)
         {
-            if (GlobalVariables.SkyEye)
+            if (Session.GlobalVariables.SkyEye)
             {
-                foreach (Faction f in this.scenario.Factions)
+                foreach (Faction f in Session.Current.Scenario.Factions)
                 {
                     foreach (Troop t in f.GetVisibleTroops())
                     {
-                        renderTroop(spriteBatch, gameTime, t);
+                        renderTroop( gameTime, t);
                     }
                 }
             }
-            else if (this.scenario.CurrentPlayer != null)
+            else if (Session.Current.Scenario.CurrentPlayer != null)
             {
-                foreach (Troop t in this.scenario.CurrentPlayer.GetVisibleTroops())
+                foreach (Troop t in Session.Current.Scenario.CurrentPlayer.GetVisibleTroops())
                 {
-                    renderTroop(spriteBatch, gameTime, t);
+                    renderTroop( gameTime, t);
                 }
             }
         }
@@ -156,13 +159,11 @@ namespace AirViewPlugin
         {
             int num = position.X - this.MapDisplayOffset.X;
             int num2 = position.Y - this.MapDisplayOffset.Y;
-            return new Point((this.scenario.ScenarioMap.MapDimensions.X * num) / this.mapSize.X, (this.scenario.ScenarioMap.MapDimensions.Y * num2) / this.mapSize.Y);
+            return new Point((Session.Current.Scenario.ScenarioMap.MapDimensions.X * num) / this.mapSize.X, (Session.Current.Scenario.ScenarioMap.MapDimensions.Y * num2) / this.mapSize.Y);
         }
 
         internal void Initialize(Screen screen)
         {
-            this.screen = screen;
-            this.scenario = screen.Scenario;
             screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
             screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
         }
@@ -171,14 +172,14 @@ namespace AirViewPlugin
         {
             if (this.isPreparedToJump)
             {
-                this.screen.JumpTo(this.GetTranslatedPosition(position));
+                Session.MainGame.mainGameScreen.JumpTo(this.GetTranslatedPosition(position));
             }
         }
 
         internal void RemoveDisableRects()
         {
-            this.screen.RemoveDisableRectangle(this.screen.LaterMouseEventDisableRects, this.MapPosition);
-            this.screen.RemoveDisableRectangle(this.screen.SelectingDisableRects, this.MapPosition);
+            Session.MainGame.mainGameScreen.RemoveDisableRectangle(Session.MainGame.mainGameScreen.LaterMouseEventDisableRects, this.MapPosition);
+            Session.MainGame.mainGameScreen.RemoveDisableRectangle(Session.MainGame.mainGameScreen.SelectingDisableRects, this.MapPosition);
         }
 
         internal void ResetFramePosition(Point viewportSize, int leftEdge, int topEdge, Point totalMapSize)
@@ -217,8 +218,8 @@ namespace AirViewPlugin
 
         private void ResetMapSize()
         {
-            int x = this.scenario.ScenarioMap.MapDimensions.X;
-            int y = this.scenario.ScenarioMap.MapDimensions.Y;
+            int x = Session.Current.Scenario.ScenarioMap.MapDimensions.X;
+            int y = Session.Current.Scenario.ScenarioMap.MapDimensions.Y;
             if (x > y)
             {
                 if (x > this.MapMaxWidth)
@@ -308,7 +309,7 @@ namespace AirViewPlugin
 
         private void screen_OnMouseMove(Point position, bool leftDown)
         {
-            if (base.IsDrawing && !this.screen.DrawingSelector)
+            if (base.IsDrawing && !Session.MainGame.mainGameScreen.DrawingSelector)
             {
                 if (!this.IsMapShowing)
                 {
@@ -322,14 +323,14 @@ namespace AirViewPlugin
                 else if (StaticMethods.PointInRectangle(position, this.MapPosition))
                 {
                     this.isPreparedToJump = true;
-                    this.screen.ResetMouse();
+                    Session.MainGame.mainGameScreen.ResetMouse();
                     if (leftDown)
                     {
                         this.JumpTo(position);
                     }
                     else if (this.isPreparedToJump)
                     {
-                        Architecture architectureByPosition = this.scenario.GetArchitectureByPosition(this.GetTranslatedPosition(position));
+                        Architecture architectureByPosition = Session.Current.Scenario.GetArchitectureByPosition(this.GetTranslatedPosition(position));
                         if (architectureByPosition != null)
                         {
                             this.Conment.DisplayOffset = position;
@@ -357,11 +358,11 @@ namespace AirViewPlugin
             }
         }
 
-        internal void SetDisplayOffset(ShowPosition showPosition)
+        internal void SetDisplayOffset(Screen screen, ShowPosition showPosition)
         {
             this.TileLength = this.DefaultTileLength;
             this.ResetMapSize();
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, screen.viewportSize.X, screen.viewportSize.Y);
             Rectangle rect = new Rectangle(0, 0, this.mapSize.X, this.mapSize.Y);
             switch (showPosition)
             {
@@ -459,16 +460,16 @@ namespace AirViewPlugin
                 this.isMapShowing = value;
                 if (value)
                 {
-                    this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                    //this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    //Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
 
-                    this.SetDisplayOffset(this.MapShowPosition);
+                    this.SetDisplayOffset(Session.MainGame.mainGameScreen, this.MapShowPosition);
                     this.AddDisableRects();
                 }
                 else
                 {
-                    this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                    //this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    //Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
                     this.RemoveDisableRects();
                 }
             }

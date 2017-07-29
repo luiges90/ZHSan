@@ -32,7 +32,7 @@ namespace GameObjects
 
         public InfluenceTable Influences = new InfluenceTable();
         private int pic;
-        private Texture2D picture;
+        private PlatformTexture picture;
         private int worth;
 
         public void Init()
@@ -128,16 +128,16 @@ namespace GameObjects
             }
         }
 
-        public void disposeTexture()
-        {
-            if (this.picture != null)
-            {
-                this.picture.Dispose();
-                this.picture = null;
-            }
-        }
+        //public void disposeTexture()
+        //{
+        //    if (this.picture != null)
+        //    {
+        //        this.picture.Dispose();
+        //        this.picture = null;
+        //    }
+        //}
 
-        public Texture2D Picture
+        public PlatformTexture Picture
         {
             get
             {
@@ -145,7 +145,7 @@ namespace GameObjects
                 {
                     //try
                     //{
-                        this.picture = CacheManager.LoadTempTexture("Content/Textures/Resources/Treasure/" + this.Pic.ToString() + ".jpg");
+                        this.picture = CacheManager.GetTempTexture("Content/Textures/Resources/Treasure/" + this.Pic.ToString() + ".jpg");
                     //}
                     //catch
                     //{

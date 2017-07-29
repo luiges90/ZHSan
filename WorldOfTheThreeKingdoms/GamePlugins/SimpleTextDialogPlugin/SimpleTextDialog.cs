@@ -1,5 +1,6 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,33 +13,33 @@ namespace SimpleTextDialogPlugin
     internal class SimpleTextDialog
     {
         internal Point BackgroundSize;
-        internal Texture2D BackgroundTexture;
+        internal PlatformTexture BackgroundTexture;
         internal Rectangle ClientPosition;
         private Point DisplayOffset;
-        internal Texture2D FirstPageButtonDisabledTexture;
-        private Texture2D FirstPageButtonDisplayTexture;
+        internal PlatformTexture FirstPageButtonDisabledTexture;
+        private PlatformTexture FirstPageButtonDisplayTexture;
         internal Rectangle FirstPageButtonPosition;
-        internal Texture2D FirstPageButtonSelectedTexture;
-        internal Texture2D FirstPageButtonTexture;
+        internal PlatformTexture FirstPageButtonSelectedTexture;
+        internal PlatformTexture FirstPageButtonTexture;
         internal IConfirmationDialog iConfirmationDialog;
         private bool isShowing;
         internal FreeRichText RichText = new FreeRichText();
-        private Screen screen;
+        
         internal int ShowingSeconds;
         private DateTime startShowingTime;
         internal GameObjectTextTree TextTree = new GameObjectTextTree();
 
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw()
         {
             Rectangle? sourceRectangle = null;
-            spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
-            spriteBatch.Draw(this.FirstPageButtonDisplayTexture, this.FirstPageButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
-            this.RichText.Draw(spriteBatch, 0.1999f);
+            CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+            CacheManager.Draw(this.FirstPageButtonDisplayTexture, this.FirstPageButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
+            this.RichText.Draw(0.1999f);
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         private void screen_OnMouseLeftDown(Point position)
@@ -80,7 +81,7 @@ namespace SimpleTextDialogPlugin
 
         internal void SetPosition(ShowPosition showPosition)
         {
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
             Rectangle rect = new Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
             switch (showPosition)
             {
@@ -161,22 +162,22 @@ namespace SimpleTextDialogPlugin
                     this.isShowing = value;
                     if (value)
                     {
-                        this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, DialogKind.SimpleText));
-                        this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                        Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, DialogKind.SimpleText));
+                        Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
                         this.FirstPageButtonDisplayTexture = this.FirstPageButtonDisabledTexture;
-                        this.screen.EnableLaterMouseEvent = false;
+                        Session.MainGame.mainGameScreen.EnableLaterMouseEvent = false;
                         this.startShowingTime = DateTime.Now;
                     }
                     else
                     {
-                        if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.Dialog)
+                        if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.Dialog)
                         {
                             throw new Exception("The UndoneWork is not a Dialog.");
                         }
-                        this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                        this.screen.EnableLaterMouseEvent = true;
+                        Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                        Session.MainGame.mainGameScreen.EnableLaterMouseEvent = true;
                         this.iConfirmationDialog = null;
                     }
                 }

@@ -1,5 +1,6 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,13 +17,13 @@ namespace TabListPlugin
     {
         internal string checkboxDisplayName;
         internal string checkboxName;
-        internal Texture2D checkboxSelectedTexture;
-        internal Texture2D checkboxTexture;
+        internal PlatformTexture checkboxSelectedTexture;
+        internal PlatformTexture checkboxTexture;
         internal int checkboxWidth;
         internal int columnheaderHeight;
-        internal Texture2D columnheaderTexture;
+        internal PlatformTexture columnheaderTexture;
         internal int columnspliterHeight;
-        internal Texture2D columnspliterTexture;
+        internal PlatformTexture columnspliterTexture;
         internal int columnspliterWidth;
         internal TextAlign ColumnTextAlign;
         
@@ -33,10 +34,9 @@ namespace TabListPlugin
         private bool firstTimeMapViewSelector = true;
         internal int Focused;
         internal GameObject FocusedObject;
-        internal Texture2D focusTrackTexture;
+        internal PlatformTexture focusTrackTexture;
         internal Rectangle FullLowerClient;
         internal GameObjectList gameObjectList;
-        internal GraphicsDevice graphicsDevice;
         private bool HeightCanShrink = true;
         internal IArchitectureDetail iArchitectureDetail;
         internal IFactionTechniques iFactionTechniques;
@@ -45,7 +45,7 @@ namespace TabListPlugin
         internal IPersonDetail iPersonDetail;
         internal ITreasureDetail iTreasureDetail;
         internal ITroopDetail iTroopDetail;
-        internal Texture2D leftArrowTexture;
+        internal PlatformTexture leftArrowTexture;
         internal List<ListKind> ListKinds;
         private ListKind listKindToDisplay;
         internal bool MovingHorizontalScrollBar = false;
@@ -55,17 +55,17 @@ namespace TabListPlugin
         internal int oldScrollValue;
         internal int PortraitHeight;
         internal int PortraitWidth;
-        internal Texture2D rightArrowTexture;
+        internal PlatformTexture rightArrowTexture;
         private bool RightClickClose = true;
         internal SubKind RootListKind;
-        internal Texture2D roundcheckboxSelectedTexture;
-        internal Texture2D roundcheckboxTexture;
+        internal PlatformTexture roundcheckboxSelectedTexture;
+        internal PlatformTexture roundcheckboxTexture;
         internal int rowHeight;
         internal List<Rectangle> RowRectangles;
-        private Screen screen;
-        internal Texture2D scrollbuttonTexture;
+        
+        internal PlatformTexture scrollbuttonTexture;
         internal int scrollbuttonWidth;
-        internal Texture2D scrolltrackTexture;
+        internal PlatformTexture scrolltrackTexture;
         internal int scrolltrackWidth;
         internal GameObject SelectedItem;
         internal GameObjectList SelectedItemList;
@@ -78,8 +78,8 @@ namespace TabListPlugin
         internal bool ShowVerticalScrollBar = false;
         private Stack<SubKind> SubKinds = new Stack<SubKind>();
         internal int tabbuttonHeight;
-        internal Texture2D tabbuttonselectedTexture;
-        internal Texture2D tabbuttonTexture;
+        internal PlatformTexture tabbuttonselectedTexture;
+        internal PlatformTexture tabbuttonTexture;
         internal int tabbuttonWidth;
         internal TextAlign TabTextAlign;
 
@@ -115,12 +115,12 @@ namespace TabListPlugin
             }
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw()
         {
-            base.Draw(spriteBatch);
+            base.Draw();
             if (this.listKindToDisplay != null)
             {
-                this.listKindToDisplay.Draw(spriteBatch);
+                this.listKindToDisplay.Draw();
             }
         }
 
@@ -245,9 +245,8 @@ namespace TabListPlugin
             return "未知";
         }
 
-        internal void Initialize(Screen screen)
-        {
-            this.screen = screen;
+        internal void Initialize()
+        {            
             this.ListKinds = new List<ListKind>();
             this.RowRectangles = new List<Rectangle>();
         }
@@ -391,7 +390,7 @@ namespace TabListPlugin
 
         private void screen_OnMouseLeftDown(Point position)
         {
-            if ((this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && StaticMethods.PointInRectangle(position, base.RealClient))
+            if ((Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && StaticMethods.PointInRectangle(position, base.RealClient))
             {
                 if (position.Y < this.listKindToDisplay.ColumnsTop)
                 {
@@ -419,7 +418,7 @@ namespace TabListPlugin
                                         this.SelectingBool = gameObjectByPosition.Selected;
 
                                         this.SelectedItemList = this.gameObjectList.GetSelectedList();
-                                        if (this.screen.KeyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.LeftControl))
+                                        if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.LeftControl))
                                         {
                                             foreach (GameObject g in this.gameObjectList)
                                             {
@@ -435,13 +434,13 @@ namespace TabListPlugin
                                     if (gameObjectByPosition.Selected)
                                     {
                                         this.SelectedItem = gameObjectByPosition;
-                                        if (!(this.MultiSelecting || !GlobalVariables.SingleSelectionOneClick))
+                                        if (!(this.MultiSelecting || !Session.GlobalVariables.SingleSelectionOneClick))
                                         {
                                            // this.iGameFrame.OK();
                                         }
                                         else
                                         {
-                                            this.screen.PlayNormalSound(this.SelectSoundFile);
+                                            Session.MainGame.mainGameScreen.PlayNormalSound(this.SelectSoundFile);
                                         }
                                     }
                                     else
@@ -467,7 +466,7 @@ namespace TabListPlugin
 
         private void screen_OnMouseLeftUp(Point position)
         {
-            if ((this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && StaticMethods.PointInRectangle(position, base.RealClient))
+            if ((Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && StaticMethods.PointInRectangle(position, base.RealClient))
             {
                 if (position.Y < this.listKindToDisplay.ColumnsTop)
                 {
@@ -520,13 +519,13 @@ namespace TabListPlugin
                                     if (gameObjectByPosition.Selected)
                                     {
                                         this.SelectedItem = gameObjectByPosition;
-                                        if (!(this.MultiSelecting || !GlobalVariables.SingleSelectionOneClick))
+                                        if (!(this.MultiSelecting || !Session.GlobalVariables.SingleSelectionOneClick))
                                         {
                                             this.iGameFrame.OK();
                                         }
                                         else
                                         {
-                                            //this.screen.PlayNormalSound(this.SelectSoundFile);
+                                            //Session.MainGame.mainGameScreen.PlayNormalSound(this.SelectSoundFile);
                                         }
                                     }
                                     else
@@ -545,7 +544,7 @@ namespace TabListPlugin
                                         this.iTroopDetail.SetTroop(gameObjectByPosition);
                                         this.iTroopDetail.IsShowing = true;
                                     }
-                                    this.screen.JumpTo((gameObjectByPosition as Troop).Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Troop).Position);
                                 }
                                 else if (gameObjectByPosition is Person)
                                 {
@@ -557,7 +556,7 @@ namespace TabListPlugin
                                     }
                                     if (!(gameObjectByPosition as Person).IsCaptive)
                                     {
-                                        this.screen.JumpTo((gameObjectByPosition as Person).Position);
+                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Person).Position);
                                     }
                                 }
                                 else if (gameObjectByPosition is Architecture)
@@ -568,11 +567,11 @@ namespace TabListPlugin
                                         this.iArchitectureDetail.SetArchitecture(gameObjectByPosition);
                                         this.iArchitectureDetail.IsShowing = true;
                                     }
-                                    this.screen.JumpTo((gameObjectByPosition as Architecture).Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Architecture).Position);
                                 }
                                 else if (gameObjectByPosition is Military)
                                 {
-                                    this.screen.JumpTo((gameObjectByPosition as Military).Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Military).Position);
                                 }
                                 else if (gameObjectByPosition is Faction)
                                 {
@@ -583,7 +582,7 @@ namespace TabListPlugin
                                         this.iFactionTechniques.SetPosition(ShowPosition.Center);
                                         this.iFactionTechniques.IsShowing = true;
                                     }
-                                    this.screen.JumpTo((gameObjectByPosition as Faction).Leader.Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Faction).Leader.Position);
                                 }
                                 else if (gameObjectByPosition is Captive)
                                 {
@@ -604,14 +603,14 @@ namespace TabListPlugin
                                     }
                                     if ((gameObjectByPosition as Treasure).BelongedPerson != null)
                                     {
-                                        this.screen.JumpTo((gameObjectByPosition as Treasure).BelongedPerson.Position);
+                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Treasure).BelongedPerson.Position);
                                     }
                                 }
                                 else if (gameObjectByPosition is Information)
                                 {
                                     if (base.Function != FrameFunction.Jump)
                                     {
-                                        this.screen.JumpTo((gameObjectByPosition as Information).Position);
+                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Information).Position);
                                     }
                                 }
                                 else if (this.listKindToDisplay.SelectedTab.ListMethod != null)
@@ -644,7 +643,7 @@ namespace TabListPlugin
                                         this.iTroopDetail.SetTroop(gameObjectByPosition);
                                         this.iTroopDetail.IsShowing = true;
                                     }
-                                    this.screen.JumpTo((gameObjectByPosition as Troop).Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Troop).Position);
                                 }
                                 else if (gameObjectByPosition is Person)
                                 {
@@ -656,7 +655,7 @@ namespace TabListPlugin
                                     }
                                     if (!(gameObjectByPosition as Person).IsCaptive)
                                     {
-                                        this.screen.JumpTo((gameObjectByPosition as Person).Position);
+                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Person).Position);
                                     }
                                 }
                                 else if (gameObjectByPosition is Architecture)
@@ -667,11 +666,11 @@ namespace TabListPlugin
                                         this.iArchitectureDetail.SetArchitecture(gameObjectByPosition);
                                         this.iArchitectureDetail.IsShowing = true;
                                     }
-                                    this.screen.JumpTo((gameObjectByPosition as Architecture).Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Architecture).Position);
                                 }
                                 else if (gameObjectByPosition is Military)
                                 {
-                                    this.screen.JumpTo((gameObjectByPosition as Military).Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Military).Position);
                                 }
                                 else if (gameObjectByPosition is Faction)
                                 {
@@ -682,7 +681,7 @@ namespace TabListPlugin
                                         this.iFactionTechniques.SetPosition(ShowPosition.Center);
                                         this.iFactionTechniques.IsShowing = true;
                                     }
-                                    this.screen.JumpTo((gameObjectByPosition as Faction).Leader.Position);
+                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Faction).Leader.Position);
                                 }
                                 else if (gameObjectByPosition is Captive)
                                 {
@@ -703,14 +702,14 @@ namespace TabListPlugin
                                     }
                                     if ((gameObjectByPosition as Treasure).BelongedPerson != null)
                                     {
-                                        this.screen.JumpTo((gameObjectByPosition as Treasure).BelongedPerson.Position);
+                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Treasure).BelongedPerson.Position);
                                     }
                                 }
                                 else if (gameObjectByPosition is Information)
                                 {
                                     if (base.Function != FrameFunction.Jump)
                                     {
-                                        this.screen.JumpTo((gameObjectByPosition as Information).Position);
+                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Information).Position);
                                     }
                                 }
                                 if (gameObjectByPosition != null)
@@ -726,7 +725,7 @@ namespace TabListPlugin
 
             /////////////////////////////////////////////////
 
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Frame)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame)
             {
                 this.MovingHorizontalScrollBar = false;
                 this.MovingVerticalScrollBar = false;
@@ -736,7 +735,7 @@ namespace TabListPlugin
 
         private void screen_OnMouseMove(Point position, bool leftDown)
         {
-            if ((this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && (this.oldMousePosition != position))
+            if ((Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && (this.oldMousePosition != position))
             {
                 if (leftDown)
                 {
@@ -801,7 +800,7 @@ namespace TabListPlugin
 
         private void screen_OnMouseRightUp(Point position)
         {
-            if (this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Frame)
+            if (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame)
             {
                 this.PopSubKind();
             }
@@ -809,7 +808,7 @@ namespace TabListPlugin
 
         private void screen_OnMouseScroll(Point position, int scrollValue)
         {
-            if (((this.screen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && (!this.MovingHorizontalScrollBar && !this.MovingVerticalScrollBar)) && (this.listKindToDisplay != null))
+            if (((Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && (!this.MovingHorizontalScrollBar && !this.MovingVerticalScrollBar)) && (this.listKindToDisplay != null))
             {
                 if (this.ShowVerticalScrollBar)
                 {
@@ -957,21 +956,21 @@ namespace TabListPlugin
                     base.isShowing = value;
                     if (value)
                     {
-                        this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                        //this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                        this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                        this.screen.OnMouseScroll += new Screen.MouseScroll(this.screen_OnMouseScroll);
+                        Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                        //Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                        Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                        Session.MainGame.mainGameScreen.OnMouseScroll += new Screen.MouseScroll(this.screen_OnMouseScroll);
                     }
                     else
                     {
-                        this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                        //this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftDown);
-                        this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
-                        this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
-                        this.screen.OnMouseScroll -= new Screen.MouseScroll(this.screen_OnMouseScroll);
+                        Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                        //Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftDown);
+                        Session.MainGame.mainGameScreen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
+                        Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                        Session.MainGame.mainGameScreen.OnMouseScroll -= new Screen.MouseScroll(this.screen_OnMouseScroll);
                         this.SelectedItemMaxCount = 0;
                     }
                 }

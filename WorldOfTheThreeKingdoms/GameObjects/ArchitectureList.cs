@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameManager;
+using System;
 using System.Runtime.Serialization;
 
 namespace GameObjects
@@ -6,11 +7,14 @@ namespace GameObjects
     [DataContract]
     public class ArchitectureList : GameObjectList
     {
-        public void AddArchitectureWithEvent(Architecture architecture)
+        public void AddArchitectureWithEvent(Architecture architecture, bool add = true)
         {
-            base.Add(architecture);
-            if (architecture.Scenario.GameScreen != null)
+            if (add)
             {
+                base.Add(architecture);
+            }
+            //if (Session.MainGame.mainGameScreen != null)
+            //{
                 architecture.OnHirePerson += new Architecture.HirePerson(this.architecture_OnHirePerson);
                 architecture.OnRewardPersons += new Architecture.RewardPersons(this.architecture_OnRewardPersons);
                 architecture.OnFacilityCompleted += new Architecture.FacilityCompleted(this.architecture_OnFacilityCompleted);
@@ -22,22 +26,22 @@ namespace GameObjects
                 architecture.OnSelectprince += new Architecture.Selectprince(this.architecture_OnSelectprince);
                 architecture.OnAppointmayor += new Architecture.Appointmayor(this.architecture_OnAppointmayor);
                 architecture.OnZhaoxian += new Architecture.Zhaoxian(this.architecture_OnZhaoxian);
-            }
+            //}
         }
 
         public void architecture_OnZhaoxian(Person person, Person leader)
         {
-            person.Scenario.GameScreen.Zhaoxian(person, leader);
+            Session.MainGame.mainGameScreen.Zhaoxian(person, leader);
         }
 
         public void architecture_OnSelectprince(Person person, Person leader)//立储
         {
-            person.Scenario.GameScreen.Selectprince(person, leader);
+            Session.MainGame.mainGameScreen.Selectprince(person, leader);
         }
 
         public void architecture_OnAppointmayor(Person person, Person leader) //太守
         {
-            person.Scenario.GameScreen.Appointmayor(person, leader);
+            Session.MainGame.mainGameScreen.Appointmayor(person, leader);
         }
 
         public void ApplyInfluences()
@@ -50,45 +54,45 @@ namespace GameObjects
 
         private void architecture_OnBeginRecentlyAttacked(Architecture architecture)
         {
-            architecture.Scenario.GameScreen.ArchitectureBeginRecentlyAttacked(architecture);
+            Session.MainGame.mainGameScreen.ArchitectureBeginRecentlyAttacked(architecture);
         }
 
         private void architecture_OnFacilityCompleted(Architecture architecture, Facility facility)
         {
-            architecture.Scenario.GameScreen.ArchitectureFacilityCompleted(architecture, facility);
+            Session.MainGame.mainGameScreen.ArchitectureFacilityCompleted(architecture, facility);
         }
 
         private void architecture_Onfashengzainan(Architecture architecture, int zainanID)
         {
-            architecture.Scenario.GameScreen.Architecturefashengzainan(architecture, zainanID);
+            Session.MainGame.mainGameScreen.Architecturefashengzainan(architecture, zainanID);
         }
 
         private void architecture_OnHirePerson(PersonList personList)
         {
             if (personList.Count > 0)
             {
-                (personList[0] as Person).Scenario.GameScreen.ArchitectureHirePerson(personList);
+                Session.MainGame.mainGameScreen.ArchitectureHirePerson(personList);
             }
         }
 
         private void architecture_OnPopulationEnter(Architecture a, int quantity)
         {
-            a.Scenario.GameScreen.ArchitecturePopulationEnter(a, quantity);
+            Session.MainGame.mainGameScreen.ArchitecturePopulationEnter(a, quantity);
         }
 
         private void architecture_OnPopulationEscape(Architecture a, int quantity)
         {
-            a.Scenario.GameScreen.ArchitecturePopulationEscape(a, quantity);
+            Session.MainGame.mainGameScreen.ArchitecturePopulationEscape(a, quantity);
         }
 
         private void architecture_OnReleaseCaptiveAfterOccupied(Architecture architecture, PersonList persons)
         {
-            architecture.Scenario.GameScreen.ArchitectureReleaseCaptiveAfterOccupied(architecture, persons);
+            Session.MainGame.mainGameScreen.ArchitectureReleaseCaptiveAfterOccupied(architecture, persons);
         }
 
         private void architecture_OnRewardPersons(Architecture architecture, GameObjectList personlist)
         {
-            architecture.Scenario.GameScreen.ArchitectureRewardPersons(architecture, personlist);
+            Session.MainGame.mainGameScreen.ArchitectureRewardPersons(architecture, personlist);
         }
 
         public Architecture GetMaxEnduranceArchitecture(Architecture target)

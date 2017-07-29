@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Influences;
 using Microsoft.Xna.Framework;
 using System;
@@ -20,22 +21,22 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
                 {
                     foreach (Point point in architecture.LongViewArea.Area)
                     {
-                        if (!architecture.Scenario.PositionOutOfRange(point))
+                        if (!Session.Current.Scenario.PositionOutOfRange(point))
                         {
-                            architecture.Scenario.MapTileData[point.X, point.Y].RemoveSupplyingArchitecture(architecture);
+                            Session.Current.Scenario.MapTileData[point.X, point.Y].RemoveSupplyingArchitecture(architecture);
                         }
                     }
                 }
                 architecture.IncrementOfViewRadius += this.increment;
                 architecture.ViewArea = null;
                 architecture.LongViewArea = null;
-                if (!architecture.Scenario.Preparing)
+                if (!Session.Current.Scenario.Preparing)
                 {
-                    foreach (Architecture architecture2 in architecture.Scenario.Architectures)
+                    foreach (Architecture architecture2 in Session.Current.Scenario.Architectures)
                     {
                         architecture2.RefreshViewArea();
                     }
-                    foreach (Troop troop in architecture.Scenario.Troops)
+                    foreach (Troop troop in Session.Current.Scenario.Troops)
                     {
                         troop.RefreshViewArchitectureRelatedArea();
                     }
@@ -44,9 +45,9 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
                 {
                     foreach (Point point in architecture.LongViewArea.Area)
                     {
-                        if (!architecture.Scenario.PositionOutOfRange(point))
+                        if (!Session.Current.Scenario.PositionOutOfRange(point))
                         {
-                            architecture.Scenario.MapTileData[point.X, point.Y].AddSupplyingArchitecture(architecture);
+                            Session.Current.Scenario.MapTileData[point.X, point.Y].AddSupplyingArchitecture(architecture);
                         }
                     }
                 }
@@ -74,22 +75,22 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
                 {
                     foreach (Point point in architecture.LongViewArea.Area)
                     {
-                        if (!architecture.Scenario.PositionOutOfRange(point))
+                        if (!Session.Current.Scenario.PositionOutOfRange(point))
                         {
-                            architecture.Scenario.MapTileData[point.X, point.Y].RemoveSupplyingArchitecture(architecture);
+                            Session.Current.Scenario.MapTileData[point.X, point.Y].RemoveSupplyingArchitecture(architecture);
                         }
                     }
                 }
                 architecture.IncrementOfViewRadius -= this.increment;
                 architecture.ViewArea = null;
                 architecture.LongViewArea = null;
-                if (!architecture.Scenario.Preparing)
+                if (!Session.Current.Scenario.Preparing)
                 {
-                    foreach (Architecture architecture2 in architecture.Scenario.Architectures)
+                    foreach (Architecture architecture2 in Session.Current.Scenario.Architectures)
                     {
                         architecture2.RefreshViewArea();
                     }
-                    foreach (Troop troop in architecture.Scenario.Troops)
+                    foreach (Troop troop in Session.Current.Scenario.Troops)
                     {
                         troop.RefreshViewArchitectureRelatedArea();
                     }
@@ -98,9 +99,9 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
                 {
                     foreach (Point point in architecture.LongViewArea.Area)
                     {
-                        if (!architecture.Scenario.PositionOutOfRange(point))
+                        if (!Session.Current.Scenario.PositionOutOfRange(point))
                         {
-                            architecture.Scenario.MapTileData[point.X, point.Y].AddSupplyingArchitecture(architecture);
+                            Session.Current.Scenario.MapTileData[point.X, point.Y].AddSupplyingArchitecture(architecture);
                         }
                     }
                 }

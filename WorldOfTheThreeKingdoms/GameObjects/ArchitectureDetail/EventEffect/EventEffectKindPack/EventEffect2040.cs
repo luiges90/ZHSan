@@ -1,6 +1,6 @@
 ﻿using GameObjects;
 using System;
-
+using GameManager;
 
 using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.EventEffect
 {
@@ -11,7 +11,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
 
         public override void ApplyEffectKind(Faction f, Event e)
         {
-            f.BaseMilitaryKinds.AddMilitaryKind(f.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(increment));
+            f.BaseMilitaryKinds.AddMilitaryKind(Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(increment));
         }
 
         public override void InitializeParameter(string parameter)

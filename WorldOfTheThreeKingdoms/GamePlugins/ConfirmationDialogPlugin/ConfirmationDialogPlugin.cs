@@ -19,7 +19,6 @@ namespace ConfirmationDialogPlugin
         private ConfirmationDialog confirmationDialog = new ConfirmationDialog();
         private const string DataPath = @"Content\Textures\GameComponents\ConfirmationDialog\Data\";
         private string description = "确认对话框";
-        private GraphicsDevice graphicsDevice;
         private const string Path = @"Content\Textures\GameComponents\ConfirmationDialog\";
         private string pluginName = "ConfirmationDialogPlugin";
         private string version = "1.0.0";
@@ -45,15 +44,15 @@ namespace ConfirmationDialogPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.confirmationDialog.IsShowing)
             {
-                this.confirmationDialog.Draw(spriteBatch);
+                this.confirmationDialog.Draw();
             }
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -66,17 +65,17 @@ namespace ConfirmationDialogPlugin
 
             XmlNode nextSibling = document.FirstChild.NextSibling;
             XmlNode node = nextSibling.ChildNodes.Item(0);
-            this.confirmationDialog.BackgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ConfirmationDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.confirmationDialog.BackgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ConfirmationDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.confirmationDialog.BackgroundSize.X = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             this.confirmationDialog.BackgroundSize.Y = int.Parse(node.Attributes.GetNamedItem("Height").Value);
             node = nextSibling.ChildNodes.Item(1);
-            this.confirmationDialog.YesTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ConfirmationDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.confirmationDialog.YesSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ConfirmationDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.confirmationDialog.YesTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ConfirmationDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.confirmationDialog.YesSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ConfirmationDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             this.confirmationDialog.YesPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             this.confirmationDialog.YesSoundFile = @"Content\Sound\" + node.Attributes.GetNamedItem("SoundFile").Value;
             node = nextSibling.ChildNodes.Item(2);
-            this.confirmationDialog.NoTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ConfirmationDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.confirmationDialog.NoSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\ConfirmationDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.confirmationDialog.NoTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ConfirmationDialog\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.confirmationDialog.NoSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\ConfirmationDialog\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             this.confirmationDialog.NoPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             this.confirmationDialog.NoSoundFile = @"Content\Sound\" + node.Attributes.GetNamedItem("SoundFile").Value;
         }
@@ -85,9 +84,8 @@ namespace ConfirmationDialogPlugin
         {
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\ConfirmationDialogData.xml");
         }
 
@@ -101,9 +99,9 @@ namespace ConfirmationDialogPlugin
             this.confirmationDialog.SetPosition(showPosition);
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.confirmationDialog.Initialize(screen as Screen);
+            this.confirmationDialog.Initialize();
         }
 
         public void SetSimpleTextDialog(ISimpleTextDialog iSimpleTextDialog)

@@ -1,5 +1,6 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,40 +12,40 @@ namespace HelpPlugin
     internal class Help
     {
         internal Point BackgroundSize;
-        internal Texture2D BackgroundTexture;
+        internal PlatformTexture BackgroundTexture;
         internal Point ButtonDisplayOffset;
-        private Texture2D ButtonDisplayTexture;
-        internal Texture2D ButtonSelectedTexture;
+        private PlatformTexture ButtonDisplayTexture;
+        internal PlatformTexture ButtonSelectedTexture;
         internal Point ButtonSize;
-        internal Texture2D ButtonTexture;
+        internal PlatformTexture ButtonTexture;
         internal GameObjectTextBranch CurrentBranch;
         internal Point DisplayOffset;
         private bool isButtonShowing;
         private bool isShowing;
         internal FreeRichText RichText = new FreeRichText();
-        private Screen screen;
+        
         internal GameObjectTextTree TextTree = new GameObjectTextTree();
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.isShowing)
             {
-                spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
-                this.RichText.Draw(spriteBatch, 0.1999f);
+                CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                this.RichText.Draw(0.1999f);
             }
         }
 
-        public void DrawButton(SpriteBatch spriteBatch, float depth)
+        public void DrawButton(float depth)
         {
             if (this.isButtonShowing && (this.ButtonDisplayTexture != null))
             {
-                spriteBatch.Draw(this.ButtonDisplayTexture, this.ButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
+                CacheManager.Draw(this.ButtonDisplayTexture, this.ButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, depth);
             }
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         private void screen_OnButtonMouseLeftDown(Point position)
@@ -90,7 +91,7 @@ namespace HelpPlugin
 
         internal void SetDisplayOffset(ShowPosition showPosition)
         {
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
             Rectangle rect = new Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
             switch (showPosition)
             {
@@ -165,13 +166,13 @@ namespace HelpPlugin
                 this.isButtonShowing = value;
                 if (value)
                 {
-                    this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnButtonMouseLeftDown);
-                    this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnButtonMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnButtonMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnButtonMouseMove);
                 }
                 else
                 {
-                    this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnButtonMouseMove);
-                    this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnButtonMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnButtonMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnButtonMouseLeftDown);
                 }
             }
         }
@@ -187,21 +188,21 @@ namespace HelpPlugin
                 this.isShowing = value;
                 if (value)
                 {
-                    this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, UndoneWorkSubKind.None));
-                    this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                    this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, UndoneWorkSubKind.None));
+                    Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                     this.RichText.SetGameObjectTextBranch(null, this.CurrentBranch);
                 }
                 else
                 {
-                    if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.Dialog)
+                    if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.Dialog)
                     {
                         throw new Exception("The UndoneWork is not a Help Dialog.");
                     }
-                    this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                    this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                 }
             }
         }

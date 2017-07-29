@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -122,19 +123,19 @@ namespace GameObjects.TroopDetail
                     switch (this.troop.HostileAction)
                     {
                         case HostileActionKind.NotCare:
-                            this.troop.Scenario.SetPenalizedMapDataByPosition(troop.Position, 0xdac);
+                            Session.Current.Scenario.SetPenalizedMapDataByPosition(troop.Position, 0xdac);
                             break;
 
                         case HostileActionKind.Attack:
-                            this.troop.Scenario.SetPenalizedMapDataByPosition(troop.Position, 0xdac);
+                            Session.Current.Scenario.SetPenalizedMapDataByPosition(troop.Position, 0xdac);
                             break;
 
                         case HostileActionKind.EvadeEffect:
-                            this.troop.Scenario.SetPenalizedMapDataByArea(troop.OffenceArea, 1);
+                            Session.Current.Scenario.SetPenalizedMapDataByArea(troop.OffenceArea, 1);
                             break;
 
                         case HostileActionKind.EvadeView:
-                            this.troop.Scenario.SetPenalizedMapDataByArea(troop.ViewArea, 1);
+                            Session.Current.Scenario.SetPenalizedMapDataByArea(troop.ViewArea, 1);
                             break;
                     }
                 }
@@ -150,19 +151,19 @@ namespace GameObjects.TroopDetail
                     switch (this.troop.HostileAction)
                     {
                         case HostileActionKind.NotCare:
-                            this.troop.Scenario.ClearPenalizedMapDataByPosition(troop.Position);
+                            Session.Current.Scenario.ClearPenalizedMapDataByPosition(troop.Position);
                             break;
 
                         case HostileActionKind.Attack:
-                            this.troop.Scenario.ClearPenalizedMapDataByPosition(troop.Position);
+                            Session.Current.Scenario.ClearPenalizedMapDataByPosition(troop.Position);
                             break;
 
                         case HostileActionKind.EvadeEffect:
-                            this.troop.Scenario.ClearPenalizedMapDataByArea(troop.OffenceArea);
+                            Session.Current.Scenario.ClearPenalizedMapDataByArea(troop.OffenceArea);
                             break;
 
                         case HostileActionKind.EvadeView:
-                            this.troop.Scenario.ClearPenalizedMapDataByArea(troop.ViewArea);
+                            Session.Current.Scenario.ClearPenalizedMapDataByArea(troop.ViewArea);
                             break;
                     }
                 }
@@ -219,8 +220,8 @@ namespace GameObjects.TroopDetail
 
         private int firstTierPathFinder_OnGetPenalizedCost(Point position, MilitaryKind kind)
         {
-            if (this.troop.Scenario.PositionOutOfRange(position)) return 0;
-            return this.troop.Scenario.PenalizedMapData[position.X, position.Y];
+            if (Session.Current.Scenario.PositionOutOfRange(position)) return 0;
+            return Session.Current.Scenario.PenalizedMapData[position.X, position.Y];
         }
 
         public GameArea GetDayArea(int Days)

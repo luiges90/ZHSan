@@ -3,6 +3,7 @@ using System.Xml;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Platforms;
+using GameManager;
 
 namespace GameGlobal
 {
@@ -10,316 +11,321 @@ namespace GameGlobal
     public class Parameters
     {
         [DataMember]
-        public static float AIArchitectureDamageRate = 1f;
+        public float AIArchitectureDamageRate = 1f;
         [DataMember]
-        public static float AIFoodRate = 1f;
+        public float AIFoodRate = 1f;
         [DataMember]
-        public static float AIFundRate = 1f;
+        public float AIFundRate = 1f;
         [DataMember]
-        public static float AIRecruitmentSpeedRate = 1f;
+        public float AIRecruitmentSpeedRate = 1f;
         [DataMember]
-        public static float AITrainingSpeedRate = 1f;
+        public float AITrainingSpeedRate = 1f;
         [DataMember]
-        public static float AITroopDefenceRate = 1f;
+        public float AITroopDefenceRate = 1f;
         [DataMember]
-        public static float AITroopOffenceRate = 1f;
+        public float AITroopOffenceRate = 1f;
         [DataMember]
-        public static float ArchitectureDamageRate = 1f;
+        public float ArchitectureDamageRate = 1f;
         [DataMember]
-        public static int AIAntiStratagem = 0;
+        public int AIAntiStratagem = 0;
         [DataMember]
-        public static int AIAntiSurround = 0;
+        public int AIAntiSurround = 0;
         [DataMember]
-        public static int BuyFoodAgriculture = 500;
+        public int BuyFoodAgriculture = 500;
         [DataMember]
-        public static int ChangeCapitalCost = 0x1388;
+        public int ChangeCapitalCost = 0x1388;
         [DataMember]
-        public static int ClearFieldAgricultureCostUnit = 3;
+        public int ClearFieldAgricultureCostUnit = 3;
         [DataMember]
-        public static int ClearFieldFundCostUnit = 50;
+        public int ClearFieldFundCostUnit = 50;
         [DataMember]
-        public static int ConvincePersonCost = 200;
+        public int ConvincePersonCost = 200;
         [DataMember]
-        public static float DefaultPopulationDevelopingRate = 6E-05f;
+        public float DefaultPopulationDevelopingRate = 6E-05f;
         [DataMember]
-        public static int DestroyArchitectureCost = 200;
+        public int DestroyArchitectureCost = 200;
         [DataMember]
-        public static int FindTreasureChance = 10;
+        public int FindTreasureChance = 10;
         [DataMember]
-        public static float FireDamageScale = 0.5f;
+        public float FireDamageScale = 0.5f;
         [DataMember]
-        public static float FollowedLeaderDefenceRateIncrement = 0.2f;
+        public float FollowedLeaderDefenceRateIncrement = 0.2f;
         [DataMember]
-        public static float FollowedLeaderOffenceRateIncrement = 0.2f;
+        public float FollowedLeaderOffenceRateIncrement = 0.2f;
         [DataMember]
-        public static float FoodRate = 1f;
+        public float FoodRate = 1f;
         [DataMember]
-        public static int FoodToFundDivisor = 200;
+        public int FoodToFundDivisor = 200;
         [DataMember]
-        public static float FundRate = 1f;
+        public float FundRate = 1f;
         [DataMember]
-        public static int FundToFoodMultiple = 50;
+        public int FundToFoodMultiple = 50;
         [DataMember]
-        public static int GossipArchitectureCost = 200;
+        public int GossipArchitectureCost = 200;
         [DataMember]
-        public static int JailBreakArchitectureCost = 200;
+        public int JailBreakArchitectureCost = 200;
         [DataMember]
-        public static int HireNoFactionPersonCost = 100;
+        public int HireNoFactionPersonCost = 100;
         [DataMember]
-        public static int InstigateArchitectureCost = 200;
+        public int InstigateArchitectureCost = 200;
         [DataMember]
-        public static int InternalFundCost = 5;
+        public int InternalFundCost = 5;
         [DataMember]
-        public static float InternalRate = 1f;
+        public float InternalRate = 1f;
         [DataMember]
-        public static int LearnSkillDays = 30;
+        public int LearnSkillDays = 30;
         [DataMember]
-        public static int LearnStuntDays = 60;
+        public int LearnStuntDays = 60;
         [DataMember]
-        public static int LearnTitleDays = 90;
+        public int LearnTitleDays = 90;
         [DataMember]
-        public static int SearchDays = 10;
+        public int SearchDays = 10;
         [DataMember]
-        public static int RecruitmentDomination = 50;
+        public int RecruitmentDomination = 50;
         [DataMember]
-        public static int RecruitmentFundCost = 20;
+        public int RecruitmentFundCost = 20;
         [DataMember]
-        public static int RecruitmentMorale = 100;
+        public int RecruitmentMorale = 100;
         [DataMember]
-        public static float RecruitmentRate = 1f;
+        public float RecruitmentRate = 1f;
         [DataMember]
-        public static int RewardPersonCost = 100;
+        public int RewardPersonCost = 100;
         [DataMember]
-        public static int SellFoodCommerce = 500;
+        public int SellFoodCommerce = 500;
         [DataMember]
-        public static int SendSpyCost = 200;
+        public int SendSpyCost = 200;
         [DataMember]
-        public static int SurroundArchitectureDominationUnit = 2;
+        public int SurroundArchitectureDominationUnit = 2;
         [DataMember]
-        public static float TrainingRate = 1f;
+        public float TrainingRate = 1f;
         [DataMember]
-        public static float TroopDamageRate = 1f;
+        public float TroopDamageRate = 1f;
         [DataMember]
-        public static float AIArchitectureDamageYearIncreaseRate = 0f;
+        public float AIArchitectureDamageYearIncreaseRate = 0f;
         [DataMember]
-        public static float AIFoodYearIncreaseRate = 0f;
+        public float AIFoodYearIncreaseRate = 0f;
         [DataMember]
-        public static float AIFundYearIncreaseRate = 0f;
+        public float AIFundYearIncreaseRate = 0f;
         [DataMember]
-        public static float AIRecruitmentSpeedYearIncreaseRate = 0f;
+        public float AIRecruitmentSpeedYearIncreaseRate = 0f;
         [DataMember]
-        public static float AITrainingSpeedYearIncreaseRate = 0f;
+        public float AITrainingSpeedYearIncreaseRate = 0f;
         [DataMember]
-        public static float AITroopDefenceYearIncreaseRate = 0f;
+        public float AITroopDefenceYearIncreaseRate = 0f;
         [DataMember]
-        public static float AITroopOffenceYearIncreaseRate = 0f;
+        public float AITroopOffenceYearIncreaseRate = 0f;
         [DataMember]
-        public static float AIArmyExperienceYearIncreaseRate = 0f;
+        public float AIArmyExperienceYearIncreaseRate = 0f;
         [DataMember]
-        public static float AIOfficerExperienceYearIncreaseRate = 0f;
+        public float AIOfficerExperienceYearIncreaseRate = 0f;
         [DataMember]
-        public static float AIAntiStratagemIncreaseRate = 0f;
+        public float AIAntiStratagemIncreaseRate = 0f;
         [DataMember]
-        public static float AIAntiSurroundIncreaseRate = 0f;
+        public float AIAntiSurroundIncreaseRate = 0f;
         [DataMember]
-        public static float AIOfficerExperienceRate = 1f;
+        public float AIOfficerExperienceRate = 1f;
         [DataMember]
-        public static float AIArmyExperienceRate = 1f;
+        public float AIArmyExperienceRate = 1f;
 
-        private static float BasicAIArchitectureDamageRate = 1f;
-        private static float BasicAIFoodRate = 1f;
-        private static float BasicAIFundRate = 1f;
-        private static float BasicAIRecruitmentSpeedRate = 1f;
-        private static float BasicAITrainingSpeedRate = 1f;
-        private static float BasicAITroopDefenceRate = 1f;
-        private static float BasicAITroopOffenceRate = 1f;
-        private static float BasicAIArmyExperienceRate = 1f;
-        private static float BasicAIOfficerExperienceRate = 1f;
-        private static int BasicAIAntiStratagem = 0;
-        private static int BasicAIAntiSurround = 0;
+        private float BasicAIArchitectureDamageRate = 1f;
+        private float BasicAIFoodRate = 1f;
+        private float BasicAIFundRate = 1f;
+        private float BasicAIRecruitmentSpeedRate = 1f;
+        private float BasicAITrainingSpeedRate = 1f;
+        private float BasicAITroopDefenceRate = 1f;
+        private float BasicAITroopOffenceRate = 1f;
+        private float BasicAIArmyExperienceRate = 1f;
+        private float BasicAIOfficerExperienceRate = 1f;
+        private int BasicAIAntiStratagem = 0;
+        private int BasicAIAntiSurround = 0;
 
         [DataMember]
-        public static float AIBackendArmyReserveCalmBraveDifferenceMultiply = 5;
+        public float AIBackendArmyReserveCalmBraveDifferenceMultiply = 5;
         [DataMember]
-        public static float AIBackendArmyReserveAmbitionMultiply = 10;
+        public float AIBackendArmyReserveAmbitionMultiply = 10;
         [DataMember]
-        public static float AIBackendArmyReserveAdd = 50;
+        public float AIBackendArmyReserveAdd = 50;
         [DataMember]
-        public static float AIBackendArmyReserveMultiply = 1;
+        public float AIBackendArmyReserveMultiply = 1;
         [DataMember]
-        public static int AITradePeriod = 10;
+        public int AITradePeriod = 10;
         [DataMember]
-        public static int AITreasureChance = 10;
+        public int AITreasureChance = 10;
         [DataMember]
-        public static int AITreasureCountMax = 2;
+        public int AITreasureCountMax = 2;
         [DataMember]
-        public static float AITreasureCountCappedTitleLevelAdd = 0;
+        public float AITreasureCountCappedTitleLevelAdd = 0;
         [DataMember]
-        public static float AITreasureCountCappedTitleLevelMultiply = 1;
+        public float AITreasureCountCappedTitleLevelMultiply = 1;
         [DataMember]
-        public static int AIGiveTreasureMaxWorth = 40;
+        public int AIGiveTreasureMaxWorth = 40;
         [DataMember]
-        public static float AIFacilityFundMonthWaitParam = 8;
+        public float AIFacilityFundMonthWaitParam = 8;
         [DataMember]
-        public static float AIFacilityDestroyValueRate = 2;
+        public float AIFacilityDestroyValueRate = 2;
         [DataMember]
-        public static float AIBuildHougongUnambitionProbWeight = 10;
+        public float AIBuildHougongUnambitionProbWeight = 10;
         [DataMember]
-        public static float AIBuildHougongSpaceBuiltProbWeight = 5;
+        public float AIBuildHougongSpaceBuiltProbWeight = 5;
         [DataMember]
-        public static int AIBuildHougongMaxSizeAdd = 0;
+        public int AIBuildHougongMaxSizeAdd = 0;
         [DataMember]
-        public static int AIBuildHougongSkipSizeChance = 80;
+        public int AIBuildHougongSkipSizeChance = 80;
         [DataMember]
-        public static int AINafeiUncreultyProbAdd = -1;
+        public int AINafeiUncreultyProbAdd = -1;
         [DataMember]
-        public static float AINafeiAbilityThresholdRate = 30000;
+        public float AINafeiAbilityThresholdRate = 30000;
         [DataMember]
-        public static float AINafeiStealSpouseThresholdRateAdd = 0.5f;
+        public float AINafeiStealSpouseThresholdRateAdd = 0.5f;
         [DataMember]
-        public static float AINafeiStealSpouseThresholdRateMultiply = 1;
+        public float AINafeiStealSpouseThresholdRateMultiply = 1;
         [DataMember]
-        public static int AINafeiMaxAgeThresholdAdd = 30;
+        public int AINafeiMaxAgeThresholdAdd = 30;
         [DataMember]
-        public static float AINafeiMaxAgeThresholdMultiply = 1;
+        public float AINafeiMaxAgeThresholdMultiply = 1;
         [DataMember]
-        public static float AINafeiSkipChanceAdd = 25;
+        public float AINafeiSkipChanceAdd = 25;
         [DataMember]
-        public static float AINafeiSkipChanceMultiply = 15;
+        public float AINafeiSkipChanceMultiply = 15;
         [DataMember]
-        public static float AIChongxingChanceAdd = 10;
+        public float AIChongxingChanceAdd = 10;
         [DataMember]
-        public static float AIChongxingChanceMultiply = 20;
+        public float AIChongxingChanceMultiply = 20;
         [DataMember]
-        public static float AIRecruitPopulationCapMultiply = 90;
+        public float AIRecruitPopulationCapMultiply = 90;
         [DataMember]
-        public static float AIRecruitPopulationCapBackendMultiply = 0.5f;
+        public float AIRecruitPopulationCapBackendMultiply = 0.5f;
         [DataMember]
-        public static float AIRecruitPopulationCapHostilelineMultiply = 1.2f;
+        public float AIRecruitPopulationCapHostilelineMultiply = 1.2f;
         [DataMember]
-        public static float AIRecruitPopulationCapStrategyTendencyMulitply = 0.2f;
+        public float AIRecruitPopulationCapStrategyTendencyMulitply = 0.2f;
         [DataMember]
-        public static float AIRecruitPopulationCapStrategyTendencyAdd = 0.2f;
+        public float AIRecruitPopulationCapStrategyTendencyAdd = 0.2f;
         [DataMember]
-        public static int AINewMilitaryPopulationThresholdDivide = 30000;
+        public int AINewMilitaryPopulationThresholdDivide = 30000;
         [DataMember]
-        public static int AINewMilitaryPersonThresholdDivide = 5;
+        public int AINewMilitaryPersonThresholdDivide = 5;
         [DataMember]
-        public static int AIExecuteMaxUncreulty = 4;
+        public int AIExecuteMaxUncreulty = 4;
         [DataMember]
-        public static float AIExecutePersonIdealToleranceMultiply = 15;
+        public float AIExecutePersonIdealToleranceMultiply = 15;
         [DataMember]
-        public static float AIHougongArchitectureCountProbMultiply = 10;
+        public float AIHougongArchitectureCountProbMultiply = 10;
         [DataMember]
-        public static float AIHougongArchitectureCountProbPower = 0.5f;
+        public float AIHougongArchitectureCountProbPower = 0.5f;
         [DataMember]
-        public static int FireStayProb = 20;
+        public int FireStayProb = 20;
         [DataMember]
-        public static float FireSpreadProbMultiply = 1f;
+        public float FireSpreadProbMultiply = 1f;
         [DataMember]
-        public static int MinPregnantProb = 0;
+        public int MinPregnantProb = 0;
         [DataMember]
-        public static float InternalExperienceRate = 1f;
+        public float InternalExperienceRate = 1f;
         [DataMember]
-        public static float AbilityExperienceRate = 1f;
+        public float AbilityExperienceRate = 1f;
         [DataMember]
-        public static float ArmyExperienceRate = 1f;
+        public float ArmyExperienceRate = 1f;
         [DataMember]
-        public static float AIAttackChanceIfUnfull = 5;
+        public float AIAttackChanceIfUnfull = 5;
         [DataMember]
-        public static int AIObeyStrategyTendencyChance = 90;
+        public int AIObeyStrategyTendencyChance = 90;
         [DataMember]
-        public static int AIOffendMaxDiplomaticRelationMultiply = 20;
+        public int AIOffendMaxDiplomaticRelationMultiply = 20;
         [DataMember]
-        public static float AIOffendReserveAdd = 0.8f;
+        public float AIOffendReserveAdd = 0.8f;
         [DataMember]
-        public static float AIOffendReserveBCDiffMultiply = 0.1f;
+        public float AIOffendReserveBCDiffMultiply = 0.1f;
         [DataMember]
-        public static float AIOffendDefendingTroopRate = 0.75f;
+        public float AIOffendDefendingTroopRate = 0.75f;
         [DataMember]
-        public static float AIOffendDefendTroopAdd = 1.2f;
+        public float AIOffendDefendTroopAdd = 1.2f;
         [DataMember]
-        public static float AIOffendDefendTroopMultiply = 0.1f;
+        public float AIOffendDefendTroopMultiply = 0.1f;
         [DataMember]
-        public static int AIOffendIgnoreReserveProbAmbitionMultiply = 5;
+        public int AIOffendIgnoreReserveProbAmbitionMultiply = 5;
         [DataMember]
-        public static int AIOffendIgnoreReserveProbAmbitionAdd = -2;
+        public int AIOffendIgnoreReserveProbAmbitionAdd = -2;
         [DataMember]
-        public static int AIOffendIgnoreReserveProbBCDiffMultiply = 2;
+        public int AIOffendIgnoreReserveProbBCDiffMultiply = 2;
         [DataMember]
-        public static int AIOffendIgnoreReserveProbBCDiffAdd = 10;
+        public int AIOffendIgnoreReserveProbBCDiffAdd = 10;
         [DataMember]
-        public static float AIOffendIgnoreReserveChanceTroopRatioAdd = -0.8f;
+        public float AIOffendIgnoreReserveChanceTroopRatioAdd = -0.8f;
         [DataMember]
-        public static float AIOffendIgnoreReserveChanceTroopRatioMultiply = 100.0f;
+        public float AIOffendIgnoreReserveChanceTroopRatioMultiply = 100.0f;
         [DataMember]
-        public static int PrincessMaintainenceCost = 50;
+        public int PrincessMaintainenceCost = 50;
         [DataMember]
-        public static int AIUniqueTroopFightingForceThreshold = 60000;
+        public int AIUniqueTroopFightingForceThreshold = 60000;
         [DataMember]
-        public static int LearnSkillSuccessRate = 0;
+        public int LearnSkillSuccessRate = 0;
         [DataMember]
-        public static int LearnStuntSuccessRate = 75;
+        public int LearnStuntSuccessRate = 75;
         [DataMember]
-        public static int LearnTitleSuccessRate = 0;
+        public int LearnTitleSuccessRate = 0;
         [DataMember]
-        public static int AutoLearnSkillSuccessRate = 0;
+        public int AutoLearnSkillSuccessRate = 0;
         [DataMember]
-        public static int AutoLearnStuntSuccessRate = 0;
+        public int AutoLearnStuntSuccessRate = 0;
         [DataMember]
-        public static float MilitaryPopulationCap = 0.1f;
+        public float MilitaryPopulationCap = 0.1f;
         [DataMember]
-        public static float MilitaryPopulationReloadQuantity = 1.0f;
+        public float MilitaryPopulationReloadQuantity = 1.0f;
         [DataMember]
-        public static int CloseThreshold = 500;
+        public int CloseThreshold = 500;
         [DataMember]
-        public static int HateThreshold = -500;
+        public int HateThreshold = -500;
         [DataMember]
-        public static int VeryCloseThreshold = 2000;
+        public int VeryCloseThreshold = 2000;
         [DataMember]
-        public static int MaxAITroopCountCandidates = 1000;
+        public int MaxAITroopCountCandidates = 1000;
         [DataMember]
-        public static float PopulationDevelopingRate = 1;
+        public float PopulationDevelopingRate = 1;
         [DataMember]
-        public static float CloseAbilityRate = 1.1F;
+        public float CloseAbilityRate = 1.1F;
         [DataMember]
-        public static float VeryCloseAbilityRate = 1.2F;
+        public float VeryCloseAbilityRate = 1.2F;
         [DataMember]
-        public static int RetainFeiziPersonalLoyalty = 0;
+        public int RetainFeiziPersonalLoyalty = 0;
         [DataMember]
-        public static int AIEncirclePlayerRate = 0;
+        public int AIEncirclePlayerRate = 0;
         [DataMember]
-        public static float BasicAIExtraPerson = 0;
+        public float BasicAIExtraPerson = 0;
         [DataMember]
-        public static float AIExtraPerson = 0;
+        public float AIExtraPerson = 0;
         [DataMember]
-        public static float AIExtraPersonIncreaseRate = 0;
+        public float AIExtraPersonIncreaseRate = 0;
         [DataMember]
-        public static int AITirednessDecrease = 0;
+        public int AITirednessDecrease = 0;
         [DataMember]
-        public static int InternalSurplusFactor = 10000000;
+        public int InternalSurplusFactor = 10000000;
         [DataMember]
-        public static int MakeMarrigeIdealLimit = 5;
+        public int MakeMarrigeIdealLimit = 5;
         [DataMember]
-        public static int MakeMarriageCost = 80000;
+        public int MakeMarriageCost = 80000;
         [DataMember]
-        public static int NafeiCost = 50000;
+        public int NafeiCost = 50000;
         [DataMember]
-        public static int SelectPrinceCost = 50000;
+        public int SelectPrinceCost = 50000;
         [DataMember]
-        public static int TransferCostPerMilitary = 2000;
+        public int TransferCostPerMilitary = 2000;
         [DataMember]
-        public static int TransferFoodPerMilitary = 2000;
+        public int TransferFoodPerMilitary = 2000;
         [DataMember]
-        public static int AIEncircleRank = 0;
+        public int AIEncircleRank = 0;
         [DataMember]
-        public static int AIEncircleVar = 0;
+        public int AIEncircleVar = 0;
         [DataMember]
-        public static float RansomRate = 1.0f;
+        public float RansomRate = 1.0f;
         [DataMember]
-        public static List<int> ExpandConditions = new List<int>();
+        public List<int> ExpandConditions = new List<int>();
         [DataMember]
-        public static float SearchPersonArchitectureCountPower = 0;
+        public float SearchPersonArchitectureCountPower = 0;
+
+        public Parameters Clone()
+        {
+            return this.MemberwiseClone() as Parameters;
+        }
 
         public void InitializeGameParameters()
         {
@@ -507,7 +513,7 @@ namespace GameGlobal
             BasicAIExtraPerson = AIExtraPerson;
         }
 
-        public static void DayEvent(int year)
+        public void DayEvent(int year)
         {
             AIFundRate = year * AIFundYearIncreaseRate + BasicAIFundRate;
             AIFoodRate = year * AIFoodYearIncreaseRate + BasicAIFoodRate;

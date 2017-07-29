@@ -1,43 +1,47 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using WorldOfTheThreeKingdoms.GameScreens;
 
 namespace ScreenBlindPlugin
 {
 
     public class ScreenBlind
     {
-        internal Texture2D AutumnTexture;
+        internal PlatformTexture AutumnTexture;
         internal Rectangle BackgroundClient;
-        internal Texture2D BackgroundTexture;
+        internal PlatformTexture BackgroundTexture;
+#pragma warning disable CS0649 // Field 'ScreenBlind.DateClient' is never assigned to, and will always have its default value
         internal Rectangle DateClient;
+#pragma warning restore CS0649 // Field 'ScreenBlind.DateClient' is never assigned to, and will always have its default value
         internal FreeText DateText;
         internal Rectangle FactionClient;
         internal FreeText FactionText;
         private bool isShowing;
-        private Screen screen;
+        
         internal Rectangle SeasonClient;
-        internal Texture2D SeasonTexture;
-        internal Texture2D SpringTexture;
-        internal Texture2D SummerTexture;
-        internal Texture2D WinterTexture;
+        internal PlatformTexture SeasonTexture;
+        internal PlatformTexture SpringTexture;
+        internal PlatformTexture SummerTexture;
+        internal PlatformTexture WinterTexture;
 
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw()
         {
             Rectangle? sourceRectangle = null;
-            spriteBatch.Draw(this.BackgroundTexture, this.BackgroundClient, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.43f);
-            spriteBatch.Draw(this.SeasonTexture, this.SeasonClient, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.429f);
+            CacheManager.Draw(this.BackgroundTexture, this.BackgroundClient, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.43f);
+            CacheManager.Draw(this.SeasonTexture, this.SeasonClient, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.429f);
 
-            this.DateText.Draw(spriteBatch, 0f, 0.4299f);
-            this.FactionText.Draw(spriteBatch, 0.4299f);
+            this.DateText.Draw(0f, 0.4299f);
+            this.FactionText.Draw(0.4299f);
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize(MainGameScreen screen)
         {
-            this.screen = screen;
+            
             screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
         }
 
@@ -55,15 +59,15 @@ namespace ScreenBlindPlugin
 
         internal void Update()
         {
-            if (this.screen.Scenario.Date.Season == GameSeason.春)
+            if (Session.Current.Scenario.Date.Season == GameSeason.春)
             {
                 this.SeasonTexture = this.SpringTexture;
             }
-            else if (this.screen.Scenario.Date.Season == GameSeason.夏 )
+            else if (Session.Current.Scenario.Date.Season == GameSeason.夏 )
             {
                 this.SeasonTexture = this.SummerTexture;
             }
-            else if (this.screen.Scenario.Date.Season == GameSeason.秋 )
+            else if (Session.Current.Scenario.Date.Season == GameSeason.秋 )
             {
                 this.SeasonTexture = this.AutumnTexture;
             }
@@ -71,16 +75,16 @@ namespace ScreenBlindPlugin
             {
                 this.SeasonTexture = this.WinterTexture;
             }
-            this.DateText.Text = this.screen.Scenario.Date.ToDateString();
-            if (this.screen.Scenario.CurrentFaction != null)
+            this.DateText.Text = Session.Current.Scenario.Date.ToDateString();
+            if (Session.Current.Scenario.CurrentFaction != null)
             {
-                if ((this.screen.Scenario.CurrentFaction == this.screen.Scenario.CurrentPlayer) || GlobalVariables.SkyEye)
+                if ((Session.Current.Scenario.CurrentFaction == Session.Current.Scenario.CurrentPlayer) || Session.GlobalVariables.SkyEye)
                 {
-                    this.FactionText.Text = string.Concat(new object[] { this.screen.Scenario.CurrentFaction.Name, " 【", this.screen.Scenario.CurrentFaction.TotalTechniquePoint, "】" });
+                    this.FactionText.Text = string.Concat(new object[] { Session.Current.Scenario.CurrentFaction.Name, " 【", Session.Current.Scenario.CurrentFaction.TotalTechniquePoint, "】" });
                 }
                 else
                 {
-                    this.FactionText.Text = this.screen.Scenario.CurrentFaction.Name;
+                    this.FactionText.Text = Session.Current.Scenario.CurrentFaction.Name;
                 }
             }
         }

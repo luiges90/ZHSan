@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Influences;
 using GameObjects.TroopDetail;
 using Microsoft.Xna.Framework;
@@ -16,7 +17,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
         {
             if (troop.GetCurrentStratagemSuccess(null, false, false, false))
             {
-                troop.Scenario.SetPositionOnFire(troop.SelfCastPosition);
+                Session.Current.Scenario.SetPositionOnFire(troop.SelfCastPosition);
             }
         }
 
@@ -61,14 +62,14 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
                 GameArea area = new GameArea();
                 foreach (Point point in source.GetStratagemArea(source.Position).Area)
                 {
-                    if (!source.Scenario.PositionIsOnFire(point) && (source.Scenario.IsPositionEmpty(point) && source.Scenario.IsFireVaild(point, false, MilitaryType.步兵)))
+                    if (!Session.Current.Scenario.PositionIsOnFire(point) && (Session.Current.Scenario.IsPositionEmpty(point) && Session.Current.Scenario.IsFireVaild(point, false, MilitaryType.步兵)))
                     {
                         area.Area.Add(point);
                     }
                 }
                 if (area.Count > 0)
                 {
-                    position = source.Scenario.GetClosestPosition(area, orientations);
+                    position = Session.Current.Scenario.GetClosestPosition(area, orientations);
                 }
                 else
                 {

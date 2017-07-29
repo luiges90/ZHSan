@@ -10,6 +10,7 @@ using System;
 //using System.Drawing;
 using System.Xml;
 using WorldOfTheThreeKingdoms;
+using WorldOfTheThreeKingdoms.GameScreens;
 
 namespace DateRunnerPlugin
 {
@@ -20,7 +21,6 @@ namespace DateRunnerPlugin
         private const string DataPath = @"Content\Textures\GameComponents\DateRunner\Data\";
         private DateRunner dateRunner = new DateRunner();
         private string description = "日期进行工具";
-        private GraphicsDevice graphicsDevice;
         private const string Path = @"Content\Textures\GameComponents\DateRunner\";
         private string pluginName = "DateRunnerPlugin";
         private string version = "1.0.0";
@@ -40,12 +40,12 @@ namespace DateRunnerPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            this.dateRunner.Draw(spriteBatch);
+            this.dateRunner.Draw();
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
         }
 
@@ -60,24 +60,24 @@ namespace DateRunnerPlugin
 
             XmlNode nextSibling = document.FirstChild.NextSibling;
             XmlNode node = nextSibling.ChildNodes.Item(0);
-            this.dateRunner.BackgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.dateRunner.BackgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.dateRunner.Align = (ToolAlign) Enum.Parse(typeof(ToolAlign), node.Attributes.GetNamedItem("Align").Value);
             this.dateRunner.Width = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             node = nextSibling.ChildNodes.Item(1);
-            this.dateRunner.UpperArrowTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.dateRunner.UpperArrowSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.dateRunner.UpperArrowTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.dateRunner.UpperArrowSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             node = nextSibling.ChildNodes.Item(2);
-            this.dateRunner.LowerArrowTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.dateRunner.LowerArrowSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.dateRunner.LowerArrowTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.dateRunner.LowerArrowSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             node = nextSibling.ChildNodes.Item(3);
-            this.dateRunner.PlayTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.dateRunner.PlaySelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.dateRunner.PlayTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.dateRunner.PlaySelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             node = nextSibling.ChildNodes.Item(4);
-            this.dateRunner.PauseTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.dateRunner.PauseSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.dateRunner.PauseTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.dateRunner.PauseSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             node = nextSibling.ChildNodes.Item(5);
-            this.dateRunner.StopTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.dateRunner.StopSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.dateRunner.StopTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.dateRunner.StopSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\DateRunner\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             node = nextSibling.ChildNodes.Item(6);
             this.dateRunner.FirstDigitUpperArrowPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             node = nextSibling.ChildNodes.Item(7);
@@ -102,13 +102,13 @@ namespace DateRunnerPlugin
 
             this.dateRunner.DaysToGoTextBuilder = font;
 
-            //this.dateRunner.DaysToGoTextBuilder.SetFreeTextBuilder(this.graphicsDevice, font);
+            //this.dateRunner.DaysToGoTextBuilder.SetFreeTextBuilder(font);
             this.dateRunner.DaysToGoTextColor = color;
 
             StaticMethods.LoadFontAndColorFromXMLNode(nextSibling.ChildNodes.Item(0x10), out font, out color);
 
             this.dateRunner.DaysLeftTextBuilder = font;
-            //this.dateRunner.DaysLeftTextBuilder.SetFreeTextBuilder(this.graphicsDevice, font);
+            //this.dateRunner.DaysLeftTextBuilder.SetFreeTextBuilder(font);
 
             this.dateRunner.DaysLeftTextColor = color;
         }
@@ -138,16 +138,15 @@ namespace DateRunnerPlugin
             this.dateRunner.Date = gameDate as GameDate;
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\DateRunnerData.xml");
             this.dateRunner.ResetDisplayTextures();
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
-            this.dateRunner.Initialize(screen as Screen);
+            this.dateRunner.Initialize(screen);
         }
 
         public void Stop()

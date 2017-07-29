@@ -50,9 +50,11 @@ namespace GameObjects.Conditions
             char[] separator = new char[] { ' ', '\n', '\r', '\t' };
             string[] strArray = conditionIDs.Split(separator, StringSplitOptions.RemoveEmptyEntries);
             Condition condition = null;
-            try
+
+            for (int i = 0; i < strArray.Length; i++)
             {
-                for (int i = 0; i < strArray.Length; i++)
+                int arrayI;
+                if (int.TryParse(strArray[i], out arrayI))
                 {
                     if (allConditions.Conditions.TryGetValue(int.Parse(strArray[i]), out condition))
                     {
@@ -63,11 +65,16 @@ namespace GameObjects.Conditions
                         errorMsg.Add("条件ID" + int.Parse(strArray[i]) + "不存在");
                     }
                 }
+                else
+                {
+                    errorMsg.Add("条件一栏应为半型空格分隔的条件ID");
+                }
             }
-            catch
-            {
-                errorMsg.Add("条件一栏应为半型空格分隔的条件ID");
-            }
+            //}
+            //catch
+            //{
+            //    errorMsg.Add("条件一栏应为半型空格分隔的条件ID");
+            //}
             return errorMsg;
         }
 

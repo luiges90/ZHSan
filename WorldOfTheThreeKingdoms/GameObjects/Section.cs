@@ -1,4 +1,5 @@
-﻿using GameObjects.ArchitectureDetail;
+﻿using GameManager;
+using GameObjects.ArchitectureDetail;
 using GameObjects.SectionDetail;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace GameObjects
 
         public void EnsureSectionArchitecture()
         {
-            foreach (Architecture a in base.Scenario.Architectures)
+            foreach (Architecture a in Session.Current.Scenario.Architectures)
             {
                 if (a.BelongedSection == this && !this.Architectures.GameObjects.Contains(a))
                 {

@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,10 @@ namespace GameObjects.Animations
 
     public class TileAnimationGenerator
     {
-        private GameScenario Scenario;
         public Dictionary<int, TileAnimation> TileAnimations = new Dictionary<int, TileAnimation>();
 
-        public TileAnimationGenerator(GameScenario scenario)
+        public TileAnimationGenerator()
         {
-            this.Scenario = scenario;
         }
 
         public TileAnimation AddTileAnimation(TileAnimationKind kind, Point position, bool looping)
@@ -27,7 +26,7 @@ namespace GameObjects.Animations
             int hashCode = animation.GetHashCode();
             if (!this.TileAnimations.ContainsKey(hashCode))
             {
-                animation.LinkedAnimation = this.Scenario.GameCommonData.AllTileAnimations.GetAnimation((int) kind);
+                animation.LinkedAnimation = Session.Current.Scenario.GameCommonData.AllTileAnimations.GetAnimation((int) kind);
                 animation.Drawing = true;
                 animation.currentFrameIndex = 0;
                 animation.currentStayIndex = 0;

@@ -27,13 +27,17 @@ namespace GameObjects
 
         public event DayPassedEvent OnDayPassed;
 
+#pragma warning disable CS0067 // The event 'GameDate.OnDayRunning' is never used
         public event DayRunningEvent OnDayRunning;
+#pragma warning restore CS0067 // The event 'GameDate.OnDayRunning' is never used
 
         public event DayStartingEvent OnDayStarting;
 
         public event MonthPassedEvent OnMonthPassed;
 
+#pragma warning disable CS0067 // The event 'GameDate.OnMonthRunning' is never used
         public event MonthRunningEvent OnMonthRunning;
+#pragma warning restore CS0067 // The event 'GameDate.OnMonthRunning' is never used
 
         public event MonthStartingEvent OnMonthStarting;
 
@@ -41,7 +45,9 @@ namespace GameObjects
 
         public event YearPassedEvent OnYearPassed;
 
+#pragma warning disable CS0067 // The event 'GameDate.OnYearRunning' is never used
         public event YearRunningEvent OnYearRunning;
+#pragma warning restore CS0067 // The event 'GameDate.OnYearRunning' is never used
 
         public event YearStartingEvent OnYearStarting;
 

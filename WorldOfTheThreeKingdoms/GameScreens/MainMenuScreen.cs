@@ -48,12 +48,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         int pageIndex = 1;
         int pageCount = 0;
+#pragma warning disable CS0414 // The field 'MainMenuScreen.pageid' is assigned but its value is never used
         int pageid = 1;
+#pragma warning restore CS0414 // The field 'MainMenuScreen.pageid' is assigned but its value is never used
         int page = 0;
 
         int pageIndex1 = 1;
         int pageCount1 = 0;
+#pragma warning disable CS0414 // The field 'MainMenuScreen.pageid1' is assigned but its value is never used
         int pageid1 = 1;
+#pragma warning restore CS0414 // The field 'MainMenuScreen.pageid1' is assigned but its value is never used
         int page1 = 0;
 
         List<Scenario> ScenarioList = new List<Scenario>();
@@ -100,7 +104,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         string[] aboutLines = new string[]
         {
-            "中华三国志 V33 开发版",
+            "中华三国志 V33开发版 移动版1.0.1",
             "",
             "游戏的更新与讨论请关注官方论坛及百度贴吧：",
             "官方论坛 http://www.zhsan.com  百度贴吧 中华三国志吧",
@@ -110,7 +114,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             "制作组：",
             "",
             "程序：45399735 耒戈氏 kpxp 月落乌江 majorcheng(外交) breamask(单挑) 我勒个去(其他) 最爱艾氏兄弟",
-            "YPZhou(程序优化) 兔巴哥(跨平台)",
+            "YPZhou(程序优化) 兔巴哥(《三国春秋传》作者)",
             "美工：caibao2009 月落乌江(地图) 酷热7(地图) sgb6700tt(界面) Ftian80(头像) 无限时段(粮道) PTMASTER酱(帅旗)",
             "剧本：一身是胆 qiaoabcde caibao2009 酷热7 粒粒橙 o哀之咏叹调o 髀里肉生o0 哈哈哈呵呵呵 helokero13(剧本) ",
             "yuanhouzi123(称号) 熊家依若(武将) 黑翼喵 郭文斌(兵种) asmz2002(影响文字) 枫舞影(对话文字)",
@@ -125,7 +129,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         string message = "";
 
-        public MainMenuScreen(MainGame game)
+        public MainMenuScreen()
         {
             //None
 
@@ -175,12 +179,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 Platform.Current.Exit();
             };
+			if (Platform.PlatFormType == PlatFormType.iOS || Platform.PlatFormType == PlatFormType.UWP)
+			{
+				btOne.Visible = false;
+			}
             btList.Add(btOne);
+
 
             //New
 
             btScenarioList = new List<ButtonTexture>();
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\ReadyButton", "OK", new Vector2(800, 615));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\ReadyButton", "OK", new Vector2(800 + 220, 615));
             btOne.OnButtonPress += (sender, e) =>
             {
                 //SoundPlayer player = new SoundPlayer("Content/Textures/Resources/SaveSelect/Open");
@@ -200,7 +209,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btScenarioList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\ReadyButton", "Cancel", new Vector2(800 + 220, 615));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\ReadyButton", "Cancel", new Vector2(800, 615));
             btOne.OnButtonPress += (sender, e) =>
             {
                 isClosing = true;
@@ -209,7 +218,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             btScenarioList.Add(btOne);
 
             btSaveList = new List<ButtonTexture>();
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\ReadyButton", "Load", new Vector2(800, 615));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\ReadyButton", "Load", new Vector2(800 + 220, 615));
             btOne.OnButtonPress += (sender, e) =>
             {
                 //SoundPlayer player = new SoundPlayer("Content/Textures/Resources/SaveSelect/Open");
@@ -228,7 +237,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btSaveList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\ReadyButton", "Cancel", new Vector2(800 + 220, 615));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\ReadyButton", "Cancel", new Vector2(800, 615));
             btOne.OnButtonPress += (sender, e) =>
             {
                 isClosing = true;
@@ -355,6 +364,18 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(150, 115 + 60))
             {
+                ID = "925*520"
+            };
+            btOne.OnButtonPress += (sender, e) =>
+            {
+                Session.Resolution = "925*520";
+                Session.ChangeDisplay(true);
+                InitSetting();
+            };
+            btSettingList.Add(btOne);
+
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(150 + 200, 115 + 60))
+            {
                 ID = "1120*630"
             };
             btOne.OnButtonPress += (sender, e) =>
@@ -365,7 +386,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btSettingList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(150 + 200, 115 + 60))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(150 + 400, 115 + 60))
             {
                 ID = "1024*768"
             };
@@ -664,8 +685,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             var btTradition = btSettingList.FirstOrDefault(bt => bt.ID == "传统中文");
             var btWindow = btSettingList.FirstOrDefault(bt => bt.ID == "窗口模式");
             var btFull = btSettingList.FirstOrDefault(bt => bt.ID == "全屏模式");
-            var bt1120 = btSettingList.FirstOrDefault(bt => bt.ID == "1120*630");
-            var bt1024 = btSettingList.FirstOrDefault(bt => bt.ID == "1024*768");
+            var bt925520 = btSettingList.FirstOrDefault(bt => bt.ID == "925*520");
+            var bt1120630 = btSettingList.FirstOrDefault(bt => bt.ID == "1120*630");
+            var bt1024768 = btSettingList.FirstOrDefault(bt => bt.ID == "1024*768");
 
             btSimple.Selected = btTradition.Selected = false;
             if (Setting.Current.Language == "cn")
@@ -687,14 +709,18 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 btFull.Selected = true;
             }
 
-            bt1120.Selected = bt1024.Selected = false;
-            if (Session.Resolution == "1120*630")
+            bt925520.Selected = bt1120630.Selected = bt1024768.Selected = false;
+            if (Session.Resolution == "925*520")
             {
-                bt1120.Selected = true;
+                bt925520.Selected = true;
+            }
+            else if (Session.Resolution == "1120*630")
+            {
+                bt1120630.Selected = true;
             }
             else
             {
-                bt1024.Selected = true;
+                bt1024768.Selected = true;
             }
 
             cbAIHardList.ForEach(cb => cb.Selected = false);
@@ -828,7 +854,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
                 else if (CurrentSetting == "环境")
                 {
-                    buttons = new string[] { "窗口模式", "全屏模式", "1120*630", "1024*768" };
+                    buttons = new string[] { "窗口模式", "全屏模式" };  //, "925*520", "1120*630", "1024*768" };
 
                     int musicVolume = 0;
                     int soundVolume = 0;
@@ -1102,11 +1128,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     CacheManager.DrawString(Session.Current.Font, "全屏模式", new Vector2(50 + 100 + 200 + 50, 120), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "1120*630", new Vector2(50 + 100 + 50, 120 + 60), Color.Black * alpha);
+                    //CacheManager.DrawString(Session.Current.Font, "925*520", new Vector2(50 + 100 + 50, 120 + 60), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "1024*768", new Vector2(50 + 100 + 200 + 50, 120 + 60), Color.Black * alpha);
+                    //CacheManager.DrawString(Session.Current.Font, "1120*630", new Vector2(50 + 100 + 200 + 50, 120 + 60), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "分辨", new Vector2(50, 120 + 60), Color.Black * alpha);
+                    //CacheManager.DrawString(Session.Current.Font, "1024*768", new Vector2(50 + 100 + 400 + 50, 120 + 60), Color.Black * alpha);
+
+                    //CacheManager.DrawString(Session.Current.Font, "分辨", new Vector2(50, 120 + 60), Color.Black * alpha);
 
                     CacheManager.DrawString(Session.Current.Font, "音乐", new Vector2(50, 120 + 60 * 2), Color.Black * alpha);
 
@@ -1145,10 +1173,22 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             btPre1.Draw(null, Color.White * alpha);
             btNext1.Draw(null, Color.White * alpha);
 
-            if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
+            if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop || Platform.PlatFormType == PlatFormType.UWP && !Platform.IsMobile)
             {
                 CacheManager.DrawAvatar(@"Content\Textures\Resources\MouseArrow\Normal.png", InputManager.Position, Color.White * alpha, 1f);
             }
+
+            //var str = @"Content/Textures/GameComponents/tupianwenzi/Data/tupian/TruceDiplomaticRelation.jpg";
+
+            //CacheManager.DrawAvatar(str, Vector2.Zero, Color.White, 1f);
+
+            //str = @"Content/Textures/GameComponents/tupianwenzi/Data/tupian/beiyue.jpg";
+
+            //CacheManager.DrawAvatar(str, new Vector2(0, 300), Color.White, 1f);
+
+            //str = @"Content/Textures/GameComponents/PersonPortrait/Images/Default/19207.jpg";
+
+            //CacheManager.DrawAvatar(str, new Vector2(500, 200), Color.White, 1f);
 
         }
 

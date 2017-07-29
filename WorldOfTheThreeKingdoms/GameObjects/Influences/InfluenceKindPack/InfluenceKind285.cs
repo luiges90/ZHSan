@@ -4,7 +4,10 @@ using GameObjects.Conditions;
 using System;
 
 
-using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKindPack
+using System.Runtime.Serialization;
+using GameManager;
+
+namespace GameObjects.Influences.InfluenceKindPack
 {
 
     [DataContract]public class InfluenceKind285 : InfluenceKind
@@ -25,7 +28,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
 
         public override bool IsVaild(Person person)
         {
-            Condition t = person.Scenario.GameCommonData.AllConditions.GetCondition(conditionID);
+            Condition t = Session.Current.Scenario.GameCommonData.AllConditions.GetCondition(conditionID);
             if (t.CheckCondition(person))
             {
                 return true;

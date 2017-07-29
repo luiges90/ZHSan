@@ -239,7 +239,7 @@ namespace GameFreeText
             return true;
         }
 
-        public void Draw(SpriteBatch spriteBatch, float Depth)
+        public void Draw(float Depth)
         {
             if (this.PageIndexs.Count > 0)
             {
@@ -247,9 +247,6 @@ namespace GameFreeText
                 {
                     if (!this.Texts[i].NewLine)  // && (this.Texts[i].TextTexture != null))
                     {
-                        //Rectangle? sourceRectangle = null;
-                        //spriteBatch.Draw(this.Texts[i].TextTexture, this.TextDisplayPosition(i), sourceRectangle, this.TextDisplayColor(i), 0f, Vector2.Zero, SpriteEffects.None, Depth);
-
                         var pos = new Vector2(this.TextDisplayPosition(i).X, this.TextDisplayPosition(i).Y);
 
                         CacheManager.DrawString(Session.Current.Font, this.Texts[i].Text, pos, this.TextDisplayColor(i), 0f, Vector2.Zero, Builder.Scale, SpriteEffects.None, Depth);

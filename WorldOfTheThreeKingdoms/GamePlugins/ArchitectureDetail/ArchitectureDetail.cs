@@ -16,8 +16,8 @@ namespace ArchitectureDetail
     public class ArchitectureDetail
     {
         internal Point BackgroundSize;
-        internal Texture2D BackgroundTexture;
-        internal Texture2D PictureNull;
+        internal PlatformTexture BackgroundTexture;
+        internal PlatformTexture PictureNull;
         internal Rectangle CharacteristicClient;
         internal FreeRichText CharacteristicText = new FreeRichText();
         private Point DisplayOffset;
@@ -25,7 +25,7 @@ namespace ArchitectureDetail
         internal FreeRichText FacilityText = new FreeRichText();
         private bool isShowing;
         internal List<LabelText> LabelTexts = new List<LabelText>();
-        internal Screen screen;
+
         internal Architecture ShowingArchitecture;
         /////以下添加
         ////↓开关
@@ -52,19 +52,19 @@ namespace ArchitectureDetail
         internal int ArchitectureID;
        
         ////↓界面按钮
-        internal Texture2D InformationButtonTexture;
-        internal Texture2D InformationPressedTexture;
+        internal PlatformTexture InformationButtonTexture;
+        internal PlatformTexture InformationPressedTexture;
         internal Rectangle InformationButtonClient;
        
-        internal Texture2D FacilityButtonTexture;
-        internal Texture2D FacilityPressedTexture;
+        internal PlatformTexture FacilityButtonTexture;
+        internal PlatformTexture FacilityPressedTexture;
         internal Rectangle FacilityButtonClient;
 
         ////↓建筑信息页       
         //↓背景图
-        internal Texture2D InformationMask1;
-        internal Texture2D InformationMask2;
-        internal Texture2D InformationBackground;
+        internal PlatformTexture InformationMask1;
+        internal PlatformTexture InformationMask2;
+        internal PlatformTexture InformationBackground;
         internal Rectangle InformationBackgroundClient;
         //↓文字信息
         internal List<LabelText> ArchitectureInInformationTexts = new List<LabelText>();
@@ -77,76 +77,76 @@ namespace ArchitectureDetail
         //↓进度条
         private int Integration;
         private int AllIntegration;
-        internal Texture2D IntegrationBarTexture;
-        internal Texture2D Integration1BarTexture;
-        internal Texture2D Integration2BarTexture;
-        internal Texture2D Integration3BarTexture;
-        internal Texture2D Integration4BarTexture;
-        internal Texture2D Integration5BarTexture;
-        internal Texture2D Integration6BarTexture;
+        internal PlatformTexture IntegrationBarTexture;
+        internal PlatformTexture Integration1BarTexture;
+        internal PlatformTexture Integration2BarTexture;
+        internal PlatformTexture Integration3BarTexture;
+        internal PlatformTexture Integration4BarTexture;
+        internal PlatformTexture Integration5BarTexture;
+        internal PlatformTexture Integration6BarTexture;
         internal Rectangle IntegrationBar1Client;
 
-        internal Texture2D DominationBarTexture;
-        internal Texture2D Domination1BarTexture;
-        internal Texture2D Domination2BarTexture;
-        internal Texture2D Domination3BarTexture;
-        internal Texture2D Domination4BarTexture;
-        internal Texture2D Domination5BarTexture;
-        internal Texture2D Domination6BarTexture;
+        internal PlatformTexture DominationBarTexture;
+        internal PlatformTexture Domination1BarTexture;
+        internal PlatformTexture Domination2BarTexture;
+        internal PlatformTexture Domination3BarTexture;
+        internal PlatformTexture Domination4BarTexture;
+        internal PlatformTexture Domination5BarTexture;
+        internal PlatformTexture Domination6BarTexture;
         internal Rectangle DominationBar1Client;
 
-        internal Texture2D EnduranceBarTexture;
-        internal Texture2D Endurance1BarTexture;
-        internal Texture2D Endurance2BarTexture;
-        internal Texture2D Endurance3BarTexture;
-        internal Texture2D Endurance4BarTexture;
-        internal Texture2D Endurance5BarTexture;
-        internal Texture2D Endurance6BarTexture;
+        internal PlatformTexture EnduranceBarTexture;
+        internal PlatformTexture Endurance1BarTexture;
+        internal PlatformTexture Endurance2BarTexture;
+        internal PlatformTexture Endurance3BarTexture;
+        internal PlatformTexture Endurance4BarTexture;
+        internal PlatformTexture Endurance5BarTexture;
+        internal PlatformTexture Endurance6BarTexture;
         internal Rectangle EnduranceBar1Client;
 
-        internal Texture2D AgricultureBarTexture;
-        internal Texture2D Agriculture1BarTexture;
-        internal Texture2D Agriculture2BarTexture;
-        internal Texture2D Agriculture3BarTexture;
-        internal Texture2D Agriculture4BarTexture;
-        internal Texture2D Agriculture5BarTexture;
-        internal Texture2D Agriculture6BarTexture;
+        internal PlatformTexture AgricultureBarTexture;
+        internal PlatformTexture Agriculture1BarTexture;
+        internal PlatformTexture Agriculture2BarTexture;
+        internal PlatformTexture Agriculture3BarTexture;
+        internal PlatformTexture Agriculture4BarTexture;
+        internal PlatformTexture Agriculture5BarTexture;
+        internal PlatformTexture Agriculture6BarTexture;
         internal Rectangle AgricultureBar1Client;
 
-        internal Texture2D CommerceBarTexture;
-        internal Texture2D Commerce1BarTexture;
-        internal Texture2D Commerce2BarTexture;
-        internal Texture2D Commerce3BarTexture;
-        internal Texture2D Commerce4BarTexture;
-        internal Texture2D Commerce5BarTexture;
-        internal Texture2D Commerce6BarTexture;
+        internal PlatformTexture CommerceBarTexture;
+        internal PlatformTexture Commerce1BarTexture;
+        internal PlatformTexture Commerce2BarTexture;
+        internal PlatformTexture Commerce3BarTexture;
+        internal PlatformTexture Commerce4BarTexture;
+        internal PlatformTexture Commerce5BarTexture;
+        internal PlatformTexture Commerce6BarTexture;
         internal Rectangle CommerceBar1Client;
 
-        internal Texture2D TechnologyBarTexture;
-        internal Texture2D Technology1BarTexture;
-        internal Texture2D Technology2BarTexture;
-        internal Texture2D Technology3BarTexture;
-        internal Texture2D Technology4BarTexture;
-        internal Texture2D Technology5BarTexture;
-        internal Texture2D Technology6BarTexture;
+        internal PlatformTexture TechnologyBarTexture;
+        internal PlatformTexture Technology1BarTexture;
+        internal PlatformTexture Technology2BarTexture;
+        internal PlatformTexture Technology3BarTexture;
+        internal PlatformTexture Technology4BarTexture;
+        internal PlatformTexture Technology5BarTexture;
+        internal PlatformTexture Technology6BarTexture;
         internal Rectangle TechnologyBar1Client;
 
-        internal Texture2D MoraleBarTexture;
-        internal Texture2D Morale1BarTexture;
-        internal Texture2D Morale2BarTexture;
-        internal Texture2D Morale3BarTexture;
-        internal Texture2D Morale4BarTexture;
-        internal Texture2D Morale5BarTexture;
-        internal Texture2D Morale6BarTexture;
+        internal PlatformTexture MoraleBarTexture;
+        internal PlatformTexture Morale1BarTexture;
+        internal PlatformTexture Morale2BarTexture;
+        internal PlatformTexture Morale3BarTexture;
+        internal PlatformTexture Morale4BarTexture;
+        internal PlatformTexture Morale5BarTexture;
+        internal PlatformTexture Morale6BarTexture;
         internal Rectangle MoraleBar1Client;
 
-        internal Texture2D FacilityCountBarTexture;
-        internal Texture2D FacilityCount1BarTexture;
-        internal Texture2D FacilityCount2BarTexture;
-        internal Texture2D FacilityCount3BarTexture;
-        internal Texture2D FacilityCount4BarTexture;
-        internal Texture2D FacilityCount5BarTexture;
-        internal Texture2D FacilityCount6BarTexture;
+        internal PlatformTexture FacilityCountBarTexture;
+        internal PlatformTexture FacilityCount1BarTexture;
+        internal PlatformTexture FacilityCount2BarTexture;
+        internal PlatformTexture FacilityCount3BarTexture;
+        internal PlatformTexture FacilityCount4BarTexture;
+        internal PlatformTexture FacilityCount5BarTexture;
+        internal PlatformTexture FacilityCount6BarTexture;
         internal Rectangle FacilityCountBar1Client;
         //↓Kind&ID图片
         internal string PictureShowforAKind;
@@ -162,7 +162,7 @@ namespace ArchitectureDetail
                 //{ return false; }
             }
         }
-        internal Texture2D PictureforAKind
+        internal PlatformTexture PictureforAKind
         {
             get
             {
@@ -172,7 +172,7 @@ namespace ArchitectureDetail
                 { return this.PictureNull; }
             }
         }
-        internal Texture2D ThePictureforAKind;
+        internal PlatformTexture ThePictureforAKind;
         internal Rectangle PictureforAKindClient;
         internal bool HasPictureforAID
         {
@@ -185,7 +185,7 @@ namespace ArchitectureDetail
                 //{ return false; }
             }
         }
-        internal Texture2D PictureforAID
+        internal PlatformTexture PictureforAID
         {
             get
             {
@@ -195,15 +195,15 @@ namespace ArchitectureDetail
                 { return this.PictureNull; }
             }
         }
-        internal Texture2D ThePictureforAID;
+        internal PlatformTexture ThePictureforAID;
         internal Rectangle PictureforAIDClient;
         //↓特色图片        
         internal string ShowNullCharacteristicPicture;
         private int TheCharacteristicCount;
         private int TheMaxCharacteristicCount;
         private int TheMaxShowCharacteristicCount;
-        internal Texture2D CharacteristicShowMask;
-        internal Texture2D CharacteristicShowBackground;
+        internal PlatformTexture CharacteristicShowMask;
+        internal PlatformTexture CharacteristicShowBackground;
         internal Rectangle CharacteristicShowBackgroundClient;
         internal int TheCharacteristicShowID1;
         internal int TheCharacteristicShowID2;
@@ -235,38 +235,38 @@ namespace ArchitectureDetail
         internal int TheCharacteristicShowID28;
         internal int TheCharacteristicShowID29;
         internal int TheCharacteristicShowID30;
-        internal Texture2D TheCharacteristicShow1;
-        internal Texture2D TheCharacteristicShow2;
-        internal Texture2D TheCharacteristicShow3;
-        internal Texture2D TheCharacteristicShow4;
-        internal Texture2D TheCharacteristicShow5;
-        internal Texture2D TheCharacteristicShow6;
-        internal Texture2D TheCharacteristicShow7;
-        internal Texture2D TheCharacteristicShow8;
-        internal Texture2D TheCharacteristicShow9;
-        internal Texture2D TheCharacteristicShow10;
-        internal Texture2D TheCharacteristicShow11;
-        internal Texture2D TheCharacteristicShow12;
-        internal Texture2D TheCharacteristicShow13;
-        internal Texture2D TheCharacteristicShow14;
-        internal Texture2D TheCharacteristicShow15;
-        internal Texture2D TheCharacteristicShow16;
-        internal Texture2D TheCharacteristicShow17;
-        internal Texture2D TheCharacteristicShow18;
-        internal Texture2D TheCharacteristicShow19;
-        internal Texture2D TheCharacteristicShow20;
-        internal Texture2D TheCharacteristicShow21;
-        internal Texture2D TheCharacteristicShow22;
-        internal Texture2D TheCharacteristicShow23;
-        internal Texture2D TheCharacteristicShow24;
-        internal Texture2D TheCharacteristicShow25;
-        internal Texture2D TheCharacteristicShow26;
-        internal Texture2D TheCharacteristicShow27;
-        internal Texture2D TheCharacteristicShow28;
-        internal Texture2D TheCharacteristicShow29;
-        internal Texture2D TheCharacteristicShow30;
-        internal Texture2D TheCharacteristicShowMask;
-        internal Texture2D TheCharacteristicShowBackground;
+        internal PlatformTexture TheCharacteristicShow1;
+        internal PlatformTexture TheCharacteristicShow2;
+        internal PlatformTexture TheCharacteristicShow3;
+        internal PlatformTexture TheCharacteristicShow4;
+        internal PlatformTexture TheCharacteristicShow5;
+        internal PlatformTexture TheCharacteristicShow6;
+        internal PlatformTexture TheCharacteristicShow7;
+        internal PlatformTexture TheCharacteristicShow8;
+        internal PlatformTexture TheCharacteristicShow9;
+        internal PlatformTexture TheCharacteristicShow10;
+        internal PlatformTexture TheCharacteristicShow11;
+        internal PlatformTexture TheCharacteristicShow12;
+        internal PlatformTexture TheCharacteristicShow13;
+        internal PlatformTexture TheCharacteristicShow14;
+        internal PlatformTexture TheCharacteristicShow15;
+        internal PlatformTexture TheCharacteristicShow16;
+        internal PlatformTexture TheCharacteristicShow17;
+        internal PlatformTexture TheCharacteristicShow18;
+        internal PlatformTexture TheCharacteristicShow19;
+        internal PlatformTexture TheCharacteristicShow20;
+        internal PlatformTexture TheCharacteristicShow21;
+        internal PlatformTexture TheCharacteristicShow22;
+        internal PlatformTexture TheCharacteristicShow23;
+        internal PlatformTexture TheCharacteristicShow24;
+        internal PlatformTexture TheCharacteristicShow25;
+        internal PlatformTexture TheCharacteristicShow26;
+        internal PlatformTexture TheCharacteristicShow27;
+        internal PlatformTexture TheCharacteristicShow28;
+        internal PlatformTexture TheCharacteristicShow29;
+        internal PlatformTexture TheCharacteristicShow30;
+        internal PlatformTexture TheCharacteristicShowMask;
+        internal PlatformTexture TheCharacteristicShowBackground;
         internal Rectangle TheCharacteristicShowClient;
         internal int TheCharacteristicShowXNumber;
         internal int TheCharacteristicShowYNumber;
@@ -276,9 +276,9 @@ namespace ArchitectureDetail
         ////↓建筑设施页
         private int TheFacilityPositionCount;
         private int TheAllFacilityNumber;
-        internal Texture2D FacilityMask1;
-        internal Texture2D FacilityMask2;
-        internal Texture2D FacilityBackground;
+        internal PlatformTexture FacilityMask1;
+        internal PlatformTexture FacilityMask2;
+        internal PlatformTexture FacilityBackground;
         internal Rectangle FacilityBackgroundClient;
         internal int AllFacilityNumber;
         private string PageForFacilityPositionCount;
@@ -349,131 +349,131 @@ namespace ArchitectureDetail
         internal int PageForArchitectureCharacteristic9;
         internal int PageForArchitectureCharacteristic10;
         //↓页面图片
-        internal Texture2D PageForFacilityMask1;
-        internal Texture2D PageForFacilityMask2;
-        internal Texture2D PageForFacilityMask3;
-        internal Texture2D PageForFacilityMask4;
-        internal Texture2D PageForFacilityMask5;
-        internal Texture2D PageForFacilityMask6;
-        internal Texture2D PageForFacilityMask7;
-        internal Texture2D PageForFacilityMask8;
-        internal Texture2D PageForFacilityMask9;
-        internal Texture2D PageForFacilityMask10;
-        internal Texture2D PageForFacilityMask11;
-        internal Texture2D PageForFacilityMask12;
-        internal Texture2D PageForFacilityMask13;
-        internal Texture2D PageForFacilityMask14;
-        internal Texture2D PageForFacilityMask15;
-        internal Texture2D PageForFacilityMask16;
-        internal Texture2D PageForFacilityMask17;
-        internal Texture2D PageForFacilityMask18;
-        internal Texture2D PageForFacilityMask19;
-        internal Texture2D PageForFacilityMask20;
-        internal Texture2D PageForFacilityMask21;
-        internal Texture2D PageForFacilityMask22;
-        internal Texture2D PageForFacilityMask23;
-        internal Texture2D PageForFacilityMask24;
-        internal Texture2D PageForFacilityMask25;
-        internal Texture2D PageForFacilityMask26;
-        internal Texture2D PageForFacilityMask27;
-        internal Texture2D PageForFacilityMask28;
-        internal Texture2D PageForFacilityMask29;
-        internal Texture2D PageForFacilityMask30;
-        internal Texture2D PageForFacilityBackground1;
-        internal Texture2D PageForFacilityBackground2;
-        internal Texture2D PageForFacilityBackground3;
-        internal Texture2D PageForFacilityBackground4;
-        internal Texture2D PageForFacilityBackground5;
-        internal Texture2D PageForFacilityBackground6;
-        internal Texture2D PageForFacilityBackground7;
-        internal Texture2D PageForFacilityBackground8;
-        internal Texture2D PageForFacilityBackground9;
-        internal Texture2D PageForFacilityBackground10;
-        internal Texture2D PageForFacilityBackground11;
-        internal Texture2D PageForFacilityBackground12;
-        internal Texture2D PageForFacilityBackground13;
-        internal Texture2D PageForFacilityBackground14;
-        internal Texture2D PageForFacilityBackground15;
-        internal Texture2D PageForFacilityBackground16;
-        internal Texture2D PageForFacilityBackground17;
-        internal Texture2D PageForFacilityBackground18;
-        internal Texture2D PageForFacilityBackground19;
-        internal Texture2D PageForFacilityBackground20;
-        internal Texture2D PageForFacilityBackground21;
-        internal Texture2D PageForFacilityBackground22;
-        internal Texture2D PageForFacilityBackground23;
-        internal Texture2D PageForFacilityBackground24;
-        internal Texture2D PageForFacilityBackground25;
-        internal Texture2D PageForFacilityBackground26;
-        internal Texture2D PageForFacilityBackground27;
-        internal Texture2D PageForFacilityBackground28;
-        internal Texture2D PageForFacilityBackground29;
-        internal Texture2D PageForFacilityBackground30;
-        internal Texture2D PageForFacilityMask;
-        internal Texture2D PageForFacilityBackground;
+        internal PlatformTexture PageForFacilityMask1;
+        internal PlatformTexture PageForFacilityMask2;
+        internal PlatformTexture PageForFacilityMask3;
+        internal PlatformTexture PageForFacilityMask4;
+        internal PlatformTexture PageForFacilityMask5;
+        internal PlatformTexture PageForFacilityMask6;
+        internal PlatformTexture PageForFacilityMask7;
+        internal PlatformTexture PageForFacilityMask8;
+        internal PlatformTexture PageForFacilityMask9;
+        internal PlatformTexture PageForFacilityMask10;
+        internal PlatformTexture PageForFacilityMask11;
+        internal PlatformTexture PageForFacilityMask12;
+        internal PlatformTexture PageForFacilityMask13;
+        internal PlatformTexture PageForFacilityMask14;
+        internal PlatformTexture PageForFacilityMask15;
+        internal PlatformTexture PageForFacilityMask16;
+        internal PlatformTexture PageForFacilityMask17;
+        internal PlatformTexture PageForFacilityMask18;
+        internal PlatformTexture PageForFacilityMask19;
+        internal PlatformTexture PageForFacilityMask20;
+        internal PlatformTexture PageForFacilityMask21;
+        internal PlatformTexture PageForFacilityMask22;
+        internal PlatformTexture PageForFacilityMask23;
+        internal PlatformTexture PageForFacilityMask24;
+        internal PlatformTexture PageForFacilityMask25;
+        internal PlatformTexture PageForFacilityMask26;
+        internal PlatformTexture PageForFacilityMask27;
+        internal PlatformTexture PageForFacilityMask28;
+        internal PlatformTexture PageForFacilityMask29;
+        internal PlatformTexture PageForFacilityMask30;
+        internal PlatformTexture PageForFacilityBackground1;
+        internal PlatformTexture PageForFacilityBackground2;
+        internal PlatformTexture PageForFacilityBackground3;
+        internal PlatformTexture PageForFacilityBackground4;
+        internal PlatformTexture PageForFacilityBackground5;
+        internal PlatformTexture PageForFacilityBackground6;
+        internal PlatformTexture PageForFacilityBackground7;
+        internal PlatformTexture PageForFacilityBackground8;
+        internal PlatformTexture PageForFacilityBackground9;
+        internal PlatformTexture PageForFacilityBackground10;
+        internal PlatformTexture PageForFacilityBackground11;
+        internal PlatformTexture PageForFacilityBackground12;
+        internal PlatformTexture PageForFacilityBackground13;
+        internal PlatformTexture PageForFacilityBackground14;
+        internal PlatformTexture PageForFacilityBackground15;
+        internal PlatformTexture PageForFacilityBackground16;
+        internal PlatformTexture PageForFacilityBackground17;
+        internal PlatformTexture PageForFacilityBackground18;
+        internal PlatformTexture PageForFacilityBackground19;
+        internal PlatformTexture PageForFacilityBackground20;
+        internal PlatformTexture PageForFacilityBackground21;
+        internal PlatformTexture PageForFacilityBackground22;
+        internal PlatformTexture PageForFacilityBackground23;
+        internal PlatformTexture PageForFacilityBackground24;
+        internal PlatformTexture PageForFacilityBackground25;
+        internal PlatformTexture PageForFacilityBackground26;
+        internal PlatformTexture PageForFacilityBackground27;
+        internal PlatformTexture PageForFacilityBackground28;
+        internal PlatformTexture PageForFacilityBackground29;
+        internal PlatformTexture PageForFacilityBackground30;
+        internal PlatformTexture PageForFacilityMask;
+        internal PlatformTexture PageForFacilityBackground;
         internal Rectangle PageForFacilityBackgroundClient;
         //↓按钮
-        internal Texture2D FacilityforPage1ButtonTexture;
-        internal Texture2D FacilityforPage2ButtonTexture;
-        internal Texture2D FacilityforPage3ButtonTexture;
-        internal Texture2D FacilityforPage4ButtonTexture;
-        internal Texture2D FacilityforPage5ButtonTexture;
-        internal Texture2D FacilityforPage6ButtonTexture;
-        internal Texture2D FacilityforPage7ButtonTexture;
-        internal Texture2D FacilityforPage8ButtonTexture;
-        internal Texture2D FacilityforPage9ButtonTexture;
-        internal Texture2D FacilityforPage10ButtonTexture;
-        internal Texture2D FacilityforPage11ButtonTexture;
-        internal Texture2D FacilityforPage12ButtonTexture;
-        internal Texture2D FacilityforPage13ButtonTexture;
-        internal Texture2D FacilityforPage14ButtonTexture;
-        internal Texture2D FacilityforPage15ButtonTexture;
-        internal Texture2D FacilityforPage16ButtonTexture;
-        internal Texture2D FacilityforPage17ButtonTexture;
-        internal Texture2D FacilityforPage18ButtonTexture;
-        internal Texture2D FacilityforPage19ButtonTexture;
-        internal Texture2D FacilityforPage20ButtonTexture;
-        internal Texture2D FacilityforPage21ButtonTexture;
-        internal Texture2D FacilityforPage22ButtonTexture;
-        internal Texture2D FacilityforPage23ButtonTexture;
-        internal Texture2D FacilityforPage24ButtonTexture;
-        internal Texture2D FacilityforPage25ButtonTexture;
-        internal Texture2D FacilityforPage26ButtonTexture;
-        internal Texture2D FacilityforPage27ButtonTexture;
-        internal Texture2D FacilityforPage28ButtonTexture;
-        internal Texture2D FacilityforPage29ButtonTexture;
-        internal Texture2D FacilityforPage30ButtonTexture;
+        internal PlatformTexture FacilityforPage1ButtonTexture;
+        internal PlatformTexture FacilityforPage2ButtonTexture;
+        internal PlatformTexture FacilityforPage3ButtonTexture;
+        internal PlatformTexture FacilityforPage4ButtonTexture;
+        internal PlatformTexture FacilityforPage5ButtonTexture;
+        internal PlatformTexture FacilityforPage6ButtonTexture;
+        internal PlatformTexture FacilityforPage7ButtonTexture;
+        internal PlatformTexture FacilityforPage8ButtonTexture;
+        internal PlatformTexture FacilityforPage9ButtonTexture;
+        internal PlatformTexture FacilityforPage10ButtonTexture;
+        internal PlatformTexture FacilityforPage11ButtonTexture;
+        internal PlatformTexture FacilityforPage12ButtonTexture;
+        internal PlatformTexture FacilityforPage13ButtonTexture;
+        internal PlatformTexture FacilityforPage14ButtonTexture;
+        internal PlatformTexture FacilityforPage15ButtonTexture;
+        internal PlatformTexture FacilityforPage16ButtonTexture;
+        internal PlatformTexture FacilityforPage17ButtonTexture;
+        internal PlatformTexture FacilityforPage18ButtonTexture;
+        internal PlatformTexture FacilityforPage19ButtonTexture;
+        internal PlatformTexture FacilityforPage20ButtonTexture;
+        internal PlatformTexture FacilityforPage21ButtonTexture;
+        internal PlatformTexture FacilityforPage22ButtonTexture;
+        internal PlatformTexture FacilityforPage23ButtonTexture;
+        internal PlatformTexture FacilityforPage24ButtonTexture;
+        internal PlatformTexture FacilityforPage25ButtonTexture;
+        internal PlatformTexture FacilityforPage26ButtonTexture;
+        internal PlatformTexture FacilityforPage27ButtonTexture;
+        internal PlatformTexture FacilityforPage28ButtonTexture;
+        internal PlatformTexture FacilityforPage29ButtonTexture;
+        internal PlatformTexture FacilityforPage30ButtonTexture;
 
-        internal Texture2D FacilityforPage1PressedTexture;
-        internal Texture2D FacilityforPage2PressedTexture;
-        internal Texture2D FacilityforPage3PressedTexture;
-        internal Texture2D FacilityforPage4PressedTexture;
-        internal Texture2D FacilityforPage5PressedTexture;
-        internal Texture2D FacilityforPage6PressedTexture;
-        internal Texture2D FacilityforPage7PressedTexture;
-        internal Texture2D FacilityforPage8PressedTexture;
-        internal Texture2D FacilityforPage9PressedTexture;
-        internal Texture2D FacilityforPage10PressedTexture;
-        internal Texture2D FacilityforPage11PressedTexture;
-        internal Texture2D FacilityforPage12PressedTexture;
-        internal Texture2D FacilityforPage13PressedTexture;
-        internal Texture2D FacilityforPage14PressedTexture;
-        internal Texture2D FacilityforPage15PressedTexture;
-        internal Texture2D FacilityforPage16PressedTexture;
-        internal Texture2D FacilityforPage17PressedTexture;
-        internal Texture2D FacilityforPage18PressedTexture;
-        internal Texture2D FacilityforPage19PressedTexture;
-        internal Texture2D FacilityforPage20PressedTexture;
-        internal Texture2D FacilityforPage21PressedTexture;
-        internal Texture2D FacilityforPage22PressedTexture;
-        internal Texture2D FacilityforPage23PressedTexture;
-        internal Texture2D FacilityforPage24PressedTexture;
-        internal Texture2D FacilityforPage25PressedTexture;
-        internal Texture2D FacilityforPage26PressedTexture;
-        internal Texture2D FacilityforPage27PressedTexture;
-        internal Texture2D FacilityforPage28PressedTexture;
-        internal Texture2D FacilityforPage29PressedTexture;
-        internal Texture2D FacilityforPage30PressedTexture;
+        internal PlatformTexture FacilityforPage1PressedTexture;
+        internal PlatformTexture FacilityforPage2PressedTexture;
+        internal PlatformTexture FacilityforPage3PressedTexture;
+        internal PlatformTexture FacilityforPage4PressedTexture;
+        internal PlatformTexture FacilityforPage5PressedTexture;
+        internal PlatformTexture FacilityforPage6PressedTexture;
+        internal PlatformTexture FacilityforPage7PressedTexture;
+        internal PlatformTexture FacilityforPage8PressedTexture;
+        internal PlatformTexture FacilityforPage9PressedTexture;
+        internal PlatformTexture FacilityforPage10PressedTexture;
+        internal PlatformTexture FacilityforPage11PressedTexture;
+        internal PlatformTexture FacilityforPage12PressedTexture;
+        internal PlatformTexture FacilityforPage13PressedTexture;
+        internal PlatformTexture FacilityforPage14PressedTexture;
+        internal PlatformTexture FacilityforPage15PressedTexture;
+        internal PlatformTexture FacilityforPage16PressedTexture;
+        internal PlatformTexture FacilityforPage17PressedTexture;
+        internal PlatformTexture FacilityforPage18PressedTexture;
+        internal PlatformTexture FacilityforPage19PressedTexture;
+        internal PlatformTexture FacilityforPage20PressedTexture;
+        internal PlatformTexture FacilityforPage21PressedTexture;
+        internal PlatformTexture FacilityforPage22PressedTexture;
+        internal PlatformTexture FacilityforPage23PressedTexture;
+        internal PlatformTexture FacilityforPage24PressedTexture;
+        internal PlatformTexture FacilityforPage25PressedTexture;
+        internal PlatformTexture FacilityforPage26PressedTexture;
+        internal PlatformTexture FacilityforPage27PressedTexture;
+        internal PlatformTexture FacilityforPage28PressedTexture;
+        internal PlatformTexture FacilityforPage29PressedTexture;
+        internal PlatformTexture FacilityforPage30PressedTexture;
 
         internal Rectangle FacilityforPage1ButtonClient;
         internal Rectangle FacilityforPage2ButtonClient;
@@ -508,8 +508,8 @@ namespace ArchitectureDetail
         //↓设施说明
         internal FreeRichText FacilityDescriptionText = new FreeRichText();
         internal Rectangle FacilityDescriptionTextClient;
-        internal Texture2D FacilityDescriptionTextMask;
-        internal Texture2D FacilityDescriptionTextBackground;
+        internal PlatformTexture FacilityDescriptionTextMask;
+        internal PlatformTexture FacilityDescriptionTextBackground;
         internal Rectangle FacilityDescriptionTextBackgroundClient;
         internal string TheFacilityDescriptionTextFrom;
         internal string FacilityDescriptionTextFollowTheMouse;
@@ -535,9 +535,9 @@ namespace ArchitectureDetail
 
         private int TheFacilityIDForDescription;
         //↓在建设施
-        internal Texture2D TheBuildingFacilityPictureA;
-        internal Texture2D TheBuildingFacilityPictureB;
-        internal Texture2D TheBuildingFacilityTextPicture;
+        internal PlatformTexture TheBuildingFacilityPictureA;
+        internal PlatformTexture TheBuildingFacilityPictureB;
+        internal PlatformTexture TheBuildingFacilityTextPicture;
         private int TheBuildingFacilityID;
         private string TheBuildingFacilityName;
         private string TheBuildingFacilityDay;
@@ -1343,406 +1343,406 @@ namespace ArchitectureDetail
         internal string Facility198Page;
         internal string Facility199Page;
         internal string Facility200Page;
-        internal Texture2D Facility1PictureA;
-        internal Texture2D Facility2PictureA;
-        internal Texture2D Facility3PictureA;
-        internal Texture2D Facility4PictureA;
-        internal Texture2D Facility5PictureA;
-        internal Texture2D Facility6PictureA;
-        internal Texture2D Facility7PictureA;
-        internal Texture2D Facility8PictureA;
-        internal Texture2D Facility9PictureA;
-        internal Texture2D Facility10PictureA;
-        internal Texture2D Facility11PictureA;
-        internal Texture2D Facility12PictureA;
-        internal Texture2D Facility13PictureA;
-        internal Texture2D Facility14PictureA;
-        internal Texture2D Facility15PictureA;
-        internal Texture2D Facility16PictureA;
-        internal Texture2D Facility17PictureA;
-        internal Texture2D Facility18PictureA;
-        internal Texture2D Facility19PictureA;
-        internal Texture2D Facility20PictureA;
-        internal Texture2D Facility21PictureA;
-        internal Texture2D Facility22PictureA;
-        internal Texture2D Facility23PictureA;
-        internal Texture2D Facility24PictureA;
-        internal Texture2D Facility25PictureA;
-        internal Texture2D Facility26PictureA;
-        internal Texture2D Facility27PictureA;
-        internal Texture2D Facility28PictureA;
-        internal Texture2D Facility29PictureA;
-        internal Texture2D Facility30PictureA;
-        internal Texture2D Facility31PictureA;
-        internal Texture2D Facility32PictureA;
-        internal Texture2D Facility33PictureA;
-        internal Texture2D Facility34PictureA;
-        internal Texture2D Facility35PictureA;
-        internal Texture2D Facility36PictureA;
-        internal Texture2D Facility37PictureA;
-        internal Texture2D Facility38PictureA;
-        internal Texture2D Facility39PictureA;
-        internal Texture2D Facility40PictureA;
-        internal Texture2D Facility41PictureA;
-        internal Texture2D Facility42PictureA;
-        internal Texture2D Facility43PictureA;
-        internal Texture2D Facility44PictureA;
-        internal Texture2D Facility45PictureA;
-        internal Texture2D Facility46PictureA;
-        internal Texture2D Facility47PictureA;
-        internal Texture2D Facility48PictureA;
-        internal Texture2D Facility49PictureA;
-        internal Texture2D Facility50PictureA;
-        internal Texture2D Facility51PictureA;
-        internal Texture2D Facility52PictureA;
-        internal Texture2D Facility53PictureA;
-        internal Texture2D Facility54PictureA;
-        internal Texture2D Facility55PictureA;
-        internal Texture2D Facility56PictureA;
-        internal Texture2D Facility57PictureA;
-        internal Texture2D Facility58PictureA;
-        internal Texture2D Facility59PictureA;
-        internal Texture2D Facility60PictureA;
-        internal Texture2D Facility61PictureA;
-        internal Texture2D Facility62PictureA;
-        internal Texture2D Facility63PictureA;
-        internal Texture2D Facility64PictureA;
-        internal Texture2D Facility65PictureA;
-        internal Texture2D Facility66PictureA;
-        internal Texture2D Facility67PictureA;
-        internal Texture2D Facility68PictureA;
-        internal Texture2D Facility69PictureA;
-        internal Texture2D Facility70PictureA;
-        internal Texture2D Facility71PictureA;
-        internal Texture2D Facility72PictureA;
-        internal Texture2D Facility73PictureA;
-        internal Texture2D Facility74PictureA;
-        internal Texture2D Facility75PictureA;
-        internal Texture2D Facility76PictureA;
-        internal Texture2D Facility77PictureA;
-        internal Texture2D Facility78PictureA;
-        internal Texture2D Facility79PictureA;
-        internal Texture2D Facility80PictureA;
-        internal Texture2D Facility81PictureA;
-        internal Texture2D Facility82PictureA;
-        internal Texture2D Facility83PictureA;
-        internal Texture2D Facility84PictureA;
-        internal Texture2D Facility85PictureA;
-        internal Texture2D Facility86PictureA;
-        internal Texture2D Facility87PictureA;
-        internal Texture2D Facility88PictureA;
-        internal Texture2D Facility89PictureA;
-        internal Texture2D Facility90PictureA;
-        internal Texture2D Facility91PictureA;
-        internal Texture2D Facility92PictureA;
-        internal Texture2D Facility93PictureA;
-        internal Texture2D Facility94PictureA;
-        internal Texture2D Facility95PictureA;
-        internal Texture2D Facility96PictureA;
-        internal Texture2D Facility97PictureA;
-        internal Texture2D Facility98PictureA;
-        internal Texture2D Facility99PictureA;
-        internal Texture2D Facility100PictureA;
-        internal Texture2D Facility101PictureA;
-        internal Texture2D Facility102PictureA;
-        internal Texture2D Facility103PictureA;
-        internal Texture2D Facility104PictureA;
-        internal Texture2D Facility105PictureA;
-        internal Texture2D Facility106PictureA;
-        internal Texture2D Facility107PictureA;
-        internal Texture2D Facility108PictureA;
-        internal Texture2D Facility109PictureA;
-        internal Texture2D Facility110PictureA;
-        internal Texture2D Facility111PictureA;
-        internal Texture2D Facility112PictureA;
-        internal Texture2D Facility113PictureA;
-        internal Texture2D Facility114PictureA;
-        internal Texture2D Facility115PictureA;
-        internal Texture2D Facility116PictureA;
-        internal Texture2D Facility117PictureA;
-        internal Texture2D Facility118PictureA;
-        internal Texture2D Facility119PictureA;
-        internal Texture2D Facility120PictureA;
-        internal Texture2D Facility121PictureA;
-        internal Texture2D Facility122PictureA;
-        internal Texture2D Facility123PictureA;
-        internal Texture2D Facility124PictureA;
-        internal Texture2D Facility125PictureA;
-        internal Texture2D Facility126PictureA;
-        internal Texture2D Facility127PictureA;
-        internal Texture2D Facility128PictureA;
-        internal Texture2D Facility129PictureA;
-        internal Texture2D Facility130PictureA;
-        internal Texture2D Facility131PictureA;
-        internal Texture2D Facility132PictureA;
-        internal Texture2D Facility133PictureA;
-        internal Texture2D Facility134PictureA;
-        internal Texture2D Facility135PictureA;
-        internal Texture2D Facility136PictureA;
-        internal Texture2D Facility137PictureA;
-        internal Texture2D Facility138PictureA;
-        internal Texture2D Facility139PictureA;
-        internal Texture2D Facility140PictureA;
-        internal Texture2D Facility141PictureA;
-        internal Texture2D Facility142PictureA;
-        internal Texture2D Facility143PictureA;
-        internal Texture2D Facility144PictureA;
-        internal Texture2D Facility145PictureA;
-        internal Texture2D Facility146PictureA;
-        internal Texture2D Facility147PictureA;
-        internal Texture2D Facility148PictureA;
-        internal Texture2D Facility149PictureA;
-        internal Texture2D Facility150PictureA;
-        internal Texture2D Facility151PictureA;
-        internal Texture2D Facility152PictureA;
-        internal Texture2D Facility153PictureA;
-        internal Texture2D Facility154PictureA;
-        internal Texture2D Facility155PictureA;
-        internal Texture2D Facility156PictureA;
-        internal Texture2D Facility157PictureA;
-        internal Texture2D Facility158PictureA;
-        internal Texture2D Facility159PictureA;
-        internal Texture2D Facility160PictureA;
-        internal Texture2D Facility161PictureA;
-        internal Texture2D Facility162PictureA;
-        internal Texture2D Facility163PictureA;
-        internal Texture2D Facility164PictureA;
-        internal Texture2D Facility165PictureA;
-        internal Texture2D Facility166PictureA;
-        internal Texture2D Facility167PictureA;
-        internal Texture2D Facility168PictureA;
-        internal Texture2D Facility169PictureA;
-        internal Texture2D Facility170PictureA;
-        internal Texture2D Facility171PictureA;
-        internal Texture2D Facility172PictureA;
-        internal Texture2D Facility173PictureA;
-        internal Texture2D Facility174PictureA;
-        internal Texture2D Facility175PictureA;
-        internal Texture2D Facility176PictureA;
-        internal Texture2D Facility177PictureA;
-        internal Texture2D Facility178PictureA;
-        internal Texture2D Facility179PictureA;
-        internal Texture2D Facility180PictureA;
-        internal Texture2D Facility181PictureA;
-        internal Texture2D Facility182PictureA;
-        internal Texture2D Facility183PictureA;
-        internal Texture2D Facility184PictureA;
-        internal Texture2D Facility185PictureA;
-        internal Texture2D Facility186PictureA;
-        internal Texture2D Facility187PictureA;
-        internal Texture2D Facility188PictureA;
-        internal Texture2D Facility189PictureA;
-        internal Texture2D Facility190PictureA;
-        internal Texture2D Facility191PictureA;
-        internal Texture2D Facility192PictureA;
-        internal Texture2D Facility193PictureA;
-        internal Texture2D Facility194PictureA;
-        internal Texture2D Facility195PictureA;
-        internal Texture2D Facility196PictureA;
-        internal Texture2D Facility197PictureA;
-        internal Texture2D Facility198PictureA;
-        internal Texture2D Facility199PictureA;
-        internal Texture2D Facility200PictureA;
-        internal Texture2D Facility1PictureB;
-        internal Texture2D Facility2PictureB;
-        internal Texture2D Facility3PictureB;
-        internal Texture2D Facility4PictureB;
-        internal Texture2D Facility5PictureB;
-        internal Texture2D Facility6PictureB;
-        internal Texture2D Facility7PictureB;
-        internal Texture2D Facility8PictureB;
-        internal Texture2D Facility9PictureB;
-        internal Texture2D Facility10PictureB;
-        internal Texture2D Facility11PictureB;
-        internal Texture2D Facility12PictureB;
-        internal Texture2D Facility13PictureB;
-        internal Texture2D Facility14PictureB;
-        internal Texture2D Facility15PictureB;
-        internal Texture2D Facility16PictureB;
-        internal Texture2D Facility17PictureB;
-        internal Texture2D Facility18PictureB;
-        internal Texture2D Facility19PictureB;
-        internal Texture2D Facility20PictureB;
-        internal Texture2D Facility21PictureB;
-        internal Texture2D Facility22PictureB;
-        internal Texture2D Facility23PictureB;
-        internal Texture2D Facility24PictureB;
-        internal Texture2D Facility25PictureB;
-        internal Texture2D Facility26PictureB;
-        internal Texture2D Facility27PictureB;
-        internal Texture2D Facility28PictureB;
-        internal Texture2D Facility29PictureB;
-        internal Texture2D Facility30PictureB;
-        internal Texture2D Facility31PictureB;
-        internal Texture2D Facility32PictureB;
-        internal Texture2D Facility33PictureB;
-        internal Texture2D Facility34PictureB;
-        internal Texture2D Facility35PictureB;
-        internal Texture2D Facility36PictureB;
-        internal Texture2D Facility37PictureB;
-        internal Texture2D Facility38PictureB;
-        internal Texture2D Facility39PictureB;
-        internal Texture2D Facility40PictureB;
-        internal Texture2D Facility41PictureB;
-        internal Texture2D Facility42PictureB;
-        internal Texture2D Facility43PictureB;
-        internal Texture2D Facility44PictureB;
-        internal Texture2D Facility45PictureB;
-        internal Texture2D Facility46PictureB;
-        internal Texture2D Facility47PictureB;
-        internal Texture2D Facility48PictureB;
-        internal Texture2D Facility49PictureB;
-        internal Texture2D Facility50PictureB;
-        internal Texture2D Facility51PictureB;
-        internal Texture2D Facility52PictureB;
-        internal Texture2D Facility53PictureB;
-        internal Texture2D Facility54PictureB;
-        internal Texture2D Facility55PictureB;
-        internal Texture2D Facility56PictureB;
-        internal Texture2D Facility57PictureB;
-        internal Texture2D Facility58PictureB;
-        internal Texture2D Facility59PictureB;
-        internal Texture2D Facility60PictureB;
-        internal Texture2D Facility61PictureB;
-        internal Texture2D Facility62PictureB;
-        internal Texture2D Facility63PictureB;
-        internal Texture2D Facility64PictureB;
-        internal Texture2D Facility65PictureB;
-        internal Texture2D Facility66PictureB;
-        internal Texture2D Facility67PictureB;
-        internal Texture2D Facility68PictureB;
-        internal Texture2D Facility69PictureB;
-        internal Texture2D Facility70PictureB;
-        internal Texture2D Facility71PictureB;
-        internal Texture2D Facility72PictureB;
-        internal Texture2D Facility73PictureB;
-        internal Texture2D Facility74PictureB;
-        internal Texture2D Facility75PictureB;
-        internal Texture2D Facility76PictureB;
-        internal Texture2D Facility77PictureB;
-        internal Texture2D Facility78PictureB;
-        internal Texture2D Facility79PictureB;
-        internal Texture2D Facility80PictureB;
-        internal Texture2D Facility81PictureB;
-        internal Texture2D Facility82PictureB;
-        internal Texture2D Facility83PictureB;
-        internal Texture2D Facility84PictureB;
-        internal Texture2D Facility85PictureB;
-        internal Texture2D Facility86PictureB;
-        internal Texture2D Facility87PictureB;
-        internal Texture2D Facility88PictureB;
-        internal Texture2D Facility89PictureB;
-        internal Texture2D Facility90PictureB;
-        internal Texture2D Facility91PictureB;
-        internal Texture2D Facility92PictureB;
-        internal Texture2D Facility93PictureB;
-        internal Texture2D Facility94PictureB;
-        internal Texture2D Facility95PictureB;
-        internal Texture2D Facility96PictureB;
-        internal Texture2D Facility97PictureB;
-        internal Texture2D Facility98PictureB;
-        internal Texture2D Facility99PictureB;
-        internal Texture2D Facility100PictureB;
-        internal Texture2D Facility101PictureB;
-        internal Texture2D Facility102PictureB;
-        internal Texture2D Facility103PictureB;
-        internal Texture2D Facility104PictureB;
-        internal Texture2D Facility105PictureB;
-        internal Texture2D Facility106PictureB;
-        internal Texture2D Facility107PictureB;
-        internal Texture2D Facility108PictureB;
-        internal Texture2D Facility109PictureB;
-        internal Texture2D Facility110PictureB;
-        internal Texture2D Facility111PictureB;
-        internal Texture2D Facility112PictureB;
-        internal Texture2D Facility113PictureB;
-        internal Texture2D Facility114PictureB;
-        internal Texture2D Facility115PictureB;
-        internal Texture2D Facility116PictureB;
-        internal Texture2D Facility117PictureB;
-        internal Texture2D Facility118PictureB;
-        internal Texture2D Facility119PictureB;
-        internal Texture2D Facility120PictureB;
-        internal Texture2D Facility121PictureB;
-        internal Texture2D Facility122PictureB;
-        internal Texture2D Facility123PictureB;
-        internal Texture2D Facility124PictureB;
-        internal Texture2D Facility125PictureB;
-        internal Texture2D Facility126PictureB;
-        internal Texture2D Facility127PictureB;
-        internal Texture2D Facility128PictureB;
-        internal Texture2D Facility129PictureB;
-        internal Texture2D Facility130PictureB;
-        internal Texture2D Facility131PictureB;
-        internal Texture2D Facility132PictureB;
-        internal Texture2D Facility133PictureB;
-        internal Texture2D Facility134PictureB;
-        internal Texture2D Facility135PictureB;
-        internal Texture2D Facility136PictureB;
-        internal Texture2D Facility137PictureB;
-        internal Texture2D Facility138PictureB;
-        internal Texture2D Facility139PictureB;
-        internal Texture2D Facility140PictureB;
-        internal Texture2D Facility141PictureB;
-        internal Texture2D Facility142PictureB;
-        internal Texture2D Facility143PictureB;
-        internal Texture2D Facility144PictureB;
-        internal Texture2D Facility145PictureB;
-        internal Texture2D Facility146PictureB;
-        internal Texture2D Facility147PictureB;
-        internal Texture2D Facility148PictureB;
-        internal Texture2D Facility149PictureB;
-        internal Texture2D Facility150PictureB;
-        internal Texture2D Facility151PictureB;
-        internal Texture2D Facility152PictureB;
-        internal Texture2D Facility153PictureB;
-        internal Texture2D Facility154PictureB;
-        internal Texture2D Facility155PictureB;
-        internal Texture2D Facility156PictureB;
-        internal Texture2D Facility157PictureB;
-        internal Texture2D Facility158PictureB;
-        internal Texture2D Facility159PictureB;
-        internal Texture2D Facility160PictureB;
-        internal Texture2D Facility161PictureB;
-        internal Texture2D Facility162PictureB;
-        internal Texture2D Facility163PictureB;
-        internal Texture2D Facility164PictureB;
-        internal Texture2D Facility165PictureB;
-        internal Texture2D Facility166PictureB;
-        internal Texture2D Facility167PictureB;
-        internal Texture2D Facility168PictureB;
-        internal Texture2D Facility169PictureB;
-        internal Texture2D Facility170PictureB;
-        internal Texture2D Facility171PictureB;
-        internal Texture2D Facility172PictureB;
-        internal Texture2D Facility173PictureB;
-        internal Texture2D Facility174PictureB;
-        internal Texture2D Facility175PictureB;
-        internal Texture2D Facility176PictureB;
-        internal Texture2D Facility177PictureB;
-        internal Texture2D Facility178PictureB;
-        internal Texture2D Facility179PictureB;
-        internal Texture2D Facility180PictureB;
-        internal Texture2D Facility181PictureB;
-        internal Texture2D Facility182PictureB;
-        internal Texture2D Facility183PictureB;
-        internal Texture2D Facility184PictureB;
-        internal Texture2D Facility185PictureB;
-        internal Texture2D Facility186PictureB;
-        internal Texture2D Facility187PictureB;
-        internal Texture2D Facility188PictureB;
-        internal Texture2D Facility189PictureB;
-        internal Texture2D Facility190PictureB;
-        internal Texture2D Facility191PictureB;
-        internal Texture2D Facility192PictureB;
-        internal Texture2D Facility193PictureB;
-        internal Texture2D Facility194PictureB;
-        internal Texture2D Facility195PictureB;
-        internal Texture2D Facility196PictureB;
-        internal Texture2D Facility197PictureB;
-        internal Texture2D Facility198PictureB;
-        internal Texture2D Facility199PictureB;
-        internal Texture2D Facility200PictureB;
+        internal PlatformTexture Facility1PictureA;
+        internal PlatformTexture Facility2PictureA;
+        internal PlatformTexture Facility3PictureA;
+        internal PlatformTexture Facility4PictureA;
+        internal PlatformTexture Facility5PictureA;
+        internal PlatformTexture Facility6PictureA;
+        internal PlatformTexture Facility7PictureA;
+        internal PlatformTexture Facility8PictureA;
+        internal PlatformTexture Facility9PictureA;
+        internal PlatformTexture Facility10PictureA;
+        internal PlatformTexture Facility11PictureA;
+        internal PlatformTexture Facility12PictureA;
+        internal PlatformTexture Facility13PictureA;
+        internal PlatformTexture Facility14PictureA;
+        internal PlatformTexture Facility15PictureA;
+        internal PlatformTexture Facility16PictureA;
+        internal PlatformTexture Facility17PictureA;
+        internal PlatformTexture Facility18PictureA;
+        internal PlatformTexture Facility19PictureA;
+        internal PlatformTexture Facility20PictureA;
+        internal PlatformTexture Facility21PictureA;
+        internal PlatformTexture Facility22PictureA;
+        internal PlatformTexture Facility23PictureA;
+        internal PlatformTexture Facility24PictureA;
+        internal PlatformTexture Facility25PictureA;
+        internal PlatformTexture Facility26PictureA;
+        internal PlatformTexture Facility27PictureA;
+        internal PlatformTexture Facility28PictureA;
+        internal PlatformTexture Facility29PictureA;
+        internal PlatformTexture Facility30PictureA;
+        internal PlatformTexture Facility31PictureA;
+        internal PlatformTexture Facility32PictureA;
+        internal PlatformTexture Facility33PictureA;
+        internal PlatformTexture Facility34PictureA;
+        internal PlatformTexture Facility35PictureA;
+        internal PlatformTexture Facility36PictureA;
+        internal PlatformTexture Facility37PictureA;
+        internal PlatformTexture Facility38PictureA;
+        internal PlatformTexture Facility39PictureA;
+        internal PlatformTexture Facility40PictureA;
+        internal PlatformTexture Facility41PictureA;
+        internal PlatformTexture Facility42PictureA;
+        internal PlatformTexture Facility43PictureA;
+        internal PlatformTexture Facility44PictureA;
+        internal PlatformTexture Facility45PictureA;
+        internal PlatformTexture Facility46PictureA;
+        internal PlatformTexture Facility47PictureA;
+        internal PlatformTexture Facility48PictureA;
+        internal PlatformTexture Facility49PictureA;
+        internal PlatformTexture Facility50PictureA;
+        internal PlatformTexture Facility51PictureA;
+        internal PlatformTexture Facility52PictureA;
+        internal PlatformTexture Facility53PictureA;
+        internal PlatformTexture Facility54PictureA;
+        internal PlatformTexture Facility55PictureA;
+        internal PlatformTexture Facility56PictureA;
+        internal PlatformTexture Facility57PictureA;
+        internal PlatformTexture Facility58PictureA;
+        internal PlatformTexture Facility59PictureA;
+        internal PlatformTexture Facility60PictureA;
+        internal PlatformTexture Facility61PictureA;
+        internal PlatformTexture Facility62PictureA;
+        internal PlatformTexture Facility63PictureA;
+        internal PlatformTexture Facility64PictureA;
+        internal PlatformTexture Facility65PictureA;
+        internal PlatformTexture Facility66PictureA;
+        internal PlatformTexture Facility67PictureA;
+        internal PlatformTexture Facility68PictureA;
+        internal PlatformTexture Facility69PictureA;
+        internal PlatformTexture Facility70PictureA;
+        internal PlatformTexture Facility71PictureA;
+        internal PlatformTexture Facility72PictureA;
+        internal PlatformTexture Facility73PictureA;
+        internal PlatformTexture Facility74PictureA;
+        internal PlatformTexture Facility75PictureA;
+        internal PlatformTexture Facility76PictureA;
+        internal PlatformTexture Facility77PictureA;
+        internal PlatformTexture Facility78PictureA;
+        internal PlatformTexture Facility79PictureA;
+        internal PlatformTexture Facility80PictureA;
+        internal PlatformTexture Facility81PictureA;
+        internal PlatformTexture Facility82PictureA;
+        internal PlatformTexture Facility83PictureA;
+        internal PlatformTexture Facility84PictureA;
+        internal PlatformTexture Facility85PictureA;
+        internal PlatformTexture Facility86PictureA;
+        internal PlatformTexture Facility87PictureA;
+        internal PlatformTexture Facility88PictureA;
+        internal PlatformTexture Facility89PictureA;
+        internal PlatformTexture Facility90PictureA;
+        internal PlatformTexture Facility91PictureA;
+        internal PlatformTexture Facility92PictureA;
+        internal PlatformTexture Facility93PictureA;
+        internal PlatformTexture Facility94PictureA;
+        internal PlatformTexture Facility95PictureA;
+        internal PlatformTexture Facility96PictureA;
+        internal PlatformTexture Facility97PictureA;
+        internal PlatformTexture Facility98PictureA;
+        internal PlatformTexture Facility99PictureA;
+        internal PlatformTexture Facility100PictureA;
+        internal PlatformTexture Facility101PictureA;
+        internal PlatformTexture Facility102PictureA;
+        internal PlatformTexture Facility103PictureA;
+        internal PlatformTexture Facility104PictureA;
+        internal PlatformTexture Facility105PictureA;
+        internal PlatformTexture Facility106PictureA;
+        internal PlatformTexture Facility107PictureA;
+        internal PlatformTexture Facility108PictureA;
+        internal PlatformTexture Facility109PictureA;
+        internal PlatformTexture Facility110PictureA;
+        internal PlatformTexture Facility111PictureA;
+        internal PlatformTexture Facility112PictureA;
+        internal PlatformTexture Facility113PictureA;
+        internal PlatformTexture Facility114PictureA;
+        internal PlatformTexture Facility115PictureA;
+        internal PlatformTexture Facility116PictureA;
+        internal PlatformTexture Facility117PictureA;
+        internal PlatformTexture Facility118PictureA;
+        internal PlatformTexture Facility119PictureA;
+        internal PlatformTexture Facility120PictureA;
+        internal PlatformTexture Facility121PictureA;
+        internal PlatformTexture Facility122PictureA;
+        internal PlatformTexture Facility123PictureA;
+        internal PlatformTexture Facility124PictureA;
+        internal PlatformTexture Facility125PictureA;
+        internal PlatformTexture Facility126PictureA;
+        internal PlatformTexture Facility127PictureA;
+        internal PlatformTexture Facility128PictureA;
+        internal PlatformTexture Facility129PictureA;
+        internal PlatformTexture Facility130PictureA;
+        internal PlatformTexture Facility131PictureA;
+        internal PlatformTexture Facility132PictureA;
+        internal PlatformTexture Facility133PictureA;
+        internal PlatformTexture Facility134PictureA;
+        internal PlatformTexture Facility135PictureA;
+        internal PlatformTexture Facility136PictureA;
+        internal PlatformTexture Facility137PictureA;
+        internal PlatformTexture Facility138PictureA;
+        internal PlatformTexture Facility139PictureA;
+        internal PlatformTexture Facility140PictureA;
+        internal PlatformTexture Facility141PictureA;
+        internal PlatformTexture Facility142PictureA;
+        internal PlatformTexture Facility143PictureA;
+        internal PlatformTexture Facility144PictureA;
+        internal PlatformTexture Facility145PictureA;
+        internal PlatformTexture Facility146PictureA;
+        internal PlatformTexture Facility147PictureA;
+        internal PlatformTexture Facility148PictureA;
+        internal PlatformTexture Facility149PictureA;
+        internal PlatformTexture Facility150PictureA;
+        internal PlatformTexture Facility151PictureA;
+        internal PlatformTexture Facility152PictureA;
+        internal PlatformTexture Facility153PictureA;
+        internal PlatformTexture Facility154PictureA;
+        internal PlatformTexture Facility155PictureA;
+        internal PlatformTexture Facility156PictureA;
+        internal PlatformTexture Facility157PictureA;
+        internal PlatformTexture Facility158PictureA;
+        internal PlatformTexture Facility159PictureA;
+        internal PlatformTexture Facility160PictureA;
+        internal PlatformTexture Facility161PictureA;
+        internal PlatformTexture Facility162PictureA;
+        internal PlatformTexture Facility163PictureA;
+        internal PlatformTexture Facility164PictureA;
+        internal PlatformTexture Facility165PictureA;
+        internal PlatformTexture Facility166PictureA;
+        internal PlatformTexture Facility167PictureA;
+        internal PlatformTexture Facility168PictureA;
+        internal PlatformTexture Facility169PictureA;
+        internal PlatformTexture Facility170PictureA;
+        internal PlatformTexture Facility171PictureA;
+        internal PlatformTexture Facility172PictureA;
+        internal PlatformTexture Facility173PictureA;
+        internal PlatformTexture Facility174PictureA;
+        internal PlatformTexture Facility175PictureA;
+        internal PlatformTexture Facility176PictureA;
+        internal PlatformTexture Facility177PictureA;
+        internal PlatformTexture Facility178PictureA;
+        internal PlatformTexture Facility179PictureA;
+        internal PlatformTexture Facility180PictureA;
+        internal PlatformTexture Facility181PictureA;
+        internal PlatformTexture Facility182PictureA;
+        internal PlatformTexture Facility183PictureA;
+        internal PlatformTexture Facility184PictureA;
+        internal PlatformTexture Facility185PictureA;
+        internal PlatformTexture Facility186PictureA;
+        internal PlatformTexture Facility187PictureA;
+        internal PlatformTexture Facility188PictureA;
+        internal PlatformTexture Facility189PictureA;
+        internal PlatformTexture Facility190PictureA;
+        internal PlatformTexture Facility191PictureA;
+        internal PlatformTexture Facility192PictureA;
+        internal PlatformTexture Facility193PictureA;
+        internal PlatformTexture Facility194PictureA;
+        internal PlatformTexture Facility195PictureA;
+        internal PlatformTexture Facility196PictureA;
+        internal PlatformTexture Facility197PictureA;
+        internal PlatformTexture Facility198PictureA;
+        internal PlatformTexture Facility199PictureA;
+        internal PlatformTexture Facility200PictureA;
+        internal PlatformTexture Facility1PictureB;
+        internal PlatformTexture Facility2PictureB;
+        internal PlatformTexture Facility3PictureB;
+        internal PlatformTexture Facility4PictureB;
+        internal PlatformTexture Facility5PictureB;
+        internal PlatformTexture Facility6PictureB;
+        internal PlatformTexture Facility7PictureB;
+        internal PlatformTexture Facility8PictureB;
+        internal PlatformTexture Facility9PictureB;
+        internal PlatformTexture Facility10PictureB;
+        internal PlatformTexture Facility11PictureB;
+        internal PlatformTexture Facility12PictureB;
+        internal PlatformTexture Facility13PictureB;
+        internal PlatformTexture Facility14PictureB;
+        internal PlatformTexture Facility15PictureB;
+        internal PlatformTexture Facility16PictureB;
+        internal PlatformTexture Facility17PictureB;
+        internal PlatformTexture Facility18PictureB;
+        internal PlatformTexture Facility19PictureB;
+        internal PlatformTexture Facility20PictureB;
+        internal PlatformTexture Facility21PictureB;
+        internal PlatformTexture Facility22PictureB;
+        internal PlatformTexture Facility23PictureB;
+        internal PlatformTexture Facility24PictureB;
+        internal PlatformTexture Facility25PictureB;
+        internal PlatformTexture Facility26PictureB;
+        internal PlatformTexture Facility27PictureB;
+        internal PlatformTexture Facility28PictureB;
+        internal PlatformTexture Facility29PictureB;
+        internal PlatformTexture Facility30PictureB;
+        internal PlatformTexture Facility31PictureB;
+        internal PlatformTexture Facility32PictureB;
+        internal PlatformTexture Facility33PictureB;
+        internal PlatformTexture Facility34PictureB;
+        internal PlatformTexture Facility35PictureB;
+        internal PlatformTexture Facility36PictureB;
+        internal PlatformTexture Facility37PictureB;
+        internal PlatformTexture Facility38PictureB;
+        internal PlatformTexture Facility39PictureB;
+        internal PlatformTexture Facility40PictureB;
+        internal PlatformTexture Facility41PictureB;
+        internal PlatformTexture Facility42PictureB;
+        internal PlatformTexture Facility43PictureB;
+        internal PlatformTexture Facility44PictureB;
+        internal PlatformTexture Facility45PictureB;
+        internal PlatformTexture Facility46PictureB;
+        internal PlatformTexture Facility47PictureB;
+        internal PlatformTexture Facility48PictureB;
+        internal PlatformTexture Facility49PictureB;
+        internal PlatformTexture Facility50PictureB;
+        internal PlatformTexture Facility51PictureB;
+        internal PlatformTexture Facility52PictureB;
+        internal PlatformTexture Facility53PictureB;
+        internal PlatformTexture Facility54PictureB;
+        internal PlatformTexture Facility55PictureB;
+        internal PlatformTexture Facility56PictureB;
+        internal PlatformTexture Facility57PictureB;
+        internal PlatformTexture Facility58PictureB;
+        internal PlatformTexture Facility59PictureB;
+        internal PlatformTexture Facility60PictureB;
+        internal PlatformTexture Facility61PictureB;
+        internal PlatformTexture Facility62PictureB;
+        internal PlatformTexture Facility63PictureB;
+        internal PlatformTexture Facility64PictureB;
+        internal PlatformTexture Facility65PictureB;
+        internal PlatformTexture Facility66PictureB;
+        internal PlatformTexture Facility67PictureB;
+        internal PlatformTexture Facility68PictureB;
+        internal PlatformTexture Facility69PictureB;
+        internal PlatformTexture Facility70PictureB;
+        internal PlatformTexture Facility71PictureB;
+        internal PlatformTexture Facility72PictureB;
+        internal PlatformTexture Facility73PictureB;
+        internal PlatformTexture Facility74PictureB;
+        internal PlatformTexture Facility75PictureB;
+        internal PlatformTexture Facility76PictureB;
+        internal PlatformTexture Facility77PictureB;
+        internal PlatformTexture Facility78PictureB;
+        internal PlatformTexture Facility79PictureB;
+        internal PlatformTexture Facility80PictureB;
+        internal PlatformTexture Facility81PictureB;
+        internal PlatformTexture Facility82PictureB;
+        internal PlatformTexture Facility83PictureB;
+        internal PlatformTexture Facility84PictureB;
+        internal PlatformTexture Facility85PictureB;
+        internal PlatformTexture Facility86PictureB;
+        internal PlatformTexture Facility87PictureB;
+        internal PlatformTexture Facility88PictureB;
+        internal PlatformTexture Facility89PictureB;
+        internal PlatformTexture Facility90PictureB;
+        internal PlatformTexture Facility91PictureB;
+        internal PlatformTexture Facility92PictureB;
+        internal PlatformTexture Facility93PictureB;
+        internal PlatformTexture Facility94PictureB;
+        internal PlatformTexture Facility95PictureB;
+        internal PlatformTexture Facility96PictureB;
+        internal PlatformTexture Facility97PictureB;
+        internal PlatformTexture Facility98PictureB;
+        internal PlatformTexture Facility99PictureB;
+        internal PlatformTexture Facility100PictureB;
+        internal PlatformTexture Facility101PictureB;
+        internal PlatformTexture Facility102PictureB;
+        internal PlatformTexture Facility103PictureB;
+        internal PlatformTexture Facility104PictureB;
+        internal PlatformTexture Facility105PictureB;
+        internal PlatformTexture Facility106PictureB;
+        internal PlatformTexture Facility107PictureB;
+        internal PlatformTexture Facility108PictureB;
+        internal PlatformTexture Facility109PictureB;
+        internal PlatformTexture Facility110PictureB;
+        internal PlatformTexture Facility111PictureB;
+        internal PlatformTexture Facility112PictureB;
+        internal PlatformTexture Facility113PictureB;
+        internal PlatformTexture Facility114PictureB;
+        internal PlatformTexture Facility115PictureB;
+        internal PlatformTexture Facility116PictureB;
+        internal PlatformTexture Facility117PictureB;
+        internal PlatformTexture Facility118PictureB;
+        internal PlatformTexture Facility119PictureB;
+        internal PlatformTexture Facility120PictureB;
+        internal PlatformTexture Facility121PictureB;
+        internal PlatformTexture Facility122PictureB;
+        internal PlatformTexture Facility123PictureB;
+        internal PlatformTexture Facility124PictureB;
+        internal PlatformTexture Facility125PictureB;
+        internal PlatformTexture Facility126PictureB;
+        internal PlatformTexture Facility127PictureB;
+        internal PlatformTexture Facility128PictureB;
+        internal PlatformTexture Facility129PictureB;
+        internal PlatformTexture Facility130PictureB;
+        internal PlatformTexture Facility131PictureB;
+        internal PlatformTexture Facility132PictureB;
+        internal PlatformTexture Facility133PictureB;
+        internal PlatformTexture Facility134PictureB;
+        internal PlatformTexture Facility135PictureB;
+        internal PlatformTexture Facility136PictureB;
+        internal PlatformTexture Facility137PictureB;
+        internal PlatformTexture Facility138PictureB;
+        internal PlatformTexture Facility139PictureB;
+        internal PlatformTexture Facility140PictureB;
+        internal PlatformTexture Facility141PictureB;
+        internal PlatformTexture Facility142PictureB;
+        internal PlatformTexture Facility143PictureB;
+        internal PlatformTexture Facility144PictureB;
+        internal PlatformTexture Facility145PictureB;
+        internal PlatformTexture Facility146PictureB;
+        internal PlatformTexture Facility147PictureB;
+        internal PlatformTexture Facility148PictureB;
+        internal PlatformTexture Facility149PictureB;
+        internal PlatformTexture Facility150PictureB;
+        internal PlatformTexture Facility151PictureB;
+        internal PlatformTexture Facility152PictureB;
+        internal PlatformTexture Facility153PictureB;
+        internal PlatformTexture Facility154PictureB;
+        internal PlatformTexture Facility155PictureB;
+        internal PlatformTexture Facility156PictureB;
+        internal PlatformTexture Facility157PictureB;
+        internal PlatformTexture Facility158PictureB;
+        internal PlatformTexture Facility159PictureB;
+        internal PlatformTexture Facility160PictureB;
+        internal PlatformTexture Facility161PictureB;
+        internal PlatformTexture Facility162PictureB;
+        internal PlatformTexture Facility163PictureB;
+        internal PlatformTexture Facility164PictureB;
+        internal PlatformTexture Facility165PictureB;
+        internal PlatformTexture Facility166PictureB;
+        internal PlatformTexture Facility167PictureB;
+        internal PlatformTexture Facility168PictureB;
+        internal PlatformTexture Facility169PictureB;
+        internal PlatformTexture Facility170PictureB;
+        internal PlatformTexture Facility171PictureB;
+        internal PlatformTexture Facility172PictureB;
+        internal PlatformTexture Facility173PictureB;
+        internal PlatformTexture Facility174PictureB;
+        internal PlatformTexture Facility175PictureB;
+        internal PlatformTexture Facility176PictureB;
+        internal PlatformTexture Facility177PictureB;
+        internal PlatformTexture Facility178PictureB;
+        internal PlatformTexture Facility179PictureB;
+        internal PlatformTexture Facility180PictureB;
+        internal PlatformTexture Facility181PictureB;
+        internal PlatformTexture Facility182PictureB;
+        internal PlatformTexture Facility183PictureB;
+        internal PlatformTexture Facility184PictureB;
+        internal PlatformTexture Facility185PictureB;
+        internal PlatformTexture Facility186PictureB;
+        internal PlatformTexture Facility187PictureB;
+        internal PlatformTexture Facility188PictureB;
+        internal PlatformTexture Facility189PictureB;
+        internal PlatformTexture Facility190PictureB;
+        internal PlatformTexture Facility191PictureB;
+        internal PlatformTexture Facility192PictureB;
+        internal PlatformTexture Facility193PictureB;
+        internal PlatformTexture Facility194PictureB;
+        internal PlatformTexture Facility195PictureB;
+        internal PlatformTexture Facility196PictureB;
+        internal PlatformTexture Facility197PictureB;
+        internal PlatformTexture Facility198PictureB;
+        internal PlatformTexture Facility199PictureB;
+        internal PlatformTexture Facility200PictureB;
         internal Rectangle Facility1Client;
         internal Rectangle Facility2Client;
         internal Rectangle Facility3Client;
@@ -1944,206 +1944,206 @@ namespace ArchitectureDetail
         internal Rectangle Facility199Client;
         internal Rectangle Facility200Client;
         //↓设施介绍        
-        internal Texture2D Facility1TextPicture;
-        internal Texture2D Facility2TextPicture;
-        internal Texture2D Facility3TextPicture;
-        internal Texture2D Facility4TextPicture;
-        internal Texture2D Facility5TextPicture;
-        internal Texture2D Facility6TextPicture;
-        internal Texture2D Facility7TextPicture;
-        internal Texture2D Facility8TextPicture;
-        internal Texture2D Facility9TextPicture;
-        internal Texture2D Facility10TextPicture;
-        internal Texture2D Facility11TextPicture;
-        internal Texture2D Facility12TextPicture;
-        internal Texture2D Facility13TextPicture;
-        internal Texture2D Facility14TextPicture;
-        internal Texture2D Facility15TextPicture;
-        internal Texture2D Facility16TextPicture;
-        internal Texture2D Facility17TextPicture;
-        internal Texture2D Facility18TextPicture;
-        internal Texture2D Facility19TextPicture;
-        internal Texture2D Facility20TextPicture;
-        internal Texture2D Facility21TextPicture;
-        internal Texture2D Facility22TextPicture;
-        internal Texture2D Facility23TextPicture;
-        internal Texture2D Facility24TextPicture;
-        internal Texture2D Facility25TextPicture;
-        internal Texture2D Facility26TextPicture;
-        internal Texture2D Facility27TextPicture;
-        internal Texture2D Facility28TextPicture;
-        internal Texture2D Facility29TextPicture;
-        internal Texture2D Facility30TextPicture;
-        internal Texture2D Facility31TextPicture;
-        internal Texture2D Facility32TextPicture;
-        internal Texture2D Facility33TextPicture;
-        internal Texture2D Facility34TextPicture;
-        internal Texture2D Facility35TextPicture;
-        internal Texture2D Facility36TextPicture;
-        internal Texture2D Facility37TextPicture;
-        internal Texture2D Facility38TextPicture;
-        internal Texture2D Facility39TextPicture;
-        internal Texture2D Facility40TextPicture;
-        internal Texture2D Facility41TextPicture;
-        internal Texture2D Facility42TextPicture;
-        internal Texture2D Facility43TextPicture;
-        internal Texture2D Facility44TextPicture;
-        internal Texture2D Facility45TextPicture;
-        internal Texture2D Facility46TextPicture;
-        internal Texture2D Facility47TextPicture;
-        internal Texture2D Facility48TextPicture;
-        internal Texture2D Facility49TextPicture;
-        internal Texture2D Facility50TextPicture;
-        internal Texture2D Facility51TextPicture;
-        internal Texture2D Facility52TextPicture;
-        internal Texture2D Facility53TextPicture;
-        internal Texture2D Facility54TextPicture;
-        internal Texture2D Facility55TextPicture;
-        internal Texture2D Facility56TextPicture;
-        internal Texture2D Facility57TextPicture;
-        internal Texture2D Facility58TextPicture;
-        internal Texture2D Facility59TextPicture;
-        internal Texture2D Facility60TextPicture;
-        internal Texture2D Facility61TextPicture;
-        internal Texture2D Facility62TextPicture;
-        internal Texture2D Facility63TextPicture;
-        internal Texture2D Facility64TextPicture;
-        internal Texture2D Facility65TextPicture;
-        internal Texture2D Facility66TextPicture;
-        internal Texture2D Facility67TextPicture;
-        internal Texture2D Facility68TextPicture;
-        internal Texture2D Facility69TextPicture;
-        internal Texture2D Facility70TextPicture;
-        internal Texture2D Facility71TextPicture;
-        internal Texture2D Facility72TextPicture;
-        internal Texture2D Facility73TextPicture;
-        internal Texture2D Facility74TextPicture;
-        internal Texture2D Facility75TextPicture;
-        internal Texture2D Facility76TextPicture;
-        internal Texture2D Facility77TextPicture;
-        internal Texture2D Facility78TextPicture;
-        internal Texture2D Facility79TextPicture;
-        internal Texture2D Facility80TextPicture;
-        internal Texture2D Facility81TextPicture;
-        internal Texture2D Facility82TextPicture;
-        internal Texture2D Facility83TextPicture;
-        internal Texture2D Facility84TextPicture;
-        internal Texture2D Facility85TextPicture;
-        internal Texture2D Facility86TextPicture;
-        internal Texture2D Facility87TextPicture;
-        internal Texture2D Facility88TextPicture;
-        internal Texture2D Facility89TextPicture;
-        internal Texture2D Facility90TextPicture;
-        internal Texture2D Facility91TextPicture;
-        internal Texture2D Facility92TextPicture;
-        internal Texture2D Facility93TextPicture;
-        internal Texture2D Facility94TextPicture;
-        internal Texture2D Facility95TextPicture;
-        internal Texture2D Facility96TextPicture;
-        internal Texture2D Facility97TextPicture;
-        internal Texture2D Facility98TextPicture;
-        internal Texture2D Facility99TextPicture;
-        internal Texture2D Facility100TextPicture;
-        internal Texture2D Facility101TextPicture;
-        internal Texture2D Facility102TextPicture;
-        internal Texture2D Facility103TextPicture;
-        internal Texture2D Facility104TextPicture;
-        internal Texture2D Facility105TextPicture;
-        internal Texture2D Facility106TextPicture;
-        internal Texture2D Facility107TextPicture;
-        internal Texture2D Facility108TextPicture;
-        internal Texture2D Facility109TextPicture;
-        internal Texture2D Facility110TextPicture;
-        internal Texture2D Facility111TextPicture;
-        internal Texture2D Facility112TextPicture;
-        internal Texture2D Facility113TextPicture;
-        internal Texture2D Facility114TextPicture;
-        internal Texture2D Facility115TextPicture;
-        internal Texture2D Facility116TextPicture;
-        internal Texture2D Facility117TextPicture;
-        internal Texture2D Facility118TextPicture;
-        internal Texture2D Facility119TextPicture;
-        internal Texture2D Facility120TextPicture;
-        internal Texture2D Facility121TextPicture;
-        internal Texture2D Facility122TextPicture;
-        internal Texture2D Facility123TextPicture;
-        internal Texture2D Facility124TextPicture;
-        internal Texture2D Facility125TextPicture;
-        internal Texture2D Facility126TextPicture;
-        internal Texture2D Facility127TextPicture;
-        internal Texture2D Facility128TextPicture;
-        internal Texture2D Facility129TextPicture;
-        internal Texture2D Facility130TextPicture;
-        internal Texture2D Facility131TextPicture;
-        internal Texture2D Facility132TextPicture;
-        internal Texture2D Facility133TextPicture;
-        internal Texture2D Facility134TextPicture;
-        internal Texture2D Facility135TextPicture;
-        internal Texture2D Facility136TextPicture;
-        internal Texture2D Facility137TextPicture;
-        internal Texture2D Facility138TextPicture;
-        internal Texture2D Facility139TextPicture;
-        internal Texture2D Facility140TextPicture;
-        internal Texture2D Facility141TextPicture;
-        internal Texture2D Facility142TextPicture;
-        internal Texture2D Facility143TextPicture;
-        internal Texture2D Facility144TextPicture;
-        internal Texture2D Facility145TextPicture;
-        internal Texture2D Facility146TextPicture;
-        internal Texture2D Facility147TextPicture;
-        internal Texture2D Facility148TextPicture;
-        internal Texture2D Facility149TextPicture;
-        internal Texture2D Facility150TextPicture;
-        internal Texture2D Facility151TextPicture;
-        internal Texture2D Facility152TextPicture;
-        internal Texture2D Facility153TextPicture;
-        internal Texture2D Facility154TextPicture;
-        internal Texture2D Facility155TextPicture;
-        internal Texture2D Facility156TextPicture;
-        internal Texture2D Facility157TextPicture;
-        internal Texture2D Facility158TextPicture;
-        internal Texture2D Facility159TextPicture;
-        internal Texture2D Facility160TextPicture;
-        internal Texture2D Facility161TextPicture;
-        internal Texture2D Facility162TextPicture;
-        internal Texture2D Facility163TextPicture;
-        internal Texture2D Facility164TextPicture;
-        internal Texture2D Facility165TextPicture;
-        internal Texture2D Facility166TextPicture;
-        internal Texture2D Facility167TextPicture;
-        internal Texture2D Facility168TextPicture;
-        internal Texture2D Facility169TextPicture;
-        internal Texture2D Facility170TextPicture;
-        internal Texture2D Facility171TextPicture;
-        internal Texture2D Facility172TextPicture;
-        internal Texture2D Facility173TextPicture;
-        internal Texture2D Facility174TextPicture;
-        internal Texture2D Facility175TextPicture;
-        internal Texture2D Facility176TextPicture;
-        internal Texture2D Facility177TextPicture;
-        internal Texture2D Facility178TextPicture;
-        internal Texture2D Facility179TextPicture;
-        internal Texture2D Facility180TextPicture;
-        internal Texture2D Facility181TextPicture;
-        internal Texture2D Facility182TextPicture;
-        internal Texture2D Facility183TextPicture;
-        internal Texture2D Facility184TextPicture;
-        internal Texture2D Facility185TextPicture;
-        internal Texture2D Facility186TextPicture;
-        internal Texture2D Facility187TextPicture;
-        internal Texture2D Facility188TextPicture;
-        internal Texture2D Facility189TextPicture;
-        internal Texture2D Facility190TextPicture;
-        internal Texture2D Facility191TextPicture;
-        internal Texture2D Facility192TextPicture;
-        internal Texture2D Facility193TextPicture;
-        internal Texture2D Facility194TextPicture;
-        internal Texture2D Facility195TextPicture;
-        internal Texture2D Facility196TextPicture;
-        internal Texture2D Facility197TextPicture;
-        internal Texture2D Facility198TextPicture;
-        internal Texture2D Facility199TextPicture;
-        internal Texture2D Facility200TextPicture;
+        internal PlatformTexture Facility1TextPicture;
+        internal PlatformTexture Facility2TextPicture;
+        internal PlatformTexture Facility3TextPicture;
+        internal PlatformTexture Facility4TextPicture;
+        internal PlatformTexture Facility5TextPicture;
+        internal PlatformTexture Facility6TextPicture;
+        internal PlatformTexture Facility7TextPicture;
+        internal PlatformTexture Facility8TextPicture;
+        internal PlatformTexture Facility9TextPicture;
+        internal PlatformTexture Facility10TextPicture;
+        internal PlatformTexture Facility11TextPicture;
+        internal PlatformTexture Facility12TextPicture;
+        internal PlatformTexture Facility13TextPicture;
+        internal PlatformTexture Facility14TextPicture;
+        internal PlatformTexture Facility15TextPicture;
+        internal PlatformTexture Facility16TextPicture;
+        internal PlatformTexture Facility17TextPicture;
+        internal PlatformTexture Facility18TextPicture;
+        internal PlatformTexture Facility19TextPicture;
+        internal PlatformTexture Facility20TextPicture;
+        internal PlatformTexture Facility21TextPicture;
+        internal PlatformTexture Facility22TextPicture;
+        internal PlatformTexture Facility23TextPicture;
+        internal PlatformTexture Facility24TextPicture;
+        internal PlatformTexture Facility25TextPicture;
+        internal PlatformTexture Facility26TextPicture;
+        internal PlatformTexture Facility27TextPicture;
+        internal PlatformTexture Facility28TextPicture;
+        internal PlatformTexture Facility29TextPicture;
+        internal PlatformTexture Facility30TextPicture;
+        internal PlatformTexture Facility31TextPicture;
+        internal PlatformTexture Facility32TextPicture;
+        internal PlatformTexture Facility33TextPicture;
+        internal PlatformTexture Facility34TextPicture;
+        internal PlatformTexture Facility35TextPicture;
+        internal PlatformTexture Facility36TextPicture;
+        internal PlatformTexture Facility37TextPicture;
+        internal PlatformTexture Facility38TextPicture;
+        internal PlatformTexture Facility39TextPicture;
+        internal PlatformTexture Facility40TextPicture;
+        internal PlatformTexture Facility41TextPicture;
+        internal PlatformTexture Facility42TextPicture;
+        internal PlatformTexture Facility43TextPicture;
+        internal PlatformTexture Facility44TextPicture;
+        internal PlatformTexture Facility45TextPicture;
+        internal PlatformTexture Facility46TextPicture;
+        internal PlatformTexture Facility47TextPicture;
+        internal PlatformTexture Facility48TextPicture;
+        internal PlatformTexture Facility49TextPicture;
+        internal PlatformTexture Facility50TextPicture;
+        internal PlatformTexture Facility51TextPicture;
+        internal PlatformTexture Facility52TextPicture;
+        internal PlatformTexture Facility53TextPicture;
+        internal PlatformTexture Facility54TextPicture;
+        internal PlatformTexture Facility55TextPicture;
+        internal PlatformTexture Facility56TextPicture;
+        internal PlatformTexture Facility57TextPicture;
+        internal PlatformTexture Facility58TextPicture;
+        internal PlatformTexture Facility59TextPicture;
+        internal PlatformTexture Facility60TextPicture;
+        internal PlatformTexture Facility61TextPicture;
+        internal PlatformTexture Facility62TextPicture;
+        internal PlatformTexture Facility63TextPicture;
+        internal PlatformTexture Facility64TextPicture;
+        internal PlatformTexture Facility65TextPicture;
+        internal PlatformTexture Facility66TextPicture;
+        internal PlatformTexture Facility67TextPicture;
+        internal PlatformTexture Facility68TextPicture;
+        internal PlatformTexture Facility69TextPicture;
+        internal PlatformTexture Facility70TextPicture;
+        internal PlatformTexture Facility71TextPicture;
+        internal PlatformTexture Facility72TextPicture;
+        internal PlatformTexture Facility73TextPicture;
+        internal PlatformTexture Facility74TextPicture;
+        internal PlatformTexture Facility75TextPicture;
+        internal PlatformTexture Facility76TextPicture;
+        internal PlatformTexture Facility77TextPicture;
+        internal PlatformTexture Facility78TextPicture;
+        internal PlatformTexture Facility79TextPicture;
+        internal PlatformTexture Facility80TextPicture;
+        internal PlatformTexture Facility81TextPicture;
+        internal PlatformTexture Facility82TextPicture;
+        internal PlatformTexture Facility83TextPicture;
+        internal PlatformTexture Facility84TextPicture;
+        internal PlatformTexture Facility85TextPicture;
+        internal PlatformTexture Facility86TextPicture;
+        internal PlatformTexture Facility87TextPicture;
+        internal PlatformTexture Facility88TextPicture;
+        internal PlatformTexture Facility89TextPicture;
+        internal PlatformTexture Facility90TextPicture;
+        internal PlatformTexture Facility91TextPicture;
+        internal PlatformTexture Facility92TextPicture;
+        internal PlatformTexture Facility93TextPicture;
+        internal PlatformTexture Facility94TextPicture;
+        internal PlatformTexture Facility95TextPicture;
+        internal PlatformTexture Facility96TextPicture;
+        internal PlatformTexture Facility97TextPicture;
+        internal PlatformTexture Facility98TextPicture;
+        internal PlatformTexture Facility99TextPicture;
+        internal PlatformTexture Facility100TextPicture;
+        internal PlatformTexture Facility101TextPicture;
+        internal PlatformTexture Facility102TextPicture;
+        internal PlatformTexture Facility103TextPicture;
+        internal PlatformTexture Facility104TextPicture;
+        internal PlatformTexture Facility105TextPicture;
+        internal PlatformTexture Facility106TextPicture;
+        internal PlatformTexture Facility107TextPicture;
+        internal PlatformTexture Facility108TextPicture;
+        internal PlatformTexture Facility109TextPicture;
+        internal PlatformTexture Facility110TextPicture;
+        internal PlatformTexture Facility111TextPicture;
+        internal PlatformTexture Facility112TextPicture;
+        internal PlatformTexture Facility113TextPicture;
+        internal PlatformTexture Facility114TextPicture;
+        internal PlatformTexture Facility115TextPicture;
+        internal PlatformTexture Facility116TextPicture;
+        internal PlatformTexture Facility117TextPicture;
+        internal PlatformTexture Facility118TextPicture;
+        internal PlatformTexture Facility119TextPicture;
+        internal PlatformTexture Facility120TextPicture;
+        internal PlatformTexture Facility121TextPicture;
+        internal PlatformTexture Facility122TextPicture;
+        internal PlatformTexture Facility123TextPicture;
+        internal PlatformTexture Facility124TextPicture;
+        internal PlatformTexture Facility125TextPicture;
+        internal PlatformTexture Facility126TextPicture;
+        internal PlatformTexture Facility127TextPicture;
+        internal PlatformTexture Facility128TextPicture;
+        internal PlatformTexture Facility129TextPicture;
+        internal PlatformTexture Facility130TextPicture;
+        internal PlatformTexture Facility131TextPicture;
+        internal PlatformTexture Facility132TextPicture;
+        internal PlatformTexture Facility133TextPicture;
+        internal PlatformTexture Facility134TextPicture;
+        internal PlatformTexture Facility135TextPicture;
+        internal PlatformTexture Facility136TextPicture;
+        internal PlatformTexture Facility137TextPicture;
+        internal PlatformTexture Facility138TextPicture;
+        internal PlatformTexture Facility139TextPicture;
+        internal PlatformTexture Facility140TextPicture;
+        internal PlatformTexture Facility141TextPicture;
+        internal PlatformTexture Facility142TextPicture;
+        internal PlatformTexture Facility143TextPicture;
+        internal PlatformTexture Facility144TextPicture;
+        internal PlatformTexture Facility145TextPicture;
+        internal PlatformTexture Facility146TextPicture;
+        internal PlatformTexture Facility147TextPicture;
+        internal PlatformTexture Facility148TextPicture;
+        internal PlatformTexture Facility149TextPicture;
+        internal PlatformTexture Facility150TextPicture;
+        internal PlatformTexture Facility151TextPicture;
+        internal PlatformTexture Facility152TextPicture;
+        internal PlatformTexture Facility153TextPicture;
+        internal PlatformTexture Facility154TextPicture;
+        internal PlatformTexture Facility155TextPicture;
+        internal PlatformTexture Facility156TextPicture;
+        internal PlatformTexture Facility157TextPicture;
+        internal PlatformTexture Facility158TextPicture;
+        internal PlatformTexture Facility159TextPicture;
+        internal PlatformTexture Facility160TextPicture;
+        internal PlatformTexture Facility161TextPicture;
+        internal PlatformTexture Facility162TextPicture;
+        internal PlatformTexture Facility163TextPicture;
+        internal PlatformTexture Facility164TextPicture;
+        internal PlatformTexture Facility165TextPicture;
+        internal PlatformTexture Facility166TextPicture;
+        internal PlatformTexture Facility167TextPicture;
+        internal PlatformTexture Facility168TextPicture;
+        internal PlatformTexture Facility169TextPicture;
+        internal PlatformTexture Facility170TextPicture;
+        internal PlatformTexture Facility171TextPicture;
+        internal PlatformTexture Facility172TextPicture;
+        internal PlatformTexture Facility173TextPicture;
+        internal PlatformTexture Facility174TextPicture;
+        internal PlatformTexture Facility175TextPicture;
+        internal PlatformTexture Facility176TextPicture;
+        internal PlatformTexture Facility177TextPicture;
+        internal PlatformTexture Facility178TextPicture;
+        internal PlatformTexture Facility179TextPicture;
+        internal PlatformTexture Facility180TextPicture;
+        internal PlatformTexture Facility181TextPicture;
+        internal PlatformTexture Facility182TextPicture;
+        internal PlatformTexture Facility183TextPicture;
+        internal PlatformTexture Facility184TextPicture;
+        internal PlatformTexture Facility185TextPicture;
+        internal PlatformTexture Facility186TextPicture;
+        internal PlatformTexture Facility187TextPicture;
+        internal PlatformTexture Facility188TextPicture;
+        internal PlatformTexture Facility189TextPicture;
+        internal PlatformTexture Facility190TextPicture;
+        internal PlatformTexture Facility191TextPicture;
+        internal PlatformTexture Facility192TextPicture;
+        internal PlatformTexture Facility193TextPicture;
+        internal PlatformTexture Facility194TextPicture;
+        internal PlatformTexture Facility195TextPicture;
+        internal PlatformTexture Facility196TextPicture;
+        internal PlatformTexture Facility197TextPicture;
+        internal PlatformTexture Facility198TextPicture;
+        internal PlatformTexture Facility199TextPicture;
+        internal PlatformTexture Facility200TextPicture;
         internal Rectangle Facility1TextClient;
         internal Rectangle Facility2TextClient;
         internal Rectangle Facility3TextClient;
@@ -2384,36 +2384,36 @@ namespace ArchitectureDetail
         bool FacilityDescriptionTextIng;
         bool FacilityDescriptionTexting;
         //////以上添加
-        internal void Draw(SpriteBatch spriteBatch)
+        internal void Draw()
         {
             if (this.ShowingArchitecture != null)
             {
                 if (Switch1 == "off")
                 {
-                    spriteBatch.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.02f);
+                    CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.02f);
                     foreach (LabelText text in this.LabelTexts)
                     {
-                        text.Label.Draw(spriteBatch, 0.1999f);
-                        text.Text.Draw(spriteBatch, 0.1999f);
+                        text.Label.Draw(0.1999f);
+                        text.Text.Draw(0.1999f);
                     }
-                    this.CharacteristicText.Draw(spriteBatch, 0.1999f);
-                    this.FacilityText.Draw(spriteBatch, 0.1999f);
+                    this.CharacteristicText.Draw(0.1999f);
+                    this.FacilityText.Draw(0.1999f);
                 }
                 if (Switch1 == "on")
                 {                  
                     if (Switch21 == "on")
                     {
-                        spriteBatch.Draw(this.InformationButtonTexture, this.InformationButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018f);
-                        spriteBatch.Draw(this.InformationPressedTexture, this.InformationPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018f);
+                        CacheManager.Draw(this.InformationButtonTexture, this.InformationButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018f);
+                        CacheManager.Draw(this.InformationPressedTexture, this.InformationPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018f);
                         if (InformationButton == true)
                         {
-                            spriteBatch.Draw(this.InformationMask1, this.InformationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0192f);
-                            spriteBatch.Draw(this.InformationMask2, this.InformationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0199f);
-                            spriteBatch.Draw(this.InformationBackground, this.InformationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.02f);
+                            CacheManager.Draw(this.InformationMask1, this.InformationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0192f);
+                            CacheManager.Draw(this.InformationMask2, this.InformationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0199f);
+                            CacheManager.Draw(this.InformationBackground, this.InformationBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.02f);
                             foreach (LabelText text in this.ArchitectureInInformationTexts)
                             {
-                                text.Label.Draw(spriteBatch, 0.0194f);
-                                text.Text.Draw(spriteBatch, 0.0194f);
+                                text.Label.Draw(0.0194f);
+                                text.Text.Draw(0.0194f);
                             }
                             if (Switch26 == "on")
                             {
@@ -2421,11 +2421,11 @@ namespace ArchitectureDetail
                                 {
                                     if (PictureShowforAKind == "on")
                                     {
-                                        spriteBatch.Draw(this.PictureforAKind, this.PictureforAKindDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0197f);
+                                        CacheManager.Draw(this.PictureforAKind, this.PictureforAKindDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0197f);
                                     }
                                     if (PictureShowforAID == "on")
                                     {
-                                        spriteBatch.Draw(this.PictureforAID, this.PictureforAIDDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01975f);
+                                        CacheManager.Draw(this.PictureforAID, this.PictureforAIDDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.01975f);
                                     }
                                 }
                                 catch { }
@@ -2434,74 +2434,74 @@ namespace ArchitectureDetail
                             {
                                 try
                                 {
-                                    spriteBatch.Draw(this.IntegrationBarTexture, this.IntegrationBar1DisplayPosition, this.Integration1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
-                                    spriteBatch.Draw(this.DominationBarTexture, this.DominationBar1DisplayPosition, this.Domination1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
-                                    spriteBatch.Draw(this.EnduranceBarTexture, this.EnduranceBar1DisplayPosition, this.Endurance1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
-                                    spriteBatch.Draw(this.AgricultureBarTexture, this.AgricultureBar1DisplayPosition, this.Agriculture1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
-                                    spriteBatch.Draw(this.CommerceBarTexture, this.CommerceBar1DisplayPosition, this.Commerce1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
-                                    spriteBatch.Draw(this.TechnologyBarTexture, this.TechnologyBar1DisplayPosition, this.Technology1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
-                                    spriteBatch.Draw(this.MoraleBarTexture, this.MoraleBar1DisplayPosition, this.Morale1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
-                                    spriteBatch.Draw(this.FacilityCountBarTexture, this.FacilityCountBar1DisplayPosition, this.FacilityCount1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
+                                    CacheManager.Draw(this.IntegrationBarTexture, this.IntegrationBar1DisplayPosition, this.Integration1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
+                                    CacheManager.Draw(this.DominationBarTexture, this.DominationBar1DisplayPosition, this.Domination1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
+                                    CacheManager.Draw(this.EnduranceBarTexture, this.EnduranceBar1DisplayPosition, this.Endurance1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
+                                    CacheManager.Draw(this.AgricultureBarTexture, this.AgricultureBar1DisplayPosition, this.Agriculture1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
+                                    CacheManager.Draw(this.CommerceBarTexture, this.CommerceBar1DisplayPosition, this.Commerce1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
+                                    CacheManager.Draw(this.TechnologyBarTexture, this.TechnologyBar1DisplayPosition, this.Technology1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
+                                    CacheManager.Draw(this.MoraleBarTexture, this.MoraleBar1DisplayPosition, this.Morale1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
+                                    CacheManager.Draw(this.FacilityCountBarTexture, this.FacilityCountBar1DisplayPosition, this.FacilityCount1DisplayPosition, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
                                 }
                                 catch { }
                             }
                             if (Switch23 == "on" && TheCharacteristicCount >0)
                             {
-                                spriteBatch.Draw(this.CharacteristicShowMask, this.CharacteristicShowBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0185f);                                
+                                CacheManager.Draw(this.CharacteristicShowMask, this.CharacteristicShowBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0185f);                                
                                 try
                                 {
                                     for (int c = 1; c <= TheMaxShowCharacteristicCount; c++)
                                     {
-                                        spriteBatch.Draw(this.TheCharacteristicShowMask, this.TheCharacteristicShowDisplayPosition(c), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0186f);                               
-                                        spriteBatch.Draw(this.TheCharacteristicShow(c), this.TheCharacteristicShowDisplayPosition(c), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0188f);
+                                        CacheManager.Draw(this.TheCharacteristicShowMask, this.TheCharacteristicShowDisplayPosition(c), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0186f);                               
+                                        CacheManager.Draw(this.TheCharacteristicShow(c), this.TheCharacteristicShowDisplayPosition(c), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0188f);
                                     }
                                     if (ShowNullCharacteristicPicture == "on")
                                     {
                                         for (int c = 1; c <= TheMaxShowCharacteristicCount; c++)
                                         {
-                                            spriteBatch.Draw(this.TheCharacteristicShowBackground, this.TheCharacteristicShowDisplayPosition(c), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0188f);
+                                            CacheManager.Draw(this.TheCharacteristicShowBackground, this.TheCharacteristicShowDisplayPosition(c), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0188f);
                                         }
                                     }
                                 }
                                 catch { }
-                                spriteBatch.Draw(this.CharacteristicShowBackground, this.CharacteristicShowBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.019f); 
+                                CacheManager.Draw(this.CharacteristicShowBackground, this.CharacteristicShowBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.019f); 
                             }
                             if (Switch24 == "on")
                             {
-                                this.TheCharacteristic1Text.Draw(spriteBatch, 0.0194f);
+                                this.TheCharacteristic1Text.Draw(0.0194f);
                             }
                             if (Switch25 == "on")
                             {
-                                this.TheFacility1Text.Draw(spriteBatch, 0.194f);
+                                this.TheFacility1Text.Draw(0.194f);
                             }
                         }                        
                     }                   
                     if (Switch41 == "on")
                     {
-                        spriteBatch.Draw(this.FacilityButtonTexture, this.FacilityButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018f);
-                        spriteBatch.Draw(this.FacilityPressedTexture, this.FacilityPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018f);
+                        CacheManager.Draw(this.FacilityButtonTexture, this.FacilityButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018f);
+                        CacheManager.Draw(this.FacilityPressedTexture, this.FacilityPressedDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.018f);
                         if (FacilityButton == true)
                         {
-                            spriteBatch.Draw(this.FacilityMask1, this.FacilityBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0192f);
-                            spriteBatch.Draw(this.FacilityMask2, this.FacilityBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0199f);
-                            spriteBatch.Draw(this.FacilityBackground, this.FacilityBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.02f);
+                            CacheManager.Draw(this.FacilityMask1, this.FacilityBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0192f);
+                            CacheManager.Draw(this.FacilityMask2, this.FacilityBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0199f);
+                            CacheManager.Draw(this.FacilityBackground, this.FacilityBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.02f);
                             if (Switch47 == "on")
                             {
-                                this.TheFacility3Text.Draw(spriteBatch, 0.0198f);
+                                this.TheFacility3Text.Draw(0.0198f);
                             }
                             if (Switch42 == "on")
                             {
                                 foreach (LabelText text in this.ArchitectureInFacilityTexts)
                                 {
-                                    text.Label.Draw(spriteBatch, 0.0194f);
-                                    text.Text.Draw(spriteBatch, 0.0194f);
+                                    text.Label.Draw(0.0194f);
+                                    text.Text.Draw(0.0194f);
                                 }
                             }
                             
                             if (TheFacilityPositionCount == 0)
                             {
-                                spriteBatch.Draw(this.PageForFacilityMask, this.PageForFacilityBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0194f);
-                                spriteBatch.Draw(this.PageForFacilityBackground, this.PageForFacilityBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
+                                CacheManager.Draw(this.PageForFacilityMask, this.PageForFacilityBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0194f);
+                                CacheManager.Draw(this.PageForFacilityBackground, this.PageForFacilityBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
                             }
                             else 
                             {
@@ -2511,10 +2511,10 @@ namespace ArchitectureDetail
                                     {
                                         if (ShowTheFacilityPageButton(i) == true)
                                         {
-                                            spriteBatch.Draw(this.FacilityforPageButtonTexture(i), this.TheFacilityforPageButtonDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0181f);
-                                            spriteBatch.Draw(this.FacilityforPagePressedTexture(i), this.TheFacilityforPagePressedDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0181f);
-                                            spriteBatch.Draw(this.ThePageForFacilityMask(i), this.ThePageForFacilityBackgroundDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0193f);
-                                            spriteBatch.Draw(this.ThePageForFacilityBackground(i), this.ThePageForFacilityBackgroundDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0197f);
+                                            CacheManager.Draw(this.FacilityforPageButtonTexture(i), this.TheFacilityforPageButtonDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0181f);
+                                            CacheManager.Draw(this.FacilityforPagePressedTexture(i), this.TheFacilityforPagePressedDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0181f);
+                                            CacheManager.Draw(this.ThePageForFacilityMask(i), this.ThePageForFacilityBackgroundDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0193f);
+                                            CacheManager.Draw(this.ThePageForFacilityBackground(i), this.ThePageForFacilityBackgroundDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0197f);
                                         }
                                     }
                                 }
@@ -2523,33 +2523,33 @@ namespace ArchitectureDetail
                                 {
                                     for (int i = 1; i <= TheAllFacilityNumber; i++)
                                     {
-                                        spriteBatch.Draw(this.TheFacilityPictureA(i), this.TheFacilityAShowDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
+                                        CacheManager.Draw(this.TheFacilityPictureA(i), this.TheFacilityAShowDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
                                         if (Switch45 == "on")
                                         {
-                                            spriteBatch.Draw(this.TheFacilityPictureB(i), this.TheFacilityBShowDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0195f);
+                                            CacheManager.Draw(this.TheFacilityPictureB(i), this.TheFacilityBShowDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0195f);
                                         }
                                         if (Switch46 == "on")
                                         {
-                                            spriteBatch.Draw(this.TheFacilityTextPicture(i), this.TheFacilityTextShowDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0194f);
+                                            CacheManager.Draw(this.TheFacilityTextPicture(i), this.TheFacilityTextShowDisplayPosition(i), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0194f);
                                         }
                                     }
                                     if (HasBuildingFacility == true)
                                     {
-                                        spriteBatch.Draw(this.TheBuildingFacilityPictureA, this.TheBuildingFacilityPictureADisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
+                                        CacheManager.Draw(this.TheBuildingFacilityPictureA, this.TheBuildingFacilityPictureADisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0196f);
                                         if (Switch45 == "on")
                                         {
-                                            spriteBatch.Draw(this.TheBuildingFacilityPictureB, this.TheBuildingFacilityPictureBDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0195f);
+                                            CacheManager.Draw(this.TheBuildingFacilityPictureB, this.TheBuildingFacilityPictureBDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0195f);
                                         }
                                         if (Switch46 == "on")
                                         {
-                                            spriteBatch.Draw(this.TheBuildingFacilityTextPicture, this.TheBuildingFacilityTextDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0194f);
+                                            CacheManager.Draw(this.TheBuildingFacilityTextPicture, this.TheBuildingFacilityTextDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0194f);
                                         }
                                     }                                    
                                 }
                                 catch { }
-                                spriteBatch.Draw(this.FacilityDescriptionTextMask, this.FacilityDescriptionTextBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0185f);
-                                spriteBatch.Draw(this.FacilityDescriptionTextBackground, this.FacilityDescriptionTextBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.019f);
-                                this.FacilityDescriptionText.Draw(spriteBatch, 0.0186f);                                   
+                                CacheManager.Draw(this.FacilityDescriptionTextMask, this.FacilityDescriptionTextBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0185f);
+                                CacheManager.Draw(this.FacilityDescriptionTextBackground, this.FacilityDescriptionTextBackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.019f);
+                                this.FacilityDescriptionText.Draw(0.0186f);                                   
                                 
                             }                           
                         }
@@ -2558,9 +2558,9 @@ namespace ArchitectureDetail
             }
         }
 
-        internal void Initialize(Screen screen)
+        internal void Initialize()
         {
-            this.screen = screen;
+            
         }
 
         private void screen_OnMouseLeftDown(Point position)
@@ -2640,7 +2640,7 @@ namespace ArchitectureDetail
                 {
                     if (Switch3 == "on")
                     {
-                        this.screen.PlayNormalSound("Content/Sound/Open");
+                        Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Open");
                     }
                     InformationButton = true;
                     
@@ -2651,7 +2651,7 @@ namespace ArchitectureDetail
                 {
                     if (Switch3 == "on")
                     {
-                        this.screen.PlayNormalSound("Content/Sound/Open");
+                        Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Open");
                     }
                     InformationButton = false;
                      
@@ -2704,7 +2704,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage1Button = true;
                             FacilityforPage2Button = false;
@@ -2719,7 +2719,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage1Button = false;
                             FacilityforPage2Button = true;
@@ -2734,7 +2734,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage1Button = false;
                             FacilityforPage2Button = false;
@@ -2749,7 +2749,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage1Button = false;
                             FacilityforPage2Button = false;
@@ -2764,7 +2764,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage1Button = false;
                             FacilityforPage2Button = false;
@@ -2779,7 +2779,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage6Button = true;
                             FacilityforPage7Button = false;
@@ -2794,7 +2794,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage6Button = false;
                             FacilityforPage7Button = true;
@@ -2809,7 +2809,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage6Button = false;
                             FacilityforPage7Button = false;
@@ -2824,7 +2824,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage6Button = false;
                             FacilityforPage7Button = true;
@@ -2839,7 +2839,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage6Button = false;
                             FacilityforPage7Button = false;
@@ -2857,7 +2857,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage11Button = true;
                             FacilityforPage12Button = false;
@@ -2872,7 +2872,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage11Button = false;
                             FacilityforPage12Button = true;
@@ -2887,7 +2887,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage11Button = false;
                             FacilityforPage12Button = false;
@@ -2902,7 +2902,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage11Button = false;
                             FacilityforPage12Button = true;
@@ -2917,7 +2917,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage11Button = false;
                             FacilityforPage12Button = false;
@@ -2932,7 +2932,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage16Button = true;
                             FacilityforPage17Button = false;
@@ -2947,7 +2947,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage16Button = false;
                             FacilityforPage17Button = true;
@@ -2962,7 +2962,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage16Button = false;
                             FacilityforPage17Button = false;
@@ -2977,7 +2977,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage16Button = false;
                             FacilityforPage17Button = true;
@@ -2992,7 +2992,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage16Button = false;
                             FacilityforPage17Button = false;
@@ -3010,7 +3010,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage21Button = true;
                             FacilityforPage22Button = false;
@@ -3025,7 +3025,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage21Button = false;
                             FacilityforPage22Button = true;
@@ -3040,7 +3040,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage21Button = false;
                             FacilityforPage22Button = false;
@@ -3055,7 +3055,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage21Button = false;
                             FacilityforPage22Button = true;
@@ -3070,7 +3070,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage21Button = false;
                             FacilityforPage22Button = false;
@@ -3085,7 +3085,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage26Button = true;
                             FacilityforPage27Button = false;
@@ -3100,7 +3100,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage26Button = false;
                             FacilityforPage27Button = true;
@@ -3115,7 +3115,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage26Button = false;
                             FacilityforPage27Button = false;
@@ -3130,7 +3130,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage26Button = false;
                             FacilityforPage27Button = true;
@@ -3145,7 +3145,7 @@ namespace ArchitectureDetail
                         {
                             if (Switch3 == "on")
                             {
-                                this.screen.PlayNormalSound("Content/Sound/Select");
+                                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Select");
                             }
                             FacilityforPage26Button = false;
                             FacilityforPage27Button = false;
@@ -3329,7 +3329,7 @@ namespace ArchitectureDetail
                                 
                                 if (FacilityDescriptionTextFollowTheMouse == "on")
                                 {
-                                    this.FacilityDescriptionText.DisplayOffset = new Point(this.screen.MousePosition.X + this.FacilityDescriptionTextClient.X, this.screen.MousePosition.Y + this.FacilityDescriptionTextClient.Y);
+                                    this.FacilityDescriptionText.DisplayOffset = new Point(Session.MainGame.mainGameScreen.MousePosition.X + this.FacilityDescriptionTextClient.X, Session.MainGame.mainGameScreen.MousePosition.Y + this.FacilityDescriptionTextClient.Y);
                                 }                                
                                 this.FacilityDescriptionText.Clear();
                                 this.FacilityDescriptionText.AddText(FacilityDescriptionText1, this.FacilityDescriptionText.TitleColor);
@@ -3362,7 +3362,7 @@ namespace ArchitectureDetail
                         {
                             if (FacilityDescriptionTextFollowTheMouse == "on")
                             {
-                                this.FacilityDescriptionText.DisplayOffset = new Point(this.screen.MousePosition.X + this.FacilityDescriptionTextClient.X, this.screen.MousePosition.Y + this.FacilityDescriptionTextClient.Y);
+                                this.FacilityDescriptionText.DisplayOffset = new Point(Session.MainGame.mainGameScreen.MousePosition.X + this.FacilityDescriptionTextClient.X, Session.MainGame.mainGameScreen.MousePosition.Y + this.FacilityDescriptionTextClient.Y);
                             }
                             this.FacilityDescriptionText.Clear();
                             this.FacilityDescriptionText.AddText(FacilityDescriptionText1, this.FacilityDescriptionText.TitleColor);
@@ -3406,7 +3406,7 @@ namespace ArchitectureDetail
         {
             if (Switch3 == "on")
             {
-                this.screen.PlayNormalSound("Content/Sound/Close");
+                Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Close");
             }
             this.IsShowing = false;
         }
@@ -3432,7 +3432,7 @@ namespace ArchitectureDetail
                 this.FacilityText.AddNewLine();
                 if (this.ShowingArchitecture.BuildingFacility >= 0)
                 {
-                    FacilityKind facilityKind = this.ShowingArchitecture.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(this.ShowingArchitecture.BuildingFacility);
+                    FacilityKind facilityKind = Session.Current.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(this.ShowingArchitecture.BuildingFacility);
                     if (facilityKind != null)
                     {
                         this.FacilityText.AddText("建造中：");
@@ -3525,7 +3525,7 @@ namespace ArchitectureDetail
                         this.TheFacility1Text.AddNewLine();
                         if (this.ShowingArchitecture.BuildingFacility >= 0)
                         {
-                            FacilityKind facilityKind = this.ShowingArchitecture.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(this.ShowingArchitecture.BuildingFacility);
+                            FacilityKind facilityKind = Session.Current.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(this.ShowingArchitecture.BuildingFacility);
                             if (facilityKind != null)
                             {
                                 this.TheFacility1Text.AddText("建造中：");
@@ -3691,7 +3691,7 @@ namespace ArchitectureDetail
                     PageForArchitectureCharacteristic = Switch44;
                     if (this.ShowingArchitecture.BuildingFacility >= 0)
                     {                        
-                        FacilityKind facilityKind = this.ShowingArchitecture.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(this.ShowingArchitecture.BuildingFacility);
+                        FacilityKind facilityKind = Session.Current.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(this.ShowingArchitecture.BuildingFacility);
                         if (facilityKind != null)
                         {
                             HasBuildingFacility = true;
@@ -3711,7 +3711,7 @@ namespace ArchitectureDetail
                     {                                               
                         if (this.ShowingArchitecture.BuildingFacility >= 0)
                         {
-                            FacilityKind facilityKind = this.ShowingArchitecture.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(this.ShowingArchitecture.BuildingFacility);
+                            FacilityKind facilityKind = Session.Current.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(this.ShowingArchitecture.BuildingFacility);
                             if (facilityKind != null)
                             {
                                 this.TheFacility3Text.AddText(this.TheFacility3Text1,this.TheFacility3Text.TitleColor);
@@ -3810,7 +3810,7 @@ namespace ArchitectureDetail
 
         internal void SetPosition(ShowPosition showPosition)
         {
-            Rectangle rectDes = new Rectangle(0, 0, this.screen.viewportSize.X, this.screen.viewportSize.Y);
+            Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
             Rectangle rect = new Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
             switch (showPosition)
             {
@@ -3850,7 +3850,7 @@ namespace ArchitectureDetail
                     rect = StaticMethods.GetBottomRightRectangle(rectDes, rect);
                     break;
             }
-            this.DisplayOffset = new Point(rect.X, rect.Y);
+            this.DisplayOffset = new Point(rect.X, rect.Y + 50);
 
             //this.DisplayOffset = new Point(Convert.ToInt32(rect.X / InputManager.Scale2.X), Convert.ToInt32(rect.Y / InputManager.Scale2.Y));
             foreach (LabelText text in this.LabelTexts)
@@ -3914,20 +3914,20 @@ namespace ArchitectureDetail
                 this.isShowing = value;
                 if (value)
                 {
-                    this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.SubDialog, DialogKind.ArchitectureDetail));
-                    this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                    this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.SubDialog, DialogKind.ArchitectureDetail));
+                    Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                 }
                 else
                 {
-                    if (this.screen.PopUndoneWork().Kind != UndoneWorkKind.SubDialog)
+                    if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.SubDialog)
                     {
                         throw new Exception("The UndoneWork is not a SubDialog.");
                     }
-                    this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                    this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                    Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                     this.CharacteristicText.Clear();
                     this.FacilityText.Clear();
                     this.TheCharacteristic1Text.Clear();
@@ -4288,9 +4288,9 @@ namespace ArchitectureDetail
             //}
             return id;
         }
-        private Texture2D TheCharacteristicShow(int c)
+        private PlatformTexture TheCharacteristicShow(int c)
         {
-            Texture2D P = PictureNull;
+            PlatformTexture P = PictureNull;
             if (c == 1) { P = TheCharacteristicShow1; }
             else if (c == 2) { P = TheCharacteristicShow2; }
             else if (c == 3) { P = TheCharacteristicShow3; }
@@ -4438,9 +4438,9 @@ namespace ArchitectureDetail
              else if(i==30){H=FacilityforPage30Button;}
              return H;
          }
-         private Texture2D FacilityforPageButtonTexture(int i)
+         private PlatformTexture FacilityforPageButtonTexture(int i)
          {
-             Texture2D P = PictureNull;
+             PlatformTexture P = PictureNull;
              if (i == 1) { P = FacilityforPage1ButtonTexture; }
              else if (i == 2) { P = FacilityforPage2ButtonTexture; }
              else if (i == 3) { P = FacilityforPage3ButtonTexture; }
@@ -4473,9 +4473,9 @@ namespace ArchitectureDetail
              else if (i == 30) { P = FacilityforPage30ButtonTexture; }
              return P;
          }
-         private Texture2D FacilityforPagePressedTexture(int i)
+         private PlatformTexture FacilityforPagePressedTexture(int i)
          {
-             Texture2D P = PictureNull;
+             PlatformTexture P = PictureNull;
              if (i == 1) { P = FacilityforPage1PressedTexture; }
              else if (i == 2) { P = FacilityforPage2PressedTexture; }
              else if (i == 3) { P = FacilityforPage3PressedTexture; }
@@ -4558,9 +4558,9 @@ namespace ArchitectureDetail
              return D;
          }
         // 
-         private Texture2D ThePageForFacilityMask(int i)
+         private PlatformTexture ThePageForFacilityMask(int i)
          {
-             Texture2D P = PictureNull;
+             PlatformTexture P = PictureNull;
              if (i == 1) { P = PageForFacilityMask1; }
              else if (i == 2) { P = PageForFacilityMask2; }
              else if (i == 3) { P = PageForFacilityMask3; }
@@ -4593,9 +4593,9 @@ namespace ArchitectureDetail
              else if (i == 30) { P = PageForFacilityMask30; }
              return P;
          }
-         private Texture2D ThePageForFacilityBackground(int i)
+         private PlatformTexture ThePageForFacilityBackground(int i)
          {
-             Texture2D P = PictureNull;
+             PlatformTexture P = PictureNull;
              if (i == 1) { P = PageForFacilityBackground1; }
              else if (i == 2) { P = PageForFacilityBackground2; }
              else if (i == 3) { P = PageForFacilityBackground3; }
@@ -5513,9 +5513,9 @@ namespace ArchitectureDetail
            if (HasTheFacilityKind(i) == true && TheFacilityButton(i) == true) { H = true; }           
            return H;
        }
-        private Texture2D TheFacilityPictureA(int i)
+        private PlatformTexture TheFacilityPictureA(int i)
         {
-            Texture2D P=PictureNull;
+            PlatformTexture P=PictureNull;
             if(i==1){P=Facility1PictureA;}
             else if (i == 2) { P = Facility2PictureA; }
             else if (i == 3) { P = Facility3PictureA; }
@@ -5718,9 +5718,9 @@ namespace ArchitectureDetail
             else if (i == 200) { P = Facility200PictureA; }
             return P;
         }
-        private Texture2D TheFacilityPictureB(int i)
+        private PlatformTexture TheFacilityPictureB(int i)
         {
-            Texture2D P=PictureNull;
+            PlatformTexture P=PictureNull;
             if(i==1){P=Facility1PictureB;}
             else if (i == 2) { P = Facility2PictureB; }
             else if (i == 3) { P = Facility3PictureB; }
@@ -6147,9 +6147,9 @@ namespace ArchitectureDetail
             return D;
         }
         //
-        private Texture2D TheFacilityTextPicture(int i)
+        private PlatformTexture TheFacilityTextPicture(int i)
         {
-            Texture2D P=PictureNull;
+            PlatformTexture P=PictureNull;
             if (i == 1) { P = Facility1TextPicture; }
             else if (i == 2) { P = Facility2TextPicture; }
             else if (i == 2) { P = Facility2TextPicture; }
@@ -6575,7 +6575,7 @@ namespace ArchitectureDetail
                 {
                     if (FacilityDescriptionTextFollowTheMouse == "on")
                     {
-                        return new Rectangle(this.FacilityDescriptionTextBackgroundClient.X + this.screen.MousePosition.X, this.FacilityDescriptionTextBackgroundClient.Y + this.screen.MousePosition.Y, this.FacilityDescriptionTextBackgroundClient.Width, this.FacilityDescriptionTextBackgroundClient.Height);
+                        return new Rectangle(this.FacilityDescriptionTextBackgroundClient.X + Session.MainGame.mainGameScreen.MousePosition.X, this.FacilityDescriptionTextBackgroundClient.Y + Session.MainGame.mainGameScreen.MousePosition.Y, this.FacilityDescriptionTextBackgroundClient.Width, this.FacilityDescriptionTextBackgroundClient.Height);
                     }
                     return new Rectangle(this.FacilityDescriptionTextBackgroundClient.X + this.DisplayOffset.X, this.FacilityDescriptionTextBackgroundClient.Y + this.DisplayOffset.Y, this.FacilityDescriptionTextBackgroundClient.Width, this.FacilityDescriptionTextBackgroundClient.Height);
                 }

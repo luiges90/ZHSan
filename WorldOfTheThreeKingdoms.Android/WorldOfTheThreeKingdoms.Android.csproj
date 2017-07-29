@@ -46,7 +46,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <OutputPath>bin\Android\</OutputPath>
     <DefineConstants>TRACE;ANDROID</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -47207,6 +47207,26 @@
   <ItemGroup>
     <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\ArchitectureDetail\Data\TheFacilityPage\Background\TextBackground.jpg">
       <Link>Assets\Content\Textures\GameComponents\ArchitectureDetail\Data\TheFacilityPage\Background\TextBackground.jpg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\Content\TexturesAlpha\Resources\Start\Setting.png">
+      <Link>Assets\Content\Textures\Resources\Start\Setting.png</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\AwardTitle.jpg">
+      <Link>Assets\Content\Textures\GameComponents\tupianwenzi\Data\tupian\AwardTitle.jpg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\TruceDiplomaticRelation.jpg">
+      <Link>Assets\Content\Textures\GameComponents\tupianwenzi\Data\tupian\TruceDiplomaticRelation.jpg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\beiyue.jpg">
+      <Link>Assets\Content\Textures\GameComponents\tupianwenzi\Data\tupian\beiyue.jpg</Link>
     </AndroidAsset>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

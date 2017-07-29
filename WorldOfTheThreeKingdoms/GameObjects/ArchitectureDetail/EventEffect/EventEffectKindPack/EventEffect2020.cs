@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using System;
 
 
@@ -11,11 +12,11 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
 
         public override void ApplyEffectKind(Faction f, Event e)
         {
-            GameObjects.FactionDetail.Technique technique = f.Scenario.GameCommonData.AllTechniques.GetTechnique(increment);
+            GameObjects.FactionDetail.Technique technique = Session.Current.Scenario.GameCommonData.AllTechniques.GetTechnique(increment);
             f.AvailableTechniques.AddTechnique(technique);
-            f.Scenario.NewInfluence = true;
+            Session.Current.Scenario.NewInfluence = true;
             technique.Influences.ApplyInfluence(f, GameObjects.Influences.Applier.Technique, increment);
-            f.Scenario.NewInfluence = false;
+            Session.Current.Scenario.NewInfluence = false;
         }
 
         public override void InitializeParameter(string parameter)

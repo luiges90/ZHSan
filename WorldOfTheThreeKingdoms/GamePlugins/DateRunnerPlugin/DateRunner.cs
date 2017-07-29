@@ -2,16 +2,18 @@
 using GameGlobal;
 using GameManager;
 using GameObjects;
+using GamePanels;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using WorldOfTheThreeKingdoms.GameScreens;
 
 namespace DateRunnerPlugin
 {
 
     internal class DateRunner : Tool
     {
-        internal Texture2D BackgroundTexture;
+        internal PlatformTexture BackgroundTexture;
         internal GameDate Date;
         private int daysLeftBackUp;
 
@@ -31,36 +33,68 @@ namespace DateRunnerPlugin
         //internal FreeTextBuilder DaysToGoTextBuilder = new FreeTextBuilder();
 
         internal Color DaysToGoTextColor;
-        private Texture2D FirstDigitLowerArrowDisplayTexture;
+        private PlatformTexture FirstDigitLowerArrowDisplayTexture;
         internal Rectangle FirstDigitLowerArrowPosition;
-        private Texture2D FirstDigitUpperArrowDisplayTexture;
+        private PlatformTexture FirstDigitUpperArrowDisplayTexture;
         internal Rectangle FirstDigitUpperArrowPosition;
-        internal Texture2D LowerArrowSelectedTexture;
-        internal Texture2D LowerArrowTexture;
+        internal PlatformTexture LowerArrowSelectedTexture;
+        internal PlatformTexture LowerArrowTexture;
         private const int MaxDay = 0x63;
-        internal Texture2D PauseSelectedTexture;
-        internal Texture2D PauseTexture;
-        private Texture2D PlayDisplayTexture;
+        internal PlatformTexture PauseSelectedTexture;
+        internal PlatformTexture PauseTexture;
+        private PlatformTexture PlayDisplayTexture;
         private bool playing = false;
         internal Rectangle PlayPosition;
-        internal Texture2D PlaySelectedTexture;
-        internal Texture2D PlayTexture;
+        internal PlatformTexture PlaySelectedTexture;
+        internal PlatformTexture PlayTexture;
+#pragma warning disable CS0414 // The field 'DateRunner.runLastDay' is assigned but its value is never used
         private bool runLastDay = false;
-        private Screen screen;
-        private Texture2D SecondDigitLowerArrowDisplayTexture;
+#pragma warning restore CS0414 // The field 'DateRunner.runLastDay' is assigned but its value is never used
+        
+        private PlatformTexture SecondDigitLowerArrowDisplayTexture;
         internal Rectangle SecondDigitLowerArrowPosition;
-        private Texture2D SecondDigitUpperArrowDisplayTexture;
+        private PlatformTexture SecondDigitUpperArrowDisplayTexture;
         internal Rectangle SecondDigitUpperArrowPosition;
-        private Texture2D StopDisplayTexture;
+        private PlatformTexture StopDisplayTexture;
         internal Rectangle StopPosition;
-        internal Texture2D StopSelectedTexture;
-        internal Texture2D StopTexture;
+        internal PlatformTexture StopSelectedTexture;
+        internal PlatformTexture StopTexture;
         internal bool Updated = false;
-        internal Texture2D UpperArrowSelectedTexture;
-        internal Texture2D UpperArrowTexture;
+        internal PlatformTexture UpperArrowSelectedTexture;
+        internal PlatformTexture UpperArrowTexture;
         internal bool yizhiyunxing = false;
 
         private const int MAX_DAY = 99;
+
+        ButtonTexture btChangeDays = null;
+
+        public DateRunner()
+        {
+            btChangeDays = new ButtonTexture(@"Content\Textures\Resources\Start\Setting", "Setting", null);
+            btChangeDays.Scale = 0.8f;
+            btChangeDays.OnButtonPress += (sender, e) =>
+            {
+                GameDelegates.VoidFunction function = null;
+
+                Session.MainGame.mainGameScreen.Plugins.NumberInputerPlugin.SetMax(MAX_DAY);
+                Session.MainGame.mainGameScreen.Plugins.NumberInputerPlugin.SetMapPosition(ShowPosition.Center);
+                Session.MainGame.mainGameScreen.Plugins.NumberInputerPlugin.SetDepthOffset(-0.01f);
+                if (function == null)
+                {
+                    function = delegate
+                    {
+                        var number = Session.MainGame.mainGameScreen.Plugins.NumberInputerPlugin.Number;
+                        if (number < 1)
+                        {
+                            number = 1;
+                        }
+                        DaysToGo = number;
+                    };
+                }
+                Session.MainGame.mainGameScreen.Plugins.NumberInputerPlugin.SetEnterFunction(function);
+                Session.MainGame.mainGameScreen.Plugins.NumberInputerPlugin.IsShowing = true;
+            };
+        }
 
         internal void DateGo()
         {
@@ -79,7 +113,7 @@ namespace DateRunnerPlugin
 
         internal void DateStop()
         {
-            if (this.Date.EndRunning() && !GlobalVariables.EnableResposiveThreading)
+            if (this.Date.EndRunning() && !Session.GlobalVariables.EnableResposiveThreading)
             {
                 if (this.yizhiyunxing)
                 {
@@ -116,26 +150,29 @@ namespace DateRunnerPlugin
             return ("0" + daysLeftBackUp.ToString());
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw()
         {
             Rectangle? sourceRectangle = null;
-            spriteBatch.Draw(this.FirstDigitUpperArrowDisplayTexture, this.FirstDigitUpperArrowDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
+
+            /*
+            CacheManager.Draw(this.FirstDigitUpperArrowDisplayTexture, this.FirstDigitUpperArrowDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
             sourceRectangle = null;
-            spriteBatch.Draw(this.FirstDigitLowerArrowDisplayTexture, this.FirstDigitLowerArrowDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
+            CacheManager.Draw(this.FirstDigitLowerArrowDisplayTexture, this.FirstDigitLowerArrowDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
             sourceRectangle = null;
-            spriteBatch.Draw(this.SecondDigitUpperArrowDisplayTexture, this.SecondDigitUpperArrowDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
+            CacheManager.Draw(this.SecondDigitUpperArrowDisplayTexture, this.SecondDigitUpperArrowDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
             sourceRectangle = null;
-            spriteBatch.Draw(this.SecondDigitLowerArrowDisplayTexture, this.SecondDigitLowerArrowDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
+            CacheManager.Draw(this.SecondDigitLowerArrowDisplayTexture, this.SecondDigitLowerArrowDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
             sourceRectangle = null;
+            */
 
             var first = ((this.DaysToGo / 10) % 10).ToString();
             var pos = new Vector2(this.DaysToGoFirstDigitTextDisplayPosition.X, this.DaysToGoFirstDigitTextDisplayPosition.Y);
 
             var scale = 1f; //DaysToGoTextBuilder.Scale
 
-            CacheManager.DrawString(Session.Current.Font, first, pos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.0999f);
+            //CacheManager.DrawString(Session.Current.Font, first, pos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.0999f);
             
-            //spriteBatch.Draw(this.DaysToGoFirstDigitTextTexture, this.DaysToGoFirstDigitTextDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0999f);
+            //CacheManager.Draw(this.DaysToGoFirstDigitTextTexture, this.DaysToGoFirstDigitTextDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0999f);
 
             sourceRectangle = null;
 
@@ -145,13 +182,13 @@ namespace DateRunnerPlugin
 
             scale = 1f; //DaysToGoTextBuilder.Scale
 
-            CacheManager.DrawString(Session.Current.Font, num.ToString(), pos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.0999f);
-            //spriteBatch.Draw(this.DaysToGoSecondDigitTextTexture, this.DaysToGoSecondDigitTextDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0999f);
+            //CacheManager.DrawString(Session.Current.Font, num.ToString(), pos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.0999f);
+            //CacheManager.Draw(this.DaysToGoSecondDigitTextTexture, this.DaysToGoSecondDigitTextDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0999f);
 
             sourceRectangle = null;
-            spriteBatch.Draw(this.PlayDisplayTexture, this.PlayDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
+            CacheManager.Draw(this.PlayDisplayTexture, this.PlayDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
             sourceRectangle = null;
-            spriteBatch.Draw(this.StopDisplayTexture, this.StopDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
+            CacheManager.Draw(this.StopDisplayTexture, this.StopDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.099f);
 
             var left = this.DaysLeftString();
             pos = new Vector2(this.DaysLeftTextDisplayPosition.X, this.DaysLeftTextDisplayPosition.Y);
@@ -159,18 +196,20 @@ namespace DateRunnerPlugin
             scale = 1f; //DaysLeftTextBuilder.Scale
 
             CacheManager.DrawString(Session.Current.Font, left, pos, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.0999f);
-            //spriteBatch.Draw(this.DaysLeftTextTexture, this.DaysLeftTextDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0999f);
+            //CacheManager.Draw(this.DaysLeftTextTexture, this.DaysLeftTextDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.0999f);
+            
+            CacheManager.DrawString(Session.Current.Font, first + num.ToString(), pos + new Vector2(28, 0), Color.Yellow, 0f, Vector2.Zero, scale, SpriteEffects.None, 0.08f);
 
+            btChangeDays.Draw();
         }
 
-        public override void DrawBackground(SpriteBatch spriteBatch, Rectangle Position)
+        public override void DrawBackground(Rectangle Position)
         {
-            spriteBatch.Draw(this.BackgroundTexture, Position, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.09999f);
+            CacheManager.Draw(this.BackgroundTexture, Position, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.09999f);
         }
 
         internal void Initialize(Screen screen)
-        {
-            this.screen = screen;
+        {            
             screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
             screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
         }
@@ -221,14 +260,14 @@ namespace DateRunnerPlugin
         {
             if ((((this.DaysLeft == 0) && (this.daysLeftBackUp == 0)) && (this.DaysToGo > 0)) && !this.playing)
             {
-                if ((this.screen.Scenario.CurrentFaction == this.screen.Scenario.CurrentPlayer) && this.screen.Scenario.CurrentPlayer.Controlling)
+                if ((Session.Current.Scenario.CurrentFaction == Session.Current.Scenario.CurrentPlayer) && Session.Current.Scenario.CurrentPlayer.Controlling)
                 {
-                    if (this.screen.Scenario.CurrentPlayer != null)
+                    if (Session.Current.Scenario.CurrentPlayer != null)
                     {
-                        this.screen.Scenario.CurrentPlayer.Passed = true;
-                        this.screen.Scenario.CurrentPlayer.Controlling = false;
+                        Session.Current.Scenario.CurrentPlayer.Passed = true;
+                        Session.Current.Scenario.CurrentPlayer.Controlling = false;
                     }
-                    if (this.screen.Scenario.IsLastPlayer(this.screen.Scenario.CurrentPlayer))
+                    if (Session.Current.Scenario.IsLastPlayer(Session.Current.Scenario.CurrentPlayer))
                     {
                         this.RunDays(this.DaysToGo);
                     }
@@ -243,14 +282,14 @@ namespace DateRunnerPlugin
                 this.PlayDisplayTexture = this.PlaySelectedTexture;
                 this.Updated = false;
             }
-            else if ((((this.daysLeftBackUp > 0) && !this.playing) && (this.DaysLeft == 0)) && ((this.screen.Scenario.CurrentFaction == this.screen.Scenario.CurrentPlayer) && this.screen.Scenario.CurrentPlayer.Controlling))
+            else if ((((this.daysLeftBackUp > 0) && !this.playing) && (this.DaysLeft == 0)) && ((Session.Current.Scenario.CurrentFaction == Session.Current.Scenario.CurrentPlayer) && Session.Current.Scenario.CurrentPlayer.Controlling))
             {
-                if (this.screen.Scenario.CurrentPlayer != null)
+                if (Session.Current.Scenario.CurrentPlayer != null)
                 {
-                    this.screen.Scenario.CurrentPlayer.Passed = true;
-                    this.screen.Scenario.CurrentPlayer.Controlling = false;
+                    Session.Current.Scenario.CurrentPlayer.Passed = true;
+                    Session.Current.Scenario.CurrentPlayer.Controlling = false;
                 }
-                if (this.screen.Scenario.IsLastPlayer(this.screen.Scenario.CurrentPlayer))
+                if (Session.Current.Scenario.IsLastPlayer(Session.Current.Scenario.CurrentPlayer))
                 {
                     this.RunDays(0);
                 }
@@ -295,43 +334,43 @@ namespace DateRunnerPlugin
 
                     this.Stop();
                 }
-                else if (StaticMethods.PointInRectangle(position, this.FirstDigitUpperArrowDisplayPosition))
-                {
-                    if (this.DaysToGo <= 0x63)
-                    {
-                        this.DaysToGo += 10;
-                        if (this.DaysToGo > 0x63)
-                        {
-                            this.DaysToGo = 0x63;
-                        }
-                        this.Updated = false;
-                    }
-                }
-                else if (StaticMethods.PointInRectangle(position, this.FirstDigitLowerArrowDisplayPosition))
-                {
-                    if (this.DaysToGo > 1)
-                    {
-                        this.DaysToGo -= 10;
-                        if (this.DaysToGo < 1)
-                        {
-                            this.DaysToGo = 1;
-                        }
-                        this.Updated = false;
-                    }
-                }
-                else if (StaticMethods.PointInRectangle(position, this.SecondDigitUpperArrowDisplayPosition))
-                {
-                    if (this.DaysToGo < 0x63)
-                    {
-                        this.DaysToGo++;
-                        this.Updated = false;
-                    }
-                }
-                else if (StaticMethods.PointInRectangle(position, this.SecondDigitLowerArrowDisplayPosition) && (this.DaysToGo > 1))
-                {
-                    this.DaysToGo--;
-                    this.Updated = false;
-                }
+                //else if (StaticMethods.PointInRectangle(position, this.FirstDigitUpperArrowDisplayPosition))
+                //{
+                //    if (this.DaysToGo <= 0x63)
+                //    {
+                //        this.DaysToGo += 10;
+                //        if (this.DaysToGo > 0x63)
+                //        {
+                //            this.DaysToGo = 0x63;
+                //        }
+                //        this.Updated = false;
+                //    }
+                //}
+                //else if (StaticMethods.PointInRectangle(position, this.FirstDigitLowerArrowDisplayPosition))
+                //{
+                //    if (this.DaysToGo > 1)
+                //    {
+                //        this.DaysToGo -= 10;
+                //        if (this.DaysToGo < 1)
+                //        {
+                //            this.DaysToGo = 1;
+                //        }
+                //        this.Updated = false;
+                //    }
+                //}
+                //else if (StaticMethods.PointInRectangle(position, this.SecondDigitUpperArrowDisplayPosition))
+                //{
+                //    if (this.DaysToGo < 0x63)
+                //    {
+                //        this.DaysToGo++;
+                //        this.Updated = false;
+                //    }
+                //}
+                //else if (StaticMethods.PointInRectangle(position, this.SecondDigitLowerArrowDisplayPosition) && (this.DaysToGo > 1))
+                //{
+                //    this.DaysToGo--;
+                //    this.Updated = false;
+                //}
             }
         }
 
@@ -356,22 +395,22 @@ namespace DateRunnerPlugin
                     this.StopDisplayTexture = this.StopSelectedTexture;
                     this.ResetPlayDisplayTexture();
                 }
-                else if (StaticMethods.PointInRectangle(position, this.FirstDigitUpperArrowDisplayPosition))
-                {
-                    this.FirstDigitUpperArrowDisplayTexture = this.UpperArrowSelectedTexture;
-                }
-                else if (StaticMethods.PointInRectangle(position, this.FirstDigitLowerArrowDisplayPosition))
-                {
-                    this.FirstDigitLowerArrowDisplayTexture = this.LowerArrowSelectedTexture;
-                }
-                else if (StaticMethods.PointInRectangle(position, this.SecondDigitUpperArrowDisplayPosition))
-                {
-                    this.SecondDigitUpperArrowDisplayTexture = this.UpperArrowSelectedTexture;
-                }
-                else if (StaticMethods.PointInRectangle(position, this.SecondDigitLowerArrowDisplayPosition))
-                {
-                    this.SecondDigitLowerArrowDisplayTexture = this.LowerArrowSelectedTexture;
-                }
+                //else if (StaticMethods.PointInRectangle(position, this.FirstDigitUpperArrowDisplayPosition))
+                //{
+                //    this.FirstDigitUpperArrowDisplayTexture = this.UpperArrowSelectedTexture;
+                //}
+                //else if (StaticMethods.PointInRectangle(position, this.FirstDigitLowerArrowDisplayPosition))
+                //{
+                //    this.FirstDigitLowerArrowDisplayTexture = this.LowerArrowSelectedTexture;
+                //}
+                //else if (StaticMethods.PointInRectangle(position, this.SecondDigitUpperArrowDisplayPosition))
+                //{
+                //    this.SecondDigitUpperArrowDisplayTexture = this.UpperArrowSelectedTexture;
+                //}
+                //else if (StaticMethods.PointInRectangle(position, this.SecondDigitLowerArrowDisplayPosition))
+                //{
+                //    this.SecondDigitLowerArrowDisplayTexture = this.LowerArrowSelectedTexture;
+                //}
                 else
                 {
                     this.ResetDisplayTextures();
@@ -387,11 +426,11 @@ namespace DateRunnerPlugin
                 this.PlayDisplayTexture = this.PlayTexture;
                 this.Updated = false;
             }
-            else if (((!this.playing && (this.daysLeftBackUp > 0)) && (this.DaysLeft == 0)) && ((this.screen.Scenario.CurrentFaction == this.screen.Scenario.CurrentPlayer) && this.screen.Scenario.CurrentPlayer.Controlling))
+            else if (((!this.playing && (this.daysLeftBackUp > 0)) && (this.DaysLeft == 0)) && ((Session.Current.Scenario.CurrentFaction == Session.Current.Scenario.CurrentPlayer) && Session.Current.Scenario.CurrentPlayer.Controlling))
             {
-                if (this.screen.Scenario.CurrentPlayer.Passed)
+                if (Session.Current.Scenario.CurrentPlayer.Passed)
                 {
-                    this.screen.Scenario.CurrentPlayer.Passed = false;
+                    Session.Current.Scenario.CurrentPlayer.Passed = false;
                 }
                 this.daysLeftBackUp = 0;
 
@@ -410,6 +449,12 @@ namespace DateRunnerPlugin
                 //this.DaysLeftTextTexture = this.DaysLeftTextBuilder.CreateTextTexture(this.DaysLeftString());
                 this.Updated = true;
             }
+
+            var pos = new Vector2(this.DaysToGoFirstDigitTextDisplayPosition.X - 5, this.DaysToGoFirstDigitTextDisplayPosition.Y - 15);
+
+            btChangeDays.Position = pos;
+
+            btChangeDays.Update();
         }
 
         internal int DaysLeft

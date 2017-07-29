@@ -1,4 +1,5 @@
-﻿using GameObjects.FactionDetail;
+﻿using GameManager;
+using GameObjects.FactionDetail;
 using System;
 using System.Runtime.Serialization;
 
@@ -13,8 +14,8 @@ namespace GameObjects
             {
                 base.GameObjects.Add(faction);
             }
-            if (faction.Scenario.GameScreen != null)
-            {
+            //if (Session.MainGame.mainGameScreen != null)
+            //{
                 faction.OnGetControl += new Faction.GetControl(this.faction_OnGetControl);
                 faction.OnFactionDestroy += new Faction.FactionDestroy(this.faction_OnFactionDestroy);
                 faction.OnAfterCatchLeader += new Faction.AfterCatchLeader(this.faction_OnAfterCatchLeader);
@@ -22,7 +23,7 @@ namespace GameObjects
                 faction.OnInitiativeChangeCapital += new Faction.InitiativeChangeCapital(this.faction_OnInitiativeChangeCapital);
                 faction.OnForcedChangeCapital += new Faction.ForcedChangeCapital(this.faction_OnForcedChangeCapital);
                 faction.OnTechniqueFinished += new Faction.TechniqueFinished(this.faction_OnTechniqueFinished);
-            }
+            //}
         }
 
         public void ApplyInfluences()
@@ -35,37 +36,37 @@ namespace GameObjects
 
         private void faction_OnAfterCatchLeader(Person leader, Faction faction)
         {
-            faction.Scenario.GameScreen.FactionAfterCatchLeader(leader, faction);
+            Session.MainGame.mainGameScreen.FactionAfterCatchLeader(leader, faction);
         }
 
         private void faction_OnFactionDestroy(Faction faction)
         {
-            faction.Scenario.GameScreen.FactionDestroy(faction);
+            Session.MainGame.mainGameScreen.FactionDestroy(faction);
         }
 
         private void faction_OnForcedChangeCapital(Faction faction, Architecture oldCapital, Architecture newCapital)
         {
-            faction.Scenario.GameScreen.FactionForcedChangeCapital(faction, oldCapital, newCapital);
+            Session.MainGame.mainGameScreen.FactionForcedChangeCapital(faction, oldCapital, newCapital);
         }
 
         private void faction_OnGetControl(Faction faction)
         {
-            faction.Scenario.GameScreen.FactionGetControl(faction);
+            Session.MainGame.mainGameScreen.FactionGetControl(faction);
         }
 
         private void faction_OnInitiativeChangeCapital(Faction faction, Architecture oldCapital, Architecture newCapital)
         {
-            faction.Scenario.GameScreen.FactionInitialtiveChangeCapital(faction, oldCapital, newCapital);
+            Session.MainGame.mainGameScreen.FactionInitialtiveChangeCapital(faction, oldCapital, newCapital);
         }
 
         private void faction_OnTechniqueFinished(Faction faction, Technique technique)
         {
-            faction.Scenario.GameScreen.FactionTechniqueFinished(faction, technique);
+            Session.MainGame.mainGameScreen.FactionTechniqueFinished(faction, technique);
         }
 
         private void faction_OnUpgradeTechnique(Faction faction, Technique technique, Architecture architecture)
         {
-            faction.Scenario.GameScreen.FactionUpgradeTechnique(faction, technique, architecture);
+            Session.MainGame.mainGameScreen.FactionUpgradeTechnique(faction, technique, architecture);
         }
 
         public void RemoveFaction(Faction faction)

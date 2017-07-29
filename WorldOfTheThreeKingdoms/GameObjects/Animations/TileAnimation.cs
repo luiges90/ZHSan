@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GameManager;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
@@ -16,7 +17,7 @@ namespace GameObjects.Animations
         public bool Looping;
         public Point Position;
 
-        public void Draw(SpriteBatch spriteBatch, Rectangle destination)
+        public void Draw(Rectangle destination)
         {
             if (this.Drawing)
             {
@@ -28,7 +29,7 @@ namespace GameObjects.Animations
                     {
                         layerDepth = 0.75f;
                     }
-                    spriteBatch.Draw(this.LinkedAnimation.Texture, destination, new Rectangle?(this.LinkedAnimation.GetCurrentDisplayRectangle(ref this.currentFrameIndex, ref this.currentStayIndex, this.LinkedAnimation.Texture.Width / this.LinkedAnimation.FrameCount, 0, out endLoop, false)), Color.White, 0f, Vector2.Zero, SpriteEffects.None, layerDepth);
+                    CacheManager.Draw(this.LinkedAnimation.Texture, destination, new Rectangle?(this.LinkedAnimation.GetCurrentDisplayRectangle(ref this.currentFrameIndex, ref this.currentStayIndex, this.LinkedAnimation.Texture.Width / this.LinkedAnimation.FrameCount, 0, out endLoop, false)), Color.White, 0f, Vector2.Zero, SpriteEffects.None, layerDepth);
                     if (endLoop)
                     {
                         if (this.Looping)

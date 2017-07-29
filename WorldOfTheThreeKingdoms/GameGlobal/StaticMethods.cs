@@ -52,7 +52,7 @@ namespace GameGlobal
             return new Vector2(Convert.ToInt32(width * scale), 25 * scale);
         }
 
-        public void SetFreeTextBuilder(GraphicsDevice graphicsDevice, Font font)
+        public void SetFreeTextBuilder(Font font)
         {
             Name = font.Name;
             Size = font.Size;
@@ -119,15 +119,15 @@ namespace GameGlobal
             return new Microsoft.Xna.Framework.Rectangle(rectDes.Left + ((rectDes.Width - rect.Width) / 2), rectDes.Top + ((rectDes.Height - rect.Height) / 2), rect.Width, rect.Height);
         }
 
-        public static object GetConstValue(Type type, string PropertyName)
-        {
-            FieldInfo field = type.GetField(PropertyName, BindingFlags.Public | BindingFlags.Static);
-            if (field != null)
-            {
-                return field.GetRawConstantValue();
-            }
-            return null;
-        }
+        //public static object GetConstValue(Type type, string PropertyName)
+        //{
+        //    FieldInfo field = type.GetField(PropertyName, BindingFlags.Public | BindingFlags.Static);
+        //    if (field != null)
+        //    {
+        //        return field.GetRawConstantValue();
+        //    }
+        //    return null;
+        //}
 
         public static ContextMenuResult GetContextMenuResultByName(string Name)
         {

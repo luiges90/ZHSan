@@ -1,7 +1,7 @@
 ﻿using GameObjects;
 using GameObjects.Conditions;
 using System;
-
+using GameManager;
 
 using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKindPack
 {
@@ -10,7 +10,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
     {
         public override bool CheckConditionKind(Troop troop)
         {
-            return troop.Scenario.GetArchitectureByPosition(troop.Position) != null;
+            return Session.Current.Scenario.GetArchitectureByPosition(troop.Position) != null;
         }
     }
 }

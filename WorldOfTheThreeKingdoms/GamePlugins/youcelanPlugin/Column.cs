@@ -46,29 +46,29 @@ namespace youcelanPlugin
             this.ColumnTextList.Clear();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             if (this.DisplayPosition.Right > this.tabList.VisibleLowerClient.Right)
             {
                 if (this.DisplayPosition.Left < this.tabList.VisibleLowerClient.Right)
                 {
-                    spriteBatch.Draw(this.tabList.rightArrowTexture, StaticMethods.LeftRectangle(this.DisplayPosition, new Rectangle(0, 0, this.tabList.rightArrowTexture.Width, this.tabList.rightArrowTexture.Height)), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.35f);
+                    CacheManager.Draw(this.tabList.rightArrowTexture, StaticMethods.LeftRectangle(this.DisplayPosition, new Rectangle(0, 0, this.tabList.rightArrowTexture.Width, this.tabList.rightArrowTexture.Height)), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.35f);
                 }
             }
             else if (this.DisplayPosition.Left < this.tabList.VisibleLowerClient.Left)
             {
                 if (this.DisplayPosition.Right > this.tabList.VisibleLowerClient.Left)
                 {
-                    spriteBatch.Draw(this.tabList.leftArrowTexture, StaticMethods.RightRectangle(this.DisplayPosition, new Rectangle(0, 0, this.tabList.leftArrowTexture.Width, this.tabList.leftArrowTexture.Height)), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.35f);
+                    CacheManager.Draw(this.tabList.leftArrowTexture, StaticMethods.RightRectangle(this.DisplayPosition, new Rectangle(0, 0, this.tabList.leftArrowTexture.Width, this.tabList.leftArrowTexture.Height)), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.35f);
                 }
             }
             else
             {
                 Rectangle? sourceRectangle = null;
-                spriteBatch.Draw(this.tabList.columnheaderTexture, this.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.35f);
+                CacheManager.Draw(this.tabList.columnheaderTexture, this.DisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.35f);
                 sourceRectangle = null;
-                spriteBatch.Draw(this.tabList.columnspliterTexture, this.SpliterPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.35f);
-                this.Text.Draw(spriteBatch, 0.3499f);
+                CacheManager.Draw(this.tabList.columnspliterTexture, this.SpliterPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.35f);
+                this.Text.Draw(0.3499f);
                 for (int i = 0; i < this.ColumnTextList.Count; i++)
                 {
                     if (((this.ColumnTextList.DisplayPosition(i).Bottom <= this.tabList.VisibleLowerClient.Bottom) && (this.ColumnTextList.DisplayPosition(i).Top >= this.DisplayPosition.Bottom)) && !String.IsNullOrEmpty(this.ColumnTextList[i].Text))
@@ -84,11 +84,11 @@ namespace youcelanPlugin
 
                             CacheManager.DrawString(Session.Current.Font, text, pos, Color.White, 0f, Vector2.Zero, Text.Builder.Scale, SpriteEffects.None, 0.3499f);
 
-                            //spriteBatch.Draw(this.ColumnTextList[i].TextTexture, StaticMethods.CenterRectangle(this.ColumnTextList.DisplayPosition(i), new Rectangle(0, 0, this.tabList.checkboxWidth, this.tabList.checkboxWidth)), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3499f);
+                            //CacheManager.Draw(this.ColumnTextList[i].TextTexture, StaticMethods.CenterRectangle(this.ColumnTextList.DisplayPosition(i), new Rectangle(0, 0, this.tabList.checkboxWidth, this.tabList.checkboxWidth)), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.3499f);
                         }
                         else
                         {
-                            this.ColumnTextList.Draw(spriteBatch, i, 0.3499f);
+                            this.ColumnTextList.Draw(i, 0.3499f);
                         }
                     }
                 }

@@ -2,7 +2,7 @@
 using GameObjects.Influences;
 using System;
 using GameGlobal;
-
+using GameManager;
 
 using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKindPack
 {
@@ -18,7 +18,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
 
         public override void PurifyInfluenceKind(Architecture person)
         {
-            person.DayLearnTitleDay = Parameters.LearnTitleDays;
+            person.DayLearnTitleDay = Session.Parameters.LearnTitleDays;
         }
 
         public override void InitializeParameter(string parameter)

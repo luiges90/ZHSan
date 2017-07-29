@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using System;
 
 
@@ -11,7 +12,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
 
         public override void ApplyEffectKind(Architecture a, Event e)
         {
-            a.BuildFacility(a.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(id));
+            a.BuildFacility(Session.Current.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(id));
         }
 
         public override void InitializeParameter(string parameter)

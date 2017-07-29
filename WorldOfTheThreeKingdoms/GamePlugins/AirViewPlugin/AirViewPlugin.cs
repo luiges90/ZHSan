@@ -32,11 +32,12 @@ namespace AirViewPlugin
     public class AirViewPlugin : GameObject, IAirView, IBasePlugin, IPluginXML, IPluginGraphics, IScreenDisableRects
     {
         private AirView airView = new AirView();
+#pragma warning disable CS0169 // The field 'AirViewPlugin.architectureImage' is never used
         private Image architectureImage;
+#pragma warning restore CS0169 // The field 'AirViewPlugin.architectureImage' is never used
         private string author = "clip_on";
         private const string DataPath = @"Content\Textures\GameComponents\AirView\Data\";
         private string description = "微缩地图";
-        private GraphicsDevice graphicsDevice;
         private const string Path = @"Content\Textures\GameComponents\AirView\";
         private string pluginName = "AirViewPlugin";
         private List<Image> TerrainImages = new List<Image>();
@@ -55,16 +56,16 @@ namespace AirViewPlugin
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public void Draw(GameTime gameTime)
         {
-            this.airView.Draw(spriteBatch,gameTime);
+            this.airView.Draw(gameTime);
         }
 
-        public void Initialize()
+        public void Initialize(Screen screen)
         {
             for (int i = 0; i < Enum.GetValues(typeof(TerrainKind)).Length; i++)
             {
@@ -87,8 +88,8 @@ namespace AirViewPlugin
             this.airView.Align = (ToolAlign)Enum.Parse(typeof(ToolAlign), node.Attributes.GetNamedItem("Align").Value);
             this.airView.Width = int.Parse(node.Attributes.GetNamedItem("Width").Value);
             node = nextSibling.ChildNodes.Item(1);
-            this.airView.ToolTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.airView.ToolSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.airView.ToolTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.airView.ToolSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             this.airView.ToolDisplayTexture = this.airView.ToolTexture;
             this.airView.ToolPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             node = nextSibling.ChildNodes.Item(2);
@@ -100,35 +101,35 @@ namespace AirViewPlugin
             this.airView.TileLength = this.airView.DefaultTileLength;
             this.airView.TileLengthMax = int.Parse(node.Attributes.GetNamedItem("TileLengthMax").Value);
             node = nextSibling.ChildNodes.Item(3);
-            this.airView.FrameTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.airView.FrameTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(4);
-            this.airView.ArchitectureUnitTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.airView.ArchitectureUnitTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(5);
             this.troopImage = Image.FromFile(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.troopFriendlyImage = Image.FromFile(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("Friendly").Value);
             this.troopHostileImage = Image.FromFile(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("Hostile").Value);
-            this.airView.TroopFactionColorTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.airView.TroopFactionColorTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             node = nextSibling.ChildNodes.Item(6);
-            this.airView.ConmentBackgroundTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.airView.ConmentBackgroundTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
-            this.airView.Conment = new FreeText(this.graphicsDevice, font, color);
+            this.airView.Conment = new FreeText(font, color);
             this.airView.Conment.Position = StaticMethods.LoadRectangleFromXMLNode(node);
             this.airView.Conment.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
 
             node = nextSibling.ChildNodes.Item(7);
-            this.airView.TroopToolTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("FileName").Value);
-            this.airView.TroopToolSelectedTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("Selected").Value);
+            this.airView.TroopToolTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.airView.TroopToolSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\AirView\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             this.airView.TroopToolDisplayTexture = this.airView.TroopToolSelectedTexture;
             this.airView.TroopToolPosition = StaticMethods.LoadRectangleFromXMLNode(node);
         }
         
         public void ReloadAirView()
         {
-            if (this.airView.MapTexture != null)
-            {
-                this.airView.MapTexture.Dispose();
-                this.airView.MapTexture = null;
-            }
+            //if (this.airView.MapTexture != null)
+            //{
+            //    this.airView.MapTexture.Dispose();
+            //    this.airView.MapTexture = null;
+            //}
 
             //待處理
             //Bitmap image = new Bitmap(this.airView.scenario.ScenarioMap.MapDimensions.X * this.airView.TileLength, this.airView.scenario.ScenarioMap.MapDimensions.Y * this.airView.TileLength, PixelFormat.Format32bppArgb);
@@ -145,7 +146,7 @@ namespace AirViewPlugin
             //try
             //{
             //    image.Save(@"Content\Textures\GameComponents\AirView\~tmp.image");
-            //    this.airView.MapTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\AirView\~tmp.image");
+            //    this.airView.MapTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\AirView\~tmp.image");
             //    File.Delete(@"Content\Textures\GameComponents\AirView\~tmp.image");
             //}
             //catch
@@ -157,22 +158,22 @@ namespace AirViewPlugin
         
         public void ReloadAirView(string dituwenjian)
         {
-            if (this.airView.MapTexture != null)
-            {
-                this.airView.MapTexture.Dispose();
-                this.airView.MapTexture = null;
-            }
+            //if (this.airView.MapTexture != null)
+            //{
+            //    this.airView.MapTexture.Dispose();
+            //    this.airView.MapTexture = null;
+            //}
 
-            try
-            {                
-                this.airView.MapTexture = CacheManager.LoadTempTexture(@"Content\Textures\Resources\ditu\_" + dituwenjian);
-            }
-            catch
-            {
-                this.airView.MapTexture = null;
-            }
+            //try
+            //{                
+                this.airView.MapTexture = CacheManager.GetTempTexture(@"Content\Textures\Resources\ditu\_" + dituwenjian);
+            //}
+            //catch
+            //{
+            //    this.airView.MapTexture = null;
+            //}
             //this.ReloadTroopView();
-        }        
+        }
 
         //public void ReloadArchitectureView()  //以前的代码，现在已不用
         //{
@@ -197,7 +198,7 @@ namespace AirViewPlugin
         //    try
         //    {
         //        image.Save(@"Content\Textures\GameComponents\AirView\~tmp.image");
-        //        this.airView.ArchitectureTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\AirView\~tmp.image");
+        //        this.airView.ArchitectureTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\AirView\~tmp.image");
         //        File.Delete(@"Content\Textures\GameComponents\AirView\~tmp.image");
         //    }
         //    catch
@@ -246,7 +247,7 @@ namespace AirViewPlugin
         //        try
         //        {
         //            image.Save(@"Content\Textures\GameComponents\AirView\~tmp.image");
-        //            this.airView.TroopTexture = CacheManager.LoadTempTexture(@"Content\Textures\GameComponents\AirView\~tmp.image");
+        //            this.airView.TroopTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\AirView\~tmp.image");
         //            File.Delete(@"Content\Textures\GameComponents\AirView\~tmp.image");
         //        }
         //        catch
@@ -271,26 +272,25 @@ namespace AirViewPlugin
             this.airView.ResetFrameSize(viewportSize, totalMapSize);
         }
 
-        public void ResetMapPosition()
+        public void ResetMapPosition(Screen screen)
         {
-            this.airView.SetDisplayOffset(this.airView.MapShowPosition);
+            this.airView.SetDisplayOffset(screen, this.airView.MapShowPosition);
         }
 
-        public void SetGraphicsDevice(GraphicsDevice device)
+        public void SetGraphicsDevice()
         {
-            this.graphicsDevice = device;
             this.LoadDataFromXMLDocument(@"Content\Data\Plugins\AirViewData.xml");
         }
 
         public void SetMapPosition(ShowPosition showPosition)
         {
-            this.airView.SetDisplayOffset(showPosition);
+            this.airView.SetDisplayOffset(Session.MainGame.mainGameScreen, showPosition);
         }
 
-        public void SetScreen(object screen)
+        public void SetScreen(Screen screen)
         {
             this.airView.Name = this.pluginName;
-            this.airView.Initialize(screen as Screen);
+            this.airView.Initialize(screen);
         }
 
         public void Update(GameTime gameTime)

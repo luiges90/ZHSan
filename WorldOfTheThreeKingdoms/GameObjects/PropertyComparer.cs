@@ -61,50 +61,92 @@ namespace GameObjects
 
             if (this.isNumber)
             {
-                try
+                //try
+                //{
+                long longResult = 0;
+                if (this.propertyName == "DisplayedAge")
                 {
-                    long longResult;
-                    if (this.propertyName == "DisplayedAge")
+                    if (objX.Equals("--") && objY.Equals("--"))
                     {
-                        if (objX.Equals("--") && objY.Equals("--"))
+                        longResult = 1;
+                    }
+                    else
+                    {
+                        long lObjX; long lObjY;
+                        if (long.TryParse(objX.ToString(), out lObjX) && long.TryParse(objY.ToString(), out lObjY))
                         {
-                            longResult = 1;
+                            longResult = lObjX - lObjY;
                         }
                         else
                         {
-                            longResult = long.Parse(objX.ToString()) - long.Parse(objY.ToString());
+                            float fObjX; float fObjY;
+                            if (float.TryParse(objX.ToString(), out fObjX) && float.TryParse(objY.ToString(), out fObjY))
+                            {
+                                if (Math.Abs(fObjX - fObjY) < 0.000001)
+                                {
+                                    return 0;
+                                }
+                                result = fObjX > fObjY ? 1 : -1;
+                            }
+                            else
+                            {
+                                result = -1;
+                            }
+                            return result;
                         }
                     }
-                    else
-                    {
-                        longResult = long.Parse(objX.ToString()) - long.Parse(objY.ToString());
-                    }
-                    
-                    if (longResult > 0)
-                    {
-                        result = 1;
-                    }
-                    else if (longResult < 0)
-                    {
-                        result = -1;
-                    }
-                    else
-                    {
-                        result = 0;
-                    }
                 }
-                catch (FormatException)
+                else
                 {
-                    try
+                    long lObjX; long lObjY;
+                    if (long.TryParse(objX.ToString(), out lObjX) && long.TryParse(objY.ToString(), out lObjY))
                     {
-                        if (Math.Abs(double.Parse(objX.ToString()) - double.Parse(objY.ToString())) < 0.000001) return 0;
-                        result = double.Parse(objX.ToString()) > double.Parse(objY.ToString()) ? 1 : -1;
+                        longResult = lObjX - lObjY;
                     }
-                    catch (FormatException)
+                    else
                     {
-                        result = -1;
+                        float fObjX; float fObjY;
+                        if (float.TryParse(objX.ToString(), out fObjX) && float.TryParse(objY.ToString(), out fObjY))
+                        {
+                            if (Math.Abs(fObjX - fObjY) < 0.000001)
+                            {
+                                return 0;
+                            }
+                            result = fObjX > fObjY ? 1 : -1;
+                        }
+                        else
+                        {
+                            result = -1;
+                        }
+                        return result;
                     }
                 }
+
+                if (longResult > 0)
+                {
+                    result = 1;
+                }
+                else if (longResult < 0)
+                {
+                    result = -1;
+                }
+                else
+                {
+                    result = 0;
+                }
+                //}
+                //catch (FormatException)
+                //{
+                //    try
+                //    {
+                //        if (Math.Abs(double.Parse(objX.ToString()) - double.Parse(objY.ToString())) < 0.000001) return 0;
+                //        result = double.Parse(objX.ToString()) > double.Parse(objY.ToString()) ? 1 : -1;
+                //    }
+                //    catch (FormatException)
+                //    {
+                //        result = -1;
+                //    }
+                //}
             }
             else
             {

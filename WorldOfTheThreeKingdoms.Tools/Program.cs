@@ -185,7 +185,7 @@ namespace WorldOfTheThreeKingdoms.Tools
             {
                 string ext = Path.GetExtension(file).ToLower();
 
-                if (ext == ".png")  //".png")  // || ext == ".jpg")  // || ext == ".bmp" || ext == ".gif")
+                if (ext == ".png")  // || ext == ".jpg")  // || ext == ".bmp" || ext == ".gif")
                 {
                     //檢查文件夾
                     string dir = Path.GetDirectoryName(file);
@@ -218,10 +218,10 @@ namespace WorldOfTheThreeKingdoms.Tools
                                         tex.SaveAsPng(fileStream, tex.Width, tex.Height);
                                     }
                                 }
-                                else
-                                {
-                                    throw new Exception("error");
-                                }
+                                //else
+                                //{
+                                //    throw new Exception("error");
+                                //}
                                 //else if (ext == ".jpg")
                                 //{
                                 //    //File.Copy(file, newFile);
