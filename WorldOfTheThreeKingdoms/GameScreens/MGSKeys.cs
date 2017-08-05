@@ -33,7 +33,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             if (this.currentKey != Keys.None)
             {
-                if (!base.KeyState.IsKeyUp(this.currentKey))
+                //if (!base.KeyState.IsKeyUp(this.currentKey))
+                if (!InputManager.KeyBoardState.IsKeyUp(this.currentKey))
                 {
                     return;
                 }
@@ -41,7 +42,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
             if ((Session.Current.Scenario.CurrentPlayer != null) && Session.Current.Scenario.CurrentPlayer.Controlling)
             {
-                if (this.keyState.IsKeyDown(Keys.D1))
+                if (InputManager.KeyBoardState.IsKeyDown(Keys.D1))
                 {
                     this.currentKey = Keys.D1;
                     if (this.editMode)
@@ -53,7 +54,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(1);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.D2))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.D2))
                 {
                     this.currentKey = Keys.D2;
                     if (this.editMode)
@@ -65,7 +66,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(2);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.D3))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.D3))
                 {
                     this.currentKey = Keys.D3;
                     if (this.editMode)
@@ -77,7 +78,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(3);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.D4))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.D4))
                 {
                     this.currentKey = Keys.D4;
                     if (this.editMode)
@@ -89,7 +90,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(4);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.D5))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.D5))
                 {
                     this.currentKey = Keys.D5;
                     if (this.editMode)
@@ -101,7 +102,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(5);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.D6))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.D6))
                 {
                     this.currentKey = Keys.D6;
                     if (this.editMode)
@@ -113,7 +114,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(6);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.D7))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.D7))
                 {
                     this.currentKey = Keys.D7;
                     if (this.editMode)
@@ -125,7 +126,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(7);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.D8))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.D8))
                 {
                     this.currentKey = Keys.D8;
                     if (this.editMode)
@@ -137,7 +138,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(8);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.D9))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.D9))
                 {
                     this.currentKey = Keys.D9;
                     if (this.editMode)
@@ -149,7 +150,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(9);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.D0))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.D0))
                 {
                     this.currentKey = Keys.D0;
                     if (this.editMode)
@@ -161,7 +162,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(10);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.F1))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.F1))
                 {
                     this.currentKey = Keys.F1;
                     if (!this.editMode)
@@ -169,7 +170,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(30);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.F2))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.F2))
                 {
                     this.currentKey = Keys.F2;
                     if (!this.editMode)
@@ -177,7 +178,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(60);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.F3))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.F3))
                 {
                     this.currentKey = Keys.F3;
                     if (!this.editMode)
@@ -185,7 +186,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(90);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.F5))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.F5))
                 {
                     this.currentKey = Keys.F5;
                     if (!this.editMode)
@@ -193,20 +194,20 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(-999);
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.W))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.W))
                 {
                     this.currentKey = Keys.W;
                     Session.GlobalVariables.ShowGrid = !Session.GlobalVariables.ShowGrid;
                 }
-                else if (this.keyState.IsKeyDown(Keys.OemPlus) || this.keyState.IsKeyDown(Keys.Add))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.OemPlus) || InputManager.KeyBoardState.IsKeyDown(Keys.Add))
                 {
                     this.currentKey = Keys.OemPlus;
                 }
-                else if (this.keyState.IsKeyDown(Keys.OemMinus) || this.keyState.IsKeyDown(Keys.Subtract))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.OemMinus) || InputManager.KeyBoardState.IsKeyDown(Keys.Subtract))
                 {
                     this.currentKey = Keys.OemMinus;
                 }
-                else if (this.keyState.IsKeyDown(Keys.LeftAlt) && this.keyState.IsKeyDown(Keys.C) && Session.GlobalVariables.EnableCheat)
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.LeftAlt) && InputManager.KeyBoardState.IsKeyDown(Keys.C) && Session.GlobalVariables.EnableCheat)
                 {
                     this.currentKey = Keys.C;
                     if (!this.editMode)
@@ -214,7 +215,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         changeFaction();
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.LeftAlt) && this.keyState.IsKeyDown(Keys.E) && Session.GlobalVariables.EnableCheat)
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.LeftAlt) && InputManager.KeyBoardState.IsKeyDown(Keys.E) && Session.GlobalVariables.EnableCheat)
                 {
                     this.currentKey = Keys.E;
                     this.editMode = true;
@@ -222,7 +223,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.Plugins.youcelanPlugin.IsShowing = false;
                     this.mapEdited = true;
                 }
-                else if (this.keyState.IsKeyDown(Keys.LeftAlt) && this.keyState.IsKeyDown(Keys.Q) && Session.GlobalVariables.EnableCheat)
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.LeftAlt) && InputManager.KeyBoardState.IsKeyDown(Keys.Q) && Session.GlobalVariables.EnableCheat)
                 {
                     this.currentKey = Keys.Q;
                     this.editMode = false;
@@ -230,7 +231,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.Plugins.youcelanPlugin.IsShowing = true;
                     this.mapEdited = true;
                 }
-                else if (this.keyState.IsKeyDown(Keys.T))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.T))
                 {
                     this.currentKey = Keys.T;
                     if (this.editMode)
@@ -238,13 +239,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.mainMapLayer.xianshidituxiaokuai = !this.mainMapLayer.xianshidituxiaokuai;
                     }
                 }
-                else if (this.keyState.IsKeyDown(Keys.L))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.L))
                 {
                     this.currentKey = Keys.L;
                     this.ShowArchitectureConnectedLine = !this.ShowArchitectureConnectedLine;
                 }
             }
-            if (this.keyState.IsKeyDown(Keys.Space))
+            if (InputManager.KeyBoardState.IsKeyDown(Keys.Space))
             {
 
                 this.currentKey = Keys.Space;
@@ -253,13 +254,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.Plugins.DateRunnerPlugin.Run();
                 }
             }
-            //if (this.keyState.IsKeyDown(Keys.Z) && this.keyState.IsKeyDown(Keys.LeftControl))
+            //if (InputManager.KeyBoardState.IsKeyDown(Keys.Z) && InputManager.KeyBoardState.IsKeyDown(Keys.LeftControl))
             //{
 
             //    this.currentKey = Keys.Z;
             //    this.Player.settings.volume += 10;
             //}
-            //if (this.keyState.IsKeyDown(Keys.X) && this.keyState.IsKeyDown(Keys.LeftControl))
+            //if (InputManager.KeyBoardState.IsKeyDown(Keys.X) && InputManager.KeyBoardState.IsKeyDown(Keys.LeftControl))
             //{
 
             //    this.currentKey = Keys.X;

@@ -305,13 +305,15 @@ namespace tupianwenziPlugin
             {
                 if (this.currentKey != Keys.None)
                 {
-                    if (!Session.MainGame.mainGameScreen.KeyState.IsKeyUp(this.currentKey))
+                    //if (!Session.MainGame.mainGameScreen.KeyState.IsKeyUp(this.currentKey))
+                    if (!InputManager.KeyBoardState.IsKeyUp(this.currentKey))
                     {
                         return;
                     }
                     this.currentKey = Keys.None;
                 }
-                if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Enter))
+                //if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Enter))
+                if (InputManager.KeyBoardState.IsKeyDown(Keys.Enter))
                 {
                     this.currentKey = Keys.Enter;
                     this.Close(Session.MainGame.mainGameScreen);

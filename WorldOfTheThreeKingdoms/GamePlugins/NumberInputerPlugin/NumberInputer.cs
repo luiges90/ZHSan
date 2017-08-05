@@ -276,138 +276,139 @@ namespace NumberInputerPlugin
         {
             if (this.currentKey != Keys.None)
             {
-                if (!Session.MainGame.mainGameScreen.KeyState.IsKeyUp(this.currentKey))
+                //if (!Session.MainGame.mainGameScreen.KeyState.IsKeyUp(this.currentKey))
+                if (!InputManager.KeyBoardState.IsKeyUp(this.currentKey))
                 {
                     return;
                 }
                 this.currentKey = Keys.None;
             }
-            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad0))
+            if (InputManager.KeyBoardState.IsKeyDown(Keys.NumPad0))
             {
                 this.InputDigit(0);
                 this.currentKey = Keys.NumPad0;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D0))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.D0))
             {
                 this.InputDigit(0);
                 this.currentKey = Keys.D0;
             }
-            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad1))
+            if (InputManager.KeyBoardState.IsKeyDown(Keys.NumPad1))
             {
                 this.InputDigit(1);
                 this.currentKey = Keys.NumPad1;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D1))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.D1))
             {
                 this.InputDigit(1);
                 this.currentKey = Keys.D1;
             }
-            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad2))
+            if (InputManager.KeyBoardState.IsKeyDown(Keys.NumPad2))
             {
                 this.InputDigit(2);
                 this.currentKey = Keys.NumPad2;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D2))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.D2))
             {
                 this.InputDigit(2);
                 this.currentKey = Keys.D2;
             }
-            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad3))
+            if (InputManager.KeyBoardState.IsKeyDown(Keys.NumPad3))
             {
                 this.InputDigit(3);
                 this.currentKey = Keys.NumPad3;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D3))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.D3))
             {
                 this.InputDigit(3);
                 this.currentKey = Keys.D3;
             }
-            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad4))
+            if (InputManager.KeyBoardState.IsKeyDown(Keys.NumPad4))
             {
                 this.InputDigit(4);
                 this.currentKey = Keys.NumPad4;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D4))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.D4))
             {
                 this.InputDigit(4);
                 this.currentKey = Keys.D4;
             }
-            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad5))
+            if (InputManager.KeyBoardState.IsKeyDown(Keys.NumPad5))
             {
                 this.InputDigit(5);
                 this.currentKey = Keys.NumPad5;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D5))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.D5))
             {
                 this.InputDigit(5);
                 this.currentKey = Keys.D5;
             }
-            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad6))
+            if (InputManager.KeyBoardState.IsKeyDown(Keys.NumPad6))
             {
                 this.InputDigit(6);
                 this.currentKey = Keys.NumPad6;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D6))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.D6))
             {
                 this.InputDigit(6);
                 this.currentKey = Keys.D6;
             }
-            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad7))
+            if (InputManager.KeyBoardState.IsKeyDown(Keys.NumPad7))
             {
                 this.InputDigit(7);
                 this.currentKey = Keys.NumPad7;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D7))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.D7))
             {
                 this.InputDigit(7);
                 this.currentKey = Keys.D7;
             }
-            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad8))
+            if (InputManager.KeyBoardState.IsKeyDown(Keys.NumPad8))
             {
                 this.InputDigit(8);
                 this.currentKey = Keys.NumPad8;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D8))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.D8))
             {
                 this.InputDigit(8);
                 this.currentKey = Keys.D8;
             }
-            if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.NumPad9))
+            if (InputManager.KeyBoardState.IsKeyDown(Keys.NumPad9))
             {
                 this.InputDigit(9);
                 this.currentKey = Keys.NumPad9;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.D9))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.D9))
             {
                 this.InputDigit(9);
                 this.currentKey = Keys.D9;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Delete))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.Delete))
             {
                 this.ClearNumber();
                 this.currentKey = Keys.Delete;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Enter))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.Enter))
             {
                 this.Enter();
                 this.currentKey = Keys.Enter;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Back))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.Back))
             {
                 this.Backspace();
                 this.currentKey = Keys.Back;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Escape))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.Escape))
             {
                 this.Exit();
                 this.currentKey = Keys.Escape;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Space))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.Space))
             {
                 this.MaxNumber();
                 this.currentKey = Keys.Space;
             }
-            else if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Keys.Add))
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.Add))
             {
                 this.MaxNumber();
                 this.currentKey = Keys.Add;
