@@ -599,7 +599,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             this.CurrentArchitecture.DecreaseFood(military.TransferFoodCost(distance));
                             military.StartingArchitecture = this.CurrentArchitecture;
                             military.TargetArchitecture = targetArchitecture;
-                            military.ArrivingDays = Math.Max(1, military.TransferDays(distance));
+                            //military.ArrivingDays = Math.Max(1, military.TransferDays(distance));
+                            military.ArrivingDays = Math.Max(1, military.TransferDays(distance)) * Session.Parameters.DayInTurn;
                             this.CurrentArchitecture.RemoveMilitary(military);
                             this.CurrentArchitecture.BelongedFaction.TransferingMilitaries.Add(military);
                             this.CurrentArchitecture.BelongedFaction.TransferingMilitaryCount++;
@@ -1442,6 +1443,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (this.CurrentPerson != null)
             {
                 this.CurrentArchitecture.MayorID = this.CurrentPerson.ID;
+                this.CurrentArchitecture.MayorOnDutyDays = 0;
                 this.CurrentArchitecture.AppointMayor(this.CurrentPerson);
                
             }

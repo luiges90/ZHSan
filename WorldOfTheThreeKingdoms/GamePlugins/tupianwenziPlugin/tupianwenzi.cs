@@ -121,7 +121,7 @@ namespace tupianwenziPlugin
             if (this.SpeakingPerson != null)
             {
                 Rectangle? sourceRectangle = null;
-                
+
                 //try
                 //{
                 //    CacheManager.Draw(this.SpeakingPerson.Portrait, this.PortraitDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.201f);
@@ -129,7 +129,7 @@ namespace tupianwenziPlugin
                 //catch
                 //{
                 //}
-                
+
                 CacheManager.DrawZhsanAvatar(this.SpeakingPerson, "", this.PortraitDisplayPosition, Color.White, 0.201f);
 
                 sourceRectangle = null;
@@ -140,12 +140,12 @@ namespace tupianwenziPlugin
                     {
 
                         //CacheManager.Draw(this.CaiseTupianZhuanchengHeibai(this.graphicsDevice ,this.shijiantupian), new Rectangle(this.shijiantupianjuxing.X, this.shijiantupianjuxing.Y + 70, this.shijiantupianjuxing.Width, this.shijiantupianjuxing.Height), sourceRectangle, Color.White , 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
-                        CacheManager.Draw(this.shijiantupian, this.shijiantupianjuxing, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                        CacheManager.Draw(this.shijiantupian, this.shijiantupianjuxing, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.202f);
 
                     }
                     else
                     {
-                        CacheManager.Draw(this.shijiantupian, this.shijiantupianjuxing, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                        CacheManager.Draw(this.shijiantupian, this.shijiantupianjuxing, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.202f);
 
                     }
                 }
@@ -157,8 +157,6 @@ namespace tupianwenziPlugin
                 
             }
         }
-
-
 
         internal void Initialize()
         {

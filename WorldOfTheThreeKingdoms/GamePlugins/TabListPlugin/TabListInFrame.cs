@@ -390,7 +390,9 @@ namespace TabListPlugin
 
         private void screen_OnMouseLeftDown(Point position)
         {
-            if ((Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && StaticMethods.PointInRectangle(position, base.RealClient))
+            //有時滑動滾動條時點到按鈕範圍，縮小點，以後看有沒更完美的修正辦法
+            var recSmall = new Rectangle(base.RealClient.X, base.RealClient.Y, base.RealClient.Width - 50, base.RealClient.Height);
+            if ((Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && StaticMethods.PointInRectangle(position, recSmall))
             {
                 if (position.Y < this.listKindToDisplay.ColumnsTop)
                 {
@@ -466,7 +468,9 @@ namespace TabListPlugin
 
         private void screen_OnMouseLeftUp(Point position)
         {
-            if ((Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && StaticMethods.PointInRectangle(position, base.RealClient))
+            //有時滑動滾動條時點到按鈕範圍，縮小點，以後看有沒更完美的修正辦法
+            var recSmall = new Rectangle(base.RealClient.X, base.RealClient.Y, base.RealClient.Width - 50, base.RealClient.Height);
+            if ((Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && StaticMethods.PointInRectangle(position, recSmall))
             {
                 if (position.Y < this.listKindToDisplay.ColumnsTop)
                 {

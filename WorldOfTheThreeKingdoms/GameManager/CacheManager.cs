@@ -63,6 +63,8 @@ namespace GameManager
 
         public static Dictionary<string, string> DicTexts = new Dictionary<string, string>();
 
+        public static Vector2 Scale = Vector2.One;
+
         public static void Clear(CacheType type)
         {
             lock (CacheLock)
@@ -356,6 +358,7 @@ namespace GameManager
                 }
             }
         }
+        
 
         public static void Draw(PlatformTexture platformTexture, Rectangle rec, Rectangle? source, Color color, float rotation, Vector2 origin, SpriteEffects effect, float depth)
         {
@@ -364,6 +367,10 @@ namespace GameManager
                 Texture2D tex = LoadTexture(platformTexture.Name);
                 if (tex != null && !tex.IsDisposed)
                 {
+                    if (Scale != Vector2.One)
+                    {
+                        rec = new Rectangle(Convert.ToInt16(rec.X * Scale.X), Convert.ToInt16(rec.Y * Scale.Y), Convert.ToInt16(rec.Width * Scale.X), Convert.ToInt16(rec.Height * Scale.Y));
+                    }
                     Session.Current.SpriteBatch.Draw(tex, rec, source, color, rotation, origin, effect, depth);
                 }
             }
@@ -438,6 +445,10 @@ namespace GameManager
                 Texture2D tex = LoadAvatar(name, isUser, isTemp, shape, shapeParams);
                 if (tex != null && !tex.IsDisposed)
                 {
+                    if (Scale != Vector2.One)
+                    {
+                        pos = new Rectangle(Convert.ToInt16(pos.X * Scale.X), Convert.ToInt16(pos.Y * Scale.Y), Convert.ToInt16(pos.Width * Scale.X), Convert.ToInt16(pos.Height * Scale.Y));
+                    }                    
                     Session.Current.SpriteBatch.Draw(tex, pos, null, color, 0f, Vector2.Zero, SpriteEffects.None, depth);
                 }
             }
@@ -575,7 +586,7 @@ namespace GameManager
             if (font != null && !String.IsNullOrEmpty(text))
             {
                 text = CheckTextCache(font, text, checkTradition, upload);
-                Session.Current.SpriteBatch.DrawString(font, text, pos, color, rotation, origin, scale, effects, layerDepth);
+                Session.Current.SpriteBatch.DrawString(font, text, pos * Scale, color, rotation, origin, scale * Scale, effects, layerDepth);
             }
         }
 

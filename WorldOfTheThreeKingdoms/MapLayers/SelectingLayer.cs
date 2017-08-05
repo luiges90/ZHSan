@@ -182,7 +182,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
 
                     case SelectingUndoneWorkKind.TroopDestination:
                         this.areaFrameTexture = Session.MainGame.mainGameScreen.Textures.TileFrameTextures[3];
-                        this.allowToSelectOutsideArea = true;
+                        this.allowToSelectOutsideArea = false;
                         return;
 
                     case SelectingUndoneWorkKind.SelectorTroopsDestination:

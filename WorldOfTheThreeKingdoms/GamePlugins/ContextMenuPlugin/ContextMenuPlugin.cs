@@ -97,7 +97,14 @@ namespace ContextMenuPlugin
 
         public void Prepare(int X, int Y, Microsoft.Xna.Framework.Point viewportSize)
         {
-            this.contextMenu.Prepare(X, Y, viewportSize);
+            if (Session.LargeContextMenu)
+            {
+                this.contextMenu.Prepare(365, Y, viewportSize);                
+            }
+            else
+            {
+                this.contextMenu.Prepare(X, Y, viewportSize);
+            }
         }
 
         public void SetCurrentGameObject(object gameObject)

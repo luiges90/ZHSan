@@ -82,6 +82,11 @@ namespace WorldOfTheThreeKingdoms
           
             Platform.MainGame = this;
 
+            //if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
+            //{
+            //    this.Window.IsBorderless = true;
+            //}
+
             //獲取設置數據
             Setting.Init();
 
@@ -163,14 +168,37 @@ namespace WorldOfTheThreeKingdoms
             //    GameTools.SendErrMsg("MainMenuScreen", ex);
             //}
 
+
+            Session.globalVariablesBasic = new GlobalVariables();
+            Session.globalVariablesBasic.InitialGlobalVariables();
+
+            Session.parametersBasic = new Parameters();
+            Session.parametersBasic.InitializeGameParameters();
+
             //this.jiazaitishi.Close();
-            //全屏的判断放到初始化代码中
+            ////全屏的判断放到初始化代码中
             //if (Session.GlobalVariables.FullScreen)
             //{
             //    this.ToggleFullScreen();
             //}
 
+            this.Window.ClientSizeChanged += this.Window_ClientSizeChanged;
+
             base.Initialize();
+        }
+
+        private void Window_ClientSizeChanged(object sender, EventArgs e)
+        {
+            if (mainGameScreen == null)
+            {
+                int width = Platform.GraphicsDevice.Viewport.Width;
+                int height = Platform.GraphicsDevice.Viewport.Height;
+                Session.ChangeStartDisplay(width, height);                
+            }
+            else
+            {
+                mainGameScreen.Window_ClientSizeChanged(sender, e);
+            }
         }
 
         /// <summary>
@@ -191,22 +219,21 @@ namespace WorldOfTheThreeKingdoms
 
         public void ToggleFullScreen()
         {
-            bool full = Setting.Current.DisplayMode == "Full";
+            //bool full = Setting.Current.DisplayMode == "Full";
+            //if (full)
+            //{
+            //    Setting.Current.DisplayMode = "Window";
+            //    Platform.Current.SetFullScreen(false);
+            //}
+            //else
+            //{
+            //    Setting.Current.DisplayMode = "Full";
+            //    Platform.Current.SetFullScreen(true);
+            //}
 
-            if (full)
-            {
-                Setting.Current.DisplayMode = "Window";
-                Platform.Current.SetFullScreen(false);
-            }
-            else
-            {
-                Setting.Current.DisplayMode = "Full";
-                Platform.Current.SetFullScreen(true);
-            }
+            //Setting.Save();
 
-            Setting.Save();
-
-            Platform.GraphicsApplyChanges();
+            //Platform.GraphicsApplyChanges();
 
             //原来的代码会和单挑程序冲突
             /*
@@ -227,7 +254,15 @@ namespace WorldOfTheThreeKingdoms
             this.graphics.ToggleFullScreen();
             Session.GlobalVariables.FullScreen = this.graphics.GraphicsDevice.PresentationParameters.IsFullScreen;
              */
-            //修改后的全屏代码
+
+            if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
+            {
+                Platform.Current.SetFullScreen2(this.IsFullScreen);                
+
+                this.IsFullScreen = !this.IsFullScreen;
+            }
+
+            ////修改后的全屏代码
             //if (this.IsFullScreen)
             //{
             //    WinHelper.RestoreFullScreen(this.GameForm.Handle);//传入窗体句柄

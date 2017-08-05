@@ -1,4 +1,5 @@
 ﻿using GameGlobal;
+using GameManager;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -217,6 +218,7 @@ namespace GameObjects
                     this.MapViewSelectorButtonPosition.Y += num2;
                 }
                 this.realClient = new Rectangle(this.framePosition.X + client.X, this.framePosition.Y + client.Y, client.Width, client.Height);
+
             }
         }
 

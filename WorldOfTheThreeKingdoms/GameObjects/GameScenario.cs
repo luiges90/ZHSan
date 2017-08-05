@@ -245,7 +245,7 @@ namespace GameObjects
         {
 
         }
-
+          
         public void Init()
         {
             this.GeneratorOfTileAnimation = new TileAnimationGenerator();
@@ -1346,7 +1346,8 @@ namespace GameObjects
             }
             this.CheckGameEnd();
 
-            this.DaySince++;
+            //this.DaySince++;
+            this.DaySince += Session.Parameters.DayInTurn;
 
             ExtensionInterface.call("PostDayEvent", new Object[] { this });
 
@@ -2115,7 +2116,8 @@ namespace GameObjects
 
         public int GetTransferFundDays(Architecture from, Architecture to)
         {
-            return (int)Math.Ceiling(this.GetDistance(from.ArchitectureArea, to.ArchitectureArea) / 2.5);
+            //return (int)Math.Ceiling(this.GetDistance(from.ArchitectureArea, to.ArchitectureArea) / 2.5);
+            return (int)Math.Ceiling(this.GetDistance(from.ArchitectureArea, to.ArchitectureArea) / 2.5 * Session.Parameters.DayInTurn);
         }
 
 
@@ -2851,8 +2853,8 @@ namespace GameObjects
                        
             //if (Platform.PlatFormType == PlatFormType.Android || Platform.PlatFormType == PlatFormType.iOS || Platform.PlatFormType == PlatFormType.Win)
             //{
-                ScenarioMap.TileWidth = 60;
-                ScenarioMap.TileHeight = 60;
+                ScenarioMap.TileWidth = 50;
+                ScenarioMap.TileHeight = 50;
             //}
 
             foreach (State state in this.States)
@@ -3233,7 +3235,22 @@ namespace GameObjects
                 e.AddRange(architecture.Characteristics.LoadFromString(this.GameCommonData.AllInfluences, architecture.CharacteristicsString));
 
                 //architecture.ArchitectureAreaString = reader["Area"].ToString();
-                architecture.LoadFromString(architecture.ArchitectureArea, architecture.ArchitectureAreaString);
+
+                if (architecture.ArchitectureArea == null)
+                {
+                    architecture.ArchitectureArea = new GameArea();
+                    architecture.LoadFromString(architecture.ArchitectureArea, architecture.ArchitectureAreaString);
+                }
+
+                //if (architecture.ArchitectureArea == null)
+                //{
+                //    architecture.ArchitectureArea = new GameArea();
+                //}
+
+                //if (architecture.ArchitectureArea.Area == null)
+                //{
+                //    architecture.ArchitectureArea.Area = new List<Point>();
+                //}
 
                 //architecture.PersonsString = reader["Persons"].ToString();
                 //architecture.MovingPersonsString = reader["MovingPersons"].ToString();
@@ -3773,10 +3790,14 @@ namespace GameObjects
             this.InitializeFactionData();
             this.ApplyInformations();
             this.Preparing = true;
+
             this.Factions.BuildQueue(true);  //待考慮效果
-            this.Factions.ApplyInfluences();
-            this.Architectures.ApplyInfluences();
-            this.Persons.ApplyInfluences();
+
+            //临时去掉，看效果，兔巴哥 0731
+            //this.Factions.ApplyInfluences();            
+            //this.Architectures.ApplyInfluences();
+            //this.Persons.ApplyInfluences();
+
             this.Preparing = false;
 
             this.InitialGameData();
@@ -3794,7 +3815,8 @@ namespace GameObjects
             }
             else
             {
-                if (oldDialogShowTime >= 0)
+                //if (oldDialogShowTime >= 0)
+                if (oldDialogShowTime > 0)
                 {
                     Session.GlobalVariables.DialogShowTime = oldDialogShowTime;
                 }
@@ -3970,11 +3992,13 @@ namespace GameObjects
                                     {
                                         if (p.Status == PersonStatus.Normal)
                                         {
-                                            p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedArchitecture.Persons.Count - 1)), 2);
+                                            //p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedArchitecture.Persons.Count - 1)), 2);
+                                            p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedArchitecture.Persons.Count - 1)) * Session.Parameters.DayInTurn, 2 * Session.Parameters.DayInTurn);
                                         }
                                         else
                                         {
-                                            p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)), 2);
+                                            //p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)), 2);
+                                            p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)) * Session.Parameters.DayInTurn, 2 * Session.Parameters.DayInTurn);
                                         }
                                     }
                                 }
@@ -3988,11 +4012,13 @@ namespace GameObjects
                                 float d = Session.Parameters.CloseThreshold / Math.Max(10, p.GetRelation(q));
                                 if (p.LocationArchitecture == q.LocationArchitecture || p.LocationTroop == q.LocationTroop)
                                 {
-                                    p.AdjustRelation(q, -d / 20f, 0);
+                                    //p.AdjustRelation(q, -d / 20f, 0);
+                                    p.AdjustRelation(q, -d / 20f * Session.Parameters.DayInTurn, 0);
                                 }
                                 else
                                 {
-                                    p.AdjustRelation(q, -d / 50f, 0);
+                                    //p.AdjustRelation(q, -d / 50f, 0);
+                                    p.AdjustRelation(q, -d / 50f * Session.Parameters.DayInTurn, 0);
                                 }
 
                                 if (p.GetRelation(q) < 0)
@@ -4012,11 +4038,13 @@ namespace GameObjects
                                 }
                                 if (p.LocationArchitecture == q.LocationArchitecture || p.LocationTroop == q.LocationTroop)
                                 {
-                                    p.AdjustRelation(q, -d / 20, 0);
+                                    //p.AdjustRelation(q, -d / 20, 0);
+                                    p.AdjustRelation(q, -d / 20 * Session.Parameters.DayInTurn, 0);
                                 }
                                 else
                                 {
-                                    p.AdjustRelation(q, -d / 50, 0);
+                                    //p.AdjustRelation(q, -d / 50, 0);
+                                    p.AdjustRelation(q, -d / 50 * Session.Parameters.DayInTurn, 0);
                                 }
 
                                 if (p.GetRelation(q) > 0)
@@ -5652,7 +5680,8 @@ namespace GameObjects
         {
             foreach (Person p in this.Persons)
             {
-                if (p.Trainable && GameObject.Random(30) == 0)
+                //if (p.Trainable && GameObject.Random(30) == 0)
+                if (p.Trainable && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                 {
                     if (p.TrainPolicy == null)
                     {

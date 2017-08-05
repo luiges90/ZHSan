@@ -1563,6 +1563,7 @@
     <Content Include="..\Content\Data\Plugins\CommentTextData.xml">
       <Link>Content\Data\Plugins\CommentTextData.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="..\Content\Data\Plugins\ConfirmationDialogData.xml">
       <Link>Content\Data\Plugins\ConfirmationDialogData.xml</Link>
@@ -1691,6 +1692,7 @@
     <Content Include="..\Content\Data\Plugins\tupianwenziTextTree.xml">
       <Link>Content\Data\Plugins\tupianwenziTextTree.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="..\Content\Data\Plugins\youcelanData.xml">
       <Link>Content\Data\Plugins\youcelanData.xml</Link>

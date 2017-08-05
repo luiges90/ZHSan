@@ -89,6 +89,7 @@ namespace DateRunnerPlugin
                             number = 1;
                         }
                         DaysToGo = number;
+                        this.Updated = false;
                     };
                 }
                 Session.MainGame.mainGameScreen.Plugins.NumberInputerPlugin.SetEnterFunction(function);
@@ -326,6 +327,7 @@ namespace DateRunnerPlugin
             {
                 if (StaticMethods.PointInRectangle(position, this.PlayDisplayPosition))
                 {
+                    Platforms.Platform.Sleep(500);
                     this.Run();
                 }
                 else if (StaticMethods.PointInRectangle(position, this.StopDisplayPosition))

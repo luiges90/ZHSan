@@ -183,7 +183,8 @@ namespace GameObjects
         {
             if (this.OnMouseRightDown != null)
             {
-                this.OnMouseRightDown(new Point(InputManager.NowMouse.X, InputManager.NowMouse.Y));
+                this.OnMouseRightDown(new Point(InputManager.PoX, InputManager.PoY));
+                //this.OnMouseRightDown(new Point(InputManager.NowMouse.X, InputManager.NowMouse.Y));
             }
         }
 
@@ -191,7 +192,8 @@ namespace GameObjects
         {
             if (this.OnMouseRightUp != null)
             {
-                this.OnMouseRightUp(new Point(InputManager.NowMouse.X, InputManager.NowMouse.Y));
+                this.OnMouseRightUp(new Point(InputManager.PoX, InputManager.PoY));
+                //this.OnMouseRightUp(new Point(InputManager.NowMouse.X, InputManager.NowMouse.Y));
             }
         }
 
@@ -199,7 +201,8 @@ namespace GameObjects
         {
             if (this.OnMouseScroll != null)
             {
-                this.OnMouseScroll(new Point(InputManager.NowMouse.X, InputManager.NowMouse.Y), InputManager.NowMouse.ScrollWheelValue);
+                this.OnMouseScroll(new Point(InputManager.PoX, InputManager.PoY), InputManager.NowMouse.ScrollWheelValue);
+                //this.OnMouseScroll(new Point(InputManager.NowMouse.X, InputManager.NowMouse.Y), InputManager.NowMouse.ScrollWheelValue);
             }
         }
 

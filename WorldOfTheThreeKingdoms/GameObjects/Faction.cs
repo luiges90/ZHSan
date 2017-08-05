@@ -2132,7 +2132,8 @@ namespace GameObjects
                             {
                                 num2 = this.Capital.Fund - this.Capital.EnoughFund;
                                 this.Capital.DecreaseFund(num2);
-                                architecture.AddFundPack(num2, (int)(Session.Current.Scenario.GetDistance(this.Capital.ArchitectureArea, architecture.ArchitectureArea) / 5.0));
+                                //architecture.AddFundPack(num2, (int)(Session.Current.Scenario.GetDistance(this.Capital.ArchitectureArea, architecture.ArchitectureArea) / 5.0));
+                                architecture.AddFundPack(num2, (int)(Session.Current.Scenario.GetDistance(this.Capital.ArchitectureArea, architecture.ArchitectureArea) / 5.0) * Session.Parameters.DayInTurn);
                             }
                             this.ChangeCapital(architecture);
                         }
@@ -2148,7 +2149,8 @@ namespace GameObjects
                         {
                             num2 = this.Capital.Fund - this.Capital.EnoughFund;
                             this.Capital.DecreaseFund(num2);
-                            architecture.AddFundPack(num2, (int)(Session.Current.Scenario.GetDistance(this.Capital.ArchitectureArea, architecture.ArchitectureArea) / 5.0));
+                            //architecture.AddFundPack(num2, (int)(Session.Current.Scenario.GetDistance(this.Capital.ArchitectureArea, architecture.ArchitectureArea) / 5.0));
+                            architecture.AddFundPack(num2, (int)(Session.Current.Scenario.GetDistance(this.Capital.ArchitectureArea, architecture.ArchitectureArea) / 5.0) * Session.Parameters.DayInTurn);
                         }
                         this.ChangeCapital(architecture);
                     }
@@ -3030,20 +3032,16 @@ namespace GameObjects
 
             foreach (Military m in this.TransferingMilitaries)
             {
-                m.ArrivingDays--;
+                //m.ArrivingDays--;
+                m.ArrivingDays -= Session.Parameters.DayInTurn;
 
-
-                if (m.ArrivingDays == 0)
+                if (m.ArrivingDays <= 0)
                 {
                     if (m.StartingArchitecture != null && m.TargetArchitecture != null  && m.TargetArchitecture.BelongedFaction != null 
-                        && m.TargetArchitecture.BelongedFaction == this && m.BelongedArchitecture == null )
-                        
-                      
-                    {
-                       
+                        && m.TargetArchitecture.BelongedFaction == this && m.BelongedArchitecture == null )                                            
+                    {                       
                         m.TargetArchitecture.AddMilitary(m);
-                        Session.MainGame.mainGameScreen.TransferMilitaryArrivesAtArchitecture(m, m.TargetArchitecture);
-                       
+                        Session.MainGame.mainGameScreen.TransferMilitaryArrivesAtArchitecture(m, m.TargetArchitecture);                       
                     }
                    
                     this.HandleMilitary(m);
@@ -3114,6 +3112,7 @@ namespace GameObjects
                             Person person = a.AIMayorCandicate[0] as Person;
                             a.MayorID = person.ID;
                             a.AppointMayor(person);
+                            a.MayorOnDutyDays = 0;
                         }
                     }
                 }
@@ -3811,9 +3810,9 @@ namespace GameObjects
             InformationList list = new InformationList();
             foreach (Information information in this.Informations)
             {
-                information.DaysLeft--;
-                information.DaysStarted++;
-                if (information.DaysLeft == 0)
+                information.DaysLeft -= Session.Parameters.DayInTurn;
+                information.DaysStarted += Session.Parameters.DayInTurn;
+                if (information.DaysLeft <= 0)
                 {
                     list.Add(information);
                 }
@@ -5658,7 +5657,8 @@ namespace GameObjects
         {
             if (this.UpgradingTechnique >= 0)
             {
-                this.UpgradingDaysLeft--;
+                //this.UpgradingDaysLeft--;
+                this.UpgradingDaysLeft -= Session.Parameters.DayInTurn;
                 if (this.UpgradingDaysLeft == 0)
                 {
                     Technique technique = Session.Current.Scenario.GameCommonData.AllTechniques.GetTechnique(this.UpgradingTechnique);

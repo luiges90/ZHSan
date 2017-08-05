@@ -174,14 +174,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.routewayLayer.Initialize();
             this.screenManager.Initialize();
 
-            if (base.LoadScenarioInInitialization)
-            {
-                if (Session.Current.Scenario.CurrentPlayer != null)
-                {
-                    Session.Current.Scenario.runScenarioStart(Session.Current.Scenario.CurrentPlayer.Capital, this);
-                    this.JumpTo((Session.Current.Scenario.PlayerFactions[0] as Faction).Leader.Position);        //地图跳到玩家势力的首领处
-                }
-            }
+            JumpToFaction();
 
             if (Session.Current.Scenario.CurrentPlayer != null)
             {
@@ -191,7 +184,18 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
 
             //this.thisGame.jiazaitishi.jiazaijindu.Value = 90;
+        }
 
+        private void JumpToFaction()
+        {
+            if (base.LoadScenarioInInitialization)
+            {
+                if (Session.Current.Scenario.CurrentPlayer != null)
+                {
+                    Session.Current.Scenario.runScenarioStart(Session.Current.Scenario.CurrentPlayer.Capital, this);
+                    this.JumpTo((Session.Current.Scenario.PlayerFactions[0] as Faction).Leader.Position);        //地图跳到玩家势力的首领处
+                }
+            }
         }
 
         private void chushihuajianzhubiaotiheqizi()

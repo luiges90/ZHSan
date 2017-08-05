@@ -27,6 +27,8 @@ using System.Net.NetworkInformation;
 using SharpCompress.Common;
 using Microsoft.Xna.Framework.Input;
 using Tools;
+using WorldOfTheThreeKingdoms;
+using GameManager;
 
 namespace Platforms
 {
@@ -40,6 +42,8 @@ namespace Platforms
         public static new bool IsMobilePlatForm = false;
                 
         public new string PreferFullMode = "Window";
+
+        public static new string PreferResolution = "1280*720";
 
         public new bool DebugMode = true;
         public new bool ProcessGameData = true;
@@ -163,15 +167,54 @@ namespace Platforms
 
             xnaWindow.MouseWheel += (sender, e) =>
             {
-                //InputManager.PinchMove = Convert.ToSingle(e.Delta) / 480;
+                InputManager.PinchMove = Convert.ToSingle(e.Delta) / 480;
             };
 
             //Mouse.WindowHandle = xnaWindow.Handle; // Game1.Window.Handle;  // Season.m_RenderControl.FindForm().Handle
         }
 
+        //public override void SetWindowBorder(bool visible)
+        //{
+        //    Form xnaWindow = (Form)Control.FromHandle((MainGame.Window.Handle));
+        //    xnaWindow.FormBorderStyle = visible ? FormBorderStyle.Fixed3D : FormBorderStyle.None;
+        //}
+
+        public override Vector2 GetWorkingArea()
+        {
+            Form xnaWindow = (Form)Control.FromHandle((MainGame.Window.Handle));
+            //xnaWindow.ClientRectangle
+            var ScreenArea = System.Windows.Forms.Screen.GetWorkingArea(xnaWindow);
+            int mywidth = ScreenArea.Width; //屏幕宽度 
+            int myheight = ScreenArea.Height; //屏幕高度
+            return new Vector2(mywidth, myheight);
+        }
+
         public override void SetFullScreen(bool full)
         {
             GraphicsDeviceManager.IsFullScreen = full;
+        }
+
+        public override void SetFullScreen2(bool full)
+        {
+            Form xnaWindow = (Form)Control.FromHandle((MainGame.Window.Handle));
+
+            //xnaWindow.MaximizeBox = false;
+            //xnaWindow.MinimizeBox = false;
+
+            //xnaWindow.WindowState = FormWindowState.Maximized;
+
+            //修改后的全屏代码
+            //if (full)
+            //{
+            WinHelper.RestoreFullScreen(xnaWindow.Handle);//传入窗体句柄            
+
+            //this.IsFullScreen = false;
+            //}
+            //else
+            //{
+            //    WinHelper.FullScreen(xnaWindow.Handle);
+            //    //this.IsFullScreen = true;
+            //}
         }
 
         /// <summary>

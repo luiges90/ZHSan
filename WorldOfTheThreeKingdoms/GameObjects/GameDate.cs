@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameGlobal;
+using GameManager;
+using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 
@@ -61,13 +63,13 @@ namespace GameObjects
             {
                 return false;
             }
-            if (this.Day == 30)
+            if (this.Day >= 30)
             {
                 if ((this.OnMonthPassed != null) && !this.OnMonthPassed())
                 {
                     return false;
                 }
-                if ((this.Month == 12) && ((this.OnYearPassed != null) && !this.OnYearPassed()))
+                if ((this.Month >= 12) && ((this.OnYearPassed != null) && !this.OnYearPassed()))
                 {
                     return false;
                 }
@@ -106,10 +108,12 @@ namespace GameObjects
 
         public void Go()
         {
-            this.Day++;
+            //this.Day++;
+            this.Day += Session.Parameters.DayInTurn;
             if (this.Day > 30)
             {
-                this.Day = 1;
+                //this.Day = 1;
+                this.Day -= 30;
                 this.Month++;
                 if (this.Month > 12)
                 {

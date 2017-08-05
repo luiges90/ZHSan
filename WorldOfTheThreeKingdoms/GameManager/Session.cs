@@ -42,6 +42,8 @@ namespace GameManager
 
         public bool IsWorking = false;
 
+        public static bool LargeContextMenu = false;
+
         public GameScenario Scenario { get; set; }
 
         public static Parameters parametersBasic = new Parameters();
@@ -284,13 +286,7 @@ namespace GameManager
 
                     CommonData.Current = Tools.SimpleSerializer.DeserializeJsonFile<CommonData>(@"Content\Data\Common\CommonData.json", false, true);
 
-                    GameScenario.ProcessCommonData(CommonData.Current);               
-
-                    Session.globalVariablesBasic = new GlobalVariables();
-                    Session.globalVariablesBasic.InitialGlobalVariables();
-
-                    Session.parametersBasic = new Parameters();
-                    Session.parametersBasic.InitializeGameParameters();
+                    GameScenario.ProcessCommonData(CommonData.Current);
 
                     CommonData.CurrentReady = true;
                 }
@@ -416,6 +412,7 @@ namespace GameManager
                 if (slope >= 1.5)
                 {
                     Session.Resolution = "925*520";
+                    LargeContextMenu = true;
                 }
                 else
                 {
@@ -481,6 +478,19 @@ namespace GameManager
             InputManager.SWidth = Session.ResolutionX;
             InputManager.SHeight = Session.ResolutionY;
             InputManager.RealScale = new Vector2(Convert.ToSingle(MainGame.fullScreenDestination.Width) / ResolutionX, Convert.ToSingle(MainGame.fullScreenDestination.Height) / ResolutionY);
+        }
+
+        public static void ChangeStartDisplay(int width, int height)
+        {
+            float screenscalex1 = 1f;
+            float screenscaley1 = 1f;
+
+            screenscalex1 = Convert.ToSingle(width) / 1280f;
+            screenscaley1 = Convert.ToSingle(height) / 720f;
+
+            InputManager.Scale1 = new Vector2(screenscalex1, screenscaley1);
+
+            Session.MainGame.SpriteScale1 = Matrix.CreateScale(screenscalex1, screenscaley1, 1);
         }
 
         public static void StartScenario(Scenario scenario, bool save)

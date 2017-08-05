@@ -15,6 +15,8 @@
 
     internal class PersonDetail
     {
+        public Vector2 Scale = new Vector2(0.865f, 0.865f);
+
         internal FreeTextList AllSkillTexts;
         internal Point BackgroundSize;
         internal Rectangle BackgroundClient;
@@ -747,9 +749,10 @@
             {
                 Rectangle? sourceRectangle = null;
 
-                if (Switch1 == "on")//新界面打开
-                {
+                CacheManager.Scale = Scale;
 
+                if (Switch1 == "on")//新界面打开
+                {                    
                     //↓人物信息页内容
                     if (InformationButton == true)
                     {
@@ -1174,7 +1177,7 @@
 
 
                     }
-
+                    
                 }
                 ///////
                 if (Switch1 == "off")//旧界面
@@ -1205,6 +1208,8 @@
                 this.SurNameText.Draw(0.01827f);
                 this.GivenNameText.Draw(0.01827f);
                 this.CalledNameText.Draw(0.01827f);
+
+                CacheManager.Scale = Vector2.One;
             }
         }
 
@@ -1215,6 +1220,7 @@
 
         private void screen_OnMouseLeftDown(Point position)
         {
+            CacheManager.Scale = Scale;
             if (Switch1 == "off")
             {
                 if (StaticMethods.PointInRectangle(position, new Rectangle(this.BiographyText.DisplayOffset.X, this.BiographyText.DisplayOffset.Y, this.BiographyClient.Width, this.BiographyClient.Height)))
@@ -1471,10 +1477,12 @@
                 }
             }
             //////////以上新界面相关
+            CacheManager.Scale = Vector2.One;
         }
 
         private void screen_OnMouseMove(Point position, bool leftDown)
         {
+            CacheManager.Scale = Scale;
             if (Switch1 == "off")
             {
                 bool flag = false;
@@ -1785,7 +1793,7 @@
                             this.PersonTreasuresText.AddText(PersonTreasuresText2);
                             this.PersonTreasuresText.AddText(EffectiveTreasuresCount.ToString(), Color.Cyan);
                             this.PersonTreasuresText.AddText(PersonTreasuresText3);
-                            this.PersonTreasuresText.AddText(TreasuresCount.ToString(), Color.Blue);
+                            this.PersonTreasuresText.AddText(TreasuresCount.ToString(), Color.White);
                             this.PersonTreasuresText.AddText(PersonTreasuresText4);
                             this.PersonTreasuresText.AddNewLine();
                             this.PersonTreasuresText.AddText(PersonTreasuresText5);
@@ -2048,11 +2056,11 @@
                                     {
                                         if (condition.CheckCondition(this.ShowingPerson))
                                         {
-                                            this.TheConditionText.AddText(condition.Name, this.ConditionText.PositiveColor);
+                                            this.TheConditionText.AddText(condition.Name, Color.White); // this.ConditionText.PositiveColor);
                                         }
                                         else
                                         {
-                                            this.TheConditionText.AddText(condition.Name, this.ConditionText.NegativeColor);
+                                            this.TheConditionText.AddText(condition.Name, Color.White);  // this.ConditionText.NegativeColor);
                                         }
                                         this.TheConditionText.AddNewLine();
                                     }
@@ -2239,6 +2247,7 @@
                 }
                 
            }
+            CacheManager.Scale = Vector2.One;
             //////////////////以上添加
         }
 
@@ -2350,7 +2359,7 @@
                     this.PersonTreasuresText.AddText(PersonTreasuresText2);
                     this.PersonTreasuresText.AddText(EffectiveTreasuresCount.ToString(), Color.Cyan);
                     this.PersonTreasuresText.AddText(PersonTreasuresText3);
-                    this.PersonTreasuresText.AddText(TreasuresCount.ToString(), Color.Blue);
+                    this.PersonTreasuresText.AddText(TreasuresCount.ToString(), Color.White);
                     this.PersonTreasuresText.AddText(PersonTreasuresText4);
                     this.PersonTreasuresText.AddNewLine();
                     this.PersonTreasuresText.AddText(PersonTreasuresText5);
@@ -2795,7 +2804,7 @@
         internal void SetPosition(ShowPosition showPosition)
         {
             Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
-            Rectangle rect = new Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
+            Rectangle rect = new Rectangle(0, 0, Convert.ToInt16(this.BackgroundSize.X * Scale.X), Convert.ToInt16(this.BackgroundSize.Y * Scale.Y));
             switch (showPosition)
             {
                 case ShowPosition.Center:
@@ -2834,7 +2843,7 @@
                     rect = StaticMethods.GetBottomRightRectangle(rectDes, rect);
                     break;
             }
-            this.DisplayOffset = new Point(rect.X, rect.Y + 15);
+            this.DisplayOffset = new Point(rect.X + 13, rect.Y + 15);  // new Point(rect.X, rect.Y + 15);
             this.SurNameText.DisplayOffset = this.DisplayOffset;
             this.GivenNameText.DisplayOffset = this.DisplayOffset;
             this.CalledNameText.DisplayOffset = this.DisplayOffset;

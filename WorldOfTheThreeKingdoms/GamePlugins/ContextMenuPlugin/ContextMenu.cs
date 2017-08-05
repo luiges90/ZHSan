@@ -4,6 +4,7 @@ using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Platforms;
 using PluginInterface;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace ContextMenuPlugin
 
     public class ContextMenu
     {
+        public Vector2 Scale = new Vector2(1.3f, 1.3f);
+
         public string ClickSoundFile;
         public object CurrentGameObject;
         public int CurrentParamID;
@@ -66,10 +69,12 @@ namespace ContextMenuPlugin
 
         public void Draw()
         {
+            CacheManager.Scale = Scale;
             if (this.menuToDisplay != null)
             {
                 this.menuToDisplay.Draw();
             }
+            CacheManager.Scale = Vector2.One;
         }
 
         private MenuKind GetMenuKindByID(int ID)
@@ -98,7 +103,14 @@ namespace ContextMenuPlugin
 
         public void Initialize()
         {
-            
+            if (Session.LargeContextMenu)
+            {
+                Scale = new Vector2(1.3f, 1.3f);
+            }
+            else
+            {
+                Scale = Vector2.One;
+            }   
         }
 
         public void LoadFromXmlNode(XmlNode rootNode)
@@ -164,11 +176,12 @@ namespace ContextMenuPlugin
         {
             if (this.menuToDisplay != null)
             {
+                CacheManager.Scale = Scale;
                 /*if (this.BianduiLiebiaoXianshi == true && StaticMethods.PointInRectangle(position, this.BianduiLiebiaoWeizhi)) //光标在编队列表里点击时不关闭菜单
                 {
 
                 }*/
-                
+
                 if ((this.HelpPlugin != null) && (this.HelpPlugin.IsButtonShowing && StaticMethods.PointInRectangle(position, this.HelpPlugin.ButtonDisplayPosition)))
                 {
                     this.Result = ContextMenuResult.None;
@@ -232,6 +245,7 @@ namespace ContextMenuPlugin
                         this.Result = ContextMenuResult.KeepShowing;
                     }
                 }
+                CacheManager.Scale = Vector2.One;
             }
         }
 
@@ -239,6 +253,7 @@ namespace ContextMenuPlugin
         {
             if (this.menuToDisplay != null)
             {
+                CacheManager.Scale = Scale;
                 MenuItem itemByPosition = this.menuToDisplay.GetItemByPosition(position);
                 if (itemByPosition != null)
                 {
@@ -248,6 +263,8 @@ namespace ContextMenuPlugin
                 {
                     this.menuToDisplay.ResetAllItemsSelected();
                 }
+
+                CacheManager.Scale = Vector2.One;
             }
         }
 

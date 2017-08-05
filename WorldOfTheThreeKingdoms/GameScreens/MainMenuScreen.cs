@@ -841,15 +841,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     buttons = new string[] { "简体中文", "传统中文" };
 
-                    cbAIHardList.ForEach(cb => cb.Update());
+                    //cbAIHardList.ForEach(cb => cb.Update());
 
-                    tbBattleSpeed.Update(seconds);
-                    tbBattleSpeed.HandleInput(seconds);
+                    //tbBattleSpeed.Update(seconds);
+                    //tbBattleSpeed.HandleInput(seconds);
 
                     tbGamerName.Update(seconds);
                     tbGamerName.HandleInput(seconds);
 
-                    Setting.Current.BattleSpeed = tbBattleSpeed.Text.NullToStringTrim();
+                    //Setting.Current.BattleSpeed = tbBattleSpeed.Text.NullToStringTrim();
                     Setting.Current.GamerName = tbGamerName.Text.NullToStringTrim();
                 }
                 else if (CurrentSetting == "环境")
@@ -1096,26 +1096,26 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     CacheManager.DrawString(Session.Current.Font, "传统中文", new Vector2(50 + 100 + 200 + 50 - 12, 120), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "难度", new Vector2(50, 120 + 60), Color.Black * alpha);
+                    //CacheManager.DrawString(Session.Current.Font, "难度", new Vector2(50, 120 + 60), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "战斗", new Vector2(50, 120 + 60 * 2), Color.Black * alpha);
+                    //CacheManager.DrawString(Session.Current.Font, "战斗", new Vector2(50, 120 + 60 * 2), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "快速战斗的速度", new Vector2(50 + 300, 120 + 60 * 2), Color.Black * alpha);
+                    //CacheManager.DrawString(Session.Current.Font, "快速战斗的速度", new Vector2(50 + 300, 120 + 60 * 2), Color.Black * alpha);
 
                     CacheManager.DrawString(Session.Current.Font, "玩家", new Vector2(50, 120 + 60 * 3), Color.Black * alpha);
 
-                    int inHard = 0;
-                    cbAIHardList.ForEach(cb =>
-                    {
-                        cb.Draw(null, Color.White * alpha);
+                    //int inHard = 0;
+                    //cbAIHardList.ForEach(cb =>
+                    //{
+                    //    cb.Draw(null, Color.White * alpha);
 
-                        CacheManager.DrawString(Session.Current.Font, hards2[inHard], new Vector2(cb.Position.X + 40 - 2, 120 + 60), Color.Black * alpha);
+                    //    CacheManager.DrawString(Session.Current.Font, hards2[inHard], new Vector2(cb.Position.X + 40 - 2, 120 + 60), Color.Black * alpha);
 
-                        inHard++;
-                    });
+                    //    inHard++;
+                    //});
 
-                    tbBattleSpeed.tranAlpha = alpha;
-                    tbBattleSpeed.Draw();
+                    //tbBattleSpeed.tranAlpha = alpha;
+                    //tbBattleSpeed.Draw();
 
                     tbGamerName.tranAlpha = alpha;
                     tbGamerName.Draw();

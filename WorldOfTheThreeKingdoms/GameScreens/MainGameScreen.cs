@@ -109,11 +109,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.UpdateCount = 0;
 
             this.screenManager = new ScreenManager();
-            
+
             //Session.Current.Scenario = new GameScenario(this);
             //this.LoadCommonData();
 
-            Platform.MainGame.Window.ClientSizeChanged += this.Window_ClientSizeChanged;  // new EventHandler(this.Window_ClientSizeChanged);
+            //Platform.MainGame.Window.ClientSizeChanged += this.Window_ClientSizeChanged;  // new EventHandler(this.Window_ClientSizeChanged);
+
             Platform.MainGame.Activated += this.Game_Activated;  // new EventHandler(this.Game_Activated);
             Platform.MainGame.Deactivated += this.Game_Deactivated;  // new EventHandler(this.Game_Deactivated);
         }        
@@ -148,7 +149,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public void Dispose()
         {
-            Platform.MainGame.Window.ClientSizeChanged -= this.Window_ClientSizeChanged;  // new EventHandler(this.Window_ClientSizeChanged);
+            //Platform.MainGame.Window.ClientSizeChanged -= this.Window_ClientSizeChanged;  // new EventHandler(this.Window_ClientSizeChanged);
             Platform.MainGame.Activated -= this.Game_Activated;  // new EventHandler(this.Game_Activated);
             Platform.MainGame.Deactivated -= this.Game_Deactivated;  // new EventHandler(this.Game_Deactivated);
 
@@ -2102,6 +2103,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public void ToggleFullScreen()
         {
+            Platform.SetGraphicsWidthHeight(Session.MainGame.Window.ClientBounds.Width, Session.MainGame.Window.ClientBounds.Height);
+
             Session.MainGame.ToggleFullScreen();
             this.RefreshDisableRects();
         }
@@ -2703,8 +2706,47 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private PlatformTask aiThread;
 
+        private bool loaded = false;
+
+        private bool toggleScreen = false;
+
+        private float toggleScreenTime = 0f;
+
         public override void Update(GameTime gameTime)   //视野内容更新
         {
+            if (toggleScreen)
+            {
+                toggleScreenTime += Convert.ToSingle(gameTime.ElapsedGameTime.TotalSeconds);
+                if (toggleScreenTime >= 1f)
+                {
+                    toggleScreen = false;
+                    int width = Session.MainGame.Window.ClientBounds.Width;
+                    int height = Session.MainGame.Window.ClientBounds.Height;
+                    Session.RealResolution = Session.Resolution = width + "*" + height;
+                    Platform.SetGraphicsWidthHeight(width, height);
+                    //Session.MainGame.ToggleFullScreen();
+                    Platform.GraphicsApplyChanges();
+                    this.UpdateViewport();
+                    this.ResetTiles();
+                    this.RefreshDisableRects();
+                    JumpToFaction();
+                }
+            }
+
+            if (!loaded)
+            {
+                loaded = true;
+                //全屏的判断放到初始化代码中
+                if (Session.GlobalVariables.FullScreen)
+                {
+                    Platform.Current.SetFullScreen2(true);
+                    toggleScreen = true;
+                    //Platform.Current.ProcessViewChanged();
+                    //this.RefreshDisableRects();
+                    //
+                }                
+            }
+
             if (this.Plugins.ToolBarPlugin != null)
             {
                 var btBack = ((ToolBarPlugin.ToolBarPlugin)this.Plugins.ToolBarPlugin).backTool;
@@ -2864,7 +2906,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     this.Plugins.ConmentTextPlugin.BuildFirstText(this.mainMapLayer.GetTerrainNameByPosition(this.position), false);
                 }
-                this.Plugins.ConmentTextPlugin.SetView(this.viewportSize.X, this.viewportSize.Y);
+                this.Plugins.ConmentTextPlugin.SetView(this.viewportSize.X, this.viewportSize.Y - this.Plugins.ToolBarPlugin.Height);
                 this.Plugins.ConmentTextPlugin.Update(gameTime);
             }
         }
@@ -2918,16 +2960,34 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.Plugins.ArchitectureSurveyPlugin.SetArchitecture(architectureByPosition, this.position);
                     this.Plugins.ArchitectureSurveyPlugin.SetFaction(Session.Current.Scenario.CurrentPlayer);
                     this.Plugins.ArchitectureSurveyPlugin.Showing = true;
-                    //if (InputManager.PoX < 670 && InputManager.PoY < 300)  // if (InputManager.NowMouse.X < 670 && InputManager.NowMouse.Y < 300)
-                    if (InputManager.PoX < 400)  // && InputManager.PoY < 250)  // if (InputManager.NowMouse.X < 670 && InputManager.NowMouse.Y < 300)
+
+                    if (Session.LargeContextMenu)
                     {
-                        this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(this.viewportSize.X - 100, 20);
+                        //if (InputManager.PoX < 670 && InputManager.PoY < 300)  // if (InputManager.NowMouse.X < 670 && InputManager.NowMouse.Y < 300)
+                        if (InputManager.PoX < 400)  // && InputManager.PoY < 250)  // if (InputManager.NowMouse.X < 670 && InputManager.NowMouse.Y < 300)
+                        {
+                            this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(this.viewportSize.X - 100, 20);
+                        }
+                        else
+                        {
+                            this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(100, 20);
+                            //this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(280, 20);
+                        }
                     }
                     else
                     {
-                        this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(100, 20);
-                        //this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(280, 20);
+                        if (InputManager.PoX < 670 && InputManager.PoY < 300)  // if (InputManager.NowMouse.X < 670 && InputManager.NowMouse.Y < 300)
+                        //if (InputManager.PoX < 400)  // && InputManager.PoY < 250)  // if (InputManager.NowMouse.X < 670 && InputManager.NowMouse.Y < 300)
+                        {
+                            this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(this.viewportSize.X - 100, 20);
+                        }
+                        else
+                        {
+                            //this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(100, 20);
+                            this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(280, 20);
+                        }
                     }
+
                     this.Plugins.ArchitectureSurveyPlugin.Gengxin();
                 }
                 else
@@ -2955,14 +3015,28 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     //this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(280, 20);
 
-                    if (InputManager.PoX < 400)  // && InputManager.PoY < 250)  // if (InputManager.NowMouse.X < 670 && InputManager.NowMouse.Y < 300)
+                    if (Session.LargeContextMenu)
                     {
-                        this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(this.viewportSize.X - 100, 20);
+                        if (InputManager.PoX < 400)  // && InputManager.PoY < 250)  // if (InputManager.NowMouse.X < 670 && InputManager.NowMouse.Y < 300)
+                        {
+                            this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(this.viewportSize.X - 100, 20);
+                        }
+                        else
+                        {
+                            this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(100, 20);
+                            //this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(280, 20);
+                        }
                     }
                     else
                     {
-                        this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(100, 20);
-                        //this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(280, 20);
+                        //if (InputManager.NowMouse.X < 670 && InputManager.NowMouse.Y < 300)
+                        //{
+                        //}
+                        //else
+                        //{
+                        //}
+
+                        this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(InputManager.PoX, InputManager.PoY);
                     }
 
                     //this.Plugins.ArchitectureSurveyPlugin.SetTopLeftPoint(InputManager.PoX, InputManager.PoY);  // InputManager.NowMouse.X, InputManager.NowMouse.Y);
@@ -3166,8 +3240,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             if (Platform.GraphicsDevice != null)
             {
-                this.viewportSize.X = Session.ResolutionX;  // Platform.GraphicsDevice.Viewport.Width;
-                this.viewportSize.Y = Convert.ToInt32(Session.ResolutionY - this.Plugins.ToolBarPlugin.Height);  // Platform.GraphicsDevice.Viewport.Height - this.Plugins.ToolBarPlugin.Height;
+                if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
+                {
+                    this.viewportSize.X = Platform.GraphicsDevice.Viewport.Width;
+                    this.viewportSize.Y = Platform.GraphicsDevice.Viewport.Height - this.Plugins.ToolBarPlugin.Height;
+                }
+                else
+                {
+                    this.viewportSize.X = Session.ResolutionX;  // Platform.GraphicsDevice.Viewport.Width;
+                    this.viewportSize.Y = Convert.ToInt32(Session.ResolutionY - this.Plugins.ToolBarPlugin.Height);  // Platform.GraphicsDevice.Viewport.Height - this.Plugins.ToolBarPlugin.Height;
+                }
 
                 this.viewportSizeFull.X = Session.ResolutionX;
                 this.viewportSizeFull.Y = Session.ResolutionY;
@@ -3179,10 +3261,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.ResetScreenEdge();
 
                 this.mainMapLayer.ReCalculateTileDestination(this);
+
+                Session.ChangeStartDisplay(Platform.GraphicsDevice.Viewport.Width, Platform.GraphicsDevice.Viewport.Height);
             }
         }
 
-        private void Window_ClientSizeChanged(object sender, EventArgs e)
+        public void Window_ClientSizeChanged(object sender, EventArgs e)
         {
             this.UpdateViewport();
             this.ResetTiles();

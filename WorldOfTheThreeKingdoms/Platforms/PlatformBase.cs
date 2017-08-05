@@ -34,7 +34,7 @@ namespace Platforms
         public static Platform Current = new Platform();
         //System.IO.File.Exists(GameApplicationUrl))
         //System.Reflection.AssemblyName.GetAssemblyName(GameApplicationUrl).Version.ToString();
-        public static string GameVersion = "1.0.2.0";
+        public static string GameVersion = "1.0.3.3";
 
         public static string PreferResolution = "925*520";
 
@@ -148,10 +148,25 @@ namespace Platforms
 
         }
 
+        //public virtual void SetWindowBorder(bool visible)
+        //{
+
+        //}
+
+        public virtual Vector2 GetWorkingArea()
+        {
+            return Vector2.Zero;
+        }
+
         public virtual void SetFullScreen(bool full)
         {
             //SystemTray.IsVisible = !full;
             //Session.Current.graphics.IsFullScreen = true;
+        }
+
+        public virtual void SetFullScreen2(bool full)
+        {
+
         }
 
         public virtual void SetOrientations()

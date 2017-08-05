@@ -152,6 +152,8 @@ namespace GameManager
 
                 if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.UWP || Platform.PlatFormType == PlatFormType.Desktop)  // Platform.PlatFormType == PlatForm.MacOS || Platform.PlatFormType == PlatForm.Linux)
                 {
+                    MouseStatePre = NowMouse;
+
                     NowMouse = Mouse.GetState();
 
                     PoX = NowMouse.X;
@@ -204,7 +206,7 @@ namespace GameManager
                         PosMoveStart = new Vector2(MouseStatePre.X, MouseStatePre.Y);
                         PosMoveEnd = new Vector2(NowMouse.X, NowMouse.Y);
                     }
-                    MouseStatePre = NowMouse;
+                    
                     KeyBoardStatePre = KeyBoardState;
                     KeyBoardState = Keyboard.GetState();
                     if (KeyBoardStatePre == KeyBoardState)

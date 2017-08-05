@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GameManager;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -430,7 +431,15 @@ namespace GameGlobal
 
         public static bool PointInRectangle(Microsoft.Xna.Framework.Point point, Microsoft.Xna.Framework.Rectangle rect)
         {
-            return ((((point.X > rect.Left) && (point.Y > rect.Top)) && (point.X < rect.Right)) && (point.Y < rect.Bottom));
+            if (CacheManager.Scale != Vector2.One)
+            {
+                //return ((((point.X * CacheManager.Scale.X > rect.Left * CacheManager.Scale.X) && (point.Y * CacheManager.Scale.Y > rect.Top * CacheManager.Scale.Y)) && (point.X * CacheManager.Scale.X < rect.Right * CacheManager.Scale.X)) && (point.Y * CacheManager.Scale.Y < rect.Bottom * CacheManager.Scale.Y));
+                return ((((point.X > rect.Left * CacheManager.Scale.X) && (point.Y > rect.Top * CacheManager.Scale.Y)) && (point.X < rect.Right * CacheManager.Scale.X)) && (point.Y < rect.Bottom * CacheManager.Scale.Y));
+            }
+            else
+            {
+                return ((((point.X > rect.Left) && (point.Y > rect.Top)) && (point.X < rect.Right)) && (point.Y < rect.Bottom));
+            }
         }
 
         public static bool PointInViewport(Microsoft.Xna.Framework.Point position, Microsoft.Xna.Framework.Point viewportSize)

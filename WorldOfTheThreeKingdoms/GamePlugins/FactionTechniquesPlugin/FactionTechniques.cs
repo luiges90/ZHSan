@@ -15,6 +15,8 @@ namespace FactionTechniquesPlugin
 
     public class FactionTechniques
     {
+        public Vector2 Scale = new Vector2(0.82f, 0.82f);
+
         internal List<TechniqueItem> AllTechniques = new List<TechniqueItem>();
         internal Microsoft.Xna.Framework.Point BackgroundSize;
         internal PlatformTexture BackgroundTexture;
@@ -45,6 +47,8 @@ namespace FactionTechniquesPlugin
         {
             if (this.ShowingFaction != null)
             {
+                CacheManager.Scale = Scale;
+
                 Microsoft.Xna.Framework.Rectangle? sourceRectangle = null;
                 CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, sourceRectangle, Microsoft.Xna.Framework.Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.02f);  // 0.2f);
                 foreach (LabelText text in this.LabelTexts)
@@ -84,6 +88,8 @@ namespace FactionTechniquesPlugin
                     }
                 }
                 this.CommentsText.Draw(0.01999f);
+
+                CacheManager.Scale = Vector2.One;
             }
         }
 
@@ -96,6 +102,8 @@ namespace FactionTechniquesPlugin
         {
             if (this.Control && this.ShowingFaction.Controlling)
             {
+                CacheManager.Scale = Scale;
+
                 foreach (TechniqueItem item in this.AllTechniques)
                 {
                     if (StaticMethods.PointInRectangle(position, item.Position) && (!this.ShowingFaction.HasTechnique(item.LinkedTechnique.ID) && this.ShowingFaction.MatchTechnique(item.LinkedTechnique, this.UpgradingArchitecture)))
@@ -107,11 +115,14 @@ namespace FactionTechniquesPlugin
                         }
                     }
                 }
+
+                CacheManager.Scale = Vector2.One;
             }
         }
 
         private void screen_OnMouseMove(Microsoft.Xna.Framework.Point position, bool leftDown)
         {
+            CacheManager.Scale = Scale;
             bool flag = false;
             foreach (TechniqueItem item in this.AllTechniques)
             {
@@ -239,6 +250,7 @@ namespace FactionTechniquesPlugin
                 this.current = null;
                 this.CommentsText.Clear();
             }
+            CacheManager.Scale = Vector2.One;
         }
 
         private void screen_OnMouseRightUp(Microsoft.Xna.Framework.Point position)
@@ -307,7 +319,8 @@ namespace FactionTechniquesPlugin
         internal void SetPosition(ShowPosition showPosition)
         {
             Microsoft.Xna.Framework.Rectangle rectDes = new Microsoft.Xna.Framework.Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
-            Microsoft.Xna.Framework.Rectangle rect = new Microsoft.Xna.Framework.Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
+            //Microsoft.Xna.Framework.Rectangle rect = new Microsoft.Xna.Framework.Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
+            Rectangle rect = new Rectangle(0, 0, Convert.ToInt16(this.BackgroundSize.X * Scale.X), Convert.ToInt16(this.BackgroundSize.Y * Scale.Y));
             switch (showPosition)
             {
                 case ShowPosition.Center:
@@ -346,7 +359,7 @@ namespace FactionTechniquesPlugin
                     rect = StaticMethods.GetBottomRightRectangle(rectDes, rect);
                     break;
             }
-            this.DisplayOffset = new Microsoft.Xna.Framework.Point(rect.X, rect.Y);
+            this.DisplayOffset = new Microsoft.Xna.Framework.Point(rect.X, rect.Y + 20);
             foreach (LabelText text in this.LabelTexts)
             {
                 text.Label.DisplayOffset = this.DisplayOffset;

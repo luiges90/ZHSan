@@ -305,7 +305,20 @@ namespace ContextMenuPlugin
             int num;
             if (this.IsRootItem)
             {
-                this.Position = new Rectangle(this.contextMenu.left, this.contextMenu.top + this.GetTopToBe(false), this.menuKind.ItemWidth, this.menuKind.ItemHeight);
+                if (Session.LargeContextMenu)
+                {
+                    int top = 20 + this.GetTopToBe(false);
+
+                    if (top < 20)
+                    {
+                        top = 20;
+                    }
+                    this.Position = new Rectangle(this.contextMenu.left, top, this.menuKind.ItemWidth, this.menuKind.ItemHeight);
+                }
+                else
+                {
+                    this.Position = new Rectangle(this.contextMenu.left, this.contextMenu.top + this.GetTopToBe(false), this.menuKind.ItemWidth, this.menuKind.ItemHeight);
+                }
                 if (this.open)
                 {
                     if (this.menuKind.ShowLeft)
@@ -327,13 +340,34 @@ namespace ContextMenuPlugin
             }
             else
             {
-                if (!this.menuKind.ShowLeft)
+                if (Session.LargeContextMenu)
                 {
-                    this.Position = new Rectangle(this.fatherItem.Position.Right, this.fatherItem.Position.Top + this.GetTopToBe(this.menuKind.ShowTop), this.menuKind.ItemWidth, this.menuKind.ItemHeight);
+                    int top = 20 + this.GetTopToBe(false);
+
+                    if (top < 20)
+                    {
+                        top = 20;
+                    }
+
+                    if (!this.menuKind.ShowLeft)
+                    {
+                        this.Position = new Rectangle(this.fatherItem.Position.Right, top, this.menuKind.ItemWidth, this.menuKind.ItemHeight);
+                    }
+                    else
+                    {
+                        this.Position = new Rectangle(this.fatherItem.Position.Left - this.menuKind.ItemWidth, top, this.menuKind.ItemWidth, this.menuKind.ItemHeight);
+                    }
                 }
                 else
                 {
-                    this.Position = new Rectangle(this.fatherItem.Position.Left - this.menuKind.ItemWidth, this.fatherItem.Position.Top + this.GetTopToBe(this.menuKind.ShowTop), this.menuKind.ItemWidth, this.menuKind.ItemHeight);
+                    if (!this.menuKind.ShowLeft)
+                    {
+                        this.Position = new Rectangle(this.fatherItem.Position.Right, this.fatherItem.Position.Top + this.GetTopToBe(this.menuKind.ShowTop), this.menuKind.ItemWidth, this.menuKind.ItemHeight);
+                    }
+                    else
+                    {
+                        this.Position = new Rectangle(this.fatherItem.Position.Left - this.menuKind.ItemWidth, this.fatherItem.Position.Top + this.GetTopToBe(this.menuKind.ShowTop), this.menuKind.ItemWidth, this.menuKind.ItemHeight);
+                    }
                 }
                 if (this.open)
                 {
@@ -354,6 +388,7 @@ namespace ContextMenuPlugin
                     }
                 }
             }
+            //this.Position = new Rectangle(this.Position.X, 20, this.Position.Width, this.Position.Height);
         }
 
         public void RefreshItemDisplayName()

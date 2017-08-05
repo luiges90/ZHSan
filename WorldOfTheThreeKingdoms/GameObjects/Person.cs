@@ -1241,12 +1241,14 @@ namespace GameObjects
 
         private void updateDayCounters()
         {
-            waitForFeiZiPeriod--;
+            //waitForFeiZiPeriod--;
+            waitForFeiZiPeriod -= Session.Parameters.DayInTurn;
             if (waitForFeiZiPeriod < 0)
             {
                 WaitForFeiZi = null;
             }
-            ReturnedDaySince++;
+            //ReturnedDaySince++;
+            ReturnedDaySince += Session.Parameters.DayInTurn;
         } 
 
         public event BeAwardedTreasure OnBeAwardedTreasure;
@@ -2020,33 +2022,39 @@ namespace GameObjects
                 yearDead += this.LongetivityIncreaseByInfluence;
 
                 if (yearDead - 5 <= Session.Current.Scenario.Date.Year && Session.Current.Scenario.Date.Year < this.YearDead &&
-                     GameObject.Random(60) == 0 && GameObject.Chance((6 - (yearDead - Session.Current.Scenario.Date.Year)) * 18))
+                    GameObject.Random(60 / Session.Parameters.DayInTurn) == 0 && GameObject.Chance((6 - (yearDead - Session.Current.Scenario.Date.Year)) * 18))
+                    //GameObject.Random(60) == 0 && GameObject.Chance((6 - (yearDead - Session.Current.Scenario.Date.Year)) * 18))
                 {
                     this.InjureRate -= 0.1f;
                     Session.MainGame.mainGameScreen.OnOfficerSick(this);
                 }
                 else if (Session.Current.Scenario.Date.Year >= yearDead)
                 {
-                    if (this.DeadReason == PersonDeadReason.被杀死 && GameObject.Random(30) == 0)
+                    //if (this.DeadReason == PersonDeadReason.被杀死 && GameObject.Random(30) == 0)
+                    if (this.DeadReason == PersonDeadReason.被杀死 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
-                    else if (this.DeadReason == PersonDeadReason.郁郁而终 && GameObject.Random(30) == 0 &&
+                    //else if (this.DeadReason == PersonDeadReason.郁郁而终 && GameObject.Random(30) == 0 &&
+                    else if (this.DeadReason == PersonDeadReason.郁郁而终 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0 &&
                         (this.BelongedFaction == null || this.Status == PersonStatus.Captive || this.BelongedFaction.ArchitectureTotalSize <= 8))
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
-                    else if (this.DeadReason == PersonDeadReason.操劳过度 && GameObject.Random(30) == 0 &&
+                    //else if (this.DeadReason == PersonDeadReason.操劳过度 && GameObject.Random(30) == 0 &&
+                    else if (this.DeadReason == PersonDeadReason.操劳过度 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0 &&
                         this.InternalExperience + this.StratagemExperience + this.TacticsExperience
                         + this.BubingExperience + this.QibingExperience + this.NubingExperience + this.ShuijunExperience + this.QixieExperience >= 30000)
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
-                    else if (this.DeadReason == PersonDeadReason.自然死亡 && GameObject.Random(20) == 0)
+                    //else if (this.DeadReason == PersonDeadReason.自然死亡 && GameObject.Random(20) == 0)
+                    else if (this.DeadReason == PersonDeadReason.自然死亡 && GameObject.Random(20 / Session.Parameters.DayInTurn) == 0)
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
-                    else if (GameObject.Random(90) == 0)
+                    else if (GameObject.Random(90 / Session.Parameters.DayInTurn) == 0)
+                    //else if (GameObject.Random(90) == 0)
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
@@ -2210,7 +2218,8 @@ namespace GameObjects
 
         public void RecoverFromInjury()
         {
-            int chance = this.Strength + 10;
+            //int chance = this.Strength + 10;
+            int chance = this.Strength / 2 + 5;
 
             if (this.LocationArchitecture != null)
             {
@@ -2224,7 +2233,8 @@ namespace GameObjects
 
             if (this.InjureRate < 1 && GameObject.Chance(chance))
             {
-                this.InjureRate += (GameObject.Random(30) + 1) / 1000.0f;
+                //this.InjureRate += (GameObject.Random(30) + 1) / 1000.0f;
+                this.InjureRate += (GameObject.Random(30) + 1) / 1000.0f * Session.Parameters.DayInTurn;
                 if (this.InjureRate > 1)
                 {
                     this.InjureRate = 1;
@@ -2251,7 +2261,8 @@ namespace GameObjects
                 List<int> toRemove = new List<int>();
                 foreach (KeyValuePair<int, int> i in new Dictionary<int, int>(this.ProhibitedFactionID))
                 {
-                    this.ProhibitedFactionID[i.Key]--;
+                    //this.ProhibitedFactionID[i.Key]--;
+                    this.ProhibitedFactionID[i.Key] -= Session.Parameters.DayInTurn;
                     if (this.ProhibitedFactionID[i.Key] <= 0)
                     {
                         toRemove.Add(i.Key);
@@ -2391,7 +2402,8 @@ namespace GameObjects
 
         private void createRelations()
         {
-            if (this.LocationArchitecture != null && GameObject.Random(60) == 0)
+            //if (this.LocationArchitecture != null && GameObject.Random(60) == 0)
+            if (this.LocationArchitecture != null && GameObject.Random(60 / Session.Parameters.DayInTurn) == 0)
             {
                 foreach (KeyValuePair<Person, int> i in this.relations)
                 {
@@ -2482,13 +2494,15 @@ namespace GameObjects
         {
             if (this.huaiyuntianshu < -1)
             {
-                this.huaiyuntianshu++;
+                //this.huaiyuntianshu++;
+                this.huaiyuntianshu += Session.Parameters.DayInTurn;
             }
             else
             {
                 if (this.huaiyun)
                 {
-                    this.huaiyuntianshu++;
+                    //this.huaiyuntianshu++;
+                    this.huaiyuntianshu += Session.Parameters.DayInTurn;
                     //if (this.huaiyuntianshu == 30)
                     if (GameObject.Chance((this.huaiyuntianshu - 20) * 5) && !this.faxianhuaiyun)
                     {
@@ -3501,7 +3515,8 @@ namespace GameObjects
                 {
                     double distance = Session.Current.Scenario.GetDistance(a.ArchitectureArea, sourceFaction.Capital.ArchitectureArea);
                     m.TargetArchitecture = sourceFaction.Capital;
-                    m.ArrivingDays += Math.Max(1, (int)(m.TransferDays(distance) * (1 - a.TroopTransportDayRate)));
+                    //m.ArrivingDays += Math.Max(1, (int)(m.TransferDays(distance) * (1 - a.TroopTransportDayRate)));
+                    m.ArrivingDays += Math.Max(1, (int)(m.TransferDays(distance) * (1 - a.TroopTransportDayRate))) * Session.Parameters.DayInTurn;
                 }
             }
             a.ChangeFaction(targetFaction);
@@ -5438,15 +5453,18 @@ namespace GameObjects
                 this.TargetArchitecture = a;
                 if (startingPoint.HasValue)
                 {
-                    this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(startingPoint.Value, a.ArchitectureArea) / 10.0));
+                    //this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(startingPoint.Value, a.ArchitectureArea) / 10.0));
+                    this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(startingPoint.Value, a.ArchitectureArea) / 10.0)) * Session.Parameters.DayInTurn;
                 }
                 else if (this.LocationArchitecture != null)
                 {
-                    this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(this.LocationArchitecture.ArchitectureArea, a.ArchitectureArea) / 10.0));
+                    //this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(this.LocationArchitecture.ArchitectureArea, a.ArchitectureArea) / 10.0));
+                    this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(this.LocationArchitecture.ArchitectureArea, a.ArchitectureArea) / 10.0)) * Session.Parameters.DayInTurn;
                 }
                 else if (targetArchitecture != null)
                 {
-                    this.ArrivingDays += (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(targetArchitecture.ArchitectureArea, a.ArchitectureArea) / 10.0));
+                    //this.ArrivingDays += (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(targetArchitecture.ArchitectureArea, a.ArchitectureArea) / 10.0));
+                    this.ArrivingDays += (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(targetArchitecture.ArchitectureArea, a.ArchitectureArea) / 10.0)) * Session.Parameters.DayInTurn;
                     if ((((this.OutsideTask == OutsideTaskKind.情报) || (this.OutsideTask == OutsideTaskKind.搜索)) || (this.OutsideTask == OutsideTaskKind.技能)) || (this.OutsideTask == OutsideTaskKind.称号))
                     {
                         this.TaskDays = this.ArrivingDays;
@@ -5454,7 +5472,8 @@ namespace GameObjects
                 }
                 else if (a.ArchitectureArea != null)
                 {
-                    this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, a.ArchitectureArea.Centre) / 10.0));
+                    //this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, a.ArchitectureArea.Centre) / 10.0));
+                    this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, a.ArchitectureArea.Centre) / 10.0)) * Session.Parameters.DayInTurn;
                 }
                 if (this.ArrivingDays == 0)
                 {
@@ -5467,8 +5486,10 @@ namespace GameObjects
                 this.ArrivingDays = 1;
             }
 
-            this.ArrivingDays = (int) (this.ArrivingDays * (1 - MovementDaysBonus));
-            this.ArrivingDays = Math.Max(1, this.ArrivingDays);
+            //this.ArrivingDays = (int) (this.ArrivingDays * (1 - MovementDaysBonus));
+            //this.ArrivingDays = Math.Max(1, this.ArrivingDays);
+            this.ArrivingDays = (int)(this.ArrivingDays * (1 - MovementDaysBonus));
+            this.ArrivingDays = Math.Max(1, this.ArrivingDays) * Session.Parameters.DayInTurn;
 
             if (this.TargetArchitecture != null)
             {
@@ -5524,7 +5545,9 @@ namespace GameObjects
                 Point position = this.BelongedArchitecture.Position;
                 this.TargetArchitecture = targetArchitecture;
 
-                this.TaskDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, targetArchitecture.Position) / 10.0));
+                //this.TaskDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, targetArchitecture.Position) / 10.0));
+                this.TaskDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, targetArchitecture.Position) / 10.0)) * Session.Parameters.DayInTurn;
+
                 if (this.taskDays == 0)
                 {
                     this.taskDays = 1;
@@ -5622,7 +5645,8 @@ namespace GameObjects
                 Point position = this.BelongedArchitecture.Position;
                 this.TargetArchitecture = targetArchitecture;
 
-                this.TaskDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, targetArchitecture.Position) / 10.0));
+                //this.TaskDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, targetArchitecture.Position) / 10.0));
+                this.TaskDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, targetArchitecture.Position) / 10.0)) * Session.Parameters.DayInTurn;
                 if (this.taskDays == 0)
                 {
                     this.taskDays = 1;
@@ -5668,7 +5692,9 @@ namespace GameObjects
                 Point position = this.BelongedArchitecture.Position;
                 this.TargetArchitecture = targetArchitecture;
 
-                this.TaskDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, targetArchitecture.Position) / 10.0));
+                //this.TaskDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, targetArchitecture.Position) / 10.0));
+                this.TaskDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, targetArchitecture.Position) / 10.0)) * Session.Parameters.DayInTurn;
+
                 if (this.taskDays == 0)
                 {
                     this.taskDays = 1;
@@ -5716,7 +5742,8 @@ namespace GameObjects
                 Point position = this.BelongedArchitecture.Position;
                 this.TargetArchitecture = targetArchitecture;
 
-                this.TaskDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, targetArchitecture.Position) / 10.0));
+                //this.TaskDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, targetArchitecture.Position) / 10.0));
+                this.TaskDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, targetArchitecture.Position) / 10.0)) * Session.Parameters.DayInTurn;
                 if (this.taskDays == 0)
                 {
                     this.taskDays = 1;
@@ -5822,8 +5849,10 @@ namespace GameObjects
             this.LastOutsideTask = this.outsideTask;
             if (this.TaskDays > 0)
             {
-                this.TaskDays--;
-                if ((this.TaskDays == 0) && (this.OutsideTask != OutsideTaskKind.无))
+                //this.TaskDays--;
+                //if ((this.TaskDays == 0) && (this.OutsideTask != OutsideTaskKind.无))
+                this.TaskDays -= Session.Parameters.DayInTurn;
+                if ((this.TaskDays <= 0) && (this.OutsideTask != OutsideTaskKind.无))
                 {
                     if (this.BelongedFaction != null)
                     {
@@ -5838,8 +5867,10 @@ namespace GameObjects
             }
             if (this.ArrivingDays > 0)
             {
-                this.ArrivingDays--;
-                if ((this.ArrivingDays == 0) && (this.TargetArchitecture != null) && this.Status != PersonStatus.Princess)
+                //this.ArrivingDays--;
+                //if ((this.ArrivingDays == 0) && (this.TargetArchitecture != null) && this.Status != PersonStatus.Princess)
+                this.ArrivingDays -= Session.Parameters.DayInTurn;
+                if ((this.ArrivingDays <= 0) && (this.TargetArchitecture != null) && this.Status != PersonStatus.Princess)
                 {
                     this.ReturnedDaySince = 0;
                     if (this.BelongedFaction != null)
@@ -5856,6 +5887,7 @@ namespace GameObjects
                             if (this.TargetArchitecture.Mayor == null && this.wasMayor && this.TargetArchitecture.BelongedFaction == this.BelongedFaction)
                             {
                                 this.TargetArchitecture.MayorID = this.ID;
+                                this.TargetArchitecture.MayorOnDutyDays = 0;
                             }
                             this.wasMayor = false;
 
@@ -5892,7 +5924,7 @@ namespace GameObjects
                     }
                     ExtensionInterface.call("ArrivedAtArchitecture", new Object[] { Session.Current.Scenario, this, this.TargetArchitecture });
                 }
-                if ((this.ArrivingDays == 0) && (this.TargetArchitecture == null) && (this.LocationArchitecture != null) && (this.Status == PersonStatus.NoFactionMoving))
+                if ((this.ArrivingDays <= 0) && (this.TargetArchitecture == null) && (this.LocationArchitecture != null) && (this.Status == PersonStatus.NoFactionMoving))
                 {
                     this.Status = PersonStatus.NoFaction;
                     Session.MainGame.mainGameScreen.NoFactionPersonArrivesAtArchitecture(this, this.LocationArchitecture);

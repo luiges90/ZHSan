@@ -51,8 +51,6 @@ namespace GameObjects
 
             AIWaterLinks = new ArchitectureList();
 
-            ArchitectureArea = new GameArea();
-
             BeMergedMilitaryList = new MilitaryList();
 
             BuildableFacilityKindList = new GameObjectList();
@@ -111,8 +109,8 @@ namespace GameObjects
 
             linkNodeRouteway = new Dictionary<LinkNode, Routeway>();
 
-            mayorID = -1;
-            buildingFacility = -1;
+            //MayorID = -1;
+            //buildingFacility = -1;
             PathRoutewayID = -1;
 
             pathFinder = new RoutewayPathFinder();
@@ -121,7 +119,10 @@ namespace GameObjects
         // public int[] preferredOfficialTypes = {100, 100, 100, 100, 60, 100, 1, 250, 250, 39 };
 
         private Person mayor = null;
-        private int mayorID = -1;
+
+        //[DataMember]
+        //public int mayorID = -1;
+
         private int militaryPopulation = 0;
 
         [DataMember]
@@ -169,6 +170,7 @@ namespace GameObjects
 
         public ArchitectureList AIWaterLinks = new ArchitectureList();
 
+        [DataMember]
         public GameArea ArchitectureArea = new GameArea();
 
         public MilitaryList BeMergedMilitaryList = new MilitaryList();
@@ -178,7 +180,7 @@ namespace GameObjects
         public HashSet<Architecture> actuallyUnreachableArch = new HashSet<Architecture>();
 
         private int buildingDaysLeft;
-        private int buildingFacility = -1;
+        //private int buildingFacility = -1;
         
         public MilitaryList CampaignMilitaryList = new MilitaryList();
         
@@ -2571,7 +2573,7 @@ namespace GameObjects
             foreach (Information i in this.Informations)
             {
                 bool stop = true;
-                if (i.DaysStarted <= 3)
+                if (i.DaysStarted <= 3 * Session.Parameters.DayInTurn)
                 {
                     stop = false;
                 }
@@ -4881,8 +4883,8 @@ namespace GameObjects
         {
             if (this.BuildingDaysLeft > 0)
             {
-                this.BuildingDaysLeft--;
-                if (this.BuildingDaysLeft == 0)
+                this.BuildingDaysLeft -= Session.Parameters.DayInTurn;
+                if (this.BuildingDaysLeft <= 0)
                 {
                     FacilityKind facilityKind = Session.Current.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(this.BuildingFacility);
                     if (facilityKind != null)
@@ -5591,6 +5593,7 @@ namespace GameObjects
             if (this.Mayor != null)
             {
                 this.MayorOnDutyDays++;
+                this.MayorOnDutyDays += Session.Parameters.DayInTurn;
             }
 
             this.resolveAIQuickBattle();
@@ -5837,15 +5840,18 @@ namespace GameObjects
 
         private void zainanshijian()
         {
-            if (Session.Current.Scenario.DaySince < 720) return;
+            if (Session.Current.Scenario.DaySince < 720 * Session.Parameters.DayInTurn) return;
             if (this.youzainan)
             {
                 //this.DecreaseFood(this.ZhenzaiWorkingPersons.Count * 3000);
                 this.DecreaseFund(this.ZhenzaiWorkingPersons.Count * this.InternalFundCost);
                 this.zhixingzainanshanghai();
 
-                this.zainan.shengyutianshu--;
-                this.zainan.shengyutianshu -= this.zhenzaijianshaotianshu();
+                //this.zainan.shengyutianshu--;
+                //this.zainan.shengyutianshu -= this.zhenzaijianshaotianshu();
+
+                this.zainan.shengyutianshu -= Session.Parameters.DayInTurn;
+                this.zainan.shengyutianshu -= this.zhenzaijianshaotianshu() * Session.Parameters.DayInTurn;
 
                 if (this.zainan.shengyutianshu <= 0)
                 {
@@ -7071,7 +7077,8 @@ namespace GameObjects
             for (int i = this.FundPacks.Count - 1; i >= 0; i--)
             {
                 FundPack local1 = this.FundPacks[i];
-                local1.Days--;
+                //local1.Days--;
+                local1.Days -= Session.Parameters.DayInTurn;
                 if (this.FundPacks[i].Days <= 0)
                 {
                     this.IncreaseFund(this.FundPacks[i].Fund);
@@ -9526,11 +9533,11 @@ namespace GameObjects
             {
                 this.RemoveAllInformations();
             }
-            foreach (Information information in this.Informations)
-            {
-                information.CheckAmbushTroop();
-                information.DaysStarted++;
-            }
+            //foreach (Information information in this.Informations)
+            //{
+            //    information.CheckAmbushTroop();
+            //    information.DaysStarted++;
+            //}
         }
 
         private void InsideTacticsAI()
@@ -11009,7 +11016,8 @@ namespace GameObjects
                 {
                     if (architecture.Kind.HasPopulation)
                     {
-                        architecture.AddPopulationPack((int)(Session.Current.Scenario.GetDistance(this.ArchitectureArea, architecture.ArchitectureArea) / 2.0), 1 + GameObject.Random(maxValue));
+                        //architecture.AddPopulationPack((int)(Session.Current.Scenario.GetDistance(this.ArchitectureArea, architecture.ArchitectureArea) / 2.0), 1 + GameObject.Random(maxValue));
+                        architecture.AddPopulationPack((int)(Session.Current.Scenario.GetDistance(this.ArchitectureArea, architecture.ArchitectureArea) / 2.0) * Session.Parameters.DayInTurn, 1 + GameObject.Random(maxValue));
                         num++;
                     }
                     if (num >= 100)
@@ -11086,7 +11094,8 @@ namespace GameObjects
             for (int i = this.PopulationPacks.Count - 1; i >= 0; i--)
             {
                 PopulationPack local1 = this.PopulationPacks[i];
-                local1.Days--;
+                //local1.Days--;
+                local1.Days -= Session.Parameters.DayInTurn;
                 if (this.PopulationPacks[i].Days <= 0)
                 {
                     this.ReceivePopulation(this.PopulationPacks[i].Population);
@@ -12283,7 +12292,8 @@ namespace GameObjects
                         }
                     }
                 }
-                if (Session.Current.Scenario.Date.Day == 30)
+                //if (Session.Current.Scenario.Date.Day == 30)
+                if (GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                 {
                     GameObjectList aILinks = this.GetAILinks();
                     aILinks.Add(this);
@@ -12818,17 +12828,17 @@ namespace GameObjects
             }
         }
         [DataMember]
-        public int BuildingFacility
-        {
-            get
-            {
-                return this.buildingFacility;
-            }
-            set
-            {
-                this.buildingFacility = value;
-            }
-        }
+        public int BuildingFacility { get; set; }
+        //{
+        //    get
+        //    {
+        //        return this.buildingFacility;
+        //    }
+        //    set
+        //    {
+        //        this.buildingFacility = value;
+        //    }
+        //}
 
         public int CaptiveCount
         {
@@ -14941,7 +14951,7 @@ namespace GameObjects
         {
             get
             {
-                if (this.mayorID == -1 ) return null ;
+                if (this.MayorID == -1 ) return null ;
 
                 if ( this.mayor == null )
                 {
@@ -14968,22 +14978,22 @@ namespace GameObjects
                 {
                     this.MayorID = -1;
                 }
-                
-            }
-        }
-        [DataMember]
-        public int MayorID
-        {
-            get
-            {
-                return this.mayorID;
-            }
-            set
-            {
-                this.mayorID = value;
                 this.MayorOnDutyDays = 0;
             }
         }
+        [DataMember]
+        public int MayorID { get; set; }
+        //{
+        //    get
+        //    {
+        //        return this.mayorID;
+        //    }
+        //    set
+        //    {
+        //        this.mayorID = value;
+        //        //this.MayorOnDutyDays = 0;
+        //    }
+        //}
 
         public string MayorName
         {

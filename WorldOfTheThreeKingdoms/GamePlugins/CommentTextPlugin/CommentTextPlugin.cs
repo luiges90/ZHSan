@@ -1,5 +1,6 @@
 ﻿using GameFreeText;
 using GameGlobal;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -101,7 +102,9 @@ namespace CommentTextPlugin
 
         public void SetView(int width, int height)
         {
-            this.conmentText.Position = new Microsoft.Xna.Framework.Rectangle((int) (width * this.ScaleX), (int) (height * this.ScaleY), (int) (width * this.ScaleWidth), (int) (height * this.ScaleHeight));
+            this.conmentText.Position = new Microsoft.Xna.Framework.Rectangle((int) (width * this.ScaleX), (int) (height * this.ScaleY), (int) (width * this.ScaleWidth), (int) (height * this.ScaleHeight));            
+            //int posY = Convert.ToInt16((Session.MainGame.mainGameScreen.Plugins.ToolBarPlugin as ToolBarPlugin.ToolBarPlugin).backTool.Position.Y);
+            //this.conmentText.Position = new Microsoft.Xna.Framework.Rectangle((int)(width * this.ScaleX), (int)(posY * this.ScaleY), (int)(width * this.ScaleWidth), (int)(height * this.ScaleHeight));
         }
 
         public void Update(GameTime gameTime)

@@ -46,6 +46,7 @@ namespace WorldOfTheThreeKingdoms.GamePlugins.ToolBarPlugin
                 var troopDetail = Session.MainGame.mainGameScreen.Plugins.TroopDetailPlugin;
                 var createTroop = Session.MainGame.mainGameScreen.Plugins.CreateTroopPlugin;
                 var transPort = Session.MainGame.mainGameScreen.Plugins.TransportDialogPlugin;
+                var numberInputer = Session.MainGame.mainGameScreen.Plugins.NumberInputerPlugin;
 
                 if (architectureDetail.IsShowing)
                 {
@@ -75,6 +76,10 @@ namespace WorldOfTheThreeKingdoms.GamePlugins.ToolBarPlugin
                 {
                     createTroop.IsShowing = false;
                 }
+                else if (numberInputer.IsShowing)
+                {
+                    numberInputer.IsShowing = false;
+                }
                 else if (transPort.IsShowing)
                 {
                     transPort.IsShowing = false;
@@ -92,10 +97,15 @@ namespace WorldOfTheThreeKingdoms.GamePlugins.ToolBarPlugin
             var troopDetail = Session.MainGame.mainGameScreen.Plugins.TroopDetailPlugin;
             var createTroop = Session.MainGame.mainGameScreen.Plugins.CreateTroopPlugin as CreateTroopPlugin.CreateTroopPlugin;
             var transPort = Session.MainGame.mainGameScreen.Plugins.TransportDialogPlugin as TransportDialogPlugin.TransportDialogPlugin;
+            var frame = Session.MainGame.mainGameScreen.Plugins.GameFramePlugin;
+            var numberInputer = Session.MainGame.mainGameScreen.Plugins.NumberInputerPlugin;
 
             if (architectureDetail.IsShowing || personDetail.IsShowing || treasureDetail.IsShowing || troopDetail.IsShowing 
-                || createTroop.IsShowing && createTroop.createTroop.IsDialog || transPort.transportDialog.IsShowing
-                || factionTech.IsShowing || optionDialog.OptionTitle != "系统选项" && optionDialog.IsShowing)
+                || createTroop.IsShowing && createTroop.createTroop.IsDialog
+                || numberInputer.IsShowing
+                || transPort.transportDialog.IsShowing && !frame.IsShowing
+                || factionTech.IsShowing || optionDialog.OptionTitle != "系统选项" && optionDialog.IsShowing
+                )
             {
                 btBack.Visible = true;
             }

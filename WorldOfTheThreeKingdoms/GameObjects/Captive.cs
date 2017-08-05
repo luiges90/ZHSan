@@ -109,7 +109,8 @@ namespace GameObjects
 
             if (((this.BelongedFaction != null) && (this.CaptiveFaction != null)) && (this.RansomArriveDays > 0))
             {
-                this.RansomArriveDays--;
+                //this.RansomArriveDays--;
+                this.RansomArriveDays -= Session.Parameters.DayInTurn;
                 if (this.RansomArriveDays == 0)
                 {
                     if (this.BelongedFaction.Capital != null)
@@ -149,7 +150,8 @@ namespace GameObjects
                         }
                         else
                         {
-                            this.RansomArriveDays = (int) (Session.Current.Scenario.GetDistance(this.RansomArchitecture.ArchitectureArea, this.BelongedFaction.Capital.ArchitectureArea) / 5.0);
+                            //this.RansomArriveDays = (int) (Session.Current.Scenario.GetDistance(this.RansomArchitecture.ArchitectureArea, this.BelongedFaction.Capital.ArchitectureArea) / 5.0);
+                            this.RansomArriveDays = (int)(Session.Current.Scenario.GetDistance(this.RansomArchitecture.ArchitectureArea, this.BelongedFaction.Capital.ArchitectureArea) / 5.0) * Session.Parameters.DayInTurn;
                             if (this.RansomArriveDays <= 0)
                             {
                                 this.RansomArriveDays = 1;
@@ -196,7 +198,8 @@ namespace GameObjects
         {
             if ((this.CaptiveFaction!=null) && ((this.CaptiveFaction.Capital != null)) && (this.BelongedFaction != null) && (this.BelongedFaction.Capital != null))
             {
-                int num = (int) (Session.Current.Scenario.GetDistance(this.CaptiveFaction.Capital.ArchitectureArea, this.BelongedFaction.Capital.ArchitectureArea) / 5.0);
+                //int num = (int) (Session.Current.Scenario.GetDistance(this.CaptiveFaction.Capital.ArchitectureArea, this.BelongedFaction.Capital.ArchitectureArea) / 5.0);
+                int num = (int) (Session.Current.Scenario.GetDistance(this.CaptiveFaction.Capital.ArchitectureArea, this.BelongedFaction.Capital.ArchitectureArea) / 5.0) * Session.Parameters.DayInTurn;
                 if (num <= 0)
                 {
                     num = 1;
@@ -271,7 +274,8 @@ namespace GameObjects
             this.RansomFund = this.Ransom;
             from.DecreaseFund(this.RansomFund);
             this.RansomArchitecture = to;
-            this.RansomArriveDays = (int) (Session.Current.Scenario.GetDistance(from.ArchitectureArea, to.ArchitectureArea) / 5.0);
+            //this.RansomArriveDays = (int) (Session.Current.Scenario.GetDistance(from.ArchitectureArea, to.ArchitectureArea) / 5.0);
+            this.RansomArriveDays = (int)(Session.Current.Scenario.GetDistance(from.ArchitectureArea, to.ArchitectureArea) / 5.0) * Session.Parameters.DayInTurn;
             if (this.RansomArriveDays <= 0)
             {
                 this.RansomArriveDays = 1;

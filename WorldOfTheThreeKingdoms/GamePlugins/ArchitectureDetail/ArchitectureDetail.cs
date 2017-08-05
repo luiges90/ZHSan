@@ -15,6 +15,8 @@ namespace ArchitectureDetail
 {
     public class ArchitectureDetail
     {
+        public Vector2 Scale = new Vector2(0.94f, 0.94f);
+
         internal Point BackgroundSize;
         internal PlatformTexture BackgroundTexture;
         internal PlatformTexture PictureNull;
@@ -2386,6 +2388,7 @@ namespace ArchitectureDetail
         //////以上添加
         internal void Draw()
         {
+            CacheManager.Scale = Scale;
             if (this.ShowingArchitecture != null)
             {
                 if (Switch1 == "off")
@@ -2556,6 +2559,7 @@ namespace ArchitectureDetail
                     }                     
                 }
             }
+            CacheManager.Scale = Vector2.One;
         }
 
         internal void Initialize()
@@ -2565,6 +2569,7 @@ namespace ArchitectureDetail
 
         private void screen_OnMouseLeftDown(Point position)
         {
+            CacheManager.Scale = Scale;
             if (Switch1 == "off")
             {
                 if (StaticMethods.PointInRectangle(position, this.CharacteristicDisplayPosition))
@@ -3308,13 +3313,14 @@ namespace ArchitectureDetail
                     FacilityforPage29Button = false;
                     FacilityforPage30Button = false;
                 }
-            }         
-
+            }
+            CacheManager.Scale = Vector2.One;
             ////////
         }
 
         private void screen_OnMouseMove(Point position, bool leftDown)
         {
+            CacheManager.Scale = Scale;
             if (FacilityButton == true)
             {
                 bool flag1 = false;
@@ -3398,8 +3404,7 @@ namespace ArchitectureDetail
                     }
                 }
             }
-
-
+            CacheManager.Scale = Vector2.One;
         }
 
         private void screen_OnMouseRightUp(Point position)
@@ -3811,7 +3816,7 @@ namespace ArchitectureDetail
         internal void SetPosition(ShowPosition showPosition)
         {
             Rectangle rectDes = new Rectangle(0, 0, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y);
-            Rectangle rect = new Rectangle(0, 0, this.BackgroundSize.X, this.BackgroundSize.Y);
+            Rectangle rect = new Rectangle(0, 0, Convert.ToInt16(this.BackgroundSize.X * Scale.X), Convert.ToInt16(this.BackgroundSize.Y * Scale.Y));
             switch (showPosition)
             {
                 case ShowPosition.Center:
@@ -3850,7 +3855,7 @@ namespace ArchitectureDetail
                     rect = StaticMethods.GetBottomRightRectangle(rectDes, rect);
                     break;
             }
-            this.DisplayOffset = new Point(rect.X, rect.Y + 50);
+            this.DisplayOffset = new Point(rect.X, rect.Y + 34);
 
             //this.DisplayOffset = new Point(Convert.ToInt32(rect.X / InputManager.Scale2.X), Convert.ToInt32(rect.Y / InputManager.Scale2.Y));
             foreach (LabelText text in this.LabelTexts)

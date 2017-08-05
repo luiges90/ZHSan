@@ -321,6 +321,10 @@ namespace GameGlobal
         public List<int> ExpandConditions = new List<int>();
         [DataMember]
         public float SearchPersonArchitectureCountPower = 0;
+        [DataMember]
+        public float InternalSurplusMinEffect = 0.2f;
+        [DataMember]
+        public int DayInTurn = 1;
 
         public Parameters Clone()
         {
@@ -498,6 +502,9 @@ namespace GameGlobal
             AIEncircleVar = int.Parse(nextSibling.Attributes.GetNamedItem("AIEncircleVar").Value);
 
             RansomRate = float.Parse(nextSibling.Attributes.GetNamedItem("RansomRate").Value);
+            InternalSurplusMinEffect = float.Parse(nextSibling.Attributes.GetNamedItem("InternalSurplusMinEffect").Value);
+
+            DayInTurn = int.Parse(nextSibling.Attributes.GetNamedItem("DayInTurn").Value);
 
             BasicAIFundRate = AIFundRate;
             BasicAIFoodRate = AIFoodRate;
