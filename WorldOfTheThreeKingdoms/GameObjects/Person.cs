@@ -112,7 +112,6 @@ namespace GameObjects
             injureRate = 1.0f;
         }
         
-        [DataMember]
         public int ChanceOfNoCapture;
 
         [DataMember]
@@ -129,17 +128,12 @@ namespace GameObjects
         [DataMember]
         public int ConvincingPersonID;
         private InformationKind currentInformationKind;
-        [DataMember]
+
         public bool DayAvoidInfluenceByBattle;
-        [DataMember]
         public bool DayAvoidInternalDecrementOnBattle;
-        [DataMember]
         public bool DayAvoidPopulationEscape;
-        [DataMember]
         public int DayLearnTitleDay = 90;
-        [DataMember]
         public bool DayLocationLoyaltyNoChange;
-        [DataMember]
         public float DayRateIncrementOfpublic = 0f;
 
         private PersonDeadReason deadReason;
@@ -154,126 +148,74 @@ namespace GameObjects
 
         
         public IdealTendencyKind IdealTendency;
-        [DataMember]
+
         public bool ImmunityOfCaptive;
-        [DataMember]
         public bool ImmunityOfDieInBattle;
 #pragma warning disable CS0649 // Field 'Person.impactRateOfBadForm' is never assigned to, and will always have its default value 0
         private float impactRateOfBadForm;
 #pragma warning restore CS0649 // Field 'Person.impactRateOfBadForm' is never assigned to, and will always have its default value 0
         private float impactRateOfGoodForm;
-        [DataMember]
+
         public int IncrementOfAgricultureAbility;
-        [DataMember]
         public int IncrementOfChallengeWinningChance;
-        [DataMember]
         public int IncrementOfCommerceAbility;
-        [DataMember]
         public int IncrementOfControversyWinningChance;
-        [DataMember]
         public int IncrementOfDominationAbility;
-        [DataMember]
         public int IncrementOfEnduranceAbility;
-        [DataMember]
         public int IncrementOfMoraleAbility;
-        [DataMember]
         public int IncrementOfRecruitmentAbility;
-        [DataMember]
         public int IncrementOfSpyDays;
-        [DataMember]
         public int IncrementOfTechnologyAbility;
-        [DataMember]
         public int IncrementOfTrainingAbility;
-        [DataMember]
         public bool InevitableSuccessOfConvince;
-        [DataMember]
         public bool InevitableSuccessOfDestroy;
-        [DataMember]
         public bool InevitableSuccessOfGossip;
-        [DataMember]
         public bool InevitableSuccessOfInstigate;
-        [DataMember]
         public bool InevitableSuccessOfSearch;
-        [DataMember]
         public bool InevitableSuccessOfSpy;
-        [DataMember]
         public bool InevitableSuccessOfJailBreak;
-        [DataMember]
         public int InfluenceIncrementOfCommand;
-        [DataMember]
         public int InfluenceIncrementOfGlamour;
-        [DataMember]
         public int InfluenceIncrementOfIntelligence;
-        [DataMember]
         public int InfluenceIncrementOfPolitics;
-        [DataMember]
         public int InfluenceIncrementOfStrength;
-        [DataMember]
         public int InfluenceIncrementOfReputation;
-        [DataMember]
         public int InfluenceIncrementOfLoyalty;
-        [DataMember]
         public float InfluenceRateOfBadForm;
-        [DataMember]
         public float InfluenceRateOfCommand = 1f;
-        [DataMember]
         public float InfluenceRateOfGlamour = 1f;
-        [DataMember]
         public float InfluenceRateOfGoodForm;
-        [DataMember]
         public float InfluenceRateOfIntelligence = 1f;
-        [DataMember]
         public float InfluenceRateOfPolitics = 1f;
-        [DataMember]
         public float InfluenceRateOfStrength = 1f;
         private int informationKindID = -1;
         private int intelligence;
         private float intelligenceExperience;
         private float internalExperience;
-        [DataMember]
         public bool InternalNoFundNeeded;
         private bool leaderPossibility;
 
-        [DataMember]
         public int MonthIncrementOfFactionReputation = 0;
-        [DataMember]
         public int MonthIncrementOfTechniquePoint = 0;
         private Person mother = null;
-        [DataMember]
+
         public int MultipleOfAgricultureReputation = 1;
-        [DataMember]
         public int MultipleOfAgricultureTechniquePoint = 1;
-        [DataMember]
         public int MultipleOfCommerceReputation = 1;
-        [DataMember]
         public int MultipleOfCommerceTechniquePoint = 1;
-        [DataMember]
         public int MultipleOfDominationReputation = 1;
-        [DataMember]
         public int MultipleOfDominationTechniquePoint = 1;
-        [DataMember]
         public int MultipleOfEnduranceReputation = 1;
-        [DataMember]
         public int MultipleOfEnduranceTechniquePoint = 1;
-        [DataMember]
         public int MultipleOfMoraleReputation = 1;
-        [DataMember]
         public int MultipleOfMoraleTechniquePoint = 1;
-        [DataMember]
         public int MultipleOfRecruitmentReputation = 1;
-        [DataMember]
         public int MultipleOfRecruitmentTechniquePoint = 1;
-        [DataMember]
         public int MultipleOfTacticsReputation = 1;
-        [DataMember]
         public int MultipleOfTacticsTechniquePoint = 1;
-        [DataMember]
         public int MultipleOfTechnologyReputation = 1;
-        [DataMember]
         public int MultipleOfTechnologyTechniquePoint = 1;
-        [DataMember]
         public int MultipleOfTrainingReputation = 1;
-        [DataMember]
         public int MultipleOfTrainingTechniquePoint = 1;
 
         private float nubingExperience;
@@ -299,35 +241,20 @@ namespace GameObjects
         private float qixieExperience;
         private PersonQualification qualification;
 
-        [DataMember]
         public int RadiusIncrementOfInformation;
-        [DataMember]
         public float RateIncrementOfAgricultureAbility;
-        [DataMember]
         public float RateIncrementOfCommerceAbility;
-        [DataMember]
         public float RateIncrementOfConvince;
-        [DataMember]
         public float RateIncrementOfDestroy;
-        [DataMember]
         public float RateIncrementOfDominationAbility;
-        [DataMember]
         public float RateIncrementOfEnduranceAbility;
-        [DataMember]
         public float RateIncrementOfGossip;
-        [DataMember]
         public float RateIncrementOfInstigate;
-        [DataMember]
         public float RateIncrementOfJailBreakAbility;
-        [DataMember]
         public float RateIncrementOfMoraleAbility;
-        [DataMember]
         public float RateIncrementOfRecruitmentAbility;
-        [DataMember]
         public float RateIncrementOfSearch;
-        [DataMember]
         public float RateIncrementOfTechnologyAbility;
-        [DataMember]
         public float RateIncrementOfTrainingAbility;
 
         private Military recruitmentMilitary;
@@ -424,25 +351,16 @@ namespace GameObjects
 
         [DataMember]
         public int waitForFeiziId;
-        [DataMember]
+
         public float ExperienceRate;
-        [DataMember]
         public int CommandExperienceIncrease { get; set; }
-        [DataMember]
         public int StrengthExperienceIncrease { get; set; }
-        [DataMember]
         public int IntelligenceExperienceIncrease { get; set; }
-        [DataMember]
         public int PoliticsExperienceIncrease { get; set; }
-        [DataMember]
         public int GlamourExperienceIncrease { get; set; }
-        [DataMember]
         public int ReputationDayIncrease { get; set; }
-        [DataMember]
         public float MovementDaysBonus { get; set; }
-        [DataMember]
         public int ConvinceIdealSkip { get; set; }
-        [DataMember]
         public int LongetivityIncreaseByInfluence { get; set; }
 
         //public OngoingBattle Battle { get; set; }
@@ -541,33 +459,19 @@ namespace GameObjects
                 return oldInjuraRate;
             }
         }
-        [DataMember]
         public int captiveEscapeChance;
-        [DataMember]
         public int pregnantChance;
-        [DataMember]
         public int childrenAbilityIncrease;
-        [DataMember]
         public int childrenSkillChanceIncrease;
-        [DataMember]
         public int childrenStuntChanceIncrease;
-        [DataMember]
         public int childrenTitleChanceIncrease;
-        [DataMember]
         public int childrenReputationIncrease;
-        [DataMember]
         public int childrenLoyalty;
-        [DataMember]
         public int childrenLoyaltyRate;
-        [DataMember]
         public int multipleChildrenRate;
-        [DataMember]
         public int maxChildren = 1;
-        [DataMember]
         public int chanceTirednessStopIncrease;
-        [DataMember]
         public int bravenessIncrease;
-        [DataMember]
         public int calmnessIncrease;
 
         public PersonList preferredTroopPersons = new PersonList();
@@ -1056,31 +960,18 @@ namespace GameObjects
         private int enduranceAbility = 0;
         private int trainingAbility = 0;
 
-        [DataMember]
         public List<KeyValuePair<int, int>> CommandDecrease = new List<KeyValuePair<int, int>>();
-        [DataMember]
         public List<KeyValuePair<int, int>> CommandIncrease = new List<KeyValuePair<int, int>>();
-        [DataMember]
         public List<KeyValuePair<int, int>> StrengthDecrease = new List<KeyValuePair<int, int>>();
-        [DataMember]
         public List<KeyValuePair<int, int>> StrengthIncrease = new List<KeyValuePair<int, int>>();
-        [DataMember]
         public List<KeyValuePair<int, int>> IntelligenceDecrease = new List<KeyValuePair<int, int>>();
-        [DataMember]
         public List<KeyValuePair<int, int>> IntelligenceIncrease = new List<KeyValuePair<int, int>>();
-        [DataMember]
         public List<KeyValuePair<int, int>> PoliticsDecrease = new List<KeyValuePair<int, int>>();
-        [DataMember]
         public List<KeyValuePair<int, int>> PoliticsIncrease = new List<KeyValuePair<int, int>>();
-        [DataMember]
         public List<KeyValuePair<int, int>> GlamourDecrease = new List<KeyValuePair<int, int>>();
-        [DataMember]
         public List<KeyValuePair<int, int>> GlamourIncrease = new List<KeyValuePair<int, int>>();
-        [DataMember]
         public List<KeyValuePair<int, int>> ReputationDecrease = new List<KeyValuePair<int, int>>();
-        [DataMember]
         public List<KeyValuePair<int, int>> ReputationIncrease = new List<KeyValuePair<int, int>>();
-        [DataMember]
         public List<KeyValuePair<int, int>> LoseSkill = new List<KeyValuePair<int, int>>();
 
         private OutsideTaskKind lastOutsideTask = OutsideTaskKind.无;

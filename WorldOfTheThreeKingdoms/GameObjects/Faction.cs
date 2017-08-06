@@ -43,35 +43,21 @@ namespace GameObjects
         //private Thread AIThread;
 #pragma warning restore CS0169 // The field 'Faction.AIThread' is never used
         public ZhandouZhuangtai BattleState = ZhandouZhuangtai.和平;
-        [DataMember]
+
         public bool AllowAttackAfterMoveOfBubing;
-        [DataMember]
         public bool AllowAttackAfterMoveOfNubing;
-        [DataMember]
         public bool AllowAttackAfterMoveOfQibing;
-        [DataMember]
         public bool AllowAttackAfterMoveOfQixie;
-        [DataMember]
         public bool AllowAttackAfterMoveOfShuijun;
-        [DataMember]
         public int AntiArrowChanceIncrementOfBubing;
-        [DataMember]
         public int AntiArrowChanceIncrementOfNubing;
-        [DataMember]
         public int AntiArrowChanceIncrementOfQibing;
-        [DataMember]
         public int AntiArrowChanceIncrementOfQixie;
-        [DataMember]
         public int AntiArrowChanceIncrementOfShuijun;
-        [DataMember]
         public int AntiCriticalStrikeChanceIncrementWhileCombatMethodOfBubing;
-        [DataMember]
         public int AntiCriticalStrikeChanceIncrementWhileCombatMethodOfNubing;
-        [DataMember]
         public int AntiCriticalStrikeChanceIncrementWhileCombatMethodOfQibing;
-        [DataMember]
         public int AntiCriticalStrikeChanceIncrementWhileCombatMethodOfQixie;
-        [DataMember]
         public int AntiCriticalStrikeChanceIncrementWhileCombatMethodOfShuijun;
 
         private int[,] architectureAdjustCost;
@@ -139,57 +125,34 @@ namespace GameObjects
         public Dictionary<Point, object> ClosedRouteways = new Dictionary<Point, object>();
         private int colorIndex;
         private bool controlling;
-        [DataMember]
+
         public int CriticalStrikeChanceIncrementWhileCombatMethodOfBubing;
-        [DataMember]
         public int CriticalStrikeChanceIncrementWhileCombatMethodOfNubing;
-        [DataMember]
         public int CriticalStrikeChanceIncrementWhileCombatMethodOfQibing;
-        [DataMember]
         public int CriticalStrikeChanceIncrementWhileCombatMethodOfQixie;
-        [DataMember]
         public int CriticalStrikeChanceIncrementWhileCombatMethodOfShuijun;
-        [DataMember]
         public float DefenceRateOfBubing;
-        [DataMember]
         public float DefenceRateOfNubing;
-        [DataMember]
         public float DefenceRateOfQibing;
-        [DataMember]
         public float DefenceRateOfQixie;
-        [DataMember]
         public float DefenceRateOfShuijun;
-        [DataMember]
         public float DefenceRateWhileCombatMethodOfBubing;
-        [DataMember]
         public float DefenceRateWhileCombatMethodOfNubing;
-        [DataMember]
         public float DefenceRateWhileCombatMethodOfQibing;
-        [DataMember]
         public float DefenceRateWhileCombatMethodOfQixie;
-        [DataMember]
         public float DefenceRateWhileCombatMethodOfShuijun;
         [DataMember]
         public bool Destroyed;
         [DataMember]
         public Color FactionColor;
-        [DataMember]
         public int IncrementOfAntiCriticalStrikeChance;
-        [DataMember]
         public int IncrementOfChaosDaysAfterPhisicalAttack;
-        [DataMember]
         public int IncrementOfCombativityCeiling;
-        [DataMember]
         public int IncrementOfCriticalStrikeChance;
-        [DataMember]
         public int IncrementOfResistStratagemChance;
-        [DataMember]
         public int IncrementOfRoutewayRadius;
-        [DataMember]
         public int IncrementOfRoutewayWorkforce;
-        [DataMember]
         public int IncrementOfStratagemSuccessChance;
-        [DataMember]
         public int IncrementOfViewRadius;
 
         [DataMember]
@@ -208,45 +171,26 @@ namespace GameObjects
         public InformationLevel LevelOfView = InformationLevel.中;
         private int[,] mapData;
         // public MilitaryList Militaries = new MilitaryList();
-        [DataMember]
+
         public int NoCounterChanceIncrementOfBubing;
-        [DataMember]
         public int NoCounterChanceIncrementOfNubing;
-        [DataMember]
         public int NoCounterChanceIncrementOfQibing;
-        [DataMember]
         public int NoCounterChanceIncrementOfQixie;
-        [DataMember]
         public int NoCounterChanceIncrementOfShuijun;
-        [DataMember]
         public int OffenceRadiusIncrementOfBubing;
-        [DataMember]
         public int OffenceRadiusIncrementOfNubing;
-        [DataMember]
         public int OffenceRadiusIncrementOfQibing;
-        [DataMember]
         public int OffenceRadiusIncrementOfQixie;
-        [DataMember]
         public int OffenceRadiusIncrementOfShuijun;
-        [DataMember]
         public float OffenceRateOfBubing;
-        [DataMember]
         public float OffenceRateOfNubing;
-        [DataMember]
         public float OffenceRateOfQibing;
-        [DataMember]
         public float OffenceRateOfQixie;
-        [DataMember]
         public float OffenceRateOfShuijun;
-        [DataMember]
         public float OffenceRateWhileCombatMethodOfBubing;
-        [DataMember]
         public float OffenceRateWhileCombatMethodOfNubing;
-        [DataMember]
         public float OffenceRateWhileCombatMethodOfQibing;
-        [DataMember]
         public float OffenceRateWhileCombatMethodOfQixie;
-        [DataMember]
         public float OffenceRateWhileCombatMethodOfShuijun;
 
         private bool passed;
@@ -261,17 +205,12 @@ namespace GameObjects
         public List<int> PreferredTechniqueKinds = new List<int>();
 
         private bool preUserControlFinished = true;
-        [DataMember]
+
         public float RateIncrementOfTerrainRate;
-        [DataMember]
         public float RateOfCombativityRecoveryAfterAttacked;
-        [DataMember]
         public float RateOfCombativityRecoveryAfterStratagemFail;
-        [DataMember]
         public float RateOfCombativityRecoveryAfterStratagemSuccess;
-        [DataMember]
         public float RateOfFoodTransportBetweenArchitectures = 1f;
-        [DataMember]
         public float RateOfRoutewayConsumption = 1f;
         private int reputation;
 
@@ -316,31 +255,20 @@ namespace GameObjects
         private int upgradingTechnique = -1;
         // private Dictionary<MilitaryKind, int> militaryKindCounts = new Dictionary<MilitaryKind, int>();
 
-        [DataMember]
         public List<float> techniqueReputationRateDecrease = new List<float>();
-        [DataMember]
         public List<float> techniquePointCostRateDecrease = new List<float>();
-        [DataMember]
         public List<float> techniqueTimeRateDecrease = new List<float>();
-        [DataMember]
         public List<float> techniqueFundCostRateDecrease = new List<float>();
 
         [DataMember]
         public bool NotPlayerSelectable = false;
 
-        [DataMember]
         public int[] CriticalOfMillitaryType = new int[5];
-        [DataMember]
         public int[] AntiCriticalOfMillitaryType = new int[5];
-        [DataMember]
         public float[] ArchitectureDamageOfMillitaryType = { 1f, 1f, 1f, 1f, 1f };
-        [DataMember]
         public float[] SpeedOfMillitaryType = { 1f, 1f, 1f, 1f, 1f };
-        [DataMember]
         public int[] ViewAreaOfMillitaryType = new int[5];
-        [DataMember]
         public int[] StratagemOfMillitaryType = new int[5];
-        [DataMember]
         public int[] AntiStratagemOfMillitaryType = new int[5];
 
         public event AfterCatchLeader OnAfterCatchLeader;

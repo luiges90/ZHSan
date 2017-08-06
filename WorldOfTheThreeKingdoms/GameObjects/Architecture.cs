@@ -148,7 +148,7 @@ namespace GameObjects
         public string ArchitectureAreaString { get; set; }
 
         private bool autoHiring;
-        [DataMember]
+
         public bool AutoRefillFoodInLongViewArea;
         private bool autoRewarding;
         private bool autoSearching;
@@ -157,7 +157,6 @@ namespace GameObjects
         private bool autoRecruiting;
         private GameArea baseFoodSurplyArea;
 
-        [DataMember]
         public int ChanceDecrementOfCriticalStrike = 0;
 
         public Faction BelongedFaction = null;
@@ -212,23 +211,16 @@ namespace GameObjects
         [DataMember]
         public string CharacteristicsString { get; set; }
 
-        [DataMember]
         public int CombativityOfRecruitment = 50;
         private int commerce;
         private GameArea contactArea;
-        [DataMember]
+
         public bool CriticalHostile;
-        [DataMember]
         public bool DayAvoidInfluenceByBattle;
-        [DataMember]
         public bool DayAvoidInternalDecrementOnBattle;
-        [DataMember]
         public bool DayAvoidPopulationEscape;
-        [DataMember]
         public int DayLearnTitleDay = Session.Parameters.LearnTitleDays;
-        [DataMember]
         public bool DayLocationLoyaltyNoChange;
-        [DataMember]
         public float DayRateIncrementOfInternal;       
 
         [DataMember]
@@ -243,7 +235,6 @@ namespace GameObjects
 
         private bool facilityEnabled;
         private int food;
-        [DataMember]
         public bool FrontLine;
         private int fund;
 
@@ -254,50 +245,28 @@ namespace GameObjects
         public string FoodPacksString { get; set; }
         
         private bool hireFinished;
-        [DataMember]
         public bool HostileLine;
         
-        [DataMember]
         public int IncrementOfAgricultureCeiling;
-        [DataMember]
         public int IncrementOfAgriculturePerDay;
-        [DataMember]
         public int IncrementOfCombativityInViewArea;
-        [DataMember]
         public int IncrementOfCommerceCeiling;
-        [DataMember]
         public int IncrementOfCommercePerDay;
-        [DataMember]
         public int IncrementOfDominationPerDay;
-        [DataMember]
         public int IncrementOfEnduranceCeiling;
-        [DataMember]
         public int IncrementOfDominationCeiling;
-        [DataMember]
         public int IncrementOfMoraleCeiling;
-        [DataMember]
         public int IncrementOfEndurancePerDay;
-        [DataMember]
         public int IncrementOfFacilityPositionCount;
-        [DataMember]
         public int IncrementOfFactionReputationPerDay;
-        [DataMember]
         public int IncrementOfFactionTechniquePointPerDay;
-        [DataMember]
         public int IncrementOfMonthFood;
-        [DataMember]
         public int IncrementOfMonthFund;
-        [DataMember]
         public int IncrementOfMoralePerDay;
-        [DataMember]
         public int IncrementOfTechnologyCeiling;
-        [DataMember]
         public int IncrementOfTechnologyPerDay;
-        [DataMember]
         public int IncrementOfViewRadius;
-        [DataMember]
         public int IncrementOfFundCeiling = 0;
-        [DataMember]
         public int IncrementOfFoodCeiling = 0;
 
         [DataMember]
@@ -305,7 +274,7 @@ namespace GameObjects
 
 
         private bool isStrategicCenter;
-        [DataMember]
+
         public bool JustAttacked = false;
         private ArchitectureKind kind;
 
@@ -321,20 +290,16 @@ namespace GameObjects
         public string MilitariesString { get; set; }
 
         private int morale;
-        [DataMember]
+ 
         public int MoraleOfRecruitment = 50;
-        [DataMember]
         public float MultipleOfRecovery = 1;
-        [DataMember]
         public float MultipleOfTraining = 1;
 
         public ArchitectureList OtherArchitectureList = new ArchitectureList();
 
         public MilitaryKindList NewMilitaryKindList = new MilitaryKindList();
 
-        [DataMember]
         public bool NoCounterStrikeInArchitecture;
-        [DataMember]
         public bool orientationFrontLine;
 
         
@@ -357,67 +322,36 @@ namespace GameObjects
         public List<PopulationPack> PopulationPacks = new List<PopulationPack>();
         public MilitaryKindTable PrivateMilitaryKinds = new MilitaryKindTable();
 
-        [DataMember]
         public float RateIncrementOfPopulationCeiling;
-        [DataMember]
         public float RateIncrementOfMonthFood;
-        [DataMember]
         public float RateIncrementOfMonthFund;
-        [DataMember]
         public float RateIncrementOfNewBubingTroopDefence;
-        [DataMember]
         public float RateIncrementOfNewBubingTroopOffence;
-        [DataMember]
         public float RateIncrementOfNewNubingTroopDefence;
-        [DataMember]
         public float RateIncrementOfNewNubingTroopOffence;
-        [DataMember]
         public float RateIncrementOfNewQibingTroopDefence;
-        [DataMember]
         public float RateIncrementOfNewQibingTroopOffence;
-        [DataMember]
         public float RateIncrementOfNewQixieTroopDefence;
-        [DataMember]
         public float RateIncrementOfNewQixieTroopOffence;
-        [DataMember]
         public float RateIncrementOfNewShuijunTroopDefence;
-        [DataMember]
         public float RateIncrementOfNewShuijunTroopOffence;
-        [DataMember]
         public double RateIncrementOfPopulationDevelop;
-        [DataMember]
         public float RateOfClearField = 1f;
-        [DataMember]
         public float RateOfConvincePerson = 1f;
-        [DataMember]
         public float RateOfDestroyArchitecture = 1f;
-        [DataMember]
         public float RateOfFacilityEnduranceDown = 1f;
-        [DataMember]
         public float RateOfFoodReduceRate = 1f;
-        [DataMember]
         public float RateOfGossipArchitecture = 1f;
-        [DataMember]
         public float RateOfJailBreakArchitecture = 1f;
-        [DataMember]
         public float RateOfHirePerson = 1f;
-        [DataMember]
         public float RateOfInstigateArchitecture = 1f;
-        [DataMember]
         public float RateOfpublic = 1f;
-        [DataMember]
         public float RateOfNewBubingMilitaryFundCost = 1f;
-        [DataMember]
         public float RateOfNewNubingMilitaryFundCost = 1f;
-        [DataMember]
         public float RateOfNewQibingMilitaryFundCost = 1f;
-        [DataMember]
         public float RateOfNewQixieMilitaryFundCost = 1f;
-        [DataMember]
         public float RateOfNewShuijunMilitaryFundCost = 1f;
-        [DataMember]
         public float RateOfRewardPerson = 1f;
-        [DataMember]
         public float RateOfRoutewayBuildFundCost = 1f;
         // public float RateOfSpyArchitecture = 1f;
         [DataMember]
@@ -453,11 +387,9 @@ namespace GameObjects
         private int technology;
         //public SpyMessage TodayNewMilitarySpyMessage;
         // public SpyMessage TodayNewTroopSpyMessage;
-        [DataMember]
+
         public int TotalStoredForce;
-        [DataMember]
         public int TotalFriendlyForce;
-        [DataMember]
         public int TotalHostileForce;
 
         public MilitaryList TrainingMilitaryList = new MilitaryList();
@@ -476,56 +408,35 @@ namespace GameObjects
         [DataMember]
         public zainanlei zainan = new zainanlei();
         public PlatformTexture CaptionTexture;
-        [DataMember]
+
         public bool noFactionFrontline;
-        [DataMember]
         public int captureChance;
-        [DataMember]
         public int noEscapeChance;
         [DataMember]
         public List<KeyValuePair<int, int>> captiveLoyaltyFall = new List<KeyValuePair<int, int>>();
         [DataMember]
         public bool noFundToSustainFacility;
-        [DataMember]
         public int facilityEnduranceIncrease;
-        [DataMember]
         public Dictionary<int, int> disasterChanceDecrease = new Dictionary<int, int>();
-        [DataMember]
         public Dictionary<int, int> disasterChanceIncrease = new Dictionary<int, int>();
-        [DataMember]
         public Dictionary<int, float> disasterDamageRateDecrease = new Dictionary<int, float>();
-        [DataMember]
         public float militaryPopulationRateIncrease;
-        [DataMember]
         public float enduranceDecreaseRateDrop;       
 
-        [DataMember]
         public bool hostileTroopInViewLastDay = false;
         [DataMember]
         public int SuspendTroopTransfer;
-        [DataMember]
         public bool withoutTruceFrontline;
-        [DataMember]
         public float ExperienceRate;
-        [DataMember]
         public int InfluenceIncrementOfLoyalty;
-        [DataMember]
         public int CommandExperienceIncrease { get; set; }
-        [DataMember]
         public int StrengthExperienceIncrease { get; set; }
-        [DataMember]
         public int IntelligenceExperienceIncrease { get; set; }
-        [DataMember]
         public int PoliticsExperienceIncrease { get; set; }
-        [DataMember]
         public int GlamourExperienceIncrease { get; set; }
-        [DataMember]
         public int ReputationIncrease { get; set; }
-        [DataMember]
         public float TroopTransportDayRate { get; set; }
-        [DataMember]
         public float TroopTransportFundRate { get; set; }
-        [DataMember]
         public float TroopTransportFoodRate { get; set; }
 
         public ArchitectureList AIBattlingArchitectures { get; set; }
@@ -555,7 +466,6 @@ namespace GameObjects
                 oldFactionName = value;
             }
         }
-        [DataMember]
         public float facilityConstructionTimeRateDecrease = 0;
 
 #pragma warning disable CS0067 // The event 'Architecture.OnBeginRecentlyAttacked' is never used
@@ -14248,7 +14158,6 @@ namespace GameObjects
                 return "----";
             }
         }
-        [DataMember]
         public bool ShowNumber
         {
             get

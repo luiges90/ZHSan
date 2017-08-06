@@ -92,175 +92,109 @@ namespace GameObjects
 
         private List<ArchitectureDamage> ArchitectureDamageList = new List<ArchitectureDamage>();
 
-        [DataMember]
         public int AreaAttackRadius;
-        [DataMember]
         public int AreaStratagemRadius;
 
         public TroopList AreaStratagemTroops = new TroopList();
 
         private Military army;
-        [DataMember]
+
         public int AroundAttackRadius;
-        [DataMember]
         public bool AttackAllOffenceArea;
-        [DataMember]
         public int AttackDecrementOfCombativity;
         private TroopAttackDefaultKind attackDefaultKind;
 
         private GameObjectList AttackedTroopList = new GameObjectList();
 
-        [DataMember]
         public bool AttackEveryAround;
-        [DataMember]
         public bool AttackStarted;
         private TroopAttackTargetKind attackTargetKind;
         private bool auto;
         private int avoidSurroundedChance;
         public Person BackupArmyLeader;
-        [DataMember]
         public int BackupArmyLeaderExperience;
-        [DataMember]
         public int BackupArmyLeaderID;
-        [DataMember]
         public int BaseAreaAttackRadius;
-        [DataMember]
         public int BaseAroundAttackRadius;
-        [DataMember]
         public bool BaseAttackAllOffenceArea;
-        [DataMember]
         public bool BaseAttackEveryAround;
-        [DataMember]
         public int BaseChanceOfOnFire;
-        [DataMember]
         public int BaseDefenceConsidered = 0;
-        [DataMember]
         public bool BaseNoAccidentalInjury;
-        [DataMember]
         public bool BaseNoCounterAttack;
-        [DataMember]
         public bool BasePierceAttack;
-        [DataMember]
         public float BaseRateOfQibingDamage = 1f;
         private GameArea baseViewArea = null;
         public Faction BelongedFaction = null;
         public Legion BelongedLegion;
-        [DataMember]
         public bool CanAttackAfterRout;
         private TroopCastDefaultKind castDefaultKind;
         private TroopCastTargetKind castTargetKind;
-        [DataMember]
         public int ChanceDecrementOfCriticalStrike;
-        [DataMember]
         public int ChanceDecrementOfCriticalStrikeByViewArea;
-        [DataMember]
         public int ChanceDecrementOfCriticalStrikeInViewArea;
-        [DataMember]
         public int ChanceDecrementOfStratagem;
-        [DataMember]
         public int ChanceDecrementOfStratagemByViewArea;
-        [DataMember]
         public int ChanceDecrementOfStratagemInViewArea;
-        [DataMember]
         public int ChanceIncrementOfChaosAfterCriticalStrike;
-        [DataMember]
         public int ChanceIncrementOfChaosAfterStratagem;
-        [DataMember]
         public int ChanceIncrementOfCriticalStrike;
-        [DataMember]
         public int ChanceIncrementOfCriticalStrikeByViewArea;
-        [DataMember]
         public int ChanceIncrementOfCriticalStrikeInViewArea;
-        [DataMember]
         public int ChanceIncrementOfStratagem;
-        [DataMember]
         public int ChanceIncrementOfStratagemByViewArea;
-        [DataMember]
         public int ChanceIncrementOfStratagemInViewArea;
-        [DataMember]
         public int ChanceOfBlockArrowAttack;
-        [DataMember]
         public int ChanceOfBlockAttack;
-        [DataMember]
         public int ChanceOfChaosAttack;
-        [DataMember]
         public int ChanceOfDoubleDamage;
-        [DataMember]
         public int ChanceOfFixDefenceAttack;
-        [DataMember]
         public int ChanceOfHalfDamage;
-        [DataMember]
         public int ChanceOfMustCriticalStrike;
-        [DataMember]
         public int ChanceOfOnFire;
-        [DataMember]
         public int ChanceOfTrippleDamage;
         private int chaosAfterCriticalStrikeChance;
         private int chaosAfterStratagemSuccessChance;
         private int chaosAfterSurroundAttackChance;
         private int chaosDayLeft;
-        [DataMember]
         public bool ChaosLastOneDay;
-        [DataMember]
         public int CombativityDecrementOnPower;
-        [DataMember]
         public int CombativityDecrementPerDayByViewArea;
-        [DataMember]
         public int CombativityDecrementPerDayInViewArea;
-        [DataMember]
         public int CombativityIncrementPerDayByViewArea;
-        [DataMember]
         public int CombativityIncrementPerDayInViewArea;
-        [DataMember]
         public bool CombativityNoChanceAfterAttacked;
-        [DataMember]
         public bool CombatMethodApplied;
 
-        [DataMember]
         public CombatMethodTable CombatMethods = new CombatMethodTable();
 
-        [DataMember]
         public string CombatMethodsString { get; set; }
 
         private GameArea contactArea = null;
-        [DataMember]
+
         public int ContactFriendlyTroopCount;
-        [DataMember]
         public int ContactHostileTroopCount;
-        [DataMember]
         public bool ContactingWillArchitecture;
 
         private bool controllable = true;
 
-        [DataMember]
         public int CounterAttackDecrementOfCombativity;
-        [DataMember]
         public int CriticalChanceIncrementOfCliff;
-        [DataMember]
         public int CriticalChanceIncrementOfDesert;
-        [DataMember]
         public int CriticalChanceIncrementOfForrest;
-        [DataMember]
         public int CriticalChanceIncrementOfGrassland;
-        [DataMember]
         public int CriticalChanceIncrementOfMarsh;
-        [DataMember]
         public int CriticalChanceIncrementOfMountain;
-        [DataMember]
         public int CriticalChanceIncrementOfPlain;
-        [DataMember]
         public int CriticalChanceIncrementOfRidge;
         private int CriticalChanceIncrementOfTerrain = 0;
-        [DataMember]
         public int CriticalChanceIncrementOfWasteland;
-        [DataMember]
         public int CriticalChanceIncrementOfWater;
         private int criticalStrikeChance;
         private CombatMethod currentCombatMethod;
         private int currentCombatMethodID = -1;
         //private Person CurrentDestinationChallengePerson;
         private Person CurrentDestinationControversyPerson;
-        [DataMember]
         public OutburstKind CurrentOutburstKind;
         private List<Point> CurrentPath;
         //private Person CurrentSourceChallengePerson;
@@ -279,72 +213,46 @@ namespace GameObjects
         private int currentTroopAnimationIndex;
         private int currentTroopStayIndex;
         private int cutRoutewayDays;
-        [DataMember]
+
         public bool LoyaltyNoChange;
-        [DataMember]
         public CombatNumberItemList DecrementNumberList = new CombatNumberItemList(CombatNumberDirection.下);
-        [DataMember]
         public int DecrementOfCliffAdaptability;
-        [DataMember]
         public int DecrementOfCombatMethodCombativityConsuming;
-        [DataMember]
         public int DecrementOfDesertAdaptability;
-        [DataMember]
         public int DecrementOfForrestAdaptability;
-        [DataMember]
         public int DecrementOfGrasslandAdaptability;
-        [DataMember]
         public int DecrementOfMarshAdaptability;
-        [DataMember]
         public int DecrementOfMountainAdaptability;
-        [DataMember]
         public int DecrementOfPlainAdaptability;
-        [DataMember]
         public int DecrementOfRidgeAdaptability;
-        [DataMember]
         public int DecrementOfStratagemCombativityConsuming;
-        [DataMember]
         public int DecrementOfWastelandAdaptability;
-        [DataMember]
         public int DecrementOfWaterAdaptability;
-        [DataMember]
         public int DecrementPerDayOfCombativity;
         private int defence;
-        [DataMember]
         public int DefenceConsidered = 0;
-        [DataMember]
         public bool DefenceNoChangeOnChaos;
-        [DataMember]
         public float DefenceRateDecrementByViewArea;
-        [DataMember]
         public float DefenceRateDecrementInViewArea;
-        [DataMember]
         public float DefenceRateIncrementByViewArea;
-        [DataMember]
         public float DefenceRateIncrementInViewArea;
-        [DataMember]
         public float DefenceRateOnSubdueBubing = 1f;
-        [DataMember]
         public float DefenceRateOnSubdueNubing = 1f;
-        [DataMember]
         public float DefenceRateOnSubdueQibing = 1f;
-        [DataMember]
         public float DefenceRateOnSubdueQixie = 1f;
-        [DataMember]
         public float DefenceRateOnSubdueShuijun = 1f;
         private Point destination;
         [DataMember]
         public bool Destroyed;
         private TroopDirection direction = TroopDirection.正东;
         private double DistanceToWillArchitecture;
-        [DataMember]
+
         public int DominationDecrementOfCriticalStrike;
         private bool drawAnimation = true;
         [DataMember]
         public TroopEffect Effect;
         private int effectTileAnimationIndex;
         private int effectTileStayIndex;
-        [DataMember]
         public bool EnableOneAdaptablility;
         public ArchitectureList EnterList = new ArchitectureList();
 
@@ -367,141 +275,84 @@ namespace GameObjects
         private bool HasSupply;
         [DataMember]
         public bool HasToDoCombatAction;
-        [DataMember]
+
         public bool HighLevelInformationOnInvestigate;
-        [DataMember]
         public bool HighLevelInformationOnScout;
         [DataMember]
         public HostileActionKind HostileAction = HostileActionKind.EvadeEffect;
-        [DataMember]
+
         public bool ImmunityOfCaptive;
-        [DataMember]
         public bool ImmunityOfDieInBattle;
-        [DataMember]
         public float IncrementDefenceRate; //名声防御加成系数
-        [DataMember]
         public CombatNumberItemList IncrementNumberList = new CombatNumberItemList(CombatNumberDirection.上);
-        [DataMember]
+
         public int IncrementOfAvoidSurroundedChance;
-        [DataMember]
         public int IncrementOfRumourDay;
-        [DataMember]
         public int IncrementOfAttractDay;
-        [DataMember]
         public int IncrementOfChaosAfterSurroundAttackChance;
-        [DataMember]
         public int IncrementOfChaosDay;
-        [DataMember]
         public float IncrementOffenceRate; //名声攻击加成系数
-        [DataMember]
         public int IncrementOfInjuryRate;
-        [DataMember]
         public int IncrementOfInvestigateRadius;
-        [DataMember]
         public int IncrementOfMovability;
-        [DataMember]
         public int IncrementOfRationDays;
-        [DataMember]
         public int IncrementOfStratagemRadius;
-        [DataMember]
         public int IncrementPerDayOfCombativity;
-        [DataMember]
         public bool InevitableAttractOnLowerIntelligence;
-        [DataMember]
         public bool InevitableRumourOnLowerIntelligence;
-        [DataMember]
         public bool InevitableChaosOnWaylay;
-        [DataMember]
         public bool InevitableGongxinOnLowerIntelligence;
-        [DataMember]
         public bool InevitableHuogongOnLowerIntelligence;
-        [DataMember]
         public bool InevitableRaoluanOnLowerIntelligence;
-        [DataMember]
         public bool InevitableStratagemOnLowerIntelligence;
-        [DataMember]
         public float InjuryRecoveryPerDayRate;
-        [DataMember]
         public bool InvincibleAttract;
-        [DataMember]
         public bool InvincibleRumour;
-        [DataMember]
         public bool InvincibleGongxin;
-        [DataMember]
         public bool InvincibleHuogong;
-        [DataMember]
         public bool InvincibleRaoluan;
-        [DataMember]
         public bool InvincibleStratagemFromLowerIntelligence;
 
         public Person Leader = null;
-        [DataMember]
+
         public bool LowerLevelInformationWhileInvestigated;
 
         private int militaryID = -1;
 
-        [DataMember]
         public float MoraleChangeRateOnOutOfFood = 1f;
-        [DataMember]
         public int MoraleDecrementOfCriticalStrike;
-        [DataMember]
         public int MoraleDecrementOnPrestige;
-        [DataMember]
         public int MoraleDownOfAttack;
-        [DataMember]
         public bool MoraleNoChanceAfterAttacked;
-        [DataMember]
         public int MovabilityLeft;
-        [DataMember]
         public List<Point> MoveAnimationFrames = new List<Point>();
         private bool moved;
         private int moveFrameIndex = 0;
         private int moveStayCount = 0;
-        [DataMember]
         public float MultipleOfArmyExperience = 1;
-        [DataMember]
         public float MultipleOfCombatTechniquePoint = 1;
-        [DataMember]
         public float MultipleOfDefenceOnArchitecture = 1;
-        [DataMember]
         public float MultipleOfLeaderExperience = 1;
-        [DataMember]
         public float MultipleOfStratagemTechniquePoint = 1;
-        [DataMember]
         public bool NeverBeIntoChaos;
-        [DataMember]
         public bool NeverBeIntoChaosWhileWaylay;
-        [DataMember]
         public bool NoAccidentalInjury;
-        [DataMember]
         public bool NoCounterAttack;
-        [DataMember]
         public bool NotAfraidOfFire;
 
         private int offence;
         private GameArea offenceArea = null;
         private bool OffenceOnlyBeforeMoveFlag;
-        [DataMember]
         public float OffenceRateDecrementByViewArea;
-        [DataMember]
         public float OffenceRateDecrementInViewArea;
-        [DataMember]
         public float OffenceRateIncrementByViewArea;
-        [DataMember]
         public float OffenceRateIncrementInViewArea;
-        [DataMember]
         public float OffenceRateOnSubdueBubing = 1f;
-        [DataMember]
         public float OffenceRateOnSubdueNubing = 1f;
-        [DataMember]
         public float OffenceRateOnSubdueQibing = 1f;
-        [DataMember]
         public float OffenceRateOnSubdueQixie = 1f;
-        [DataMember]
         public float OffenceRateOnSubdueShuijun = 1f;
-        [DataMember]
         public bool OffencingWillArchitecture;
-        [DataMember]
         public bool OnlyBeDetectedByHighLevelInformation;
         private bool operated;
         private bool operationDone;
@@ -521,71 +372,44 @@ namespace GameObjects
         public bool OutburstPreventCriticalStrike = false;
 
         public TroopPathFinder pathFinder;
-        [DataMember]
+
         public bool PierceAttack;
         private Point position;
         private TroopPreAction preAction;
         [DataMember]
         public Point PreviousPosition;
-        [DataMember]
         public bool ProhibitAllAction;
-        [DataMember]
         public bool ProhibitCombatMethod;
-        [DataMember]
         public bool ProhibitStratagem;
         [DataMember]
         public bool QueueEnded;
-        [DataMember]
         public float RateIncrementOfRateOnWater = 0f;
-        [DataMember]
         public float RateIncrementOfTerrainRateOnCliff = 0f;
-        [DataMember]
         public float RateIncrementOfTerrainRateOnDesert = 0f;
-        [DataMember]
         public float RateIncrementOfTerrainRateOnForrest = 0f;
-        [DataMember]
         public float RateIncrementOfTerrainRateOnGrassland = 0f;
-        [DataMember]
         public float RateIncrementOfTerrainRateOnMarsh = 0f;
-        [DataMember]
         public float RateIncrementOfTerrainRateOnMountain = 0f;
-        [DataMember]
         public float RateIncrementOfTerrainRateOnPlain = 0f;
-        [DataMember]
         public float RateIncrementOfTerrainRateOnRidge = 0f;
-        [DataMember]
         public float RateIncrementOfTerrainRateOnWasteland = 0f;
-        [DataMember]
         public float RateIncrementOfTerrainRateOnWater = 0f;
-        [DataMember]
         public float RateOfBoost = 1f;
-        [DataMember]
         public float RateOfCriticalArchitectureDamage = 1f;
-        [DataMember]
         public float RateOfCriticalDamageReceived = 1f;
-        [DataMember]
         public float RateOfDefence = 1f;
-        [DataMember]
         public float RateOfFireDamage = 1f;
-        [DataMember]
         public float RateOfFireProtection;
-        [DataMember]
         public float RateOfGongxin = 1f;
-        [DataMember]
         public float RateOfInjuryOnCriticalStrike = 1f;
-        [DataMember]
         public float RateOfMovability = 1f;
-        [DataMember]
         public float RateOfOffence = 1f;
-        [DataMember]
         public float RateOfQibingDamage = 1f;
 
         private Point realDestination;
         [DataMember]
         public int RecentlyFighting;
-        [DataMember]
         public int RoutIncrementOfCombativity;
-        [DataMember]
         public bool ScatteredShootingOblique;
         [DataMember]
         public List<Point> SecondTierPath;
@@ -628,26 +452,19 @@ namespace GameObjects
         private bool StratagemApplyed;
         private GameArea stratagemArea = null;
         private int stratagemChanceIncrement;
-        [DataMember]
         public float StuntArchitectureDamageRate = 1f;
-        [DataMember]
         public int StuntAttackRadius;
-        [DataMember]
         public bool StuntAvoidSurround;
-        [DataMember]
         public bool StuntCanAttackAfterRout;
-        [DataMember]
         public int StuntDayDecrementOfAttack;
+        [DataMember]
         private int stuntDayLeft;
-        [DataMember]
         public bool StuntMustSurround;
-        [DataMember]
         public bool StuntRecoverFromChaos;
         [DataMember]
         public StuntTable Stunts = new StuntTable();
         private int stuntTileAnimationIndex;
         private int stuntTileStayIndex;
-        [DataMember]
         public bool Surrounding;
         private Architecture targetArchitecture;
         private int targetArchitectureID = -1;
@@ -655,9 +472,7 @@ namespace GameObjects
         private int targetTroopID = -1;
         private int technologyIncrement;
         private Point? TempDestination;
-        [DataMember]
         public float TempRateOfDefence = 1f;
-        [DataMember]
         public float TempRateOfOffence = 1f;
         private float terrainRate = 1f;
         [DataMember]
@@ -668,189 +483,106 @@ namespace GameObjects
         private int troopIntelligence;
         private int troopStrength;
         private GameArea viewArea = null;
-        [DataMember]
+
         public int ViewingCliffFriendlyTroopCount;
-        [DataMember]
         public int ViewingCliffHostileTroopCount;
-        [DataMember]
         public int ViewingDesertFriendlyTroopCount;
-        [DataMember]
         public int ViewingDesertHostileTroopCount;
-        [DataMember]
         public int ViewingForestFriendlyTroopCount;
-        [DataMember]
         public int ViewingForestHostileTroopCount;
-        [DataMember]
         public int ViewingFriendlyTroopCount;
-        [DataMember]
         public int ViewingGrasslandFriendlyTroopCount;
-        [DataMember]
         public int ViewingGrasslandHostileTroopCount;
-        [DataMember]
         public int ViewingHostileTroopCount;
-        [DataMember]
         public int ViewingMarshFriendlyTroopCount;
-        [DataMember]
         public int ViewingMarshHostileTroopCount;
-        [DataMember]
         public int ViewingMountainFriendlyTroopCount;
-        [DataMember]
         public int ViewingMountainHostileTroopCount;
-        [DataMember]
         public int ViewingPlainFriendlyTroopCount;
-        [DataMember]
         public int ViewingPlainHostileTroopCount;
-        [DataMember]
         public int ViewingRidgeFriendlyTroopCount;
-        [DataMember]
         public int ViewingRidgeHostileTroopCount;
-        [DataMember]
         public int ViewingWastelandFriendlyTroopCount;
-        [DataMember]
         public int ViewingWastelandHostileTroopCount;
-        [DataMember]
         public int ViewingWaterFriendlyTroopCount;
-        [DataMember]
         public int ViewingWaterHostileTroopCount;
-        [DataMember]
         public bool ViewingWillArchitecture;
-        [DataMember]
         public bool WaitForDeepChaos;
         private int waitForDeepChaosFrameCount;
-        [DataMember]
         public bool WaitOnce = false;
         private TroopWill will = TroopWill.行军;
         private Architecture willArchitecture;
         private int willArchitectureID = -1;
         private Troop willTroop;
         private int willTroopID = -1;
-        [DataMember]
+
         public bool YesOrNoOfObliqueOffence;
-        [DataMember]
         public bool YesOrNoOfObliqueStratagem;
-        [DataMember]
         public bool YesOrNoOfObliqueView;
-        [DataMember]
         public int stealTreasureRate;
-        [DataMember]
         public float attackInjuryRate = 1;
-        [DataMember]
         public int chanceTirednessStopIncrease;
-        [DataMember]
         public float reduceInjuredOnAttack = 0;
-        [DataMember]
         public float reduceInjuredOnCritical = 0;
-        [DataMember]
         public float StealTroop = 0;
-        [DataMember]
         public float StealInjured = 0;
-        [DataMember]
         public int TirednessIncreaseOnAttack = 0;
-        [DataMember]
         public int TirednessIncreaseOnCritical = 0;
-        [DataMember]
         public int StealFood = 0;
 
-        [DataMember]
         public int stratagemTirednessIncrease;
-        [DataMember]
         public int stratagemStealTroop;
-        [DataMember]
         public int stratagemStealInjury;
-        [DataMember]
         public int stratagemMoraleDecrease;
-        [DataMember]
         public int stratagemCombativityDecrease;
-        [DataMember]
         public int stratagemTroopDecrease;
-        [DataMember]
         public int stratagemInjuryDecrease;
-        [DataMember]
         public int stratagemLoyaltyDecrease;
-        [DataMember]
         public int stratagemStealFood;
 
-        [DataMember]
         public int TirednessDecreaseChanceByViewArea;
-        [DataMember]
         public int TirednessDecreaseChanceInViewArea;
-        [DataMember]
         public int TirednessIncreaseChanceByViewArea;
-        [DataMember]
         public int TirednessIncreaseChanceInViewArea;
-        [DataMember]
         public int InjuryRecoverByViewArea;
-        [DataMember]
         public int InjuryRecoverInViewArea;
-        [DataMember]
         public int InjuryLostByViewArea;
-        [DataMember]
         public int InjuryLostInViewArea;
-        [DataMember]
         public int TroopRecoverByViewArea;
-        [DataMember]
         public int TroopRecoverInViewArea;
-        [DataMember]
         public int TroopLostByViewArea;
-        [DataMember]
         public int TroopLostInViewArea;
-        [DataMember]
         public int MoraleIncreaseByViewArea;
-        [DataMember]
         public int MoraleIncreaseInViewArea;
-        [DataMember]
         public int MoraleDecreaseByViewArea;
-        [DataMember]
         public int MoraleDecreaseInViewArea;
-        [DataMember]
         public int ChaosRecoverByViewArea;
-        [DataMember]
         public int ChaosRecoverInViewArea;
-        [DataMember]
         public int ChaosByViewArea;
-        [DataMember]
         public int ChaosInViewArea;
-        [DataMember]
+
         public float ExperienceRate;
 
-        [DataMember]
         public int CommandExperienceIncrease { get; set; }
-        [DataMember]
         public int StrengthExperienceIncrease { get; set; }
-        [DataMember]
         public int IntelligenceExperienceIncrease { get; set; }
-        [DataMember]
         public int PoliticsExperienceIncrease { get; set; }
-        [DataMember]
         public int GlamourExperienceIncrease { get; set; }
-        [DataMember]
         public int ReputationIncrease { get; set; }
 
-        [DataMember]
         public int ViewRangeIncreaseByInfluence { get; set; }
-        [DataMember]
         public int AttackRangeIncreaseByInfluence { get; set; }
-        [DataMember]
         public float InCityOffenseRate { get; set; }
-        [DataMember]
         public int IncrementPerDayOfMorale { get; set; }
-        [DataMember]
         public int IncrementOfStuntDay { get; set; }
-        [DataMember]
         public int IncrementOfSpeed { get; set; }
 
-        [DataMember]
         public int MovabilityByViewArea;
-        [DataMember]
         public int SpeedByViewArea;
 
-        [DataMember]
         public int MovabilityIncreaseInViewArea;
-        [DataMember]
         public int MovabilityDecreaseInViewArea;
-        [DataMember]
         public int SpeedIncreaseInViewArea;
-        [DataMember]
         public int SpeedDecreaseInViewArea;
 
         private TroopList friendlyTroopsInView = new TroopList();
