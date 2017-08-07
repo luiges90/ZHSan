@@ -108,7 +108,7 @@ namespace GameObjects
             techniqueFundCostRateDecrease = new List<float>();
             techniquePointCostRateDecrease = new List<float>();
             techniqueTimeRateDecrease = new List<float>();
-            techniqueFundCostRateDecrease = new List<float>();
+            techniqueReputationRateDecrease = new List<float>();
 
             CriticalOfMillitaryType = new int[5];
             AntiCriticalOfMillitaryType = new int[5];
