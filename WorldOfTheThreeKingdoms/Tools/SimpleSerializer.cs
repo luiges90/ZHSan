@@ -182,12 +182,16 @@ namespace Tools
             }
             catch (Exception ex)
             {
+#if DEBUG
+                throw ex;
+#else
                 WebTools.TakeWarnMsg("读取用户对象失败:" + file, "DeserializeJsonFile:" + file + " " + isUserFile, ex);
                 return default(T);
+#endif
             }
         }
 
-        #endregion
+#endregion
 
     }
 }

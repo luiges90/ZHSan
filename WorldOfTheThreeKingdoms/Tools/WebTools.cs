@@ -42,6 +42,7 @@ namespace Tools
                     ext = "系统内存不足";
                 }
             }
+
             Session.MainGame.warn = warn + ext;
             Session.MainGame.lastWarnTime = DateTime.Now;
 

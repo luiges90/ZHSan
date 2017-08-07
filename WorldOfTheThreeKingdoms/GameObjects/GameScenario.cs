@@ -4421,7 +4421,7 @@ namespace GameObjects
             }
         }
 
-        public bool SaveGameScenario(string LoadedFileName, bool saveMap, bool saveCommonData, bool saveSettings)
+        public bool SaveGameScenario(string LoadedFileName, bool saveMap, bool saveCommonData, bool saveSettings, bool disposeMemory = true)
         {
             this.GameTime += (int)DateTime.Now.Subtract(sessionStartTime).TotalSeconds;
 
@@ -4431,7 +4431,10 @@ namespace GameObjects
             ClearPersonWorkCache();
             //try
             //{
-            this.DisposeLotsOfMemory();
+            if (!disposeMemory)
+            {
+                this.DisposeLotsOfMemory();
+            }
 
             foreach (Faction faction in this.Factions)
             {
