@@ -86,7 +86,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     if (!((facility.PositionOccupied <= 1) && Session.GlobalVariables.NoHintOnSmallFacility))
                     {
-                        string sheshitupian = "sheshi65.jpg";  // "../sheshi/sheshi" + facility.KindID.ToString() + ".jpg";
+                        string sheshitupian = "sheshi" + facility.KindID.ToString() + ".jpg";
                         this.xianshishijiantupian(architecture.BelongedFaction.Leader,architecture.Name, TextMessageKind.FacilityCompleted, "ArchitectureFacilityCompleted", sheshitupian, "sheshiwancheng",facility.Kind.Name,false );
                         this.Plugins.GameRecordPlugin.AddBranch(architecture, "FacilityCompleted", architecture.Position);
                     }

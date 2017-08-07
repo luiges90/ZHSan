@@ -11767,6 +11767,7 @@ namespace GameObjects
         {
             get
             {
+                if (this.Army == null) return 0;
                 return this.Army.Combativity;
             }
             set
@@ -12397,6 +12398,7 @@ namespace GameObjects
         {
             get
             {
+                if (this.Army == null) return 0;
                 return this.Army.InjuryQuantity;
             }
             set
@@ -12719,6 +12721,7 @@ namespace GameObjects
         {
             get
             {
+                if (this.Army == null) return 0;
                 return this.Army.Tiredness;
             }
             set
@@ -12732,6 +12735,7 @@ namespace GameObjects
         {
             get
             {
+                if (this.Army == null) return 1;
                 return Math.Max(0.2, Math.Min(1, ((210 - this.Army.Tiredness) / 180.0)));
             }
         }
@@ -13072,6 +13076,7 @@ namespace GameObjects
         {
             get
             {
+                if (this.Army == null) return 0;
                 return ((this.Army.KindID == 28 ? this.Army.RealMilitaryKind.RationDays : this.Army.RationDays) + this.IncrementOfRationDays);
             }
         }
@@ -13254,6 +13259,7 @@ namespace GameObjects
         {
             get
             {
+                if (this.Army == null) return 0;
                 return (int)(((this.CurrentRate * this.Army.Kind.Speed) * this.Army.Morale) / ((float)this.Army.MoraleCeiling)) + this.SpeedByViewArea + this.IncrementOfSpeed;
             }
         }

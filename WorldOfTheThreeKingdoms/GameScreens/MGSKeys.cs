@@ -207,6 +207,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     this.currentKey = Keys.OemMinus;
                 }
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.LeftAlt) && InputManager.KeyBoardState.IsKeyDown(Keys.Z))
+                {
+                    Session.GlobalVariables.EnableCheat = true;
+                }
                 else if (InputManager.KeyBoardState.IsKeyDown(Keys.LeftAlt) && InputManager.KeyBoardState.IsKeyDown(Keys.C) && Session.GlobalVariables.EnableCheat)
                 {
                     this.currentKey = Keys.C;
