@@ -330,6 +330,9 @@ namespace WorldOfTheThreeKingdoms
                         {
                             if (String.IsNullOrEmpty(err))
                             {
+#if DEBUG
+                                mainGameScreen.Update(gameTime);
+#else
                                 try
                                 {
                                     mainGameScreen.Update(gameTime);
@@ -339,6 +342,7 @@ namespace WorldOfTheThreeKingdoms
                                     err = "不好意思，游戏运行出错，点击将返回主菜单，请考虑读取自动存档。\r\n" + ex.Message;
                                     WebTools.TakeWarnMsg("mainGameScreen.Update", "", ex);
                                 }
+#endif
                             }
                             else
                             {
