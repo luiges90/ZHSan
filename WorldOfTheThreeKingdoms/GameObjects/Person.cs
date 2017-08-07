@@ -110,6 +110,49 @@ namespace GameObjects
 
             oldInjuraRate = 1.0f;
             injureRate = 1.0f;
+
+            DayLearnTitleDay = Session.Parameters.LearnTitleDays;
+
+            InfluenceRateOfCommand = 1.0f;
+            InfluenceRateOfStrength = 1.0f;
+            InfluenceRateOfIntelligence = 1.0f;
+            InfluenceRateOfPolitics = 1.0f;
+            InfluenceRateOfGlamour = 1.0f;
+
+            MultipleOfAgricultureReputation = 1;
+            MultipleOfAgricultureTechniquePoint = 1;
+            MultipleOfCommerceReputation = 1;
+            MultipleOfCommerceTechniquePoint = 1;
+            MultipleOfDominationReputation = 1;
+            MultipleOfDominationTechniquePoint = 1;
+            MultipleOfEnduranceReputation = 1;
+            MultipleOfEnduranceTechniquePoint = 1;
+            MultipleOfMoraleReputation = 1;
+            MultipleOfMoraleTechniquePoint = 1;
+            MultipleOfRecruitmentReputation = 1;
+            MultipleOfRecruitmentTechniquePoint = 1;
+            MultipleOfTacticsReputation = 1;
+            MultipleOfTacticsTechniquePoint = 1;
+            MultipleOfTechnologyReputation = 1;
+            MultipleOfTechnologyTechniquePoint = 1;
+            MultipleOfTrainingReputation = 1;
+            MultipleOfTrainingTechniquePoint = 1;
+
+            maxChildren = 1;
+
+            CommandDecrease = new List<KeyValuePair<int, int>>();
+            CommandIncrease = new List<KeyValuePair<int, int>>();
+            StrengthDecrease = new List<KeyValuePair<int, int>>();
+            StrengthIncrease = new List<KeyValuePair<int, int>>();
+            IntelligenceDecrease = new List<KeyValuePair<int, int>>();
+            IntelligenceIncrease = new List<KeyValuePair<int, int>>();
+            PoliticsDecrease = new List<KeyValuePair<int, int>>();
+            PoliticsIncrease = new List<KeyValuePair<int, int>>();
+            GlamourDecrease = new List<KeyValuePair<int, int>>();
+            GlamourIncrease = new List<KeyValuePair<int, int>>();
+            ReputationDecrease = new List<KeyValuePair<int, int>>();
+            ReputationIncrease = new List<KeyValuePair<int, int>>();
+            LoseSkill = new List<KeyValuePair<int, int>>();
         }
         
         public int ChanceOfNoCapture;
@@ -1017,7 +1060,6 @@ namespace GameObjects
             }
         }
 
-        [DataMember]
         public PersonStatus Status
         {
             get

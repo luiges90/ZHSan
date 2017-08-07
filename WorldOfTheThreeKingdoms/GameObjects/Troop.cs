@@ -75,6 +75,49 @@ namespace GameObjects
 
             CombatMethods = new CombatMethodTable();
 
+            BaseRateOfQibingDamage = 1;
+
+            DecrementNumberList = new CombatNumberItemList(CombatNumberDirection.下);
+            IncrementNumberList = new CombatNumberItemList(CombatNumberDirection.下);
+
+            DefenceRateOnSubdueBubing = 1;
+            DefenceRateOnSubdueNubing = 1;
+            DefenceRateOnSubdueQibing = 1;
+            DefenceRateOnSubdueQixie = 1;
+            DefenceRateOnSubdueShuijun = 1;
+
+            OffenceRateOnSubdueBubing = 1;
+            OffenceRateOnSubdueNubing = 1;
+            OffenceRateOnSubdueQibing = 1;
+            OffenceRateOnSubdueQixie = 1;
+            OffenceRateOnSubdueShuijun = 1;
+
+            MoraleChangeRateOnOutOfFood = 1;
+
+            MultipleOfArmyExperience = 1;
+            MultipleOfCombatTechniquePoint = 1;
+            MultipleOfDefenceOnArchitecture = 1;
+            MultipleOfLeaderExperience = 1;
+            MultipleOfStratagemTechniquePoint = 1;
+
+            RateOfBoost = 1;
+            RateOfCriticalArchitectureDamage = 1;
+            RateOfCriticalDamageReceived = 1;
+            RateOfDefence = 1;
+            RateOfFireDamage = 1;
+            RateOfFireProtection = 1;
+            RateOfGongxin = 1;
+            RateOfInjuryOnCriticalStrike = 1;
+            RateOfMovability = 1;
+            RateOfOffence = 1;
+            RateOfQibingDamage = 1;
+
+            StuntArchitectureDamageRate = 1;
+
+            TempRateOfDefence = 1;
+            TempRateOfOffence = 1;
+
+            attackInjuryRate = 1;
         }
 
         private int[] weizhixulie = { 0, 1, -1, 2, -2, 3, -3, 4 };
@@ -325,6 +368,7 @@ namespace GameObjects
         public int MoraleDownOfAttack;
         public bool MoraleNoChanceAfterAttacked;
         public int MovabilityLeft;
+        [DataMember]
         public List<Point> MoveAnimationFrames = new List<Point>();
         private bool moved;
         private int moveFrameIndex = 0;

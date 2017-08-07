@@ -114,6 +114,36 @@ namespace GameObjects
             PathRoutewayID = -1;
 
             pathFinder = new RoutewayPathFinder();
+
+            CombativityOfRecruitment = 50;
+            MoraleOfRecruitment = 50;
+
+            DayLearnTitleDay = Session.Parameters.LearnTitleDays;
+
+            MultipleOfRecovery = 1;
+            MultipleOfTraining = 1;
+
+            RateOfClearField = 1;
+            RateOfConvincePerson = 1;
+            RateOfDestroyArchitecture = 1;
+            RateOfFacilityEnduranceDown = 1;
+            RateOfFoodReduceRate = 1;
+            RateOfGossipArchitecture = 1;
+            RateOfHirePerson = 1;
+            RateOfInstigateArchitecture = 1;
+            RateOfJailBreakArchitecture = 1;
+            RateOfNewBubingMilitaryFundCost = 1;
+            RateOfNewNubingMilitaryFundCost = 1;
+            RateOfNewQibingMilitaryFundCost = 1;
+            RateOfNewQixieMilitaryFundCost = 1;
+            RateOfNewShuijunMilitaryFundCost = 1;
+            RateOfpublic = 1;
+            RateOfRewardPerson = 1;
+            RateOfRoutewayBuildFundCost = 1;
+
+            disasterChanceDecrease = new Dictionary<int, int>();
+            disasterChanceIncrease = new Dictionary<int, int>();
+            disasterDamageRateDecrease = new Dictionary<int, float>();
         }
 
         // public int[] preferredOfficialTypes = {100, 100, 100, 100, 60, 100, 1, 250, 250, 39 };

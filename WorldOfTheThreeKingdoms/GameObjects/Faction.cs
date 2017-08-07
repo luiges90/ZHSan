@@ -98,6 +98,31 @@ namespace GameObjects
             upgradingTechnique = -1;
 
             count = new Dictionary<PersonGeneratorType, int>();
+
+            RateOfCombativityRecoveryAfterAttacked = 1;
+            RateOfCombativityRecoveryAfterStratagemFail = 1;
+            RateOfCombativityRecoveryAfterStratagemSuccess = 1;
+            RateOfFoodTransportBetweenArchitectures = 1;
+            RateOfRoutewayConsumption = 1;
+
+            techniqueFundCostRateDecrease = new List<float>();
+            techniquePointCostRateDecrease = new List<float>();
+            techniqueTimeRateDecrease = new List<float>();
+            techniqueFundCostRateDecrease = new List<float>();
+
+            CriticalOfMillitaryType = new int[5];
+            AntiCriticalOfMillitaryType = new int[5];
+            ArchitectureDamageOfMillitaryType = new float[5];
+            SpeedOfMillitaryType = new float[5];
+            for (int i = 0; i < 5; ++i)
+            {
+                ArchitectureDamageOfMillitaryType[i] = 1;
+                SpeedOfMillitaryType[i] = 1;
+            }
+            ViewAreaOfMillitaryType = new int[5];
+            StratagemOfMillitaryType = new int[5];
+            AntiStratagemOfMillitaryType = new int[5];
+
         }
 
         [DataMember]
