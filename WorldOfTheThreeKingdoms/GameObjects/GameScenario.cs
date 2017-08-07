@@ -3792,11 +3792,10 @@ namespace GameObjects
             this.Preparing = true;
 
             this.Factions.BuildQueue(true);  //待考慮效果
-
-            //临时去掉，看效果，兔巴哥 0731
-            //this.Factions.ApplyInfluences();            
-            //this.Architectures.ApplyInfluences();
-            //this.Persons.ApplyInfluences();
+            
+            this.Factions.ApplyInfluences();            
+            this.Architectures.ApplyInfluences();
+            this.Persons.ApplyInfluences();
 
             this.Preparing = false;
 
