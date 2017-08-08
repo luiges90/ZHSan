@@ -73,7 +73,7 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 String filename = saveFileDialog.FileName;
                 
-                scen.SaveGameScenario(filename, true, true, false, false);
+                scen.SaveGameScenario(filename, true, true, false, false, true);
 
                 MessageBox.Show("劇本已儲存為" + filename);
             }

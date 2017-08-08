@@ -43,8 +43,11 @@ namespace Tools
                 }
             }
 
-            Session.MainGame.warn = warn + ext;
-            Session.MainGame.lastWarnTime = DateTime.Now;
+            if (Session.MainGame != null)
+            {
+                Session.MainGame.warn = warn + ext;
+                Session.MainGame.lastWarnTime = DateTime.Now;
+            }
 
             new PlatformTask(() =>
             {

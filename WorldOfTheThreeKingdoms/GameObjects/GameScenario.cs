@@ -4421,7 +4421,7 @@ namespace GameObjects
             }
         }
 
-        public bool SaveGameScenario(string LoadedFileName, bool saveMap, bool saveCommonData, bool saveSettings, bool disposeMemory = true)
+        public bool SaveGameScenario(string LoadedFileName, bool saveMap, bool saveCommonData, bool saveSettings, bool disposeMemory = true, bool fullPathProvided = false)
         {
             this.GameTime += (int)DateTime.Now.Subtract(sessionStartTime).TotalSeconds;
 
@@ -4852,9 +4852,13 @@ namespace GameObjects
 
             var saves = LoadScenarioSaves();
 
-            string file = @"Save\" + LoadedFileName;
+            string file = LoadedFileName;
+            if (!fullPathProvided)
+            {
+                file = @"Save\" + LoadedFileName;
+            }
             
-            bool result = SimpleSerializer.SerializeJsonFile(scenarioClone, file, true);
+            bool result = SimpleSerializer.SerializeJsonFile(scenarioClone, file, true, false, fullPathProvided);
 
             if (result)
             {
@@ -5278,7 +5282,7 @@ namespace GameObjects
             //    t.Textures = null;
             //}
 
-            if (Session.MainGame.mainGameScreen != null)
+            if (Session.MainGame != null && Session.MainGame.mainGameScreen != null)
             {
                 Session.MainGame.mainGameScreen.DisposeMapTileMemory(true, false);
             }

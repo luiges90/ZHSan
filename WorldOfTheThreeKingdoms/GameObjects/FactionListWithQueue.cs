@@ -101,9 +101,12 @@ namespace GameObjects
         public string SaveQueueToString()
         {
             string str = "";
-            foreach (Faction faction in this.factionQueue)
-            {
-                str = str + " " + faction.ID.ToString();
+            if (this.factionQueue != null)
+            { 
+                foreach (Faction faction in this.factionQueue)
+                {
+                    str = str + " " + faction.ID.ToString();
+                }
             }
             return str;
         }

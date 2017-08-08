@@ -154,18 +154,22 @@ namespace Tools
             return t;
         }
 
-        public static bool SerializeJsonFile<T>(T t, string file, bool zip = false, bool Net = false)
+        public static bool SerializeJsonFile<T>(T t, string file, bool zip = false, bool Net = false, bool fullPathProvided = false)
         {
             try
             {
                 string json = SerializeJson(t, zip, Net);
-                Platform.Current.SaveUserFile(file, json);
+                Platform.Current.SaveUserFile(file, json, fullPathProvided);
                 return true;
             }
             catch (Exception ex)
             {
+#if DEBUG
+                throw ex;
+#else
                 WebTools.TakeWarnMsg("序列用户对象失败:" + file, "SerializeJson:" + t.GetType(), ex);
                 return false;
+#endif
             }
         }
 

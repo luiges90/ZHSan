@@ -806,19 +806,28 @@ namespace Platforms
         /// </summary>
         /// <param name="res"></param>
         /// <param name="content"></param>
-        public void SaveUserFile(string res, string content)
+        public void SaveUserFile(string res, string content, bool fullPathProvided = false)
         {
             try
             {
                 DelUserFiles(new string[] { res }, null);
                 lock (Platform.IoLock)
                 {
-                    File.WriteAllText(UserApplicationDataPath + res, content);
+                    String path = res;
+                    if (!fullPathProvided)
+                    {
+                        path = UserApplicationDataPath + res;
+                    }
+                    File.WriteAllText(path, content);
                 }
             }
             catch (Exception ex)
             {
+#if DEBUG
+                throw ex;
+#else
                 WebTools.TakeWarnMsg("保存用户文本失败:" + res, "SaveUserFile:" + UserApplicationDataPath + res, ex);
+#endif
             }
         }
         ///// <summary>
@@ -925,7 +934,7 @@ namespace Platforms
         {
             return IsolatedStorageFile.GetUserStoreForApplication();
         }
-        #endregion
+#endregion
 
         public static void Sleep(int time)
         {
