@@ -127,16 +127,27 @@ namespace GameGlobal
         [DataMember]
         public float AIArmyExperienceRate = 1f;
 
+        [DataMember]
         private float BasicAIArchitectureDamageRate = 1f;
+        [DataMember]
         private float BasicAIFoodRate = 1f;
+        [DataMember]
         private float BasicAIFundRate = 1f;
+        [DataMember]
         private float BasicAIRecruitmentSpeedRate = 1f;
+        [DataMember]
         private float BasicAITrainingSpeedRate = 1f;
+        [DataMember]
         private float BasicAITroopDefenceRate = 1f;
+        [DataMember]
         private float BasicAITroopOffenceRate = 1f;
+        [DataMember]
         private float BasicAIArmyExperienceRate = 1f;
+        [DataMember]
         private float BasicAIOfficerExperienceRate = 1f;
+        [DataMember]
         private int BasicAIAntiStratagem = 0;
+        [DataMember]
         private int BasicAIAntiSurround = 0;
 
         [DataMember]
