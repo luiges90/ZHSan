@@ -1,4 +1,4 @@
-﻿using GameGlobal;
+using GameGlobal;
 using GameManager;
 using GameObjects;
 using GameObjects.ArchitectureDetail.EventEffect;
@@ -284,7 +284,14 @@ namespace GameManager
                         }
                     }
 
-                    CommonData.Current = Tools.SimpleSerializer.DeserializeJsonFile<CommonData>(@"Content\Data\Common\CommonData.json", false, true);
+                    bool zip = true;
+
+                    if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
+                    {
+                        zip = false;
+                    }
+
+                    CommonData.Current = Tools.SimpleSerializer.DeserializeJsonFile<CommonData>(@"Content\Data\Common\CommonData.json", false, zip);
 
                     GameScenario.ProcessCommonData(CommonData.Current);
 
