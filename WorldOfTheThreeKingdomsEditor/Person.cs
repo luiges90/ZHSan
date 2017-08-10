@@ -37,6 +37,14 @@ namespace WorldOfTheThreeKingdomsEditor
             dtPersons.Columns.Add("YearBorn", typeof(int));
             dtPersons.Columns.Add("YearDead", typeof(int));
             dtPersons.Columns.Add("DeadReason", typeof(PersonDeadReason));
+            dtPersons.Columns.Add("BaseCommand", typeof(int));
+            dtPersons.Columns.Add("BaseStrength", typeof(int));
+            dtPersons.Columns.Add("BaseIntelligence", typeof(int));
+            dtPersons.Columns.Add("BasePolitics", typeof(int));
+            dtPersons.Columns.Add("BaseGlamour", typeof(int));
+            dtPersons.Columns.Add("Reputation", typeof(int));
+            dtPersons.Columns.Add("BaseBraveness", typeof(int));
+            dtPersons.Columns.Add("BaseCalmness", typeof(int));
 
             foreach (Person p in scen.Persons)
             {
@@ -58,6 +66,14 @@ namespace WorldOfTheThreeKingdomsEditor
                 row["YearDead"] = p.YearDead;
                 // TODO value not set correctly
                 row["DeadReason"] = p.DeadReason;
+                row["BaseCommand"] = p.BaseCommand;
+                row["BaseStrength"] = p.BaseStrength;
+                row["BaseIntelligence"] = p.BaseIntelligence;
+                row["BasePolitics"] = p.BasePolitics;
+                row["BaseGlamour"] = p.BaseGlamour;
+                row["Reputation"] = p.Reputation;
+                row["BaseBraveness"] = p.BaseBraveness;
+                row["BaseCalmness"] = p.BaseCalmness;
                 dtPersons.Rows.Add(row);
             }
 
@@ -102,6 +118,14 @@ namespace WorldOfTheThreeKingdomsEditor
                 p.YearBorn = int.Parse(e.Row["YearBorn"].ToString());
                 p.YearDead = int.Parse(e.Row["YearDead"].ToString());
                 p.DeadReason = (PersonDeadReason) e.Row["DeadReason"];
+                p.BaseCommand = int.Parse(e.Row["BaseCommand"].ToString());
+                p.BaseStrength = int.Parse(e.Row["BaseStrength"].ToString());
+                p.BaseIntelligence = int.Parse(e.Row["BaseIntelligence"].ToString());
+                p.BasePolitics = int.Parse(e.Row["BasePolitics"].ToString());
+                p.BaseGlamour = int.Parse(e.Row["BaseGlamour"].ToString());
+                p.Reputation = int.Parse(e.Row["Reputation"].ToString());
+                p.Braveness = int.Parse(e.Row["BaseBraveness"].ToString());
+                p.Calmness = int.Parse(e.Row["BaseCalmness"].ToString());
             }
             catch (Exception ex)
             {
