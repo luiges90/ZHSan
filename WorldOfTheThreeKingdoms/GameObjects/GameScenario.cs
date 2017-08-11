@@ -1,4 +1,4 @@
-﻿using GameGlobal;
+using GameGlobal;
 using GameObjects.Animations;
 using GameObjects.ArchitectureDetail;
 using GameObjects.ArchitectureDetail.EventEffect;
@@ -4857,8 +4857,15 @@ namespace GameObjects
             {
                 file = @"Save\" + LoadedFileName;
             }
-            
-            bool result = SimpleSerializer.SerializeJsonFile(scenarioClone, file, true, false, fullPathProvided);
+
+            bool zip = true;
+
+            if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
+            {
+                zip = false;
+            }
+
+            bool result = SimpleSerializer.SerializeJsonFile(scenarioClone, file, zip, false, fullPathProvided);
 
             if (result)
             {
@@ -6306,4 +6313,3 @@ namespace GameObjects
         }
     }
 }
-
