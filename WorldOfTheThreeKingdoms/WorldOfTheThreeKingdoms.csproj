@@ -57313,88 +57313,88 @@
       <Link>Content\Sound\Move.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\0XSSL5.json">
+    <Content Include="..\Content\Data\Common\CommonData.json">
+      <Link>Content\Data\Common\CommonData.json</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Data\Scenario\0XSSL5.json">
       <Link>Content\Data\Scenario\0XSSL5.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\184DHZS.json">
+    <Content Include="..\Content\Data\Scenario\184DHZS.json">
       <Link>Content\Data\Scenario\184DHZS.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\190FDLM.json">
+    <Content Include="..\Content\Data\Scenario\190FDLM.json">
       <Link>Content\Data\Scenario\190FDLM.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\192XDZX1.json">
+    <Content Include="..\Content\Data\Scenario\192XDZX1.json">
       <Link>Content\Data\Scenario\192XDZX1.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\194QXGJ1.json">
+    <Content Include="..\Content\Data\Scenario\194QXGJ1.json">
       <Link>Content\Data\Scenario\194QXGJ1.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\194QXGJ2.json">
+    <Content Include="..\Content\Data\Scenario\194QXGJ2.json">
       <Link>Content\Data\Scenario\194QXGJ2.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\197YSCD.json">
+    <Content Include="..\Content\Data\Scenario\197YSCD.json">
       <Link>Content\Data\Scenario\197YSCD.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\200GDZZ.json">
+    <Content Include="..\Content\Data\Scenario\200GDZZ.json">
       <Link>Content\Data\Scenario\200GDZZ.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\207SGML.json">
+    <Content Include="..\Content\Data\Scenario\207SGML.json">
       <Link>Content\Data\Scenario\207SGML.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\208CBZZ.json">
+    <Content Include="..\Content\Data\Scenario\208CBZZ.json">
       <Link>Content\Data\Scenario\208CBZZ.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\211LBRS.json">
+    <Content Include="..\Content\Data\Scenario\211LBRS.json">
       <Link>Content\Data\Scenario\211LBRS.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\217HZZZ.json">
+    <Content Include="..\Content\Data\Scenario\217HZZZ.json">
       <Link>Content\Data\Scenario\217HZZZ.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\219SFTX.json">
+    <Content Include="..\Content\Data\Scenario\219SFTX.json">
       <Link>Content\Data\Scenario\219SFTX.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\227WHBF.json">
+    <Content Include="..\Content\Data\Scenario\227WHBF.json">
       <Link>Content\Data\Scenario\227WHBF.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\251MSZZ.json">
+    <Content Include="..\Content\Data\Scenario\251MSZZ.json">
       <Link>Content\Data\Scenario\251MSZZ.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\263SHWJ.json">
+    <Content Include="..\Content\Data\Scenario\263SHWJ.json">
       <Link>Content\Data\Scenario\263SHWJ.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\280JGZZ.json">
+    <Content Include="..\Content\Data\Scenario\280JGZZ.json">
       <Link>Content\Data\Scenario\280JGZZ.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\280LWSG.json">
+    <Content Include="..\Content\Data\Scenario\280LWSG.json">
       <Link>Content\Data\Scenario\280LWSG.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\280MJZZ.json">
+    <Content Include="..\Content\Data\Scenario\280MJZZ.json">
       <Link>Content\Data\Scenario\280MJZZ.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\ScenarioZip\280YXJJ.json">
+    <Content Include="..\Content\Data\Scenario\280YXJJ.json">
       <Link>Content\Data\Scenario\280YXJJ.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Data\CommonZip\CommonData.json">
-      <Link>Content\Data\Common\CommonData.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="app.config" />
