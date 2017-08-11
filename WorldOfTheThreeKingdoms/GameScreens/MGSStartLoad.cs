@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 //using System.Data.OleDb;
 using System.IO;
@@ -434,13 +434,20 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             Session.Current.IsWorking = true;
 
+            bool zip = true;
+
+            if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
+            {
+                zip = false;
+            }
+
             if (fromScenario)
             {
-                scenario = Tools.SimpleSerializer.DeserializeJsonFile<GameScenario>(scenarioName, false, true);
+                scenario = Tools.SimpleSerializer.DeserializeJsonFile<GameScenario>(scenarioName, false, zip);
             }
             else
             {
-                scenario = Tools.SimpleSerializer.DeserializeJsonFile<GameScenario>(scenarioName, true, true);
+                scenario = Tools.SimpleSerializer.DeserializeJsonFile<GameScenario>(scenarioName, true, zip);
             }
 
             Session.Current.IsWorking = false;
