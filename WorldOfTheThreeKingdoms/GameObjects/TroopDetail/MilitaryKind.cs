@@ -1,4 +1,4 @@
-﻿using GameObjects;
+using GameObjects;
 using GameObjects.Influences;
 using GameObjects.Conditions;
 using System;
@@ -114,7 +114,14 @@ namespace GameObjects.TroopDetail
         {
             Influences = new InfluenceTable();
 
-            levelUpKindID = new List<int>();
+            if (levelUpKindID == null || levelUpKindID.Count == 0)
+            {
+                levelUpKindID = new List<int>();
+            }
+            else
+            {
+
+            }
 
             titleInfluence = -1;
 
@@ -1267,4 +1274,3 @@ namespace GameObjects.TroopDetail
         */
     }
 }
-
