@@ -198,6 +198,17 @@ namespace GameObjects
             }
             throw new InvalidOperationException("null resulted in WeightedRandom");
         }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is GameObject)) return false;
+            return this.id == ((GameObject)obj).id;
+        }
+
+        public override int GetHashCode()
+        {
+            return id;
+        }
     }
 }
 
