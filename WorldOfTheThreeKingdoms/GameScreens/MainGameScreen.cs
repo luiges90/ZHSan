@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -3585,12 +3585,22 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void ReturnMainMenu()
         {
+            this.Plugins.ConfirmationDialogPlugin.SetSimpleTextDialog(this.Plugins.SimpleTextDialogPlugin);
+            this.Plugins.ConfirmationDialogPlugin.ClearFunctions();
+            this.Plugins.ConfirmationDialogPlugin.AddYesFunction(new GameDelegates.VoidFunction(this.ReturnToMainMenu));
+            this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
+            this.Plugins.SimpleTextDialogPlugin.SetBranch("退回初始");
+            this.Plugins.ConfirmationDialogPlugin.IsShowing = true;
+        }
+
+        private void ReturnToMainMenu()
+        {
             Session.MainGame.loadingScreen = new LoadingScreen();
             Session.MainGame.loadingScreen.LoadScreenEvent += (sender0, e0) =>
             {
                 Platform.Sleep(1000);
             };
-            
+
             //System.Diagnostics.Process myProcess = new System.Diagnostics.Process();
             //System.Diagnostics.ProcessStartInfo myProcessStartInfo = new System.Diagnostics.ProcessStartInfo(@"WorldOfTheThreeKingdoms.exe", "");
             //myProcess.StartInfo = myProcessStartInfo;
@@ -3598,7 +3608,4 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             //System.Environment.Exit(0);
         }
     }
-
- 
-
 }
