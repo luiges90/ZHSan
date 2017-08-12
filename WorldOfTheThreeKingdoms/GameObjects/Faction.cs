@@ -123,6 +123,7 @@ namespace GameObjects
             StratagemOfMillitaryType = new int[5];
             AntiStratagemOfMillitaryType = new int[5];
 
+            this.RoutewayPathBuilder = new RoutewayPathFinder();
             this.RoutewayPathBuilder.OnGetCost += new RoutewayPathFinder.GetCost(this.RoutewayPathBuilder_OnGetCost);
             this.RoutewayPathBuilder.OnGetPenalizedCost += new RoutewayPathFinder.GetPenalizedCost(this.RoutewayPathBuilder_OnGetPenalizedCost);
         }

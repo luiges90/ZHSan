@@ -13223,8 +13223,14 @@ namespace GameObjects
                 this.showNumber = value;
                 if (!value)
                 {
-                    this.IncrementNumberList.Clear();
-                    this.DecrementNumberList.Clear();
+                    if (this.IncrementNumberList != null)
+                    {
+                        this.IncrementNumberList.Clear();
+                    }
+                    if (this.DecrementNumberList != null)
+                    {
+                        this.DecrementNumberList.Clear();
+                    }
                 }
             }
         }
@@ -13295,7 +13301,7 @@ namespace GameObjects
                         this.CurrentTileAnimationKind = TileAnimationKind.挑衅;
                         break;
                 }
-                if (this.CurrentTileAnimationKind != TileAnimationKind.无)
+                if (this.CurrentTileAnimationKind != TileAnimationKind.无 && Session.Current.Scenario != null)
                 {
                     this.TryToPlaySound(this.Position, this.getSoundPath(Session.Current.Scenario.GameCommonData.AllTileAnimations.GetAnimation((int)this.CurrentTileAnimationKind)), false);
                 }
