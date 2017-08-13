@@ -1,4 +1,4 @@
-﻿using GameManager;
+using GameManager;
 using GameObjects;
 using GamePanels;
 using Microsoft.Xna.Framework;
@@ -104,7 +104,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         string[] aboutLines = new string[]
         {
-            "中华三国志 V33开发版 移动版1.0.1",
+            String.Format("中华三国志 {0} {1}", Platform.GameVersion, Platform.GameVersionType),
             "",
             "游戏的更新与讨论请关注官方论坛及百度贴吧：",
             "官方论坛 http://www.zhsan.com  百度贴吧 中华三国志吧",
