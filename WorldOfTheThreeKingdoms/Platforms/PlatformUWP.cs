@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
@@ -713,7 +713,7 @@ namespace Platforms
                 return null;
             }
         }
-        public void SaveUserFile(string res, string content)
+        public void SaveUserFile(string res, string content, bool fullPathProvided = false)
         {
             //Windows.Storage.StorageFile storageFile = await localFolder.CreateFileAsync("settings.config", CreationCollisionOption.OpenIfExists);
             //if (UserFileExist(new string[] { res })[0])
