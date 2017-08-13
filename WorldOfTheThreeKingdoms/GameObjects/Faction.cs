@@ -261,7 +261,7 @@ namespace GameObjects
         public SectionList Sections = new SectionList();
         [DataMember]
         public Dictionary<Point, object> SpyMessageCloseList = new Dictionary<Point, object>();
-        [DataMember]
+       
         public bool StopToControl;
 
         public MilitaryKindTable TechniqueMilitaryKinds = new MilitaryKindTable();
@@ -5825,7 +5825,7 @@ namespace GameObjects
                 this.colorIndex = value;
             }
         }
-        [DataMember]
+        
         public bool Controlling
         {
             get
@@ -6214,7 +6214,7 @@ namespace GameObjects
             }
         }
 
-        [DataMember]
+      
         public bool Passed
         {
             get
@@ -6293,7 +6293,7 @@ namespace GameObjects
                 return num;
             }
         }
-        [DataMember]
+        
         public bool PreUserControlFinished
         {
             get
