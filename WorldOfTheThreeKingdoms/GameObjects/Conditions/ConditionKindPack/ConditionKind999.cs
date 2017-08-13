@@ -11,7 +11,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
     {
         public override bool CheckConditionKind(Person person)
         {
-            return !Session.Current.Scenario.IsPlayer(person.BelongedFaction);
+            return !Session.Current.Scenario.IsPlayer(person.BelongedFactionWithPrincess);
         }
 
         public override bool CheckConditionKind(Architecture architecture)
