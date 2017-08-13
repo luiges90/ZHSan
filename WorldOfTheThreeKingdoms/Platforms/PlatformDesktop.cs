@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -608,7 +608,7 @@ namespace Platforms
         /// </summary>
         /// <param name="res"></param>
         /// <param name="content"></param>
-        public void SaveUserFile(string res, string content)
+        public void SaveUserFile(string res, string content, bool fullPathProvided = false)
         {
             try
             {
