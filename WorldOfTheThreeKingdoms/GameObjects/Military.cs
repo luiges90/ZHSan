@@ -21,6 +21,7 @@ namespace GameObjects
         private MilitaryKind kind;
         private int kindID;
         private Person leader;
+        [DataMember]
         private int leaderExperience;
         private int leaderID = -1;
         private int morale;
@@ -43,8 +44,6 @@ namespace GameObjects
 
         public void Init()
         {
-            followedLeaderID = -1;
-            leaderID = -1;
             startingArchitectureID = -1;
             targetArchitectureID = -1;
         }
