@@ -4124,7 +4124,7 @@ namespace GameObjects
                     HashSet<TitleKind> hasKind = new HashSet<TitleKind>();
                     foreach (Title t in this.Titles)
                     {
-                        if (t.Kind == candidate.Kind && candidate.Level > t.Level && candidate.CanLearn(this))
+                        if (t.Kind.Equals(candidate.Kind) && candidate.Level > t.Level && candidate.CanLearn(this))
                         {
                             if (title.ContainsKey(candidate.Kind))
                             {
@@ -4209,58 +4209,13 @@ namespace GameObjects
             }
             this.ManualStudy = false;
         }
-
-        /*
-        public bool HasHigherLevelGuazhi(Guanzhi guanzhi)
-        {
-            List<Guanzhi> oldGuanzhis = new List<Guanzhi> (this.RealGuanzhis);
-            foreach (Guanzhi g in oldGuanzhis )
-            {
-                if (g.Kind == guanzhi .Kind && g.Level >= guanzhi.Level )
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public void AwardGuanzhi(Guanzhi guanzhi)
-        {
-            List<Guanzhi> oldGuanzhis = new List<Guanzhi>(this.RealGuanzhis);
-            foreach (Guanzhi g in oldGuanzhis)
-            {
-                if (g.Kind == guanzhi.Kind)
-                {
-                    g.Influences.PurifyInfluence(this, GameObjects.Influences.Applier.Guanzhi, g.ID, false);
-                    this.RealGuanzhis.Remove(g);
-                }
-            }
-            this.RealGuanzhis.Add(guanzhi);
-            Session.Current.Scenario.YearTable.addObtainedGuanzhiEntry(Session.Current.Scenario.Date, this, guanzhi);
-        }
-
-        public void LoseGuanzhi()
-        {
-            List<Guanzhi> temp = new List<Guanzhi>(this.RealGuanzhis);
-            foreach (Guanzhi g in temp)
-            {
-                if (g.LoseConditions.Count > 0 && g.WillLose(this))
-                {
-                    g.Influences.PurifyInfluence(this, GameObjects.Influences.Applier.Guanzhi, g.ID, false);
-
-                    this.RealGuanzhis.Remove(g);
-                }
-
-            }
-        }
-        */
-
+        
         public bool HasHigherLevelTitle(Title title)
         {
             List<Title> oldTitles = new List<Title>(this.RealTitles);
             foreach (Title t in oldTitles)
             {
-                if (t.Kind == title.Kind && t.Level >= title.Level)
+                if (t.Kind.Equals(title.Kind) && t.Level >= title.Level)
                 {
                     return true;
                 }
@@ -4273,7 +4228,7 @@ namespace GameObjects
             List<Title> oldTitles = new List<Title>(this.RealTitles);
             foreach (Title t in oldTitles)
             {
-                if (t.Kind == title.Kind)
+                if (t.Kind.Equals(title.Kind))
                 {
                     t.Influences.PurifyInfluence(this, GameObjects.Influences.Applier.Title, t.ID, false);
                     this.RealTitles.Remove(t);
@@ -4304,7 +4259,7 @@ namespace GameObjects
             List<Title> oldTitles = new List<Title>(this.RealTitles);
             foreach (Title t in oldTitles)
             {
-                if (t.Kind == title.Kind)
+                if (t.Kind.Equals(title.Kind))
                 {
                     t.Influences.PurifyInfluence(this, GameObjects.Influences.Applier.Title, t.ID, false);
                     this.RealTitles.Remove(t);
@@ -7105,7 +7060,7 @@ namespace GameObjects
                     HashSet<TitleKind> hasKind = new HashSet<TitleKind>();
                     foreach (Title t in this.Titles)
                     {
-                        if (t.Kind == candidate.Kind && candidate.Level > t.Level && candidate.CanLearn(this))
+                        if (t.Kind.Equals(candidate.Kind) && candidate.Level > t.Level && candidate.CanLearn(this))
                         {
                             title.Add(candidate);
                         }

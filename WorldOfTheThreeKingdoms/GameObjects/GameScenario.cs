@@ -6262,7 +6262,7 @@ namespace GameObjects
                                             Title existing = null;
                                             foreach (Title u in p.Titles)
                                             {
-                                                if (u.Kind == t.Kind)
+                                                if (u.Kind.Equals(t.Kind))
                                                 {
                                                     existing = u;
                                                     break;

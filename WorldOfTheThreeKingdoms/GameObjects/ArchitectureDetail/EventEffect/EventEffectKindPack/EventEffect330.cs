@@ -15,7 +15,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
             GameObjects.PersonDetail.Title title = Session.Current.Scenario.GameCommonData.AllTitles.GetTitle(increment);
             foreach (GameObjects.PersonDetail.Title t in person.RealTitles)
             {
-                if (t.Kind == title.Kind)
+                if (t.Kind.Equals(title.Kind))
                 {
                     title.Influences.PurifyInfluence(person, GameObjects.Influences.Applier.Title, title.ID, false);
                     person.RealTitles.Remove(title);

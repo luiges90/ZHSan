@@ -7229,7 +7229,7 @@ namespace GameObjects
             this.BeMergedMilitaryList.Clear();
             foreach (Military military2 in this.MergeMilitaryList)
             {
-                if ((military2 != military) && (military2.Kind == military.Kind))
+                if ((military2 != military) && (military2.Kind.Equals(military.Kind)))
                 {
                     this.BeMergedMilitaryList.Add(military2);
                 }
@@ -8120,7 +8120,7 @@ namespace GameObjects
                 {
                     foreach (Military military2 in this.Militaries)
                     {
-                        if (((t != military2) && (t.Kind == military2.Kind)) && ((military2.Quantity < military2.Kind.MaxScale) && (military2.InjuryQuantity == 0)))
+                        if (((t != military2) && (t.Kind.Equals(military2.Kind))) && ((military2.Quantity < military2.Kind.MaxScale) && (military2.InjuryQuantity == 0)))
                         {
                             this.MergeMilitaryList.Add(t);
                             break;
@@ -10253,7 +10253,7 @@ namespace GameObjects
                 {
                     foreach (Military military2 in this.Militaries)
                     {
-                        if (((military != military2) && (military.Kind == military2.Kind)) && ((military2.Quantity < military2.Kind.MaxScale) && (military2.InjuryQuantity == 0)))
+                        if (((military != military2) && (military.Kind.Equals(military2.Kind))) && ((military2.Quantity < military2.Kind.MaxScale) && (military2.InjuryQuantity == 0)))
                         {
                             return true;
                         }

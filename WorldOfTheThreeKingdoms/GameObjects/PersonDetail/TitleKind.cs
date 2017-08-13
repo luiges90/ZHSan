@@ -28,7 +28,7 @@ namespace GameObjects.PersonDetail
             }
             foreach (Title t in allTitles.GetTitleList())
             {
-                if (t.Kind == this && t.CanBeBorn())
+                if (t.Kind.Equals(this) && t.CanBeBorn())
                 {
                     inheritable = true;
                     return true;
