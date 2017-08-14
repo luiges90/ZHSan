@@ -556,8 +556,10 @@ namespace GameObjects
         public bool WaitOnce = false;
         private TroopWill will = TroopWill.行军;
         private Architecture willArchitecture;
+        [DataMember]
         private int willArchitectureID = -1;
         private Troop willTroop;
+        [DataMember]
         private int willTroopID = -1;
 
         public bool YesOrNoOfObliqueOffence;

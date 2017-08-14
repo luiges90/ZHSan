@@ -144,6 +144,7 @@ namespace GameObjects
             disasterChanceDecrease = new Dictionary<int, int>();
             disasterChanceIncrease = new Dictionary<int, int>();
             disasterDamageRateDecrease = new Dictionary<int, float>();
+           
         }
 
         // public int[] preferredOfficialTypes = {100, 100, 100, 100, 60, 100, 1, 250, 250, 39 };
