@@ -49,7 +49,10 @@ namespace GameRecordPlugin
                 this.Positions.RemoveRange(index, this.Positions.Count - index);
                 this.PositionRectangles.RemoveRange(index, this.PositionRectangles.Count - index);
             }
-            Session.MainGame.mainGameScreen.PlayNormalSound(this.PopSoundFile);
+            if (Session.MainGame.mainGameScreen != null)
+            {
+                Session.MainGame.mainGameScreen.PlayNormalSound(this.PopSoundFile);
+            }
             this.ButtonDrawingColor = Color.Lime;
             this.ButtonDrawingTime = DateTime.Now;
         }

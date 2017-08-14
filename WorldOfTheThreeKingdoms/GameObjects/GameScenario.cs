@@ -1463,7 +1463,7 @@ namespace GameObjects
             }
         }
 
-        private void detectCurrentPlayerBattleState(Faction faction)
+        private void detectCurrentPlayerBattleState(Faction faction, MainGameScreen mgs = null)
         {
 
             if (faction == null) return;
@@ -1489,6 +1489,9 @@ namespace GameObjects
                         if (Session.MainGame.mainGameScreen != null)
                         {
                             Session.MainGame.mainGameScreen.ArchitectureBeginRecentlyAttacked(architecture);  //提示玩家建筑视野范围内出现敌军。
+                        } else if (mgs != null)
+                        {
+                            mgs.ArchitectureBeginRecentlyAttacked(architecture);
                         }
 
                     }
@@ -1540,9 +1543,15 @@ namespace GameObjects
                 faction.BattleState = ZhandouZhuangtai.攻守兼备;
             }
 
-            if (originalBattleState != faction.BattleState && Session.MainGame.mainGameScreen != null)
+            if (originalBattleState != faction.BattleState)
             {
-                Session.MainGame.mainGameScreen.SwichMusic(this.Date.Season);
+                if (Session.MainGame.mainGameScreen != null)
+                {
+                    Session.MainGame.mainGameScreen.SwichMusic(this.Date.Season);
+                } else if (mgs != null)
+                {
+                    mgs.SwichMusic(this.Date.Season);
+                }
             }
 
         }
@@ -1550,6 +1559,7 @@ namespace GameObjects
         public void DayStartingEvent()
         {
             this.Factions.SetControlling(false);
+            
             foreach (Troop troop in this.Troops.GetList())
             {
                 if (troop.BelongedFaction == null || troop.BelongedLegion == null)
@@ -3773,7 +3783,7 @@ namespace GameObjects
                 this.OnAfterLoadScenario();
             }
 
-            this.detectCurrentPlayerBattleState(this.CurrentPlayer);
+            this.detectCurrentPlayerBattleState(this.CurrentPlayer, screen);
 
             this.LoadedFileName = "";
 
@@ -3805,7 +3815,8 @@ namespace GameObjects
             {
                 this.OnAfterLoadScenario();
             }
-            this.detectCurrentPlayerBattleState(this.CurrentPlayer);
+
+            this.detectCurrentPlayerBattleState(this.CurrentPlayer, screen);
 
             if (this.PlayerFactions.Count == 0)
             {

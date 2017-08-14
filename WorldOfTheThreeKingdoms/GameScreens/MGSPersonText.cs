@@ -55,13 +55,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     reporter = architecture.BelongedFaction.Leader;
                 }
 
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(reporter, architecture, TextMessageKind.ArchitectureUnderAttack, "ArchitectureBeginRecentlyAttacked", "zaoshougongji.jpg", "");
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
-                /*architecture.BelongedFaction.Leader.TextResultString = architecture.Name;
-                architecture.BelongedFaction.TextResultString = architecture.Name;
-                this.xianshishijiantupian(architecture.BelongedFaction.Leader, architecture.BelongedFaction.Leader.TextResultString, "ArchitectureBeginRecentlyAttacked", "zaoshougongji.jpg", "", false);
-                */
+                if (Session.MainGame.mainGameScreen != null)
+                {
+                    this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(reporter, architecture, TextMessageKind.ArchitectureUnderAttack, "ArchitectureBeginRecentlyAttacked", "zaoshougongji.jpg", "");
+                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                    /*architecture.BelongedFaction.Leader.TextResultString = architecture.Name;
+                    architecture.BelongedFaction.TextResultString = architecture.Name;
+                    this.xianshishijiantupian(architecture.BelongedFaction.Leader, architecture.BelongedFaction.Leader.TextResultString, "ArchitectureBeginRecentlyAttacked", "zaoshougongji.jpg", "", false);
+                    */
+                }
                 architecture.BelongedFaction.TextResultString = architecture.Name;
                 this.Plugins.GameRecordPlugin.AddBranch(architecture.BelongedFaction, "zaoshougongji", architecture.Position);
                 if (architecture.BelongedFaction.StopToControl)
