@@ -1,4 +1,4 @@
-﻿using Android.App;
+using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Graphics;
@@ -624,7 +624,7 @@ namespace Platforms
         /// </summary>
         /// <param name="res"></param>
         /// <param name="content"></param>
-        public void SaveUserFile(string res, string content)
+        public void SaveUserFile(string res, string content, bool fullPathProvided = false)
         {
             try
             {
