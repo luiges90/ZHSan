@@ -96,9 +96,7 @@ namespace PersonBubble
             this.personBubble.DefaultTextColor = color;
             node = nextSibling.ChildNodes.Item(3);
             this.personBubble.PersonSpecialTextTimeLast = int.Parse(node.Attributes.GetNamedItem("TimeLast").Value);
-            color = new Microsoft.Xna.Framework.Color {
-                PackedValue = uint.Parse(node.Attributes.GetNamedItem("Color").Value)
-            };
+            color = StaticMethods.LoadColor(node.Attributes.GetNamedItem("Color").Value);
             this.personBubble.PersonSpecialTextColor = color;
             this.personBubble.TextTree.LoadFromXmlFile(@"Content\Data\Plugins\PersonBubbleTree.xml");
         }

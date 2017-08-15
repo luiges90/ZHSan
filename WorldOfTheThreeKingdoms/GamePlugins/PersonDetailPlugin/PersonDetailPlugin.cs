@@ -122,14 +122,10 @@ namespace PersonDetailPlugin
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
             this.personDetail.AllSkillTexts = new FreeTextList(font, color);
             this.personDetail.AllSkillTexts.Align = (TextAlign) Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
-            Microsoft.Xna.Framework.Color color2 = new Microsoft.Xna.Framework.Color {
-                PackedValue = uint.Parse(node.Attributes.GetNamedItem("SkillColor").Value)
-            };
+            Microsoft.Xna.Framework.Color color2 = StaticMethods.LoadColor(node.Attributes.GetNamedItem("SkillColor").Value);
             this.personDetail.PersonSkillTexts = new FreeTextList(font, color2);
             this.personDetail.PersonSkillTexts.Align = this.personDetail.AllSkillTexts.Align;
-            Microsoft.Xna.Framework.Color color3 = new Microsoft.Xna.Framework.Color {
-                PackedValue = uint.Parse(node.Attributes.GetNamedItem("LearnableColor").Value)
-            };
+            Microsoft.Xna.Framework.Color color3 = StaticMethods.LoadColor(node.Attributes.GetNamedItem("LearnableColor").Value);
             this.personDetail.LearnableSkillTexts = new FreeTextList(font, color3);
             this.personDetail.LearnableSkillTexts.Align = this.personDetail.AllSkillTexts.Align;
             node = nextSibling.ChildNodes.Item(8);
@@ -1262,16 +1258,10 @@ namespace PersonDetailPlugin
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
             this.personDetail.TheAllSkillTexts = new FreeTextList(font, color);
             this.personDetail.TheAllSkillTexts.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
-            Microsoft.Xna.Framework.Color color4 = new Microsoft.Xna.Framework.Color
-            {
-                PackedValue = uint.Parse(node.Attributes.GetNamedItem("SkillColor").Value)
-            };
+            Microsoft.Xna.Framework.Color color4 = StaticMethods.LoadColor(node.Attributes.GetNamedItem("SkillColor").Value);
             this.personDetail.ThePersonSkillTexts = new FreeTextList(font, color2);
             this.personDetail.ThePersonSkillTexts.Align = this.personDetail.AllSkillTexts.Align;
-            Microsoft.Xna.Framework.Color color5 = new Microsoft.Xna.Framework.Color
-            {
-                PackedValue = uint.Parse(node.Attributes.GetNamedItem("LearnableColor").Value)
-            };
+            Microsoft.Xna.Framework.Color color5 = StaticMethods.LoadColor(node.Attributes.GetNamedItem("LearnableColor").Value);
             this.personDetail.TheLearnableSkillTexts = new FreeTextList(font, color3);
             this.personDetail.TheLearnableSkillTexts.Align = this.personDetail.AllSkillTexts.Align;
             node = nextSibling.ChildNodes.Item(297);

@@ -348,13 +348,15 @@ namespace GameGlobal
         {
             font = new Font(node.Attributes.GetNamedItem("FontName").Value, float.Parse(node.Attributes.GetNamedItem("FontSize").Value), node.Attributes.GetNamedItem("FontStyle").Value);
             color = new Microsoft.Xna.Framework.Color();
-            color.PackedValue = uint.Parse(node.Attributes.GetNamedItem("FontColor").Value);
+            uint x = uint.Parse(node.Attributes.GetNamedItem("FontColor").Value);
+            color.PackedValue = (x & 0xFF000000) | ((x & 0x00FF0000) >> 16) | (x & 0x0000FF00) | ((x & 0x000000FF) << 16);
         }
 
         public static Microsoft.Xna.Framework.Color LoadColor(String code)
         {
             Microsoft.Xna.Framework.Color color = new Microsoft.Xna.Framework.Color();
-            color.PackedValue = uint.Parse(code);
+            uint x = uint.Parse(code);
+            color.PackedValue = (x & 0xFF000000) | ((x & 0x00FF0000) >> 16) | (x & 0x0000FF00) | ((x & 0x000000FF) << 16);
             return color;
         }
 

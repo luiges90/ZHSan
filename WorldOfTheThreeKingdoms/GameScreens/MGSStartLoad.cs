@@ -202,7 +202,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             //System.Drawing.Font fontjianzhu = new System.Drawing.Font("华文中宋", 16f);
             Color colorjianzhu = new Color();
-            colorjianzhu.PackedValue = uint.Parse("4278255615");
+            colorjianzhu.PackedValue = uint.Parse("4294967040");
 
             //System.Drawing.Font font1 = new System.Drawing.Font("方正北魏楷书繁体", 30f);   //方正北魏楷书繁体
             //Microsoft.Xna.Framework.Color color1 = new Color(1f, 1f, 1f);

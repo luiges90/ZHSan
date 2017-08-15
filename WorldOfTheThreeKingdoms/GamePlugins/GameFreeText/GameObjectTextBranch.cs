@@ -27,7 +27,8 @@ namespace GameFreeText
                 {
                     item.Text = namedItem.Value;
                 }
-                item.TextColor.PackedValue = uint.Parse(node.Attributes.GetNamedItem("Color").Value);
+                uint x = uint.Parse(node.Attributes.GetNamedItem("Color").Value);
+                item.TextColor.PackedValue = (x & 0xFF000000) | ((x & 0x00FF0000) >> 16) | (x & 0x0000FF00) | ((x & 0x000000FF) << 16);
                 this.Leaves.Add(item);
             }
         }
