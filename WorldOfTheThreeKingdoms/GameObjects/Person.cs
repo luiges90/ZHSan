@@ -6513,7 +6513,6 @@ namespace GameObjects
             }
         }
 
-        [DataMember]
         public int Command
         {
             get
@@ -6836,7 +6835,6 @@ namespace GameObjects
             }
         }
 
-        [DataMember]
         public int Glamour
         {
             get
@@ -7164,7 +7162,6 @@ namespace GameObjects
             }
         }
 
-        [DataMember]
         public int Intelligence
         {
             get
@@ -7736,7 +7733,6 @@ namespace GameObjects
             }
         }
 
-        [DataMember]
         public int Politics
         {
             get
@@ -8177,7 +8173,6 @@ namespace GameObjects
             }
         }
 
-        [DataMember]
         public int Strength
         {
             get
