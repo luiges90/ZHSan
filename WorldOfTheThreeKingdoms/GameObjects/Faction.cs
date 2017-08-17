@@ -279,7 +279,9 @@ namespace GameObjects
         public string TroopListString { get; set; }
 
         public TroopList Troops = new TroopList();
+        [DataMember]
         private int upgradingDaysLeft;
+        [DataMember]
         private int upgradingTechnique = -1;
         // private Dictionary<MilitaryKind, int> militaryKindCounts = new Dictionary<MilitaryKind, int>();
 
