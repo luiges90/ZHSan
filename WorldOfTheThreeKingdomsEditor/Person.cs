@@ -36,7 +36,7 @@ namespace WorldOfTheThreeKingdomsEditor
             dtPersons.Columns.Add("YearAvailable", typeof(int));
             dtPersons.Columns.Add("YearBorn", typeof(int));
             dtPersons.Columns.Add("YearDead", typeof(int));
-            dtPersons.Columns.Add("DeadReason", typeof(PersonDeadReason));
+            dtPersons.Columns.Add("DeadReason", typeof(int));
             dtPersons.Columns.Add("BaseCommand", typeof(int));
             dtPersons.Columns.Add("BaseStrength", typeof(int));
             dtPersons.Columns.Add("BaseIntelligence", typeof(int));
@@ -45,6 +45,13 @@ namespace WorldOfTheThreeKingdomsEditor
             dtPersons.Columns.Add("Reputation", typeof(int));
             dtPersons.Columns.Add("BaseBraveness", typeof(int));
             dtPersons.Columns.Add("BaseCalmness", typeof(int));
+            dtPersons.Columns.Add("Strain", typeof(int));
+            dtPersons.Columns.Add("Generation", typeof(int));
+            dtPersons.Columns.Add("PersonalLoyalty", typeof(int));
+            dtPersons.Columns.Add("Ambition", typeof(int));
+            dtPersons.Columns.Add("Qualification", typeof(int));
+            dtPersons.Columns.Add("ValuationOnGovernment", typeof(int));
+            dtPersons.Columns.Add("StrategyTendency", typeof(int));
 
             foreach (Person p in scen.Persons)
             {
@@ -74,6 +81,13 @@ namespace WorldOfTheThreeKingdomsEditor
                 row["Reputation"] = p.Reputation;
                 row["BaseBraveness"] = p.BaseBraveness;
                 row["BaseCalmness"] = p.BaseCalmness;
+                row["Strain"] = p.Strain;
+                row["Generation"] = p.Generation;
+                row["PersonalLoyalty"] = p.PersonalLoyalty;
+                row["Ambition"] = p.Ambition;
+                row["Qualification"] = p.Qualification;
+                row["ValuationOnGovernment"] = p.ValuationOnGovernment;
+                row["StrategyTendency"] = p.StrategyTendency;
                 dtPersons.Rows.Add(row);
             }
 
@@ -117,7 +131,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 p.YearAvailable = int.Parse(e.Row["YearAvailable"].ToString());
                 p.YearBorn = int.Parse(e.Row["YearBorn"].ToString());
                 p.YearDead = int.Parse(e.Row["YearDead"].ToString());
-                p.DeadReason = (PersonDeadReason) e.Row["DeadReason"];
+                p.DeadReason = (PersonDeadReason) int.Parse(e.Row["DeadReason"].ToString());
                 p.BaseCommand = int.Parse(e.Row["BaseCommand"].ToString());
                 p.BaseStrength = int.Parse(e.Row["BaseStrength"].ToString());
                 p.BaseIntelligence = int.Parse(e.Row["BaseIntelligence"].ToString());
@@ -126,6 +140,13 @@ namespace WorldOfTheThreeKingdomsEditor
                 p.Reputation = int.Parse(e.Row["Reputation"].ToString());
                 p.Braveness = int.Parse(e.Row["BaseBraveness"].ToString());
                 p.Calmness = int.Parse(e.Row["BaseCalmness"].ToString());
+                p.Strain = int.Parse(e.Row["Strain"].ToString());
+                p.Generation = int.Parse(e.Row["Generation"].ToString());
+                p.PersonalLoyalty = int.Parse(e.Row["PersonalLoyalty"].ToString());
+                p.Ambition = int.Parse(e.Row["Ambition"].ToString());
+                p.Qualification = (PersonQualification)int.Parse(e.Row["Qualification"].ToString());
+                p.ValuationOnGovernment = (PersonValuationOnGovernment)int.Parse(e.Row["ValuationOnGovernment"].ToString());
+                p.StrategyTendency = (PersonStrategyTendency)int.Parse(e.Row["StrategyTendency"].ToString());
             }
             catch (Exception ex)
             {
