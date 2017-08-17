@@ -1,4 +1,4 @@
-﻿using GameGlobal;
+using GameGlobal;
 using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
@@ -26,6 +26,10 @@ namespace GameObjects.Animations
         private PlatformTexture texture;
         [DataMember]
         public string TextureFileName;
+        [DataMember]
+        public int TextureWidth;
+        [DataMember]
+        public int TextureHeight;
 
         public Rectangle GetCurrentDisplayRectangle(ref int frameIndex, ref int stayIndex, int width, int row, out bool EndLoop, bool hold)
         {
@@ -99,7 +103,9 @@ namespace GameObjects.Animations
                 {
                     //try
                     //{
-                        this.texture = CacheManager.GetTempTexture(this.TextureFileName);
+                    this.texture = CacheManager.GetTempTexture(this.TextureFileName);
+                    this.texture.Width = this.TextureWidth;
+                    this.texture.Height = this.TextureHeight;
                     //}
                     //catch (OutOfMemoryException)
                     //{
