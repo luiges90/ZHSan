@@ -175,6 +175,14 @@ namespace Tools
 
         public static T DeserializeJsonFile<T>(string file, bool isUserFile, bool zip = false, bool Net = false)
         {
+#if DEBUG
+            string content = isUserFile ? Platform.Current.GetUserText(file) : Platform.Current.LoadText(file);
+            content = content.NullToString().Trim();
+
+            //string str = WordTools.ConvertJsonString(content);
+
+            return DeserializeJson<T>(content, zip, Net);
+#else
             try
             {
                 string content = isUserFile ? Platform.Current.GetUserText(file) : Platform.Current.LoadText(file);
@@ -186,13 +194,10 @@ namespace Tools
             }
             catch (Exception ex)
             {
-#if DEBUG
-                throw ex;
-#else
                 WebTools.TakeWarnMsg("读取用户对象失败:" + file, "DeserializeJsonFile:" + file + " " + isUserFile, ex);
                 return default(T);
-#endif
             }
+#endif
         }
 
 #endregion

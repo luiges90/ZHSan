@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +14,19 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     public partial class MainWindow
     {
+
+        private FieldInfo[] getFieldInfos()
+        {
+            Person person = new Person();
+            return person.GetType().GetFields().Where(x => Attribute.IsDefined(x, typeof(DataMemberAttribute))).ToArray();
+        }
+
+        private PropertyInfo[] getPropertyInfos()
+        {
+            Person person = new Person();
+            return person.GetType().GetProperties().Where(x => Attribute.IsDefined(x, typeof(DataMemberAttribute))).ToArray();
+        }
+
         private void setupPersons()
         {
             DataTable dtPersons = new DataTable("Person");
@@ -22,72 +37,39 @@ namespace WorldOfTheThreeKingdomsEditor
             dc.ReadOnly = true;
             dtPersons.Columns.Add(dc);
 
-            dtPersons.Columns.Add("Available", typeof(bool));
-            dtPersons.Columns.Add("Alive", typeof(bool));
-            dtPersons.Columns.Add("SurName", typeof(string));
-            dtPersons.Columns.Add("GivenName", typeof(string));
-            dtPersons.Columns.Add("CalledName", typeof(string));
-            dtPersons.Columns.Add("Sex", typeof(bool));
-            dtPersons.Columns.Add("PictureIndex", typeof(int));
-            dtPersons.Columns.Add("Ideal", typeof(int));
-            dtPersons.Columns.Add("IdealTendency", typeof(int));
-            dtPersons.Columns.Add("LeaderPossibility", typeof(bool));
-            dtPersons.Columns.Add("PCharacter", typeof(int));
-            dtPersons.Columns.Add("YearAvailable", typeof(int));
-            dtPersons.Columns.Add("YearBorn", typeof(int));
-            dtPersons.Columns.Add("YearDead", typeof(int));
-            dtPersons.Columns.Add("DeadReason", typeof(int));
-            dtPersons.Columns.Add("BaseCommand", typeof(int));
-            dtPersons.Columns.Add("BaseStrength", typeof(int));
-            dtPersons.Columns.Add("BaseIntelligence", typeof(int));
-            dtPersons.Columns.Add("BasePolitics", typeof(int));
-            dtPersons.Columns.Add("BaseGlamour", typeof(int));
-            dtPersons.Columns.Add("Reputation", typeof(int));
-            dtPersons.Columns.Add("BaseBraveness", typeof(int));
-            dtPersons.Columns.Add("BaseCalmness", typeof(int));
-            dtPersons.Columns.Add("Strain", typeof(int));
-            dtPersons.Columns.Add("Generation", typeof(int));
-            dtPersons.Columns.Add("PersonalLoyalty", typeof(int));
-            dtPersons.Columns.Add("Ambition", typeof(int));
-            dtPersons.Columns.Add("Qualification", typeof(int));
-            dtPersons.Columns.Add("ValuationOnGovernment", typeof(int));
-            dtPersons.Columns.Add("StrategyTendency", typeof(int));
+            FieldInfo[] fields = getFieldInfos();
+            PropertyInfo[] properties = getPropertyInfos();
 
+            foreach (FieldInfo i in fields)
+            {
+                dtPersons.Columns.Add(i.Name, i.FieldType);
+            }
+            foreach (PropertyInfo i in properties)
+            {
+                if (i.PropertyType.Name == "Nullable`1")
+                {
+                    dtPersons.Columns.Add(i.Name, i.PropertyType.GenericTypeArguments[0]);
+                }
+                else
+                {
+                    dtPersons.Columns.Add(i.Name, i.PropertyType);
+                }
+            }
+            
             foreach (Person p in scen.Persons)
             {
                 DataRow row = dtPersons.NewRow();
                 row["id"] = p.ID;
-                row["Available"] = p.Available;
-                row["Alive"] = p.Alive;
-                row["SurName"] = p.SurName;
-                row["GivenName"] = p.GivenName;
-                row["CalledName"] = p.CalledName;
-                row["Sex"] = p.Sex;
-                row["PictureIndex"] = p.PictureIndex;
-                row["Ideal"] = p.Ideal;
-                row["IdealTendency"] = p.IdealTendency.ID;
-                row["LeaderPossibility"] = p.LeaderPossibility;
-                row["PCharacter"] = p.PCharacter;
-                row["YearAvailable"] = p.YearAvailable;
-                row["YearBorn"] = p.YearBorn;
-                row["YearDead"] = p.YearDead;
-                // TODO value not set correctly
-                row["DeadReason"] = p.DeadReason;
-                row["BaseCommand"] = p.BaseCommand;
-                row["BaseStrength"] = p.BaseStrength;
-                row["BaseIntelligence"] = p.BaseIntelligence;
-                row["BasePolitics"] = p.BasePolitics;
-                row["BaseGlamour"] = p.BaseGlamour;
-                row["Reputation"] = p.Reputation;
-                row["BaseBraveness"] = p.BaseBraveness;
-                row["BaseCalmness"] = p.BaseCalmness;
-                row["Strain"] = p.Strain;
-                row["Generation"] = p.Generation;
-                row["PersonalLoyalty"] = p.PersonalLoyalty;
-                row["Ambition"] = p.Ambition;
-                row["Qualification"] = p.Qualification;
-                row["ValuationOnGovernment"] = p.ValuationOnGovernment;
-                row["StrategyTendency"] = p.StrategyTendency;
+
+                foreach (FieldInfo i in fields)
+                {
+                    row[i.Name] = i.GetValue(p);
+                }
+                foreach (PropertyInfo i in properties)
+                {
+                    row[i.Name] = i.GetValue(p) ?? DBNull.Value;
+                }
+        
                 dtPersons.Rows.Add(row);
             }
 
@@ -116,37 +98,18 @@ namespace WorldOfTheThreeKingdomsEditor
             try
             {
                 Person p = (Person)scen.Persons.GetGameObject((int)e.Row["id"]);
-                // TODO cannot save Available / Alive
-                p.Available = (bool) e.Row["Available"];
-                p.Alive = (bool) e.Row["Alive"];
-                p.SurName = e.Row["SurName"].ToString();
-                p.GivenName = e.Row["GivenName"].ToString();
-                p.CalledName = e.Row["CalledName"].ToString();
-                p.Sex = (bool)e.Row["Sex"];
-                p.PictureIndex = int.Parse(e.Row["PictureIndex"].ToString());
-                p.Ideal = int.Parse(e.Row["Ideal"].ToString());
-                p.IdealTendency = (IdealTendencyKind) scen.GameCommonData.AllIdealTendencyKinds.GetGameObject(int.Parse(e.Row["IdealTendency"].ToString()));
-                p.LeaderPossibility = (bool)e.Row["LeaderPossibility"];
-                p.PCharacter = int.Parse(e.Row["PCharacter"].ToString());
-                p.YearAvailable = int.Parse(e.Row["YearAvailable"].ToString());
-                p.YearBorn = int.Parse(e.Row["YearBorn"].ToString());
-                p.YearDead = int.Parse(e.Row["YearDead"].ToString());
-                p.DeadReason = (PersonDeadReason) int.Parse(e.Row["DeadReason"].ToString());
-                p.BaseCommand = int.Parse(e.Row["BaseCommand"].ToString());
-                p.BaseStrength = int.Parse(e.Row["BaseStrength"].ToString());
-                p.BaseIntelligence = int.Parse(e.Row["BaseIntelligence"].ToString());
-                p.BasePolitics = int.Parse(e.Row["BasePolitics"].ToString());
-                p.BaseGlamour = int.Parse(e.Row["BaseGlamour"].ToString());
-                p.Reputation = int.Parse(e.Row["Reputation"].ToString());
-                p.Braveness = int.Parse(e.Row["BaseBraveness"].ToString());
-                p.Calmness = int.Parse(e.Row["BaseCalmness"].ToString());
-                p.Strain = int.Parse(e.Row["Strain"].ToString());
-                p.Generation = int.Parse(e.Row["Generation"].ToString());
-                p.PersonalLoyalty = int.Parse(e.Row["PersonalLoyalty"].ToString());
-                p.Ambition = int.Parse(e.Row["Ambition"].ToString());
-                p.Qualification = (PersonQualification)int.Parse(e.Row["Qualification"].ToString());
-                p.ValuationOnGovernment = (PersonValuationOnGovernment)int.Parse(e.Row["ValuationOnGovernment"].ToString());
-                p.StrategyTendency = (PersonStrategyTendency)int.Parse(e.Row["StrategyTendency"].ToString());
+
+                FieldInfo[] fields = getFieldInfos();
+                PropertyInfo[] properties = getPropertyInfos();
+
+                foreach (FieldInfo i in fields)
+                {
+                    i.SetValue(p, e.Row[i.Name]);
+                }
+                foreach (PropertyInfo i in properties)
+                {
+                    i.SetValue(p, e.Row[i.Name]);
+                }
             }
             catch (Exception ex)
             {

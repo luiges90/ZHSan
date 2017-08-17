@@ -30,7 +30,7 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             InitializeComponent();
 
-            CommonData.Current = Tools.SimpleSerializer.DeserializeJsonFile<CommonData>(@"Content\Data\Common\CommonData.json", false, true);
+            CommonData.Current = Tools.SimpleSerializer.DeserializeJsonFile<CommonData>(@"Content\Data\Common\CommonData.json", false, false);
         }
 
         private void populateTables()
