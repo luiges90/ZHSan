@@ -95740,7 +95740,9 @@
           "FrameCount": 0,
           "MaleSoundPath": null,
           "StayCount": 0,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 1120,
+          "TextureHeight": 140
         }
       },
       {
@@ -95753,7 +95755,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 5,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -95766,7 +95770,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -95779,7 +95785,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 105
         }
       },
       {
@@ -95792,7 +95800,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -95805,7 +95815,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -95818,7 +95830,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -95831,7 +95845,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 3,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -95844,7 +95860,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 5,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -95857,7 +95875,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 3,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 560,
+          "TextureHeight": 70
         }
       },
       {
@@ -95870,7 +95890,9 @@
           "FrameCount": 12,
           "MaleSoundPath": null,
           "StayCount": 4,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 768,
+          "TextureHeight": 64
         }
       },
       {
@@ -95883,7 +95905,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 5,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -95896,7 +95920,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 5,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -95909,7 +95935,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 704,
+          "TextureHeight": 88
         }
       },
       {
@@ -95922,7 +95950,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 111
         }
       },
       {
@@ -95935,7 +95965,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -95948,7 +95980,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -95961,7 +95995,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 560,
+          "TextureHeight": 70
         }
       },
       {
@@ -95974,7 +96010,9 @@
           "FrameCount": 12,
           "MaleSoundPath": null,
           "StayCount": 4,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 67
         }
       },
       {
@@ -95987,7 +96025,9 @@
           "FrameCount": 15,
           "MaleSoundPath": null,
           "StayCount": 10,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 53
         }
       },
       {
@@ -96000,7 +96040,9 @@
           "FrameCount": 12,
           "MaleSoundPath": null,
           "StayCount": 4,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 67
         }
       },
       {
@@ -96013,7 +96055,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 1352,
+          "TextureHeight": 169
         }
       },
       {
@@ -96026,7 +96070,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -96039,7 +96085,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -96052,7 +96100,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -96065,7 +96115,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 99
         }
       },
       {
@@ -96078,7 +96130,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 99
         }
       },
       {
@@ -96091,7 +96145,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 3,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -96104,7 +96160,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 3,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 1080,
+          "TextureHeight": 135
         }
       },
       {
@@ -96117,7 +96175,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 4,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -96130,7 +96190,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 4,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -96143,7 +96205,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 4,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -96156,7 +96220,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 4,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 100
         }
       },
       {
@@ -96169,7 +96235,9 @@
           "FrameCount": 15,
           "MaleSoundPath": null,
           "StayCount": 10,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 53
         }
       },
       {
@@ -96182,7 +96250,9 @@
           "FrameCount": 8,
           "MaleSoundPath": null,
           "StayCount": 5,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 105
         }
       },
       {
@@ -96195,7 +96265,9 @@
           "FrameCount": 15,
           "MaleSoundPath": null,
           "StayCount": 10,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 54
         }
       },
       {
@@ -96208,7 +96280,9 @@
           "FrameCount": 14,
           "MaleSoundPath": null,
           "StayCount": 5,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 57
         }
       },
       {
@@ -96221,7 +96295,9 @@
           "FrameCount": 14,
           "MaleSoundPath": null,
           "StayCount": 9,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 57
         }
       },
       {
@@ -96234,7 +96310,9 @@
           "FrameCount": 17,
           "MaleSoundPath": null,
           "StayCount": 4,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 47
         }
       },
       {
@@ -96247,7 +96325,9 @@
           "FrameCount": 12,
           "MaleSoundPath": null,
           "StayCount": 9,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 67
         }
       },
       {
@@ -96260,7 +96340,9 @@
           "FrameCount": 12,
           "MaleSoundPath": null,
           "StayCount": 9,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 67
         }
       },
       {
@@ -96273,7 +96355,9 @@
           "FrameCount": 13,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 61
         }
       },
       {
@@ -96286,7 +96370,9 @@
           "FrameCount": 16,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 50
         }
       },
       {
@@ -96299,7 +96385,9 @@
           "FrameCount": 16,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 50
         }
       },
       {
@@ -96312,7 +96400,9 @@
           "FrameCount": 16,
           "MaleSoundPath": null,
           "StayCount": 8,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 50
         }
       },
       {
@@ -96325,7 +96415,9 @@
           "FrameCount": 16,
           "MaleSoundPath": null,
           "StayCount": 10,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 50
         }
       },
       {
@@ -96338,7 +96430,9 @@
           "FrameCount": 13,
           "MaleSoundPath": null,
           "StayCount": 10,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 61
         }
       },
       {
@@ -96351,7 +96445,9 @@
           "FrameCount": 16,
           "MaleSoundPath": null,
           "StayCount": 10,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 50
         }
       },
       {
@@ -96364,7 +96460,9 @@
           "FrameCount": 15,
           "MaleSoundPath": null,
           "StayCount": 8,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 53
         }
       },
       {
@@ -96377,7 +96475,9 @@
           "FrameCount": 18,
           "MaleSoundPath": null,
           "StayCount": 9,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 45
         }
       },
       {
@@ -96390,7 +96490,9 @@
           "FrameCount": 14,
           "MaleSoundPath": null,
           "StayCount": 8,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 57
         }
       },
       {
@@ -96403,7 +96505,9 @@
           "FrameCount": 18,
           "MaleSoundPath": null,
           "StayCount": 10,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 45
         }
       },
       {
@@ -96416,7 +96520,9 @@
           "FrameCount": 12,
           "MaleSoundPath": null,
           "StayCount": 7,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 67
         }
       },
       {
@@ -96429,7 +96535,9 @@
           "FrameCount": 12,
           "MaleSoundPath": null,
           "StayCount": 5,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 67
         }
       },
       {
@@ -96442,7 +96550,9 @@
           "FrameCount": 16,
           "MaleSoundPath": null,
           "StayCount": 3,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 50
         }
       },
       {
@@ -96455,7 +96565,9 @@
           "FrameCount": 17,
           "MaleSoundPath": null,
           "StayCount": 9,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 47
         }
       },
       {
@@ -96468,7 +96580,9 @@
           "FrameCount": 10,
           "MaleSoundPath": null,
           "StayCount": 4,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 80
         }
       },
       {
@@ -96481,7 +96595,9 @@
           "FrameCount": 12,
           "MaleSoundPath": null,
           "StayCount": 6,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 67
         }
       },
       {
@@ -96494,7 +96610,9 @@
           "FrameCount": 16,
           "MaleSoundPath": null,
           "StayCount": 10,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 50
         }
       },
       {
@@ -96507,7 +96625,9 @@
           "FrameCount": 16,
           "MaleSoundPath": null,
           "StayCount": 10,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 50
         }
       },
       {
@@ -96520,7 +96640,9 @@
           "FrameCount": 15,
           "MaleSoundPath": null,
           "StayCount": 10,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 53
         }
       },
       {
@@ -96533,7 +96655,9 @@
           "FrameCount": 15,
           "MaleSoundPath": null,
           "StayCount": 10,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 53
         }
       },
       {
@@ -96546,7 +96670,9 @@
           "FrameCount": 16,
           "MaleSoundPath": null,
           "StayCount": 10,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 50
         }
       },
       {
@@ -96559,7 +96685,9 @@
           "FrameCount": 18,
           "MaleSoundPath": null,
           "StayCount": 10,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 45
         }
       },
       {
@@ -96572,7 +96700,9 @@
           "FrameCount": 14,
           "MaleSoundPath": null,
           "StayCount": 7,
-          "TextureFileName": null
+          "TextureFileName": null,
+          "TextureWidth": 800,
+          "TextureHeight": 57
         }
       }
     ]
