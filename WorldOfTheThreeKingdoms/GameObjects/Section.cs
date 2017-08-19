@@ -207,7 +207,7 @@ namespace GameObjects
         {
             get
             {
-                return this.aiDetail.Name;
+                return this.aiDetail == null ? "————" : this.aiDetail.Name;
             }
         }
 
