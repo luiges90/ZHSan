@@ -10,12 +10,45 @@ namespace GameObjects
     [DataContract]
     public class Captive : GameObject
     {
-        public Faction CaptiveFaction; // the captive's original faction
+        private Faction captiveFaction;
+        public Faction CaptiveFaction
+        {
+            get
+            {
+                if (captiveFaction == null)
+                {
+                    captiveFaction = (Faction) Session.Current.Scenario.Factions.GetGameObject(CaptiveFactionID);
+                }
+                return captiveFaction;
+            }
+            set
+            {
+                this.CaptiveFactionID = value.ID;
+                captiveFaction = value;
+            }
+        }
+        // the captive's original faction
 
         [DataMember]
         public int CaptiveFactionID;
 
-        public Person CaptivePerson;
+        private Person captivePerson;
+        public Person CaptivePerson
+        {
+            get
+            {
+                if (captivePerson == null)
+                {
+                    captivePerson = (Person)Session.Current.Scenario.Persons.GetGameObject(CaptivePersonID);
+                }
+                return captivePerson;
+            }
+            set
+            {
+                CaptivePersonID = value.ID;
+                captivePerson = value;
+            }
+        }
 
         [DataMember]
         public int CaptivePersonID;
