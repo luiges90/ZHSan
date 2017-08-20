@@ -54,17 +54,9 @@ namespace GameObjects
 
             simplepathFinder = new TierPathFinder();
 
-            targetArchitectureID = -1;
-
-            targetTroopID = -1;
-
             TroopDamageList = new List<TroopDamage>();
 
             will = TroopWill.行军;
-
-            willArchitectureID = -1;
-
-            willTroopID = -1;
 
             friendlyTroopsInView = new TroopList();
             hostileTroopsInView = new TroopList();
