@@ -13,6 +13,7 @@ namespace GameObjects
     [DataContract]
     public class YearTable : GameObjectList
     {
+        [DataMember]
         private Dictionary<String, String> yearTableStrings;
 
         public YearTable()

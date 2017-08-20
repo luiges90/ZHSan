@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using System;
 using System.Runtime.Serialization;
 
@@ -45,6 +46,19 @@ namespace GameObjects
         {
             get
             {
+                if (factions == null)
+                {
+                    factions = new FactionList();
+                    string[] ids = FactionsString.Split(' ');
+                    foreach (string id in ids)
+                    {
+                        int iid;
+                        if (int.TryParse(id, out iid))
+                        {
+                            factions.Add(Session.Current.Scenario.Factions.GetGameObject(iid));
+                        }
+                    }
+                }
                 return factions;
             }
             set
