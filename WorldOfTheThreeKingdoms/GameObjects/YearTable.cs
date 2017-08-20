@@ -16,7 +16,7 @@ namespace GameObjects
         [DataMember]
         private Dictionary<String, String> yearTableStrings;
 
-        public YearTable()
+        public void Init()
         {
             //TextReader tr = new StreamReader("Content/Data/yearTableStrings.txt");
 

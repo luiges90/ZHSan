@@ -3667,6 +3667,8 @@ namespace GameObjects
 
             ClearTempDic();
 
+            this.YearTable.Init();
+
             this.AllPersons.Clear();
             this.AllArchitectures.Clear();
 
