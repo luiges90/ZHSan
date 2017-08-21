@@ -10,7 +10,7 @@ namespace GameObjects
     [DataContract]
     public class Military : GameObject
     {
-        public Architecture BelongedArchitecture;
+        private Architecture belongedArchitecture;
         public Faction BelongedFaction;
         public Troop BelongedTroop;
         private int combativity;
@@ -70,6 +70,29 @@ namespace GameObjects
         public int StratagemBeSuccessCount { get; set; }
         [DataMember]
         public int StratagemBeFailCount { get; set; }
+
+        [DataMember]
+        public int belongedArchitectureID;
+
+        public Architecture BelongedArchitecture
+        {
+            get
+            {
+                if (belongedArchitecture == null)
+                {
+                    belongedArchitecture = (Architecture) Session.Current.Scenario.Architectures.GetGameObject(belongedArchitectureID);
+                }
+                return belongedArchitecture;
+            }
+            set
+            {
+                belongedArchitecture = value;
+                if (value != null)
+                {
+                    belongedArchitectureID = value.ID;
+                }
+            }
+        }
 
         [DataMember]
         public int Tiredness
