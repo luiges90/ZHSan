@@ -4135,6 +4135,7 @@ namespace GameObjects
                 {
                     foreach (Person p in this.Persons)
                     {
+                        p.LocationTroop = null;
                         if (p.LocationArchitecture == null)
                         {
                             p.LocationArchitecture = this.StartingArchitecture;
