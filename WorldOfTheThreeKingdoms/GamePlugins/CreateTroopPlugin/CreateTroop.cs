@@ -809,9 +809,12 @@ namespace CreateTroopPlugin
         {
             this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.Architecture_PersonToTroop, false, true, true, true, this.CreatingArchitecture.Persons, this.CreatingPersons, "出征人物", "");
             this.GameFramePlugin.SetOKFunction(delegate {
-                foreach (Person p in this.CreatingPersons)
+                if (this.CreatingPersons != null)
                 {
-                    p.LocationTroop = null;
+                    foreach (Person p in this.CreatingPersons)
+                    {
+                        p.LocationTroop = null;
+                    }
                 }
 
                 this.CreatingPersons = this.TabListPlugin.SelectedItemList as GameObjectList;
