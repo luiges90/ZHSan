@@ -15,6 +15,8 @@ namespace GameObjects
         {
             get
             {
+                if (this.CaptiveFactionID == -1) return null;
+
                 if (captiveFaction == null)
                 {
                     captiveFaction = (Faction) Session.Current.Scenario.Factions.GetGameObject(CaptiveFactionID);
@@ -23,7 +25,14 @@ namespace GameObjects
             }
             set
             {
-                this.CaptiveFactionID = value.ID;
+                if (value != null)
+                {
+                    this.CaptiveFactionID = value.ID;
+                }
+                else
+                {
+                    this.CaptiveFactionID = -1;
+                }
                 captiveFaction = value;
             }
         }
