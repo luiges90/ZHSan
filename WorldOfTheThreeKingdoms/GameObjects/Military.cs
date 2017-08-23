@@ -78,6 +78,8 @@ namespace GameObjects
         {
             get
             {
+                if (belongedArchitectureID == -1) return null;
+
                 if (belongedArchitecture == null)
                 {
                     belongedArchitecture = (Architecture) Session.Current.Scenario.Architectures.GetGameObject(belongedArchitectureID);
@@ -90,6 +92,9 @@ namespace GameObjects
                 if (value != null)
                 {
                     belongedArchitectureID = value.ID;
+                } else
+                {
+                    belongedArchitectureID = -1;
                 }
             }
         }

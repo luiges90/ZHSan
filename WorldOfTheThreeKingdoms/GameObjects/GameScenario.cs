@@ -4796,7 +4796,10 @@ namespace GameObjects
                 string factionStr = "";
                 foreach (Faction f in yt.Factions)
                 {
-                    factionStr += f.ID + " ";
+                    if (f != null)
+                    {
+                        factionStr += f.ID + " ";
+                    }
                 }
                 yt.FactionsString = factionStr;
             }
