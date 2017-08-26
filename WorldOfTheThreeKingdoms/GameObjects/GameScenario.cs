@@ -2291,6 +2291,18 @@ namespace GameObjects
                     m.Persons.Add(p);
                 }
             }
+
+            if (Session.GlobalVariables.RemoveSpouseIfNotAvailable)
+            {
+                foreach (Person p in Persons)
+                {
+                    if (!p.Available && p.Spouse != null)
+                    {
+                        p.Spouse = null;
+                    }
+                }
+            }
+
             /*
             this.GameProgressCaution = new GameFreeText.FreeText(new System.Drawing.Font("宋体", 16f), new Color(1f, 1f, 1f));
             this.GameProgressCaution.Text = "——";

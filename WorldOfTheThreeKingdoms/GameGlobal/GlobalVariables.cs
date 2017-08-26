@@ -270,6 +270,9 @@ namespace GameGlobal
         [DataMember]
         public float AIMergeAgainstPlayer = -1f;
         [DataMember]
+        public bool RemoveSpouseIfNotAvailable = false;
+
+        [DataMember]
         public const string cryptKey = "A3g0c3%2";
 
         public GlobalVariables Clone()
@@ -1063,6 +1066,15 @@ namespace GameGlobal
             {
                 exception = exception24;
                 throw new Exception("AIMergeAgainstPlayer:\n" + exception.ToString());
+            }
+            try
+            {
+                RemoveSpouseIfNotAvailable = bool.Parse(nextSibling.Attributes.GetNamedItem("RemoveSpouseIfNotAvailable").Value);
+            }
+            catch (Exception exception24)
+            {
+                exception = exception24;
+                throw new Exception("RemoveSpouseIfNotAvailable:\n" + exception.ToString());
             }
             return true;
         }
