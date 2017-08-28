@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 //using System.Data.OleDb;
 using System.IO;
@@ -843,11 +843,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case ContextMenuResult.Switch_Smog:
-                    Session.GlobalVariables.DrawMapVeil = !Session.GlobalVariables.DrawMapVeil;
+                    Setting.Current.GlobalVariables.DrawMapVeil = !Setting.Current.GlobalVariables.DrawMapVeil;
                     break;
 
                 case ContextMenuResult.Switch_StopOnAttack:
-                    Session.GlobalVariables.StopToControlOnAttack = !Session.GlobalVariables.StopToControlOnAttack;
+                    Setting.Current.GlobalVariables.StopToControlOnAttack = !Setting.Current.GlobalVariables.StopToControlOnAttack;
                     break;
 
                 case ContextMenuResult.Switch_TroopTitle:
@@ -868,15 +868,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case ContextMenuResult.Switch_NormalSound:
-                    Session.GlobalVariables.PlayNormalSound = !Session.GlobalVariables.PlayNormalSound;
+                    Setting.Current.GlobalVariables.PlayNormalSound = !Setting.Current.GlobalVariables.PlayNormalSound;
                     break;
 
                 case ContextMenuResult.Switch_BattleSound:
-                    Session.GlobalVariables.PlayBattleSound = !Session.GlobalVariables.PlayBattleSound;
+                    Setting.Current.GlobalVariables.PlayBattleSound = !Setting.Current.GlobalVariables.PlayBattleSound;
                     break;
 
                 case ContextMenuResult.Switch_TroopAnimation:
-                    Session.GlobalVariables.DrawTroopAnimation = !Session.GlobalVariables.DrawTroopAnimation;
+                    Setting.Current.GlobalVariables.DrawTroopAnimation = !Setting.Current.GlobalVariables.DrawTroopAnimation;
                     break;
 
                 case ContextMenuResult.Switch_FullScreen:
