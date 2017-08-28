@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +19,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
         {
             foreach (TileAnimation animation in Session.Current.Scenario.GeneratorOfTileAnimation.TileAnimations.Values)
             {
-                if ((Session.GlobalVariables.DrawTroopAnimation && Session.MainGame.mainGameScreen.mainMapLayer.TileInScreen(animation.Position)) && ((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || ((Session.Current.Scenario.CurrentPlayer != null) && Session.Current.Scenario.CurrentPlayer.IsPositionKnown(animation.Position))))
+                if ((Setting.Current.GlobalVariables.DrawTroopAnimation && Session.MainGame.mainGameScreen.mainMapLayer.TileInScreen(animation.Position)) && ((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || ((Session.Current.Scenario.CurrentPlayer != null) && Session.Current.Scenario.CurrentPlayer.IsPositionKnown(animation.Position))))
                 {
                     animation.Draw(Session.MainGame.mainGameScreen.mainMapLayer.Tiles[animation.Position.X, animation.Position.Y].Destination);
                 }
