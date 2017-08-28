@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -87,7 +87,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 architecture.TextDestinationString = facility.Name;
                 if (Session.Current.Scenario.IsCurrentPlayer(architecture.BelongedFaction) && architecture.BelongedFaction != null)
                 {
-                    if (!((facility.PositionOccupied <= 1) && Session.GlobalVariables.NoHintOnSmallFacility))
+                    if (!((facility.PositionOccupied <= 1) && Setting.Current.GlobalVariables.NoHintOnSmallFacility))
                     {
                         string sheshitupian = "sheshi" + facility.KindID.ToString() + ".jpg";
                         this.xianshishijiantupian(architecture.BelongedFaction.Leader,architecture.Name, TextMessageKind.FacilityCompleted, "ArchitectureFacilityCompleted", sheshitupian, "sheshiwancheng",facility.Kind.Name,false );
@@ -149,7 +149,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void ArchitecturePopulationEnter(Architecture a, int quantity)
         {
-            if ((Session.GlobalVariables.HintPopulation && (Session.GlobalVariables.HintPopulationUnder1000 || (quantity >= 0x3e8))) && (((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.CurrentPlayer.IsArchitectureKnown(a)) || Session.GlobalVariables.SkyEye))
+            if ((Setting.Current.GlobalVariables.HintPopulation && (Setting.Current.GlobalVariables.HintPopulationUnder1000 || (quantity >= 0x3e8))) && (((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.CurrentPlayer.IsArchitectureKnown(a)) || Session.GlobalVariables.SkyEye))
             {
                 a.TextResultString = quantity.ToString();
                 this.Plugins.GameRecordPlugin.AddBranch(a, "ArchitecturePopulationEnter", a.Position);
@@ -158,7 +158,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void ArchitecturePopulationEscape(Architecture a, int quantity)
         {
-            if ((Session.GlobalVariables.HintPopulation && (Session.GlobalVariables.HintPopulationUnder1000 || (quantity >= 0x3e8))) && (((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.CurrentPlayer.IsArchitectureKnown(a)) || Session.GlobalVariables.SkyEye))
+            if ((Setting.Current.GlobalVariables.HintPopulation && (Setting.Current.GlobalVariables.HintPopulationUnder1000 || (quantity >= 0x3e8))) && (((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.CurrentPlayer.IsArchitectureKnown(a)) || Session.GlobalVariables.SkyEye))
             {
                 a.TextResultString = quantity.ToString();
                 this.Plugins.GameRecordPlugin.AddBranch(a, "ArchitecturePopulationEscape", a.Position);
