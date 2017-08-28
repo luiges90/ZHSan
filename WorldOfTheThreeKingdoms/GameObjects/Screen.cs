@@ -1,4 +1,4 @@
-﻿using GameGlobal;
+using GameGlobal;
 using GameManager;
 using GameObjects.FactionDetail;
 using GameObjects.PersonDetail;
@@ -552,7 +552,7 @@ namespace GameObjects
 
         public void PlayImportantSound(string soundFileLocation)
         {
-            if (Session.GlobalVariables.PlayBattleSound)  // && File.Exists(soundFileLocation))
+            if (Setting.Current.GlobalVariables.PlayBattleSound)  // && File.Exists(soundFileLocation))
             {
                 Platform.Current.PlayEffect(soundFileLocation);
             }
@@ -564,7 +564,7 @@ namespace GameObjects
 
         public void PlayNormalSound(string soundFileLocation)
         {
-            if (Session.GlobalVariables.PlayNormalSound)  // && File.Exists(soundFileLocation))
+            if (Setting.Current.GlobalVariables.PlayNormalSound)  // && File.Exists(soundFileLocation))
             {
                 Platform.Current.PlayEffect(soundFileLocation);
                 //PlaySound(soundFileLocation);
