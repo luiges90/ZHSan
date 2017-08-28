@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +24,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
 
         public void Draw(Point viewportSize)
         {
-            if ((Session.GlobalVariables.DrawMapVeil && !Session.GlobalVariables.SkyEye) && !Session.Current.Scenario.NoCurrentPlayer)
+            if ((Setting.Current.GlobalVariables.DrawMapVeil && !Session.GlobalVariables.SkyEye) && !Session.Current.Scenario.NoCurrentPlayer)
             {
                 foreach (Tile tile in Session.MainGame.mainGameScreen.mainMapLayer.DisplayingTiles)
                 {
