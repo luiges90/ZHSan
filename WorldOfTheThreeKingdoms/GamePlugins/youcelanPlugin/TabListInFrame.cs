@@ -1,4 +1,4 @@
-﻿using GameFreeText;
+using GameFreeText;
 using GameGlobal;
 using GameManager;
 using GameObjects;
@@ -634,7 +634,7 @@ namespace youcelanPlugin
                                     if (gameObjectByPosition.Selected)
                                     {
                                         this.SelectedItem = gameObjectByPosition;
-                                        if (!(this.MultiSelecting || !Session.GlobalVariables.SingleSelectionOneClick))
+                                        if (!(this.MultiSelecting || !Setting.Current.GlobalVariables.SingleSelectionOneClick))
                                         {
                                             this.iGameFrame.OK();
                                         }
