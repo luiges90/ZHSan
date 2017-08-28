@@ -1484,7 +1484,7 @@ namespace GameObjects
                     if (!architecture.hostileTroopInViewLastDay)  //如果已经提醒过就不再提醒
                     {
                         //architecture.JustAttacked = true;
-                        architecture.BelongedFaction.StopToControl = Session.GlobalVariables.StopToControlOnAttack;
+                        architecture.BelongedFaction.StopToControl = Setting.Current.GlobalVariables.StopToControlOnAttack;
                         architecture.RecentlyAttacked = 5;
                         if (Session.MainGame.mainGameScreen != null)
                         {
@@ -3680,6 +3680,7 @@ namespace GameObjects
             ClearTempDic();
 
             this.YearTable.Init();
+            //this.YearTable = new YearTable();
 
             this.AllPersons.Clear();
             this.AllArchitectures.Clear();
@@ -3832,15 +3833,19 @@ namespace GameObjects
 
             if (this.PlayerFactions.Count == 0)
             {
-                oldDialogShowTime = Session.GlobalVariables.DialogShowTime;
-                Session.GlobalVariables.DialogShowTime = 0;
+                oldDialogShowTime = Setting.Current.GlobalVariables.DialogShowTime;
+                Setting.Current.GlobalVariables.DialogShowTime = 0;
             }
             else
             {
                 //if (oldDialogShowTime >= 0)
                 if (oldDialogShowTime > 0)
                 {
-                    Session.GlobalVariables.DialogShowTime = oldDialogShowTime;
+                    Setting.Current.GlobalVariables.DialogShowTime = oldDialogShowTime;
+                }
+                else
+                {
+                    Setting.Current.GlobalVariables.DialogShowTime = Session.globalVariablesBasic.DialogShowTime;
                 }
             }
             this.ForceOptionsOnAutoplay();
