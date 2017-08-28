@@ -6132,7 +6132,12 @@ namespace GameObjects
 
                                     foreach (Skill t in realSkillToTeach)
                                     {
-                                        if (GameObject.Chance(100 / t.Level + q.childrenSkillChanceIncrease))
+                                        int extraChance = 0;
+                                        if (p.Father.GetSkillList().GameObjects.Contains(t) || p.Mother.GetSkillList().GameObjects.Contains(t))
+                                        {
+                                            extraChance += 5;
+                                        }
+                                        if (GameObject.Chance(100 / t.Level + q.childrenSkillChanceIncrease + extraChance))
                                         {
                                             p.Skills.AddSkill(t);
                                             p.AdjustRelation(q, 0, 5);
@@ -6201,7 +6206,12 @@ namespace GameObjects
                                         }
                                     }
                                     Stunt t = stuntToTeach[GameObject.Random(stuntToTeach.Count)];
-                                    if (GameObject.Chance(10 + q.childrenStuntChanceIncrease))
+                                    int extraChance = 0;
+                                    if (p.Father.GetStuntList().GameObjects.Contains(t) || p.Mother.GetStuntList().GameObjects.Contains(t))
+                                    {
+                                        extraChance += 5;
+                                    }
+                                    if (GameObject.Chance(10 + q.childrenStuntChanceIncrease + extraChance))
                                     {
                                         p.Stunts.AddStunt(t);
                                         p.AdjustRelation(q, 0, 10);
@@ -6288,7 +6298,12 @@ namespace GameObjects
 
                                     foreach (Title t in toTeach)
                                     {
-                                        if (GameObject.Chance(t.InheritChance * 3 + q.childrenTitleChanceIncrease) && t.CanBeBorn(p))
+                                        int extraChance = 0;
+                                        if (p.Father.RealTitles.Contains(t) || p.Mother.RealTitles.Contains(t))
+                                        {
+                                            extraChance += 5;
+                                        }
+                                        if (GameObject.Chance(t.InheritChance * 3 + q.childrenTitleChanceIncrease + extraChance) && t.CanBeBorn(p))
                                         {
                                             Title existing = null;
                                             foreach (Title u in p.Titles)
