@@ -784,6 +784,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstZhaoXian = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 4.5f), true)
             {
+                IntMode = true,
                 DisNumber = false,
                 NowNumber = 10,
                 Unit = 1
@@ -791,6 +792,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstSearchGen = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 5f), true)
             {
+                IntMode = true,
                 DisNumber = false,
                 NowNumber = 10,
                 Unit = 1
@@ -798,6 +800,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstZaiNan = new NumericSetTextureF(0, 80000, 80000, null, new Vector2(left2 + 300, heightBase + height * 5.5f), true)
             {
+                IntMode = true,
                 DisNumber = false,
                 NowNumber = 50000,
                 Unit = 1000
@@ -1155,6 +1158,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstWeiCheng = new NumericSetTextureF(0, 10, 10, null, new Vector2(left1 + 200, heightBase + height * 4f), true)
             {
+                FloatNum = 1,
                 DisNumber = false,
                 NowNumber = 10,
                 Unit = 0.1f
@@ -1162,6 +1166,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstHuoYan = new NumericSetTextureF(0, 10, 10, null, new Vector2(left1 + 200, heightBase + height * 4.5f), true)
             {
+                FloatNum = 1,
                 DisNumber = false,
                 NowNumber = 10,
                 Unit = 0.1f
@@ -1251,7 +1256,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             int left3 = left2 + 400;
 
-            nstShuoFuZiJing = new NumericSetTextureF(1, 1000, 100, null, new Vector2(left3 + 200, heightBase + height * 0f), true)
+            nstShuoFuZiJing = new NumericSetTextureF(1, 1000, 1000, null, new Vector2(left3 + 200, heightBase + height * 0f), true)
             {
                 IntMode = true,
                 DisNumber = false,
