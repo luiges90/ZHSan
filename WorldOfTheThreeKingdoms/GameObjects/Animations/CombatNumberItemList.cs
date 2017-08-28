@@ -1,4 +1,4 @@
-﻿using GameGlobal;
+using GameGlobal;
 using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
@@ -89,7 +89,7 @@ namespace GameObjects.Animations
                             }
                             break;
                     }
-                    if ((gameTime.TotalGameTime.TotalMilliseconds - this.currentTime) >= 300 * Session.GlobalVariables.TroopMoveSpeed)
+                    if ((gameTime.TotalGameTime.TotalMilliseconds - this.currentTime) >= 300 * Setting.Current.GlobalVariables.TroopMoveSpeed)
                     {
                         this.Clear();
                     }
