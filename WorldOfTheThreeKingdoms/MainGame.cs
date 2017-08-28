@@ -1,4 +1,4 @@
-﻿using GameGlobal;
+using GameGlobal;
 using GameManager;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -87,6 +87,12 @@ namespace WorldOfTheThreeKingdoms
             //    this.Window.IsBorderless = true;
             //}
 
+            Session.globalVariablesBasic = new GlobalVariables();
+            Session.globalVariablesBasic.InitialGlobalVariables();
+
+            Session.parametersBasic = new Parameters();
+            Session.parametersBasic.InitializeGameParameters();
+
             //獲取設置數據
             Setting.Init();
 
@@ -167,13 +173,6 @@ namespace WorldOfTheThreeKingdoms
             //{
             //    GameTools.SendErrMsg("MainMenuScreen", ex);
             //}
-
-
-            Session.globalVariablesBasic = new GlobalVariables();
-            Session.globalVariablesBasic.InitialGlobalVariables();
-
-            Session.parametersBasic = new Parameters();
-            Session.parametersBasic.InitializeGameParameters();
 
             //this.jiazaitishi.Close();
             ////全屏的判断放到初始化代码中
@@ -298,7 +297,7 @@ namespace WorldOfTheThreeKingdoms
             //}
 
             base.Update(gameTime);
-            if (base.IsActive || Session.GlobalVariables.RunWhileNotFocused)
+            if (base.IsActive || Setting.Current.GlobalVariables.RunWhileNotFocused)
             {
                 if (Platform.Current.InputTextNow())
                 {
