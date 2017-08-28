@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -61,9 +61,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 cundangShijianJiange = DateTime.Now - shangciCundangShijian;
 
-                if (cundangShijianJiange.Minutes >= Session.GlobalVariables.AutoSaveFrequency)
+                if (cundangShijianJiange.Minutes >= Setting.Current.GlobalVariables.AutoSaveFrequency)
                 {
-                    if (Session.GlobalVariables.doAutoSave)
+                    if (Setting.Current.GlobalVariables.doAutoSave)
                     {
                         Session.Current.Scenario.Date.Go(1);
                         this.SaveGameAutoPosition();
