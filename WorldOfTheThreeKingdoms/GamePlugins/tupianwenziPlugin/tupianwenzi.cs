@@ -1,4 +1,4 @@
-﻿using GameFreeText;
+using GameFreeText;
 using GameGlobal;
 using GameObjects;
 using Microsoft.Xna.Framework;
@@ -323,7 +323,7 @@ namespace tupianwenziPlugin
                 {
                     this.firstShowing = false;
                 }
-                if (span.Seconds >= Session.GlobalVariables.DialogShowTime)
+                if (span.Seconds >= Setting.Current.GlobalVariables.DialogShowTime)
                 {
                     this.Close(Session.MainGame.mainGameScreen);
                 }
@@ -360,7 +360,7 @@ namespace tupianwenziPlugin
 
         public void SetIsShowing(Screen screen, bool value)
         {
-            if (this.isShowing != value && Session.GlobalVariables.DialogShowTime > 0)
+            if (this.isShowing != value && Setting.Current.GlobalVariables.DialogShowTime > 0)
             {
                 this.isShowing = value;
                 if (value)
