@@ -56,7 +56,7 @@ namespace GameManager
             {
                 if (Session.Current.Scenario == null || Session.Current.Scenario.Parameters == null)
                 {
-                    return parametersBasic;
+                    return parametersTemp;
                 }
                 else
                 {
@@ -75,7 +75,7 @@ namespace GameManager
             {
                 if (Session.Current.Scenario == null || Session.Current.Scenario.GlobalVariables == null)
                 {
-                    return globalVariablesBasic;
+                    return globalVariablesTemp;
                 }
                 else
                 {
