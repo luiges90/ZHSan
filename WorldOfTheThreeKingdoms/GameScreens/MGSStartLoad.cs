@@ -41,9 +41,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 this.LoadScenario(base.InitializationFileName, base.InitializationFactionIDs, true, this);
 
-                var globalVariables = Session.globalVariablesBasic.Clone();
+                var globalVariables = Session.globalVariablesTemp;  //.globalVariablesBasic.Clone();
 
-                var gameParameters = Session.parametersBasic.Clone();
+                var gameParameters = Session.parametersTemp;  //.parametersBasic.Clone();
 
                 if (Session.Current.Scenario.GlobalVariables != null)
                 {
@@ -71,14 +71,18 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 if (Session.Current.Scenario.PlayerFactions.Count == 0)
                 {
-                    oldDialogShowTime = Session.Current.Scenario.GlobalVariables.DialogShowTime;
-                    Session.Current.Scenario.GlobalVariables.DialogShowTime = 0;
+                    oldDialogShowTime = Setting.Current.GlobalVariables.DialogShowTime;
+                    Setting.Current.GlobalVariables.DialogShowTime = 0;
                 }
                 else
                 {
                     if (oldDialogShowTime >= 0)
                     {
-                        Session.Current.Scenario.GlobalVariables.DialogShowTime = oldDialogShowTime;
+                        Setting.Current.GlobalVariables.DialogShowTime = oldDialogShowTime;
+                    }
+                    else
+                    {
+                        Setting.Current.GlobalVariables.DialogShowTime = Session.globalVariablesBasic.DialogShowTime;
                     }
                 }
 
