@@ -5444,13 +5444,13 @@ namespace GameObjects
             if (this.MoveAnimationFrames.Count > this.moveFrameIndex)
             {
                 this.moveStayCount++;
-                if (this.moveStayCount >= Session.GlobalVariables.TroopMoveSpeed)
+                if (this.moveStayCount >= Setting.Current.GlobalVariables.TroopMoveSpeed)
                 {
                     this.moveStayCount = 0;
                     this.moveFrameIndex++;
-                    if (Session.GlobalVariables.TroopMoveSpeed < 0)
+                    if (Setting.Current.GlobalVariables.TroopMoveSpeed < 0)
                     {
-                        this.moveFrameIndex += -Session.GlobalVariables.TroopMoveSpeed;
+                        this.moveFrameIndex += -Setting.Current.GlobalVariables.TroopMoveSpeed;
                     }
                     if (this.moveFrameIndex >= this.MoveAnimationFrames.Count)
                     {
@@ -10874,7 +10874,7 @@ namespace GameObjects
 
         public void TryToPlaySound(Point position, string soundFileLocation, bool looping)
         {
-            if (Session.GlobalVariables.DrawTroopAnimation)
+            if (Setting.Current.GlobalVariables.DrawTroopAnimation)
             {
                 if (Session.Current.Scenario.CurrentPlayer != null)
                 {
@@ -12139,7 +12139,7 @@ namespace GameObjects
         {
             get
             {
-                return (this.drawAnimation && Session.GlobalVariables.DrawTroopAnimation);
+                return (this.drawAnimation && Setting.Current.GlobalVariables.DrawTroopAnimation);
             }
             set
             {
