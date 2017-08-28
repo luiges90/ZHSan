@@ -48,6 +48,8 @@ namespace GameManager
 
         public static Parameters parametersBasic = new Parameters();
 
+        public static Parameters parametersTemp = new Parameters();
+
         public static Parameters Parameters
         {
             get
@@ -64,6 +66,8 @@ namespace GameManager
         }
 
         public static GlobalVariables globalVariablesBasic = new GlobalVariables();
+
+        public static GlobalVariables globalVariablesTemp = new GlobalVariables();
 
         public static GlobalVariables GlobalVariables
         {
@@ -317,7 +321,7 @@ namespace GameManager
 
             if (String.IsNullOrEmpty(Setting.Current.BattleSpeed))
             {
-                Setting.Current.BattleSpeed = Session.GlobalVariables.FastBattleSpeed.ToString();
+                Setting.Current.BattleSpeed = Setting.Current.GlobalVariables.FastBattleSpeed.ToString();
             }
 
             Platform.InitGraphicsDeviceManager();
