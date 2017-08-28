@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using Platforms;
+using GameGlobal;
 
 namespace GameManager
 {
@@ -33,11 +34,15 @@ namespace GameManager
         [DataMember]
         public string BattleSpeed { get; set; }
 
+        [DataMember]
+        public GlobalVariables GlobalVariables { get; set; }
+
         public static Setting Current = null;
 
-        public Setting() {
-			
-		}
+        public Setting()
+        {
+
+        }
 
         public static void Init()
         {
@@ -54,9 +59,7 @@ namespace GameManager
 
                         Save();
                     }
-#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                     catch (Exception ex)
-#pragma warning restore CS0168 // The variable 'ex' is declared but never used
                     {
 
                     }
@@ -64,7 +67,7 @@ namespace GameManager
             }
             catch (Exception ex)
             {
-                WebTools.TakeWarnMsg("≥ı º”√ªß…Ë÷√ ß∞‹:Setting.config", "Init:", ex);
+                WebTools.TakeWarnMsg("ÂàùÂßãÁî®Êà∑ËÆæÁΩÆÂ§±Ë¥•:Setting.config", "Init:", ex);
             }
 
             if (Current == null)
@@ -75,10 +78,10 @@ namespace GameManager
                 Save();
             }
 
-			//if (Platform.PlatFormType == PlatFormType.iOS)  //|| Platform.PlatForm == PlatForm.WinRT || Platform.PlatForm == PlatForm.WP)
+            //if (Platform.PlatFormType == PlatFormType.iOS)  //|| Platform.PlatForm == PlatForm.WinRT || Platform.PlatForm == PlatForm.WP)
             //{
-			//	Session.RealResolution = Session.Resolution = Platform.PreferResolution;
-			//}
+            //	Session.RealResolution = Session.Resolution = Platform.PreferResolution;
+            //}
 
         }
 
@@ -112,12 +115,12 @@ namespace GameManager
                 }
                 if (Current.SoundVolume == null)
                 {
-                    Current.SoundVolume = 50;                
+                    Current.SoundVolume = 50;
                 }
 
                 //if (Current.NewsBoard == null)
                 //{
-                //    Current.NewsBoard = new NewsBoard() { Detail = "”Œœ∑π´∏Êº”‘ÿ÷–£¨«Î…‘∫Ú°≠°≠" };
+                //    Current.NewsBoard = new NewsBoard() { Detail = "Ê∏∏ÊàèÂÖ¨ÂëäÂä†ËΩΩ‰∏≠ÔºåËØ∑Á®çÂÄô‚Ä¶‚Ä¶" };
                 //}
 
                 if (String.IsNullOrEmpty(Current.Language))
@@ -127,13 +130,11 @@ namespace GameManager
                     {
                         name = Platform.Current.CurrentLanguage; // System.Globalization.CultureInfo.InstalledUICulture.Name;
                     }
-#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                     catch (Exception ex)
-#pragma warning restore CS0168 // The variable 'ex' is declared but never used
                     {
-                        //´@»°œµΩy’Z—‘ ßî°
+                        //Áç≤ÂèñÁ≥ªÁµ±Ë™ûË®ÄÂ§±Êïó
                     }
-					if (name.ToLower().Contains("cn"))  // == "zh-cn")
+                    if (name.ToLower().Contains("cn"))  // == "zh-cn")
                     {
                         Current.Language = "cn";
                     }
@@ -143,9 +144,14 @@ namespace GameManager
                     }
                 }
 
+                if (Current.GlobalVariables == null)
+                {
+                    Current.GlobalVariables = Session.globalVariablesBasic.Clone();
+                }
+
                 if (String.IsNullOrEmpty(Session.Resolution))  // Season.PlatForm == PlatForm.iOS || Season.PlatForm == PlatForm.WinRT || Season.PlatForm == PlatForm.WP)
                 {
-                    Session.Resolution = Platform.PreferResolution;                    
+                    Session.Resolution = Platform.PreferResolution;
                 }
                 Session.RealResolution = Session.Resolution = Setting.Current.Resolution;
 
