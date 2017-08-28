@@ -1155,6 +1155,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstWeiCheng = new NumericSetTextureF(0, 10, 10, null, new Vector2(left1 + 200, heightBase + height * 4f), true)
             {
+                FloatNum = 1,
                 DisNumber = false,
                 NowNumber = 10,
                 Unit = 0.1f
@@ -1162,6 +1163,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstHuoYan = new NumericSetTextureF(0, 10, 10, null, new Vector2(left1 + 200, heightBase + height * 4.5f), true)
             {
+                FloatNum = 1,
                 DisNumber = false,
                 NowNumber = 10,
                 Unit = 0.1f
