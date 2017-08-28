@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +18,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
         public void Draw(Point viewportSize, GameTime gameTime)
         {
             bool playerControlling = Session.Current.Scenario.IsPlayerControlling();
-            if (Session.GlobalVariables.DrawTroopAnimation)
+            if (Setting.Current.GlobalVariables.DrawTroopAnimation)
             {
                 bool hold = false;
                 
