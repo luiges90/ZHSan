@@ -37,7 +37,7 @@ namespace GameObjects.Animations
             if (!hold)
             {
                 stayIndex++;
-                if (stayIndex >= this.StayCount * Session.GlobalVariables.TroopMoveSpeed / 4)
+                if (stayIndex >= this.StayCount * Setting.Current.GlobalVariables.TroopMoveSpeed / 4)
                 {
                     stayIndex = 0;
                     frameIndex++;
