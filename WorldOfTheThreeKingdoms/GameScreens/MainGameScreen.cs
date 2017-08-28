@@ -552,8 +552,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             Session.Current.Scenario.CurrentPlayer = null;
             oldSkyEye = Session.GlobalVariables.SkyEye;
             Session.GlobalVariables.SkyEye = true;
-            oldDialogShowTime = Session.GlobalVariables.DialogShowTime;
-            Session.GlobalVariables.DialogShowTime = 0;
+            oldDialogShowTime = Setting.Current.GlobalVariables.DialogShowTime;
+            Setting.Current.GlobalVariables.DialogShowTime = 0;
             oldEnableCheat = Session.GlobalVariables.EnableCheat;
             Session.GlobalVariables.EnableCheat = true;
         }
@@ -570,7 +570,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
             if (this.oldDialogShowTime >= 0)
             {
-                Session.GlobalVariables.DialogShowTime = this.oldDialogShowTime;
+                Setting.Current.GlobalVariables.DialogShowTime = this.oldDialogShowTime;
             }
         }
 
@@ -2157,7 +2157,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.Plugins.tupianwenziPlugin.SetGameObjectBranch(troop.Leader, null, dialog.Text, te.Image, te.Sound);
                     }
                 }
-                if (Session.GlobalVariables.DialogShowTime > 0)
+                if (Setting.Current.GlobalVariables.DialogShowTime > 0)
                 {
                     this.Plugins.tupianwenziPlugin.SetCloseFunction(new GameDelegates.VoidFunction(Session.Current.Scenario.ApplyTroopEvents));
                     this.Plugins.tupianwenziPlugin.IsShowing = true;
@@ -2268,7 +2268,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
                 }
 
-                if (Session.GlobalVariables.DialogShowTime > 0)
+                if (Setting.Current.GlobalVariables.DialogShowTime > 0)
                 {
                     this.Plugins.tupianwenziPlugin.SetCloseFunction(new GameDelegates.VoidFunction(Session.Current.Scenario.ApplyEvents));
                     (this.Plugins.tupianwenziPlugin as tupianwenziPlugin.tupianwenziPlugin).tupianwenzi.SetIsShowing(this, true);
@@ -3481,7 +3481,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             get
             {
-                return Session.GlobalVariables.PlayBattleSound;
+                return Setting.Current.GlobalVariables.PlayBattleSound;
             }
         }
 
@@ -3497,7 +3497,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             get
             {
-                return Session.GlobalVariables.PlayNormalSound;
+                return Setting.Current.GlobalVariables.PlayNormalSound;
             }
         }
 
@@ -3505,7 +3505,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             get
             {
-                return Session.GlobalVariables.DrawTroopAnimation;
+                return Setting.Current.GlobalVariables.DrawTroopAnimation;
             }
         }
 
@@ -3513,7 +3513,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             get
             {
-                return Session.GlobalVariables.DrawMapVeil;
+                return Setting.Current.GlobalVariables.DrawMapVeil;
             }
         }
 
@@ -3521,7 +3521,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             get
             {
-                return Session.GlobalVariables.StopToControlOnAttack;
+                return Setting.Current.GlobalVariables.StopToControlOnAttack;
             }
         }
 
