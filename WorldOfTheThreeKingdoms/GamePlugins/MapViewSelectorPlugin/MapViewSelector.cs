@@ -1,4 +1,4 @@
-﻿using GameFreeText;
+using GameFreeText;
 using GameGlobal;
 using GameManager;
 using GameObjects;
@@ -153,7 +153,7 @@ namespace MapViewSelectorPlugin
                             if (!this.MultiSelecting && architectureByPosition.Selected)
                             {
                                 this.SelectingGameObjectList.SetOtherUnSelected(architectureByPosition);
-                                if (Session.GlobalVariables.SingleSelectionOneClick)
+                                if (Setting.Current.GlobalVariables.SingleSelectionOneClick)
                                 {
                                     this.iTabList.RefreshEditable();
                                     this.IsShowing = false;
