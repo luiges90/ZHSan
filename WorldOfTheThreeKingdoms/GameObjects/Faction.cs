@@ -94,9 +94,7 @@ namespace GameObjects
             ThirdTierKnownPaths = new Dictionary<ClosedPathEndpoints, List<Point>>();
 
             Troops = new TroopList();
-
-            upgradingTechnique = -1;
-
+           
             count = new Dictionary<PersonGeneratorType, int>();
 
             RateOfCombativityRecoveryAfterAttacked = 1;
