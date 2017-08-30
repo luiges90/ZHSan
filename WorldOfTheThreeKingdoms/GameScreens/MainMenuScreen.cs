@@ -240,6 +240,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
                     else
                     {
+                        MenuType = MenuType.New;
                         Session.StartScenario(CurrentScenario, false);
                     }
                 }
@@ -276,8 +277,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     message = "请选择存档。";
                 }
                 else
-                {
-                    MenuType = MenuType.New;
+                {                    
                     Session.StartScenario(CurrentScenario, true);
                 }
             };
