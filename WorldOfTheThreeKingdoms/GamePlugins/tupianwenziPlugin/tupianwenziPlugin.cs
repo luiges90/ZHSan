@@ -167,15 +167,17 @@ namespace tupianwenziPlugin
 
             if (branchName == "chongxing")
             {
-                if (!String.IsNullOrEmpty(tupian))
+                try
                 {
-                    shijiantupian = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\" + tupian);
+                    string[] files = Platform.Current.GetFiles(@"Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\" + tupian + "\\").NullToEmptyArray();
+                    string suijitupianwenjianming = files[GameObject.Random(files.Length)];
+                    shijiantupian = CacheManager.GetTempTexture(suijitupianwenjianming);
                 }
-                else
+                catch
                 {
                     try
                     {
-                        string[] files = Platform.Current.GetFiles(@"Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\").NullToEmptyList().Where(fi => fi.StartsWith("B") && fi.EndsWith(".jpg")).NullToEmptyArray();
+                        string[] files = Platform.Current.GetFiles(@"Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\").NullToEmptyArray();
 
                         string suijitupianwenjianming = files[GameObject.Random(files.Length)];
                         shijiantupian = CacheManager.GetTempTexture(suijitupianwenjianming);
@@ -186,7 +188,6 @@ namespace tupianwenziPlugin
                         shijiantupian = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B0.jpg");
                     }
 
-                    
                 }
                 shijiantupianjuxing = new Microsoft.Xna.Framework.Rectangle(0, 0, 286,400);
 
