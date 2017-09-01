@@ -88,7 +88,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
 
                 Session.Current.Scenario.CurrentFaction.Leader.GoForHouGong(this.CurrentPerson);
-                Session.MainGame.mainGameScreen.xianshishijiantupian(this.CurrentPerson, Session.Current.Scenario.CurrentFaction.Leader.Name, TextMessageKind.Hougong, "chongxing", this.CurrentPerson.ID.ToString() + ".jpg", "hougong", true);
+                Session.MainGame.mainGameScreen.xianshishijiantupian(this.CurrentPerson, Session.Current.Scenario.CurrentFaction.Leader.Name, TextMessageKind.Hougong, "chongxing", this.CurrentPerson.ID.ToString(), "hougong", true);
                 //this.mainGameScreen.DateGo(1);
             }
         }
