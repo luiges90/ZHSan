@@ -88825,66 +88825,6 @@
         }
       },
       {
-        "Key": 80,
-        "Value": {
-          "ID": 80,
-          "Name": "寨建设",
-          "AIConditionWeightString": null,
-          "ConditionTableString": "998",
-          "Days": 30,
-          "Description": "可建设寨、望楼",
-          "DisplayCol": 0,
-          "DisplayRow": 8,
-          "FundCost": 12000,
-          "InfluencesString": "2150 2155",
-          "Kind": 8,
-          "PointCost": 500000,
-          "PostID": 81,
-          "PreID": -1,
-          "Reputation": 30000
-        }
-      },
-      {
-        "Key": 81,
-        "Value": {
-          "ID": 81,
-          "Name": "防御建设",
-          "AIConditionWeightString": null,
-          "ConditionTableString": "998",
-          "Days": 90,
-          "Description": "可建设战鼓台、箭楼",
-          "DisplayCol": 1,
-          "DisplayRow": 8,
-          "FundCost": 100000,
-          "InfluencesString": "2153 2157",
-          "Kind": 8,
-          "PointCost": 2000000,
-          "PostID": 82,
-          "PreID": 80,
-          "Reputation": 60000
-        }
-      },
-      {
-        "Key": 82,
-        "Value": {
-          "ID": 82,
-          "Name": "军营建设",
-          "AIConditionWeightString": null,
-          "ConditionTableString": "998",
-          "Days": 120,
-          "Description": "可建设军营、大望楼",
-          "DisplayCol": 2,
-          "DisplayRow": 8,
-          "FundCost": 200000,
-          "InfluencesString": "2151 2156",
-          "Kind": 8,
-          "PointCost": 5000000,
-          "PostID": 83,
-          "PreID": 81,
-          "Reputation": 240000
-        }
-      },
-      {
         "Key": 64,
         "Value": {
           "ID": 64,
@@ -89462,66 +89402,6 @@
           "PostID": -1,
           "PreID": -1,
           "Reputation": 6400000
-        }
-      },
-      {
-        "Key": 83,
-        "Value": {
-          "ID": 83,
-          "Name": "强化木工",
-          "AIConditionWeightString": null,
-          "ConditionTableString": "998",
-          "Days": 150,
-          "Description": "可建设舞乐台、连弩楼",
-          "DisplayCol": 3,
-          "DisplayRow": 8,
-          "FundCost": 300000,
-          "InfluencesString": "2154 2158",
-          "Kind": 8,
-          "PointCost": 8000000,
-          "PostID": 84,
-          "PreID": 82,
-          "Reputation": 360000
-        }
-      },
-      {
-        "Key": 85,
-        "Value": {
-          "ID": 85,
-          "Name": "石阵研究",
-          "AIConditionWeightString": null,
-          "ConditionTableString": "998",
-          "Days": 240,
-          "Description": "可建设石兵八阵",
-          "DisplayCol": 5,
-          "DisplayRow": 8,
-          "FundCost": 800000,
-          "InfluencesString": "2160",
-          "Kind": 8,
-          "PointCost": 15000000,
-          "PostID": -1,
-          "PreID": 84,
-          "Reputation": 1000000
-        }
-      },
-      {
-        "Key": 84,
-        "Value": {
-          "ID": 84,
-          "Name": "石工研究",
-          "AIConditionWeightString": null,
-          "ConditionTableString": "998",
-          "Days": 210,
-          "Description": "可建设城塞、投石台",
-          "DisplayCol": 4,
-          "DisplayRow": 8,
-          "FundCost": 600000,
-          "InfluencesString": "2152 2159",
-          "Kind": 8,
-          "PointCost": 12000000,
-          "PostID": 85,
-          "PreID": 83,
-          "Reputation": 500000
         }
       },
       {
