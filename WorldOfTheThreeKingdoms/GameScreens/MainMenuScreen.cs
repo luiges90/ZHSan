@@ -3106,9 +3106,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         Session.parametersTemp.DefaultPopulationDevelopingRate = (float)nstRenKou.NowNumber;
                     }
 
-                    if (Session.parametersTemp.SurroundArchitectureDominationUnit != (float)nstWeiCheng.NowNumber)
+                    if (Session.parametersTemp.SurroundArchitectureDominationUnit != (int)nstWeiCheng.NowNumber)
                     {
-                        Session.parametersTemp.SurroundArchitectureDominationUnit = (float)nstWeiCheng.NowNumber;
+                        Session.parametersTemp.SurroundArchitectureDominationUnit = (int)nstWeiCheng.NowNumber;
                     }
 
                     if (Session.parametersTemp.FireDamageScale != (float)nstHuoYan.NowNumber)
