@@ -414,10 +414,13 @@ namespace TabListPlugin
                                 {
                                     if (this.MultiSelecting)
                                     {
-                                        gameObjectByPosition.Selected = !gameObjectByPosition.Selected;
+                                        if (!this.SelectingRows)
+                                        {
+                                            gameObjectByPosition.Selected = !gameObjectByPosition.Selected;
 
-                                        this.SelectingRows = true;
-                                        this.SelectingBool = gameObjectByPosition.Selected;
+                                            this.SelectingRows = true;
+                                            this.SelectingBool = gameObjectByPosition.Selected;
+                                        }
 
                                         this.SelectedItemList = this.gameObjectList.GetSelectedList();
                                         if (Session.MainGame.mainGameScreen.KeyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.LeftControl))
@@ -751,7 +754,7 @@ namespace TabListPlugin
                             if (!this.SelectingRows)
                             {
                                 this.SelectingRows = true;
-                                this.SelectingBool = gameObjectByPosition.Selected;
+                                this.SelectingBool = !gameObjectByPosition.Selected;
                             }
                             if (this.SelectingRows)
                             {
