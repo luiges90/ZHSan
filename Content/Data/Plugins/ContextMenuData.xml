@@ -91,9 +91,6 @@
         <MenuItem ID="2" Name="Convene" DisplayName="召集" DisplayIfTrue="PersonConveneAvail" />
         <MenuItem ID="4" Name="Convince" DisplayName="说服" DisplayIfTrue="ConvincePersonAvail" />
         <MenuItem ID="3" Name="AutoHire" DisplayName="自动说服" OppositeName="停止说服" OppositeIfTrue="AutoHiring" DisplayIfTrue="AutoHiringAvail" />
-        <MenuItem ID="9" Name="AutoReward" DisplayName="自动褒奖" OppositeName="停止褒奖" OppositeIfTrue="AutoRewarding" DisplayIfTrue="AutoRewardingAvail" />
-        <MenuItem ID="5" Name="Reward" DisplayName="褒奖" DisplayIfTrue="RewardPersonAvail" />
-        <MenuItem ID="6" Name="RewardAll" DisplayName="褒奖所有" DisplayIfTrue="RewardAllAvail" />
         <MenuItem ID="7" Name="Redeem" DisplayName="赎回" DisplayIfTrue="RedeemAvail" />
         <MenuItem ID="8" Name="Study" DisplayName="修习">
           <MenuItem ID="1" Name="Skill" DisplayName="技能" DisplayIfTrue="PersonStudySkillAvail" />
