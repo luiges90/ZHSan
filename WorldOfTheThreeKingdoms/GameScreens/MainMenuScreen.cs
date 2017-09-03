@@ -847,7 +847,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList2.Add(btOne);
 
-            nstMaxExperience = new NumericSetTextureF(1, 100000, 100000, null, new Vector2(left1 + 200, heightBase + height * 3f), true)
+            nstMaxExperience = new NumericSetTextureF(1, 300000, 300000, null, new Vector2(left1 + 200, heightBase + height * 3f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -855,7 +855,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1000
             };
 
-            nstMaxSkill = new NumericSetTextureF(1, 1000, 1000, null, new Vector2(left1 + 200, heightBase + height * 3.5f), true)
+            nstMaxSkill = new NumericSetTextureF(1, 400, 400, null, new Vector2(left1 + 200, heightBase + height * 3.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -919,7 +919,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralChildsMax = new NumericSetTextureF(1, 100, 100, null, new Vector2(left2 + 200, heightBase + height * 3f), true)
+            nstGeneralChildsMax = new NumericSetTextureF(1, 300, 300, null, new Vector2(left2 + 200, heightBase + height * 3f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -2987,9 +2987,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         Session.globalVariablesTemp.TirednessDecrease = (int)nstPiLeiDown.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AbilityExperienceRate != (int)nstExperienceUp.NowNumber)
+                    if (Session.parametersTemp.AbilityExperienceRate != (float)nstExperienceUp.NowNumber)
                     {
-                        Session.parametersTemp.AbilityExperienceRate = (int)nstExperienceUp.NowNumber;
+                        Session.parametersTemp.AbilityExperienceRate = (float)nstExperienceUp.NowNumber;
                     }
 
                     if (Session.parametersTemp.FindTreasureChance != (int)nstTreasureDiscover.NowNumber)
@@ -2997,14 +2997,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         Session.parametersTemp.FindTreasureChance = (int)nstTreasureDiscover.NowNumber;
                     }
 
-                    if (Session.parametersTemp.FollowedLeaderOffenceRateIncrement != (int)nstFollowAttachPlus.NowNumber)
+                    if (Session.parametersTemp.FollowedLeaderOffenceRateIncrement != (float)nstFollowAttachPlus.NowNumber)
                     {
-                        Session.parametersTemp.FollowedLeaderOffenceRateIncrement = (int)nstFollowAttachPlus.NowNumber;
+                        Session.parametersTemp.FollowedLeaderOffenceRateIncrement = (float)nstFollowAttachPlus.NowNumber;
                     }
 
-                    if (Session.parametersTemp.FollowedLeaderDefenceRateIncrement != (int)nstFollowDefencePlus.NowNumber)
+                    if (Session.parametersTemp.FollowedLeaderDefenceRateIncrement != (float)nstFollowDefencePlus.NowNumber)
                     {
-                        Session.parametersTemp.FollowedLeaderDefenceRateIncrement = (int)nstFollowDefencePlus.NowNumber;
+                        Session.parametersTemp.FollowedLeaderDefenceRateIncrement = (float)nstFollowDefencePlus.NowNumber;
                     }
 
                     if (Session.parametersTemp.SearchDays != (int)nstSearchTime.NowNumber)
@@ -3022,19 +3022,19 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         Session.globalVariablesTemp.ChildrenAvailableAge = (int)nstGeneralChildsAppear.NowNumber;
                     }
 
-                    if (Session.globalVariablesTemp.CreatedOfficerAbilityFactor != (int)nstGeneralChildsSkill.NowNumber)
+                    if (Session.globalVariablesTemp.CreatedOfficerAbilityFactor != (float)nstGeneralChildsSkill.NowNumber)
                     {
-                        Session.globalVariablesTemp.CreatedOfficerAbilityFactor = (int)nstGeneralChildsSkill.NowNumber;
+                        Session.globalVariablesTemp.CreatedOfficerAbilityFactor = (float)nstGeneralChildsSkill.NowNumber;
                     }
 
-                    if (Session.globalVariablesTemp.ChildrenAbilityFactor != (int)nstChildsSkill.NowNumber)
+                    if (Session.globalVariablesTemp.ChildrenAbilityFactor != (float)nstChildsSkill.NowNumber)
                     {
-                        Session.globalVariablesTemp.ChildrenAbilityFactor = (int)nstChildsSkill.NowNumber;
+                        Session.globalVariablesTemp.ChildrenAbilityFactor = (float)nstChildsSkill.NowNumber;
                     }
 
-                    if (Session.globalVariablesTemp.ProhibitFactionAgainstDestroyer != (int)nstForbiddenDays.NowNumber)
+                    if (Session.globalVariablesTemp.ProhibitFactionAgainstDestroyer != (float)nstForbiddenDays.NowNumber)
                     {
-                        Session.globalVariablesTemp.ProhibitFactionAgainstDestroyer = (int)nstForbiddenDays.NowNumber;
+                        Session.globalVariablesTemp.ProhibitFactionAgainstDestroyer = (float)nstForbiddenDays.NowNumber;
                     }
                     
                 }
@@ -3066,54 +3066,54 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         }
                     }
 
-                    if (Session.parametersTemp.InternalRate != (int)nstNeiZheng.NowNumber)
+                    if (Session.parametersTemp.InternalRate != (float)nstNeiZheng.NowNumber)
                     {
-                        Session.parametersTemp.InternalRate = (int)nstNeiZheng.NowNumber;
+                        Session.parametersTemp.InternalRate = (float)nstNeiZheng.NowNumber;
                     }
 
-                    if (Session.parametersTemp.TrainingRate != (int)nstXunLian.NowNumber)
+                    if (Session.parametersTemp.TrainingRate != (float)nstXunLian.NowNumber)
                     {
-                        Session.parametersTemp.TrainingRate = (int)nstXunLian.NowNumber;
+                        Session.parametersTemp.TrainingRate = (float)nstXunLian.NowNumber;
                     }
 
-                    if (Session.parametersTemp.RecruitmentRate != (int)nstBuChong.NowNumber)
+                    if (Session.parametersTemp.RecruitmentRate != (float)nstBuChong.NowNumber)
                     {
-                        Session.parametersTemp.RecruitmentRate = (int)nstBuChong.NowNumber;
+                        Session.parametersTemp.RecruitmentRate = (float)nstBuChong.NowNumber;
                     }
 
-                    if (Session.parametersTemp.FundRate != (int)nstZiJing.NowNumber)
+                    if (Session.parametersTemp.FundRate != (float)nstZiJing.NowNumber)
                     {
-                        Session.parametersTemp.FundRate = (int)nstZiJing.NowNumber;
+                        Session.parametersTemp.FundRate = (float)nstZiJing.NowNumber;
                     }
 
-                    if (Session.parametersTemp.FoodRate != (int)nstLiangCao.NowNumber)
+                    if (Session.parametersTemp.FoodRate != (float)nstLiangCao.NowNumber)
                     {
-                        Session.parametersTemp.FoodRate = (int)nstLiangCao.NowNumber;
+                        Session.parametersTemp.FoodRate = (float)nstLiangCao.NowNumber;
                     }
 
-                    if (Session.parametersTemp.TroopDamageRate != (int)nstBuDui.NowNumber)
+                    if (Session.parametersTemp.TroopDamageRate != (float)nstBuDui.NowNumber)
                     {
-                        Session.parametersTemp.TroopDamageRate = (int)nstBuDui.NowNumber;
+                        Session.parametersTemp.TroopDamageRate = (float)nstBuDui.NowNumber;
                     }
 
-                    if (Session.parametersTemp.ArchitectureDamageRate != (int)nstJianZhu.NowNumber)
+                    if (Session.parametersTemp.ArchitectureDamageRate != (float)nstJianZhu.NowNumber)
                     {
-                        Session.parametersTemp.ArchitectureDamageRate = (int)nstJianZhu.NowNumber;
+                        Session.parametersTemp.ArchitectureDamageRate = (float)nstJianZhu.NowNumber;
                     }
 
-                    if (Session.parametersTemp.DefaultPopulationDevelopingRate != (int)nstRenKou.NowNumber)
+                    if (Session.parametersTemp.DefaultPopulationDevelopingRate != (float)nstRenKou.NowNumber)
                     {
-                        Session.parametersTemp.DefaultPopulationDevelopingRate = (int)nstRenKou.NowNumber;
+                        Session.parametersTemp.DefaultPopulationDevelopingRate = (float)nstRenKou.NowNumber;
                     }
 
-                    if (Session.parametersTemp.SurroundArchitectureDominationUnit != (int)nstWeiCheng.NowNumber)
+                    if (Session.parametersTemp.SurroundArchitectureDominationUnit != (float)nstWeiCheng.NowNumber)
                     {
-                        Session.parametersTemp.SurroundArchitectureDominationUnit = (int)nstWeiCheng.NowNumber;
+                        Session.parametersTemp.SurroundArchitectureDominationUnit = (float)nstWeiCheng.NowNumber;
                     }
 
-                    if (Session.parametersTemp.FireDamageScale != (int)nstHuoYan.NowNumber)
+                    if (Session.parametersTemp.FireDamageScale != (float)nstHuoYan.NowNumber)
                     {
-                        Session.parametersTemp.FireDamageScale = (int)nstHuoYan.NowNumber;
+                        Session.parametersTemp.FireDamageScale = (float)nstHuoYan.NowNumber;
                     }
 
                     if (Session.parametersTemp.BuyFoodAgriculture != (int)nstMaiLiangNongYe.NowNumber)
@@ -3136,9 +3136,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         Session.parametersTemp.FoodToFundDivisor = (int)nstLiangCaoHuanZiJing.NowNumber;
                     }
 
-                    if (Session.globalVariablesTemp.TechniquePointMultiple != (int)nstJiqiaoDian.NowNumber)
+                    if (Session.globalVariablesTemp.TechniquePointMultiple != (float)nstJiqiaoDian.NowNumber)
                     {
-                        Session.globalVariablesTemp.TechniquePointMultiple = (int)nstJiqiaoDian.NowNumber;
+                        Session.globalVariablesTemp.TechniquePointMultiple = (float)nstJiqiaoDian.NowNumber;
                     }
 
                     if (Session.parametersTemp.InternalFundCost != (int)nstNeiZhengZiJing.NowNumber)
@@ -3196,14 +3196,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         Session.parametersTemp.GossipArchitectureCost = (int)nstLiuYanZiJing.NowNumber;
                     }
 
-                    if (Session.parametersTemp.MilitaryPopulationCap != (int)nstBingYiShangXian.NowNumber)
+                    if (Session.parametersTemp.MilitaryPopulationCap != (float)nstBingYiShangXian.NowNumber)
                     {
-                        Session.parametersTemp.MilitaryPopulationCap = (int)nstBingYiShangXian.NowNumber;
+                        Session.parametersTemp.MilitaryPopulationCap = (float)nstBingYiShangXian.NowNumber;
                     }
 
-                    if (Session.parametersTemp.MilitaryPopulationReloadQuantity != (int)nstBingYiZengLiang.NowNumber)
+                    if (Session.parametersTemp.MilitaryPopulationReloadQuantity != (float)nstBingYiZengLiang.NowNumber)
                     {
-                        Session.parametersTemp.MilitaryPopulationReloadQuantity = (int)nstBingYiZengLiang.NowNumber;
+                        Session.parametersTemp.MilitaryPopulationReloadQuantity = (float)nstBingYiZengLiang.NowNumber;
                     }
 
                     if (Session.globalVariablesTemp.MaxMilitaryExperience != (int)nstBuDuiJingYan.NowNumber)
@@ -3211,9 +3211,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         Session.globalVariablesTemp.MaxMilitaryExperience = (int)nstBuDuiJingYan.NowNumber;
                     }
 
-                    if (Session.globalVariablesTemp.LeadershipOffenceRate != (int)nstTongShuaiGongJi.NowNumber)
+                    if (Session.globalVariablesTemp.LeadershipOffenceRate != (float)nstTongShuaiGongJi.NowNumber)
                     {
-                        Session.globalVariablesTemp.LeadershipOffenceRate = (int)nstTongShuaiGongJi.NowNumber;
+                        Session.globalVariablesTemp.LeadershipOffenceRate = (float)nstTongShuaiGongJi.NowNumber;
                     }
 
                 }
@@ -3261,111 +3261,111 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         Session.parametersTemp.AIEncirclePlayerRate = (int)nstDianNaoShengTao.NowNumber;
                     }
 
-                    if (Session.globalVariablesTemp.AIMergeAgainstPlayer != (int)nstDianNaoYinWanJiaHeBing.NowNumber)
+                    if (Session.globalVariablesTemp.AIMergeAgainstPlayer != (float)nstDianNaoYinWanJiaHeBing.NowNumber)
                     {
-                        Session.globalVariablesTemp.AIMergeAgainstPlayer = (int)nstDianNaoYinWanJiaHeBing.NowNumber;
+                        Session.globalVariablesTemp.AIMergeAgainstPlayer = (float)nstDianNaoYinWanJiaHeBing.NowNumber;
                     }
 
-                    if (Session.globalVariablesTemp.LeadershipOffenceRate != (int)nstDianNaoChuZhan.NowNumber)
+                    if (Session.globalVariablesTemp.LeadershipOffenceRate != (float)nstDianNaoChuZhan.NowNumber)
                     {
-                        Session.globalVariablesTemp.LeadershipOffenceRate = (int)nstDianNaoChuZhan.NowNumber;
+                        Session.globalVariablesTemp.LeadershipOffenceRate = (float)nstDianNaoChuZhan.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AIFundRate != (int)nstDianNaoZiJing1.NowNumber)
+                    if (Session.parametersTemp.AIFundRate != (float)nstDianNaoZiJing1.NowNumber)
                     {
-                        Session.parametersTemp.AIFundRate = (int)nstDianNaoZiJing1.NowNumber;
+                        Session.parametersTemp.AIFundRate = (float)nstDianNaoZiJing1.NowNumber;
                         //setDifficultyToCustom(null, null);
                     }
 
-                    if (Session.parametersTemp.AIFundYearIncreaseRate != (int)nstDianNaoZiJing2.NowNumber)
+                    if (Session.parametersTemp.AIFundYearIncreaseRate != (float)nstDianNaoZiJing2.NowNumber)
                     {
-                        Session.parametersTemp.AIFundYearIncreaseRate = (int)nstDianNaoZiJing2.NowNumber;
+                        Session.parametersTemp.AIFundYearIncreaseRate = (float)nstDianNaoZiJing2.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AIFoodRate != (int)nstDianNaoLiangCao1.NowNumber)
+                    if (Session.parametersTemp.AIFoodRate != (float)nstDianNaoLiangCao1.NowNumber)
                     {
-                        Session.parametersTemp.AIFoodRate = (int)nstDianNaoLiangCao1.NowNumber;
+                        Session.parametersTemp.AIFoodRate = (float)nstDianNaoLiangCao1.NowNumber;
                         //setDifficultyToCustom(null, null);
                     }
 
-                    if (Session.parametersTemp.AIFoodYearIncreaseRate != (int)nstDianNaoLiangCao2.NowNumber)
+                    if (Session.parametersTemp.AIFoodYearIncreaseRate != (float)nstDianNaoLiangCao2.NowNumber)
                     {
-                        Session.parametersTemp.AIFoodYearIncreaseRate = (int)nstDianNaoLiangCao2.NowNumber;
+                        Session.parametersTemp.AIFoodYearIncreaseRate = (float)nstDianNaoLiangCao2.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AITroopOffenceRate != (int)nstDianNaoBuDuiGongJi1.NowNumber)
+                    if (Session.parametersTemp.AITroopOffenceRate != (float)nstDianNaoBuDuiGongJi1.NowNumber)
                     {
-                        Session.parametersTemp.AITroopOffenceRate = (int)nstDianNaoBuDuiGongJi1.NowNumber;
+                        Session.parametersTemp.AITroopOffenceRate = (float)nstDianNaoBuDuiGongJi1.NowNumber;
                         //setDifficultyToCustom(null, null);
                     }
 
-                    if (Session.parametersTemp.AITroopOffenceYearIncreaseRate != (int)nstDianNaoBuDuiGongJi2.NowNumber)
+                    if (Session.parametersTemp.AITroopOffenceYearIncreaseRate != (float)nstDianNaoBuDuiGongJi2.NowNumber)
                     {
-                        Session.parametersTemp.AITroopOffenceYearIncreaseRate = (int)nstDianNaoBuDuiGongJi2.NowNumber;
+                        Session.parametersTemp.AITroopOffenceYearIncreaseRate = (float)nstDianNaoBuDuiGongJi2.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AITroopDefenceRate != (int)nstDianNaoFangYu1.NowNumber)
+                    if (Session.parametersTemp.AITroopDefenceRate != (float)nstDianNaoFangYu1.NowNumber)
                     {
-                        Session.parametersTemp.AITroopDefenceRate = (int)nstDianNaoFangYu1.NowNumber;
+                        Session.parametersTemp.AITroopDefenceRate = (float)nstDianNaoFangYu1.NowNumber;
                         //setDifficultyToCustom(null, null);
                     }
 
-                    if (Session.parametersTemp.AITroopDefenceYearIncreaseRate != (int)nstDianNaoFangYu2.NowNumber)
+                    if (Session.parametersTemp.AITroopDefenceYearIncreaseRate != (float)nstDianNaoFangYu2.NowNumber)
                     {
-                        Session.parametersTemp.AITroopDefenceYearIncreaseRate = (int)nstDianNaoFangYu2.NowNumber;
+                        Session.parametersTemp.AITroopDefenceYearIncreaseRate = (float)nstDianNaoFangYu2.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AIArchitectureDamageRate != (int)nstDianNaoShangHai1.NowNumber)
+                    if (Session.parametersTemp.AIArchitectureDamageRate != (float)nstDianNaoShangHai1.NowNumber)
                     {
-                        Session.parametersTemp.AIArchitectureDamageRate = (int)nstDianNaoShangHai1.NowNumber;
+                        Session.parametersTemp.AIArchitectureDamageRate = (float)nstDianNaoShangHai1.NowNumber;
                         //setDifficultyToCustom(null, null);
                     }
 
-                    if (Session.parametersTemp.AIArchitectureDamageYearIncreaseRate != (int)nstDianNaoShangHai2.NowNumber)
+                    if (Session.parametersTemp.AIArchitectureDamageYearIncreaseRate != (float)nstDianNaoShangHai2.NowNumber)
                     {
-                        Session.parametersTemp.AIArchitectureDamageYearIncreaseRate = (int)nstDianNaoShangHai2.NowNumber;
+                        Session.parametersTemp.AIArchitectureDamageYearIncreaseRate = (float)nstDianNaoShangHai2.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AITrainingSpeedRate != (int)nstDianNaoXunLian1.NowNumber)
+                    if (Session.parametersTemp.AITrainingSpeedRate != (float)nstDianNaoXunLian1.NowNumber)
                     {
-                        Session.parametersTemp.AITrainingSpeedRate = (int)nstDianNaoXunLian1.NowNumber;
+                        Session.parametersTemp.AITrainingSpeedRate = (float)nstDianNaoXunLian1.NowNumber;
                         //setDifficultyToCustom(null, null);
                     }
 
-                    if (Session.parametersTemp.AITrainingSpeedYearIncreaseRate != (int)nstDianNaoXunLian2.NowNumber)
+                    if (Session.parametersTemp.AITrainingSpeedYearIncreaseRate != (float)nstDianNaoXunLian2.NowNumber)
                     {
-                        Session.parametersTemp.AITrainingSpeedYearIncreaseRate = (int)nstDianNaoXunLian2.NowNumber;
+                        Session.parametersTemp.AITrainingSpeedYearIncreaseRate = (float)nstDianNaoXunLian2.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AIRecruitmentSpeedRate != (int)nstDianNaoZhengBing1.NowNumber)
+                    if (Session.parametersTemp.AIRecruitmentSpeedRate != (float)nstDianNaoZhengBing1.NowNumber)
                     {
-                        Session.parametersTemp.AIRecruitmentSpeedRate = (int)nstDianNaoZhengBing1.NowNumber;
+                        Session.parametersTemp.AIRecruitmentSpeedRate = (float)nstDianNaoZhengBing1.NowNumber;
                         //setDifficultyToCustom(null, null);
                     }
 
-                    if (Session.parametersTemp.AIRecruitmentSpeedYearIncreaseRate != (int)nstDianNaoZhengBing2.NowNumber)
+                    if (Session.parametersTemp.AIRecruitmentSpeedYearIncreaseRate != (float)nstDianNaoZhengBing2.NowNumber)
                     {
-                        Session.parametersTemp.AIRecruitmentSpeedYearIncreaseRate = (int)nstDianNaoZhengBing2.NowNumber;
+                        Session.parametersTemp.AIRecruitmentSpeedYearIncreaseRate = (float)nstDianNaoZhengBing2.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AIOfficerExperienceRate != (int)nstDianNaoWuJiangJingYan1.NowNumber)
+                    if (Session.parametersTemp.AIOfficerExperienceRate != (float)nstDianNaoWuJiangJingYan1.NowNumber)
                     {
-                        Session.parametersTemp.AIOfficerExperienceRate = (int)nstDianNaoWuJiangJingYan1.NowNumber;
+                        Session.parametersTemp.AIOfficerExperienceRate = (float)nstDianNaoWuJiangJingYan1.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AIOfficerExperienceYearIncreaseRate != (int)nstDianNaoWuJiangJingYan2.NowNumber)
+                    if (Session.parametersTemp.AIOfficerExperienceYearIncreaseRate != (float)nstDianNaoWuJiangJingYan2.NowNumber)
                     {
-                        Session.parametersTemp.AIOfficerExperienceYearIncreaseRate = (int)nstDianNaoWuJiangJingYan2.NowNumber;
+                        Session.parametersTemp.AIOfficerExperienceYearIncreaseRate = (float)nstDianNaoWuJiangJingYan2.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AIArmyExperienceRate != (int)nstDianNaoBuDuiJingYan1.NowNumber)
+                    if (Session.parametersTemp.AIArmyExperienceRate != (float)nstDianNaoBuDuiJingYan1.NowNumber)
                     {
-                        Session.parametersTemp.AIArmyExperienceRate = (int)nstDianNaoBuDuiJingYan1.NowNumber;
+                        Session.parametersTemp.AIArmyExperienceRate = (float)nstDianNaoBuDuiJingYan1.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AIArmyExperienceYearIncreaseRate != (int)nstDianNaoBuDuiJingYan2.NowNumber)
+                    if (Session.parametersTemp.AIArmyExperienceYearIncreaseRate != (float)nstDianNaoBuDuiJingYan2.NowNumber)
                     {
-                        Session.parametersTemp.AIArmyExperienceYearIncreaseRate = (int)nstDianNaoBuDuiJingYan2.NowNumber;
+                        Session.parametersTemp.AIArmyExperienceYearIncreaseRate = (float)nstDianNaoBuDuiJingYan2.NowNumber;
                     }
 
                     if (Session.parametersTemp.AIAntiStratagem != (int)nstDianNaoKangJi1.NowNumber)
@@ -3373,9 +3373,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         Session.parametersTemp.AIAntiStratagem = (int)nstDianNaoKangJi1.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AIAntiStratagemIncreaseRate != (int)nstDianNaoKangJi2.NowNumber)
+                    if (Session.parametersTemp.AIAntiStratagemIncreaseRate != (float)nstDianNaoKangJi2.NowNumber)
                     {
-                        Session.parametersTemp.AIAntiStratagemIncreaseRate = (int)nstDianNaoKangJi2.NowNumber;
+                        Session.parametersTemp.AIAntiStratagemIncreaseRate = (float)nstDianNaoKangJi2.NowNumber;
                     }
 
                     if (Session.parametersTemp.AIAntiSurround != (int)nstDianNaoKangWei1.NowNumber)
@@ -3383,19 +3383,19 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         Session.parametersTemp.AIAntiSurround = (int)nstDianNaoKangWei1.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AIAntiSurroundIncreaseRate != (int)nstDianNaoKangWei2.NowNumber)
+                    if (Session.parametersTemp.AIAntiSurroundIncreaseRate != (float)nstDianNaoKangWei2.NowNumber)
                     {
-                        Session.parametersTemp.AIAntiSurroundIncreaseRate = (int)nstDianNaoKangWei2.NowNumber;
+                        Session.parametersTemp.AIAntiSurroundIncreaseRate = (float)nstDianNaoKangWei2.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AIExtraPerson != (int)nstDianNaoEWai1.NowNumber)
+                    if (Session.parametersTemp.AIExtraPerson != (float)nstDianNaoEWai1.NowNumber)
                     {
-                        Session.parametersTemp.AIExtraPerson = (int)nstDianNaoEWai1.NowNumber;
+                        Session.parametersTemp.AIExtraPerson = (float)nstDianNaoEWai1.NowNumber;
                     }
 
-                    if (Session.parametersTemp.AIExtraPersonIncreaseRate != (int)nstDianNaoEWai2.NowNumber)
+                    if (Session.parametersTemp.AIExtraPersonIncreaseRate != (float)nstDianNaoEWai2.NowNumber)
                     {
-                        Session.parametersTemp.AIExtraPersonIncreaseRate = (int)nstDianNaoEWai2.NowNumber;
+                        Session.parametersTemp.AIExtraPersonIncreaseRate = (float)nstDianNaoEWai2.NowNumber;
                     }
 
                     cbAIHardList.ForEach(cb => cb.Update());
