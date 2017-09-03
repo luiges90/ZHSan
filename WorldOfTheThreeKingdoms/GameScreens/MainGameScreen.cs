@@ -3159,55 +3159,23 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.viewMove = ViewMove.Bottom;
                     }
 
-                    if (this.keyState.IsKeyDown(Keys.Left))
+                    if (this.currentKey == Keys.A)
                     {
-                        if (this.keyState.IsKeyDown(Keys.Up))
-                        {
-                            if ((this.mainMapLayer.LeftEdge != 0) || (this.mainMapLayer.TopEdge != 0))
-                            {
-                                this.viewMove = ViewMove.TopLeft;
-                                this.isKeyScrolling = true;
-                            }
-                        }
-                        else if (this.keyState.IsKeyDown(Keys.Down))
-                        {
-                            if ((this.mainMapLayer.LeftEdge != 0) || ((this.mainMapLayer.TopEdge + this.mainMapLayer.TotalTileHeight) != this.viewportSize.Y))
-                            {
-                                this.viewMove = ViewMove.BottomLeft;
-                                this.isKeyScrolling = true;
-                            }
-                        }
-                        else if (this.mainMapLayer.LeftEdge != 0)
+                        if (this.mainMapLayer.LeftEdge != 0)
                         {
                             this.viewMove = ViewMove.Left;
                             this.isKeyScrolling = true;
                         }
                     }
-                    else if (this.keyState.IsKeyDown(Keys.Right))
+                    else if (this.currentKey == Keys.D)
                     {
-                        if (this.keyState.IsKeyDown(Keys.Up))
-                        {
-                            if (((this.mainMapLayer.LeftEdge + this.mainMapLayer.TotalTileWidth) != this.viewportSize.X) || (this.mainMapLayer.TopEdge != 0))
-                            {
-                                this.viewMove = ViewMove.TopRight;
-                                this.isKeyScrolling = true;
-                            }
-                        }
-                        else if (this.keyState.IsKeyDown(Keys.Down))
-                        {
-                            if (((this.mainMapLayer.LeftEdge + this.mainMapLayer.TotalTileWidth) != this.viewportSize.X) || ((this.mainMapLayer.TopEdge + this.mainMapLayer.TotalTileHeight) != this.viewportSize.Y))
-                            {
-                                this.viewMove = ViewMove.BottomRight;
-                                this.isKeyScrolling = true;
-                            }
-                        }
-                        else if ((this.mainMapLayer.LeftEdge + this.mainMapLayer.TotalTileWidth) != this.viewportSize.X)
+                        if ((this.mainMapLayer.LeftEdge + this.mainMapLayer.TotalTileWidth) != this.viewportSize.X)
                         {
                             this.viewMove = ViewMove.Right;
                             this.isKeyScrolling = true;
                         }
                     }
-                    else if (this.keyState.IsKeyDown(Keys.Up))
+                    else if (this.currentKey == Keys.W)
                     {
                         if (this.mainMapLayer.TopEdge != 0)
                         {
@@ -3215,7 +3183,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             this.isKeyScrolling = true;
                         }
                     }
-                    else if ((this.keyState.IsKeyDown(Keys.Down) && ((this.mainMapLayer.TopEdge + this.mainMapLayer.TotalTileHeight) != this.viewportSize.Y)))
+                    else if ((this.currentKey == Keys.S && ((this.mainMapLayer.TopEdge + this.mainMapLayer.TotalTileHeight) != this.viewportSize.Y)))
                     {
                         this.viewMove = ViewMove.Bottom;
                         this.isKeyScrolling = true;

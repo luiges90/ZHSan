@@ -194,18 +194,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.DateGo(-999);
                     }
                 }
-                else if (InputManager.KeyBoardState.IsKeyDown(Keys.W))
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.Q))
                 {
-                    this.currentKey = Keys.W;
+                    this.currentKey = Keys.Q;
                     Session.GlobalVariables.ShowGrid = !Session.GlobalVariables.ShowGrid;
-                }
-                else if (InputManager.KeyBoardState.IsKeyDown(Keys.OemPlus) || InputManager.KeyBoardState.IsKeyDown(Keys.Add))
-                {
-                    this.currentKey = Keys.OemPlus;
-                }
-                else if (InputManager.KeyBoardState.IsKeyDown(Keys.OemMinus) || InputManager.KeyBoardState.IsKeyDown(Keys.Subtract))
-                {
-                    this.currentKey = Keys.OemMinus;
                 }
                 else if (InputManager.KeyBoardState.IsKeyDown(Keys.LeftAlt) && InputManager.KeyBoardState.IsKeyDown(Keys.Z))
                 {
@@ -258,6 +250,30 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.Plugins.DateRunnerPlugin.Run();
                 }
             }
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.W))
+            {
+                this.currentKey = Keys.W;
+            }
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.A))
+            {
+                this.currentKey = Keys.A;
+            }
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.S))
+            {
+                this.currentKey = Keys.S;
+            }
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.D))
+            {
+                this.currentKey = Keys.D;
+            }
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.OemPlus) || InputManager.KeyBoardState.IsKeyDown(Keys.Add))
+            {
+                this.currentKey = Keys.OemPlus;
+            }
+            else if (InputManager.KeyBoardState.IsKeyDown(Keys.OemMinus) || InputManager.KeyBoardState.IsKeyDown(Keys.Subtract))
+            {
+                this.currentKey = Keys.OemMinus;
+            } 
             //if (InputManager.KeyBoardState.IsKeyDown(Keys.Z) && InputManager.KeyBoardState.IsKeyDown(Keys.LeftControl))
             //{
 
