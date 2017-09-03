@@ -92,8 +92,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         NumericSetTextureF nstMaxExperience, nstMaxSkill, nstPiLeiUp, nstPiLeiDown, nstExperienceUp, nstTreasureDiscover;
 
-        NumericSetTextureF nstSkill1Time1, nstSkill1Time2, nstSkill2Time1, nstSkill2Time2, nstSkill3Time1, nstSkill3Time2,
-            nstFollowAttachPlus, nstFollowDefencePlus, nstSearchTime, nstGeneralChildsMax, nstGeneralChildsAppear, nstGeneralChildsSkill, nstChildsSkill, nstForbiddenDays;
+        NumericSetTextureF nstFollowAttachPlus, nstFollowDefencePlus, nstSearchTime, nstGeneralChildsMax, nstGeneralChildsAppear, nstGeneralChildsSkill, nstChildsSkill, nstForbiddenDays;
 
         NumericSetTextureF nstNeiZheng, nstXunLian, nstBuChong, nstZiJing, nstLiangCao, nstBuDui, nstJianZhu, nstRenKou, nstWeiCheng, nstHuoYan,
                           nstMaiLiangNongYe, nstMaiLiangShangYe, nstZiJingHuanLiang, nstLiangCaoHuanZiJing, nstJiqiaoDian, nstNeiZhengZiJing, nstBuChongZiJing, nstBuChongTongZhi, nstBuChongMinXin, nstQianDuZiJing,
@@ -750,7 +749,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            nstViewDetail = new NumericSetTextureF(0, 20, 20, null, new Vector2(left2 + 300, heightBase + height * 2.5f), true)
+            nstViewDetail = new NumericSetTextureF(0, 9, 9, null, new Vector2(left2 + 300, heightBase + height * 2.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -766,7 +765,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralYun = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 3.5f), true)
+            nstGeneralYun = new NumericSetTextureF(0, 200, 200, null, new Vector2(left2 + 300, heightBase + height * 3.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -774,7 +773,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstFeiZiYun = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 4f), true)
+            nstFeiZiYun = new NumericSetTextureF(0, 200, 200, null, new Vector2(left2 + 300, heightBase + height * 4f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -798,7 +797,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstZaiNan = new NumericSetTextureF(0, 80000, 80000, null, new Vector2(left2 + 300, heightBase + height * 5.5f), true)
+            nstZaiNan = new NumericSetTextureF(0, 100000, 100000, null, new Vector2(left2 + 300, heightBase + height * 5.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -807,86 +806,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
 
             btConfigList2 = new List<ButtonTexture>();
-
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 0f))
-            {
-                ID = "YiBanRenWu"
-            };
-            btOne.OnButtonPress += (sender, e) =>
-            {
-                var bt = (ButtonTexture)sender;
-                if (bt.Selected)
-                {
-                    bt.Selected = false;
-                    Session.globalVariablesTemp.CommonPersonAvailable = false;
-                }
-                else
-                {
-                    bt.Selected = true;
-                    Session.globalVariablesTemp.CommonPersonAvailable = true;
-                }
-            };
-            btConfigList2.Add(btOne);
-
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 0.5f))
-            {
-                ID = "FuJiaRenWu"
-            };
-            btOne.OnButtonPress += (sender, e) =>
-            {
-                var bt = (ButtonTexture)sender;
-                if (bt.Selected)
-                {
-                    bt.Selected = false;
-                    Session.globalVariablesTemp.AdditionalPersonAvailable = false;
-                }
-                else
-                {
-                    bt.Selected = true;
-                    Session.globalVariablesTemp.AdditionalPersonAvailable = true;
-                }
-            };
-            btConfigList2.Add(btOne);
-
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 1.0f))
-            {
-                ID = "WanJiaRenWu"
-            };
-            btOne.OnButtonPress += (sender, e) =>
-            {
-                var bt = (ButtonTexture)sender;
-                if (bt.Selected)
-                {
-                    bt.Selected = false;
-                    Session.globalVariablesTemp.PlayerPersonAvailable = false;
-                }
-                else
-                {
-                    bt.Selected = true;
-                    Session.globalVariablesTemp.PlayerPersonAvailable = true;
-                }
-            };
-            btConfigList2.Add(btOne);
-
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 1.5f))
-            {
-                ID = "ZiNvZhongCheng"
-            };
-            btOne.OnButtonPress += (sender, e) =>
-            {
-                var bt = (ButtonTexture)sender;
-                if (bt.Selected)
-                {
-                    bt.Selected = false;
-                    Session.globalVariablesTemp.lockChildrenLoyalty = false;
-                }
-                else
-                {
-                    bt.Selected = true;
-                    Session.globalVariablesTemp.lockChildrenLoyalty = true;
-                }
-            };
-            btConfigList2.Add(btOne);
 
             btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 2.0f))
             {
@@ -928,7 +847,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList2.Add(btOne);
 
-            nstMaxExperience = new NumericSetTextureF(1, 90000, 90000, null, new Vector2(left1 + 200, heightBase + height * 3f), true)
+            nstMaxExperience = new NumericSetTextureF(1, 100000, 100000, null, new Vector2(left1 + 200, heightBase + height * 3f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -944,7 +863,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstPiLeiUp = new NumericSetTextureF(0, 100, 100, null, new Vector2(left1 + 200, heightBase + height * 4f), true)
+            nstPiLeiUp = new NumericSetTextureF(0, 10, 10, null, new Vector2(left1 + 200, heightBase + height * 4f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -952,7 +871,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstPiLeiDown = new NumericSetTextureF(0, 100, 100, null, new Vector2(left1 + 200, heightBase + height * 4.5f), true)
+            nstPiLeiDown = new NumericSetTextureF(0, 10, 10, null, new Vector2(left1 + 200, heightBase + height * 4.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -960,12 +879,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstExperienceUp = new NumericSetTextureF(0, 100, 100, null, new Vector2(left1 + 200, heightBase + height * 5f), true)
+            nstExperienceUp = new NumericSetTextureF(0, 3, 3, null, new Vector2(left1 + 200, heightBase + height * 5f), true)
             {
-                IntMode = true,
+                FloatNum = 1,
                 DisNumber = false,
                 NowNumber = 1,
-                Unit = 1
+                Unit = 0.1f
             };
 
             nstTreasureDiscover = new NumericSetTextureF(0, 100, 100, null, new Vector2(left1 + 200, heightBase + height * 5.5f), true)
@@ -975,56 +894,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 NowNumber = 10,
                 Unit = 1
             };
-
-            nstSkill1Time1 = new NumericSetTextureF(1, 200, 200, null, new Vector2(left2 + 30, heightBase + height * 0f), true)
-            {
-                IntMode = true,
-                DisNumber = false,
-                NowNumber = 10,
-                Unit = 1
-            };
-
-            nstSkill1Time2 = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 350, heightBase + height * 0f), true)
-            {
-                IntMode = true,
-                DisNumber = false,
-                NowNumber = 10,
-                Unit = 1
-            };
-
-            nstSkill2Time1 = new NumericSetTextureF(1, 200, 200, null, new Vector2(left2 + 30, heightBase + height * 0.5f), true)
-            {
-                IntMode = true,
-                DisNumber = false,
-                NowNumber = 10,
-                Unit = 1
-            };
-
-            nstSkill2Time2 = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 350, heightBase + height * 0.5f), true)
-            {
-                IntMode = true,
-                DisNumber = false,
-                NowNumber = 10,
-                Unit = 1
-            };
-
-            nstSkill3Time1 = new NumericSetTextureF(1, 200, 200, null, new Vector2(left2 + 30, heightBase + height * 1f), true)
-            {
-                IntMode = true,
-                DisNumber = false,
-                NowNumber = 10,
-                Unit = 1
-            };
-
-            nstSkill3Time2 = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 350, heightBase + height * 1f), true)
-            {
-                IntMode = true,
-                DisNumber = false,
-                NowNumber = 10,
-                Unit = 1
-            };
-
-            nstFollowAttachPlus = new NumericSetTextureF(0, 5, 5, null, new Vector2(left2 + 200, heightBase + height * 1.5f), true)
+            
+            nstFollowAttachPlus = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + 200, heightBase + height * 1.5f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -1032,7 +903,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstFollowDefencePlus = new NumericSetTextureF(0, 5, 5, null, new Vector2(left2 + 200, heightBase + height * 2f), true)
+            nstFollowDefencePlus = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + 200, heightBase + height * 2f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -1040,7 +911,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstSearchTime = new NumericSetTextureF(1, 100, 100, null, new Vector2(left2 + 200, heightBase + height * 2.5f), true)
+            nstSearchTime = new NumericSetTextureF(1, 30, 30, null, new Vector2(left2 + 200, heightBase + height * 2.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -1056,7 +927,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralChildsAppear = new NumericSetTextureF(1, 50, 50, null, new Vector2(left2 + 200, heightBase + height * 3.5f), true)
+            nstGeneralChildsAppear = new NumericSetTextureF(1, 30, 30, null, new Vector2(left2 + 200, heightBase + height * 3.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -1064,7 +935,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralChildsSkill = new NumericSetTextureF(0, 10, 10, null, new Vector2(left2 + 200, heightBase + height * 4f), true)
+            nstGeneralChildsSkill = new NumericSetTextureF(0, 3, 3, null, new Vector2(left2 + 200, heightBase + height * 4f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -1072,7 +943,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstChildsSkill = new NumericSetTextureF(0, 10, 10, null, new Vector2(left2 + 200, heightBase + height * 4.5f), true)
+            nstChildsSkill = new NumericSetTextureF(0, 3, 3, null, new Vector2(left2 + 200, heightBase + height * 4.5f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -1080,12 +951,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstForbiddenDays = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 200, heightBase + height * 5f), true)
+            nstForbiddenDays = new NumericSetTextureF(0, 3, 3, null, new Vector2(left2 + 200, heightBase + height * 5f), true)
             {
-                IntMode = true,
+                FloatNum = 1,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 1
+                Unit = 0.1f
             };
 
             //参数
@@ -1174,7 +1045,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             left2 = left1 + 400;
 
-            nstMaiLiangNongYe = new NumericSetTextureF(1, 5000, 5000, null, new Vector2(left2 + 200, heightBase + height * 0f), true)
+            nstMaiLiangNongYe = new NumericSetTextureF(1, 2000, 2000, null, new Vector2(left2 + 200, heightBase + height * 0f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -1182,7 +1053,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 10
             };
 
-            nstMaiLiangShangYe = new NumericSetTextureF(1, 5000, 5000, null, new Vector2(left2 + 200, heightBase + height * 0.5f), true)
+            nstMaiLiangShangYe = new NumericSetTextureF(1, 2000, 2000, null, new Vector2(left2 + 200, heightBase + height * 0.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -1190,7 +1061,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 10
             };
 
-            nstZiJingHuanLiang = new NumericSetTextureF(1, 500, 500, null, new Vector2(left2 + 200, heightBase + height * 1.0f), true)
+            nstZiJingHuanLiang = new NumericSetTextureF(1, 1000, 1000, null, new Vector2(left2 + 200, heightBase + height * 1.0f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -1198,7 +1069,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstLiangCaoHuanZiJing = new NumericSetTextureF(1, 1000, 1000, null, new Vector2(left2 + 200, heightBase + height * 1.5f), true)
+            nstLiangCaoHuanZiJing = new NumericSetTextureF(1, 5000, 5000, null, new Vector2(left2 + 200, heightBase + height * 1.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -1206,12 +1077,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 10
             };
 
-            nstJiqiaoDian = new NumericSetTextureF(1, 50, 50, null, new Vector2(left2 + 200, heightBase + height * 2f), true)
+            nstJiqiaoDian = new NumericSetTextureF(1, 3, 3, null, new Vector2(left2 + 200, heightBase + height * 2f), true)
             {
-                IntMode = true,
+                FloatNum = 1,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 1
+                Unit = 0.1f
             };
 
             nstNeiZhengZiJing = new NumericSetTextureF(1, 100, 100, null, new Vector2(left2 + 200, heightBase + height * 2.5f), true)
@@ -1238,7 +1109,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstBuChongMinXin = new NumericSetTextureF(1, 200, 200, null, new Vector2(left2 + 200, heightBase + height * 4f), true)
+            nstBuChongMinXin = new NumericSetTextureF(1, 300, 300, null, new Vector2(left2 + 200, heightBase + height * 4f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -1246,7 +1117,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstQianDuZiJing = new NumericSetTextureF(1, 10000, 10000, null, new Vector2(left2 + 200, heightBase + height * 4.5f), true)
+            nstQianDuZiJing = new NumericSetTextureF(1, 30000, 30000, null, new Vector2(left2 + 200, heightBase + height * 4.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -1320,15 +1191,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstBuDuiJingYan = new NumericSetTextureF(1000, 1000000, 1000000, null, new Vector2(left3 + 200, heightBase + height * 4f), true)
+            nstBuDuiJingYan = new NumericSetTextureF(1000, 300000, 300000, null, new Vector2(left3 + 200, heightBase + height * 4f), true)
             {
                 IntMode = true,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 1000
+                Unit = 100
             };
 
-            nstTongShuaiGongJi = new NumericSetTextureF(0, 10, 10, null, new Vector2(left3 + 200, heightBase + height * 4.5f), true)
+            nstTongShuaiGongJi = new NumericSetTextureF(0, 1, 1, null, new Vector2(left3 + 200, heightBase + height * 4.5f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -1576,7 +1447,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             int leftPlus2 = 350;
             int leftPlus3 = 605;
 
-            nstDianNaoChuZhan = new NumericSetTextureF(0, 10, 10, null, new Vector2(left1 + leftPlus1, heightBase + height * 4.5f), true)
+            nstDianNaoChuZhan = new NumericSetTextureF(0, 1, 1, null, new Vector2(left1 + leftPlus1, heightBase + height * 4.5f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -1584,7 +1455,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstDianNaoShengTao = new NumericSetTextureF(0, 30, 30, null, new Vector2(left1 + leftPlus1, heightBase + height * 5f), true)
+            nstDianNaoShengTao = new NumericSetTextureF(0, 100, 100, null, new Vector2(left1 + leftPlus1, heightBase + height * 5f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -1592,7 +1463,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstDianNaoYinWanJiaHeBing = new NumericSetTextureF(-1, 10, 10, null, new Vector2(left1 + leftPlus1, heightBase + height * 5.5f), true)
+            nstDianNaoYinWanJiaHeBing = new NumericSetTextureF(-1, 1, 1, null, new Vector2(left1 + leftPlus1, heightBase + height * 5.5f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -1610,10 +1481,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstDianNaoZiJing2 = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + leftPlus3, heightBase + height * 0f), true)
             {
-                FloatNum = 2,
+                FloatNum = 3,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 0.01f
+                Unit = 0.005f
             };
 
             nstDianNaoLiangCao1 = new NumericSetTextureF(0, 10, 10, null, new Vector2(left2 + leftPlus2, heightBase + height * 0.5f), true)
@@ -1626,10 +1497,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstDianNaoLiangCao2 = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + leftPlus3, heightBase + height * 0.5f), true)
             {
-                FloatNum = 2,
+                FloatNum = 3,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 0.01f
+                Unit = 0.005f
             };
 
             nstDianNaoBuDuiGongJi1 = new NumericSetTextureF(0, 10, 10, null, new Vector2(left2 + leftPlus2, heightBase + height * 1f), true)
@@ -1642,10 +1513,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstDianNaoBuDuiGongJi2 = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + leftPlus3, heightBase + height * 1f), true)
             {
-                FloatNum = 2,
+                FloatNum = 3,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 0.01f
+                Unit = 0.005f
             };
 
             nstDianNaoFangYu1 = new NumericSetTextureF(0, 10, 10, null, new Vector2(left2 + leftPlus2, heightBase + height * 1.5f), true)
@@ -1658,10 +1529,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstDianNaoFangYu2 = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + leftPlus3, heightBase + height * 1.5f), true)
             {
-                FloatNum = 2,
+                FloatNum = 3,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 0.01f
+                Unit = 0.005f
             };
 
             nstDianNaoShangHai1 = new NumericSetTextureF(0, 10, 10, null, new Vector2(left2 + leftPlus2, heightBase + height * 2f), true)
@@ -1672,12 +1543,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstDianNaoShangHai2 = new NumericSetTextureF(0, 0.2f, 0.2f, null, new Vector2(left2 + leftPlus3, heightBase + height * 2f), true)
+            nstDianNaoShangHai2 = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + leftPlus3, heightBase + height * 2f), true)
             {
                 FloatNum = 3,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 0.001f
+                Unit = 0.005f
             };
 
             nstDianNaoXunLian1 = new NumericSetTextureF(0, 10, 10, null, new Vector2(left2 + leftPlus2, heightBase + height * 2.5f), true)
@@ -1690,10 +1561,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstDianNaoXunLian2 = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + leftPlus3, heightBase + height * 2.5f), true)
             {
-                FloatNum = 2,
+                FloatNum = 3,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 0.01f
+                Unit = 0.005f
             };
 
             nstDianNaoZhengBing1 = new NumericSetTextureF(0, 10, 10, null, new Vector2(left2 + leftPlus2, heightBase + height * 3f), true)
@@ -1706,10 +1577,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstDianNaoZhengBing2 = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + leftPlus3, heightBase + height * 3f), true)
             {
-                FloatNum = 2,
+                FloatNum = 3,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 0.01f
+                Unit = 0.005f
             };
 
             nstDianNaoWuJiangJingYan1 = new NumericSetTextureF(0, 10, 10, null, new Vector2(left2 + leftPlus2, heightBase + height * 3.5f), true)
@@ -1722,10 +1593,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstDianNaoWuJiangJingYan2 = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + leftPlus3, heightBase + height * 3.5f), true)
             {
-                FloatNum = 2,
+                FloatNum = 3,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 0.01f
+                Unit = 0.005f
             };
 
             nstDianNaoBuDuiJingYan1 = new NumericSetTextureF(0, 10, 10, null, new Vector2(left2 + leftPlus2, heightBase + height * 4f), true)
@@ -1738,10 +1609,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstDianNaoBuDuiJingYan2 = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + leftPlus3, heightBase + height * 4f), true)
             {
-                FloatNum = 2,
+                FloatNum = 3,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 0.01f
+                Unit = 0.005f
             };
 
             nstDianNaoKangJi1 = new NumericSetTextureF(0, 10, 10, null, new Vector2(left2 + leftPlus2, heightBase + height * 4.5f), true)
@@ -1754,10 +1625,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstDianNaoKangJi2 = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + leftPlus3, heightBase + height * 4.5f), true)
             {
-                FloatNum = 2,
+                FloatNum = 3,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 0.01f
+                Unit = 0.005f
             };
 
             nstDianNaoKangWei1 = new NumericSetTextureF(0, 10, 10, null, new Vector2(left2 + leftPlus2, heightBase + height * 5f), true)
@@ -1770,10 +1641,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstDianNaoKangWei2 = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + leftPlus3, heightBase + height * 5f), true)
             {
-                FloatNum = 2,
+                FloatNum = 3,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 0.01f
+                Unit = 0.005f
             };
 
             nstDianNaoEWai1 = new NumericSetTextureF(0, 10, 10, null, new Vector2(left2 + leftPlus2, heightBase + height * 5.5f), true)
@@ -1786,10 +1657,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstDianNaoEWai2 = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + leftPlus3, heightBase + height * 5.5f), true)
             {
-                FloatNum = 2,
+                FloatNum = 3,
                 DisNumber = false,
                 NowNumber = 10,
-                Unit = 0.01f
+                Unit = 0.005f
             };
             
 
@@ -2659,15 +2530,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             nstZaiNan.NowNumber = Session.globalVariablesTemp.zainanfashengjilv;
 
             //人物
-            
-            btConfigList2.FirstOrDefault(bt => bt.ID == "YiBanRenWu").Selected = (bool)Session.globalVariablesTemp.CommonPersonAvailable;
-
-            btConfigList2.FirstOrDefault(bt => bt.ID == "FuJiaRenWu").Selected = (bool)Session.globalVariablesTemp.AdditionalPersonAvailable;
-
-            btConfigList2.FirstOrDefault(bt => bt.ID == "WanJiaRenWu").Selected = (bool)Session.globalVariablesTemp.PlayerPersonAvailable;
-
-            btConfigList2.FirstOrDefault(bt => bt.ID == "ZiNvZhongCheng").Selected = (bool)Session.globalVariablesTemp.lockChildrenLoyalty;
-
+ 
             btConfigList2.FirstOrDefault(bt => bt.ID == "XuNiShangXian").Selected = (bool)Session.globalVariablesTemp.createChildrenIgnoreLimit;
 
             btConfigList2.FirstOrDefault(bt => bt.ID == "WuJiangGuanXi").Selected = (bool)Session.globalVariablesTemp.EnablePersonRelations;
@@ -2683,18 +2546,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             nstExperienceUp.NowNumber = Session.parametersTemp.AbilityExperienceRate;
 
             nstTreasureDiscover.NowNumber = Session.parametersTemp.FindTreasureChance;
-
-            nstSkill1Time1.NowNumber = Session.parametersTemp.LearnSkillDays;
-
-            nstSkill1Time2.NowNumber = Session.parametersTemp.LearnSkillSuccessRate;
-
-            nstSkill2Time1.NowNumber = Session.parametersTemp.LearnStuntDays;
-
-            nstSkill2Time2.NowNumber = Session.parametersTemp.LearnStuntSuccessRate;
-
-            nstSkill3Time1.NowNumber = Session.parametersTemp.LearnTitleDays;
-
-            nstSkill3Time2.NowNumber = Session.parametersTemp.LearnTitleSuccessRate;
 
             nstFollowAttachPlus.NowNumber = Session.parametersTemp.FollowedLeaderOffenceRateIncrement;
 
@@ -3091,7 +2942,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     btConfigList2.ForEach(bt => bt.Update());                   
 
-                    var nsts = new NumericSetTextureF[] { nstMaxExperience, nstMaxSkill, nstPiLeiUp, nstPiLeiDown, nstExperienceUp, nstTreasureDiscover, nstSkill1Time1, nstSkill1Time2, nstSkill2Time1, nstSkill2Time2, nstSkill3Time1, nstSkill3Time2,
+                    var nsts = new NumericSetTextureF[] { nstMaxExperience, nstMaxSkill, nstPiLeiUp, nstPiLeiDown, nstExperienceUp, nstTreasureDiscover,
     nstFollowAttachPlus, nstFollowDefencePlus, nstSearchTime, nstGeneralChildsMax, nstGeneralChildsAppear, nstGeneralChildsSkill, nstChildsSkill, nstForbiddenDays };
 
                     foreach (var nst in nsts)
@@ -3144,36 +2995,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     if (Session.parametersTemp.FindTreasureChance != (int)nstTreasureDiscover.NowNumber)
                     {
                         Session.parametersTemp.FindTreasureChance = (int)nstTreasureDiscover.NowNumber;
-                    }
-
-                    if (Session.parametersTemp.LearnSkillDays != (int)nstSkill1Time1.NowNumber)
-                    {
-                        Session.parametersTemp.LearnSkillDays = (int)nstSkill1Time1.NowNumber;
-                    }
-
-                    if (Session.parametersTemp.LearnSkillSuccessRate != (int)nstSkill1Time2.NowNumber)
-                    {
-                        Session.parametersTemp.LearnSkillSuccessRate = (int)nstSkill1Time2.NowNumber;
-                    }
-
-                    if (Session.parametersTemp.LearnStuntDays != (int)nstSkill2Time1.NowNumber)
-                    {
-                        Session.parametersTemp.LearnStuntDays = (int)nstSkill2Time1.NowNumber;
-                    }
-
-                    if (Session.parametersTemp.LearnStuntSuccessRate != (int)nstSkill2Time2.NowNumber)
-                    {
-                        Session.parametersTemp.LearnStuntSuccessRate = (int)nstSkill2Time2.NowNumber;
-                    }
-
-                    if (Session.parametersTemp.LearnTitleDays != (int)nstSkill3Time1.NowNumber)
-                    {
-                        Session.parametersTemp.LearnTitleDays = (int)nstSkill3Time1.NowNumber;
-                    }
-
-                    if (Session.parametersTemp.LearnTitleSuccessRate != (int)nstSkill3Time2.NowNumber)
-                    {
-                        Session.parametersTemp.LearnTitleSuccessRate = (int)nstSkill3Time2.NowNumber;
                     }
 
                     if (Session.parametersTemp.FollowedLeaderOffenceRateIncrement != (int)nstFollowAttachPlus.NowNumber)
@@ -3855,7 +3676,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     btConfigList2.ForEach(bt => bt.Draw());
                     
-                    var nsts = new NumericSetTextureF[] { nstMaxExperience, nstMaxSkill, nstPiLeiUp, nstPiLeiDown, nstExperienceUp, nstTreasureDiscover, nstSkill1Time1, nstSkill1Time2, nstSkill2Time1, nstSkill2Time2, nstSkill3Time1, nstSkill3Time2,
+                    var nsts = new NumericSetTextureF[] { nstMaxExperience, nstMaxSkill, nstPiLeiUp, nstPiLeiDown, nstExperienceUp, nstTreasureDiscover,
     nstFollowAttachPlus, nstFollowDefencePlus, nstSearchTime, nstGeneralChildsMax, nstGeneralChildsAppear, nstGeneralChildsSkill, nstChildsSkill, nstForbiddenDays };
 
                     foreach (var nst in nsts)
@@ -3864,14 +3685,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
 
                     left2 = 50 + 470;
-
-                    CacheManager.DrawString(Session.Current.Font, "一般人物登场", new Vector2(left1, heightBase), Color.Black * alpha);
-
-                    CacheManager.DrawString(Session.Current.Font, "附加人物登场(8000-8999)", new Vector2(left1, heightBase + height * 0.5f), Color.Black * alpha);
-
-                    CacheManager.DrawString(Session.Current.Font, "玩家人物登场(9000-9999)", new Vector2(left1, heightBase + height * 1f), Color.Black * alpha);
-
-                    CacheManager.DrawString(Session.Current.Font, "生下的子女绝对忠诚", new Vector2(left1, heightBase + height * 1.5f), Color.Black * alpha);
 
                     CacheManager.DrawString(Session.Current.Font, "虚拟子嗣能力可超越上限", new Vector2(left1, heightBase + height * 2.0f), Color.Black * alpha);
 
@@ -3888,18 +3701,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     CacheManager.DrawString(Session.Current.Font, "经验增长率", new Vector2(left1 - 60, heightBase + height * 5.0f), Color.Black * alpha);
 
                     CacheManager.DrawString(Session.Current.Font, "宝物发现概率", new Vector2(left1 - 60, heightBase + height * 5.5f), Color.Black * alpha);
-
-                    CacheManager.DrawString(Session.Current.Font, "修习技能时间", new Vector2(left2, heightBase), Color.Black * alpha);
-
-                    CacheManager.DrawString(Session.Current.Font, "成功率", new Vector2(left2 + 405, heightBase), Color.Black * alpha);
-
-                    CacheManager.DrawString(Session.Current.Font, "修习特技时间", new Vector2(left2, heightBase + height * 0.5f), Color.Black * alpha);
-
-                    CacheManager.DrawString(Session.Current.Font, "成功率", new Vector2(left2 + 405, heightBase + height * 0.5f), Color.Black * alpha);
-
-                    CacheManager.DrawString(Session.Current.Font, "修习称号时间", new Vector2(left2, heightBase + height * 1.0f), Color.Black * alpha);
-
-                    CacheManager.DrawString(Session.Current.Font, "成功率", new Vector2(left2 + 405, heightBase + height * 1.0f), Color.Black * alpha);
 
                     CacheManager.DrawString(Session.Current.Font, "追随将领攻击力加成", new Vector2(left2, heightBase + height * 1.5f), Color.Black * alpha);
 

@@ -9,11 +9,98 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace WorldOfTheThreeKingdomsEditor
 {
-    public partial class MainWindow
+    public class PersonTab
     {
+        class ItemOrderComparer : IComparer<String>
+        {
+            String[] rawItemOrder =
+            {
+                "ID",
+                "Available",
+                "Alive",
+                "SurName",
+                "GivenName",
+                "CalledName",
+                "Sex",
+                "PictureIndex",
+                "Ideal",
+                "IdealTendencyIDString",
+                "LeaderPossibility",
+                "PCharacter",
+                "YearAvailable",
+                "YearBorn",
+                "YearDead",
+                "YearJoin",
+                "DeadReason",
+                "BaseStrength",
+                "BaseCommand",
+                "BaseIntelligence",
+                "BasePolitics",
+                "BaseGlamour",
+                "Reputation",
+                "Braveness",
+                "Calmness",
+                "SkillsString",
+                "RealTitlesString",
+                "StudyingTitleString",
+                "StuntsString",
+                "StudyingStuntString",
+                "UniqueTitlesString",
+                "UniqueMilitaryKindsString",
+                "Strain",
+                "huaiyun",
+                "faxianhuaiyun",
+                "huaiyuntianshu",
+                "shoshurenwu",
+                "suoshurenwuList",
+                "MarriageGranter",
+                "TempLoyaltyChange",
+                "BornRegion",
+                "AvailableLocation",
+                "PersonalLoyalty",
+                "Ambition",
+                "Qualification",
+                "ValuationOnGovernment",
+                "StrategyTendency",
+                "OldFactionID",
+                "ProhibitedFactionID",
+                "IsGeneratedChildren",
+                "CommandPotential",
+                "StrengthPotential",
+                "IntelligencePotential",
+                "GlamourPotential",
+                "TrainPolicy"
+            };
+
+            Dictionary<String, int> order;
+            public int Compare(string x, string y)
+            {
+                if (order == null)
+                {
+                    order = new Dictionary<string, int>();
+                    int i = 0;
+                    foreach (String s in rawItemOrder)
+                    {
+                        order.Add(s, i);
+                        i++;
+                    }
+                }
+                int xi, yi;
+                if (!order.TryGetValue(x, out xi))
+                {
+                    xi = int.MaxValue;
+                }
+                if (!order.TryGetValue(y, out yi))
+                {
+                    yi = int.MaxValue;
+                }
+                return xi - yi;
+            }
+        }
 
         private FieldInfo[] getFieldInfos()
         {
@@ -27,32 +114,47 @@ namespace WorldOfTheThreeKingdomsEditor
             return person.GetType().GetProperties().Where(x => Attribute.IsDefined(x, typeof(DataMemberAttribute))).ToArray();
         }
 
-        private void setupPersons()
+        private GameScenario scen;
+        private DataGrid dg;
+
+        public PersonTab(GameScenario scen, DataGrid dg)
+        {
+            this.scen = scen;
+            this.dg = dg;
+        }
+
+        public void setup()
         {
             DataTable dtPersons = new DataTable("Person");
-
-            DataColumn dc = new DataColumn();
-            dc.DataType = typeof(int);
-            dc.ColumnName = "id";
-            dc.ReadOnly = true;
-            dtPersons.Columns.Add(dc);
 
             FieldInfo[] fields = getFieldInfos();
             PropertyInfo[] properties = getPropertyInfos();
 
-            foreach (FieldInfo i in fields)
+            MemberInfo[] items = new MemberInfo[fields.Length + properties.Length];
+            items = items.Union(fields).Union(properties).OrderBy(x => x == null ? "" : x.Name, new ItemOrderComparer()).ToArray();
+ 
+            foreach (MemberInfo i in items)
             {
-                dtPersons.Columns.Add(i.Name, i.FieldType);
-            }
-            foreach (PropertyInfo i in properties)
-            {
-                if (i.PropertyType.Name == "Nullable`1")
+                if (i == null) continue;
+
+                String name = i.Name;
+                Type type;
+                if (i is FieldInfo)
                 {
-                    dtPersons.Columns.Add(i.Name, i.PropertyType.GenericTypeArguments[0]);
+                    type = ((FieldInfo)i).FieldType;
                 }
                 else
                 {
-                    dtPersons.Columns.Add(i.Name, i.PropertyType);
+                    type = ((PropertyInfo)i).PropertyType;
+                }
+
+                if (type.Name == "Nullable`1")
+                {
+                    dtPersons.Columns.Add(name, type.GenericTypeArguments[0]);
+                }
+                else
+                {
+                    dtPersons.Columns.Add(name, type);
                 }
             }
             
@@ -73,7 +175,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 dtPersons.Rows.Add(row);
             }
 
-            dgPerson.ItemsSource = dtPersons.AsDataView();
+            dg.ItemsSource = dtPersons.AsDataView();
 
             dtPersons.TableNewRow += DtPersons_TableNewRow;
             dtPersons.RowChanged += DtPersons_RowChanged;

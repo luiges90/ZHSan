@@ -153,6 +153,8 @@ namespace GameObjects
             ReputationDecrease = new List<KeyValuePair<int, int>>();
             ReputationIncrease = new List<KeyValuePair<int, int>>();
             LoseSkill = new List<KeyValuePair<int, int>>();
+
+            maxExperience = Session.GlobalVariables.maxExperience;
         }
         
         public int ChanceOfNoCapture;

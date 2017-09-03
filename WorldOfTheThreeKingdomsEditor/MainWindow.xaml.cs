@@ -35,7 +35,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void populateTables()
         {
-            setupPersons();
+            new PersonTab(scen, dgPerson).setup();
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)
