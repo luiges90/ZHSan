@@ -102,16 +102,35 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
+        private Type[] supportedTypes = new Type[]
+        {
+            typeof(bool),
+            typeof(byte),
+            typeof(short),
+            typeof(int), 
+            typeof(long),
+            typeof(float),
+            typeof(double),
+            typeof(char),
+            typeof(string)
+        };
+
         private FieldInfo[] getFieldInfos()
         {
             Person person = new Person();
-            return person.GetType().GetFields().Where(x => Attribute.IsDefined(x, typeof(DataMemberAttribute))).ToArray();
+            return person.GetType().GetFields()
+                .Where(x => Attribute.IsDefined(x, typeof(DataMemberAttribute)))
+                .Where(x => supportedTypes.Contains(x.FieldType))
+                .ToArray();
         }
 
         private PropertyInfo[] getPropertyInfos()
         {
             Person person = new Person();
-            return person.GetType().GetProperties().Where(x => Attribute.IsDefined(x, typeof(DataMemberAttribute))).ToArray();
+            return person.GetType().GetProperties()
+                .Where(x => Attribute.IsDefined(x, typeof(DataMemberAttribute)))
+                .Where(x => supportedTypes.Contains(x.PropertyType))
+                .ToArray();
         }
 
         private GameScenario scen;
@@ -161,7 +180,6 @@ namespace WorldOfTheThreeKingdomsEditor
             foreach (Person p in scen.Persons)
             {
                 DataRow row = dtPersons.NewRow();
-                row["id"] = p.ID;
 
                 foreach (FieldInfo i in fields)
                 {

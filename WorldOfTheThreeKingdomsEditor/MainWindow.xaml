@@ -9,20 +9,40 @@
     <Grid>
         <Button x:Name="btnLoad" Content="讀取劇本" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="btnLoad_Click"/>
         <TabControl HorizontalAlignment="Left" Height="525" Margin="10,34,0,0" VerticalAlignment="Top" Width="932">
-            <TabItem Header="武將">
+            <TabItem Header="武將" Margin="0">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="dgPerson" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="父親">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgFatherId" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="母親">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgMotherId" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="配偶">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgSpouseId" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="義兄">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgBrotherId" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             <TabItem Header="建築">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="勢力" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="59">
+            <TabItem Header="勢力">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
         <Button x:Name="btnSave" Content="保存劇本" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
-        <Label x:Name="lblFilename" Content="請讀取劇本檔案" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="772" Height="24"/>
+        <Label x:Name="lblFilename" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="772" Height="24"/>
 
     </Grid>
 </Window>

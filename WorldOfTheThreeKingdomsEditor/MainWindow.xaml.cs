@@ -36,6 +36,10 @@ namespace WorldOfTheThreeKingdomsEditor
         private void populateTables()
         {
             new PersonTab(scen, dgPerson).setup();
+            new DictionaryTab<int, int>(scen.FatherIds, "FatherIds", dgFatherId).setup();
+            new DictionaryTab<int, int>(scen.MotherIds, "MotherIds", dgMotherId).setup();
+            new DictionaryTab<int, int>(scen.SpouseIds, "SpouseIds", dgSpouseId).setup();
+            new DictionaryTab<int, int[]>(scen.BrotherIds, "BrotherIds", dgBrotherId).setup();
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)
@@ -57,7 +61,7 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 String filename = openFileDialog.FileName;
 
-                scen = WorldOfTheThreeKingdoms.GameScreens.MainGameScreen.LoadScenarioData(filename, true, null);
+                scen = WorldOfTheThreeKingdoms.GameScreens.MainGameScreen.LoadScenarioData(filename, true, null, true);
 
                 populateTables();
                 lblFilename.Content = filename;
@@ -73,7 +77,7 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 String filename = saveFileDialog.FileName;
                 
-                scen.SaveGameScenario(filename, true, true, false, false, true);
+                scen.SaveGameScenario(filename, true, true, false, false, true, true);
 
                 MessageBox.Show("劇本已儲存為" + filename);
             }

@@ -2863,7 +2863,7 @@ namespace GameObjects
             return commonData;
         }
 
-        public List<string> ProcessScenarioData(bool fromScenario)  //读剧本和读存档都调用了此函数
+        public List<string> ProcessScenarioData(bool fromScenario, bool editing = false)  //读剧本和读存档都调用了此函数
         {
             List<string> errorMsg = new List<string>();
 
@@ -3677,7 +3677,10 @@ namespace GameObjects
                 }
             }
 
-            ClearTempDic();
+            if (!editing)
+            {
+                ClearTempDic();
+            }
 
             this.YearTable.Init();
             //this.YearTable = new YearTable();
@@ -4449,7 +4452,7 @@ namespace GameObjects
             }
         }
 
-        public bool SaveGameScenario(string LoadedFileName, bool saveMap, bool saveCommonData, bool saveSettings, bool disposeMemory = true, bool fullPathProvided = false)
+        public bool SaveGameScenario(string LoadedFileName, bool saveMap, bool saveCommonData, bool saveSettings, bool disposeMemory = true, bool fullPathProvided = false, bool editing = false)
         {
             this.GameTime += (int)DateTime.Now.Subtract(sessionStartTime).TotalSeconds;
 
@@ -4634,7 +4637,10 @@ namespace GameObjects
                 captive.RansomArchitectureID = (captive.RansomArchitecture != null) ? captive.RansomArchitecture.ID : -1;
             }
 
-            ClearTempDic();
+            if (!editing)
+            {
+                ClearTempDic();
+            }
 
             foreach (Person person in this.Persons)
             {
@@ -4650,104 +4656,107 @@ namespace GameObjects
                 //row["Calmness"] = person.BaseCalmness;
                 //row["Loyalty"] = person.Loyalty;
 
-                FatherIds[person.ID] = person.Father == null ? -1 : person.Father.ID;
-                MotherIds[person.ID] = person.Mother == null ? -1 : person.Mother.ID;
-                SpouseIds[person.ID] = person.Spouse == null ? -1 : person.Spouse.ID;
-
-                String brotherStr = "";
-                foreach (Person p in person.Brothers)
+                if (!editing)
                 {
-                    brotherStr += p.ID + " ";
-                }
+                    FatherIds[person.ID] = person.Father == null ? -1 : person.Father.ID;
+                    MotherIds[person.ID] = person.Mother == null ? -1 : person.Mother.ID;
+                    SpouseIds[person.ID] = person.Spouse == null ? -1 : person.Spouse.ID;
 
-                String str;
-                char[] separator = separator = new char[] { ' ', '\n', '\r', '\t' };
-                String[] strArray;
-                int[] intArray;
-                try
-                {
-                    str = brotherStr;
-                    strArray = str.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-                    intArray = new int[strArray.Length];
-                    for (int i = 0; i < strArray.Length; i++)
+                    String brotherStr = "";
+                    foreach (Person p in person.Brothers)
                     {
-                        intArray[i] = int.Parse(strArray[i]);
+                        brotherStr += p.ID + " ";
                     }
-                    BrotherIds.Add(person.ID, intArray);
-                }
-                catch
-                {
-                    errors.Add("义兄弟一栏应为半型空格分隔的人物ID");
-                }
 
-                String suoshuStr = "";
-                foreach (Person p in person.suoshurenwuList)
-                {
-                    suoshuStr += p.ID + " ";
-                }
-
-                if (suoshuStr != null)
-                {
+                    String str;
+                    char[] separator = separator = new char[] { ' ', '\n', '\r', '\t' };
+                    String[] strArray;
+                    int[] intArray;
                     try
                     {
-                        strArray = suoshuStr.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+                        str = brotherStr;
+                        strArray = str.Split(separator, StringSplitOptions.RemoveEmptyEntries);
                         intArray = new int[strArray.Length];
                         for (int i = 0; i < strArray.Length; i++)
                         {
                             intArray[i] = int.Parse(strArray[i]);
                         }
-                        SuoshuIds.Add(person.ID, intArray);
+                        BrotherIds.Add(person.ID, intArray);
                     }
                     catch
                     {
-                        errors.Add("所属人物表一栏应为半型空格分隔的人物ID");
+                        errors.Add("义兄弟一栏应为半型空格分隔的人物ID");
                     }
-                }
 
-                String closeStr = "";
-                String hatedStr = "";
-                foreach (Person p in person.GetClosePersons())
-                {
-                    closeStr += p.ID + " ";
-                }
-                foreach (Person p in person.GetHatedPersons())
-                {
-                    hatedStr += p.ID + " ";
-                }
-
-                try
-                {
-                    str = closeStr;
-                    strArray = str.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-                    intArray = new int[strArray.Length];
-                    for (int i = 0; i < strArray.Length; i++)
+                    String suoshuStr = "";
+                    foreach (Person p in person.suoshurenwuList)
                     {
-                        intArray[i] = int.Parse(strArray[i]);
+                        suoshuStr += p.ID + " ";
                     }
-                    CloseIds.Add(person.ID, intArray);
-                }
-                catch
-                {
-                    errors.Add("亲爱武将一栏应为半型空格分隔的人物ID");
-                }
 
-                try
-                {
-                    str = hatedStr;
-                    strArray = str.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-                    intArray = new int[strArray.Length];
-                    for (int i = 0; i < strArray.Length; i++)
+                    if (suoshuStr != null)
                     {
-                        intArray[i] = int.Parse(strArray[i]);
+                        try
+                        {
+                            strArray = suoshuStr.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+                            intArray = new int[strArray.Length];
+                            for (int i = 0; i < strArray.Length; i++)
+                            {
+                                intArray[i] = int.Parse(strArray[i]);
+                            }
+                            SuoshuIds.Add(person.ID, intArray);
+                        }
+                        catch
+                        {
+                            errors.Add("所属人物表一栏应为半型空格分隔的人物ID");
+                        }
                     }
-                    HatedIds.Add(person.ID, intArray);
-                }
-                catch
-                {
-                    errors.Add("厌恶武将一栏应为半型空格分隔的人物ID");
-                }
 
-                MarriageGranterId.Add(person.ID, person.marriageGranter != null ? person.marriageGranter.ID : -1);
+                    String closeStr = "";
+                    String hatedStr = "";
+                    foreach (Person p in person.GetClosePersons())
+                    {
+                        closeStr += p.ID + " ";
+                    }
+                    foreach (Person p in person.GetHatedPersons())
+                    {
+                        hatedStr += p.ID + " ";
+                    }
+
+                    try
+                    {
+                        str = closeStr;
+                        strArray = str.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+                        intArray = new int[strArray.Length];
+                        for (int i = 0; i < strArray.Length; i++)
+                        {
+                            intArray[i] = int.Parse(strArray[i]);
+                        }
+                        CloseIds.Add(person.ID, intArray);
+                    }
+                    catch
+                    {
+                        errors.Add("亲爱武将一栏应为半型空格分隔的人物ID");
+                    }
+
+                    try
+                    {
+                        str = hatedStr;
+                        strArray = str.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+                        intArray = new int[strArray.Length];
+                        for (int i = 0; i < strArray.Length; i++)
+                        {
+                            intArray[i] = int.Parse(strArray[i]);
+                        }
+                        HatedIds.Add(person.ID, intArray);
+                    }
+                    catch
+                    {
+                        errors.Add("厌恶武将一栏应为半型空格分隔的人物ID");
+                    }
+
+                    MarriageGranterId.Add(person.ID, person.marriageGranter != null ? person.marriageGranter.ID : -1);
+                }
 
                 //row["TrainingMilitaryID"] = -1;
                 //row["RecruitmentMilitaryID"] = person.RecruitmentMilitary == null ? -1 : person.RecruitmentMilitary.ID;

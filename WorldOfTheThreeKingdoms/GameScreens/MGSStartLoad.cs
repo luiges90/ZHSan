@@ -429,7 +429,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             //thread = null;
         }
 
-        public static GameScenario LoadScenarioData(string scenarioName, bool fromScenario, MainGameScreen mainGameScreen)
+        public static GameScenario LoadScenarioData(string scenarioName, bool fromScenario, MainGameScreen mainGameScreen, bool editing = false)
         {
             //Stopwatch stopwatch = new Stopwatch();
             //stopwatch.Start();
@@ -661,7 +661,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             
             Session.Current.Scenario = scenario;
 
-            scenario.ProcessScenarioData(fromScenario);
+            scenario.ProcessScenarioData(fromScenario, editing);
 
             return scenario;
         }
