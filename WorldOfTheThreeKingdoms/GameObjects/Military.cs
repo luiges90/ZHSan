@@ -44,8 +44,6 @@ namespace GameObjects
 
         public void Init()
         {
-            startingArchitectureID = -1;
-            targetArchitectureID = -1;
         }
 
         [DataMember]
