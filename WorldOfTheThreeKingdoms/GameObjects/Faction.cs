@@ -2780,11 +2780,13 @@ namespace GameObjects
             {
                 if (!person2.Available)
                 {
-                    bool wasGeneratedChildren = person2.IsGeneratedChildren;
-                    person2.BeAvailable();
-                    person2.IsGeneratedChildren = wasGeneratedChildren;
+                    person2.Available = true;
+                    Session.Current.Scenario.AvailablePersons.Add(person2);
                     person2.LocationArchitecture = this.Capital;
                     person2.Status = PersonStatus.Normal;
+                    person2.YearJoin = Session.Current.Scenario.Date.Year;
+                    Session.MainGame.mainGameScreen.xianshishijiantupian(person2, this.Capital.Name, TextMessageKind.PersonJoin, "PersonJoin", "", "", this.Name, false);
+                    Session.Current.Scenario.YearTable.addGrownBecomeAvailableEntry(Session.Current.Scenario.Date, person2);
                 }
                 this.Leader = person2;
                 if (!((this.Leader.LocationTroop == null) || this.Leader.IsCaptive))
@@ -2864,10 +2866,6 @@ namespace GameObjects
 
         public void DayEvent()
         {
-            if (!this.Leader.Alive || !this.Leader.Available || this.Leader.BelongedFaction != this)
-            {
-                ChangeLeaderAfterLeaderDeath();
-            }
            // this.SpyMessageCloseList.Clear();
             this.TechniquesDayEvent();
             this.InformationDayEvent();
