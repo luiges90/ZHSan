@@ -17,6 +17,7 @@ namespace GameObjects
     [KnownType(typeof(AttackTargetKind))]
     [KnownType(typeof(CastDefaultKind))]
     [KnownType(typeof(CastTargetKind))]
+    [KnownType(typeof(Captive))]
     [KnownType(typeof(IdealTendencyKind))]
     [KnownType(typeof(InformationKind))]
     [KnownType(typeof(PersonGeneratorType))]

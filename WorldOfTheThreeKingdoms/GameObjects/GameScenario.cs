@@ -578,6 +578,9 @@ namespace GameObjects
             DominationPLCache = MoralePLCache = EndurancePLCache = TrainingPLCache = null;
         }
 
+        [DataMember]
+        private CaptiveList captiveData = new CaptiveList();
+
         public CaptiveList Captives
         {
             get
@@ -3167,21 +3170,24 @@ namespace GameObjects
                 }
             }
 
-            foreach (Captive captive in this.Captives)
+            if (this.captiveData != null)
             {
-                captive.CaptivePerson = this.Persons.GetGameObject(captive.CaptivePersonID) as Person;
-                if (captive.CaptivePerson == null)
+                foreach (Captive captive in this.captiveData)
                 {
-                    errorMsg.Add("俘虏ID" + captive.ID + "：武将ID" + captive.CaptivePersonID + "不存在");
-                    continue;
-                }
-                else
-                {
-                    captive.CaptivePerson.SetBelongedCaptive(captive, PersonStatus.Captive);
+                    captive.CaptivePerson = this.Persons.GetGameObject(captive.CaptivePersonID) as Person;
+                    if (captive.CaptivePerson == null)
+                    {
+                        errorMsg.Add("俘虏ID" + captive.ID + "：武将ID" + captive.CaptivePersonID + "不存在");
+                        continue;
+                    }
+                    else
+                    {
+                        captive.CaptivePerson.SetBelongedCaptive(captive, PersonStatus.Captive);
 
-                    captive.CaptivePerson.Status = PersonStatus.Captive;
-                }
+                        captive.CaptivePerson.Status = PersonStatus.Captive;
+                    }
 
+                }
             }
 
             this.Captives.BindEvents();
@@ -4777,6 +4783,8 @@ namespace GameObjects
                 person.TrainPolicyIDString = person.TrainPolicy == null ? -1 : person.TrainPolicy.ID;
 
             }
+
+            captiveData = this.Captives;
 
             PersonRelationIds.Clear();
 
