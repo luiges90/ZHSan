@@ -807,7 +807,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btConfigList2 = new List<ButtonTexture>();
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 2.0f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 0f))
             {
                 ID = "XuNiShangXian"
             };
@@ -827,7 +827,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList2.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 2.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 0.5f))
             {
                 ID = "WuJiangGuanXi"
             };
@@ -847,7 +847,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList2.Add(btOne);
 
-            nstMaxExperience = new NumericSetTextureF(1, 300000, 300000, null, new Vector2(left1 + 200, heightBase + height * 3f), true)
+            nstMaxExperience = new NumericSetTextureF(1, 300000, 300000, null, new Vector2(left1 + 200, heightBase + height * 1f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -855,7 +855,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1000
             };
 
-            nstMaxSkill = new NumericSetTextureF(1, 400, 400, null, new Vector2(left1 + 200, heightBase + height * 3.5f), true)
+            nstMaxSkill = new NumericSetTextureF(1, 400, 400, null, new Vector2(left1 + 200, heightBase + height * 1.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -863,7 +863,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstPiLeiUp = new NumericSetTextureF(0, 10, 10, null, new Vector2(left1 + 200, heightBase + height * 4f), true)
+            nstPiLeiUp = new NumericSetTextureF(0, 10, 10, null, new Vector2(left1 + 200, heightBase + height * 2f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -871,7 +871,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstPiLeiDown = new NumericSetTextureF(0, 10, 10, null, new Vector2(left1 + 200, heightBase + height * 4.5f), true)
+            nstPiLeiDown = new NumericSetTextureF(0, 10, 10, null, new Vector2(left1 + 200, heightBase + height * 2.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -879,7 +879,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstExperienceUp = new NumericSetTextureF(0, 3, 3, null, new Vector2(left1 + 200, heightBase + height * 5f), true)
+            nstExperienceUp = new NumericSetTextureF(0, 3, 3, null, new Vector2(left1 + 200, heightBase + height * 3f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -887,7 +887,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstTreasureDiscover = new NumericSetTextureF(0, 100, 100, null, new Vector2(left1 + 200, heightBase + height * 5.5f), true)
+            nstTreasureDiscover = new NumericSetTextureF(0, 100, 100, null, new Vector2(left1 + 200, heightBase + height * 3.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -895,7 +895,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
             
-            nstFollowAttachPlus = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + 200, heightBase + height * 1.5f), true)
+            nstFollowAttachPlus = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + 200, heightBase + height * 0f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -903,7 +903,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstFollowDefencePlus = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + 200, heightBase + height * 2f), true)
+            nstFollowDefencePlus = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + 200, heightBase + height * 0.5f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -911,7 +911,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstSearchTime = new NumericSetTextureF(1, 30, 30, null, new Vector2(left2 + 200, heightBase + height * 2.5f), true)
+            nstSearchTime = new NumericSetTextureF(1, 30, 30, null, new Vector2(left2 + 200, heightBase + height * 1f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -919,7 +919,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralChildsMax = new NumericSetTextureF(1, 300, 300, null, new Vector2(left2 + 200, heightBase + height * 3f), true)
+            nstGeneralChildsMax = new NumericSetTextureF(1, 300, 300, null, new Vector2(left2 + 200, heightBase + height * 1.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -927,7 +927,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralChildsAppear = new NumericSetTextureF(1, 30, 30, null, new Vector2(left2 + 200, heightBase + height * 3.5f), true)
+            nstGeneralChildsAppear = new NumericSetTextureF(1, 30, 30, null, new Vector2(left2 + 200, heightBase + height * 2f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -935,7 +935,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralChildsSkill = new NumericSetTextureF(0, 3, 3, null, new Vector2(left2 + 200, heightBase + height * 4f), true)
+            nstGeneralChildsSkill = new NumericSetTextureF(0, 3, 3, null, new Vector2(left2 + 200, heightBase + height * 2.5f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -943,7 +943,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstChildsSkill = new NumericSetTextureF(0, 3, 3, null, new Vector2(left2 + 200, heightBase + height * 4.5f), true)
+            nstChildsSkill = new NumericSetTextureF(0, 3, 3, null, new Vector2(left2 + 200, heightBase + height * 3f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -951,7 +951,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstForbiddenDays = new NumericSetTextureF(0, 3, 3, null, new Vector2(left2 + 200, heightBase + height * 5f), true)
+            nstForbiddenDays = new NumericSetTextureF(0, 3, 3, null, new Vector2(left2 + 200, heightBase + height * 3.5f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -3686,37 +3686,37 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     left2 = 50 + 470;
 
-                    CacheManager.DrawString(Session.Current.Font, "虚拟子嗣能力可超越上限", new Vector2(left1, heightBase + height * 2.0f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "虚拟子嗣能力可超越上限", new Vector2(left1, heightBase + height * 0f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "武将关系会随游戏调整", new Vector2(left1, heightBase + height * 2.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "武将关系会随游戏调整", new Vector2(left1, heightBase + height * 0.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "最大经验", new Vector2(left1 - 60, heightBase + height * 3f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "最大经验", new Vector2(left1 - 60, heightBase + height * 1f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "最大能力", new Vector2(left1 - 60, heightBase + height * 3.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "最大能力", new Vector2(left1 - 60, heightBase + height * 1.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "疲累度增长", new Vector2(left1 - 60, heightBase + height * 4f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "疲累度增长", new Vector2(left1 - 60, heightBase + height * 2f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "疲累度下降", new Vector2(left1 - 60, heightBase + height * 4.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "疲累度下降", new Vector2(left1 - 60, heightBase + height * 2.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "经验增长率", new Vector2(left1 - 60, heightBase + height * 5.0f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "经验增长率", new Vector2(left1 - 60, heightBase + height * 3.0f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "宝物发现概率", new Vector2(left1 - 60, heightBase + height * 5.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "宝物发现概率", new Vector2(left1 - 60, heightBase + height * 3.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "追随将领攻击力加成", new Vector2(left2, heightBase + height * 1.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "追随将领攻击力加成", new Vector2(left2, heightBase + height * 0f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "追随将领防御力加成", new Vector2(left2, heightBase + height * 2.0f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "追随将领防御力加成", new Vector2(left2, heightBase + height * 0.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "搜索时间", new Vector2(left2, heightBase + height * 2.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "搜索时间", new Vector2(left2, heightBase + height * 1f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "武将子女上限", new Vector2(left2, heightBase + height * 3f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "武将子女上限", new Vector2(left2, heightBase + height * 1.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "子女登场年龄", new Vector2(left2, heightBase + height * 3.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "子女登场年龄", new Vector2(left2, heightBase + height * 2f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "生成武将能力乘数", new Vector2(left2, heightBase + height * 4f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "生成武将能力乘数", new Vector2(left2, heightBase + height * 2.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "生成子女能力乘数", new Vector2(left2, heightBase + height * 4.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "生成子女能力乘数", new Vector2(left2, heightBase + height * 3f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "禁仕天数乘数", new Vector2(left2, heightBase + height * 5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "禁仕天数乘数", new Vector2(left2, heightBase + height * 3.5f), Color.Black * alpha);
 
                 }
                 else if (CurrentSetting == "参数")
