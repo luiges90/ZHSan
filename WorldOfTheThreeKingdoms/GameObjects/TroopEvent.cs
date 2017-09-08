@@ -68,8 +68,6 @@ namespace GameObjects
         {
             Conditions = new ConditionTable();
 
-            Dialogs = new List<PersonDialog>();
-
             EffectAreas = new List<TroopEffectArea>();
 
             EffectPersons = new List<TroopEffectPerson>();
