@@ -170,26 +170,29 @@ namespace GameObjects
                         }
                         else
                         {
-                            if (item.MovabilityLeft > 0)
+                            if (!item.Destroyed)
                             {
-                                this.TroopChangeRealDestination(item);
-                                this.TroopMoveThread(item);
-                            }
-
-                            if (item.MovabilityLeft <= 0)
-                            {
-                                if (!item.HasToDoCombatAction && item.ToDoCombatAction())
+                                if (item.MovabilityLeft > 0)
                                 {
-                                    item.HasToDoCombatAction = true;
-                                    this.CurrentQueue.Enqueue(item);
-                                    break;
+                                    this.TroopChangeRealDestination(item);
+                                    this.TroopMoveThread(item);
                                 }
-                                if (item.HasToDoCombatAction)
+
+                                if (item.MovabilityLeft <= 0)
                                 {
-                                    item.HasToDoCombatAction = false;
-                                    item.DoCombatAction();
-                                    this.CurrentQueue.Enqueue(item);
-                                    break;
+                                    if (!item.HasToDoCombatAction && item.ToDoCombatAction())
+                                    {
+                                        item.HasToDoCombatAction = true;
+                                        this.CurrentQueue.Enqueue(item);
+                                        break;
+                                    }
+                                    if (item.HasToDoCombatAction)
+                                    {
+                                        item.HasToDoCombatAction = false;
+                                        item.DoCombatAction();
+                                        this.CurrentQueue.Enqueue(item);
+                                        break;
+                                    }
                                 }
                             }
                         }
