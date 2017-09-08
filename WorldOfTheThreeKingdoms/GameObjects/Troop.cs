@@ -2322,6 +2322,8 @@ namespace GameObjects
         private int cannotFindRouteRounds = 0;
         private bool BuildThreeTierPath(MilitaryKind kind)
         {
+            if (this.Destroyed) return false;
+
             bool path = false;
             if (!this.HasPath)
             {
