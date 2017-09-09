@@ -51,6 +51,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 "StudyingStuntString",
                 "UniqueTitlesString",
                 "UniqueMilitaryKindsString",
+                "Generation",
                 "Strain",
                 "huaiyun",
                 "faxianhuaiyun",
@@ -115,6 +116,20 @@ namespace WorldOfTheThreeKingdomsEditor
             typeof(string)
         };
 
+        private Dictionary<String, String> defaultValues = new Dictionary<string, string>
+        {
+            { "StudyingTitleString", "-1" },
+            { "StudyingStuntString", "-1" },
+            { "huaiyuntianshu", "-1" },
+            { "suoshurenwu", "-1" },
+            { "ConvincingPersonID", "-1" },
+            { "waitForFeiZiPeriod", "30" },
+            { "waitForFeiziId", "-1" },
+            { "InjureRate", "1" },
+            { "Generation", "1" },
+            { "InformationKindID", "-1" }
+        };
+
         private FieldInfo[] getFieldInfos()
         {
             Person person = new Person();
@@ -167,14 +182,27 @@ namespace WorldOfTheThreeKingdomsEditor
                     type = ((PropertyInfo)i).PropertyType;
                 }
 
+                /*
                 if (type.Name == "Nullable`1")
                 {
-                    dtPersons.Columns.Add(name, type.GenericTypeArguments[0]);
-                }
-                else
+                    type = type.GenericTypeArguments[0];
+                }*/
+                String defaultValue;
+                if (!defaultValues.TryGetValue(name, out defaultValue))
                 {
-                    dtPersons.Columns.Add(name, type);
+                    if (type == typeof(string))
+                    {
+                        defaultValue = "";
+                    }
+                    else
+                    {
+                        defaultValue = "0";
+                    }
                 }
+
+                DataColumn col = new DataColumn(name, type);
+                col.DefaultValue = defaultValue;
+                dtPersons.Columns.Add(col);
             }
             
             foreach (Person p in scen.Persons)
