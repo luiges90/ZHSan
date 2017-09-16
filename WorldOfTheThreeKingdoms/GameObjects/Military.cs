@@ -19,6 +19,7 @@ namespace GameObjects
         private int followedLeaderID = -1;
         private int injuryQuantity;
         private MilitaryKind kind;
+        [DataMember]
         private int kindID;
         private Person leader;
         [DataMember]
@@ -702,8 +703,6 @@ namespace GameObjects
             }
         }
 
-
-        [DataMember]
         public int KindID   //小写为真实值，大写转换为运兵船时改变为假值
         {
             get
