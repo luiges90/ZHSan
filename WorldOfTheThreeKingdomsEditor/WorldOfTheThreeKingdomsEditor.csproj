@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FactionTab.cs" />
     <Compile Include="ArchitectureTab.cs" />
     <Compile Include="BaseTab.cs" />
     <Compile Include="DictionaryTab.cs" />

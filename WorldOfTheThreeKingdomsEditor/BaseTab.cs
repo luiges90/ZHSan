@@ -12,7 +12,7 @@ using System.Windows.Controls;
 
 namespace WorldOfTheThreeKingdomsEditor
 {
-    public abstract class BaseTab<T>
+    public abstract class BaseTab<T> where T : GameObject, new()
     {
         class ItemOrderComparer: IComparer<String>
         {
@@ -92,9 +92,11 @@ namespace WorldOfTheThreeKingdomsEditor
 
         protected abstract Dictionary<String, String> GetDefaultValues();
 
+        protected abstract GameObjectList GetDataList(GameScenario scen);
+
         public void setup()
         {
-            DataTable dtPersons = new DataTable(sampleInstance.GetType().Name);
+            DataTable dt = new DataTable(sampleInstance.GetType().Name);
 
             FieldInfo[] fields = getFieldInfos();
             PropertyInfo[] properties = getPropertyInfos();
@@ -137,12 +139,12 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 DataColumn col = new DataColumn(name, type);
                 col.DefaultValue = defaultValue;
-                dtPersons.Columns.Add(col);
+                dt.Columns.Add(col);
             }
 
-            foreach (Person p in scen.Persons)
+            foreach (T p in GetDataList(scen))
             {
-                DataRow row = dtPersons.NewRow();
+                DataRow row = dt.NewRow();
 
                 foreach (FieldInfo i in fields)
                 {
@@ -153,22 +155,23 @@ namespace WorldOfTheThreeKingdomsEditor
                     row[i.Name] = i.GetValue(p) ?? DBNull.Value;
                 }
 
-                dtPersons.Rows.Add(row);
+                dt.Rows.Add(row);
             }
 
-            dg.ItemsSource = dtPersons.AsDataView();
+            dg.ItemsSource = dt.AsDataView();
 
-            dtPersons.TableNewRow += DtPersons_TableNewRow;
-            dtPersons.RowChanged += DtPersons_RowChanged;
-            dtPersons.RowDeleted += DtPersons_RowDeleted;
+            dt.TableNewRow += Dt_TableNewRow;
+            dt.RowChanged += Dt_RowChanged;
+            dt.RowDeleted += Dt_RowDeleted;
         }
 
-        private void DtPersons_RowDeleted(object sender, DataRowChangeEventArgs e)
+        private void Dt_RowDeleted(object sender, DataRowChangeEventArgs e)
         {
             try
             {
-                Person p = (Person)scen.Persons.GetGameObject((int)e.Row["id"]);
-                scen.Persons.Remove(p);
+                GameObjectList list = (GameObjectList)GetDataList(scen);
+                T p = (T) list.GetGameObject((int)e.Row["id"]);
+                list.Remove(p);
             }
             catch (Exception ex)
             {
@@ -176,11 +179,11 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
-        private void DtPersons_RowChanged(object sender, DataRowChangeEventArgs e)
+        private void Dt_RowChanged(object sender, DataRowChangeEventArgs e)
         {
             try
             {
-                Person p = (Person)scen.Persons.GetGameObject((int)e.Row["id"]);
+                T p = (T)((GameObjectList)GetDataList(scen)).GetGameObject((int)e.Row["id"]);
 
                 FieldInfo[] fields = getFieldInfos();
                 PropertyInfo[] properties = getPropertyInfos();
@@ -200,14 +203,15 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
-        private void DtPersons_TableNewRow(object sender, DataTableNewRowEventArgs e)
+        private void Dt_TableNewRow(object sender, DataTableNewRowEventArgs e)
         {
-            Person p = new Person();
+            T p = Activator.CreateInstance<T>();
 
-            int id = scen.Persons.GetFreeGameObjectID();
+            GameObjectList list = (GameObjectList)GetDataList(scen);
+            int id = list.GetFreeGameObjectID();
             e.Row["id"] = id;
             p.ID = id;
-            scen.Persons.Add(p);
+            list.Add(p);
         }
     }
 }

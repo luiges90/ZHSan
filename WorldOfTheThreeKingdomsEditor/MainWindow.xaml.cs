@@ -39,7 +39,9 @@ namespace WorldOfTheThreeKingdomsEditor
             new DictionaryTab<int, int>(scen.FatherIds, "FatherIds", dgFatherId).setup();
             new DictionaryTab<int, int>(scen.MotherIds, "MotherIds", dgMotherId).setup();
             new DictionaryTab<int, int>(scen.SpouseIds, "SpouseIds", dgSpouseId).setup();
-            new DictionaryTab<int, int[]>(scen.BrotherIds, "BrotherIds", dgBrotherId).setup();
+            // new DictionaryTab<int, int[]>(scen.BrotherIds, "BrotherIds", dgBrotherId).setup();
+            new ArchitectureTab(scen, dgArchitecture).setup();
+            new FactionTab(scen, dgFaction).setup();
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)

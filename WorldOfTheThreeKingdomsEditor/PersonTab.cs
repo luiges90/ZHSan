@@ -95,6 +95,11 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
+        protected override GameObjectList GetDataList(GameScenario scen)
+        {
+            return scen.Persons;
+        }
+
         public PersonTab(GameScenario scen, DataGrid dg)
         {
             init(scen, dg);

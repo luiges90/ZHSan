@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace WorldOfTheThreeKingdomsEditor
 {
-    class ArchitectureTab : BaseTab<Architecture>
+    class FactionTab : BaseTab<Faction>
     {
         protected override Dictionary<string, string> GetDefaultValues()
         {
@@ -27,10 +27,10 @@ namespace WorldOfTheThreeKingdomsEditor
 
         protected override GameObjectList GetDataList(GameScenario scen)
         {
-            return scen.Architectures;
+            return scen.Factions;
         }
 
-        public ArchitectureTab(GameScenario scen, DataGrid dg)
+        public FactionTab(GameScenario scen, DataGrid dg)
         {
             init(scen, dg);
         }
