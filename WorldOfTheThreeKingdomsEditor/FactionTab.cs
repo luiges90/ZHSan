@@ -14,7 +14,9 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             return new Dictionary<string, string>()
             {
-
+                {"CapitalID", "-1"},
+                {"PlanTechnique", "-1"},
+                {"PrinceID", "-1"},
             };
         }
 
@@ -22,6 +24,33 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             return new string[]
             {
+                "ID",
+                "Name",
+                "LeaderID",
+                "PrinceID",
+                "ColorIndex",
+                "FName",
+                "CapitalID",
+                "Reputation",
+                "ArchitecturesString",
+                "BaseMilitaryKindsString",
+                "TechniquePoint",
+                "TechniquePointForTechnique",
+                "TechniquePointForFacility",
+                "SectionsString",
+                "InformationsString",
+                "TroopsString",
+                "RoutewaysString",
+                "LegionsString",
+                "chaotinggongxiandu",
+                "guanjue",
+                "UpgradingTechnique",
+                "UpgradingDaysLeft",
+                "AvailableTechniques",
+                "PreferredTechniqueKinds",
+                "PlanTechnique",
+                "IsAlien",
+                "NotPlayerSelectable"
             };
         }
 

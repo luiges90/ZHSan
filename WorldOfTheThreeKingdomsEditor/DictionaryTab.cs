@@ -91,7 +91,7 @@ namespace WorldOfTheThreeKingdomsEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show("資料輸入錯誤。" + ex.Message);
+                // MessageBox.Show("資料輸入錯誤。" + ex.Message);
             }
         }
     }
