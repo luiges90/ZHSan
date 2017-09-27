@@ -4950,7 +4950,7 @@ namespace GameObjects
 
             var scenarioClone = this.Clone();            
 
-            if (saveCommonData || UsingOwnCommonData)
+            if (!editing && (saveCommonData || UsingOwnCommonData))
             {
                 SaveGameCommonData(scenarioClone);
             }
@@ -5172,7 +5172,11 @@ namespace GameObjects
                 if (ck != null)
                 {
                     ck.ID = num;
+                    ck.Type = influenceKind.Value.Type;
                     ck.Name = influenceKind.Value.Name;
+                    ck.Combat = influenceKind.Value.Combat;
+                    ck.AIPersonValue = influenceKind.Value.AIPersonValue;
+                    ck.AIPersonValuePow = influenceKind.Value.AIPersonValuePow;
                     influenceKinds.AddInfluenceKind(ck);
                 }
                 else
