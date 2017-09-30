@@ -4910,7 +4910,7 @@ namespace GameObjects
                 yt.FactionsString = factionStr;
             }
 
-            if (saveMap)
+            if (saveMap && !editing)
             {
                 foreach (Event e in this.AllEvents)
                 {

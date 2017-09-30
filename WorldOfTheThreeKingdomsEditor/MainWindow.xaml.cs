@@ -48,6 +48,7 @@ namespace WorldOfTheThreeKingdomsEditor
             new EventTab(scen, dgEvent).setup();
             new TroopEventTab(scen, dgTroopEvent).setup();
             new TreasureTab(scen, dgTreasure).setup();
+            new FacilityTab(scen, dgFacility).setup();
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)

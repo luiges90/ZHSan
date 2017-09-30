@@ -56,6 +56,11 @@
                     <DataGrid x:Name="dgTroop" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="設施">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgFacility" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
             <TabItem Header="俘虜">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="dgCaptive" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
