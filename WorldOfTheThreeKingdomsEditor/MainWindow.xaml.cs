@@ -42,6 +42,12 @@ namespace WorldOfTheThreeKingdomsEditor
             // new DictionaryTab<int, int[]>(scen.BrotherIds, "BrotherIds", dgBrotherId).setup();
             new ArchitectureTab(scen, dgArchitecture).setup();
             new FactionTab(scen, dgFaction).setup();
+            new MilitaryTab(scen, dgMilitary).setup();
+            new TroopTab(scen, dgTroop).setup();
+            new CaptiveTab(scen, dgCaptive).setup();
+            new EventTab(scen, dgEvent).setup();
+            new TroopEventTab(scen, dgTroopEvent).setup();
+            new TreasureTab(scen, dgTreasure).setup();
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)

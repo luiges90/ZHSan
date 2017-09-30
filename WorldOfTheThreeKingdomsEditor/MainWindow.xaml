@@ -46,6 +46,36 @@
                     <DataGrid x:Name="dgFaction" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="編隊">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgMilitary" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="部隊">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgTroop" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="俘虜">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgCaptive" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="事件">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgEvent" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="部隊事件">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgTroopEvent" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="寶物">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgTreasure" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
         </TabControl>
         <Button x:Name="btnSave" Content="保存劇本" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
         <Label x:Name="lblFilename" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="772" Height="24"/>
