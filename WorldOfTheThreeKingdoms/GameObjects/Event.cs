@@ -76,9 +76,7 @@ namespace GameObjects
         public List<PersonDialog> matchedDialog;
         public Dictionary<Person, List<EventEffect>> matchedEffect;
 
-        [DataMember]
         public List<PersonDialog> matchedyesDialog = new List<PersonDialog>();
-        [DataMember]
         public List<PersonDialog> matchednoDialog = new List<PersonDialog>();
 
         [DataMember]
@@ -153,6 +151,19 @@ namespace GameObjects
             yesArchitectureEffect = new List<EventEffect>();
 
             noArchitectureEffect = new List<EventEffect>();
+
+            if (dialog == null)
+            {
+                dialog = new List<PersonIdDialog>();
+            }
+            if (yesdialog == null)
+            {
+                yesdialog = new List<PersonIdDialog>();
+            }
+            if (nodialog == null)
+            {
+                nodialog = new List<PersonIdDialog>();
+            }
         }
 
         public void ApplyEventDialogs(Architecture a, Screen screen)
@@ -279,7 +290,7 @@ namespace GameObjects
                     i.ApplyEffect(a, this);
                 }
             }
-            if (factionEffect != null)
+            if (factionEffect != null && a.BelongedFaction != null)
             {
                 foreach (EventEffect i in factionEffect)
                 {
