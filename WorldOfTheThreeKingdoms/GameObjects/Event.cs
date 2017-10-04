@@ -554,7 +554,7 @@ namespace GameObjects
                 {
                     foreach (Faction f in faction)
                     {
-                        if (a.BelongedFaction != null)
+                        if (a.BelongedFaction != null && f != null)
                         {
                             if (f.ID == a.BelongedFaction.ID)
                             {

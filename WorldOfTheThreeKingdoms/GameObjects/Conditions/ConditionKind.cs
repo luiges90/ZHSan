@@ -463,7 +463,7 @@ namespace GameObjects.Conditions
             {
                 return architecture.BelongedFaction != null && this.CheckConditionKind(architecture.BelongedFaction, e);
             }
-            return false;
+            return this.CheckConditionKind(architecture);
         }
 
         public virtual bool CheckConditionKind(Faction faction, Event e)
@@ -472,7 +472,7 @@ namespace GameObjects.Conditions
             {
                 return faction.Leader != null && this.CheckConditionKind(faction.Leader, e);
             }
-            return false;
+            return this.CheckConditionKind(faction);
         }
 
         public virtual bool CheckConditionKind(Person person, Event e)
@@ -485,7 +485,7 @@ namespace GameObjects.Conditions
             {
                 return person.BelongedFaction != null && this.CheckConditionKind(person.BelongedFaction, e);
             }
-            return false;
+            return this.CheckConditionKind(person);
         }
 
         public virtual bool CheckConditionKind(Troop troop, Event e)
@@ -498,7 +498,7 @@ namespace GameObjects.Conditions
             {
                 return troop.BelongedFaction != null && this.CheckConditionKind(troop.BelongedFaction, e);
             }
-            return false;
+            return this.CheckConditionKind(troop);
         }
 
         public virtual bool CheckConditionKind(Architecture architecture)

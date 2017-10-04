@@ -7702,6 +7702,266 @@
   },
   "AllConditions": {
     "Conditions": [
+	  {
+        "Key": 420,
+        "Value": {
+          "ID": 420,
+          "Name": "义理高于0",
+          "Kind": {
+            "ID": 420,
+            "Name": "义理达到若干"
+          },
+          "Parameter": "0",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 421,
+        "Value": {
+          "ID": 421,
+          "Name": "义理高于1",
+          "Kind": {
+            "ID": 420,
+            "Name": "义理达到若干"
+          },
+          "Parameter": "1",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 422,
+        "Value": {
+          "ID": 422,
+          "Name": "义理高于2",
+          "Kind": {
+            "ID": 420,
+            "Name": "义理达到若干"
+          },
+          "Parameter": "2",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 423,
+        "Value": {
+          "ID": 423,
+          "Name": "义理高于3",
+          "Kind": {
+            "ID": 420,
+            "Name": "义理达到若干"
+          },
+          "Parameter": "3",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 424,
+        "Value": {
+          "ID": 424,
+          "Name": "义理高于4",
+          "Kind": {
+            "ID": 420,
+            "Name": "义理达到若干"
+          },
+          "Parameter": "4",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 425,
+        "Value": {
+          "ID": 425,
+          "Name": "义理低于0",
+          "Kind": {
+            "ID": 425,
+            "Name": "义理低于若干"
+          },
+          "Parameter": "0",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 426,
+        "Value": {
+          "ID": 426,
+          "Name": "义理低于1",
+          "Kind": {
+            "ID": 425,
+            "Name": "义理低于若干"
+          },
+          "Parameter": "1",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 427,
+        "Value": {
+          "ID": 427,
+          "Name": "义理低于2",
+          "Kind": {
+            "ID": 425,
+            "Name": "义理低于若干"
+          },
+          "Parameter": "2",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 428,
+        "Value": {
+          "ID": 428,
+          "Name": "义理低于3",
+          "Kind": {
+            "ID": 425,
+            "Name": "义理低于若干"
+          },
+          "Parameter": "3",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 429,
+        "Value": {
+          "ID": 429,
+          "Name": "义理低于4",
+          "Kind": {
+            "ID": 425,
+            "Name": "义理低于若干"
+          },
+          "Parameter": "4",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 430,
+        "Value": {
+          "ID": 430,
+          "Name": "野心野心高于0",
+          "Kind": {
+            "ID": 430,
+            "Name": "野心达到若干"
+          },
+          "Parameter": "0",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 431,
+        "Value": {
+          "ID": 431,
+          "Name": "野心高于1",
+          "Kind": {
+            "ID": 430,
+            "Name": "野心达到若干"
+          },
+          "Parameter": "1",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 432,
+        "Value": {
+          "ID": 432,
+          "Name": "野心高于2",
+          "Kind": {
+            "ID": 430,
+            "Name": "野心达到若干"
+          },
+          "Parameter": "2",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 433,
+        "Value": {
+          "ID": 433,
+          "Name": "野心高于3",
+          "Kind": {
+            "ID": 430,
+            "Name": "野心达到若干"
+          },
+          "Parameter": "3",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 434,
+        "Value": {
+          "ID": 434,
+          "Name": "野心高于4",
+          "Kind": {
+            "ID": 430,
+            "Name": "野心达到若干"
+          },
+          "Parameter": "4",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 435,
+        "Value": {
+          "ID": 435,
+          "Name": "野心低于0",
+          "Kind": {
+            "ID": 435,
+            "Name": "野心低于若干"
+          },
+          "Parameter": "0",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 436,
+        "Value": {
+          "ID": 436,
+          "Name": "野心低于1",
+          "Kind": {
+            "ID": 435,
+            "Name": "野心低于若干"
+          },
+          "Parameter": "1",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 437,
+        "Value": {
+          "ID": 437,
+          "Name": "野心低于2",
+          "Kind": {
+            "ID": 435,
+            "Name": "野心低于若干"
+          },
+          "Parameter": "2",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 438,
+        "Value": {
+          "ID": 438,
+          "Name": "野心低于3",
+          "Kind": {
+            "ID": 435,
+            "Name": "野心低于若干"
+          },
+          "Parameter": "3",
+          "Parameter2": ""
+        }
+      },
+	  {
+        "Key": 439,
+        "Value": {
+          "ID": 439,
+          "Name": "野心低于4",
+          "Kind": {
+            "ID": 435,
+            "Name": "野心低于若干"
+          },
+          "Parameter": "4",
+          "Parameter2": ""
+        }
+      },
       {
         "Key": 6000,
         "Value": {
