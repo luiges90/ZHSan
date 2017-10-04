@@ -765,7 +765,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralYun = new NumericSetTextureF(0, 200, 200, null, new Vector2(left2 + 300, heightBase + height * 3.5f), true)
+            nstGeneralYun = new NumericSetTextureF(0, 300, 300, null, new Vector2(left2 + 300, heightBase + height * 3.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -773,7 +773,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstFeiZiYun = new NumericSetTextureF(0, 200, 200, null, new Vector2(left2 + 300, heightBase + height * 4f), true)
+            nstFeiZiYun = new NumericSetTextureF(0, 300, 300, null, new Vector2(left2 + 300, heightBase + height * 4f), true)
             {
                 IntMode = true,
                 DisNumber = false,
