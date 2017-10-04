@@ -2299,7 +2299,7 @@ namespace GameObjects
             {
                 foreach (Person p in Persons)
                 {
-                    if (!p.Available && p.Spouse != null)
+                    if (!p.Available && p.Spouse != null && !p.Spouse.Available)
                     {
                         p.Spouse = null;
                     }
