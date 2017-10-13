@@ -4474,68 +4474,6 @@ namespace GameObjects
                 this.DisposeLotsOfMemory();
             }
 
-            // Ensure person status
-            if (!editing)
-            {
-                List<GameObject> storedPersons = new List<GameObject>();
-                foreach (Architecture a in this.Architectures)
-                {
-                    /*
-                    architecture.PersonsString = architecture.Persons.SaveToString();
-                    architecture.MovingPersonsString = architecture.MovingPersons.SaveToString();
-                    architecture.NoFactionPersonsString = architecture.NoFactionPersons.SaveToString();
-                    architecture.NoFactionMovingPersonsString = architecture.NoFactionMovingPersons.SaveToString();
-                    architecture.CaptivesString = architecture.Captives.SaveToString();
-                    architecture.feiziliebiaoString = architecture.Feiziliebiao.SaveToString();
-                    */
-                    storedPersons.AddRange(a.Persons.GameObjects);
-                    storedPersons.AddRange(a.MovingPersons.GameObjects);
-                    storedPersons.AddRange(a.NoFactionPersons.GameObjects);
-                    storedPersons.AddRange(a.NoFactionMovingPersons.GameObjects);
-                    storedPersons.AddRange(a.Captives.GameObjects);
-                    storedPersons.AddRange(a.Feiziliebiao.GameObjects);
-                }
-                foreach (Troop t in this.Troops)
-                {
-                    //if (t.Destroyed) continue;
-                    storedPersons.AddRange(t.Persons.GameObjects);
-                    storedPersons.AddRange(t.Captives.GameObjects);
-                }
-                List<Person> missing = new List<Person>();
-                foreach (Person p in this.Persons)
-                {
-                    if (!p.Alive || !p.Available) continue;
-                    bool found = false;
-                    foreach (GameObject o in storedPersons)
-                    {
-                        if (o is Person)
-                        {
-                            if (((Person)o).ID == p.ID)
-                            {
-                                found = true;
-                                continue;
-                            }
-                        }
-                        else if (o is Captive)
-                        {
-                            if (((Captive)o).CaptivePerson.ID == p.ID)
-                            {
-                                found = true;
-                                continue;
-                            }
-                        }
-                    }
-                    if (!found)
-                    {
-                        missing.Add(p);
-                    }
-                }
-                if (missing.Count > 0)
-                {
-                    throw new Exception(missing.ToString());
-                }
-            }
-
             if (!editing)
             {
                 foreach (Faction faction in this.Factions)

@@ -214,9 +214,10 @@ namespace GameObjects
             Point position = this.CaptivePerson.Position;
             if (this.CaptivePerson.BelongedFaction != null && this.CaptivePerson.BelongedFaction.Capital != null)
             {
-                this.CaptivePerson.LocationArchitecture = this.CaptivePerson.BelongedFaction.Capital;
+                Faction f = this.CaptivePerson.BelongedFaction;
+                this.CaptivePerson.LocationArchitecture = f.Capital;
                 this.CaptivePerson.Status = GameObjects.PersonDetail.PersonStatus.Normal;
-                this.CaptivePerson.MoveToArchitecture(this.CaptivePerson.BelongedFaction.Capital, position, true);
+                this.CaptivePerson.MoveToArchitecture(f.Capital, position, true);
             }
             
             else
