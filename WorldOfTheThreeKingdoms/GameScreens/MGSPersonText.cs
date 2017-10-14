@@ -1468,7 +1468,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (((Session.Current.Scenario.CurrentPlayer != null) && p.BelongedArchitecture != null &&
                   Session.Current.Scenario.IsCurrentPlayer(p.BelongedArchitecture.BelongedFaction)) || Session.GlobalVariables.SkyEye)
             {
-                if (Person.GetInjuryString(p.InjureRate) != Person.GetInjuryString(p.OldInjureRate) && p.OldInjureRate > p.InjureRate)
+                if (Person.GetInjuryString(p.InjureRate) != Person.GetInjuryString(p.OldInjureRate) && 
+                    (p.OldInjureRate - p.InjureRate >= 0.1 || (p.OldInjureRate >= 1 && p.InjureRate < 1)))
                 {
                     p.TextResultString = p.InjuryString;
                     this.Plugins.GameRecordPlugin.AddBranch(p, "OfficerSick", p.Position);
