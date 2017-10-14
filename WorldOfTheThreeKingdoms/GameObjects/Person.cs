@@ -9840,68 +9840,85 @@ namespace GameObjects
                 {
                     houGongDays = GameObject.Random(10) + 60;
                 }
-                if (!nvren.Hates(this) && Session.GlobalVariables.hougongGetChildrenRate > 0 &&
-                    ((nvren.Sex && nvren.huaiyuntianshu >= -1) || (this.Sex && this.huaiyuntianshu >= -1)) &&
-                    this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit && nvren.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
+
+                PersonList all = new PersonList();
+                all.Add(nvren);
+                foreach (Person q in this.LocationArchitecture.Feiziliebiao)
                 {
-                    float extraRate = 1;
-                    if (this.Closes(nvren))
+                    if (q == nvren) continue;
+                    if (GameObject.Chance(q.GetRelation(this) / 20 + this.Glamour / 10))
                     {
-                        extraRate += 0.1f;
-                    }
-                    if (nvren.Closes(this))
-                    {
-                        extraRate += 0.1f;
-                    }
-                    if (nvren.Ideal == this.Ideal)
-                    {
-                        extraRate += 0.2f;
-                    }
-                    if (this.Spouse == nvren)
-                    {
-                        extraRate += 1.6f;
-                    }
-                    extraRate += nvren.GetRelation(this) * 0.0001f + this.GetRelation(nvren) * 0.0001f;
-                    if (!Session.Current.Scenario.IsPlayer(this.BelongedFaction))
-                    {
-                        extraRate += Session.Parameters.AIExtraPerson - 1;
-                    }
-                    if (this.Age > 40)
-                    {
-                        extraRate -= (this.Age - 40) / 10.0f;
-                    }
-                    if (nvren.Age > 40)
-                    {
-                        extraRate -= (nvren.Age - 40) / 10.0f;
-                    }
-
-                    float pregnantChance = Session.GlobalVariables.hougongGetChildrenRate / 100.0f;
-                    pregnantChance *= houGongDays * extraRate;
-                    pregnantChance *= (1 + this.pregnantChance / 100.0f) + (1 + nvren.pregnantChance / 100.0f);
-
-                    if (GameObject.Chance(Math.Max((int)pregnantChance, Session.Parameters.MinPregnantProb))
-                        && !nvren.huaiyun && !this.huaiyun && this.isLegalFeiZi(nvren) &&
-                        (this.LocationArchitecture.BelongedFaction.Leader.meichushengdehaiziliebiao().Count - this.LocationArchitecture.yihuaiyundefeiziliebiao().Count > 0 || Session.GlobalVariables.createChildren))
-                    {
-                        nvren.suoshurenwu = this.ID;
-                        this.suoshurenwu = nvren.ID;
-                        if (nvren.Sex)
-                        {
-                            nvren.huaiyun = true;
-                            nvren.huaiyuntianshu = -GameObject.Random(houGongDays);
-                        }
-                        else
-                        {
-                            this.huaiyun = true;
-                            this.huaiyuntianshu = -GameObject.Random(houGongDays);
-                        }
+                        all.Add(q);
                     }
                 }
 
-                if (!nvren.Hates(this) && !this.Hates(nvren))
+                foreach (Person q in all)
                 {
-                    this.AdjustRelation(nvren, houGongDays / 30.0f, 0);
-                    nvren.AdjustRelation(this, houGongDays / 30.0f, 0);
+                    if (!q.Hates(this) && Session.GlobalVariables.hougongGetChildrenRate > 0 &&
+                        ((q.Sex && q.huaiyuntianshu >= -1) || (this.Sex && this.huaiyuntianshu >= -1)) &&
+                        this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit && q.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
+                    {
+                        float extraRate = 1;
+                        if (this.Closes(q))
+                        {
+                            extraRate += 0.1f;
+                        }
+                        if (q.Closes(this))
+                        {
+                            extraRate += 0.1f;
+                        }
+                        if (q.Ideal == this.Ideal)
+                        {
+                            extraRate += 0.2f;
+                        }
+                        if (this.Spouse == q)
+                        {
+                            extraRate += 1.6f;
+                        }
+                        extraRate += q.GetRelation(this) * 0.0001f + this.GetRelation(q) * 0.0001f;
+                        if (!Session.Current.Scenario.IsPlayer(this.BelongedFaction))
+                        {
+                            extraRate += Session.Parameters.AIExtraPerson - 1;
+                        }
+                        if (this.Age > 40)
+                        {
+                            extraRate -= (this.Age - 40) / 10.0f;
+                        }
+                        if (q.Age > 40)
+                        {
+                            extraRate -= (q.Age - 40) / 10.0f;
+                        }
+
+                        float pregnantChance = Session.GlobalVariables.hougongGetChildrenRate / 100.0f;
+                        pregnantChance *= houGongDays * extraRate;
+                        pregnantChance *= (1 + this.pregnantChance / 100.0f) + (1 + q.pregnantChance / 100.0f);
+
+                        if (GameObject.Chance(Math.Max((int)pregnantChance, Session.Parameters.MinPregnantProb))
+                            && !q.huaiyun && !this.huaiyun && this.isLegalFeiZi(q) &&
+                            (this.LocationArchitecture.BelongedFaction.Leader.meichushengdehaiziliebiao().Count - this.LocationArchitecture.yihuaiyundefeiziliebiao().Count > 0 || Session.GlobalVariables.createChildren))
+                        {
+                            q.suoshurenwu = this.ID;
+                            this.suoshurenwu = q.ID;
+                            if (q.Sex)
+                            {
+                                q.huaiyun = true;
+                                q.huaiyuntianshu = -GameObject.Random(houGongDays);
+                            }
+                            else
+                            {
+                                this.huaiyun = true;
+                                this.huaiyuntianshu = -GameObject.Random(houGongDays);
+                            }
+                        }
+                    }
+
+                    if (!q.Hates(this) && !this.Hates(q))
+                    {
+                        this.AdjustRelation(q, houGongDays / 30.0f, 0);
+                        q.AdjustRelation(this, houGongDays / 30.0f, 0);
+                    }
+
+                    if (this.huaiyun) break;
                 }
 
                 float factor = 1;
