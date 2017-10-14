@@ -9917,8 +9917,25 @@ namespace GameObjects
                 {
                     if (p == nvren) continue;
 
-                    p.AdjustRelation(this, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
-                    p.AdjustRelation(nvren, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
+                    p.AdjustRelation(this, -houGongDays / 120.0f * (4 - p.PersonalLoyalty) * factor, -1);
+                    p.AdjustRelation(nvren, -houGongDays / 120.0f * (4 - p.PersonalLoyalty) * factor, -1);
+                }
+
+                factor = 1;
+                foreach (Person p in nvren.LocationArchitecture.Feiziliebiao)
+                {
+                    if (Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50)
+                    {
+                        factor *= 0.9f + (100 - p.Glamour) * 0.001f;
+                    }
+                }
+
+                foreach (Person p in nvren.LocationArchitecture.Feiziliebiao)
+                {
+                    if (p == nvren) continue;
+
+                    p.AdjustRelation(this, -houGongDays / 120.0f * (4 - p.PersonalLoyalty) * factor, -1);
+                    p.AdjustRelation(nvren, -houGongDays / 120.0f * (4 - p.PersonalLoyalty) * factor, -1);
                 }
 
                 makeHateCausedByAffair(this, nvren, this);
