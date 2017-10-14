@@ -9933,6 +9933,7 @@ namespace GameObjects
                 foreach (Person p in this.BelongedFaction.GetFeiziList())
                 {
                     if (p == nvren) continue;
+                    if (p.faxianhuaiyun || this.faxianhuaiyun) continue;
 
                     p.AdjustRelation(this, -houGongDays / 120.0f * (4 - p.PersonalLoyalty) * factor, -1);
                     p.AdjustRelation(nvren, -houGongDays / 120.0f * (4 - p.PersonalLoyalty) * factor, -1);
@@ -9950,6 +9951,7 @@ namespace GameObjects
                 foreach (Person p in nvren.LocationArchitecture.Feiziliebiao)
                 {
                     if (p == nvren) continue;
+                    if (p.faxianhuaiyun || this.faxianhuaiyun) continue;
 
                     p.AdjustRelation(this, -houGongDays / 120.0f * (4 - p.PersonalLoyalty) * factor, -1);
                     p.AdjustRelation(nvren, -houGongDays / 120.0f * (4 - p.PersonalLoyalty) * factor, -1);
