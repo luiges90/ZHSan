@@ -113,7 +113,32 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void btnPaste_Click(object sender, RoutedEventArgs e)
         {
+            Grid grid = (Grid)tabControl.SelectedContent;
+            DataGrid dataGrid = (DataGrid)grid.Children[0];
 
+
+            String text = Clipboard.GetText();
+            String[] textRows = text.Split(new char[] { '\n' });
+
+            DataTable dt = ((DataView)dataGrid.ItemsSource).ToTable();
+            for (int i = 0; i < textRows.Count(); i++)
+            {
+                if (textRows[i].Length == 0) continue;
+
+                String[] data = textRows[i].Split(new char[] { '\t' });
+
+                DataColumnCollection columns = dt.Columns;
+                DataRow row = dt.NewRow();
+                
+                for (int j = 0; j < Math.Min(columns.Count, data.Count()); ++j)
+                {
+                    row[columns[j].ColumnName] = data[j];
+                }
+
+                dt.Rows.Add(row);
+            }
+
+            dataGrid.ItemsSource = dt.AsDataView();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
