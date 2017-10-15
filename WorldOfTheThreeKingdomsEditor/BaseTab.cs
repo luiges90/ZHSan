@@ -162,10 +162,10 @@ namespace WorldOfTheThreeKingdomsEditor
 
             dt.TableNewRow += Dt_TableNewRow;
             dt.RowChanged += Dt_RowChanged;
-            dt.RowDeleted += Dt_RowDeleted;
+            dt.RowDeleting += Dt_RowDeleting;
         }
 
-        private void Dt_RowDeleted(object sender, DataRowChangeEventArgs e)
+        private void Dt_RowDeleting(object sender, DataRowChangeEventArgs e)
         {
             try
             {

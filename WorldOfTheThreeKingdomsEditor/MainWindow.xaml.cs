@@ -116,34 +116,48 @@ namespace WorldOfTheThreeKingdomsEditor
             Grid grid = (Grid)tabControl.SelectedContent;
             DataGrid dataGrid = (DataGrid)grid.Children[0];
 
-
-            String text = Clipboard.GetText();
-            String[] textRows = text.Split(new char[] { '\n' });
-
-            DataTable dt = ((DataView)dataGrid.ItemsSource).ToTable();
-            for (int i = 0; i < textRows.Count(); i++)
+            try
             {
-                if (textRows[i].Length == 0) continue;
+                String text = Clipboard.GetText();
+                String[] textRows = text.Split(new char[] { '\n' });
 
-                String[] data = textRows[i].Split(new char[] { '\t' });
-
-                DataColumnCollection columns = dt.Columns;
-                DataRow row = dt.NewRow();
-                
-                for (int j = 0; j < Math.Min(columns.Count, data.Count()); ++j)
+                DataTable dt = ((DataView)dataGrid.ItemsSource).ToTable();
+                for (int i = 0; i < textRows.Count(); i++)
                 {
-                    row[columns[j].ColumnName] = data[j];
+                    if (textRows[i].Length == 0) continue;
+
+                    String[] data = textRows[i].Split(new char[] { '\t' });
+
+                    DataColumnCollection columns = dt.Columns;
+                    DataRow row = dt.NewRow();
+
+                    for (int j = 0; j < Math.Min(columns.Count, data.Count()); ++j)
+                    {
+                        row[columns[j].ColumnName] = data[j];
+                    }
+
+                    dt.Rows.Add(row);
                 }
 
-                dt.Rows.Add(row);
+                dataGrid.ItemsSource = dt.AsDataView();
             }
-
-            dataGrid.ItemsSource = dt.AsDataView();
+            catch 
+            {
+                // invalid input text, ignore.
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            Grid grid = (Grid)tabControl.SelectedContent;
+            DataGrid dataGrid = (DataGrid)grid.Children[0];
 
+            StringBuilder sb = new StringBuilder();
+            for (int i = dataGrid.SelectedCells.Count - 1; i > 0; i -= dataGrid.Columns.Count)
+            {
+                ((DataRowView)dataGrid.SelectedCells[i].Item).Row.Delete();
+            }
+                
         }
     }
 }
