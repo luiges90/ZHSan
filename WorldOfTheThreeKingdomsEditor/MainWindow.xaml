@@ -7,83 +7,94 @@
         mc:Ignorable="d"
         Title="中華三國志劇本編輯器" Height="600" Width="960">
     <Grid>
-        <Button x:Name="btnLoad" Content="讀取劇本" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="btnLoad_Click"/>
-        <TabControl HorizontalAlignment="Left" Height="525" Margin="10,34,0,0" VerticalAlignment="Top" Width="932">
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="檔案">
+                    <MenuItem Header="讀取劇本" Click="btnLoad_Click"/>
+                    <MenuItem Header="儲存劇本" Click="btnSave_Click"/>
+                </MenuItem>
+                <MenuItem Header="編輯">
+                    <MenuItem Header="複製" Click="btnCopy_Click"/>
+                    <MenuItem Header="貼上" Click="btnPaste_Click"/>
+                    <MenuItem Header="刪除" Click="btnDelete_Click"/>
+                </MenuItem>
+            </Menu>
+            <StackPanel Height="552" VerticalAlignment="Bottom"></StackPanel>
+        </DockPanel>
+
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="535" Margin="10,24,0,0" VerticalAlignment="Top" Width="932">
             <TabItem Header="武將">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgPerson" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgPerson" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             <TabItem Header="父親">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgFatherId" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgFatherId" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             <TabItem Header="母親">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgMotherId" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgMotherId" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             <TabItem Header="配偶">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgSpouseId" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgSpouseId" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             <!--
             <TabItem Header="義兄">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgBrotherId" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgBrotherId" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             -->
             <TabItem Header="建築">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgArchitecture" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgArchitecture" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             <TabItem Header="勢力">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgFaction" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgFaction" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             <TabItem Header="編隊">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgMilitary" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgMilitary" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             <TabItem Header="部隊">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTroop" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgTroop" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             <TabItem Header="設施">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgFacility" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgFacility" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             <TabItem Header="俘虜">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgCaptive" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgCaptive" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             <TabItem Header="事件">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgEvent" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgEvent" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             <TabItem Header="部隊事件">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTroopEvent" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgTroopEvent" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
             <TabItem Header="寶物">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTreasure" HorizontalAlignment="Left" Height="498" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgTreasure" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button x:Name="btnSave" Content="保存劇本" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
-        <Label x:Name="lblFilename" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="772" Height="24"/>
-
     </Grid>
 </Window>

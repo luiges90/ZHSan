@@ -73,7 +73,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 scen = WorldOfTheThreeKingdoms.GameScreens.MainGameScreen.LoadScenarioData(filename, true, null, true);
 
                 populateTables();
-                lblFilename.Content = filename;
+                Title = "中華三國志劇本編輯器 - " + filename;
             }
         }
 
@@ -90,6 +90,35 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 MessageBox.Show("劇本已儲存為" + filename);
             }
+        }
+
+        private void btnCopy_Click(object sender, RoutedEventArgs e)
+        {
+            Grid grid = (Grid)tabControl.SelectedContent;
+            DataGrid dataGrid = (DataGrid)grid.Children[0];
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < dataGrid.SelectedCells.Count; i += dataGrid.Columns.Count)
+            {
+                object[] values = ((DataRowView)dataGrid.SelectedCells[i].Item).Row.ItemArray;
+                foreach (object o in values)
+                {
+                    sb.Append(o.ToString()).Append("\t");
+                }
+                sb.Append("\n");
+            }
+
+            Clipboard.SetText(sb.ToString());
+        }
+
+        private void btnPaste_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
