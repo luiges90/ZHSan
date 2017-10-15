@@ -9853,7 +9853,7 @@ namespace GameObjects
                 }
                 if (this.Spouse != null && this.Spouse.LocationArchitecture == this.LocationArchitecture)
                 {
-                    if (GameObject.Chance(q.GetRelation(this) / 20 + this.Glamour / 10))
+                    if (GameObject.Chance(this.Spouse.GetRelation(this) / 20 + this.Glamour / 10))
                     {
                         all.Add(this.Spouse);
                     }
