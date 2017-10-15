@@ -9190,7 +9190,7 @@ namespace GameObjects
 
         public bool HasMarriageToMake()
         {
-            return this.makeMarryablePersons().Count > 0 && this.BelongedFaction.Leader.Status == PersonStatus.Normal;
+            return this.makeMarryablePersons().Count > 0;
         }
 
         public bool HasChildrenToTrain()
