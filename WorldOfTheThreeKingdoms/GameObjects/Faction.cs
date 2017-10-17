@@ -121,6 +121,8 @@ namespace GameObjects
             StratagemOfMillitaryType = new int[5];
             AntiStratagemOfMillitaryType = new int[5];
 
+            this.FactionColor = Session.Current.Scenario.GameCommonData.AllColors[this.ColorIndex];
+
             this.RoutewayPathBuilder = new RoutewayPathFinder();
             this.RoutewayPathBuilder.OnGetCost += new RoutewayPathFinder.GetCost(this.RoutewayPathBuilder_OnGetCost);
             this.RoutewayPathBuilder.OnGetPenalizedCost += new RoutewayPathFinder.GetPenalizedCost(this.RoutewayPathBuilder_OnGetPenalizedCost);
@@ -169,7 +171,6 @@ namespace GameObjects
         public float DefenceRateWhileCombatMethodOfShuijun;
         [DataMember]
         public bool Destroyed;
-        [DataMember]
         public Color FactionColor;
         public int IncrementOfAntiCriticalStrikeChance;
         public int IncrementOfChaosDaysAfterPhisicalAttack;
