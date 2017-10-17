@@ -9942,8 +9942,8 @@ namespace GameObjects
                     if (p == nvren) continue;
                     if (p.faxianhuaiyun || this.faxianhuaiyun) continue;
 
-                    p.AdjustRelation(this, -houGongDays / 120.0f * (4 - p.PersonalLoyalty) * factor, -1);
-                    p.AdjustRelation(nvren, -houGongDays / 120.0f * (4 - p.PersonalLoyalty) * factor, -1);
+                    p.AdjustRelation(this, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
+                    p.AdjustRelation(nvren, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
                 }
 
                 factor = 1;
@@ -9960,8 +9960,8 @@ namespace GameObjects
                     if (p == nvren) continue;
                     if (p.faxianhuaiyun || this.faxianhuaiyun) continue;
 
-                    p.AdjustRelation(this, -houGongDays / 120.0f * (4 - p.PersonalLoyalty) * factor, -1);
-                    p.AdjustRelation(nvren, -houGongDays / 120.0f * (4 - p.PersonalLoyalty) * factor, -1);
+                    p.AdjustRelation(this, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
+                    p.AdjustRelation(nvren, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
                 }
 
                 makeHateCausedByAffair(this, nvren, this);
