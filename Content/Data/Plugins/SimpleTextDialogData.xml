@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
   <Background FileName="Background.png" Width="600" Height="160"></Background>
   <RichText X="64" Y="50" Width="470" Height="70" RowMargin="1"  
@@ -7,6 +7,6 @@
             FontStyle="Regular"
             FontColor="4294967295">
   </RichText>
-  <FirstPageButton FileName="FirstPage.png" Selected="FirstPageSelected.png" Disabled="FirstPageDisabled.png"  X="516" Y="130" Width="20" Height="20"></FirstPageButton>
+  <FirstPageButton FileName="FirstPage.png" Selected="FirstPageSelected.png" Disabled="FirstPageDisabled.png"  X="516" Y="100" Width="20" Height="20"></FirstPageButton>
   <ShowingSeconds Time="10"></ShowingSeconds>
 </Root>

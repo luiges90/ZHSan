@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
   <Background FileName="Background.png" Width="100" Height="160"></Background>
   <CommentBackground FileName="CommentBackground.png" Width="120"></CommentBackground>

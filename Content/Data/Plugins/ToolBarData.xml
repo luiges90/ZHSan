@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
-  <Background FileName="Background.jpg" Height="48"></Background>
+  <Background FileName="Background.png" Height="48"></Background>
   <Spliter FileName="Spliter.png" Width="5"></Spliter>
 </Root>

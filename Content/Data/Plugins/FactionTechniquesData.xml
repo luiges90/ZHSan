@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
-  <Background FileName="Background.png" Width="1000" Height="700"></Background>
+  <Background FileName="Background.png" Width="1000" Height="750"></Background>
 <Labels>
     <Label X="50" Y="34" Width="60" Height="25" Label ="势力"
                 FontName="方正隶变_GBK"
@@ -13,7 +13,7 @@
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Bold"
-                FontColor="4278255424"
+                FontColor="4284657919"
                 Align="Middle">
     </Text>
     <Label X="230" Y="34" Width="80" Height="25" Label ="技巧点数"
@@ -24,10 +24,10 @@
                 Align="Middle">
     </Label>
     <Text X="310" Y="34" Width="80" Height="23" PropertyName="FactionTotalTechniquePoint"
-                FontName="方正隶变_GBK"
-                FontSize="15"
-                FontStyle="Bold"
-                FontColor="4278255615"
+                FontName="Microsoft YaHei UI"
+                FontSize="11"
+                FontStyle="Regular"
+                FontColor="4294286653"
                 Align="Right">
     </Text>
     <Label X="430" Y="34" Width="80" Height="25" Label ="势力声望"
@@ -38,13 +38,13 @@
                 Align="Middle">
     </Label>
     <Text X="510" Y="34" Width="80" Height="23" PropertyName="FactionReputation"
-                FontName="方正隶变_GBK"
-                FontSize="15"
-                FontStyle="Bold"
-                FontColor="4278255615"
+                FontName="Microsoft YaHei UI"
+                FontSize="11"
+                FontStyle="Regular"
+                FontColor="4294286653"
                 Align="Right">
     </Text>
-    <Label X="50" Y="74" Width="60" Height="25" Label ="建筑"
+    <Label X="50" Y="74" Width="60" Height="25" Label ="城池"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
@@ -55,10 +55,10 @@
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Bold"
-                FontColor="4278255424"
+                FontColor="4284657919"
                 Align="Middle">
     </Text>
-    <Label X="230" Y="74" Width="80" Height="25" Label ="资金"
+    <Label X="230" Y="74" Width="80" Height="25" Label ="城池资金"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
@@ -66,27 +66,27 @@
                 Align="Middle">
     </Label>
     <Text X="310" Y="74" Width="80" Height="23" PropertyName="ArchitectureFund"
-                FontName="方正隶变_GBK"
-                FontSize="15"
-                FontStyle="Bold"
-                FontColor="4278255615"
+                FontName="Microsoft YaHei UI"
+                FontSize="11"
+                FontStyle="Regular"
+                FontColor="4294627077"
                 Align="Right">
     </Text>
   </Labels>
-  <ButtonText StartX="120" StartY="150"
-                FontName="方正隶变_GBK"
-                FontSize="13"
-                FontStyle="Bold"
-                FontColor="4278190080"
+  <ButtonText StartX="123" StartY="178"
+                FontName="Microsoft YaHei UI"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4292861919"
                 Align="Middle">
   </ButtonText>
-  <ButtonTexture Width="80" Height="36" Basic="ButtonBasic.png" Available="ButtonAvailable.png" Upgrading="ButtonUpgrading.png" Upgraded="ButtonUpgraded.png"></ButtonTexture>
+  <ButtonTexture Width="80" Height="32" Basic="ButtonBasic.png" Available="ButtonAvailable.png" Upgrading="ButtonUpgrading.png" Upgraded="ButtonUpgraded.png"></ButtonTexture>
   <Comments X="810" Y="139" Width="170" Height="500" RowMargin="0"
-			TitleColor="4294967040" PositiveColor="4278255360" NegativeColor="4294901760" 
-			SubTitleColor="4294934783" SubTitleColor2="4286611711"
-            FontName="方正隶变_GBK"
-            FontSize="14"
+			TitleColor="4284074495" PositiveColor="4294945365" NegativeColor="4291677645" 
+			SubTitleColor="4282696447" SubTitleColor2="4281187327"
+            FontName="Microsoft YaHei UI"
+            FontSize="11"
             FontStyle="Regular"
-            FontColor="4294967295">
+            FontColor="4294177779">
   </Comments>
 </Root>

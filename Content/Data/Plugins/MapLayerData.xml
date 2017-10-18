@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
   <ToolBackground Align="Left" Width ="100"></ToolBackground>
-  <NormalLayer FileName="WanggeLayer.png" Active="WanggeLayerActive.png" X="5" Y="10" Width="50" Height="30"></NormalLayer>
-  <RoutewayLayer FileName="RoutewayLayer.png" Active="RoutewayLayerActive.png" X="65" Y="10" Width="50" Height="30"></RoutewayLayer>
+  <NormalLayer FileName="WanggeLayer.png" Active="WanggeLayerActive.png" X="120" Y="8" Width="80" Height="32"></NormalLayer>
+  <RoutewayLayer FileName="RoutewayLayer.png" Active="RoutewayLayerActive.png" X="205" Y="8" Width="80" Height="32"></RoutewayLayer>
 </Root>

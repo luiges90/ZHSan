@@ -1,20 +1,139 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
-  <Background FileName="Background.png" X="0" Y="0" Width="342" Height="78"></Background>
+  <Background FileName="Background.png" X="0" Y="0" Width="1030" Height="100"></Background>
   <Season Spring="Spring.png" Summer="Summer.png" Autumn="Autumn.png" Winter="Winter.png"></Season>
   <DateClient X="126" Y ="15" Width="150" Height="20"
-               FontName="楷体"
+               FontName="宋体"
                FontSize="10"
                FontStyle="Bold"
-               FontColor="4293647049"
-               Align="Middle">
+               FontColor="4294375158"
+               Align="Left">
   </DateClient>
-  <FactionClient X="126" Y ="38" Width="150" Height="18"
+  <FactionClient X="126" Y ="35" Width="150" Height="20"
                 FontName="宋体"
                 FontSize="10"
-                FontStyle="Bold"
-                FontColor="4293647049"
-                Align="Middle">
+                FontStyle="Regular"
+                FontColor="4294375158"
+                Align="Left">
   </FactionClient>
   <SeasonClient X="20" Y="9" Width="51" Height="51"></SeasonClient>
+  <FactionTechText X="126" Y ="55" Width="150" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4294889065"
+                Align="Left">
+  </FactionTechText>
+  
+  <LeaderNameText X="320" Y ="15" Width="150" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4289385983"
+                Align="Left">
+  </LeaderNameText>
+  
+    <PrinceNameText X="320" Y ="35" Width="150" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4289385983"
+                Align="Left">
+  </PrinceNameText>
+  
+    <CounsellorNameText X="320" Y ="55" Width="150" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4289385983"
+                Align="Left">
+  </CounsellorNameText>
+  
+    <PersonCountText X="480" Y ="14" Width="150" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4293853183"
+                Align="Left">
+  </PersonCountText>
+  
+    <PopulationText X="480" Y ="34" Width="150" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4293853183"
+                Align="Left">
+  </PopulationText>
+  
+    <ArmyText X="480" Y ="54" Width="150" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4293853183"
+                Align="Left">
+  </ArmyText>
+  
+     <FundText X="630" Y ="14" Width="150" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4294883395"
+                Align="Left">
+  </FundText>
+  
+    <FoodText X="630" Y ="34" Width="150" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4286827019"
+                Align="Left">
+  </FoodText>
+  
+    <CapitalNameText X="630" Y ="55" Width="150" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4292401387"
+                Align="Left">
+  </CapitalNameText>
+  
+       <guanjuezifuchuanText X="790" Y ="15" Width="200" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4290013439"
+                Align="Left">
+  </guanjuezifuchuanText>
+  
+    <chaotinggongxianduText X="790" Y ="35" Width="200" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4294703103"
+                Align="Left">
+  </chaotinggongxianduText>
+  
+    <CityCountText X="790" Y ="55" Width="200" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4294703103"
+                Align="Left">
+  </CityCountText>
+  
+   <FiveTigerText X="480" Y ="75" Width="400" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4287547391"
+                Align="Left">
+  </FiveTigerText>
+  
+  <GovernorNameText X="320" Y ="75" Width="200" Height="20"
+                FontName="宋体"
+                FontSize="10"
+                FontStyle="Regular"
+                FontColor="4287547391"
+                Align="Left">
+  </GovernorNameText>
 </Root>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
   <Background FileName="Background.png" Align="Left" Width="190"></Background>
   <UpperArrowTexture FileName="UpperArrow.png" Selected="UpperArrowSelected.png"></UpperArrowTexture>
@@ -6,15 +6,15 @@
   <PlayTexture FileName="Play.png" Selected="PlaySelected.png"></PlayTexture>
   <PauseTexture FileName="Pause.png" Selected="PauseSelected.png"></PauseTexture>
   <StopTexture FileName="Stop.png" Selected="StopSelected.png"></StopTexture>
-  <FirstDigitUpperArrowPosition X="15" Y="10" Width="20" Height="6"></FirstDigitUpperArrowPosition>
-  <FirstDigitLowerArrowPosition X="15" Y="37" Width="20" Height="6"></FirstDigitLowerArrowPosition>
-  <FirstDigitTextPosition X="5" Y="12" Width="20" Height="28"></FirstDigitTextPosition>
-  <SecondDigitUpperArrowPosition X="40" Y="10" Width="20" Height="6"></SecondDigitUpperArrowPosition>
-  <SecondDigitLowerArrowPosition X="40" Y="37" Width="20" Height="6"></SecondDigitLowerArrowPosition>
-  <SecondDigitTextPosition X="40" Y="12" Width="20" Height="28"></SecondDigitTextPosition>
-  <PlayPosition X="65" Y="10" Width="33" Height="33"></PlayPosition>
-  <StopPosition X="115" Y="10" Width="33" Height="33"></StopPosition>
-  <DaysLeftTextPosition X="160" Y="12" Width="40" Height="28"></DaysLeftTextPosition>
+  <FirstDigitUpperArrowPosition X="5" Y="5" Width="20" Height="10"></FirstDigitUpperArrowPosition>
+  <FirstDigitLowerArrowPosition X="5" Y="35" Width="20" Height="10"></FirstDigitLowerArrowPosition>
+  <FirstDigitTextPosition X="5" Y="10" Width="20" Height="28"></FirstDigitTextPosition>
+  <SecondDigitUpperArrowPosition X="30" Y="5" Width="20" Height="10"></SecondDigitUpperArrowPosition>
+  <SecondDigitLowerArrowPosition X="30" Y="35" Width="20" Height="10"></SecondDigitLowerArrowPosition>
+  <SecondDigitTextPosition X="30" Y="10" Width="20" Height="28"></SecondDigitTextPosition>
+  <PlayPosition X="60" Y="8" Width="40" Height="32"></PlayPosition>
+  <StopPosition X="105" Y="8" Width="40" Height="32"></StopPosition>
+  <DaysLeftTextPosition X="145" Y="10" Width="40" Height="28"></DaysLeftTextPosition>
   <DaysToGo DefaultDays ="1"
             FontName="Courier New"
             FontSize="10"

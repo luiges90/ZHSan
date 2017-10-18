@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
   <Background Align="Right" Width ="70"></Background>
-  <ToolTexture FileName="Tool.png" Selected="ToolSelected.png" X="-36" Y="10" Width="56" Height="32"></ToolTexture>
+  <ToolTexture FileName="Tool.png" Selected="ToolSelected.png" X="-125" Y="8" Width="80" Height="32"></ToolTexture>
   <Map Transparent="0.9" Position="BottomRight" MaxWidth="400" MaxHeight="400" TileLength="1" TileLengthMax="8"></Map>
   <Frame FileName="Frame.png"></Frame>
   <Architecture FileName="Architecture.png"></Architecture>
@@ -13,5 +13,5 @@
               FontColor="4294967295"
               Align="Middle">
   </ConmentText>
-  <TroopToolTexture FileName="TroopTool.png" Selected="TroopToolSelected.png" X="30" Y="13" Width="24" Height="24"></TroopToolTexture>
+  <TroopToolTexture FileName="TroopTool.png" Selected="TroopToolSelected.png" X="-40" Y="8" Width="80" Height="32"></TroopToolTexture>
 </Root>

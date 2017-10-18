@@ -1,56 +1,56 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
   <TextureFile FileName="TroopSurvey.png" Width="164" Height="198">
     <!--The name of the texture file.Modify it after you changed the texture file's name.-->
   </TextureFile>
   <FactionTextureFile FileName="Faction.png" X="132" Y="63" Width="18" Height="18" ></FactionTextureFile>
-  <NameText X="42" Y="4" Width="80" Height="25"
+  <NameText X="42" Y="7" Width="80" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
-            FontColor="4294238869"
+            FontColor="4283870458"
             Align="Middle">
   </NameText>
-  <KindText X="50" Y="37" Width="80" Height="25"
+  <KindText X="50" Y="38" Width="80" Height="25"
             FontName="方正隶变_GBK"
-            FontSize="15"
+            FontSize="14"
             FontStyle="Regular"
             FontColor="4294967295"
             Align="Middle">
   </KindText>
-  <FactionText X="50" Y="61" Width="80" Height="25"
+  <FactionText X="50" Y="63" Width="80" Height="25"
                FontName="方正隶变_GBK"
-               FontSize="15"
+               FontSize="14"
                FontStyle="Regular"
                FontColor="4294967295"
                Align="Middle">
   </FactionText>
-  <CombatTitleText X="50" Y="91" Width="110" Height="25"
+  <CombatTitleText X="50" Y="88" Width="110" Height="25"
                   FontName="方正隶变_GBK"
                   FontSize="13"
                   FontStyle="Bold"
-                  FontColor="4278255424"
+                  FontColor="4294938142"
                   Align="Middle">
   </CombatTitleText>
-  <ArmyText X="44" Y="114" Width="110" Height="25"
+  <ArmyText X="44" Y="113" Width="110" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
             FontColor="4294967295"
             Align="Right">
   </ArmyText>
-  <MoraleText X="44" Y="139" Width="110" Height="25"
+  <MoraleText X="44" Y="138" Width="110" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
-            FontColor="4294967295"
+            FontColor="4294952448"
             Align="Right">
   </MoraleText>
-  <CombativityText X="44" Y="164" Width="110" Height="25"
+  <CombativityText X="44" Y="163" Width="110" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
-            FontColor="4294967295"
+            FontColor="4281834495"
             Align="Right">
   </CombativityText>
 </Root>

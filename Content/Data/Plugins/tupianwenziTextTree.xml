@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
   <Branch Name="PersonLeave">
     <Leaf Text="继续为" Color="4294967295"></Leaf>
@@ -643,21 +643,21 @@ Color="4294967295"></Leaf>
   </Branch>
   
   <Branch Name="CreateSpouse">
-    <Leaf Text="告诉将军一个好消息，我与" Color="4294967295"></Leaf>
+    <Leaf Text="告诉将军一个好消息，我與" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Color="4286644223"></Leaf>
-    <Leaf Text="青梅竹马，决定结为夫妻了！" Color="4294967295"></Leaf>
+    <Leaf Text="青梅竹馬，決定結為夫妻了！" Color="4294967295"></Leaf>
   </Branch>
   
   <Branch Name="CreateBrother">
-    <Leaf Text="告诉将军一个好消息，我与" Color="4294967295"></Leaf>
+    <Leaf Text="告诉将军一个好消息，我與" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Color="4286644223"></Leaf>
-    <Leaf Text="决定结拜为义兄弟了！" Color="4294967295"></Leaf>
+    <Leaf Text="決定結拜為義兄弟了！" Color="4294967295"></Leaf>
   </Branch>
   
   <Branch Name="CreateSister">
-    <Leaf Text="告诉将军一个好消息，我与" Color="4294967295"></Leaf>
+    <Leaf Text="告诉将军一个好消息，我與" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Color="4286644223"></Leaf>
-    <Leaf Text="决定结拜为义姊妹了！" Color="4294967295"></Leaf>
+    <Leaf Text="決定結拜為義姊妹了！" Color="4294967295"></Leaf>
   </Branch>
   
   <Branch Name="ObtainMilitaryKind">
@@ -750,16 +750,6 @@ Color="4294967295"></Leaf>
      <Leaf Property="TextResultString" Color="4286644223"></Leaf>
      <Leaf Text="被封为" Color="4294967295"></Leaf> 
      <Leaf Property="TextDestinationString" Color="4286644223"></Leaf>
-  </Branch>
-  
-  <Branch Name="AIMergeAgainstPlayer">
-	<Leaf Text="为应对" Color="4294967295"></Leaf>
-	<Leaf Property="TextDestinationString" Color="4294901760"></Leaf>
-	<Leaf Text="的威胁，" Color="4294967295"></Leaf>
-	<Leaf Property="TextResultString" Color="4278255360"></Leaf>
-	<Leaf Text="并入" Color="4294967295"></Leaf>
-	<Leaf Property="Name" Color="4278255360"></Leaf>
-	<Leaf Text="的势力了。" Color="4294967295"></Leaf>
   </Branch>
 </Root>
 

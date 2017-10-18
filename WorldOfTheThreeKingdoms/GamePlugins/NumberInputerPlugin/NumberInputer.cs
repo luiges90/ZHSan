@@ -17,6 +17,8 @@ namespace NumberInputerPlugin
         internal PlatformTexture BackgroundTexture;
         internal Rectangle BackspacePosition;
         internal PlatformTexture BackspaceTexture;
+        internal Rectangle TenThousandPosition;//阿柒:万字按钮相关
+        internal PlatformTexture TenThousandTexture;//阿柒:万字按钮相关
         internal Rectangle ClearPosition;
         internal PlatformTexture ClearTexture;
         private Keys currentKey;
@@ -56,6 +58,26 @@ namespace NumberInputerPlugin
             this.FrameText.Text = this.Num.ToString();
         }
 
+        //阿柒:增加一个万字按钮所需要的算法
+        private void TenThousand()
+        {
+
+            if (Num == 0)
+            {
+                Num = 10000;
+            }
+            else
+            {
+                this.Num *= 10000;
+            }
+            if (this.Num >= this.Max || this.Num < 0)
+            {
+                this.Num = this.Max;
+            }
+
+            this.FrameText.Text = this.Num.ToString();
+        }
+
         internal void Draw()
         {
             Rectangle? sourceRectangle = null;
@@ -79,6 +101,9 @@ namespace NumberInputerPlugin
             CacheManager.Draw(this.BackspaceTexture, this.BackspaceDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
             sourceRectangle = null;
             CacheManager.Draw(this.MaxTexture, this.MaxDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
+            sourceRectangle = null;
+            CacheManager.Draw(this.TenThousandTexture, this.TenThousandDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, (this.DepthOffset + 0.2f) + -0.001f);
+            sourceRectangle = null;
             if (this.ShowSelection)
             {
                 CacheManager.Draw(this.SelectionTexture, this.SelectionDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, ((this.DepthOffset + 0.2f) + -0.001f) + -0.0002f);
@@ -148,6 +173,10 @@ namespace NumberInputerPlugin
                 else if (StaticMethods.PointInRectangle(position, this.ExitDisplayPosition))
                 {
                     this.Exit();
+                }
+                else if (StaticMethods.PointInRectangle(position, this.TenThousandDisplayPosition))
+                {
+                    this.TenThousand();//阿柒:万字按钮相关
                 }
                 else
                 {
@@ -460,6 +489,14 @@ namespace NumberInputerPlugin
             get
             {
                 return new Rectangle(this.DisplayOffset.X + this.FramePosition.X, this.DisplayOffset.Y + this.FramePosition.Y, this.FramePosition.Width, this.FramePosition.Height);
+            }
+        }
+
+        private Rectangle TenThousandDisplayPosition
+        {
+            get
+            {
+                return new Rectangle(this.DisplayOffset.X + this.TenThousandPosition.X, this.DisplayOffset.Y + this.TenThousandPosition.Y, this.TenThousandPosition.Width, this.TenThousandPosition.Height);
             }
         }
 

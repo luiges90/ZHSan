@@ -87,6 +87,112 @@ namespace ScreenBlindPlugin
             this.screenBlind.FactionText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
             node = nextSibling.ChildNodes.Item(4);
             this.screenBlind.SeasonClient = StaticMethods.LoadRectangleFromXMLNode(node);
+
+            node = nextSibling.ChildNodes.Item(5);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.FactionTechText = new FreeText(font, color);
+            this.screenBlind.FactionTechText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.FactionTechText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.FactionTechText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            //阿柒:新增势力信息XML设置
+            node = nextSibling.ChildNodes.Item(6);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.LeaderNameText = new FreeText(font, color);
+            this.screenBlind.LeaderNameText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.LeaderNameText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.LeaderNameText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            node = nextSibling.ChildNodes.Item(7);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.PrinceNameText = new FreeText(font, color);
+            this.screenBlind.PrinceNameText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.PrinceNameText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.PrinceNameText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            node = nextSibling.ChildNodes.Item(8);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.CounsellorNameText = new FreeText(font, color);
+            this.screenBlind.CounsellorNameText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.CounsellorNameText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.CounsellorNameText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            node = nextSibling.ChildNodes.Item(9);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.PersonCountText = new FreeText(font, color);
+            this.screenBlind.PersonCountText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.PersonCountText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.PersonCountText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            node = nextSibling.ChildNodes.Item(10);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.PopulationText = new FreeText(font, color);
+            this.screenBlind.PopulationText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.PopulationText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.PopulationText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            node = nextSibling.ChildNodes.Item(11);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.ArmyText = new FreeText(font, color);
+            this.screenBlind.ArmyText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.ArmyText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.ArmyText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            node = nextSibling.ChildNodes.Item(12);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.FundText = new FreeText(font, color);
+            this.screenBlind.FundText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.FundText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.FundText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            node = nextSibling.ChildNodes.Item(13);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.FoodText = new FreeText(font, color);
+            this.screenBlind.FoodText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.FoodText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.FoodText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            node = nextSibling.ChildNodes.Item(14);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.CapitalNameText = new FreeText(font, color);
+            this.screenBlind.CapitalNameText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.CapitalNameText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.CapitalNameText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            node = nextSibling.ChildNodes.Item(15);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.guanjuezifuchuanText = new FreeText(font, color);
+            this.screenBlind.guanjuezifuchuanText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.guanjuezifuchuanText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.guanjuezifuchuanText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            node = nextSibling.ChildNodes.Item(16);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.chaotinggongxianduText = new FreeText(font, color);
+            this.screenBlind.chaotinggongxianduText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.chaotinggongxianduText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.chaotinggongxianduText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            node = nextSibling.ChildNodes.Item(17);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.CityCountText = new FreeText(font, color);
+            this.screenBlind.CityCountText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.CityCountText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.CityCountText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            node = nextSibling.ChildNodes.Item(18);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.FiveTigerText = new FreeText(font, color);
+            this.screenBlind.FiveTigerText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.FiveTigerText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.FiveTigerText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
+
+            node = nextSibling.ChildNodes.Item(19);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.screenBlind.GovernorNameText = new FreeText(font, color);
+            this.screenBlind.GovernorNameText.Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.screenBlind.GovernorNameText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            this.screenBlind.GovernorNameText.DisplayOffset = new Microsoft.Xna.Framework.Point(0, 0);
         }
 
         public void SetGraphicsDevice()

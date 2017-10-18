@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
-  <Background Align="Right" Width ="112"></Background>
-  <SystemTexture FileName="System.png" Selected="SystemSelected.png" X="2" Y="10" Width="112" Height="33"></SystemTexture>
+  <Background Align="Right" Width ="100"></Background>
+  <SystemTexture FileName="System.png" Selected="SystemSelected.png" X="5" Y="8" Width="80" Height="32"></SystemTexture>
 </Root>

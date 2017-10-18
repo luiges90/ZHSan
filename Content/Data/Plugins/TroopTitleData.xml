@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
   <BackgroundFile FileName="Background.png" PictureNull="Null.png" Width="80" Height="38"></BackgroundFile>
   <PortraitTexturePosition X="0" Y="0" Width="26" Height="34" ></PortraitTexturePosition>
@@ -39,15 +39,15 @@
   <Item23></Item23>
   <Item24></Item24>
   <Item25></Item25>
-  <FactionNameText X="3" Y="-13" Width="20" Height="10"
+  <FactionNameText X="3" Y="-8" Width="20" Height="10"
           FontName="宋体"
           FontSize="9"
           FontStyle="Regular"
-          FontColor="4294967295"
+          FontColor="4280163870"
           Align="Left"
           FactionNameKind="1" ShowFactionNameBackground="off" Background="Null.png">
   </FactionNameText>
-  <FactionColor ColorPicture="Faction.png" ColorBackground="qizi.png" X="0" Y="-25" Width="50" Height="38"></FactionColor>
+  <FactionColor ColorPicture="Faction.png" ColorBackground="qizi.png" X="0" Y="-25" Width="50" Height="45"></FactionColor>
   <Item28></Item28>
   <Item29></Item29>
   <Item30></Item30>
@@ -89,7 +89,7 @@
   <Item53></Item53>
   <Item54></Item54>
   <Item55></Item55>
-  <FactionName2Text X="8" Y="-12" Width="20" Height="10"
+  <FactionName2Text X="8" Y="-10" Width="20" Height="10"
           FontName="宋体"
           FontSize="9"
           FontStyle="Regular"

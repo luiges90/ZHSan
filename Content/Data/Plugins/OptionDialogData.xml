@@ -1,35 +1,35 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
   <Styles>
     <Style Name="Basic">
-      <Title FileName="Title.png" TitleWidth="150" TitleHeight="40" Margin="10" X="10" Y="8" Width="130" Height="30"
+      <Title FileName="Title.png" TitleWidth="150" TitleHeight="40" Margin="10" X="0" Y="0" Width="150" Height="40"
          FontName="方正隶变_GBK"
          FontSize="17"
          FontStyle="Bold"
-         FontColor="4294967295"
+         FontColor="4293322495"
          Align="Middle">
       </Title>
       <OptionTexture FileName="Basic.png" Selected="BasicSelected.png" ItemHeight="34" Margin="80"></OptionTexture>
       <OptionText FontName="方正隶变_GBK"
                   FontSize="15"
                   FontStyle="Bold"
-                  FontColor="4288070589"
+                  FontColor="4293322495"
                   Align="Middle">
       </OptionText>
     </Style>
     <Style Name="SaveAndLoad">
-      <Title FileName="Title.png" TitleWidth="150" TitleHeight="40" Margin="10" X="10" Y="8" Width="130" Height="30"
+      <Title FileName="Title.png" TitleWidth="150" TitleHeight="40" Margin="10" X="0" Y="0" Width="150" Height="40"
          FontName="方正隶变_GBK"
          FontSize="17"
          FontStyle="Bold"
-         FontColor="4294967295"
+         FontColor="4293322495"
          Align="Middle">
       </Title>
       <OptionTexture FileName="SaveAndLoad.png" Selected="SaveAndLoadSelected.png" ItemHeight="30" Margin="100"></OptionTexture>
       <OptionText FontName="方正隶变_GBK"
                   FontSize="13"
                   FontStyle="Regular"
-                  FontColor="4290305496"
+                  FontColor="4293322495"
                   Align="Middle">
       </OptionText>
     </Style>
@@ -38,14 +38,14 @@
          FontName="方正隶变_GBK"
          FontSize="15"
          FontStyle="Bold"
-         FontColor="4294967295"
+         FontColor="4293322495"
          Align="Middle">
       </Title>
       <OptionTexture FileName="Small.png" Selected="SmallSelected.png" ItemHeight="28" Margin="20"></OptionTexture>
       <OptionText FontName="方正隶变_GBK"
                   FontSize="13"
                   FontStyle="Regular"
-                  FontColor="4290305496"
+                  FontColor="4293322495"
                   Align="Middle">
       </OptionText>
     </Style>

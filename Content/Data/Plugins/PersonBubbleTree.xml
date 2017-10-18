@@ -1,37 +1,37 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
   <Branch Name="Basic" Time="1500">
     <Leaf Property="" Text="就看我" Color="4294967295"></Leaf>
-    <Leaf Property="RespectfulName" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="RespectfulName" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="的吧。" Color="4294967295"></Leaf>
   </Branch>
   <Branch Name="GetControl" Time="1500">
     <Leaf Property="" Text="终于又轮到我" Color="4294967295"></Leaf>
-    <Leaf Property="RespectfulName" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="RespectfulName" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="了。" Color="4294967295"></Leaf>
   </Branch>
   <Branch Name="Work" Time="1000">
     <Leaf Property="" Text="交给我" Color="4294967295"></Leaf>
-    <Leaf Property="RespectfulName" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="RespectfulName" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="吧。" Color="4294967295"></Leaf>
   </Branch>
   <Branch Name="Campaign" Time="1500">
     <Leaf Property="" Text="跟着我" Color="4294967295"></Leaf>
-    <Leaf Property="Name" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="Name" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="出发。" Color="4294967295"></Leaf>
   </Branch>
   <Branch Name="HirePerson" Time="1500">
     <Leaf Property="" Text="我" Color="4294967295"></Leaf>
-    <Leaf Property="RespectfulName" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="RespectfulName" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="期待着为" Color="4294967295"></Leaf>
-    <Leaf Property="Faction" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="Faction" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="军立下汗马功劳！" Color="4294967295"></Leaf>
   </Branch>
   <Branch Name="RewardPerson" Time="1500">
     <Leaf Property="" Text="感激不尽，在下" Color="4294967295"></Leaf>
-    <Leaf Property="RespectfulName" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="RespectfulName" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="愿为" Color="4294967295"></Leaf>
-    <Leaf Property="Faction" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="Faction" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="军效犬马之劳。" Color="4294967295"></Leaf>
   </Branch>
   <Branch Name="InformationObtained" Time="1500">
@@ -41,47 +41,47 @@
     <Leaf Property="" Text="很可惜，没能获得情报。困难重重啊。" Color="4294967295"></Leaf>
   </Branch>
   <Branch Name="SearchFailed" Time="1500">
-    <Leaf Property="Name" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="Name" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="：很遗憾，在" Color="4294967295"></Leaf>
-    <Leaf Property="TextDestinationString" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="TextDestinationString" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="的搜索工作没有任何斩获。" Color="4294967295"></Leaf>
   </Branch>
   <Branch Name="SearchFundFound" Time="3000">
-    <Leaf Property="Name" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="Name" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="：巧得很，在" Color="4294967295"></Leaf>
-    <Leaf Property="TextDestinationString" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="TextDestinationString" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="的附近偶遇富商，得到其捐赠的资金" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Text="" Color="4278255360"></Leaf>
     <Leaf Property="" Text="。" Color="4294967295"></Leaf>
   </Branch>
   <Branch Name="SearchFoodFound" Time="3000">
-    <Leaf Property="Name" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="Name" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="：本次搜索，在" Color="4294967295"></Leaf>
-    <Leaf Property="TextDestinationString" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="TextDestinationString" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="周边搜集到粮草" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Text="" Color="4278255360"></Leaf>
     <Leaf Property="" Text="。" Color="4294967295"></Leaf>
   </Branch>
   <Branch Name="SearchTechniqueFound" Time="3000">
-    <Leaf Property="Name" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="Name" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="：遍访" Color="4294967295"></Leaf>
-    <Leaf Property="TextDestinationString" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="TextDestinationString" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="四周的能工巧匠，终于有所得。现上交技巧点数" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Text="" Color="4278255360"></Leaf>
     <Leaf Property="" Text="。" Color="4294967295"></Leaf>
   </Branch>
   <Branch Name="SearchSpyFound" Time="3000">
-    <Leaf Property="Name" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="Name" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="：发现并铲除了" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Text="" Color="4278255360"></Leaf>
     <Leaf Property="" Text="派来" Color="4294967295"></Leaf>
-    <Leaf Property="TextDestinationString" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="TextDestinationString" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="的奸细。不过，还有其他的间谍也未可知……" Color="4294967295"></Leaf>
   </Branch>
   <Branch Name="SearchPersonFound" Time="3000">
-    <Leaf Property="Name" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="Name" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="：属下于" Color="4294967295"></Leaf>
-    <Leaf Property="TextDestinationString" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="TextDestinationString" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="周遭巡视时，发现了在野人才" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Text="" Color="4278255360"></Leaf>
     <Leaf Property="" Text="。" Color="4294967295"></Leaf>
@@ -95,7 +95,7 @@
   </Branch>
   <Branch Name="Target" Time="1500">
     <Leaf Property="" Text="接下来，以" Color="4294967295"></Leaf>
-    <Leaf Property="TargetString" Text="" Color="4286644223"></Leaf>
+    <Leaf Property="TargetString" Text="" Color="4294426889"></Leaf>
     <Leaf Property="" Text="为目标开展行动。" Color="4294967295"></Leaf>
   </Branch>
   <Branch Name="EndPath">

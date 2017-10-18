@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
   <ToolBackground Align="Left" Width ="50"></ToolBackground>
-  <ToolTexture FileName="Tool.png" Selected="ToolSelected.png" X="26" Y="10" Width="33" Height="33"></ToolTexture>
+  <ToolTexture FileName="Tool.png" Selected="ToolSelected.png" X="5" Y="8" Width="80" Height="32"></ToolTexture>
 
-  <RecordBackground PopSoundFile="Pop" Position="BottomLeft" FileName="RecordBackground.png" X="0" Y="0" Width="450" Height="180"></RecordBackground>
+  <RecordBackground PopSoundFile="Pop.wav" Position="BottomLeft" FileName="RecordBackground.png" X="0" Y="0" Width="450" Height="180"></RecordBackground>
   <Record RowMargin="1"
           FontName="Microsoft YaHei UI"
           FontSize="10"
           FontStyle="Regular"
-          FontColor="4294967295">
+          FontColor="4292730333">
   </Record>
-  <Tool1Texture FileName="Tool1.png" Selected="Tool1Selected.png" X="260" Y="10" Width="33" Height="33"></Tool1Texture>
+  <Tool1Texture FileName="Tool1.png" Selected="Tool1Selected.png" X="90" Y="8" Width="80" Height="32"></Tool1Texture>
 
 </Root>

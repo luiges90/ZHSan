@@ -1,143 +1,143 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
   <BackgroundTextureFile FileName="ArchitectureSurvey.png" Width="194" Height="273"></BackgroundTextureFile>
   <FactionTextureFile FileName="Faction.png" X="149" Y="89" Width="18" Height="18" ></FactionTextureFile>
-  <NameText X="65" Y="38" Width="80" Height="25" 
+  <NameText X="55" Y="24" Width="80" Height="25" 
             FontName="方正隶变_GBK" 
             FontSize="15" 
             FontStyle="Regular" 
-            FontColor="4278255615" 
+            FontColor="4292861919" 
             Align="Middle">
   </NameText>
-  <KindText X="68" Y="63" Width="80" Height="25" 
+  <KindText X="65" Y="62" Width="80" Height="25" 
             FontName="方正隶变_GBK" 
             FontSize="15" 
             FontStyle="Regular" 
-            FontColor="4294967295" 
+            FontColor="4292861919" 
             Align="Middle">
   </KindText>
   <FactionText X="65" Y="87" Width="80" Height="25" 
                FontName="方正隶变_GBK" 
                FontSize="15" 
                FontStyle="Regular" 
-               FontColor="4294967295" 
+               FontColor="4292861919" 
                Align="Middle">
   </FactionText>
-  <PopulationText X="63" Y="136" Width="110" Height="25" 
+  <PopulationText X="63" Y="137" Width="110" Height="25" 
                   FontName="方正隶变_GBK" 
                   FontSize="15" 
                   FontStyle="Regular" 
-                  FontColor="4294967295" 
+                  FontColor="4292861919" 
                   Align="Right">
   </PopulationText>
-  <ArmyText X="63" Y="160" Width="110" Height="25" 
+  <ArmyText X="63" Y="162" Width="110" Height="25" 
             FontName="方正隶变_GBK" 
             FontSize="15" 
             FontStyle="Regular" 
-            FontColor="4294967295" 
+            FontColor="4292861919" 
             Align="Right">
   </ArmyText>
-  <DominationText X="63" Y="185" Width="110" Height="25"
+  <DominationText X="63" Y="187" Width="110" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
-            FontColor="4294967295"
+            FontColor="4292861919"
             Align="Right">
   </DominationText>
-  <EnduranceText X="63" Y="210" Width="110" Height="25"
+  <EnduranceText X="63" Y="212" Width="110" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
-            FontColor="4294967295"
+            FontColor="4292861919"
             Align="Right">
   </EnduranceText>
   <ControllingBackgroundTextureFile FileName="ArchitectureSurveyControlling.png" Width="388" Height="273"></ControllingBackgroundTextureFile>
-  <FundText X="255" Y="37" Width="110" Height="25"
+  <FundText X="255" Y="12" Width="110" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
-            FontColor="4294967295"
+            FontColor="4292861919"
             Align="Right">
   </FundText>
-  <FoodText X="255" Y="59" Width="110" Height="25"
+  <FoodText X="255" Y="37" Width="110" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
-            FontColor="4294967295"
+            FontColor="4292861919"
             Align="Right">
   </FoodText>
-  <PersonCountText X="255" Y="81" Width="110" Height="25"
+  <PersonCountText X="255" Y="62" Width="110" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
-            FontColor="4294967295"
+            FontColor="4292861919"
             Align="Right">
   </PersonCountText>
-  <NoFactionPersonCountText X="255" Y="103" Width="110" Height="25"
+  <NoFactionPersonCountText X="255" Y="87" Width="110" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
-            FontColor="4294967295"
+            FontColor="4292861919"
             Align="Right">
   </NoFactionPersonCountText>
-  <AgricultureText X="255" Y="125" Width="110" Height="25"
+  <AgricultureText X="255" Y="112" Width="110" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
-            FontColor="4294967295"
+            FontColor="4292861919"
             Align="Right">
   </AgricultureText>
-  <CommerceText X="255" Y="147" Width="110" Height="25"
+  <CommerceText X="255" Y="137" Width="110" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
-            FontColor="4294967295"
+            FontColor="4292861919"
             Align="Right">
   </CommerceText>
-  <TechnologyText X="255" Y="169" Width="110" Height="25"
+  <TechnologyText X="255" Y="162" Width="110" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
-            FontColor="4294967295"
+            FontColor="4292861919"
             Align="Right">
   </TechnologyText>
-  <MoraleText X="255" Y="191" Width="110" Height="25"
+  <MoraleText X="255" Y="187" Width="110" Height="25"
             FontName="方正隶变_GBK"
             FontSize="15"
             FontStyle="Regular"
-            FontColor="4294967295"
+            FontColor="4292861919"
             Align="Right">
   </MoraleText>
-  <MilitaryPopulationText X="63" Y="235" Width="110" Height="25"
+  <MilitaryPopulationText X="63" Y="237" Width="110" Height="25"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Right">
   </MilitaryPopulationText>
-  <FacilityCountText X="255" Y="213" Width="110" Height="25"
+  <FacilityCountText X="255" Y="212" Width="110" Height="25"
           FontName="方正隶变_GBK"
           FontSize="14"
           FontStyle="Regular"
-          FontColor="4294967295"
+          FontColor="4292861919"
           Align="Right">
   </FacilityCountText>
-  <BuildingDaysLeftText X="255" Y="235" Width="110" Height="25"
+  <BuildingDaysLeftText X="255" Y="237" Width="110" Height="25"
           FontName="方正隶变_GBK"
           FontSize="14"
           FontStyle="Regular"
-          FontColor="4294967295"
+          FontColor="4292861919"
           Align="Right">
   </BuildingDaysLeftText>
-  <MayorNameText X="65" Y="113" Width="80" Height="25" 
+  <MayorNameText X="65" Y="112" Width="80" Height="25" 
                FontName="方正隶变_GBK" 
                FontSize="15" 
                FontStyle="Regular" 
-               FontColor="4294967295" 
+               FontColor="4292861919" 
                Align="Middle">
   </MayorNameText>
 
-  <Switchs ArchitectureKinds="on" Bars="on" > </Switchs>
+  <Switchs ArchitectureKinds="off" Bars="on" > </Switchs>
   <NewControllingBackground Mask="Mask.png" Background="Background.png"></NewControllingBackground>
   <ArchitectureKinds  X="119" Y="-60" Width="150" Height="100"
            Name1="都城" Name2="关隘" Name3="港口" Name4="军营" Name5="荒城" Name6="关城" Name7="异族据点"
@@ -151,12 +151,12 @@
            FileName19="Background0.jpg"  FileName20="Background0.jpg"  FileName21="Background0.jpg"  FileName22="Background0.jpg"  FileName23="Background0.jpg"  FileName24="Background0.jpg"
            FileName25="Background0.jpg"  FileName26="Background0.jpg"  FileName27="Background0.jpg"  FileName28="Background0.jpg" >
   </ArchitectureKinds>
-  <DominationBar  X="64" Y="202" Width="100" Height="8" FileName0="Red.png" FileName1="Orange.png" FileName2="Yellow.png" FileName3="Green.png" FileName4="Blue.png" FileName5="Purple.png">  </DominationBar>
-  <EnduranceBar  X="64" Y="227" Width="100" Height="8" FileName0="Red.png" FileName1="Orange.png" FileName2="Yellow.png" FileName3="Green.png" FileName4="Blue.png" FileName5="Purple.png">  </EnduranceBar>
-  <AgricultureBar  X="254" Y="141" Width="100" Height="8" FileName0="Green.png" FileName1="Cyan.png" FileName2="Cyan.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Purple.png">  </AgricultureBar>
-  <CommerceBar  X="254" Y="163" Width="100" Height="8" FileName0="Green.png" FileName1="Cyan.png" FileName2="Cyan.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Purple.png">  </CommerceBar>
-  <TechnologyBar  X="254" Y="185" Width="100" Height="8" FileName0="Green.png" FileName1="Cyan.png" FileName2="Cyan.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Purple.png">  </TechnologyBar>
-  <MoraleBar  X="254" Y="207" Width="100" Height="8" FileName0="Green.png" FileName1="Cyan.png" FileName2="Cyan.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Purple.png">  </MoraleBar>
-  <FacilityCountBar  X="254" Y="229" Width="100" Height="8" FileName0="Blue.png" FileName1="Cyan.png" FileName2="Green.png" FileName3="Yellow.png" FileName4="Orange.png" FileName5="Red.png">  </FacilityCountBar>
+  <DominationBar  X="64" Y="207" Width="100" Height="8" FileName0="Blue.png" FileName1="Blue.png" FileName2="Blue.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Green.png">  </DominationBar>
+  <EnduranceBar  X="64" Y="232" Width="100" Height="8" FileName0="Blue.png" FileName1="Blue.png" FileName2="Blue.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Green.png">  </EnduranceBar>
+  <AgricultureBar  X="258" Y="132" Width="100" Height="8" FileName0="Blue.png" FileName1="Blue.png" FileName2="Blue.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Green.png">  </AgricultureBar>
+  <CommerceBar  X="258" Y="157" Width="100" Height="8" FileName0="Blue.png" FileName1="Blue.png" FileName2="Blue.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Green.png">  </CommerceBar>
+  <TechnologyBar  X="258" Y="182" Width="100" Height="8" FileName0="Blue.png" FileName1="Blue.png" FileName2="Blue.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Green.png">  </TechnologyBar>
+  <MoraleBar  X="258" Y="207" Width="100" Height="8" FileName0="Blue.png" FileName1="Blue.png" FileName2="Blue.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Green.png">  </MoraleBar>
+  <FacilityCountBar  X="258" Y="232" Width="100" Height="8" FileName0="Blue.png" FileName1="Blue.png" FileName2="Blue.png" FileName3="Blue.png" FileName4="Blue.png" FileName5="Green.png">  </FacilityCountBar>
 
 </Root>

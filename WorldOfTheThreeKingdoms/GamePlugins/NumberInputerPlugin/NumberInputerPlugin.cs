@@ -94,6 +94,10 @@ namespace NumberInputerPlugin
             this.numberInputer.ExitPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             node = nextSibling.ChildNodes.Item(9);
             this.numberInputer.SelectionTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            //阿柒:万字按钮相关
+            node = nextSibling.ChildNodes.Item(10);
+            this.numberInputer.TenThousandTexture = CacheManager.GetTempTexture(@"GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.numberInputer.TenThousandPosition = StaticMethods.LoadRectangleFromXMLNode(node);
         }
 
         public void SetDepthOffset(float offset)

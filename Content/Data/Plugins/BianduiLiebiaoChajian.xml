@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root Discription="ListKind:Which kind of list. Example: PersonList or FactionList or ArchitectureList. Tab: The tab can be clicked. Column: The column a tab can have">
-  <LeftEdge Width="36" FileName="LeftEdge.png"></LeftEdge>
-  <RightEdge Width="36" FileName="RightEdge.png"></RightEdge>
-  <TopEdge Width="50" FileName="TopEdge.png"></TopEdge>
-  <BottomEdge Width="30" FileName="BottomEdge.png"></BottomEdge>
+  <LeftEdge Width="10" FileName="LeftEdge.png"></LeftEdge>
+  <RightEdge Width="10" FileName="RightEdge.png"></RightEdge>
+  <TopEdge Width="10" FileName="TopEdge.png"></TopEdge>
+  <BottomEdge Width="10" FileName="BottomEdge.png"></BottomEdge>
   <BackGround FileName="BackGround.png"></BackGround>
   
   <ToolTexture FileName="jiahao.png" Selected="jianhao.png" X="85" Y="-40" Width="29" Height="29"></ToolTexture>
 
-  <TabButton Width="180" Height="32" FileName="TabButton.png" SelectedFileName="TabButtonSelected.png"></TabButton>
+  <TabButton Width="150" Height="27" FileName="TabButton.png" SelectedFileName="TabButtonSelected.png"></TabButton>
   <ColumnHeader Height="24" FileName="ColumnHeader.png"></ColumnHeader>
   <ColumnSpliter Width="4" Height="24" FileName="ColumnSpliter.jpg"></ColumnSpliter>
   <ScrollButton Width="12" FileName="ScrollButton.png"></ScrollButton>
@@ -20,16 +20,16 @@
   <TabText FontName="方正隶变_GBK"
            FontSize="14"
            FontStyle="Bold"
-           FontColor="4290822336"
+           FontColor="4292861919"
            Align="Middle">
   </TabText>
   <ColumnText FontName="方正隶变_GBK"
               FontSize="14"
               FontStyle="Bold"
-              FontColor="4294967295"
+              FontColor="4292861919"
               Align="Middle">
   </ColumnText>
-  <SoundFile Select="Select"></SoundFile>
+  <SoundFile Select="Select.wav"></SoundFile>
   <TopLeftPosition X="50" Y="110" ></TopLeftPosition>
   <TopLeft FileName="TopLeft.png"></TopLeft>
   <TopRight FileName="TopRight.png"></TopRight>
@@ -38,27 +38,27 @@
 
 
   <TabList RowHeight="24" FrameWidth="200" FrameHeight="340" ClientX="0" ClientY="0" ClientWidth="200" ClientHeight="340" OKButtonX="20" OKButtonY="515" CancelButtonX="40" CancelButtonY="515" MapViewSelectorButtonX="10" MapViewSelectorButtonY="515">
-	<ListKind ID="1" Name="Architecture" DisplayName="浮动窗" ShowPortrait ="false">
+	<ListKind ID="1" Name="Architecture" DisplayName="浮動窗" ShowPortrait ="false">
 		<Columns>
 			<Column ID="1" Name="KindString" IsNumber="false" DisplayName="种类" MinWidth="55"
 					FontName="方正隶变_GBK"
 					FontSize="14"
 					FontStyle="Regular"
-					FontColor="4294967295"
+					FontColor="4292861919"
 					Align="Middle">
 			</Column>
 			<Column ID="2" Name="Name" IsNumber="false" DisplayName="名称" MinWidth="55"
 					FontName="方正隶变_GBK"
 					FontSize="14"
 					FontStyle="Regular"
-					FontColor="4294967295"
+					FontColor="4292861919"
 					Align="Middle">
 			</Column>
 			<Column ID="3" Name="yocelanPersonString" IsNumber="false" DisplayName="武将" MinWidth="65"
 					FontName="方正隶变_GBK"
 					FontSize="15"
 					FontStyle="Regular"
-					FontColor="4294967295"
+					FontColor="4292861919"
 					Align="Middle">
 			</Column>
 		</Columns>
@@ -73,70 +73,70 @@
                 FontName="方正隶变_GBK"
                 FontSize="9"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Left">
         </Column>
         <Column ID="2" Name="KindString" IsNumber="false" DisplayName="兵种" MinWidth="65"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Middle">
         </Column>
         <Column ID="3" Name="LocationString" IsNumber="false" DisplayName="所在" MinWidth="80"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Middle">
         </Column>
         <Column ID="4" Name="TrainingString" IsNumber="false" DisplayName="训练中" MinWidth="70"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Middle">
         </Column>
         <Column ID="5" Name="RecruitmentString" IsNumber="false" DisplayName="补充中" MinWidth="70"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Middle">
         </Column>
         <Column ID="10" Name="Quantity" IsNumber="true" DisplayName="兵数" MinWidth="50"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Right">
         </Column>
         <Column ID="11" Name="Morale" IsNumber="true" DisplayName="士气" MinWidth="10"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Right">
         </Column>
         <Column ID="12" Name="Combativity" IsNumber="true" DisplayName="战意" MinWidth="10"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Right">
         </Column>
         <Column ID="13" Name="Experience" IsNumber="true" DisplayName="经验" MinWidth="60"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Right">
         </Column>
         <Column ID="14" Name="InjuryQuantity" IsNumber="true" DisplayName="伤兵数量" MinWidth="80"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Right">
         </Column>
         <Column ID="20" Name="FollowedLeaderName" IsNumber="false" DisplayName="追随将领" MinWidth="80"
@@ -150,49 +150,49 @@
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Middle">
         </Column>
         <Column ID="22" Name="LeaderExperience" IsNumber="true" DisplayName="当前将领信任度" MinWidth="120"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Right">
         </Column>
         <Column ID="30" Name="Offence" IsNumber="true" DisplayName="攻击力" MinWidth="80"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Right">
         </Column>
         <Column ID="31" Name="Defence" IsNumber="true" DisplayName="防御力" MinWidth="80"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Right">
         </Column>
         <Column ID="32" Name="Scales" IsNumber="true" DisplayName="单位数" MinWidth="80"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
-                FontColor="4294967295"
+                FontColor="4292861919"
                 Align="Right">
         </Column>
         <Column ID="33" Name="RealKind" IsNumber="false" DisplayName="实际兵种" MinWidth="80"
                FontName="方正隶变_GBK"
                FontSize="14"
                FontStyle="Regular"
-               FontColor="4294967295"
+               FontColor="4292861919"
                Align="Middle">
         </Column>
         <Column ID="34" Name="YijingXunlianHao" IsNumber="false" DisplayName="训" MinWidth="20"
        FontName="方正隶变_GBK"
        FontSize="14"
        FontStyle="Regular"
-       FontColor="4294967295"
+       FontColor="4292861919"
        Align="Middle">
         </Column>
 
@@ -200,13 +200,13 @@
        FontName="方正隶变_GBK"
        FontSize="14"
        FontStyle="Regular"
-       FontColor="4294967295"
+       FontColor="4292861919"
        Align="Middle">
       </Column>
         
       </Columns>
       <Tabs Margin="5">
-        <Tab ID="1"  Name="Basic" DisplayName="编队" Columns="2 10 35 34">
+        <Tab ID="1"  Name="Basic" DisplayName="" Columns="2 10 35 34">
         </Tab>
 
       </Tabs>
