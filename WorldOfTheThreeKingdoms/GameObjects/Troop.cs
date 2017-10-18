@@ -13208,7 +13208,7 @@ namespace GameObjects
                 this.selfCastPosition = value;
             }
         }
-        [DataMember]
+
         public bool ShowNumber
         {
             get
