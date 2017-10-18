@@ -2393,7 +2393,7 @@ namespace ArchitectureDetail
             {
                 if (Switch1 == "off")
                 {
-                    CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                    CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.02f);
                     foreach (LabelText text in this.LabelTexts)
                     {
                         text.Label.Draw(0.1999f);
