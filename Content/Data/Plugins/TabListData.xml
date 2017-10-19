@@ -21,7 +21,7 @@
               FontColor="4294375158"
               Align="Middle">
   </ColumnText>
-  <SoundFile Select="Select.wav"></SoundFile>
+  <SoundFile Select="Select"></SoundFile>
   <TabList RowHeight="25" FrameWidth="956" FrameHeight="550" ClientX="0" ClientY="0" ClientWidth="956" ClientHeight="500" OKButtonX="700" OKButtonY="515" CancelButtonX="800" CancelButtonY="515" MapViewSelectorButtonX="10" MapViewSelectorButtonY="515">
     <ListKind ID="1" Name="Person" DisplayName="人物列表" ShowPortrait ="true">
       <Columns>

@@ -29,7 +29,7 @@
               FontColor="4289716209"
               Align="Middle">
   </ColumnText>
-  <SoundFile Select="Select.wav"></SoundFile>
+  <SoundFile Select="Select"></SoundFile>
   <TopLeftPosition X="50" Y="110" ></TopLeftPosition>
   <TopLeft FileName="TopLeft.png"></TopLeft>
   <TopRight FileName="TopRight.png"></TopRight>

@@ -5,7 +5,6 @@
     <ContextMenuLeftClick FileName="ContextMenuLeftDisabled.png" SelectedFileName="ContextMenuLeftDisabled.png" FontName="方正隶变_GBK" FontSize="13" FontStyle="Regular" FontColor="4290032820" />
     <ContextMenuRightClick FileName="ContextMenuRightDisabled.png" SelectedFileName="ContextMenuRightDisabled.png" FontName="方正隶变_GBK" FontSize="13" FontStyle="Regular" FontColor="4290032820" />
     <HasChildTexture FileName="HasChild.png" />
-    <SoundFile Click="Click.wav" Open="Open.wav" Fold="Fold.wav" />
     <MenuKindList>
         <MenuKind ID="1" Name="ArchitectureRightClick" DisplayName="城池右键菜单" IsLeft="false" Width="130" Height="27" DisplayAll="False">
             <MenuItem ID="1" Name="Architecture" DisplayName="当前城池" DisplayAll="False">

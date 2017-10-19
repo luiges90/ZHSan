@@ -14,7 +14,7 @@
          FontColor="4291358207"
          Align="Middle">
   </Title>
-  <SoundFile OK="OK.wav" Cancel="Cancel.wav"></SoundFile>
+  <SoundFile OK="OK" Cancel="Cancel"></SoundFile>
   <MapViewSelectorButton Width="160" Height="30" FileName="MapViewSelectorButton.png" Selected="MapViewSelectorButtonSelected.png"></MapViewSelectorButton>
 
   <TopLeft FileName="TopLeft.png"></TopLeft>

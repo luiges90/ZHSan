@@ -84,7 +84,7 @@
             this.screen = screen;
         }
 
-        private void screen_OnMouseLeftDown(Point position)
+        private void screen_OnMouseLeftUp(Point position)
         {
             if (StaticMethods.PointInRectangle(position, new Rectangle(this.BiographyText.DisplayOffset.X, this.BiographyText.DisplayOffset.Y, this.BiographyClient.Width, this.BiographyClient.Height)))
             {
@@ -427,9 +427,7 @@
                         this.BiographyText.AddText("历史", this.BiographyText.SubTitleColor2);
                         this.BiographyText.AddNewLine();
                         this.BiographyText.AddText(this.ShowingPerson.PersonBiography.History);
-
-                        //阿柒:屏蔽了剧本列传
-                        /*this.BiographyText.AddNewLine();
+                        this.BiographyText.AddNewLine();
                         this.BiographyText.AddText("剧本", this.BiographyText.SubTitleColor2);
                         this.BiographyText.AddText("：");
                         String[] lineBrokenText = ShowingPerson.PersonBiography.InGame.Split('\n');
@@ -437,7 +435,7 @@
                         {
                             this.BiographyText.AddText(s);
                             this.BiographyText.AddNewLine();
-                        }*/
+                        }
                         this.BiographyText.ResortTexts();
                     }
                 }
@@ -552,8 +550,7 @@
                 this.BiographyText.AddText("历史", this.BiographyText.SubTitleColor2);
                 this.BiographyText.AddNewLine();
                 this.BiographyText.AddText(this.ShowingPerson.PersonBiography.History);
-                //阿柒:屏蔽剧本列传相关
-                /*this.BiographyText.AddNewLine();
+                this.BiographyText.AddNewLine();
                 this.BiographyText.AddText("剧本", this.BiographyText.SubTitleColor2);
                 this.BiographyText.AddText("：");
                 String[] lineBrokenText = ShowingPerson.PersonBiography.InGame.Split('\n');
@@ -561,7 +558,7 @@
                 {
                     this.BiographyText.AddText(s);
                     this.BiographyText.AddNewLine();
-                }*/
+                }
                 this.BiographyText.ResortTexts();
             }
         }
@@ -649,7 +646,7 @@
                 {
                     this.screen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.SubDialog, DialogKind.PersonDetail));
                     this.screen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    this.screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
                     this.screen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                 }
                 else
@@ -659,7 +656,7 @@
                         throw new Exception("The UndoneWork is not a SubDialog.");
                     }
                     this.screen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                    this.screen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    this.screen.OnMouseLeftUp -= new Screen.MouseLeftUp(this.screen_OnMouseLeftUp);
                     this.screen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                     this.current = null;
                     this.InfluenceText.Clear();
