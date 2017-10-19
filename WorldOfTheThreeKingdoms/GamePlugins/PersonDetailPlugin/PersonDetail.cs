@@ -102,7 +102,7 @@
         private void screen_OnMouseMove(Point position, bool leftDown)
         {
             bool flag = false;
-            if (!flag && StaticMethods.PointInRectangle(position, this.TitleDisplayPosition))
+            if (!flag && StaticMethods.PointInRectangle(position, this.TitleDisplayPosition) && this.TitleText.RowHeight > 0)
             {
                 int num2 = (position.Y - this.TitleText.DisplayOffset.Y) / this.TitleText.RowHeight;
                 if (num2 >= 0)
@@ -276,7 +276,7 @@
                  }
              }*/
 
-            if (!flag && StaticMethods.PointInRectangle(position, this.StuntDisplayPosition))
+            if (!flag && StaticMethods.PointInRectangle(position, this.StuntDisplayPosition) && this.StuntText.RowHeight > 0)
             {
                 int num2 = (position.Y - this.StuntText.DisplayOffset.Y) / this.StuntText.RowHeight;
                 if (num2 > -1)
