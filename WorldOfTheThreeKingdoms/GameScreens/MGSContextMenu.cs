@@ -883,8 +883,19 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.ToggleFullScreen();
                     break;
 
+                case ContextMenuResult.Switch_SkyEyeSimpleNotification:
+                    Session.GlobalVariables.SkyEyeSimpleNotification = !Session.GlobalVariables.SkyEyeSimpleNotification;
+                    if (Session.GlobalVariables.SkyEyeSimpleNotification) {
+                        Session.GlobalVariables.SkyEye = true;
+                    }
+                    break;
+
                 case ContextMenuResult.Switch_SkyEye:
                     Session.GlobalVariables.SkyEye = !Session.GlobalVariables.SkyEye;
+                    if (!Session.GlobalVariables.SkyEye)
+                    {
+                        Session.GlobalVariables.SkyEyeSimpleNotification = false;
+                    }
                     break;
 
                 case ContextMenuResult.Switch_MultipleResource:
@@ -1268,6 +1279,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case ContextMenuResult.ChangeFaction:
                     this.changeFaction();
                     break;
+
             }
         }
 

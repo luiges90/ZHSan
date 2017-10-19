@@ -3575,5 +3575,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             //myProcess.Start();
             //System.Environment.Exit(0);
         }
+
+        public bool SkyEyeSimpleNotification
+        {
+            get
+            {
+                return Session.GlobalVariables.SkyEyeSimpleNotification;
+            }
+        }
     }
 }

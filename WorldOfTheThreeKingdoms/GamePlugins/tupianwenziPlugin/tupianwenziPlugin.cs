@@ -153,72 +153,76 @@ namespace tupianwenziPlugin
             PlatformTexture shijiantupian;
             Microsoft.Xna.Framework.Rectangle shijiantupianjuxing;
 
-            this.tupianwenzi.SetGameObjectBranch(person as GameObject , gameObject as GameObject, branchName);
-
-            if (shengyin != "")
+            if (!Session.Current.Scenario.SkyEyeSimpleNotification(gameObject as GameObject))
             {
-                shijianshengyin = @"Content\Sound\Yinxiao\" + shengyin;
-            }
-            else
-            {
-                shijianshengyin = null;
 
-            }
+                this.tupianwenzi.SetGameObjectBranch(person as GameObject, gameObject as GameObject, branchName);
 
-            if (branchName == "chongxing")
-            {
-                try
+                if (shengyin != "")
                 {
-                    string[] files = Platform.Current.GetFiles(@"Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\" + tupian + "\\").NullToEmptyArray();
-                    string suijitupianwenjianming = files[GameObject.Random(files.Length)];
-                    shijiantupian = CacheManager.GetTempTexture(suijitupianwenjianming);
+                    shijianshengyin = @"Content\Sound\Yinxiao\" + shengyin;
                 }
-                catch
+                else
+                {
+                    shijianshengyin = null;
+
+                }
+
+                if (branchName == "chongxing")
                 {
                     try
                     {
-                        string[] files = Platform.Current.GetFiles(@"Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\").NullToEmptyArray();
-
+                        string[] files = Platform.Current.GetFiles(@"Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\" + tupian + "\\").NullToEmptyArray();
                         string suijitupianwenjianming = files[GameObject.Random(files.Length)];
                         shijiantupian = CacheManager.GetTempTexture(suijitupianwenjianming);
                     }
                     catch
                     {
-                        // this should not happen, hmm...
-                        shijiantupian = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B0.jpg");
+                        try
+                        {
+                            string[] files = Platform.Current.GetFiles(@"Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\").NullToEmptyArray();
+
+                            string suijitupianwenjianming = files[GameObject.Random(files.Length)];
+                            shijiantupian = CacheManager.GetTempTexture(suijitupianwenjianming);
+                        }
+                        catch
+                        {
+                            // this should not happen, hmm...
+                            shijiantupian = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B0.jpg");
+                        }
+
                     }
+                    shijiantupianjuxing = new Microsoft.Xna.Framework.Rectangle(0, 0, 286, 400);
 
                 }
-                shijiantupianjuxing = new Microsoft.Xna.Framework.Rectangle(0, 0, 286,400);
-
-            }
-            else if (branchName == "renwusiwang")
-            {
-                //shijiantupian = ((this.tupianwenzi.screen.Scenario.Persons.GetGameObject(Convert.ToInt32(tupian))) as Person).Portrait ;
-                //shijiantupianjuxing = new Microsoft.Xna.Framework.Rectangle(0, 0, 240, 240);
-
-                //shijiantupian = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\tupianwenzi\Data\tupian\" + "renwusiwang.jpg");
-                shijiantupianjuxing = new Microsoft.Xna.Framework.Rectangle(0, 0, 512, 384);
-                shijiantupian = null;
-            }
-            else 
-            {
-                if (!String.IsNullOrEmpty(tupian))
+                else if (branchName == "renwusiwang")
                 {
-                    shijiantupian = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\tupianwenzi\Data\tupian\" + tupian);
+                    //shijiantupian = ((this.tupianwenzi.screen.Scenario.Persons.GetGameObject(Convert.ToInt32(tupian))) as Person).Portrait ;
+                    //shijiantupianjuxing = new Microsoft.Xna.Framework.Rectangle(0, 0, 240, 240);
+
+                    //shijiantupian = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\tupianwenzi\Data\tupian\" + "renwusiwang.jpg");
+                    shijiantupianjuxing = new Microsoft.Xna.Framework.Rectangle(0, 0, 512, 384);
+                    shijiantupian = null;
                 }
                 else
                 {
-                    shijiantupian = null;
+                    if (!String.IsNullOrEmpty(tupian))
+                    {
+                        shijiantupian = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\tupianwenzi\Data\tupian\" + tupian);
+                    }
+                    else
+                    {
+                        shijiantupian = null;
+                    }
+
+                    shijiantupianjuxing = new Microsoft.Xna.Framework.Rectangle(0, 0, 512, 384);
+
                 }
 
-                shijiantupianjuxing = new Microsoft.Xna.Framework.Rectangle(0, 0, 512, 384);
-
+                this.tupianwenzi.shijiantupianduilie.Enqueue(shijiantupian);
+                this.tupianwenzi.juxingduilie.Enqueue(shijiantupianjuxing);
+                this.tupianwenzi.shijianshengyinduilie.Enqueue(shijianshengyin);
             }
-
-            this.tupianwenzi.shijiantupianduilie.Enqueue(shijiantupian);
-            this.tupianwenzi.juxingduilie.Enqueue(shijiantupianjuxing);
-            this.tupianwenzi.shijianshengyinduilie.Enqueue(shijianshengyin);
 
         }
 

@@ -271,8 +271,9 @@ namespace GameGlobal
         public float AIMergeAgainstPlayer = -1f;
         [DataMember]
         public bool RemoveSpouseIfNotAvailable = false;
-
         [DataMember]
+        public bool SkyEyeSimpleNotification = false;
+
         public const string cryptKey = "A3g0c3%2";
 
         public GlobalVariables Clone()
@@ -1075,6 +1076,15 @@ namespace GameGlobal
             {
                 exception = exception24;
                 throw new Exception("RemoveSpouseIfNotAvailable:\n" + exception.ToString());
+            }
+            try
+            {
+                SkyEyeSimpleNotification = bool.Parse(nextSibling.Attributes.GetNamedItem("SkyEyeSimpleNotification").Value);
+            }
+            catch (Exception exception24)
+            {
+                exception = exception24;
+                throw new Exception("SkyEyeSimpleNotification:\n" + exception.ToString());
             }
             return true;
         }

@@ -233,7 +233,8 @@ namespace GameGlobal
         CurrentRoutewayRightClick,
         YearTable_Year5,
         YearTable_OwnFaction,
-        ChangeFaction
+        ChangeFaction,
+        Switch_SkyEyeSimpleNotification
     }
 }
 
