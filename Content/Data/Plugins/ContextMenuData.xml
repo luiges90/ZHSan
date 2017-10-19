@@ -12,7 +12,7 @@
                 <MenuItem ID="1" Name="Detail" DisplayName="详细信息" DisplayIfTrue="DetailAvail" />
                 <MenuItem ID="2" Name="Persons" DisplayName="人物列表" DisplayIfTrue="HasAnyPerson" />
                 <MenuItem ID="3" Name="Militaries" DisplayName="编队列表" DisplayIfTrue="HasMilitary" />
-				<MenuItem ID="8" Name="Informations" DisplayName="情报列表" DisplayIfTrue="HasInformation" />
+				<MenuItem ID="11" Name="Informations" DisplayName="情报列表" DisplayIfTrue="HasInformation" />
                 <MenuItem ID="4" Name="NoFactionPersons" DisplayName="在野人物" DisplayIfTrue="HasNoFactionPerson" />
                 <MenuItem ID="5" Name="Facilities" DisplayName="设施列表" DisplayIfTrue="HasFacility" />
                 <MenuItem ID="6" Name="Captive" DisplayName="俘虏列表" DisplayIfTrue="HasCaptive" />
@@ -23,19 +23,20 @@
             </MenuItem>
             <MenuItem ID="2" Name="Faction" DisplayName="当前势力" DisplayIfTrue="CurrentPlayerOwned" DisplayAll="False">
                 <MenuItem ID="1" Name="Detail" DisplayName="详细信息" />
-                <MenuItem ID="2" Name="Architectures" DisplayName="城池列表" />
-                <MenuItem ID="3" Name="Troops" DisplayName="部队列表" />
-                <MenuItem ID="4" Name="Persons" DisplayName="人物列表" />
-                <MenuItem ID="5" Name="Militaries" DisplayName="编队列表" />
+				<MenuItem ID="2" Name="Architectures" DisplayName="建筑列表" />
+				<MenuItem ID="3" Name="Troops" DisplayName="部队列表" />
+				<MenuItem ID="4" Name="Persons" DisplayName="人物列表" />
+				<MenuItem ID="15" Name="Children" DisplayName="子女列表" />
+				<MenuItem ID="5" Name="Militaries" DisplayName="编队列表" />
 				<MenuItem ID="13" Name="Informations" DisplayName="情报列表" DisplayIfTrue="FactionHasInformation" />
-                <MenuItem ID="6" Name="AvailableMilitaryKinds" DisplayName="兵种列表" />
-                <MenuItem ID="7" Name="Captive" DisplayName="俘虏列表" DisplayIfTrue="FactionHasCaptive" />
-                <MenuItem ID="8" Name="SelfCaptive" DisplayName="被俘虏列表" DisplayIfTrue="FactionHasSelfCaptive" />
-                <MenuItem ID="9" Name="DiplomaticRelations" DisplayName="外交关系" />
-                <MenuItem ID="10" Name="Techniques" DisplayName="势力技巧" />
-                <MenuItem ID="11" Name="Sections" DisplayName="军区列表" />
-                <MenuItem ID="12" Name="Treasure" DisplayName="相关宝物" DisplayIfTrue="FactionHasTreasure" />
-                <MenuItem ID="14" Name="TransferingMilitaries" DisplayName="编队运输列表" />
+				<MenuItem ID="6" Name="AvailableMilitaryKinds" DisplayName="兵种列表" />
+				<MenuItem ID="7" Name="Captive" DisplayName="俘虏列表" DisplayIfTrue="FactionHasCaptive" />
+				<MenuItem ID="8" Name="SelfCaptive" DisplayName="被俘虏列表" DisplayIfTrue="FactionHasSelfCaptive" />
+				<MenuItem ID="9" Name="DiplomaticRelations" DisplayName="外交关系" />
+				<MenuItem ID="10" Name="Techniques" DisplayName="势力技巧" />
+				<MenuItem ID="11" Name="Sections" DisplayName="军区列表" />
+				<MenuItem ID="12" Name="Treasure" DisplayName="相关宝物" DisplayIfTrue="FactionHasTreasure" />
+				<MenuItem ID="14" Name="TransferingMilitaries" DisplayName="编队运输列表" />
             </MenuItem>
         </MenuKind>
         <MenuKind ID="2" Name="ArchitectureLeftClick" DisplayName="城池左键菜单" IsLeft="true" Width="100" Height="27">
@@ -51,6 +52,7 @@
                 <MenuItem ID="8" Name="Facility" DisplayName="设施">
                     <MenuItem ID="1" Name="Build" DisplayName="新建" DisplayIfTrue="BuildFacilityAvail" />
                     <MenuItem ID="2" Name="Demolish" DisplayName="拆除" DisplayIfTrue="HaskechaichuFacility" />
+					<MenuItem ID="3" Name="StopBuilding" DisplayName="停工" DisplayIfTrue="StopBuildingFacilityAvail" />
                 </MenuItem>
                 <MenuItem ID="9" Name="Trade" DisplayName="交易">
                     <MenuItem ID="1" Name="BuyFood" DisplayName="买粮" DisplayIfTrue="BuyFoodAvail" />
@@ -86,24 +88,21 @@
 			</MenuItem>
             <MenuItem ID="5" Name="Person" DisplayName="人事">
                 <MenuItem ID="1" Name="Transfer" DisplayName="调动" DisplayIfTrue="PersonTransferAvail" />
-                <MenuItem ID="2" Name="Convene" DisplayName="召集" DisplayIfTrue="PersonConveneAvail" />
-                <MenuItem ID="4" Name="Convince" DisplayName="说服" DisplayIfTrue="ConvincePersonAvail" />
-				<MenuItem ID="3" Name="AutoHire" DisplayName="自动說服" OppositeName="停止說服" OppositeIfTrue="AutoHiring" DisplayIfTrue="AutoHiringAvail" />
-                <MenuItem ID="9" Name="AutoReward" DisplayName="自动褒奖" OppositeName="停止褒奖" OppositeIfTrue="AutoRewarding" DisplayIfTrue="AutoRewardingAvail" />
-                <MenuItem ID="5" Name="Reward" DisplayName="褒奖" DisplayIfTrue="RewardPersonAvail" />
-                <MenuItem ID="6" Name="RewardAll" DisplayName="褒奖所有" DisplayIfTrue="RewardAllAvail" />
-                <MenuItem ID="7" Name="Redeem" DisplayName="赎回" DisplayIfTrue="RedeemAvail" />
-                <MenuItem ID="8" Name="Study" DisplayName="修习">
-                    <MenuItem ID="1" Name="Skill" DisplayName="技能" DisplayIfTrue="PersonStudySkillAvail" />
-                    <MenuItem ID="2" Name="Title" DisplayName="称号" DisplayIfTrue="PersonStudyTitleAvail" />
-                    <MenuItem ID="3" Name="Stunt" DisplayName="特技" DisplayIfTrue="PersonStudyStuntAvail" />
-                </MenuItem>
-                <MenuItem ID="10" Name="Appointment" DisplayName="任免">
-                    <MenuItem ID="1" Name="AppointMayor" DisplayName="任命县令" DisplayIfTrue="AppointMayorAvail" />
-                    <MenuItem ID="2" Name="RecallMayor" DisplayName="罢免县令" DisplayIfTrue="RecallMayorAvail" />
-                    <MenuItem ID="3" Name="AppointOfficer" DisplayName="授予官职" DisplayIfTrue="CanAppoint" /> 
-                    <MenuItem ID="4" Name="RecallOfficer" DisplayName="免除官职" DisplayIfTrue="RecallOfficerAvail" /> 
-               </MenuItem> 
+				<MenuItem ID="2" Name="Convene" DisplayName="召集" DisplayIfTrue="PersonConveneAvail" />
+				<MenuItem ID="4" Name="Convince" DisplayName="说服" DisplayIfTrue="ConvincePersonAvail" />
+				<MenuItem ID="3" Name="AutoHire" DisplayName="自动说服" OppositeName="停止说服" OppositeIfTrue="AutoHiring" DisplayIfTrue="AutoHiringAvail" />
+				<MenuItem ID="7" Name="Redeem" DisplayName="赎回" DisplayIfTrue="RedeemAvail" />
+				<MenuItem ID="8" Name="Study" DisplayName="修习">
+					<MenuItem ID="1" Name="Skill" DisplayName="技能" DisplayIfTrue="PersonStudySkillAvail" />
+					<MenuItem ID="2" Name="Title" DisplayName="称号" DisplayIfTrue="PersonStudyTitleAvail" />
+					<MenuItem ID="3" Name="Stunt" DisplayName="特技" DisplayIfTrue="PersonStudyStuntAvail" />
+				</MenuItem>
+				<MenuItem ID="10" Name="Appointment" DisplayName="任免">
+					<MenuItem ID="1" Name="AppointMayor" DisplayName="任命县令" DisplayIfTrue="AppointMayorAvail" />
+					<MenuItem ID="2" Name="RecallMayor" DisplayName="罢免县令" DisplayIfTrue="RecallMayorAvail" />
+					<MenuItem ID="3" Name="AppointOfficer" DisplayName="授予官职" DisplayIfTrue="CanAppoint" />
+					<MenuItem ID="4" Name="RecallOfficer" DisplayName="免除官职" DisplayIfTrue="RecallOfficerAvail" />
+				</MenuItem>
             </MenuItem>
             <MenuItem ID="6" Name="Tactics" DisplayName="策略">
                 <MenuItem ID="1" Name="Information" DisplayName="情报" DisplayIfTrue="InformationAvail" />
@@ -151,6 +150,7 @@
                     <MenuItem ID="2" Name="hougong" DisplayName="宠幸" DisplayIfTrue="kejinhougong" />
 					<MenuItem ID="3" Name="moveFeizi" DisplayName="移动妃子" DisplayIfTrue="CanMoveFeizi" />
                 </MenuItem>
+				<MenuItem ID="10" Name="TrainChildren" DisplayName="子女培育" DisplayIfTrue="HasChildrenToTrain" />
                 <MenuItem ID="7" Name="Refuse" DisplayName="自动拒绝" OppositeName="手动拒绝" OppositeIfTrue="FactionAutoRefuse" />
                 <MenuItem ID="8" Name="Treasure" DisplayName="宝物">
                     <MenuItem ID="1" Name="Confiscate" DisplayName="没收" DisplayIfTrue="HasTreasureToConfiscate" />
@@ -197,7 +197,7 @@
                 <MenuItem ID="2" Name="AllSkills" DisplayName="所有技能" />
                 <MenuItem ID="3" Name="AllMilitaryKinds" DisplayName="所有兵种" />
                 <MenuItem ID="4" Name="AllStunts" DisplayName="所有特技" />
-                <MenuItem ID="5" Name="AllFactions" DisplayName="所有势力*" />
+                <MenuItem ID="5" Name="AllFactions" DisplayName="所有势力" />
                 <MenuItem ID="6" Name="AllArchitectures" DisplayName="所有城池*" />
                 <MenuItem ID="7" Name="AllTroops" DisplayName="所有部队*" />
                 <MenuItem ID="8" Name="AllPersons" DisplayName="所有人物*" />
