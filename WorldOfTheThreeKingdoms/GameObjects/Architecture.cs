@@ -1434,10 +1434,10 @@ namespace GameObjects
                 int fundSupport = this.Fund / (Session.Parameters.RewardPersonCost * 3);
                 int develop = Math.Max((this.AgricultureCeiling - this.Agriculture) / 30,
                     Math.Max((this.CommerceCeiling - this.Commerce) / 30,
-                    Math.Max((this.Technology - this.TechnologyCeiling) / 30,
-                    Math.Max((this.Endurance - this.EnduranceCeiling) / 30,
-                    Math.Max((this.Morale - this.MoraleCeiling) / 30,
-                    (this.Domination - this.DominationCeiling) / 30)))));
+                    Math.Max((this.TechnologyCeiling - this.Technology) / 30,
+                    Math.Max((this.EnduranceCeiling - this.Endurance) / 30,
+                    Math.Max((this.MoraleCeiling - this.Morale) / 30,
+                    (this.DominationCeiling - this.Domination) / 30)))));
                 int frontLine = (this.withoutTruceFrontline || this.noFactionFrontline) ? this.EffectiveMilitaryCount * 2 : 0;
                 return Math.Min(this.MaxSupportableTroop, Math.Min(Math.Max(develop, frontLine), fundSupport));
             }
