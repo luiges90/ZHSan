@@ -1249,9 +1249,16 @@
                     FontColor="4294375158"
                     Align="Middle">
         </Column>
+		<Column ID="600" Name="TrainPolicyString" IsNumber="false" DisplayName="培育方针" MinWidth="40" DetailLevel="2"
+				FontName="方正隶变_GBK"
+				FontSize="15"
+				FontStyle="Regular"
+				FontColor="4294967295"
+				Align="Middle">
+		</Column>
       </Columns>
       <Tabs Margin="5">
-        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 2 8 17 3 4 5 30 70 71 170">
+        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 2 8 17 3 4 5 30 70 71 170 600">
         </Tab>
         <Tab ID="2"  Name="Ability" DisplayName="能力" Columns="1 6 7 9 10 11 12 13 14 15 16">
         </Tab>
@@ -1843,6 +1850,13 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
+		<Column ID="18" Name="Power" IsNumber="true" DisplayName="综合实力" MinWidth="80" DetailLevel="5"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4294967295"
+                Align="Right">
+		</Column>
         <Column ID="20" Name="RoutewayWorkForce" IsNumber="true" DisplayName="粮道疏通能力" MinWidth="120" DetailLevel="5"
                 FontName="方正隶变_GBK"
                 FontSize="15"
@@ -1915,7 +1929,7 @@
         </Column>
       </Columns>
       <Tabs Margin="5">
-        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 30 2 3 8 4 5 6 7 9">
+        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 30 2 3 8 4 5 6 7 9 18">
         </Tab>
         <Tab ID="2"  Name="Detail" DisplayName="细节" Columns="1 30 36 10 14 17 12 38 13 20">
         </Tab>
