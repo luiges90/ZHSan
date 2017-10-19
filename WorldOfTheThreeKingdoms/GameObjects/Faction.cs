@@ -300,6 +300,10 @@ namespace GameObjects
         public int[] StratagemOfMillitaryType = new int[5];
         public int[] AntiStratagemOfMillitaryType = new int[5];
 
+        public String Counsellor;
+        public String Governor;
+        public String FiveTigers;
+
         public event AfterCatchLeader OnAfterCatchLeader;
 
         public event FactionDestroy OnFactionDestroy;
@@ -2880,6 +2884,73 @@ namespace GameObjects
             this.armyScale = this.ArmyScale; // 小写的是每天的缓存，因为被InternalSurplusRate叫很多次，不想每次都全部重新计算，大写的才是真正的值
             this.InternalSurplusRateCache = -1;
             this.visibleTroopsCache = null;
+            this.RefreshImportantPerson();
+        }
+
+        private void RefreshImportantPerson()
+        {
+            //阿柒:得到本势力除君主外的所有人物的名单
+            List<Person> PersonInCurrentFaction = new List<Person>();
+            foreach (Person person in this.Persons)
+            {
+                if (person != this.Leader)
+                {
+                    PersonInCurrentFaction.Add(person);
+                }
+            }
+
+            //阿柒:排序得到智力最高的命名为军师
+            if (PersonInCurrentFaction.Count >= 1)
+            {
+                List<Person> t = PersonInCurrentFaction.OrderByDescending(Person => Person.Intelligence).ToList();
+                if (t[0].Intelligence >= 70)
+                {
+                    Counsellor = string.Concat(new object[] { t[0].Name, "(", t[0].Intelligence.ToString(), ")" });
+                }
+                else
+                {
+                    Counsellor = string.Concat(new object[] { "----" });
+                }
+            }
+            else
+            {
+                Counsellor = string.Concat(new object[] { "----" });
+            }
+
+            //阿柒:排序得到统帅最高的命名为都督
+            if (PersonInCurrentFaction.Count >= 1)
+            {
+                List<Person> t = PersonInCurrentFaction.OrderByDescending(Person => Person.Command).ToList();
+                if (t[0].Command >= 70)
+                {
+                    Governor = string.Concat(new object[] { t[0].Name, "(", t[0].Command.ToString(), ")" });
+                }
+                else
+                {
+                    Governor = string.Concat(new object[] { "----" });
+                }
+            }
+            else
+            {
+                Governor = string.Concat(new object[] { "----" });
+            }
+
+            //阿柒:排序得到武勇最高的命名为五虎将
+            string[] FivetigerString = new string[5] { "----", "----", "----", "----", "----" };
+
+            if (PersonInCurrentFaction.Count >= 1)
+            {
+                List<Person> Fivetiger = PersonInCurrentFaction.OrderByDescending(Person => Person.Strength).ToList();
+                for (int i = 0; i < PersonInCurrentFaction.Count; i++)
+                {
+                    if (Fivetiger[i].Strength >= 70)
+                    {
+                        FivetigerString[i] = Fivetiger[i].Name + "(" + Fivetiger[i].Strength.ToString() + ")";
+                    }
+                    if (i == 4) break;
+                }
+            }
+            FiveTigers = string.Concat(new object[] { FivetigerString[0], " • ", FivetigerString[1], " • ", FivetigerString[2], " • ", FivetigerString[3], " • ", FivetigerString[4] });
         }
 
         [DataMember]

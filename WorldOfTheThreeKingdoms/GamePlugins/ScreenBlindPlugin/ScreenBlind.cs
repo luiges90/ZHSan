@@ -114,71 +114,15 @@ namespace ScreenBlindPlugin
             {
                 if ((Session.Current.Scenario.CurrentFaction == Session.Current.Scenario.CurrentPlayer) || Session.GlobalVariables.SkyEye)
                 {
-                    /*
-                     * 耒:這個寫法實在太沒效率，先屏蔽...
-                    //阿柒:得到本势力除君主外的所有人物的名单
-                    List<Person> PersonInCurrentFaction = new List<Person>();
-                    foreach (Person person in this.screen.Scenario.CurrentFaction.Persons)
+                    String counsellor = Session.Current.Scenario.CurrentFaction.Counsellor;
+                    String governor = Session.Current.Scenario.CurrentFaction.Governor;
+                    String fiveTigers = Session.Current.Scenario.CurrentFaction.FiveTigers;
+                    if (counsellor != null && governor != null && fiveTigers != null)
                     {
-                        if (person != this.screen.Scenario.CurrentFaction.Leader)
-                        {
-                            PersonInCurrentFaction.Add(person);
-                        }
+                        this.CounsellorNameText.Text = counsellor;
+                        this.GovernorNameText.Text = governor;
+                        this.FiveTigerText.Text = fiveTigers;
                     }
-
-                    //阿柒:排序得到智力最高的命名为军师
-                    if (PersonInCurrentFaction.Count >= 1)
-                    {
-                        List<Person> Counsellor = PersonInCurrentFaction.OrderByDescending(Person => Person.Intelligence).ToList();
-                        if (Counsellor[0].Intelligence >= 70)
-                        {
-                            this.CounsellorNameText.Text = string.Concat(new object[] { Counsellor[0].Name, "(", Counsellor[0].Intelligence.ToString(), ")" });
-                        }
-                        else
-                        {
-                            this.CounsellorNameText.Text = string.Concat(new object[] { "----" });
-                        }
-                    }
-                    else
-                    {
-                        this.CounsellorNameText.Text = string.Concat(new object[] { "----" });
-                    }
-
-                    //阿柒:排序得到统帅最高的命名为都督
-                    if (PersonInCurrentFaction.Count >= 1)
-                    {
-                        List<Person> Governor = PersonInCurrentFaction.OrderByDescending(Person => Person.Command).ToList();
-                        if (Governor[0].Command >= 70)
-                        {
-                            this.GovernorNameText.Text = string.Concat(new object[] { Governor[0].Name, "(", Governor[0].Command.ToString(), ")" });
-                        }
-                        else
-                        {
-                            this.GovernorNameText.Text = string.Concat(new object[] { "----" });
-                        }
-                    }
-                    else
-                    {
-                        this.GovernorNameText.Text = string.Concat(new object[] { "----" });
-                    }
-
-                    //阿柒:排序得到武勇最高的命名为五虎将
-                    string[] FivetigerString = new string[5] { "----", "----", "----", "----", "----" };
-
-                    if (PersonInCurrentFaction.Count >= 1)
-                    {
-                        List<Person> Fivetiger = PersonInCurrentFaction.OrderByDescending(Person => Person.Strength).ToList();
-                        for (int i = 0; i < PersonInCurrentFaction.Count; i++)
-                        {
-                            if (Fivetiger[i].Strength >= 70)
-                            {
-                                FivetigerString[i] = Fivetiger[i].Name + "(" + Fivetiger[i].Strength.ToString() + ")";
-                            }
-                            if (i == 4) break;
-                        }
-                    }
-                    this.FiveTigerText.Text = string.Concat(new object[] { FivetigerString[0], " • ", FivetigerString[1], " • ", FivetigerString[2], " • ", FivetigerString[3], " • ", FivetigerString[4] });
-                    */
 
                     this.FactionText.Text = string.Concat(new object[] { Session.Current.Scenario.CurrentFaction.Name, " 【", Session.Current.Scenario.CurrentFaction.TotalTechniquePoint, "】" });
 
