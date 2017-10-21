@@ -4888,7 +4888,7 @@ namespace GameObjects
 
             var scenarioClone = this.Clone();            
 
-            if (!editing && (saveCommonData || UsingOwnCommonData))
+            if (saveCommonData || UsingOwnCommonData)
             {
                 SaveGameCommonData(scenarioClone);
             }

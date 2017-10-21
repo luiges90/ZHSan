@@ -49,6 +49,9 @@ namespace WorldOfTheThreeKingdomsEditor
             new TroopEventTab(scen, dgTroopEvent).setup();
             new TreasureTab(scen, dgTreasure).setup();
             new FacilityTab(scen, dgFacility).setup();
+
+            // Common
+            new TitleTab(scen, dgTitle).setup();
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)

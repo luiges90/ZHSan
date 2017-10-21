@@ -95,6 +95,12 @@
                     <DataGrid x:Name="dgTreasure" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
+            <!-- common -->
+            <TabItem Header="武將稱號">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgTitle" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
