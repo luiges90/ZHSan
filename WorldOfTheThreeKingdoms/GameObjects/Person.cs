@@ -6294,6 +6294,10 @@ namespace GameObjects
             {
                 return this.braveness;
             }
+            set
+            {
+                this.braveness = value;
+            }
         }
 
         public int Braveness
@@ -6390,6 +6394,10 @@ namespace GameObjects
             get
             {
                 return this.calmness;
+            }
+            set
+            {
+                this.calmness = value;
             }
         }
 
