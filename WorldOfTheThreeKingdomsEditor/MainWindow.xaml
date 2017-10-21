@@ -96,9 +96,44 @@
                 </Grid>
             </TabItem>
             <!-- common -->
-            <TabItem Header="武將稱號">
+            <TabItem Header="稱號">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="dgTitle" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="技能">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgSkill" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="特技">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgStunt" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="戰法">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgCombatMethod" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="影響">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgInfluence" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="影響類">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgInflunceKind" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="條件">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgCondition" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="條件類">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgConditionKind" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
         </TabControl>

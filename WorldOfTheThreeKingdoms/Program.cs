@@ -75,7 +75,7 @@ namespace WorldOfTheThreeKingdoms
             PrintError(e);
         }
 
-        static void PrintError(Exception e)
+        public static void PrintError(Exception e)
         {
             DateTime dt = System.DateTime.Now;
             String dateSuffix = "_" + dt.Year + "_" + dt.Month + "_" + dt.Day + "_" + dt.Hour + "h" + dt.Minute;

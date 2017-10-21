@@ -63,6 +63,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ConditionKindTab.cs" />
+    <Compile Include="InfluenceKindTab.cs" />
+    <Compile Include="ConditionTab.cs" />
+    <Compile Include="InfluenceTab.cs" />
+    <Compile Include="CombatMethodTab.cs" />
+    <Compile Include="StuntTab.cs" />
+    <Compile Include="SkillTab.cs" />
     <Compile Include="TitleTab.cs" />
     <Compile Include="FacilityTab.cs" />
     <Compile Include="TreasureTab.cs" />

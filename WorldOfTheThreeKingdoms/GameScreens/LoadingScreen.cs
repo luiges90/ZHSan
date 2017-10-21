@@ -94,7 +94,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                         new Platforms.PlatformTask(() =>
                         {
-                            LoadScreenEvent.Invoke(null, null);
+                            try
+                            {
+                                LoadScreenEvent.Invoke(null, null);
+                            }
+                            catch (Exception e)
+                            {
+                                Program.PrintError(e);
+                                Environment.Exit(1);
+                            }
 
                             ClearEvent();
                             IsComplete = true;

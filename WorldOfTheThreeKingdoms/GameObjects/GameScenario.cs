@@ -2997,10 +2997,13 @@ namespace GameObjects
             {
                 Person p = (this.Persons.GetGameObject(i.Key) as Person);
                 Person q = this.Persons.GetGameObject(i.Value) as Person;
-                p.Spouse = q;
-                if (q != null && fromScenario)
+                if (p != null)
                 {
-                    p.EnsureRelationAtLeast(q, Session.Parameters.VeryCloseThreshold);
+                    p.Spouse = q;
+                    if (q != null && fromScenario)
+                    {
+                        p.EnsureRelationAtLeast(q, Session.Parameters.VeryCloseThreshold);
+                    }
                 }
             }
 
@@ -3014,10 +3017,13 @@ namespace GameObjects
                         {
                             Person p = this.Persons.GetGameObject(i.Key) as Person;
                             Person q = this.Persons.GetGameObject(j.Key) as Person;
-                            p.Brothers.Add(q);
-                            if (q != null && fromScenario)
+                            if (p != null)
                             {
-                                p.EnsureRelationAtLeast(q, Session.Parameters.VeryCloseThreshold);
+                                p.Brothers.Add(q);
+                                if (q != null && fromScenario)
+                                {
+                                    p.EnsureRelationAtLeast(q, Session.Parameters.VeryCloseThreshold);
+                                }
                             }
                         }
                     }
@@ -3030,10 +3036,13 @@ namespace GameObjects
                         Person q = this.Persons.GetGameObject(j) as Person;
                         if (q != null)
                         {
-                            p.Brothers.Add(q);
-                            if (q != null && fromScenario)
+                            if (p != null)
                             {
-                                p.EnsureRelationAtLeast(q, Session.Parameters.VeryCloseThreshold);
+                                p.Brothers.Add(q);
+                                if (q != null && fromScenario)
+                                {
+                                    p.EnsureRelationAtLeast(q, Session.Parameters.VeryCloseThreshold);
+                                }
                             }
                         }
                         else

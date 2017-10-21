@@ -52,6 +52,13 @@ namespace WorldOfTheThreeKingdomsEditor
 
             // Common
             new TitleTab(scen, dgTitle).setup();
+            new SkillTab(scen, dgSkill).setup();
+            new StuntTab(scen, dgStunt).setup();
+            new CombatMethodTab(scen, dgCombatMethod).setup();
+            new InfleunceTab(scen, dgInfluence).setup();
+            new InfleunceKindTab(scen, dgInflunceKind).setup();
+            new ConditionTab(scen, dgCondition).setup();
+            new ConditionKindTab(scen, dgConditionKind).setup();
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)
