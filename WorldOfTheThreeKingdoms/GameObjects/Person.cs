@@ -6287,6 +6287,7 @@ namespace GameObjects
             }
         }
 
+        [DataMember]
         public int BaseBraveness
         {
             get
@@ -6295,7 +6296,6 @@ namespace GameObjects
             }
         }
 
-        [DataMember]
         public int Braveness
         {
             get
@@ -6384,6 +6384,7 @@ namespace GameObjects
             }
         }
 
+        [DataMember]
         public int BaseCalmness
         {
             get
@@ -6392,7 +6393,6 @@ namespace GameObjects
             }
         }
 
-        [DataMember]
         public int Calmness
         {
             get
