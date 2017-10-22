@@ -273,6 +273,11 @@ namespace GameObjects
             emptyCaptiveList = new CaptiveList();
 
             pathCache = new Dictionary<PathCacheKey, List<Point>>();
+
+            if (this.UsingOwnCommonData)
+            {
+                this.GameCommonData = CommonData.Current;
+            }
         }
 
         private Dictionary<Architecture, PersonList>
