@@ -151,7 +151,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 dataGrid.ItemsSource = dt.AsDataView();
             }
-            catch 
+            catch (Exception ex)
             {
                 // invalid input text, ignore.
             }

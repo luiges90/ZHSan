@@ -1,6 +1,7 @@
 ﻿using GameObjects;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Reflection;
@@ -14,7 +15,7 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     public abstract class BaseTab<T> where T : GameObject, new()
     {
-        class ItemOrderComparer: IComparer<String>
+        class ItemOrderComparer : IComparer<String>
         {
             private String[] rawItemOrder;
             public ItemOrderComparer(String[] rawItemOrder)
@@ -63,6 +64,8 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private readonly T sampleInstance = Activator.CreateInstance<T>();
 
+        private static bool settingUp = false;
+
         protected FieldInfo[] getFieldInfos()
         {
             return sampleInstance.GetType().GetFields()
@@ -81,7 +84,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private GameScenario scen;
         private DataGrid dg;
-        
+
         protected void init(GameScenario scen, DataGrid dg)
         {
             this.scen = scen;
@@ -96,6 +99,8 @@ namespace WorldOfTheThreeKingdomsEditor
 
         public void setup()
         {
+            settingUp = true;
+
             DataTable dt = new DataTable(sampleInstance.GetType().Name);
 
             FieldInfo[] fields = getFieldInfos();
@@ -158,25 +163,24 @@ namespace WorldOfTheThreeKingdomsEditor
                 dt.Rows.Add(row);
             }
 
+            DependencyPropertyDescriptor dpd = DependencyPropertyDescriptor.FromProperty(ItemsControl.ItemsSourceProperty, typeof(DataGrid));
+
             dg.ItemsSource = dt.AsDataView();
 
             dt.TableNewRow += Dt_TableNewRow;
             dt.RowChanged += Dt_RowChanged;
             dt.RowDeleting += Dt_RowDeleting;
+
+            dpd.AddValueChanged(dg, dg_ItemsSourceChanged);
+
+            settingUp = false;
         }
 
         private void Dt_RowDeleting(object sender, DataRowChangeEventArgs e)
         {
-            try
-            {
-                GameObjectList list = (GameObjectList)GetDataList(scen);
-                T p = (T) list.GetGameObject((int)e.Row["id"]);
-                list.Remove(p);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("資料輸入錯誤。" + ex.Message);
-            }
+            GameObjectList list = (GameObjectList)GetDataList(scen);
+            T p = (T)list.GetGameObject((int)e.Row["id"]);
+            list.Remove(p);
         }
 
         private void Dt_RowChanged(object sender, DataRowChangeEventArgs e)
@@ -213,5 +217,36 @@ namespace WorldOfTheThreeKingdomsEditor
             p.ID = id;
             list.Add(p);
         }
+
+        private void dg_ItemsSourceChanged(object sender, EventArgs e)
+        {
+            if (settingUp) return;
+
+            DataGrid dataGrid = (DataGrid)sender;
+            GameObjectList list = (GameObjectList)GetDataList(scen);
+
+            foreach (DataRowView item in dataGrid.ItemsSource)
+            {
+                int id = (int) item["id"];
+                T p = (T) list.GetGameObject(id);
+                if (p == null)
+                {
+                    p = Activator.CreateInstance<T>();
+                    list.Add(p);
+                }
+                FieldInfo[] fields = getFieldInfos();
+                PropertyInfo[] properties = getPropertyInfos();
+
+                foreach (FieldInfo i in fields)
+                {
+                    i.SetValue(p, item[i.Name]);
+                }
+                foreach (PropertyInfo i in properties)
+                {
+                    i.SetValue(p, item[i.Name]);
+                }
+            }
+        }
+
     }
 }
