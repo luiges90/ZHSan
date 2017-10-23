@@ -1302,8 +1302,7 @@ namespace GameObjects
                     {
                         foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
                         {
-                            if (p.Hates(this.Leader)) continue;
-                            if (p.GetRelation(this.leader) < -400)
+                            if (p.GetRelation(this.leader) < Session.Parameters.HateThreshold + 100)
                             {
                                 target = p;
                                 location = a;
