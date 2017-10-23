@@ -9854,14 +9854,14 @@ namespace GameObjects
                 foreach (Person q in this.LocationArchitecture.Feiziliebiao)
                 {
                     if (q == nvren) continue;
-                    if (GameObject.Chance(q.GetRelation(this) / 20 + this.Glamour / 10))
+                    if (GameObject.Chance(q.GetRelation(this) / 40 + this.GetRelation(q) / 40 + this.Glamour / 20 + q.Glamour / 20))
                     {
                         all.Add(q);
                     }
                 }
                 if (this.Spouse != null && this.Spouse.LocationArchitecture == this.LocationArchitecture)
                 {
-                    if (GameObject.Chance(this.Spouse.GetRelation(this) / 20 + this.Glamour / 10))
+                    if (GameObject.Chance(this.Spouse.GetRelation(this) / 40 + this.GetRelation(this.Spouse) / 40 + this.Glamour / 20 + this.Spouse.Glamour / 20))
                     {
                         all.Add(this.Spouse);
                     }
