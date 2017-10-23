@@ -9798,6 +9798,8 @@ namespace GameObjects
             Person tookSpouse = null;
             Person leader = this.LocationArchitecture.BelongedFaction.Leader;
 
+            makeHateCausedByAffair(leader, nvren, leader);
+
             nvren.LocationArchitecture.DecreaseFund(Session.Parameters.NafeiCost);
 
             nvren.Status = PersonStatus.Princess;
@@ -9805,8 +9807,6 @@ namespace GameObjects
 
             nvren.LocationTroop = null;
             nvren.TargetArchitecture = null;
-
-            makeHateCausedByAffair(leader, nvren, leader);
 
             if (nvren.Spouse != null)
             {
