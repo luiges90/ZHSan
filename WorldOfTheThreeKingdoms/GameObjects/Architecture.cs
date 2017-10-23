@@ -1177,7 +1177,7 @@ namespace GameObjects
             {
                 if (this.PlanFacilityKind != null && this.BelongedFaction != null)
                 {
-                    if (this.Technology >= this.PlanFacilityKind.TechnologyNeeded)
+                    if (this.Technology >= this.PlanFacilityKind.TechnologyNeeded && this.PlanFacilityKind.PositionOccupied <= this.FacilityPositionLeft)
                     {
                         if ((this.Fund >= this.PlanFacilityKind.FundCost) && ((this.BelongedFaction.TechniquePoint + this.BelongedFaction.TechniquePointForFacility) >= this.PlanFacilityKind.PointCost))
                         {
