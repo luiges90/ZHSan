@@ -298,16 +298,25 @@
   <Branch Name="chongxing">
     <Leaf Property="TextResultString" Color="4278255360"></Leaf>
     <Leaf Text="将军您可来了，想死奴家了。让奴家服侍您休息吧。" Color="4294967295"></Leaf>
-
   </Branch>
-
   <Branch Name="nafei">
     <Leaf Text="能成为" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Color="4278255360"></Leaf>
     <Leaf Text="将军的妃子，" Color="4294967295"></Leaf>
     <Leaf Text="妾身感到万分荣幸。" Color="4294967295"></Leaf>
   </Branch>
+  
+  <Branch Name="chongxingHate">
+    <Leaf Property="TextResultString" Color="4278255360"></Leaf>
+    <Leaf Text="你，你给我走开，不要来啊，啊！" Color="4294967295"></Leaf>
+  </Branch>
+  <Branch Name="nafeiHate">
+    <Leaf Text="我才不要作你" Color="4294967295"></Leaf>
+    <Leaf Property="TextResultString" Color="4278255360"></Leaf>
+    <Leaf Text="将军的妃子！" Color="4294967295"></Leaf>
+  </Branch>
 
+  
   <Branch Name="fashengzainan">
     <Leaf Text="大事不好！" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Color="4278232306"></Leaf>

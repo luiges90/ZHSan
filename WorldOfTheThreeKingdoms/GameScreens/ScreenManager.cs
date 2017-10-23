@@ -72,8 +72,19 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.CurrentPerson = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
             if (this.CurrentPerson != null)
             {
-                Session.MainGame.mainGameScreen.xianshishijiantupian(this.CurrentPerson, (Session.Current.Scenario.CurrentFaction.Leader).Name, TextMessageKind.TakePrincess, "nafei", "nafei.jpg", "nafei",true );
                 Person tookSpouse = Session.Current.Scenario.CurrentFaction.Leader.XuanZeMeiNv(this.CurrentPerson);
+
+                String msgKey;
+                if (this.CurrentPerson.Hates(Session.Current.Scenario.CurrentFaction.Leader))
+                {
+                    msgKey = "nafeiHate";
+                }
+                else
+                {
+                    msgKey = "nafei";
+                }
+                Session.MainGame.mainGameScreen.xianshishijiantupian(this.CurrentPerson, (Session.Current.Scenario.CurrentFaction.Leader).Name, TextMessageKind.TakePrincess, msgKey, "nafei.jpg", "nafei", true);
+
                 if (tookSpouse != null)
                 {
                     Session.MainGame.mainGameScreen.PersonBeiDuoqi(tookSpouse, this.CurrentArchitecture.BelongedFaction);
@@ -86,9 +97,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.CurrentPerson = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
             if (this.CurrentPerson != null)
             {
-
+                String msgKey;
+                if (this.CurrentPerson.Hates(Session.Current.Scenario.CurrentFaction.Leader))
+                {
+                    msgKey = "chongxingHate";
+                }
+                else
+                {
+                    msgKey = "chongxing";
+                }
                 Session.Current.Scenario.CurrentFaction.Leader.GoForHouGong(this.CurrentPerson);
-                Session.MainGame.mainGameScreen.xianshishijiantupian(this.CurrentPerson, Session.Current.Scenario.CurrentFaction.Leader.Name, TextMessageKind.Hougong, "chongxing", this.CurrentPerson.ID.ToString(), "hougong", true);
+                Session.MainGame.mainGameScreen.xianshishijiantupian(this.CurrentPerson, Session.Current.Scenario.CurrentFaction.Leader.Name, TextMessageKind.Hougong, msgKey, this.CurrentPerson.ID.ToString(), "hougong", true);
                 //this.mainGameScreen.DateGo(1);
             }
         }
