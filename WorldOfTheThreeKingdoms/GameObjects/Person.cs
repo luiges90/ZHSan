@@ -10696,10 +10696,7 @@ namespace GameObjects
         {
             get
             {
-                return this.Alive && (this.Status == PersonStatus.Normal || this.Status == PersonStatus.NoFaction || this.Status == PersonStatus.NoFactionMoving || this.Status == PersonStatus.Princess ||
-#pragma warning disable CS0472 // The result of the expression is always 'false' since a value of type 'OutsideTaskKind' is never equal to 'null' of type 'OutsideTaskKind?'
-                    (this.Status == PersonStatus.Moving && (this.OutsideTask == null || this.OutsideTask == OutsideTaskKind.搜索)));
-#pragma warning restore CS0472 // The result of the expression is always 'false' since a value of type 'OutsideTaskKind' is never equal to 'null' of type 'OutsideTaskKind?'
+                return this.Alive && (this.Status != PersonStatus.Captive);
             }
         }
 
