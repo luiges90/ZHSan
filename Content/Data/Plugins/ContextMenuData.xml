@@ -23,7 +23,7 @@
             </MenuItem>
             <MenuItem ID="2" Name="Faction" DisplayName="当前势力" DisplayIfTrue="CurrentPlayerOwned" DisplayAll="False">
                 <MenuItem ID="1" Name="Detail" DisplayName="详细信息" />
-				<MenuItem ID="2" Name="Architectures" DisplayName="建筑列表" />
+				<MenuItem ID="2" Name="Architectures" DisplayName="城池列表" />
 				<MenuItem ID="3" Name="Troops" DisplayName="部队列表" />
 				<MenuItem ID="4" Name="Persons" DisplayName="人物列表" />
 				<MenuItem ID="15" Name="Children" DisplayName="子女列表" />

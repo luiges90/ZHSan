@@ -9979,9 +9979,18 @@ namespace GameObjects
                     && !result.ContainsKey(i))
                 {
                     PersonList t = new PersonList();
-                    t.Add(p);
-                    t.Add(q);
-                    t.Add(causer);
+                    if (!i.Hates(p))
+                    {
+                        t.Add(p);
+                    }
+                    if (!i.Hates(q))
+                    {
+                        t.Add(q);
+                    }
+                    if (!i.Hates(causer))
+                    {
+                        t.Add(causer);
+                    }
                     result.Add(i, t);
                 }
             }
@@ -9991,8 +10000,14 @@ namespace GameObjects
                 if (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 3 && p.Spouse.Alive))
                 {
                     PersonList t = new PersonList();
-                    t.Add(q);
-                    t.Add(causer);
+                    if (!p.Hates(q))
+                    {
+                        t.Add(q);
+                    }
+                    if (!p.Hates(causer))
+                    {
+                        t.Add(causer);
+                    }
                     result.Add(p, t);
                 }
             }
@@ -10001,8 +10016,14 @@ namespace GameObjects
                 if (q.PersonalLoyalty >= 4 || (q.PersonalLoyalty >= 3 && q.Spouse.Alive))
                 {
                     PersonList t = new PersonList();
-                    t.Add(p);
-                    t.Add(causer);
+                    if (!q.Hates(p))
+                    {
+                        t.Add(p);
+                    }
+                    if (!q.Hates(causer))
+                    {
+                        t.Add(causer);
+                    }
                     result.Add(q, t);
                 }
             }
