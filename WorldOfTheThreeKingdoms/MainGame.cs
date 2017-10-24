@@ -75,7 +75,7 @@ namespace WorldOfTheThreeKingdoms
         public Texture2D renderLast = null;
 
         public bool isDebug = false;
-
+        public bool loaded2 = false;
         public MainGame()
         {
             //第一步

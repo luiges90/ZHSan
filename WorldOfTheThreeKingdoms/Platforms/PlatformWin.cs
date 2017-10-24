@@ -164,7 +164,10 @@ namespace Platforms
             MainGame.Window.AllowUserResizing = true;
 
             Form xnaWindow = (Form)Control.FromHandle((MainGame.Window.Handle));
-
+            if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
+            {
+                xnaWindow.MaximizeBox = false;//关闭最大化和双击标题栏最大化功能
+            }
             xnaWindow.MouseWheel += (sender, e) =>
             {
                 InputManager.PinchMove = Convert.ToSingle(e.Delta) / 480;
