@@ -517,6 +517,11 @@ namespace GameGlobal
 
             DayInTurn = int.Parse(nextSibling.Attributes.GetNamedItem("DayInTurn").Value);
 
+            InitBaseRates();
+        }
+
+        public void InitBaseRates()
+        {
             BasicAIFundRate = AIFundRate;
             BasicAIFoodRate = AIFoodRate;
             BasicAITroopOffenceRate = AITroopOffenceRate;

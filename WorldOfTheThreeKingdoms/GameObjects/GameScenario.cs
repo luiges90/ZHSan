@@ -2278,7 +2278,7 @@ namespace GameObjects
 
         public void InitialGameData()
         {
-            Session.Parameters.DayEvent(this.PlayerArchitectureCount);
+            Session.Parameters.InitBaseRates();
             this.InitializeSectionData();
             this.InitializeRoutewayData();
             this.InitializeArchitectureData();
