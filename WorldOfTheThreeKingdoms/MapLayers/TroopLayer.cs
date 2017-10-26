@@ -188,6 +188,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                     white = Color.Blue;
                 }
             }
+            if (troop.DrawSelected && !troop.Operated && Session.MainGame.mainGameScreen.CurrentTroop == null && !Session.MainGame.mainGameScreen.Plugins.ContextMenuPlugin.IsShowing)
+            {
+                CacheManager.Draw(Session.MainGame.mainGameScreen.Textures.TileFrameTextures[4], Session.MainGame.mainGameScreen.mainMapLayer.Tiles[troop.Position.X, troop.Position.Y].Destination, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.699f);
+            }
             if (troop.CurrentOutburstKind == OutburstKind.愤怒)
             {
                 white = Color.Red;

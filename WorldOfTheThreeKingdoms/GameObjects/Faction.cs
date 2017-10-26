@@ -59,6 +59,8 @@ namespace GameObjects
         public int AntiCriticalStrikeChanceIncrementWhileCombatMethodOfQibing;
         public int AntiCriticalStrikeChanceIncrementWhileCombatMethodOfQixie;
         public int AntiCriticalStrikeChanceIncrementWhileCombatMethodOfShuijun;
+        public int troopSequence = -1;
+
 
         private int[,] architectureAdjustCost;
 
@@ -2884,6 +2886,7 @@ namespace GameObjects
             this.InternalSurplusRateCache = -1;
             this.visibleTroopsCache = null;
             this.RefreshImportantPerson();
+            this.troopSequence = -1;
         }
 
         private void RefreshImportantPerson()

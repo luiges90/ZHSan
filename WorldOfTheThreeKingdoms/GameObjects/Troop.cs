@@ -4001,6 +4001,7 @@ namespace GameObjects
                 this.mingling = "入城";
                 this.TargetArchitecture = this.StartingArchitecture;
             }
+            this.DrawSelected = false;
         }
 
         private void RefillFood()
@@ -14103,6 +14104,7 @@ namespace GameObjects
             }
             return result;
         }
+        public bool DrawSelected = false;
     }
 }
 

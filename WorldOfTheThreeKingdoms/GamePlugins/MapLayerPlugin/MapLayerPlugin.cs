@@ -56,6 +56,14 @@ namespace MapLayerPlugin
             this.mapLayer.RoutewayLayerTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.mapLayer.RoutewayLayerActiveTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("Active").Value);
             this.mapLayer.RoutewayLayerPosition = StaticMethods.LoadRectangleFromXMLNode(node);
+            node = nextSibling.ChildNodes.Item(3);
+            this.mapLayer.LastTroopTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.mapLayer.LastTroopActiveTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("Active").Value);
+            this.mapLayer.LastTroopPosition = StaticMethods.LoadRectangleFromXMLNode(node);
+            node = nextSibling.ChildNodes.Item(4);
+            this.mapLayer.NextTroopTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.mapLayer.NextTroopActiveTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\MapLayer\Data\" + node.Attributes.GetNamedItem("Active").Value);
+            this.mapLayer.NextTroopPosition = StaticMethods.LoadRectangleFromXMLNode(node);
         }
 
         public void SetGraphicsDevice()
