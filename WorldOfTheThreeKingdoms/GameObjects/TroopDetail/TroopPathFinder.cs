@@ -284,6 +284,7 @@ namespace GameObjects.TroopDetail
             {
                 this.troop.ClearThirdTierPath();
             }
+            if (troop.BelongedFaction == null) return false;
             Point point = new Point(start.X / GameObjectConsts.SecondTierSquareSize, start.Y / GameObjectConsts.SecondTierSquareSize);
             Point point2 = new Point(end.X / GameObjectConsts.SecondTierSquareSize, end.Y / GameObjectConsts.SecondTierSquareSize);
             this.troop.SecondTierPath = this.troop.BelongedFaction.GetSecondTierKnownPath(point, point2);
