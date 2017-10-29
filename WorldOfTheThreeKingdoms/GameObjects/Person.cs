@@ -7348,6 +7348,19 @@ namespace GameObjects
                         v += this.Mother.childrenLoyalty;
                     }
 
+                    if (this.Hates(this.BelongedFaction.Leader))
+                    {
+                        v -= 100;
+                    }
+                    else if (this.Closes(this.BelongedFaction.Leader))
+                    {
+                        v += 20;
+                    }
+                    else if (this.IsVeryCloseTo(this.BelongedFaction.Leader))
+                    {
+                        v += 50;
+                    }
+
                     v += Math.Max(-150, TempLoyaltyChange);
 
                     v = Math.Max(0, v);
