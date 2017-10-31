@@ -9790,6 +9790,17 @@ namespace GameObjects
             return true;
         }
 
+        public bool isLegalFeiZiExcludeAge(Person b)
+        {
+            if (this == b) return false;
+
+            if (this.Sex == b.Sex) return false;
+            
+            if (this.HasStrainTo(b)) return false;
+
+            return true;
+        }
+
         public Person XuanZeMeiNv(Person nvren)
         {
             Person tookSpouse = null;
