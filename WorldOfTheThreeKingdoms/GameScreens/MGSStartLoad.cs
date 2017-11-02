@@ -145,9 +145,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 Session.MainGame.loaded2 = true;
                 //首次载入游戏界面结束后，绘制地图之前,改变窗口的位置和大小
+                /*
                 Session.MainGame.Window.Position = new Point(0, 0);
                 Platform.SetGraphicsWidthHeight(System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Width - 50, System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height - 50);
                 Platform.GraphicsApplyChanges();
+                */
             }
             this.mainMapLayer.Initialize();
 

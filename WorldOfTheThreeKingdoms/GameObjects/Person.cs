@@ -2911,6 +2911,8 @@ namespace GameObjects
             //这样配偶和义兄可以无视一切条件强登被登用武将 (当是君主的配偶或者义兄弟)
             ConvinceSuccess |= target.IsVeryCloseTo(this);
 
+            ConvinceSuccess |= target.IsCloseTo(this) && this.BelongedFaction == null;
+
             return ConvinceSuccess;
         }
 
@@ -7348,6 +7350,19 @@ namespace GameObjects
                         v += this.Mother.childrenLoyalty;
                     }
 
+                    if (this.Hates(this.BelongedFaction.Leader))
+                    {
+                        v -= 100;
+                    }
+                    else if (this.Closes(this.BelongedFaction.Leader))
+                    {
+                        v += 20;
+                    }
+                    else if (this.IsVeryCloseTo(this.BelongedFaction.Leader))
+                    {
+                        v += 50;
+                    }
+
                     v += Math.Max(-150, TempLoyaltyChange);
 
                     v = Math.Max(0, v);
@@ -9770,6 +9785,17 @@ namespace GameObjects
 
             if ((Math.Abs(this.Age - b.Age) > 25) && Session.GlobalVariables.PersonNaturalDeath == true) return false;
 
+            if (this.HasStrainTo(b)) return false;
+
+            return true;
+        }
+
+        public bool isLegalFeiZiExcludeAge(Person b)
+        {
+            if (this == b) return false;
+
+            if (this.Sex == b.Sex) return false;
+            
             if (this.HasStrainTo(b)) return false;
 
             return true;
