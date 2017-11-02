@@ -652,21 +652,21 @@ Color="4294967295"></Leaf>
   </Branch>
   
   <Branch Name="CreateSpouse">
-    <Leaf Text="告诉将军一个好消息，我與" Color="4294967295"></Leaf>
+    <Leaf Text="告诉将军一个好消息，我与" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Color="4286644223"></Leaf>
-    <Leaf Text="青梅竹馬，決定結為夫妻了！" Color="4294967295"></Leaf>
+    <Leaf Text="青梅竹马，决定结为夫妻了！" Color="4294967295"></Leaf>
   </Branch>
   
   <Branch Name="CreateBrother">
-    <Leaf Text="告诉将军一个好消息，我與" Color="4294967295"></Leaf>
+    <Leaf Text="告诉将军一个好消息，我与" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Color="4286644223"></Leaf>
-    <Leaf Text="決定結拜為義兄弟了！" Color="4294967295"></Leaf>
+    <Leaf Text="决定结拜为义兄弟了！" Color="4294967295"></Leaf>
   </Branch>
   
   <Branch Name="CreateSister">
-    <Leaf Text="告诉将军一个好消息，我與" Color="4294967295"></Leaf>
+    <Leaf Text="告诉将军一个好消息，我与" Color="4294967295"></Leaf>
     <Leaf Property="TextResultString" Color="4286644223"></Leaf>
-    <Leaf Text="決定結拜為義姊妹了！" Color="4294967295"></Leaf>
+    <Leaf Text="决定结拜为义姊妹了！" Color="4294967295"></Leaf>
   </Branch>
   
   <Branch Name="ObtainMilitaryKind">

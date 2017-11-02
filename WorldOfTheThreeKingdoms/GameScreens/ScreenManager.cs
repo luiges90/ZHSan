@@ -97,6 +97,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.CurrentPerson = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
             if (this.CurrentPerson != null)
             {
+                Session.Current.Scenario.CurrentFaction.Leader.GoForHouGong(this.CurrentPerson);
                 String msgKey;
                 if (this.CurrentPerson.Hates(Session.Current.Scenario.CurrentFaction.Leader))
                 {
@@ -106,7 +107,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     msgKey = "chongxing";
                 }
-                Session.Current.Scenario.CurrentFaction.Leader.GoForHouGong(this.CurrentPerson);
                 Session.MainGame.mainGameScreen.xianshishijiantupian(this.CurrentPerson, Session.Current.Scenario.CurrentFaction.Leader.Name, TextMessageKind.Hougong, msgKey, this.CurrentPerson.ID.ToString(), "hougong", true);
                 //this.mainGameScreen.DateGo(1);
             }

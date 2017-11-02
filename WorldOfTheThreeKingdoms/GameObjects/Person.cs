@@ -2396,12 +2396,18 @@ namespace GameObjects
                                 }
                             }
                         }
-                        else if (this.Spouse == null && i.Key.Spouse == null)
+                        else if ((this.Spouse == null || (!this.Sex && i.Key.Closes(this.Spouse) && this.Spouse.Closes(i.Key))) && i.Key.Spouse == null)
                         {
                             if (this.isLegalFeiZi(i.Key) && i.Key.isLegalFeiZi(this))
                             {
-                                this.Spouse = i.Key;
-                                i.Key.Spouse = this;
+                                if (this.Spouse == null)
+                                {
+                                    this.Spouse = i.Key;
+                                }
+                                if (i.Key.Spouse == null)
+                                {
+                                    i.Key.Spouse = this;
+                                }
 
                                 if (!this.Spouse.suoshurenwuList.HasGameObject(i.Key))
                                 {
@@ -9948,7 +9954,8 @@ namespace GameObjects
                 float factor = 1;
                 foreach (Person p in this.BelongedFaction.GetFeiziList())
                 {
-                    if (Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50 && !p.Hates(this))
+                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50) || 
+                        (p.Spouse != null && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 3 && p.Spouse.Alive)))) && !p.Hates(this))
                     {
                         factor *= 0.9f + (100 - p.Glamour) * 0.001f;
                     }
@@ -9958,6 +9965,8 @@ namespace GameObjects
                 {
                     if (p == nvren) continue;
                     if (p.faxianhuaiyun || this.faxianhuaiyun) continue;
+                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50) ||
+                        (p.Spouse != null && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 3 && p.Spouse.Alive)))) && !p.Hates(this)) continue;
 
                     p.AdjustRelation(this, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
                     p.AdjustRelation(nvren, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
@@ -9966,7 +9975,8 @@ namespace GameObjects
                 factor = 1;
                 foreach (Person p in nvren.LocationArchitecture.Feiziliebiao)
                 {
-                    if (Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50 && !p.Hates(this))
+                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50) ||
+                        (p.Spouse != null && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 3 && p.Spouse.Alive)))) && !p.Hates(this))
                     {
                         factor *= 0.9f + (100 - p.Glamour) * 0.001f;
                     }
@@ -9976,6 +9986,8 @@ namespace GameObjects
                 {
                     if (p == nvren) continue;
                     if (p.faxianhuaiyun || this.faxianhuaiyun) continue;
+                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50) ||
+                        (p.Spouse != null && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 3 && p.Spouse.Alive)))) && !p.Hates(this)) continue;
 
                     p.AdjustRelation(this, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
                     p.AdjustRelation(nvren, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
