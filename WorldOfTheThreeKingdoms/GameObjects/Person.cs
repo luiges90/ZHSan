@@ -2396,7 +2396,7 @@ namespace GameObjects
                                 }
                             }
                         }
-                        else if ((this.Spouse == null || (!this.Sex && i.Key.Closes(this.Spouse) && this.Spouse.Closes(i.Key))) && i.Key.Spouse == null)
+                        else if ((this.Spouse == null || (!this.Sex && !i.Key.Hates(this.Spouse) && !this.Spouse.Hates(i.Key))) && i.Key.Spouse == null)
                         {
                             if (this.isLegalFeiZi(i.Key) && i.Key.isLegalFeiZi(this))
                             {
