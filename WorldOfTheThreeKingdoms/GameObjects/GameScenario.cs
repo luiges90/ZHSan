@@ -4475,6 +4475,7 @@ namespace GameObjects
         public bool SaveGameScenario(string LoadedFileName, bool saveMap, bool saveCommonData, bool saveSettings, bool disposeMemory = true, bool fullPathProvided = false, bool editing = false)
         {
             this.GameTime += (int)DateTime.Now.Subtract(sessionStartTime).TotalSeconds;
+            sessionStartTime = DateTime.Now;
 
             List<string> errors = new List<string>();
 
