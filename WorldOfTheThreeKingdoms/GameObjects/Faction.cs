@@ -895,7 +895,7 @@ namespace GameObjects
                     maxMerit = i.UntiredMerit;
                 }
             }
-            return p.UntiredMerit > ((unAmbition - 1) * Session.Parameters.AINafeiAbilityThresholdRate) && leader.isLegalFeiZi(p) && p.LocationArchitecture != null && !p.IsCaptive && !p.Hates(this.Leader) &&
+            return p.UntiredMerit > ((unAmbition - 1) * Session.Parameters.AINafeiAbilityThresholdRate) && leader.isLegalFeiZi(p) && p.BelongedArchitecture != null && !p.IsCaptive && !p.Hates(this.Leader) &&
                             (spousePerson == null || (leader.PersonalLoyalty <= (int)PersonLoyalty.普通 && spousePerson.UntiredMerit * (leader.PersonalLoyalty * Session.Parameters.AINafeiStealSpouseThresholdRateMultiply + Session.Parameters.AINafeiStealSpouseThresholdRateAdd) < this.Leader.UntiredMerit / 2)) &&
                             (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (p.Age >= 16 && p.Age <= Session.Parameters.AINafeiMaxAgeThresholdAdd + (int)leader.Ambition * Session.Parameters.AINafeiMaxAgeThresholdMultiply)) &&
                             p.marriageGranter != this.Leader;
