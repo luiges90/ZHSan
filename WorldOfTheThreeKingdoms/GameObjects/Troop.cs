@@ -110,6 +110,9 @@ namespace GameObjects
             TempRateOfOffence = 1;
 
             attackInjuryRate = 1;
+
+            targetTroop = (Troop) Session.Current.Scenario.Troops.GetGameObject(targetTroopID);
+            targetArchitecture = (Architecture)Session.Current.Scenario.Architectures.GetGameObject(targetArchitectureID);
         }
 
         private int[] weizhixulie = { 0, 1, -1, 2, -2, 3, -3, 4 };
@@ -503,8 +506,10 @@ namespace GameObjects
         private int stuntTileStayIndex;
         public bool Surrounding;
         private Architecture targetArchitecture;
+        [DataMember]
         private int targetArchitectureID = -1;
         private Troop targetTroop;
+        [DataMember]
         private int targetTroopID = -1;
         private int technologyIncrement;
         private Point? TempDestination;

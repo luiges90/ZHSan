@@ -5327,7 +5327,7 @@ namespace GameObjects
 
             if (this.LocationArchitecture != a || startingPoint != null)
             {
-                this.wasMayor = this.LocationArchitecture.Mayor == this;
+                this.wasMayor = this.LocationArchitecture != null && this.LocationArchitecture.Mayor == this;
 
                 Point position = this.Position;
                 this.TargetArchitecture = a;

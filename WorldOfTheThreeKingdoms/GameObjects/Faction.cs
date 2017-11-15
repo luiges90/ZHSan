@@ -3110,7 +3110,7 @@ namespace GameObjects
         {
             if (!Session.Current.Scenario.IsPlayer(this))
             {
-                if (GameObject.Random(10) == 0 && (this.Capital != null) && this.Capital.SelectPrinceAvail())
+                if (GameObject.Random(10) == 0 && (this.Capital != null) && this.Capital.BelongedFaction == this && this.Capital.SelectPrinceAvail())
                 {
                     Person person = this.Leader.ChildrenCanBeSelectedAsPrince()[0] as Person;
                     this.PrinceID = person.ID;
