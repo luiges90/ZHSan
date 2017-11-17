@@ -157,7 +157,14 @@ namespace WorldOfTheThreeKingdomsEditor
                 }
                 foreach (PropertyInfo i in properties)
                 {
-                    row[i.Name] = i.GetValue(p) ?? DBNull.Value;
+                    try
+                    {
+                        row[i.Name] = i.GetValue(p) ?? DBNull.Value;
+                    }
+                    catch
+                    {
+                        row[i.Name] = DBNull.Value;
+                    }
                 }
 
                 dt.Rows.Add(row);
