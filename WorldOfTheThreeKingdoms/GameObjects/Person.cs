@@ -9993,7 +9993,7 @@ namespace GameObjects
                     p.AdjustRelation(nvren, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
                 }
 
-                makeHateCausedByAffair(this, nvren, this);
+                makeHateCausedByAffair(this, nvren, this, true);
 
                 this.OutsideTask = OutsideTaskKind.后宮;
                 this.TargetArchitecture = this.LocationArchitecture;
@@ -10004,13 +10004,13 @@ namespace GameObjects
             }
         }
 
-        public Dictionary<Person, PersonList> willHateCausedByAffair(Person p, Person q, Person causer, GameObjectList suoshurenwuList)
+        public Dictionary<Person, PersonList> willHateCausedByAffair(Person p, Person q, Person causer, GameObjectList suoshurenwuList, bool alreadyPrincess = false)
         {
             Dictionary<Person, PersonList> result = new Dictionary<Person, PersonList>();
             foreach (Person i in suoshurenwuList)
             {
                 if (i != p && i != q && i != causer && i != null 
-                    && i.Status != PersonStatus.Princess && p.Status != PersonStatus.Princess && q.Status != PersonStatus.Princess
+                    && ((i.Status != PersonStatus.Princess && p.Status != PersonStatus.Princess && q.Status != PersonStatus.Princess) || alreadyPrincess)
                     && !i.IsCloseTo(p) && !i.HasCloseStrainTo(p)
                     && !i.IsCloseTo(q) && !i.HasCloseStrainTo(q)
                     && !i.IsCloseTo(causer) && !i.HasCloseStrainTo(causer) 
@@ -10069,11 +10069,11 @@ namespace GameObjects
             return result;
         }
 
-        public void makeHateCausedByAffair(Person p, Person q, Person causer)
+        public void makeHateCausedByAffair(Person p, Person q, Person causer, bool alreadyPrincess = false)
         {
             GameObjectList list = p.suoshurenwuList.GetList();
             list.AddRange(q.suoshurenwuList);
-            Dictionary<Person, PersonList> t = willHateCausedByAffair(p, q, causer, list);
+            Dictionary<Person, PersonList> t = willHateCausedByAffair(p, q, causer, list, alreadyPrincess);
             foreach (KeyValuePair<Person, PersonList> i in t)
             {
                 foreach (Person j in i.Value)

@@ -876,7 +876,7 @@ namespace GameObjects
         {
             if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) return false;
 
-            Dictionary<Person, PersonList> haters = p.willHateCausedByAffair(p, this.Leader, this.Leader, suoshu);
+            Dictionary<Person, PersonList> haters = p.willHateCausedByAffair(p, this.Leader, this.Leader, suoshu, p.Status == PersonStatus.Princess);
             PersonList leaderHaters = new PersonList();
             foreach (KeyValuePair<Person, PersonList> i in haters)
             {
