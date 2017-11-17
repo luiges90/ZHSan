@@ -874,6 +874,8 @@ namespace GameObjects
 
         private bool IsPersonForHouGong(Person p, GameObjectList suoshu)
         {
+            if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) return false;
+
             Dictionary<Person, PersonList> haters = p.willHateCausedByAffair(p, this.Leader, this.Leader, suoshu);
             PersonList leaderHaters = new PersonList();
             foreach (KeyValuePair<Person, PersonList> i in haters)
