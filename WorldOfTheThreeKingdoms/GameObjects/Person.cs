@@ -10014,6 +10014,7 @@ namespace GameObjects
                     && !i.IsCloseTo(p) && !i.HasCloseStrainTo(p)
                     && !i.IsCloseTo(q) && !i.HasCloseStrainTo(q)
                     && !i.IsCloseTo(causer) && !i.HasCloseStrainTo(causer) 
+                    && !p.IsCloseTo(i) && !q.IsCloseTo(i) && !causer.IsCloseTo(i)
                     && !result.ContainsKey(i))
                 {
                     PersonList t = new PersonList();
