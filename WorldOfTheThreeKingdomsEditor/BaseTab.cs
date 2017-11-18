@@ -232,8 +232,14 @@ namespace WorldOfTheThreeKingdomsEditor
             DataGrid dataGrid = (DataGrid)sender;
             GameObjectList list = (GameObjectList)GetDataList(scen);
 
-            foreach (DataRowView item in dataGrid.ItemsSource)
+            for (int r = 0; r < dataGrid.Items.Count; r++)
             {
+                DataRowView item = dataGrid.Items[r] as DataRowView;
+                if (item == null)
+                {
+                    continue;
+                }
+
                 int id = (int) item["id"];
                 T p = (T) list.GetGameObject(id);
                 if (p == null)
@@ -246,11 +252,17 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 foreach (FieldInfo i in fields)
                 {
-                    i.SetValue(p, item[i.Name]);
+                    if (item[i.Name] != DBNull.Value)
+                    {
+                        i.SetValue(p, item[i.Name]);
+                    }
                 }
                 foreach (PropertyInfo i in properties)
                 {
-                    i.SetValue(p, item[i.Name]);
+                    if (item[i.Name] != DBNull.Value)
+                    {
+                        i.SetValue(p, item[i.Name]);
+                    }
                 }
             }
         }
