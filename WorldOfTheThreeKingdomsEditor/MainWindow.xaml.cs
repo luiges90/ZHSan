@@ -110,12 +110,15 @@ namespace WorldOfTheThreeKingdomsEditor
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < dataGrid.SelectedCells.Count; i += dataGrid.Columns.Count)
             {
-                object[] values = ((DataRowView)dataGrid.SelectedCells[i].Item).Row.ItemArray;
-                foreach (object o in values)
+                object[] values = (dataGrid.SelectedCells[i].Item as DataRowView)?.Row?.ItemArray;
+                if (values != null)
                 {
-                    sb.Append(o.ToString()).Append("\t");
+                    foreach (object o in values)
+                    {
+                        sb.Append(o.ToString()).Append("\t");
+                    }
+                    sb.Append("\n");
                 }
-                sb.Append("\n");
             }
 
             Clipboard.SetText(sb.ToString());
