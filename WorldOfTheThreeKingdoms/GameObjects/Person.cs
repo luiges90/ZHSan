@@ -10010,7 +10010,7 @@ namespace GameObjects
             foreach (Person i in suoshurenwuList)
             {
                 if (i != p && i != q && i != causer && i != null 
-                    && ((i.Status != PersonStatus.Princess && p.Status != PersonStatus.Princess && q.Status != PersonStatus.Princess) || alreadyPrincess)
+                    && i.Status != PersonStatus.Princess && p.Status != PersonStatus.Princess && q.Status != PersonStatus.Princess
                     && !i.IsCloseTo(p) && !i.HasCloseStrainTo(p)
                     && !i.IsCloseTo(q) && !i.HasCloseStrainTo(q)
                     && !i.IsCloseTo(causer) && !i.HasCloseStrainTo(causer) 

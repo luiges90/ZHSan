@@ -1304,12 +1304,15 @@ namespace GameObjects
                                         {
                                             maxValue = value;
                                             toBuild = kind;
-                                            realToDestroy = toDestroy;
+                                            realToDestroy = new List<Facility>(toDestroy);
                                         } 
                                         else 
                                         {
                                             continue;
                                         }
+                                    } else
+                                    {
+                                        continue;
                                     }
                                 }
                                 else
