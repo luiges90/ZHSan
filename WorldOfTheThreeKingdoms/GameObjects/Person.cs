@@ -2585,6 +2585,14 @@ namespace GameObjects
                     {
                         ageRate -= (this.Spouse.Age - 40) / 10.0f;
                     }
+                    if (this.Age < 16)
+                    {
+                        ageRate *= 0.25f * (this.Age - 12);
+                    }
+                    if (this.Spouse.Age < 16)
+                    {
+                        ageRate *= 0.25f * (this.Spouse.Age - 12);
+                    }
                     relationFactor *= ageRate; 
 
                     if (relationFactor > 0 && GameObject.Random((int)
@@ -9917,6 +9925,14 @@ namespace GameObjects
                         if (q.Age > 40)
                         {
                             extraRate -= (q.Age - 40) / 10.0f;
+                        }
+                        if (this.Age < 16)
+                        {
+                            extraRate *= 0.25f * (this.Age - 12);
+                        }
+                        if (q.Age < 16)
+                        {
+                            extraRate *= 0.25f * (q.Age - 12);
                         }
 
                         float pregnantChance = Session.GlobalVariables.hougongGetChildrenRate / 100.0f;
