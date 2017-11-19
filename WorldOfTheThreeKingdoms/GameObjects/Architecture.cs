@@ -1319,6 +1319,7 @@ namespace GameObjects
                                 {
                                     maxValue = value;
                                     toBuild = kind;
+                                    realToDestroy.Clear();
                                 }
                             }
                         }
@@ -1335,21 +1336,28 @@ namespace GameObjects
                             this.Facilities.Remove(f);
                             Session.Current.Scenario.Facilities.Remove(f);
                         }
-                        //actually build it, or put to plan if fund is not enough
-                        if (this.BelongedFaction != null && (this.Fund >= toBuild.FundCost) && ((this.BelongedFaction.TechniquePoint + this.BelongedFaction.TechniquePointForFacility) >= toBuild.PointCost))
+                        if (toBuild.PositionOccupied <= this.FacilityPositionLeft)
                         {
-                            FacilityKind facilityKind = toBuild;
-                            this.BelongedFaction.DepositTechniquePointForFacility(facilityKind.PointCost);
-                            this.BeginToBuildAFacility(facilityKind);
-                        }
-                        else
-                        {
-                            this.PlanFacilityKind = toBuild;
-                            if (this.BelongedFaction != null && GameObject.Chance(0x21) && ((this.BelongedFaction.TechniquePoint + this.BelongedFaction.TechniquePointForFacility) < this.PlanFacilityKind.PointCost))
+                            //actually build it, or put to plan if fund is not enough
+                            if (this.BelongedFaction != null && (this.Fund >= toBuild.FundCost) && ((this.BelongedFaction.TechniquePoint + this.BelongedFaction.TechniquePointForFacility) >= toBuild.PointCost))
                             {
-                                this.BelongedFaction.SaveTechniquePointForFacility(this.PlanFacilityKind.PointCost / this.PlanFacilityKind.Days);
+                                FacilityKind facilityKind = toBuild;
+                                this.BelongedFaction.DepositTechniquePointForFacility(facilityKind.PointCost);
+                                this.BeginToBuildAFacility(facilityKind);
                             }
+                            else
+                            {
+                                this.PlanFacilityKind = toBuild;
+                                if (this.BelongedFaction != null && GameObject.Chance(0x21) && ((this.BelongedFaction.TechniquePoint + this.BelongedFaction.TechniquePointForFacility) < this.PlanFacilityKind.PointCost))
+                                {
+                                    this.BelongedFaction.SaveTechniquePointForFacility(this.PlanFacilityKind.PointCost / this.PlanFacilityKind.Days);
+                                }
 
+                            }
+                        } else
+                        {
+                            int z = 0;
+                            z++;
                         }
                     }
                     /*List<FacilityKind> list3 = new List<FacilityKind>();
