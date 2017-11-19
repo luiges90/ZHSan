@@ -891,7 +891,7 @@ namespace GameObjects
             int maxMerit = 0;
             foreach (Person i in leaderHaters)
             {
-                if (i.Alive && i != p && i != this.Leader && !i.Hates(this.Leader) && i.UntiredMerit > maxMerit)
+                if (i.Alive && i != this.Leader && !i.Hates(this.Leader) && i.UntiredMerit > maxMerit)
                 {
                     spousePerson = i;
                     maxMerit = i.UntiredMerit;
@@ -958,7 +958,15 @@ namespace GameObjects
                 {
                     if (p.WaitForFeiZi != null) continue;
                     if (p.Spouse != null) continue;
-                    PersonList candidates = p.MakeMarryableInFaction();
+                    PersonList allCandidates = p.MakeMarryableInFaction();
+                    PersonList candidates = new PersonList();
+                    foreach (Person q in allCandidates)
+                    {
+                        if (Math.Abs(q.Age - p.Age) <= 15)
+                        {
+                            candidates.Add(q);
+                        }
+                    }
                     if (candidates.Count > 0)
                     {
                         Person q = candidates.GetMaxUntiredMeritPerson();
