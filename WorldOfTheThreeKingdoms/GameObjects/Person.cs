@@ -4010,8 +4010,12 @@ namespace GameObjects
         }
         public bool CheckCapturedByArchitecture(Architecture a)
         {
+            bool captured = false;
             if (a.BelongedFaction != null && a.BelongedFaction != this.BelongedFaction)
             {
+                this.ApplySkills(true);
+                this.ApplyTitles(true);
+                this.ApplyAllTreasures(true);
                 if (!this.ImmunityOfCaptive && 
                     (GameObject.Random(a.Domination * 10 + a.Morale) + 200 > GameObject.Random(this.CaptiveAbility) * 60 
                     || GameObject.Chance((int) (a.captureChance * (Session.Current.Scenario.IsPlayer(a.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson)))))
@@ -4033,10 +4037,13 @@ namespace GameObjects
                     {
                         this.OnCapturedByArchitecture(this, a);
                     }
-                    return true;
+                    captured = true;
                 }
+                this.PurifySkills(true);
+                this.PurifyTitles(true);
+                this.PurifyAllTreasures(true);
             }
-            return false;
+            return captured;
 
         }
 
