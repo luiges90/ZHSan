@@ -59,6 +59,11 @@ namespace WorldOfTheThreeKingdomsEditor
             new InfleunceKindTab(scen, dgInflunceKind).setup();
             new ConditionTab(scen, dgCondition).setup();
             new ConditionKindTab(scen, dgConditionKind).setup();
+            new EventEffectTab(scen, dgEventEffect).setup();
+            new EventEffectKindTab(scen, dgEventEffectKind).setup();
+            new TroopEventEffectTab(scen, dgTroopEventEffect).setup();
+            new TroopEventEffectKindTab(scen, dgTroopEventEffectKind).setup();
+            new FacilityKindTab(scen, dgFacilityKind).setup();
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)

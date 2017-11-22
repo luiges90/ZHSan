@@ -201,11 +201,17 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 foreach (FieldInfo i in fields)
                 {
-                    i.SetValue(p, e.Row[i.Name]);
+                    if (e.Row[i.Name] != DBNull.Value)
+                    {
+                        i.SetValue(p, e.Row[i.Name]);
+                    }
                 }
                 foreach (PropertyInfo i in properties)
                 {
-                    i.SetValue(p, e.Row[i.Name]);
+                    if (e.Row[i.Name] != DBNull.Value)
+                    {
+                        i.SetValue(p, e.Row[i.Name]);
+                    }
                 }
             }
             catch (Exception ex)

@@ -63,6 +63,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TroopEventEffectKindTab.cs" />
+    <Compile Include="EventEffectKindTab.cs" />
+    <Compile Include="TroopEventEffectTab.cs" />
+    <Compile Include="EventEffectTab.cs" />
+    <Compile Include="FacilityKindTab.cs" />
     <Compile Include="ConditionKindTab.cs" />
     <Compile Include="InfluenceKindTab.cs" />
     <Compile Include="ConditionTab.cs" />
