@@ -1075,14 +1075,7 @@ namespace GameObjects
             this.AITreasure();
             this.AITrade();
             this.AIMilitary();
-            try
-            {
-                this.AIFacility();
-            }
-            catch (Exception ex)
-            {
-                Tools.WebTools.TakeWarnMsg("AI(),AIFacility()", "", ex);
-            }
+            this.AIFacility();
            // this.DiplomaticRelationAI();
             this.AICampaign();
             this.OutsideTacticsAI();
@@ -1354,10 +1347,6 @@ namespace GameObjects
                                 }
 
                             }
-                        } else
-                        {
-                            int z = 0;
-                            z++;
                         }
                     }
                     /*List<FacilityKind> list3 = new List<FacilityKind>();
@@ -3985,6 +3974,11 @@ namespace GameObjects
              */ 
             this.PlanFacilityKind = null;
             this.PlanFacilityKindID = -1;
+            if (  ((this.FacilityPositionCount - this.FacilityPositionLeft) > this.FacilityPositionCount))
+            {
+                int z = 0;
+                z++;
+            }
             ExtensionInterface.call("StartBuildFacility", new Object[] { Session.Current.Scenario, this, facilityKind });
         }
 

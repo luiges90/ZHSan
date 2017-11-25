@@ -293,6 +293,7 @@ namespace GameObjects.ArchitectureDetail
         {
             get
             {
+                if (this.PositionOccupied > 0) return false;
                 bool isExtension = false;
                 foreach (Influence i in this.Influences.Influences.Values)
                 {
