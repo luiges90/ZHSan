@@ -76,6 +76,19 @@ namespace GameObjects
                         if (long.TryParse(objX.ToString(), out lObjX) && long.TryParse(objY.ToString(), out lObjY))
                         {
                             longResult = lObjX - lObjY;
+
+                            if (longResult > 0)
+                            {
+                                result = 1;
+                            }
+                            else if (longResult < 0)
+                            {
+                                result = -1;
+                            }
+                            else
+                            {
+                                result = 0;
+                            }
                         }
                         else
                         {
