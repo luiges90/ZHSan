@@ -82,17 +82,12 @@ namespace GameObjects
                             float fObjX; float fObjY;
                             if (float.TryParse(objX.ToString(), out fObjX) && float.TryParse(objY.ToString(), out fObjY))
                             {
-                                if (Math.Abs(fObjX - fObjY) < 0.000001)
-                                {
-                                    return 0;
-                                }
-                                result = fObjX > fObjY ? 1 : -1;
+                                result = fObjX.CompareTo(fObjY);
                             }
                             else
                             {
                                 result = -1;
                             }
-                            return result;
                         }
                     }
                 }
@@ -102,38 +97,34 @@ namespace GameObjects
                     if (long.TryParse(objX.ToString(), out lObjX) && long.TryParse(objY.ToString(), out lObjY))
                     {
                         longResult = lObjX - lObjY;
+
+                        if (longResult > 0)
+                        {
+                            result = 1;
+                        }
+                        else if (longResult < 0)
+                        {
+                            result = -1;
+                        }
+                        else
+                        {
+                            result = 0;
+                        }
                     }
                     else
                     {
                         float fObjX; float fObjY;
                         if (float.TryParse(objX.ToString(), out fObjX) && float.TryParse(objY.ToString(), out fObjY))
                         {
-                            if (Math.Abs(fObjX - fObjY) < 0.000001)
-                            {
-                                return 0;
-                            }
-                            result = fObjX > fObjY ? 1 : -1;
+                            result = fObjX.CompareTo(fObjY);
                         }
                         else
                         {
                             result = -1;
                         }
-                        return result;
                     }
                 }
-
-                if (longResult > 0)
-                {
-                    result = 1;
-                }
-                else if (longResult < 0)
-                {
-                    result = -1;
-                }
-                else
-                {
-                    result = 0;
-                }
+                
                 //}
                 //catch (FormatException)
                 //{
