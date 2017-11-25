@@ -3974,11 +3974,6 @@ namespace GameObjects
              */ 
             this.PlanFacilityKind = null;
             this.PlanFacilityKindID = -1;
-            if (  ((this.FacilityPositionCount - this.FacilityPositionLeft) > this.FacilityPositionCount))
-            {
-                int z = 0;
-                z++;
-            }
             ExtensionInterface.call("StartBuildFacility", new Object[] { Session.Current.Scenario, this, facilityKind });
         }
 
