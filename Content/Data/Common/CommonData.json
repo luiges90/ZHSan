@@ -29318,7 +29318,7 @@
           "Endurance": 10000,
           "FactionLimit": 1,
           "FundCost": 0,
-          "InfluencesString": "",
+          "InfluencesString": "6303 1053 6113 6123 6145 6193",
           "MaintenanceCost": 0,
           "PointCost": 0,
           "PopulationRelated": false,
@@ -29853,7 +29853,7 @@
           "PopulationRelated": false,
           "PositionOccupied": 1,
           "TechnologyNeeded": 300,
-          "bukechaichu": false,
+          "bukechaichu": true,
           "rongna": 1
         }
       },
@@ -29876,7 +29876,7 @@
           "PopulationRelated": false,
           "PositionOccupied": 2,
           "TechnologyNeeded": 500,
-          "bukechaichu": false,
+          "bukechaichu": true,
           "rongna": 2
         }
       },
@@ -29899,7 +29899,7 @@
           "PopulationRelated": false,
           "PositionOccupied": 4,
           "TechnologyNeeded": 800,
-          "bukechaichu": false,
+          "bukechaichu": true,
           "rongna": 4
         }
       },
@@ -29922,7 +29922,7 @@
           "PopulationRelated": false,
           "PositionOccupied": 10,
           "TechnologyNeeded": 1200,
-          "bukechaichu": false,
+          "bukechaichu": true,
           "rongna": 10
         }
       },
