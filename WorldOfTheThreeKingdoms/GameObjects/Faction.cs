@@ -869,10 +869,14 @@ namespace GameObjects
 
         private bool IsPersonForHouGong(Person p)
         {
-            return IsPersonForHouGong(p, p.suoshurenwuList.GetList());
+            int unAmbition = Enum.GetNames(typeof(PersonAmbition)).Length - (int)this.Leader.Ambition;
+            bool take = p.UntiredMerit > ((unAmbition - 1) * Session.Parameters.AINafeiAbilityThresholdRate) &&
+                                        (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (p.Age >= 16 && p.Age <= Session.Parameters.AINafeiMaxAgeThresholdAdd + (int)leader.Ambition * Session.Parameters.AINafeiMaxAgeThresholdMultiply)) &&
+                                        p.marriageGranter != this.Leader && !p.Hates(this.Leader); 
+            return take && WillHateLeaderDueToAffair(p, p.suoshurenwuList.GetList());
         }
 
-        private bool IsPersonForHouGong(Person p, GameObjectList suoshu)
+        private bool WillHateLeaderDueToAffair(Person p, GameObjectList suoshu)
         {
             if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) return false;
 
@@ -897,10 +901,9 @@ namespace GameObjects
                     maxMerit = i.UntiredMerit;
                 }
             }
-            return p.UntiredMerit > ((unAmbition - 1) * Session.Parameters.AINafeiAbilityThresholdRate) && leader.isLegalFeiZi(p) && p.BelongedArchitecture != null && !p.IsCaptive && !p.Hates(this.Leader) &&
-                            (spousePerson == null || (leader.PersonalLoyalty <= (int)PersonLoyalty.普通 && spousePerson.UntiredMerit * (leader.PersonalLoyalty * Session.Parameters.AINafeiStealSpouseThresholdRateMultiply + Session.Parameters.AINafeiStealSpouseThresholdRateAdd) < this.Leader.UntiredMerit / 2)) &&
-                            (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (p.Age >= 16 && p.Age <= Session.Parameters.AINafeiMaxAgeThresholdAdd + (int)leader.Ambition * Session.Parameters.AINafeiMaxAgeThresholdMultiply)) &&
-                            p.marriageGranter != this.Leader;
+
+            return leader.isLegalFeiZi(p) &&
+                            (spousePerson == null || (leader.PersonalLoyalty <= (int)PersonLoyalty.普通 && spousePerson.UntiredMerit * (leader.PersonalLoyalty * Session.Parameters.AINafeiStealSpouseThresholdRateMultiply + Session.Parameters.AINafeiStealSpouseThresholdRateAdd) < this.Leader.UntiredMerit / 2));
         }
 
         private void AIMakeMarriage()
@@ -979,7 +982,7 @@ namespace GameObjects
                                 GameObjectList simulatSuoshu = t.suoshurenwuList.GetList();
                                 simulatSuoshu.Add(u);
 
-                                if (IsPersonForHouGong(t, simulatSuoshu)) continue;
+                                if (WillHateLeaderDueToAffair(t, simulatSuoshu)) continue;
                             }
 
                             if (p.LocationArchitecture == q.LocationArchitecture && p.LocationArchitecture != null &&
@@ -1239,7 +1242,7 @@ namespace GameObjects
                     foreach (Person p in this.Persons)
                     {
                         Person spousePerson = p.Spouse == null ? null : p.Spouse;
-                        if (IsPersonForHouGong(p) && p.WaitForFeiZi == null)
+                        if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null && !p.IsCaptive)
                         {
                             candidate.Add(p);
                         }
@@ -1314,7 +1317,7 @@ namespace GameObjects
                     {
                         foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
                         {
-                            if (!IsPersonForHouGong(p) && !p.Hates(this.Leader)) continue;
+                            if (!WillHateLeaderDueToAffair(p, p.suoshurenwuList.GetList())) continue;
                             if (p.GetRelation(this.leader) < Session.Parameters.HateThreshold + 100)
                             {
                                 target = p;
