@@ -2195,6 +2195,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoChengZhongWuJiang").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuWanJiaFuLu").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoFuLuZhongCheng").Selected = false;
+                    Session.globalVariablesTemp.PinPointAtPlayer = false;
+                    Session.globalVariablesTemp.internalSurplusRateForPlayer = false;
+                    Session.globalVariablesTemp.internalSurplusRateForAI = false;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionCaptives = false;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionPerson = false;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptives = false;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = false;
 
                     this.nstDianNaoShengTao.NowNumber = 0;                                        
                     this.nstDianNaoEWai1.NowNumber = 1.0f;
@@ -2237,6 +2244,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoChengZhongWuJiang").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuWanJiaFuLu").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoFuLuZhongCheng").Selected = false;
+                    Session.globalVariablesTemp.PinPointAtPlayer = false;
+                    Session.globalVariablesTemp.internalSurplusRateForPlayer = false;
+                    Session.globalVariablesTemp.internalSurplusRateForAI = false;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionCaptives = false;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionPerson = false;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptives = false;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = false;
 
                     this.nstDianNaoShengTao.NowNumber = 0;
                     this.nstDianNaoEWai1.NowNumber = 1.0f;
@@ -2278,6 +2292,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoChengZhongWuJiang").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuWanJiaFuLu").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoFuLuZhongCheng").Selected = false;
+                    Session.globalVariablesTemp.PinPointAtPlayer = true;
+                    Session.globalVariablesTemp.internalSurplusRateForPlayer = false;
+                    Session.globalVariablesTemp.internalSurplusRateForAI = false;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionCaptives = false;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionPerson = false;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptives = false;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = false;
 
                     this.nstDianNaoShengTao.NowNumber = 5f;
                     this.nstDianNaoEWai1.NowNumber = 1.2f;
@@ -2322,6 +2343,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoChengZhongWuJiang").Selected = true;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuWanJiaFuLu").Selected = true;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoFuLuZhongCheng").Selected = true;
+                    Session.globalVariablesTemp.PinPointAtPlayer = true;
+                    Session.globalVariablesTemp.internalSurplusRateForPlayer = true;
+                    Session.globalVariablesTemp.internalSurplusRateForAI = false;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionCaptives = true;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionPerson = true;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptives = true;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = true;
 
                     this.nstDianNaoShengTao.NowNumber = 10f;
                     this.nstDianNaoEWai1.NowNumber = 1.5f;
@@ -2366,6 +2394,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoChengZhongWuJiang").Selected = true;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuWanJiaFuLu").Selected = true;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoFuLuZhongCheng").Selected = false;
+                    Session.globalVariablesTemp.PinPointAtPlayer = true;
+                    Session.globalVariablesTemp.internalSurplusRateForPlayer = true;
+                    Session.globalVariablesTemp.internalSurplusRateForAI = false;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionCaptives = true;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionPerson = true;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptives = true;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = false;
 
                     this.nstDianNaoShengTao.NowNumber = 20f;
                     this.nstDianNaoEWai1.NowNumber = 3.0f;
