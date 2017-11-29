@@ -4167,7 +4167,8 @@ namespace GameObjects
                 {
                     this.BelongedLegion.RemoveTroop(this);
                 }
-                Session.Current.Scenario.ReallyResetMapTileTroop();
+                // TODO this method is too slow.
+                // Session.Current.Scenario.ReallyResetMapTileTroop();
                 this.pathFinder = null;
                 if (removeArmy)
                 {
