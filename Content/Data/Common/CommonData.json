@@ -95896,8 +95896,8 @@
           "MaleSoundPath": null,
           "StayCount": 5,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1120,
+          "TextureHeight": 140
         }
       },
       {
@@ -95911,8 +95911,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 960,
+          "TextureHeight": 120
         }
       },
       {
@@ -95926,8 +95926,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 105
+          "TextureWidth": 960,
+          "TextureHeight": 120
         }
       },
       {
@@ -95941,8 +95941,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1280,
+          "TextureHeight": 160
         }
       },
       {
@@ -95956,8 +95956,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1120,
+          "TextureHeight": 140
         }
       },
       {
@@ -95971,8 +95971,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 896,
+          "TextureHeight": 112
         }
       },
       {
@@ -95986,8 +95986,8 @@
           "MaleSoundPath": null,
           "StayCount": 3,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1080,
+          "TextureHeight": 135
         }
       },
       {
@@ -96001,8 +96001,8 @@
           "MaleSoundPath": null,
           "StayCount": 5,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1024,
+          "TextureHeight": 128
         }
       },
       {
@@ -96061,8 +96061,8 @@
           "MaleSoundPath": null,
           "StayCount": 5,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1360,
+          "TextureHeight": 170
         }
       },
       {
@@ -96091,8 +96091,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 111
+          "TextureWidth": 1440,
+          "TextureHeight": 200
         }
       },
       {
@@ -96106,8 +96106,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 864,
+          "TextureHeight": 108
         }
       },
       {
@@ -96121,8 +96121,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1120,
+          "TextureHeight": 140
         }
       },
       {
@@ -96151,8 +96151,8 @@
           "MaleSoundPath": null,
           "StayCount": 4,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 67
+          "TextureWidth": 5400,
+          "TextureHeight": 450
         }
       },
       {
@@ -96166,8 +96166,8 @@
           "MaleSoundPath": null,
           "StayCount": 10,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 53
+          "TextureWidth": 2250,
+          "TextureHeight": 150
         }
       },
       {
@@ -96181,8 +96181,8 @@
           "MaleSoundPath": null,
           "StayCount": 4,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 67
+          "TextureWidth": 5400,
+          "TextureHeight": 450
         }
       },
       {
@@ -96211,8 +96211,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1352,
+          "TextureHeight": 169
         }
       },
       {
@@ -96226,8 +96226,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1352,
+          "TextureHeight": 169
         }
       },
       {
@@ -96241,8 +96241,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1352,
+          "TextureHeight": 169
         }
       },
       {
@@ -96256,8 +96256,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 99
+          "TextureWidth": 1520,
+          "TextureHeight": 188
         }
       },
       {
@@ -96271,8 +96271,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 99
+          "TextureWidth": 1520,
+          "TextureHeight": 188
         }
       },
       {
@@ -96286,8 +96286,8 @@
           "MaleSoundPath": null,
           "StayCount": 3,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1080,
+          "TextureHeight": 135
         }
       },
       {
@@ -96316,8 +96316,8 @@
           "MaleSoundPath": null,
           "StayCount": 4,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1200,
+          "TextureHeight": 150
         }
       },
       {
@@ -96331,8 +96331,8 @@
           "MaleSoundPath": null,
           "StayCount": 4,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1200,
+          "TextureHeight": 150
         }
       },
       {
@@ -96346,8 +96346,8 @@
           "MaleSoundPath": null,
           "StayCount": 4,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1120,
+          "TextureHeight": 140
         }
       },
       {
@@ -96361,8 +96361,8 @@
           "MaleSoundPath": null,
           "StayCount": 4,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 100
+          "TextureWidth": 1120,
+          "TextureHeight": 140
         }
       },
       {
@@ -96376,8 +96376,8 @@
           "MaleSoundPath": null,
           "StayCount": 10,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 53
+          "TextureWidth": 2250,
+          "TextureHeight": 150
         }
       },
       {
@@ -96391,8 +96391,8 @@
           "MaleSoundPath": null,
           "StayCount": 5,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 105
+          "TextureWidth": 1520,
+          "TextureHeight": 200
         }
       },
       {
@@ -96406,8 +96406,8 @@
           "MaleSoundPath": null,
           "StayCount": 10,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 54
+          "TextureWidth": 6000,
+          "TextureHeight": 400
         }
       },
       {
@@ -96421,8 +96421,8 @@
           "MaleSoundPath": null,
           "StayCount": 5,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 57
+          "TextureWidth": 5138,
+          "TextureHeight": 367
         }
       },
       {
@@ -96436,8 +96436,8 @@
           "MaleSoundPath": null,
           "StayCount": 9,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 57
+          "TextureWidth": 3598,
+          "TextureHeight": 257
         }
       },
       {
@@ -96451,8 +96451,8 @@
           "MaleSoundPath": null,
           "StayCount": 4,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 47
+          "TextureWidth": 4743,
+          "TextureHeight": 279
         }
       },
       {
@@ -96466,8 +96466,8 @@
           "MaleSoundPath": null,
           "StayCount": 9,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 67
+          "TextureWidth": 2880,
+          "TextureHeight": 240
         }
       },
       {
@@ -96481,8 +96481,8 @@
           "MaleSoundPath": null,
           "StayCount": 9,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 67
+          "TextureWidth": 2880,
+          "TextureHeight": 240
         }
       },
       {
@@ -96496,8 +96496,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 61
+          "TextureWidth": 2392,
+          "TextureHeight": 184
         }
       },
       {
@@ -96511,8 +96511,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 50
+          "TextureWidth": 3200,
+          "TextureHeight": 200
         }
       },
       {
@@ -96526,8 +96526,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 50
+          "TextureWidth": 5600,
+          "TextureHeight": 350
         }
       },
       {
@@ -96541,8 +96541,8 @@
           "MaleSoundPath": null,
           "StayCount": 8,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 50
+          "TextureWidth": 4320,
+          "TextureHeight": 270
         }
       },
       {
@@ -96556,8 +96556,8 @@
           "MaleSoundPath": null,
           "StayCount": 10,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 50
+          "TextureWidth": 2064,
+          "TextureHeight": 129
         }
       },
       {
@@ -96571,8 +96571,8 @@
           "MaleSoundPath": null,
           "StayCount": 10,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 61
+          "TextureWidth": 3640,
+          "TextureHeight": 280
         }
       },
       {
@@ -96586,8 +96586,8 @@
           "MaleSoundPath": null,
           "StayCount": 10,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 50
+          "TextureWidth": 3200,
+          "TextureHeight": 200
         }
       },
       {
@@ -96601,8 +96601,8 @@
           "MaleSoundPath": null,
           "StayCount": 8,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 53
+          "TextureWidth": 4200,
+          "TextureHeight": 280
         }
       },
       {
@@ -96616,8 +96616,8 @@
           "MaleSoundPath": null,
           "StayCount": 9,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 45
+          "TextureWidth": 3240,
+          "TextureHeight": 180
         }
       },
       {
@@ -96631,8 +96631,8 @@
           "MaleSoundPath": null,
           "StayCount": 8,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 57
+          "TextureWidth": 4200,
+          "TextureHeight": 300
         }
       },
       {
@@ -96646,8 +96646,8 @@
           "MaleSoundPath": null,
           "StayCount": 10,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 45
+          "TextureWidth": 3960,
+          "TextureHeight": 220
         }
       },
       {
@@ -96661,8 +96661,8 @@
           "MaleSoundPath": null,
           "StayCount": 7,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 67
+          "TextureWidth": 5400,
+          "TextureHeight": 450
         }
       },
       {
@@ -96676,8 +96676,8 @@
           "MaleSoundPath": null,
           "StayCount": 5,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 67
+          "TextureWidth": 2724,
+          "TextureHeight": 227
         }
       },
       {
@@ -96691,8 +96691,8 @@
           "MaleSoundPath": null,
           "StayCount": 3,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 50
+          "TextureWidth": 5856,
+          "TextureHeight": 366
         }
       },
       {
@@ -96706,8 +96706,8 @@
           "MaleSoundPath": null,
           "StayCount": 9,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 47
+          "TextureWidth": 5729,
+          "TextureHeight": 337
         }
       },
       {
@@ -96721,8 +96721,8 @@
           "MaleSoundPath": null,
           "StayCount": 4,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 80
+          "TextureWidth": 3000,
+          "TextureHeight": 300
         }
       },
       {
@@ -96736,8 +96736,8 @@
           "MaleSoundPath": null,
           "StayCount": 6,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 67
+          "TextureWidth": 3024,
+          "TextureHeight": 251
         }
       },
       {
@@ -96751,8 +96751,8 @@
           "MaleSoundPath": null,
           "StayCount": 10,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 50
+          "TextureWidth": 3200,
+          "TextureHeight": 200
         }
       },
       {
@@ -96766,8 +96766,8 @@
           "MaleSoundPath": null,
           "StayCount": 10,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 50
+          "TextureWidth": 3360,
+          "TextureHeight": 210
         }
       },
       {
@@ -96781,8 +96781,8 @@
           "MaleSoundPath": null,
           "StayCount": 10,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 53
+          "TextureWidth": 4200,
+          "TextureHeight": 280
         }
       },
       {
@@ -96796,8 +96796,8 @@
           "MaleSoundPath": null,
           "StayCount": 10,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 53
+          "TextureWidth": 3000,
+          "TextureHeight": 200
         }
       },
       {
@@ -96811,8 +96811,8 @@
           "MaleSoundPath": null,
           "StayCount": 10,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 50
+          "TextureWidth": 6752,
+          "TextureHeight": 422
         }
       },
       {
@@ -96826,8 +96826,8 @@
           "MaleSoundPath": null,
           "StayCount": 10,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 45
+          "TextureWidth": 6192,
+          "TextureHeight": 344
         }
       },
       {
@@ -96841,8 +96841,8 @@
           "MaleSoundPath": null,
           "StayCount": 7,
           "TextureFileName": null,
-          "TextureWidth": 800,
-          "TextureHeight": 57
+          "TextureWidth": 3597,
+          "TextureHeight": 257
         }
       }
     ]
