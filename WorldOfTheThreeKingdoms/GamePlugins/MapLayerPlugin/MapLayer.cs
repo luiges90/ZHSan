@@ -102,7 +102,7 @@ namespace MapLayerPlugin
                     {
                         p.troopSequence = p.Troops.Count - 1;
                     }
-                    if ((p.Troops[p.troopSequence] as Troop) != null && p.troopSequence != -1)
+                    if (p.troopSequence != -1 && (p.Troops[p.troopSequence] as Troop) != null)
                     {
                         (p.Troops[p.troopSequence] as Troop).DrawSelected = false;
                     }
