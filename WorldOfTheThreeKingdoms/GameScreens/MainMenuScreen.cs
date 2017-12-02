@@ -3565,7 +3565,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             float alpha = menuTypeElapsed <= 0.5f ? menuTypeElapsed * 2 : 1f;
 
-            CacheManager.DrawAvatar(@"Content\Textures\Resources\Start\Start.jpg", Vector2.Zero, Color.White, 1f);
+            //CacheManager.DrawAvatar(@"Content\Textures\Resources\Start\Start.jpg", Vector2.Zero, Color.White, 1f);
+            CacheManager.Draw(@"Content\Textures\Resources\Start\Start.jpg", new Rectangle(0, 0, Session.ResolutionX, Session.ResolutionY), Color.White);
 
             if (MenuType == MenuType.None)
             {

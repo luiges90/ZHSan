@@ -32,8 +32,8 @@ namespace GameObjects.TroopDetail
                     if (this.moveTexture == null)
                     {
                         this.moveTexture = CacheManager.GetTempTexture(this.MoveTextureFileName);
-                    this.moveTexture.Width = 600;
-                    this.moveTexture.Height = 480;
+                        this.moveTexture.Width = 1280;
+                        this.moveTexture.Height = 1024;
                     }
                 //}
                 //catch
@@ -55,8 +55,8 @@ namespace GameObjects.TroopDetail
                     if (this.attackTexture == null)
                     {
                         this.attackTexture = CacheManager.GetTempTexture(this.AttackTextureFileName);
-                    this.attackTexture.Width = 600;
-                    this.attackTexture.Height = 480;
+                    this.attackTexture.Width = 1280;
+                    this.attackTexture.Height = 1024;
                 }
                 //}
                 //catch
@@ -78,8 +78,8 @@ namespace GameObjects.TroopDetail
                     if (this.beAttackedTexture == null)
                     {
                         this.beAttackedTexture = CacheManager.GetTempTexture(this.BeAttackedTextureFileName);
-                    this.beAttackedTexture.Width = 600;
-                    this.beAttackedTexture.Height = 480;
+                    this.beAttackedTexture.Width = 1280;
+                    this.beAttackedTexture.Height = 1024;
                 }
                 //}
                 //catch
@@ -103,14 +103,14 @@ namespace GameObjects.TroopDetail
                         if (this.CastTextureFileName == this.AttackTextureFileName)
                         {
                             this.castTexture = this.AttackTexture;
-                        this.castTexture.Width = 600;
-                        this.castTexture.Height = 480;
+                        this.castTexture.Width = 1280;
+                        this.castTexture.Height = 1024;
                     }
                         else
                         {
                             this.castTexture = CacheManager.GetTempTexture(this.CastTextureFileName);
-                        this.castTexture.Width = 600;
-                        this.castTexture.Height = 480;
+                        this.castTexture.Width = 1280;
+                        this.castTexture.Height = 1024;
                     }
                     }
                 //}
@@ -140,8 +140,8 @@ namespace GameObjects.TroopDetail
                         {
                             this.beCastedTexture = CacheManager.GetTempTexture(this.BeCastedTextureFileName);
                         }
-                    this.beCastedTexture.Width = 600;
-                    this.beCastedTexture.Height = 480;
+                    this.beCastedTexture.Width = 1280;
+                    this.beCastedTexture.Height = 1024;
                 }
                 //}
                 //catch
