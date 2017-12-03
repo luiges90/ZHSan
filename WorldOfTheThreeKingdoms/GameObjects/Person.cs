@@ -9884,6 +9884,7 @@ namespace GameObjects
                 {
                     if (q == nvren) continue;
                     if (q.Hates(this)) continue;
+                    if (q.faxianhuaiyun) continue;
                     if (GameObject.Chance(q.GetRelation(this) / 40 + this.GetRelation(q) / 40 + this.Glamour / 20 + q.Glamour / 20))
                     {
                         all.Add(q);
@@ -9891,7 +9892,8 @@ namespace GameObjects
                 }
                 if (this.Spouse != null && this.Spouse.LocationArchitecture == this.LocationArchitecture)
                 {
-                    if (GameObject.Chance(this.Spouse.GetRelation(this) / 40 + this.GetRelation(this.Spouse) / 40 + this.Glamour / 20 + this.Spouse.Glamour / 20))
+                    if (!this.Spouse.Hates(this) && ! this.Spouse.faxianhuaiyun && 
+                        GameObject.Chance(this.Spouse.GetRelation(this) / 40 + this.GetRelation(this.Spouse) / 40 + this.Glamour / 20 + this.Spouse.Glamour / 20))
                     {
                         all.Add(this.Spouse);
                     }
