@@ -158,6 +158,7 @@ namespace GameObjects.PersonDetail
 
         public bool IsCastable(Troop troop)
         {
+            if (this.CastConditions == null) return false;
             foreach (Condition condition in this.CastConditions.Conditions.Values)
             {
                 if (!condition.CheckCondition(troop))
