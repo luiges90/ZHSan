@@ -990,7 +990,7 @@ namespace GameObjects
                                 simulatSuoshu.Add(u);
 
                                 Person hater = WillHateLeaderDueToAffair(t, simulatSuoshu);
-                                if (hater != null) continue;
+                                if (hater != null && hater != u) continue;
                             }
 
                             if (p.LocationArchitecture == q.LocationArchitecture && p.LocationArchitecture != null &&
@@ -1022,11 +1022,13 @@ namespace GameObjects
                                 q.WaitForFeiZi = p;
                                 if (p.LocationArchitecture != q.LocationArchitecture)
                                 {
-                                    if (q.Status == PersonStatus.Normal && q.LocationArchitecture != null && q.LocationTroop == null)
+                                    if (q.Status == PersonStatus.Normal && q.LocationArchitecture != null && q.LocationTroop == null &&
+                                        p.BelongedArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
                                     {
                                         q.MoveToArchitecture(p.BelongedArchitecture);
                                     }
-                                    else if (p.Status == PersonStatus.Normal && p.LocationArchitecture != null && p.LocationTroop == null)
+                                    else if (p.Status == PersonStatus.Normal && p.LocationArchitecture != null && p.LocationTroop == null &&
+                                        q.BelongedArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
                                     {
                                         p.MoveToArchitecture(q.BelongedArchitecture);
                                     }
