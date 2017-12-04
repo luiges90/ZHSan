@@ -1956,7 +1956,7 @@ namespace GameObjects
 
         public int TransferDays(double distance)
         {
-            return (int) Math.Ceiling(distance / this.Movability * 2);
+            return (int) Math.Ceiling(distance / this.Movability * 6);
         }
 
         public int TransferFundCost(double distance)
