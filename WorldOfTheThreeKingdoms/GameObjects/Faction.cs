@@ -869,6 +869,7 @@ namespace GameObjects
 
         private bool IsPersonForHouGong(Person p)
         {
+            if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) return false;
             int unAmbition = Enum.GetNames(typeof(PersonAmbition)).Length - (int)this.Leader.Ambition;
             bool take = p.UntiredMerit > ((unAmbition - 1) * Session.Parameters.AINafeiAbilityThresholdRate) &&
                                         (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (p.Age >= 16 && p.Age <= Session.Parameters.AINafeiMaxAgeThresholdAdd + (int)leader.Ambition * Session.Parameters.AINafeiMaxAgeThresholdMultiply)) &&
@@ -1317,6 +1318,7 @@ namespace GameObjects
                     {
                         foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
                         {
+                            if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) continue;
                             if (!WillHateLeaderDueToAffair(p, p.suoshurenwuList.GetList()))
                             {
                                 if (this.leader.NumberOfChildren > 0) continue;
