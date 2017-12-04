@@ -873,14 +873,15 @@ namespace GameObjects
             int unAmbition = Enum.GetNames(typeof(PersonAmbition)).Length - (int)this.Leader.Ambition;
             bool take = p.UntiredMerit > ((unAmbition - 1) * Session.Parameters.AINafeiAbilityThresholdRate) &&
                                         (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (p.Age >= 16 && p.Age <= Session.Parameters.AINafeiMaxAgeThresholdAdd + (int)leader.Ambition * Session.Parameters.AINafeiMaxAgeThresholdMultiply)) &&
-                                        p.marriageGranter != this.Leader && !p.Hates(this.Leader); 
-            return take && !WillHateLeaderDueToAffair(p, p.suoshurenwuList.GetList());
+                                        p.marriageGranter != this.Leader && !p.Hates(this.Leader);
+
+            Person hater = WillHateLeaderDueToAffair(p, p.suoshurenwuList.GetList());
+
+            return take && (hater == null || (leader.PersonalLoyalty <= (int)PersonLoyalty.普通 && hater.UnalteredUntiredMerit * (leader.PersonalLoyalty * Session.Parameters.AINafeiStealSpouseThresholdRateMultiply + Session.Parameters.AINafeiStealSpouseThresholdRateAdd) < this.Leader.UnalteredUntiredMerit));
         }
 
-        private bool WillHateLeaderDueToAffair(Person p, GameObjectList suoshu)
+        private Person WillHateLeaderDueToAffair(Person p, GameObjectList suoshu)
         {
-            if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) return false;
-
             Dictionary<Person, PersonList> haters = p.willHateCausedByAffair(p, this.Leader, this.Leader, suoshu, p.Status == PersonStatus.Princess);
             PersonList leaderHaters = new PersonList();
             foreach (KeyValuePair<Person, PersonList> i in haters)
@@ -903,8 +904,7 @@ namespace GameObjects
                 }
             }
 
-            return leader.isLegalFeiZi(p) &&
-                            (spousePerson == null || (leader.PersonalLoyalty <= (int)PersonLoyalty.普通 && spousePerson.UntiredMerit * (leader.PersonalLoyalty * Session.Parameters.AINafeiStealSpouseThresholdRateMultiply + Session.Parameters.AINafeiStealSpouseThresholdRateAdd) < this.Leader.UntiredMerit / 2));
+            return spousePerson;
         }
 
         private void AIMakeMarriage()
@@ -962,6 +962,10 @@ namespace GameObjects
                 {
                     if (p.WaitForFeiZi != null) continue;
                     if (p.Spouse != null) continue;
+                    if (Session.GlobalVariables.hougongGetChildrenRate > 0)
+                    {
+                        if (IsPersonForHouGong(p)) continue;
+                    }
                     PersonList allCandidates = p.MakeMarryableInFaction();
                     PersonList candidates = new PersonList();
                     foreach (Person q in allCandidates)
@@ -978,12 +982,15 @@ namespace GameObjects
                         {
                             if (Session.GlobalVariables.hougongGetChildrenRate > 0)
                             {
+                                if (IsPersonForHouGong(q)) continue;
+
                                 Person t = p.Sex != Leader.Sex ? p : q;
                                 Person u = p.Sex != Leader.Sex ? q : p;
                                 GameObjectList simulatSuoshu = t.suoshurenwuList.GetList();
                                 simulatSuoshu.Add(u);
 
-                                if (WillHateLeaderDueToAffair(t, simulatSuoshu)) continue;
+                                Person hater = WillHateLeaderDueToAffair(t, simulatSuoshu);
+                                if (hater != null) continue;
                             }
 
                             if (p.LocationArchitecture == q.LocationArchitecture && p.LocationArchitecture != null &&
@@ -1242,6 +1249,7 @@ namespace GameObjects
                     PersonList candidate = new PersonList();
                     foreach (Person p in this.Persons)
                     {
+                        if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) continue;
                         Person spousePerson = p.Spouse == null ? null : p.Spouse;
                         if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null && !p.IsCaptive)
                         {
@@ -1319,10 +1327,12 @@ namespace GameObjects
                         foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
                         {
                             if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) continue;
-                            if (!WillHateLeaderDueToAffair(p, p.suoshurenwuList.GetList()))
+                            Person hater = WillHateLeaderDueToAffair(p, p.suoshurenwuList);
+                            if (hater != null)
                             {
-                                if (this.leader.NumberOfChildren > 0) continue;
-                                if (this.leader.PersonalLoyalty > (int) PersonLoyalty.普通 || (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse.Alive))) continue;
+                                if (this.leader.PersonalLoyalty >= 4) continue;
+                                if (this.leader.PersonalLoyalty >= 3 && this.leader.NumberOfChildren > 0) continue;
+                                if (this.leader.PersonalLoyalty >= 2 && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse.Alive))) continue;
                             }
                             if (p.GetRelation(this.leader) < Session.Parameters.HateThreshold + 100)
                             {
