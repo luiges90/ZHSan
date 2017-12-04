@@ -873,7 +873,7 @@ namespace GameObjects
             bool take = p.UntiredMerit > ((unAmbition - 1) * Session.Parameters.AINafeiAbilityThresholdRate) &&
                                         (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (p.Age >= 16 && p.Age <= Session.Parameters.AINafeiMaxAgeThresholdAdd + (int)leader.Ambition * Session.Parameters.AINafeiMaxAgeThresholdMultiply)) &&
                                         p.marriageGranter != this.Leader && !p.Hates(this.Leader); 
-            return take && WillHateLeaderDueToAffair(p, p.suoshurenwuList.GetList());
+            return take && !WillHateLeaderDueToAffair(p, p.suoshurenwuList.GetList());
         }
 
         private bool WillHateLeaderDueToAffair(Person p, GameObjectList suoshu)
