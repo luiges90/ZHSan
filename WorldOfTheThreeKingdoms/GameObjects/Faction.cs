@@ -1317,7 +1317,11 @@ namespace GameObjects
                     {
                         foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
                         {
-                            if (!WillHateLeaderDueToAffair(p, p.suoshurenwuList.GetList())) continue;
+                            if (!WillHateLeaderDueToAffair(p, p.suoshurenwuList.GetList()))
+                            {
+                                if (this.leader.NumberOfChildren > 0) continue;
+                                if (this.leader.PersonalLoyalty >= (int) PersonLoyalty.普通 && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse.Alive))) continue;
+                            }
                             if (p.GetRelation(this.leader) < Session.Parameters.HateThreshold + 100)
                             {
                                 target = p;
