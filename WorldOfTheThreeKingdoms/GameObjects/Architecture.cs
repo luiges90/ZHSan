@@ -2670,6 +2670,9 @@ namespace GameObjects
                     list.PropertyName = propertyName;
                     list.IsNumber = true;
                     list.ReSort();
+                } else
+                {
+                    return list;
                 }
                 list.GameObjects.RemoveRange(list.Count / 2, list.Count - list.Count / 2);
                 return (list);
