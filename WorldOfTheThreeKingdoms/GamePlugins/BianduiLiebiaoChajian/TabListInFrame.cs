@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using PluginInterface;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
+//using System.Runtime.InteropServices;
 using System.Xml;
 
 
@@ -1106,7 +1106,7 @@ namespace BianduiLiebiaoChajian
             }
         }
 
-        [StructLayout(LayoutKind.Sequential)]
+        [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]
         internal struct SubKind
         {
             internal ListKind Kind;
