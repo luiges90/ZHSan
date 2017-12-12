@@ -12059,16 +12059,20 @@ namespace GameObjects
         {
             get           //县令防御力加成公式
             {
+                float mayorFactor = Math.Min(1, this.StartingArchitecture.MayorOnDutyDays / 90.0f);
+                float mayorRate = 1;
+                float leaderRate = 1;
                 if (BuffAvail())
                 {
-                    float mayorFactor = Math.Min(1, this.StartingArchitecture.MayorOnDutyDays / 90.0f);
-                    return (int)(this.defence * this.TirednessFactor * (1 + this.Leader.Command * 0.007 * mayorFactor + this.Leader.Calmness * 0.03 * mayorFactor));
+                    
+                    mayorRate = (1 + this.Leader.Command * 0.007f * mayorFactor + this.Leader.Calmness * 0.03f * mayorFactor);
                 }
-                else 
+                if (this.BelongedFaction != null && this.BelongedFaction.Leader != null && this.BelongedFaction.Leader.Status != PersonStatus.Captive)
                 {
-                    return (int)(this.defence * this.TirednessFactor);
+                    leaderRate = (1 + (this.BelongedFaction.Leader.Command * 0.007f * mayorFactor + this.BelongedFaction.Leader.Calmness * 0.03f * mayorFactor) * 0.2f);
                 }
-                
+
+                return (int)(this.defence * this.TirednessFactor * mayorRate * leaderRate);
             }
         }
 
@@ -12768,16 +12772,19 @@ namespace GameObjects
         {
             get
             {      //县令加成公式
+                float mayorFactor = Math.Min(1, this.StartingArchitecture.MayorOnDutyDays / 90.0f);
+                float mayorRate = 1;
+                float leaderRate = 1;
                 if (BuffAvail())
                 {
-                    float mayorFactor = Math.Min(1, this.StartingArchitecture.MayorOnDutyDays / 90.0f);
-                    return (int)(this.offence * this.TirednessFactor * (1 + this.Leader.Strength * 0.007 * mayorFactor + this.Leader.Braveness * 0.03 * mayorFactor));
+                    mayorRate = (1 + this.Leader.Strength * 0.007f * mayorFactor + this.Leader.Braveness * 0.03f * mayorFactor);
                 }
-                else 
+                if (this.BelongedFaction != null && this.BelongedFaction.Leader != null && this.BelongedFaction.Leader.Status != PersonStatus.Captive)
                 {
-                    return (int)(this.offence * this.TirednessFactor);
+                    leaderRate = (1 + (this.BelongedFaction.Leader.Strength * 0.007f * mayorFactor + this.BelongedFaction.Leader.Braveness * 0.03f * mayorFactor) * 0.2f);
                 }
-                
+                return (int)(this.offence * this.TirednessFactor * mayorRate * leaderRate);
+               
             }
         }
 
