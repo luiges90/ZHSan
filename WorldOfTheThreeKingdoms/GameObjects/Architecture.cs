@@ -12910,16 +12910,19 @@ namespace GameObjects
             get
             {
                 //县令内政加成系数
-                if (this.Mayor != null && this.Mayor.BelongedCaptive == null)
+                float mayorRate = 0;
+                float leaderRate = 0;
+                if (this.Mayor != null && this.Mayor.Status != PersonStatus.Captive)
                 {
-                    return (this.RateOfpublic + this.DayRateIncrementOfInternal + ((float)this.Mayor.Politics / 100 + (float)this.Mayor.Intelligence / 100) / 2 * Math.Min(1, this.MayorOnDutyDays / 90.0f));
+                    mayorRate = ((float)this.Mayor.Politics / 100 + (float)this.Mayor.Intelligence / 100) / 2 * Math.Min(1, this.MayorOnDutyDays / 90.0f);
+                }
+                if (this.BelongedFaction != null && this.BelongedFaction.Leader != null && this.BelongedFaction.Leader.Status != PersonStatus.Captive)
+                {
+                    leaderRate = ((float)this.BelongedFaction.Leader.Politics / 100 + (float)this.BelongedFaction.Leader.Intelligence / 100) / 2;
+                    leaderRate *= 0.2f;
                 }
 
-                else
-                {
-                    return (this.RateOfpublic + this.DayRateIncrementOfInternal);
-                }
-
+                return (this.RateOfpublic + this.DayRateIncrementOfInternal + mayorRate);
             }
         }
 
