@@ -1368,6 +1368,8 @@ namespace GameObjects
 
         private void AIDiplomacy()
         {
+            if (this.Leader.Status == PersonStatus.Captive) return;
+
             foreach (Faction f in Session.Current.Scenario.PlayerFactions) 
             {
                 if (!this.adjacentTo(f)) continue;
@@ -4554,6 +4556,7 @@ namespace GameObjects
             foreach (Faction f in Session.Current.Scenario.Factions)
             {
                 if (Session.Current.Scenario.IsPlayer(f)) continue; // TODO let player choose whether to enter
+                if (f.Leader.Status == PersonStatus.Captive) continue;
                 if ((f != target) && (f.Leader.StrategyTendency != PersonStrategyTendency.维持现状 || Session.GlobalVariables.IgnoreStrategyTendency) && !f.IsAlien)
                 {
                     if (((Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(target.ID, f.ID).Relation +
