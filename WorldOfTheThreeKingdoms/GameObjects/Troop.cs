@@ -38,7 +38,7 @@ namespace GameObjects
 
             currentCombatMethodID = -1;
 
-            currentStratagemID = -1;
+           // currentStratagemID = -1;
 
             direction = TroopDirection.正东;
 
@@ -11689,7 +11689,7 @@ namespace GameObjects
                 return this.Captives.Count;
             }
         }
-
+        [DataMember]
         public TroopCastDefaultKind CastDefaultKind
         {
             get
@@ -11701,7 +11701,7 @@ namespace GameObjects
                 this.castDefaultKind = value;
             }
         }
-
+        [DataMember]
         public TroopCastTargetKind CastTargetKind
         {
             get

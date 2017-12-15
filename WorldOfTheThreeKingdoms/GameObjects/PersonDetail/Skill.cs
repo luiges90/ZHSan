@@ -58,7 +58,8 @@ namespace GameObjects.PersonDetail
                 generationChance = value;
             }
         }
-        public int RelatedAbility { get; set; }
+        [DataMember]
+        public int RelatedAbility { get; set; }//游戏的commondata中的skill的此项漏存了，所以导致默认的都为0
 
         public int GetRelatedAbility(Person p)
         {

@@ -126,7 +126,8 @@ namespace GameObjects.PersonDetail
                 generationChance = value;
             }
         }
-        public int RelatedAbility { get; set; }
+        [DataMember]
+        public int RelatedAbility { get; set; }//目前官方的此值默认为空，默认为0
 
         public int GetRelatedAbility(Person p)
         {
