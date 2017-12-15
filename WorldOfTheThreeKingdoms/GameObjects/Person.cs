@@ -60,7 +60,7 @@ namespace GameObjects
         private int arrivingDays;
         private bool available;
         private int availableLocation;
-        private float baseImpactRate;
+        //private float baseImpactRate;//已经没用了
         private PersonBornRegion bornRegion;
         private int braveness;
         private PersonList brothers = new PersonList();
@@ -183,7 +183,7 @@ namespace GameObjects
 
         private PersonDeadReason deadReason;
         private Person father = null;
-        private PersonForm form;
+       // private PersonForm form;//已无用
         private int generation;
         private string givenName;
         private int glamour;
@@ -197,9 +197,9 @@ namespace GameObjects
         public bool ImmunityOfCaptive;
         public bool ImmunityOfDieInBattle;
 #pragma warning disable CS0649 // Field 'Person.impactRateOfBadForm' is never assigned to, and will always have its default value 0
-        private float impactRateOfBadForm;
+       // private float impactRateOfBadForm;//已无用
 #pragma warning restore CS0649 // Field 'Person.impactRateOfBadForm' is never assigned to, and will always have its default value 0
-        private float impactRateOfGoodForm;
+      //  private float impactRateOfGoodForm;//已无用
 
         public int IncrementOfAgricultureAbility;
         public int IncrementOfChallengeWinningChance;
@@ -226,10 +226,10 @@ namespace GameObjects
         public int InfluenceIncrementOfStrength;
         public int InfluenceIncrementOfReputation;
         public int InfluenceIncrementOfLoyalty;
-        public float InfluenceRateOfBadForm;
+       // public float InfluenceRateOfBadForm;已无用
         public float InfluenceRateOfCommand = 1f;
         public float InfluenceRateOfGlamour = 1f;
-        public float InfluenceRateOfGoodForm;
+        // public float InfluenceRateOfGoodForm;已无用
         public float InfluenceRateOfIntelligence = 1f;
         public float InfluenceRateOfPolitics = 1f;
         public float InfluenceRateOfStrength = 1f;
@@ -6194,8 +6194,8 @@ namespace GameObjects
                 this.glamour = value;
             }
         }
-
-        [DataMember]
+        //已经没用了
+      /*  [DataMember]
         public float BaseImpactRate
         {
             get
@@ -6206,7 +6206,7 @@ namespace GameObjects
             {
                 this.baseImpactRate = value;
             }
-        }
+        }*/
 
         [DataMember]
         public int BaseIntelligence
@@ -6792,7 +6792,7 @@ namespace GameObjects
             }
         }
 
-        [DataMember]
+      /*  [DataMember]//已无用
         public PersonForm Form
         {
             get
@@ -6822,7 +6822,7 @@ namespace GameObjects
                 }
                 return 1f;
             }
-        }
+        }*/
 
         [DataMember]
         public int Generation
@@ -7120,7 +7120,7 @@ namespace GameObjects
             }
         }
 
-        [DataMember]
+      /*  [DataMember]//已无用
         public float ImpactRateOfBadForm
         {
             get
@@ -7144,7 +7144,7 @@ namespace GameObjects
             {
                 this.impactRateOfGoodForm = value;
             }
-        }
+        }*/
 
         public int InformationAbility
         {

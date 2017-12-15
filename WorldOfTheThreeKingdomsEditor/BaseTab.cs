@@ -179,7 +179,6 @@ namespace WorldOfTheThreeKingdomsEditor
             dt.RowDeleting += Dt_RowDeleting;
 
             dpd.AddValueChanged(dg, dg_ItemsSourceChanged);
-
             settingUp = false;
         }
 

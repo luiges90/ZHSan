@@ -398,7 +398,7 @@ namespace GameObjects
             }
         }
 
-        public string SaveDialogToString()
+        public string SaveDialogToString()//剧本的部队事件的对话武将默认全部变成了0，而且目前源码转换中，并没有这一块的安排
         {
             string str = "";
             foreach (PersonDialog dialog in this.Dialogs)

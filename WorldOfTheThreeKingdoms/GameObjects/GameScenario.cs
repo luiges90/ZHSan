@@ -3361,6 +3361,8 @@ namespace GameObjects
                 //else
                 //{
                     this.Architectures.AddArchitectureWithEvent(architecture, false);
+                //后面宝物的所在地有用到此allar，所以要先将城池加入字典，否则会造成宝物所在地为空
+                this.AllArchitectures.Add(architecture.ID, architecture);
                 //}
 
             }
@@ -3444,7 +3446,9 @@ namespace GameObjects
 
                 //troop.CurrentStuntIDString = (short)reader["CurrentStunt"];
                 troop.CurrentStunt = this.GameCommonData.AllStunts.GetStunt(troop.CurrentStuntIDString);
-                
+
+                troop.CurrentStratagem = this.GameCommonData.AllStratagems.GetStratagem(troop.CurrentStratagemID);
+
                 if (errors.Count > 0)
                 {
                     errors.Add("部队ID" + troop.ID + "：");
@@ -3547,7 +3551,10 @@ namespace GameObjects
 
                 //faction.GetGeneratorPersonCountString = reader["GetGeneratorPersonCount"].ToString();
                 e.AddRange(faction.LoadGeneratorPersonCountFromString(faction.GetGeneratorPersonCountString.NullToString()));
-
+                if (faction.PrinceID != -1 && this.Persons.GetGameObject(faction.PrinceID) as Person != null)//取消储君序列化，原有的方法会导致二次存档后储君为空
+                {
+                    faction.Prince = this.Persons.GetGameObject(faction.PrinceID) as Person;
+                }
                 if (faction.AvailableMilitaryKinds.GetMilitaryKindList().Count == 0)
                 {
                     faction.AvailableMilitaryKinds.AddMilitaryKind(this.GameCommonData.AllMilitaryKinds.GetMilitaryKind(0));
@@ -3656,7 +3663,6 @@ namespace GameObjects
                 e.LoadNoArchitectureEffectFromString(this.GameCommonData.AllEventEffects, e.noArchitectureEffectString);
 
                 //e.LoadScenBiographyFromString(reader["ScenBiography"].ToString());
-                
                 this.AllEvents.AddEventWithEvent(e, false);
             }
            
@@ -4510,6 +4516,7 @@ namespace GameObjects
                     faction.GetGeneratorPersonCountString = faction.SaveGeneratorPersonCountToString();
                     faction.TransferingMilitariesString = faction.TransferingMilitaries.SaveToString();
                     faction.MilitariesString = faction.Militaries.SaveToString();
+                    faction.PrinceID = faction.Prince != null ? faction.Prince.ID : -1;
                 }
             }
 
@@ -4627,6 +4634,7 @@ namespace GameObjects
                 troop.CombatMethodsString = troop.CombatMethods.SaveToString();
 
                 troop.CurrentStuntIDString = (troop.CurrentStunt != null) ? troop.CurrentStunt.ID : -1;
+                
             }
 
             if (saveMap)
@@ -6427,6 +6435,11 @@ namespace GameObjects
                 }
             }
             return false;
+        }
+
+        public void captivestocaptiveData(CaptiveList captives)
+        {
+            this.captiveData = captives;
         }
     }
 }

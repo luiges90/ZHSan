@@ -62,9 +62,41 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     globalVariables.SkyEye = false;
                 }
+                //以下修改是为了可以使剧本自带一些设置，这样可以使剧本作者能够预设一些特殊设定
+                if (Session.Current.Scenario.GlobalVariables != null)
+                {
+                    System.Reflection.FieldInfo[] 非getset字段表 = typeof(GlobalVariables).GetFields((System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance));
+                    foreach (var v in 非getset字段表)
+                    {
+                        if (v.GetValue(Session.Current.Scenario.GlobalVariables) == null)
+                        {
+                            v.SetValue(Session.Current.Scenario.GlobalVariables, v.GetValue(globalVariables));
+                        }
+                    }
+                }
+                else
+                {
+                    Session.Current.Scenario.GlobalVariables = globalVariables;
+                }
 
-                Session.Current.Scenario.GlobalVariables = globalVariables;
-                Session.Current.Scenario.Parameters = gameParameters;
+                if (Session.Current.Scenario.Parameters != null)
+                {
+                    System.Reflection.FieldInfo[] 非getset字段表 = typeof(Parameters).GetFields((System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance));
+                    foreach (var v in 非getset字段表)
+                    {
+                        if (v.GetValue(Session.Current.Scenario.Parameters) == null)
+                        {
+                            v.SetValue(Session.Current.Scenario.Parameters, v.GetValue(gameParameters));
+                        }
+                    }
+                }
+                else
+                {
+                    Session.Current.Scenario.Parameters = gameParameters;
+                }
+
+                // Session.Current.Scenario.GlobalVariables = globalVariables;
+                // Session.Current.Scenario.Parameters = gameParameters;
 
                 //this.mainMapLayer.jiazaibeijingtupian();
                 //Session.Current.Scenario.InitializeScenarioPlayerFactions(base.InitializationFactionIDs);

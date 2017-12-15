@@ -280,9 +280,9 @@ namespace GameObjects
         public string TroopListString { get; set; }
 
         public TroopList Troops = new TroopList();
-        [DataMember]
+       // [DataMember]//后面有public的datamember
         private int upgradingDaysLeft;
-        [DataMember]
+        //  [DataMember]//后面有public的datamember
         private int upgradingTechnique = -1;
         // private Dictionary<MilitaryKind, int> militaryKindCounts = new Dictionary<MilitaryKind, int>();
 
@@ -6155,7 +6155,7 @@ namespace GameObjects
                 return ((this.Leader != null) ? this.Leader.Name : "----");
             }
         }
-        [DataMember]
+        // [DataMember]//取消储君序列化，原有的方法会导致二次存档后储君为空
         public Person Prince
         {
             get

@@ -2148,7 +2148,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, this);
                 foreach (PersonDialog dialog in te.Dialogs)
                 {
-                    if (dialog.SpeakingPerson != null)
+                    dialog.SpeakingPerson = Session.Current.Scenario.Persons.GetGameObject(dialog.SpeakingPersonID) as Person;//修复部队事件未识别说话武将
+                    if (dialog.SpeakingPerson !=null)
                     {
                         this.Plugins.tupianwenziPlugin.SetGameObjectBranch(dialog.SpeakingPerson, null, dialog.Text, te.Image, te.Sound);
                     }

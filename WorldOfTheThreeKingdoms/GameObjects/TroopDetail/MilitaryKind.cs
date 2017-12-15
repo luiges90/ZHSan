@@ -88,6 +88,7 @@ namespace GameObjects.TroopDetail
         private float wastelandRate;
         private int waterAdaptability;
         private float waterRate;
+        [DataMember]
         public int zijinshangxian;
 
         public InfluenceTable Influences = new InfluenceTable();
@@ -125,7 +126,7 @@ namespace GameObjects.TroopDetail
 
             titleInfluence = -1;
 
-            morphToKindId = -1;
+           // morphToKindId = -1;
 
             AICreateArchitectureConditionWeight = new Dictionary<Condition, float>();
 
