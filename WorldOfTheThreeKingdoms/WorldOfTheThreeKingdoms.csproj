@@ -57406,7 +57406,8 @@
     </Content>
     <None Include="app.config" />
     <None Include="app.manifest" />
-    <None Include="Content\Data\Scenario\194QXGJ.json" />    <Content Include="Content\Data\模板.xlsx">
+    <None Include="Content\Data\Scenario\194QXGJ.json" />    <Content Include="..\Content\Data\模板.xlsx">
+      <Link>Content\Data\模板.xlsx</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>  </ItemGroup>
   <ItemGroup>
