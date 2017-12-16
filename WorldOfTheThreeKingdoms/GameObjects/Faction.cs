@@ -1334,7 +1334,7 @@ namespace GameObjects
                             {
                                 if (this.leader.PersonalLoyalty >= 4) continue;
                                 if (this.leader.PersonalLoyalty >= 3 && this.leader.NumberOfChildren > 0) continue;
-                                if (this.leader.PersonalLoyalty >= 2 && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse.Alive))) continue;
+                                if (this.leader.PersonalLoyalty >= 2 && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse != null && p.Spouse.Alive))) continue;
                             }
                             if (p.GetRelation(this.leader) < Session.Parameters.HateThreshold + 100)
                             {
