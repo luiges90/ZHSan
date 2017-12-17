@@ -1336,7 +1336,7 @@ namespace GameObjects
                                 if (this.leader.PersonalLoyalty >= 3 && this.leader.NumberOfChildren > 0) continue;
                                 if (this.leader.PersonalLoyalty >= 2 && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse != null && p.Spouse.Alive))) continue;
                             }
-                            if (p.GetRelation(this.leader) < Session.Parameters.HateThreshold + 100)
+                            if (p.GetRelation(this.leader) < Session.Parameters.HateThreshold + 100 && !p.Hates(this.Leader))
                             {
                                 target = p;
                                 location = a;
@@ -3875,6 +3875,13 @@ namespace GameObjects
                 else
                 {
                     information.CheckAmbushTroop();
+                }
+            }
+            foreach (Architecture a in this.Architectures)
+            {
+                foreach (Information info in a.Informations)
+                {
+                    info.DaysStarted += Session.Parameters.DayInTurn;
                 }
             }
             foreach (Information information in list)
