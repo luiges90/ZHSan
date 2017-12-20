@@ -1082,7 +1082,7 @@ namespace GameObjects
                     }
                     this.WorkKind = ArchitectureWorkKind.无;
                 }
-                if (value != PersonStatus.Normal && status == PersonStatus.Normal)
+                if (value != PersonStatus.Normal && status == PersonStatus.Normal && this.OutsideTask == OutsideTaskKind.无)
                 {
                     this.PurifySkills(true);
                     this.PurifyTitles(true);
@@ -1090,7 +1090,7 @@ namespace GameObjects
                     this.PurifyArchitectureInfluence(true);
                     this.PurifyFactionInfluence(true);
                 }
-                else if (value == PersonStatus.Normal && status == PersonStatus.Moving)
+                else if (value == PersonStatus.Normal && status == PersonStatus.Moving && this.OutsideTask == OutsideTaskKind.无)
                 {
                     this.ApplySkills(true);
                     this.ApplyTitles(true);
