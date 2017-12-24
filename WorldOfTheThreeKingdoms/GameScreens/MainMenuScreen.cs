@@ -2285,7 +2285,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.nstDianNaoKangJi2.NowNumber = 0.0f;
                     this.nstDianNaoKangWei2.NowNumber = 0.0f;
 
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoWanJiaDiRen").Selected = true;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoWanJiaDiRen").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianWanJia").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianDianNao").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuFuLu").Selected = false;
@@ -2336,7 +2336,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.nstDianNaoKangJi2.NowNumber = 0.2f;
                     this.nstDianNaoKangWei2.NowNumber = 0.2f;
 
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoWanJiaDiRen").Selected = true;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoWanJiaDiRen").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianWanJia").Selected = true;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianDianNao").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuFuLu").Selected = true;

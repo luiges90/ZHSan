@@ -1082,7 +1082,7 @@ namespace GameObjects
                     }
                     this.WorkKind = ArchitectureWorkKind.无;
                 }
-                if (value != PersonStatus.Normal && status == PersonStatus.Normal)
+                if (value != PersonStatus.Normal && status == PersonStatus.Normal && this.OutsideTask == OutsideTaskKind.无)
                 {
                     this.PurifySkills(true);
                     this.PurifyTitles(true);
@@ -1090,7 +1090,7 @@ namespace GameObjects
                     this.PurifyArchitectureInfluence(true);
                     this.PurifyFactionInfluence(true);
                 }
-                else if (value == PersonStatus.Normal && status == PersonStatus.Moving)
+                else if (value == PersonStatus.Normal && status == PersonStatus.Moving && this.OutsideTask == OutsideTaskKind.无)
                 {
                     this.ApplySkills(true);
                     this.ApplyTitles(true);
@@ -2345,7 +2345,8 @@ namespace GameObjects
                     if (i.Value >= Session.Parameters.VeryCloseThreshold / 2 && i.Key.GetRelation(this) >= Session.Parameters.VeryCloseThreshold && i.Key.BelongedFaction == this.BelongedFaction
                          && !this.HasStrainTo(i.Key) && !this.IsVeryCloseTo(i.Key)
                         && (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (Math.Abs(this.Age - i.Key.Age) <= 40 && this.Age <= 50 && i.Key.Age <= 50
-                            && this.Age >= 16 && i.Key.Age >= 16)))
+                            && this.Age >= 16 && i.Key.Age >= 16))
+                            && this.LocationArchitecture == i.Key.LocationArchitecture)
                     {
                         if (this.Sex == i.Key.Sex)
                         {
