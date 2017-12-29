@@ -1020,11 +1020,13 @@ namespace json_and_excel
             Clipboard.SetText(sb.ToString());//系统剪切板
             if (m >= workBook.Worksheets.Count - 1)
             {
-                workBook.Worksheets[m].Cells[3, 1].PasteSpecial(Excel.XlPasteType.xlPasteValues);//excel自带的粘贴
+                workBook.Worksheets[m].Cells[3, 1].PasteSpecial();
+                // workBook.Worksheets[m].Cells[3, 1].PasteSpecial(Excel.XlPasteType.xlPasteValues);//excel自带的粘贴
             }
             else
             {
-                workBook.Worksheets[m].Cells[1, 1].PasteSpecial(Excel.XlPasteType.xlPasteValues);
+                workBook.Worksheets[m].Cells[1, 1].PasteSpecial();
+                // workBook.Worksheets[m].Cells[1, 1].PasteSpecial(Excel.XlPasteType.xlPasteValues);
             }
         }
 
