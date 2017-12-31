@@ -4335,14 +4335,6 @@
       <Link>Content\Data\Scenario\192XDZX1.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\Scenario\194QXGJ1.json">
-      <Link>Content\Data\Scenario\194QXGJ1.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Data\Scenario\194QXGJ2.json">
-      <Link>Content\Data\Scenario\194QXGJ2.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Data\Scenario\197YSCD.json">
       <Link>Content\Data\Scenario\197YSCD.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -4571,6 +4563,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="app.manifest" />
+    <None Include="Content\Data\Scenario\194QXGJ.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\36.xnb">
