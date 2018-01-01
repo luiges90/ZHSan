@@ -43,9 +43,10 @@
             this.button8 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.是剧本 = new System.Windows.Forms.CheckBox();
-            this.保存配置信息 = new System.Windows.Forms.CheckBox();
-            this.保存commdata信息 = new System.Windows.Forms.CheckBox();
+            this.保存配置信息到存档剧本 = new System.Windows.Forms.CheckBox();
+            this.保存commdata信息到存档剧本 = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.单独保存commdata信息 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button1
@@ -190,7 +191,7 @@
             // 
             this.是剧本.AutoSize = true;
             this.是剧本.Enabled = false;
-            this.是剧本.Location = new System.Drawing.Point(556, 129);
+            this.是剧本.Location = new System.Drawing.Point(556, 123);
             this.是剧本.Name = "是剧本";
             this.是剧本.Size = new System.Drawing.Size(60, 16);
             this.是剧本.TabIndex = 3;
@@ -200,39 +201,59 @@
         "\\Save替换原文件后可以以此存档开始游戏");
             this.是剧本.UseVisualStyleBackColor = true;
             // 
-            // 保存配置信息
+            // 保存配置信息到存档剧本
             // 
-            this.保存配置信息.AutoSize = true;
-            this.保存配置信息.Checked = true;
-            this.保存配置信息.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.保存配置信息.Enabled = false;
-            this.保存配置信息.Location = new System.Drawing.Point(555, 153);
-            this.保存配置信息.Name = "保存配置信息";
-            this.保存配置信息.Size = new System.Drawing.Size(96, 16);
-            this.保存配置信息.TabIndex = 3;
-            this.保存配置信息.Text = "保存配置信息";
-            this.toolTip1.SetToolTip(this.保存配置信息, "选中后，配置信息如游戏难度、年龄是否生效等配置信息将会保存到剧本或存档中，这些信息将不会受到剧本开始时的配置设置所影响");
-            this.保存配置信息.UseVisualStyleBackColor = true;
+            this.保存配置信息到存档剧本.AutoSize = true;
+            this.保存配置信息到存档剧本.Checked = true;
+            this.保存配置信息到存档剧本.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.保存配置信息到存档剧本.Enabled = false;
+            this.保存配置信息到存档剧本.Location = new System.Drawing.Point(555, 141);
+            this.保存配置信息到存档剧本.Name = "保存配置信息到存档剧本";
+            this.保存配置信息到存档剧本.Size = new System.Drawing.Size(156, 16);
+            this.保存配置信息到存档剧本.TabIndex = 3;
+            this.保存配置信息到存档剧本.Text = "保存配置信息到存档剧本";
+            this.toolTip1.SetToolTip(this.保存配置信息到存档剧本, "选中后，配置信息如游戏难度、年龄是否生效等配置信息将会保存到剧本或存档中，这些信息将不会受到剧本开始时的配置设置所影响");
+            this.保存配置信息到存档剧本.UseVisualStyleBackColor = true;
             // 
-            // 保存commdata信息
+            // 保存commdata信息到存档剧本
             // 
-            this.保存commdata信息.AutoSize = true;
-            this.保存commdata信息.Enabled = false;
-            this.保存commdata信息.Location = new System.Drawing.Point(555, 176);
-            this.保存commdata信息.Name = "保存commdata信息";
-            this.保存commdata信息.Size = new System.Drawing.Size(120, 16);
-            this.保存commdata信息.TabIndex = 3;
-            this.保存commdata信息.Text = "保存commdata信息";
-            this.toolTip1.SetToolTip(this.保存commdata信息, "选中后，commdata如影响表称号表等commdata信息将会保存到剧本或存档中，这些信息将不会受到游戏默认的commdata所影响");
-            this.保存commdata信息.UseVisualStyleBackColor = true;
+            this.保存commdata信息到存档剧本.AutoSize = true;
+            this.保存commdata信息到存档剧本.Enabled = false;
+            this.保存commdata信息到存档剧本.Location = new System.Drawing.Point(555, 160);
+            this.保存commdata信息到存档剧本.Name = "保存commdata信息到存档剧本";
+            this.保存commdata信息到存档剧本.Size = new System.Drawing.Size(180, 16);
+            this.保存commdata信息到存档剧本.TabIndex = 3;
+            this.保存commdata信息到存档剧本.Text = "保存commdata信息到存档剧本";
+            this.toolTip1.SetToolTip(this.保存commdata信息到存档剧本, "选中后，commdata如影响表称号表等commdata信息将会保存到剧本或存档中，这些信息将不会受到游戏默认的commdata所影响");
+            this.保存commdata信息到存档剧本.UseVisualStyleBackColor = true;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 30000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 100;
+            // 
+            // 单独保存commdata信息
+            // 
+            this.单独保存commdata信息.AutoSize = true;
+            this.单独保存commdata信息.Enabled = false;
+            this.单独保存commdata信息.Location = new System.Drawing.Point(555, 179);
+            this.单独保存commdata信息.Name = "单独保存commdata信息";
+            this.单独保存commdata信息.Size = new System.Drawing.Size(144, 16);
+            this.单独保存commdata信息.TabIndex = 3;
+            this.单独保存commdata信息.Text = "单独保存commdata信息";
+            this.toolTip1.SetToolTip(this.单独保存commdata信息, "选中后，你通过excel修改的如影响表称号表等commdata信息将会生成在转换文件夹中CommonData.json，把此文件替换Content\\Data\\Co" +
+        "mmon文件夹同名文件\r\n之后，剧本或存档中如无这些信息，则会读取此文件中的通用信息");
+            this.单独保存commdata信息.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 427);
-            this.Controls.Add(this.保存commdata信息);
-            this.Controls.Add(this.保存配置信息);
+            this.ClientSize = new System.Drawing.Size(730, 427);
+            this.Controls.Add(this.单独保存commdata信息);
+            this.Controls.Add(this.保存commdata信息到存档剧本);
+            this.Controls.Add(this.保存配置信息到存档剧本);
             this.Controls.Add(this.是剧本);
             this.Controls.Add(this.将导出文件标题);
             this.Controls.Add(this.已导入文件标题);
@@ -269,9 +290,10 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.CheckBox 是剧本;
-        private System.Windows.Forms.CheckBox 保存配置信息;
-        private System.Windows.Forms.CheckBox 保存commdata信息;
+        private System.Windows.Forms.CheckBox 保存配置信息到存档剧本;
+        private System.Windows.Forms.CheckBox 保存commdata信息到存档剧本;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.CheckBox 单独保存commdata信息;
     }
 }
 
