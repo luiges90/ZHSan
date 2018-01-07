@@ -296,7 +296,6 @@ __pycache__/
 
 # Images and resource files
 Content/bin
-Content/Font
 Content/Music
 Content/Sound
 Content/Textures
@@ -307,3 +306,6 @@ Docs
 
 # links won't work anyway
 *.lnk
+
+# InnoSetup Output
+Output/
