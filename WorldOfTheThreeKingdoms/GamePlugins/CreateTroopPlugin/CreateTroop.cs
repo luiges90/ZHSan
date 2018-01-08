@@ -783,6 +783,13 @@ namespace CreateTroopPlugin
 
         private void SelectMilitary()
         {
+            if (this.CreatingPersons != null)
+            {
+                foreach (Person p in this.CreatingPersons)
+                {
+                    p.LocationTroop = null;
+                }
+            }
             if (this.ShellMilitaryKind == null)
             {
                 this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Military, FrameFunction.GetCampaignMilitary, false, true, true, false, this.CreatingArchitecture.GetCampaignMilitaryList(), (this.CreatingMilitary == null) ? null : this.CreatingMilitary.GetGameObjectList(), "选择编队", "");
