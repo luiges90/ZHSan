@@ -48,12 +48,14 @@ namespace json_and_excel
                 已导入文件类型 = "mdb";
                 已导入文件标题.Text = "已导入文件:" + openFileDialog.FileNames.Count() + "个," + "类型" + 已导入文件类型;
                 this.导入文件的处理(openFileDialog);
+                导出为excel文件(sender, e);
                 button4.Enabled = false;
                 button5.Enabled = true;
                 button6.Enabled = false;
                 是剧本.Enabled = false;
-                保存commdata信息.Enabled = false;
-                保存配置信息.Enabled = false;
+                保存commdata信息到存档剧本.Enabled = false;
+                保存配置信息到存档剧本.Enabled = false;
+                单独保存commdata信息.Enabled = false;
             }
         }
 
@@ -87,8 +89,9 @@ namespace json_and_excel
             将导出文件类型 = "";
             将导出文件.Items.Clear();
             是剧本.Enabled = false;
-            保存commdata信息.Enabled = false;
-            保存配置信息.Enabled = false;
+            保存commdata信息到存档剧本.Enabled = false;
+            保存配置信息到存档剧本.Enabled = false;
+            单独保存commdata信息.Enabled = false;
         }
 
         private void 导入excel文件(object sender, EventArgs e)
@@ -101,12 +104,14 @@ namespace json_and_excel
                 已导入文件类型 = "excel";
                 已导入文件标题.Text = "已导入文件:" + openFileDialog.FileNames.Count() + "个," + "类型" + 已导入文件类型;
                 this.导入文件的处理(openFileDialog);
+                导出为json文件(sender, e);
                 button4.Enabled = false;
                 button5.Enabled = false;
                 button6.Enabled = true;
                 是剧本.Enabled = true;
-                保存commdata信息.Enabled = true;
-                保存配置信息.Enabled = true;
+                保存commdata信息到存档剧本.Enabled = true;
+                保存配置信息到存档剧本.Enabled = true;
+                单独保存commdata信息.Enabled = true;
             }
         }
 
@@ -120,14 +125,41 @@ namespace json_and_excel
                 已导入文件类型 = "json";
                 已导入文件标题.Text = "已导入文件:" + openFileDialog.FileNames.Count() + "个," + "类型" + 已导入文件类型;
                 this.导入文件的处理(openFileDialog);
+                导出为excel文件(sender,e);
                 button4.Enabled = false;
                 button5.Enabled = true;
                 button6.Enabled = false;
                 是剧本.Enabled = false;
-                保存commdata信息.Enabled = false;
-                保存配置信息.Enabled = false;
+                保存commdata信息到存档剧本.Enabled = false;
+                保存配置信息到存档剧本.Enabled = false;
+                单独保存commdata信息.Enabled = false;
             }
         }
+
+        private void 导出为excel文件(object sender, EventArgs e)
+        {
+            将导出文件类型 = "xls";
+            将导出文件标题.Text = "将导出文件 至 此文件夹";
+            将导出文件.Items.Clear();
+            将导出文件.Items.Add("");
+            将导出文件.Items.Add(Application.StartupPath + @"\转换生成文件");
+            将导出文件.Items.Add("");
+            将导出文件.Items.Add("同名xls文件");
+            button8.Enabled = true;
+        }
+
+        private void 导出为json文件(object sender, EventArgs e)
+        {
+            将导出文件类型 = "json";
+            将导出文件标题.Text = "将导出文件 至 此文件夹";
+            将导出文件.Items.Clear();
+            将导出文件.Items.Add("");
+            将导出文件.Items.Add(Application.StartupPath + @"\转换生成文件");
+            将导出文件.Items.Add("");
+            将导出文件.Items.Add("同名json文件");
+            button8.Enabled = true;
+        }
+
         private GameScenario scenario = null;
         private void 确认导出(object sender, EventArgs e)
         {
@@ -971,29 +1003,6 @@ namespace json_and_excel
             mdb文件.Close();
         }
 
-        private void 导出为excel文件(object sender, EventArgs e)
-        {
-            将导出文件类型 = "xls";
-            将导出文件标题.Text = "将导出文件 至 此文件夹";
-            将导出文件.Items.Clear();
-            将导出文件.Items.Add("");
-            将导出文件.Items.Add(Application.StartupPath+ @"\转换生成文件");
-            将导出文件.Items.Add("");
-            将导出文件.Items.Add("同名xls文件");
-            button8.Enabled = true;
-        }
-
-        private void 导出为json文件(object sender, EventArgs e)
-        {
-            将导出文件类型 = "json";
-            将导出文件标题.Text = "将导出文件 至 此文件夹";
-            将导出文件.Items.Clear();
-            将导出文件.Items.Add("");
-            将导出文件.Items.Add(Application.StartupPath + @"\转换生成文件");
-            将导出文件.Items.Add("");
-            将导出文件.Items.Add("同名json文件");
-            button8.Enabled = true;
-        }
 
         private void copytoexcel(Excel.Application aaa, Excel.Workbook workBook, DataTable dt,int m)
         {
@@ -1020,11 +1029,13 @@ namespace json_and_excel
             Clipboard.SetText(sb.ToString());//系统剪切板
             if (m >= workBook.Worksheets.Count - 1)
             {
-                workBook.Worksheets[m].Cells[3, 1].PasteSpecial(Excel.XlPasteType.xlPasteValues);//excel自带的粘贴
+                workBook.Worksheets[m].Cells[3, 1].PasteSpecial();
+                // workBook.Worksheets[m].Cells[3, 1].PasteSpecial(Excel.XlPasteType.xlPasteValues);//excel自带的粘贴
             }
             else
             {
-                workBook.Worksheets[m].Cells[1, 1].PasteSpecial(Excel.XlPasteType.xlPasteValues);
+                workBook.Worksheets[m].Cells[1, 1].PasteSpecial();
+                // workBook.Worksheets[m].Cells[1, 1].PasteSpecial(Excel.XlPasteType.xlPasteValues);
             }
         }
 
@@ -6881,7 +6892,12 @@ namespace json_and_excel
                         a.Stunts.AddStunt(s);
                     }
                 }
-                a.Quantity = int.Parse(dt.Rows[i]["Quantity"].ToString());
+                Military m = scenario.Militaries.GetGameObject(a.MilitaryID) as Military;
+                if (m != null)
+                {
+                    a.Morale = m.Morale;
+                    a.Quantity = m.Quantity;
+                }
                 scenario.Troops.Add(a);
             }
             GameManager.Session.Current.IsWorking = false;
@@ -7494,16 +7510,44 @@ namespace json_and_excel
             GameManager.Setting.Current = new GameManager.Setting();
             GameManager.Setting.Current.GlobalVariables = scenario.GlobalVariables;
             GameManager.Session.Current.Scenario = scenario;
-
-            if (this.保存commdata信息.Checked)
+            if(this.单独保存commdata信息.Checked)
             {
                 GameScenario.SaveGameCommonData(scenario);
+                string ss1 = "";
+                System.Runtime.Serialization.Json.DataContractJsonSerializer serializer = new System.Runtime.Serialization.Json.DataContractJsonSerializer(typeof(CommonData));
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    //lock (Platform.SerializerLock)
+                    {
+                        serializer.WriteObject(stream, scenario.GameCommonData);
+                    }
+                    var array = stream.ToArray();
+                    ss1 = Encoding.UTF8.GetString(array, 0, array.Length);
+                }
+                    ss1 = ss1.Replace("{\"", "{\r\n\"");
+                ss1 = ss1.Replace("[{", "[\r\n{");
+                ss1 = ss1.Replace(",\"", ",\r\n\"");
+                ss1 = ss1.Replace("}", "\r\n}");
+                ss1 = ss1.Replace("},{", "},\r\n{");
+                ss1 = ss1.Replace("}]", "}\r\n]");
+                File.WriteAllText(Application.StartupPath + @"\转换生成文件\CommonData.json", ss1);
+            }
+            if (this.保存commdata信息到存档剧本.Checked)
+            {
+                if (!this.单独保存commdata信息.Checked)
+                {
+                    GameScenario.SaveGameCommonData(scenario);
+                }
+                else
+                {
+
+                }
             }
             else
             {
                 scenario.GameCommonData = null;
             }
-            if (!this.保存配置信息.Checked)
+            if (!this.保存配置信息到存档剧本.Checked)
             {
                 scenario.GlobalVariables = null;
                 scenario.Parameters = null;
@@ -7722,7 +7766,7 @@ namespace json_and_excel
                     }
                 }
                 dr["ConvinceDestinationPersonList"] = a.ConvinceDestinationPersonList.SaveToString();
-                dr["jianzhuqizi"] = a.jianzhuqizi.qizipoint;
+                dr["jianzhuqizi"] =a.jianzhuqizi !=null? a.jianzhuqizi.qizipoint.ToString() : "";
                 string ssss = "";
                 foreach (KeyValuePair<int, int> var in a.captiveLoyaltyFall)
                 {
@@ -8977,7 +9021,7 @@ namespace json_and_excel
                 dr["PlayerInfo"] = scenario.PlayerInfo;
                 dr["PlayerList"] = GameGlobal.StaticMethods.SaveToString(scenario.PlayerList);
                 dr["FactionQueue"] = scenario.Factions.FactionQueue;
-                dr["ScenarioDescription"] = scenario.ScenarioDescription;
+                dr["ScenarioDescription"] = scenario.ScenarioDescription.Replace("\n","");
                 dr["JumpPosition"] = scenario.ScenarioMap.JumpPosition;
                 dt.Rows.Add(dr);
             }
@@ -8997,7 +9041,13 @@ namespace json_and_excel
             oProps = null;
             取值字段 = 编队取值字段();
             m += 1;
+            List<GameObjects.Military> mis = new List<GameObjects.Military>();
             foreach (Military a in scenario.Militaries)
+            {
+                mis.Add(a);
+            }
+            mis = mis.OrderBy(Influence => Influence.ID).ToList();
+            foreach (Military a in mis)
             {
                 if (oProps == null)
                 {
@@ -10218,144 +10268,51 @@ namespace json_and_excel
                 "BuildingFacility",
                 "CaptionID",
                 "CaptivesString",
-                "ChanceDecrementOfCriticalStrike",
                 "CharacteristicsString",
-                "CombativityOfRecruitment",
-                "CommandExperienceIncrease",
                 "Commerce",
-                "CriticalHostile",
-                "DayAvoidInfluenceByBattle",
-                "DayAvoidInternalDecrementOnBattle",
-                "DayAvoidPopulationEscape",
-                "DayLearnTitleDay",
-                "DayLocationLoyaltyNoChange",
-                "DayRateIncrementOfInternal",
                 "DefensiveLegion",
                 "DefensiveLegionID",
                 "Domination",
                 "Endurance",
-                "ExperienceRate",
                 "FacilitiesString",
                 "FacilityEnabled",
                 "Food",
                 "FoodPacksString",
-                "FrontLine",
                 "Fund",
                 "FundPacksString",
-                "GlamourExperienceIncrease",
                 "HasManualHire",
                 "HireFinished",
-                "HostileLine",
-                "IncrementOfAgricultureCeiling",
-                "IncrementOfAgriculturePerDay",
-                "IncrementOfCombativityInViewArea",
-                "IncrementOfCommerceCeiling",
-                "IncrementOfCommercePerDay",
-                "IncrementOfDominationCeiling",
-                "IncrementOfDominationPerDay",
-                "IncrementOfEnduranceCeiling",
-                "IncrementOfEndurancePerDay",
-                "IncrementOfFacilityPositionCount",
-                "IncrementOfFactionReputationPerDay",
-                "IncrementOfFactionTechniquePointPerDay",
-                "IncrementOfFoodCeiling",
-                "IncrementOfFundCeiling",
-                "IncrementOfMonthFood",
-                "IncrementOfMonthFund",
-                "IncrementOfMoraleCeiling",
-                "IncrementOfMoralePerDay",
-                "IncrementOfTechnologyCeiling",
-                "IncrementOfTechnologyPerDay",
-                "IncrementOfViewRadius",
-                "InfluenceIncrementOfLoyalty",
                 "InformationsString",
-                "IntelligenceExperienceIncrease",
                 "IsStrategicCenter",
-                "JustAttacked",
                 "KindId",
                 "MayorID",
                 "MayorOnDutyDays",
                 "MilitariesString",
                 "MilitaryPopulation",
                 "Morale",
-                "MoraleOfRecruitment",
                 "MovingPersonsString",
-                "MultipleOfRecovery",
-                "MultipleOfTraining",
-                "NoCounterStrikeInArchitecture",
                 "NoFactionMovingPersonsString",
                 "NoFactionPersonsString",
                 "OldFactionName",
                 "PersonsString",
                 "PlanArchitectureID",
                 "PlanFacilityKindID",
-                "PoliticsExperienceIncrease",
                 "Population",
                 "PopulationPacksString",
-                "RateIncrementOfMonthFood",
-                "RateIncrementOfMonthFund",
-                "RateIncrementOfNewBubingTroopDefence",
-                "RateIncrementOfNewBubingTroopOffence",
-                "RateIncrementOfNewNubingTroopDefence",
-                "RateIncrementOfNewNubingTroopOffence",
-                "RateIncrementOfNewQibingTroopDefence",
-                "RateIncrementOfNewQibingTroopOffence",
-                "RateIncrementOfNewQixieTroopDefence",
-                "RateIncrementOfNewQixieTroopOffence",
-                "RateIncrementOfNewShuijunTroopDefence",
-                "RateIncrementOfNewShuijunTroopOffence",
-                "RateIncrementOfPopulationCeiling",
-                "RateIncrementOfPopulationDevelop",
-                "RateOfClearField",
-                "RateOfConvincePerson",
-                "RateOfDestroyArchitecture",
-                "RateOfFacilityEnduranceDown",
-                "RateOfFoodReduceRate",
-                "RateOfGossipArchitecture",
-                "RateOfHirePerson",
-                "RateOfInstigateArchitecture",
-                "RateOfJailBreakArchitecture",
-                "RateOfNewBubingMilitaryFundCost",
-                "RateOfNewNubingMilitaryFundCost",
-                "RateOfNewQibingMilitaryFundCost",
-                "RateOfNewQixieMilitaryFundCost",
-                "RateOfNewShuijunMilitaryFundCost",
-                "RateOfRewardPerson",
-                "RateOfRoutewayBuildFundCost",
-                "RateOfpublic",
                 "RecentlyAttacked",
                 "RecentlyBreaked",
-                "ReputationIncrease",
                 "RobberTroopID",
-                "ShowNumber",
                 "StateID",
-                "StrengthExperienceIncrease",
                 "SuspendTroopTransfer",
                 "Technology",
                 "TodayPersonArriveNote",
-                "TotalFriendlyForce",
-                "TotalHostileForce",
-                "TotalStoredForce",
                 "TransferFoodArchitectureID",
                 "TransferFundArchitectureID",
-                "TroopTransportDayRate",
-                "TroopTransportFoodRate",
-                "TroopTransportFundRate",
                 "TroopershipAvailable",
-                "captureChance",
-                "enduranceDecreaseRateDrop",
-                "facilityConstructionTimeRateDecrease",
-                "facilityEnduranceIncrease",
                 "feiziliebiaoString",
-                "hostileTroopInViewLastDay",
                 "huangdisuozai",
                 "jianzhuqizi",
-                "militaryPopulationRateIncrease",
-                "noEscapeChance",
-                "noFactionFrontline",
                 "noFundToSustainFacility",
-                "orientationFrontLine",
-                "withoutTruceFrontline",
                 "ConvinceDestinationPersonList",
                 "captiveLoyaltyFall",
                 "youzainan",
