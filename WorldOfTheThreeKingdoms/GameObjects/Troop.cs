@@ -12059,7 +12059,15 @@ namespace GameObjects
         {
             get           //县令防御力加成公式
             {
-                float mayorFactor = Math.Min(1, this.StartingArchitecture.MayorOnDutyDays / 90.0f);
+                float mayorFactor;
+                if (this.StartingArchitecture != null)
+                {
+                    mayorFactor = Math.Min(1, this.StartingArchitecture.MayorOnDutyDays / 90.0f);
+                }
+                else
+                {
+                    mayorFactor = 0;
+                }
                 float mayorRate = 1;
                 float leaderRate = 1;
                 if (BuffAvail())
@@ -12772,7 +12780,14 @@ namespace GameObjects
         {
             get
             {      //县令加成公式
-                float mayorFactor = Math.Min(1, this.StartingArchitecture.MayorOnDutyDays / 90.0f);
+                float mayorFactor;
+                if (this.StartingArchitecture != null)
+                {
+                    mayorFactor = Math.Min(1, this.StartingArchitecture.MayorOnDutyDays / 90.0f);
+                } else
+                {
+                    mayorFactor = 0;
+                }
                 float mayorRate = 1;
                 float leaderRate = 1;
                 if (BuffAvail())
