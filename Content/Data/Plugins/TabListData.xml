@@ -1214,7 +1214,6 @@
 				FontColor="4294375158"
 				Align="Middle">
         </Column>
-        </Column>
               <Column ID="510" Name="OfficerString" IsNumber="false" DisplayName="野武将" MinWidth="40" DetailLevel="2"
                     FontName="方正隶变_GBK"
                     FontSize="15"
