@@ -1908,7 +1908,7 @@ namespace GameObjects
 
         private void AutoRecruit()
         {
-            if (RecruitmentAvail() && (this.IsFundEnough || this.HasHostileTroopsInView()))
+            if (RecruitmentAvail() && this.Fund > 500 && (this.IsFundEnough || this.HasHostileTroopsInView()))
             {
                 MilitaryList recruitmentMilitaryList = this.GetRecruitmentMilitaryList();
 
@@ -1947,7 +1947,7 @@ namespace GameObjects
             MilitaryList trainingMilitaryList = this.GetTrainingMilitaryList();
             bool needTrain = (trainingMilitaryList.Count > 0);
 
-            if (!this.IsFundEnough && this.RecentlyAttacked <= 0) // 资金不足时全武将训练
+            if ((!this.IsFundEnough && this.RecentlyAttacked <= 0) || this.Fund < Session.Current.Scenario.Parameters.InternalFundCost) // 资金不足时全武将训练
             {
                 if (needTrain)
                 {
