@@ -2938,10 +2938,10 @@ namespace GameObjects
             //阿柒:排序得到智力最高的命名为军师
             if (PersonInCurrentFaction.Count >= 1)
             {
-                List<Person> t = PersonInCurrentFaction.OrderByDescending(Person => Person.Intelligence).ToList();
-                if (t[0].Intelligence >= 70)
+                List<Person> t = PersonInCurrentFaction.OrderByDescending(Person => Person.IntelligenceIncludingExperience).ToList();
+                if (t[0].IntelligenceIncludingExperience >= 70)
                 {
-                    Counsellor = string.Concat(new object[] { t[0].Name, "(", t[0].Intelligence.ToString(), ")" });
+                    Counsellor = string.Concat(new object[] { t[0].Name, "(", t[0].IntelligenceIncludingExperience.ToString(), ")" });
                 }
                 else
                 {
@@ -2956,10 +2956,10 @@ namespace GameObjects
             //阿柒:排序得到统帅最高的命名为都督
             if (PersonInCurrentFaction.Count >= 1)
             {
-                List<Person> t = PersonInCurrentFaction.OrderByDescending(Person => Person.Command).ToList();
-                if (t[0].Command >= 70)
+                List<Person> t = PersonInCurrentFaction.OrderByDescending(Person => Person.CommandIncludingExperience).ToList();
+                if (t[0].CommandIncludingExperience >= 70)
                 {
-                    Governor = string.Concat(new object[] { t[0].Name, "(", t[0].Command.ToString(), ")" });
+                    Governor = string.Concat(new object[] { t[0].Name, "(", t[0].CommandIncludingExperience.ToString(), ")" });
                 }
                 else
                 {
@@ -2976,12 +2976,12 @@ namespace GameObjects
 
             if (PersonInCurrentFaction.Count >= 1)
             {
-                List<Person> Fivetiger = PersonInCurrentFaction.OrderByDescending(Person => Person.Strength).ToList();
+                List<Person> Fivetiger = PersonInCurrentFaction.OrderByDescending(Person => Person.StrengthIncludingExperience).ToList();
                 for (int i = 0; i < PersonInCurrentFaction.Count; i++)
                 {
-                    if (Fivetiger[i].Strength >= 70)
+                    if (Fivetiger[i].StrengthIncludingExperience >= 70)
                     {
-                        FivetigerString[i] = Fivetiger[i].Name + "(" + Fivetiger[i].Strength.ToString() + ")";
+                        FivetigerString[i] = Fivetiger[i].Name + "(" + Fivetiger[i].StrengthIncludingExperience.ToString() + ")";
                     }
                     if (i == 4) break;
                 }

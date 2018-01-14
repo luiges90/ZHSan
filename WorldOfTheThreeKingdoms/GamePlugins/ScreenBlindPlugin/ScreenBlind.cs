@@ -57,6 +57,7 @@ namespace ScreenBlindPlugin
             this.FactionText.Draw(0.4299f);
 
             //阿柒:新增势力信息显示相关
+            this.FactionTechText.Draw(0.4299f);
             this.LeaderNameText.Draw(0.4299f);
             this.PrinceNameText.Draw(0.4299f);
             this.CounsellorNameText.Draw(0.4299f);
