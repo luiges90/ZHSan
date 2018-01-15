@@ -32,6 +32,11 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
             foreach (Troop troop in source.GetAreaStratagemTroops(destination, false))
             {
                 int num3 = source.GetStratagemSuccessChanceCredit(troop, source.InevitableGongxinOnLowerIntelligence || source.InevitableStratagemOnLowerIntelligence, troop.InvincibleGongxin, troop.InvincibleStratagemFromLowerIntelligence);
+                num3 -= destination.MoraleIncreaseByViewArea * 50;
+                num3 -= destination.MoraleIncreaseInViewArea * 50;
+                num3 += destination.MoraleDecreaseByViewArea * 50;
+                num3 += destination.MoraleDecreaseInViewArea * 50;
+                num3 -= destination.IncrementPerDayOfMorale * 50;
                 if (num3 > 0)
                 {
                     num3 = (((num3 + ((120 - troop.Morale) / 2)) + ((troop.Army.Scales - 5) * 5)) * troop.PureFightingForce) / pureFightingForce;
