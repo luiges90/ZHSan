@@ -6085,7 +6085,7 @@ namespace GameObjects
         {
             get
             {
-                if (InternalSurplusRateCache >= 0)
+                if (InternalSurplusRateCache > 0)
                     return InternalSurplusRateCache;
 
                 if ((!Session.Current.Scenario.IsPlayer(this) && !Session.GlobalVariables.internalSurplusRateForAI) || (Session.Current.Scenario.IsPlayer(this) && !Session.GlobalVariables.internalSurplusRateForPlayer))
