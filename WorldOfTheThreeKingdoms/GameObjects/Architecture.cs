@@ -13067,7 +13067,7 @@ namespace GameObjects
         {
             get
             {
-                if (ExpectedFoodCache >= 0)
+                if (ExpectedFoodCache > 0)
                 {
                     return ExpectedFoodCache;
                 }
@@ -13119,7 +13119,7 @@ namespace GameObjects
         {
             get
             {
-                if (ExpectedFundCache >= 0)
+                if (ExpectedFundCache > 0)
                 {
                     return ExpectedFundCache;
                 }
