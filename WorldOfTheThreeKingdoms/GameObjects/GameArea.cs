@@ -20,6 +20,20 @@ namespace GameObjects
         public Point Centre;
         private Point? topleft = null;
 
+        public GameArea() { }
+
+        public GameArea(GameArea old)
+        {
+            this.Area = new List<Point>(old.Area);
+            this.Centre = new Point(old.Centre.X, old.Centre.Y);
+            if (!old.topleft.HasValue)
+            {
+                this.topleft = null;
+            } else {
+                this.topleft = new Point(old.topleft.Value.X, old.topleft.Value.Y);
+            }
+        }
+
         public void AddPoint(Point point)
         {
             this.Area.Add(point);

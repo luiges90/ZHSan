@@ -1307,7 +1307,7 @@ namespace GameObjects
             bool flag = false;
             bool hasTargetTroopFlag = false;
             bool hasUnAttackableTroop = false;
-            GameArea dayArea = this.ViewArea;
+            GameArea dayArea = new GameArea(this.ViewArea);
             if (this.BelongedLegion != null && this.BelongedLegion.Kind == LegionKind.Defensive)
             {
                 foreach (Point p in this.StartingArchitecture.LongViewArea.Area)
