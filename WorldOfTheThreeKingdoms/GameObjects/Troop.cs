@@ -12889,7 +12889,6 @@ namespace GameObjects
             }
         }
 
-        [DataMember]
         public bool Operated
         {
             get
