@@ -2578,13 +2578,13 @@ namespace GameObjects
                     float relationFactor = (1 + this.GetRelation(this.Spouse) * 0.0001f + this.Spouse.GetRelation(this) * 0.0001f)
                         * (1 + this.pregnantChance / 100.0f + this.Spouse.pregnantChance / 100.0f);
                     float ageRate = 1;
-                    if (this.Age > 40)
+                    if (this.Age > 40 + (this.Sex ? 0 : 10))
                     {
-                        ageRate -= (this.Age - 40) / 10.0f;
+                        ageRate -= (this.Age - 40 - (this.Sex ? 0 : 10)) / 10.0f;
                     }
-                    if (this.Spouse.Age > 40)
+                    if (this.Spouse.Age > 40 + (this.Spouse.Sex ? 0 : 10))
                     {
-                        ageRate -= (this.Spouse.Age - 40) / 10.0f;
+                        ageRate -= (this.Spouse.Age - 40 - (this.Sex ? 0 : 10)) / 10.0f;
                     }
                     if (this.Age < 16)
                     {
@@ -9803,7 +9803,7 @@ namespace GameObjects
 
             if (this.Sex == b.Sex) return false;
 
-            if ((b.Age < 16 || b.Age > 50) && Session.GlobalVariables.PersonNaturalDeath == true) return false;
+            if ((b.Age < 16 || b.Age > 50 + (b.Sex ? 0 : 10)) && Session.GlobalVariables.PersonNaturalDeath == true) return false;
 
             if ((Math.Abs(this.Age - b.Age) > 25) && Session.GlobalVariables.PersonNaturalDeath == true) return false;
 
@@ -9928,13 +9928,13 @@ namespace GameObjects
                         {
                             extraRate += Session.Parameters.AIExtraPerson - 1;
                         }
-                        if (this.Age > 40)
+                        if (this.Age > 40 + (this.Sex ? 0 : 10))
                         {
-                            extraRate -= (this.Age - 40) / 10.0f;
+                            extraRate -= (this.Age - 40 - (this.Sex ? 0 : 10)) / 10.0f;
                         }
-                        if (q.Age > 40)
+                        if (q.Age > 40 + (q.Sex ? 0 : 10))
                         {
-                            extraRate -= (q.Age - 40) / 10.0f;
+                            extraRate -= (q.Age - 40 - (this.Sex ? 0 : 10)) / 10.0f;
                         }
                         if (this.Age < 16)
                         {
