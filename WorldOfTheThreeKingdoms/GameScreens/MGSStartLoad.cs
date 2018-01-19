@@ -263,14 +263,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 //jianzhu.jianzhubiaoti.Align = TextAlign.Left;
                 jianzhu.jianzhuqizi = new qizi();
                 //jianzhu.jianzhuqizi.qizidezi = new FreeText(font1, color1);
-                //try
-                //{
+                try
+                {
                     jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/" + jianzhu.CaptionID + ".png");
-                //}
-                //catch
-                //{
-                //    jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/None.png");
-                //}
+                    jianzhu.CaptionTexture.Width = 120;
+                    jianzhu.CaptionTexture.Height = 28;
+                }
+                catch
+                {
+                    jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/None.png");
+                }
                 /*
                 if (jianzhu.BelongedFaction != null)
                 {
