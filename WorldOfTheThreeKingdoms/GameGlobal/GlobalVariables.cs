@@ -273,6 +273,8 @@ namespace GameGlobal
         public bool RemoveSpouseIfNotAvailable = false;
         [DataMember]
         public bool SkyEyeSimpleNotification = false;
+        [DataMember]
+        public bool AutoMultipleMarriage = false;
 
         public const string cryptKey = "A3g0c3%2";
 
@@ -1085,6 +1087,15 @@ namespace GameGlobal
             {
                 exception = exception24;
                 throw new Exception("SkyEyeSimpleNotification:\n" + exception.ToString());
+            }
+            try
+            {
+                AutoMultipleMarriage = bool.Parse(nextSibling.Attributes.GetNamedItem("AutoMultipleMarriage").Value);
+            }
+            catch (Exception exception24)
+            {
+                exception = exception24;
+                throw new Exception("AutoMultipleMarriage:\n" + exception.ToString());
             }
             return true;
         }
