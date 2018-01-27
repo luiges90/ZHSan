@@ -1959,12 +1959,12 @@ namespace GameObjects
             }
             else                                                                                                       // 资金足够
             {
-                bool[] need = {this.Kind.HasAgriculture && this.Agriculture < this.AgricultureCeiling * 0.9, 
-                               this.Kind.HasCommerce && this.Commerce < this.CommerceCeiling * 0.9,
-                               this.Kind.HasTechnology && this.Technology < this.TechnologyCeiling * 0.9,
-                               this.Kind.HasDomination && this.Domination < this.DominationCeiling * 0.9,
-                               this.Kind.HasMorale && this.Morale < this.MoraleCeiling * 0.9,
-                               this.Kind.HasEndurance && this.Endurance < this.EnduranceCeiling * 0.9,
+                bool[] need = {this.Kind.HasAgriculture && this.Agriculture < this.AgricultureCeiling * 0.8, 
+                               this.Kind.HasCommerce && this.Commerce < this.CommerceCeiling * 0.8,
+                               this.Kind.HasTechnology && this.Technology < this.TechnologyCeiling * 0.8,
+                               this.Kind.HasDomination && this.Domination < this.DominationCeiling * 0.8,
+                               this.Kind.HasMorale && this.Morale < this.MoraleCeiling * 0.8,
+                               this.Kind.HasEndurance && this.Endurance < this.EnduranceCeiling * 0.8,
                                needTrain};
                 bool needOnlyOneDomination = false;
                 bool needOnlyOneMorale = false;
