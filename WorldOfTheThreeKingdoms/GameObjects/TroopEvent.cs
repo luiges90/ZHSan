@@ -75,6 +75,11 @@ namespace GameObjects
             SelfEffects = new List<GameObjects.TroopDetail.EventEffect.EventEffect>();
 
             TargetPersons = new List<PersonRelation>();
+
+            if (Dialogs == null)
+            {
+                Dialogs = new List<PersonDialog>();
+            }
         }
 
         public void ApplyEventDialogs(Troop troop)
