@@ -6419,17 +6419,17 @@ namespace GameObjects
 
         public bool SkyEyeSimpleNotification(GameObject gameobject)
         {
-            if (Session.GlobalVariables.SkyEyeSimpleNotification && gameobject != null && this.CurrentPlayer != null)
+            if (Session.GlobalVariables.SkyEyeSimpleNotification && gameobject != null)
             {
-                if (gameobject is Person && !this.CurrentPlayer.IsPositionKnown((gameobject as Person).Position))
+                if (gameobject is Person && (this.CurrentPlayer == null || !this.CurrentPlayer.IsPositionKnown((gameobject as Person).Position)))
                 {
                     return true;
                 }
-                if (gameobject is Troop && !this.CurrentPlayer.IsPositionKnown((gameobject as Troop).Position))
+                if (gameobject is Troop && (this.CurrentPlayer == null || !this.CurrentPlayer.IsPositionKnown((gameobject as Troop).Position)))
                 {
                     return true;
                 }
-                if (gameobject is Architecture && !this.CurrentPlayer.IsArchitectureKnown((gameobject as Architecture)))
+                if (gameobject is Architecture && (this.CurrentPlayer == null || !this.CurrentPlayer.IsArchitectureKnown((gameobject as Architecture))))
                 {
                     return true;
                 }
