@@ -6419,7 +6419,7 @@ namespace GameObjects
 
         public bool SkyEyeSimpleNotification(GameObject gameobject)
         {
-            if (Session.GlobalVariables.SkyEyeSimpleNotification && gameobject != null)
+            if (Session.GlobalVariables.SkyEyeSimpleNotification && gameobject != null && this.CurrentPlayer != null)
             {
                 if (gameobject is Person && !this.CurrentPlayer.IsPositionKnown((gameobject as Person).Position))
                 {
