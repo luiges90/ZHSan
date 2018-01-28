@@ -1044,7 +1044,7 @@ namespace json_and_excel
             scenario = new GameScenario();
             scenario.Init();
             int i = 0;
-            string 连接符 = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + 已导入文件.Items[i].ToString()+ "; Extended Properties=\"Excel 12.0;HDR=YES;IMEX=1\"";
+            string 连接符 = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + 已导入文件.Items[k].ToString()+ "; Extended Properties=\"Excel 12.0;HDR=YES;IMEX=1\"";
 
             System.Data.OleDb.OleDbDataAdapter 数据连接 = new System.Data.OleDb.OleDbDataAdapter();
             System.Data.DataSet ds = new System.Data.DataSet();
