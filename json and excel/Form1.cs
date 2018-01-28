@@ -10049,7 +10049,7 @@ namespace json_and_excel
                 dr["Sound"] = a.Sound;
                 dt.Rows.Add(dr);
             }
-            if (scenario.TroopEvents.Count > 0)
+            if (scenario.Troops.Count > 0)
             {
                 copytoexcel(aaa, workBook, dt, m);
             }
