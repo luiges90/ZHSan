@@ -99,9 +99,9 @@ namespace GameObjects
            
             count = new Dictionary<PersonGeneratorType, int>();
 
-            RateOfCombativityRecoveryAfterAttacked = 1;
-            RateOfCombativityRecoveryAfterStratagemFail = 1;
-            RateOfCombativityRecoveryAfterStratagemSuccess = 1;
+            RateOfCombativityRecoveryAfterAttacked = 0;
+            RateOfCombativityRecoveryAfterStratagemFail = 0;
+            RateOfCombativityRecoveryAfterStratagemSuccess = 0;
             RateOfFoodTransportBetweenArchitectures = 1;
             RateOfRoutewayConsumption = 1;
 

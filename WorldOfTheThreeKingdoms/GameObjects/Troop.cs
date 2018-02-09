@@ -1156,7 +1156,7 @@ namespace GameObjects
                     return false;
                 }
                 //retreat if the enemy base has > 30 endurance, morale <= 75, and routeway not started or don't have enough food
-                if (this.BelongedFaction != null)
+                if (this.BelongedFaction != null && this.BelongedLegion != null)
                 {
                     if ((((this.WillArchitecture.Endurance >= 30) && (this.WillArchitecture.BelongedFaction != this.BelongedFaction))
                         && (this.Morale <= 75))
