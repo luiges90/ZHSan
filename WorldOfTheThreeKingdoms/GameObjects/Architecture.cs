@@ -2304,6 +2304,7 @@ namespace GameObjects
                         unknownArch.IsNumber = true;
                         unknownArch.ReSort();
                     }
+                    /*
                     if ((((this.RecentlyAttacked <= 0) && (GameObject.Random(40) < GameObject.Random(unknownArch.Count))) && GameObject.Chance(20)) && this.InformationAvail())
                     {
                         architecture2 = unknownArch[GameObject.Random(unknownArch.Count / 2)] as Architecture;
@@ -2324,6 +2325,7 @@ namespace GameObjects
                             }
                         }
                     }
+                    */
                 }
 
                 if ((this.BelongedSection != null) && ((knownArch.Count > 0) && (this.PlanArchitecture == null)) && this.BelongedSection.AIDetail.AllowPersonTactics)
@@ -10775,6 +10777,7 @@ namespace GameObjects
                             if (((this.Food * foodRateBySeason) >= (this.FoodCeiling / 3)) || this.IsSelfFoodEnoughForOffensive(wayToTarget, routeway))
                             {
                                 this.PlanArchitecture = wayToTarget.A;
+                                /*
                                 Person firstHalfPerson = this.GetFirstHalfPerson("InformationAbility");
                                 if (firstHalfPerson != null && firstHalfPerson.LocationArchitecture != null)
                                 {
@@ -10788,6 +10791,7 @@ namespace GameObjects
                                 {
                                     this.PlanArchitecture = null;
                                 }
+                                */
                             }
                         }
                     }
