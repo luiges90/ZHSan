@@ -7686,7 +7686,7 @@ namespace json_and_excel
             object missing = System.Reflection.Missing.Value;
             aaa.Visible = false;
             aaa.UserControl = true;
-            workBook = aaa.Workbooks.Open(Application.StartupPath + "\\Content\\Data\\模板.XLSX", missing, false, missing, missing, missing, missing, missing, missing, true, missing, missing, missing, missing, missing);
+            workBook = aaa.Workbooks.Open(Application.StartupPath + "\\Content\\Data\\xlsTemplate.XLSX", missing, false, missing, missing, missing, missing, missing, missing, true, missing, missing, missing, missing, missing);
             System.Reflection.FieldInfo[] 非getset字段表 = typeof(Architecture).GetFields();
             System.Reflection.PropertyInfo[] getset字段表 = null;
             取值字段 = 城池取值字段();
