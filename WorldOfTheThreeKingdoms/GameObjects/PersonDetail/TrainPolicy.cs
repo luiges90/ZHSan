@@ -44,5 +44,13 @@ namespace GameObjects.PersonDetail
                 return dict;
             }
         }
+
+        public float WeightSum
+        {
+            get
+            {
+                return this.Command + this.Strength + this.Intelligence + this.Politics + this.Glamour + this.Skill + this.Stunt + this.Title;
+            }
+        }
 	}
 }

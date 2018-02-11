@@ -1451,6 +1451,7 @@ namespace GameObjects
             this.AITransfer();
             this.AIArchitectures();
             this.AILegions();
+            this.AITrainChildren();
             this.AIFinished = true;
             Session.Current.Scenario.Threading = false;
         }
@@ -2159,6 +2160,64 @@ namespace GameObjects
             foreach (Legion legion in this.Legions.GetRandomList())
             {
                 legion.AI();
+            }
+        }
+
+        private void AITrainChildren()
+        {
+            if (GameObject.Random(90) == 0)
+            {
+                foreach (Person p in this.Children)
+                {
+                    if (!p.Trainable) continue;
+                    if (Session.Current.Scenario.IsPlayer(this) && (p.Father == this.Leader || p.Mother == this.Leader)) continue;
+
+                    if (p.Age >= 5 && p.Age < 8)
+                    {
+                        Dictionary<TrainPolicy, float> candidates = new Dictionary<TrainPolicy, float>();
+                        foreach (TrainPolicy tp in Session.Current.Scenario.GameCommonData.AllTrainPolicies)
+                        {
+                            float c = (p.CommandPotential - p.Command) * tp.Command / tp.WeightSum + 1;
+                            float s = (p.StrengthPotential - p.Strength) * tp.Strength / tp.WeightSum + 1;
+                            float i = (p.IntelligencePotential - p.Intelligence) * tp.Intelligence / tp.WeightSum + 1;
+                            float o = (p.PoliticsPotential - p.Politics) * tp.Politics / tp.WeightSum + 1;
+                            float g = (p.GlamourPotential - p.Glamour) * tp.Glamour / tp.WeightSum + 1;
+                            candidates.Add(tp, c + s + i + o + g);
+                        }
+                        p.TrainPolicy = candidates.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+                    }
+                    else if (p.Age >= 8)
+                    {
+                        Dictionary<TrainPolicy, float> candidates = new Dictionary<TrainPolicy, float>();
+                        foreach (TrainPolicy tp in Session.Current.Scenario.GameCommonData.AllTrainPolicies)
+                        {
+                            float c = (p.CommandPotential - p.Command) * tp.Command / tp.WeightSum + 1;
+                            float s = (p.StrengthPotential - p.Strength) * tp.Strength / tp.WeightSum + 1;
+                            float i = (p.IntelligencePotential - p.Intelligence) * tp.Intelligence / tp.WeightSum + 1;
+                            float o = (p.PoliticsPotential - p.Politics) * tp.Politics / tp.WeightSum + 1;
+                            float g = (p.GlamourPotential - p.Glamour) * tp.Glamour / tp.WeightSum + 1;
+
+                            float skill = 0;
+                            float stunt = 0;
+                            float title = 0;
+                            if (p.Strength > 50 || p.Command > 50 || p.Intelligence > 50 || p.Politics > 50 || p.Glamour > 50)
+                            {
+                                skill = (p.AbilitySum - 50) / 5 * tp.Skill / tp.WeightSum + 1;
+                            }
+                            if (p.Strength > 60 || p.Command > 60 || p.Intelligence > 60)
+                            {
+                                stunt = (p.AbilitySum - 60) / 5 * tp.Stunt / tp.WeightSum + 1;
+                            }
+                            if (p.Strength > 70 || p.Command > 70 || p.Intelligence > 70 || p.Politics > 70 || p.Glamour > 70)
+                            {
+                                title = (p.AbilitySum - 70) / 5 * tp.Title / tp.WeightSum + 1;
+                            }
+
+                            candidates.Add(tp, c + s + i + o + g + skill + stunt + title);
+                        }
+                        p.TrainPolicy = candidates.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+                    }
+                }
             }
         }
 

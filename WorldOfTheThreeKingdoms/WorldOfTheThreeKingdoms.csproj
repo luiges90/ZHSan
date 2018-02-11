@@ -57424,10 +57424,8 @@
     </Content>
     <None Include="app.config" />
     <None Include="app.manifest" />
-    <None Include="Content\Data\Scenario\194QXGJ.json" />    <Content Include="..\Content\Data\模板.xlsx">
-      <Link>Content\Data\模板.xlsx</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>  </ItemGroup>
+    <None Include="Content\Data\Scenario\194QXGJ.json" />
+  </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Sound\Troop\29\" />
     <Folder Include="Content\Sound\Troop\701\" />
