@@ -3861,6 +3861,19 @@ namespace GameObjects
             this.techniquePoint = (int)(this.techniquePoint + increment * Session.GlobalVariables.TechniquePointMultiple);
         }
 
+        public List<Architecture> GettingInformationArchitectures()
+        {
+            List<Architecture> result = new List<Architecture>();
+            foreach (Person p in this.Persons)
+            {
+                if (p.OutsideTask == OutsideTaskKind.情报)
+                {
+                    result.Add(p.TargetArchitecture);
+                }
+            }
+            return result;
+        }
+
         private void InformationDayEvent()
         {
             InformationList list = new InformationList();

@@ -2707,7 +2707,10 @@ namespace GameObjects
                 }
                 else
                 {
-                    this.CallInformation();
+                    if (this.BelongedFaction != null && !this.BelongedFaction.GettingInformationArchitectures().Contains(this.WillArchitecture))
+                    {
+                        this.CallInformation();
+                    }
                 }
             }
         }

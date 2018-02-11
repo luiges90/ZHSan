@@ -2274,6 +2274,12 @@ namespace GameObjects
             }
         }
 
+        private List<Architecture> GettingInformationArchitectures()
+        {
+            if (this.BelongedFaction == null) return new List<Architecture>();
+            return this.BelongedFaction.GettingInformationArchitectures();
+        }
+
         private void OutsideTacticsAI()
         {
             ConvinceNoFactionAI();
@@ -2307,7 +2313,8 @@ namespace GameObjects
                     if ((((this.RecentlyAttacked <= 0) && (GameObject.Random(40) < GameObject.Random(unknownArch.Count))) && GameObject.Chance(20)) && this.InformationAvail())
                     {
                         architecture2 = unknownArch[GameObject.Random(unknownArch.Count / 2)] as Architecture;
-                        if ((!this.BelongedFaction.IsArchitectureKnown(architecture2) || GameObject.Chance(20)) && ((architecture2.BelongedFaction != null) && (!this.IsFriendly(architecture2.BelongedFaction) || GameObject.Chance(10))))
+                        List<Architecture> gettingInformation = GettingInformationArchitectures();
+                        if (!this.BelongedFaction.IsArchitectureKnown(architecture2) && architecture2.BelongedFaction != null && !this.IsFriendly(architecture2.BelongedFaction) && !gettingInformation.Contains(architecture2))
                         {
                             diplomaticRelation = Session.Current.Scenario.GetDiplomaticRelation(this.BelongedFaction.ID, architecture2.BelongedFaction.ID);
                             if (((diplomaticRelation >= 0) && (GameObject.Random(diplomaticRelation + 200) <= GameObject.Random(50))) || ((diplomaticRelation < 0) && (GameObject.Random(Math.Abs(diplomaticRelation) + 100) >= GameObject.Random(100))))
@@ -10781,7 +10788,11 @@ namespace GameObjects
                                     firstHalfPerson.CurrentInformationKind = this.GetFirstHalfInformationKind();
                                     if (firstHalfPerson.CurrentInformationKind != null)
                                     {
-                                        firstHalfPerson.GoForInformation(Session.Current.Scenario.GetClosestPoint(wayToTarget.A.ArchitectureArea, this.Position));
+                                        List<Architecture> gettingInfo = GettingInformationArchitectures();
+                                        if (!gettingInfo.Contains(wayToTarget.A))
+                                        {
+                                            firstHalfPerson.GoForInformation(Session.Current.Scenario.GetClosestPoint(wayToTarget.A.ArchitectureArea, this.Position));
+                                        }
                                     }
                                 }
                                 else
