@@ -57425,6 +57425,7 @@
     <None Include="app.config" />
     <None Include="app.manifest" />
     <None Include="Content\Data\Scenario\194QXGJ.json" />
+    <None Include="Content\Data\xlsTemplate.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Sound\Troop\29\" />
