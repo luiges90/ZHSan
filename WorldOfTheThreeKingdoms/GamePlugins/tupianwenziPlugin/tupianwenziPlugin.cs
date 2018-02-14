@@ -153,7 +153,7 @@ namespace tupianwenziPlugin
             PlatformTexture shijiantupian;
             Microsoft.Xna.Framework.Rectangle shijiantupianjuxing;
 
-            if (!Session.Current.Scenario.SkyEyeSimpleNotification(gameObject as GameObject))
+            if (!(Session.Current.Scenario.SkyEyeSimpleNotification(gameObject as GameObject) && Session.GlobalVariables.SkyEye))
             {
 
                 this.tupianwenzi.SetGameObjectBranch(person as GameObject, gameObject as GameObject, branchName);
