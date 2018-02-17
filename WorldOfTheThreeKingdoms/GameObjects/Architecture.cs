@@ -1120,6 +1120,13 @@ namespace GameObjects
                         break;
                     }
                 }
+                if (this.BelongedFaction.IsAlien && i.CaptivePerson.PersonalLoyalty >= 2 && GameObject.Chance(10))
+                {
+                    Session.MainGame.mainGameScreen.OnExecute(this.BelongedFaction.Leader, i.CaptivePerson);
+                    i.CaptivePerson.execute(this.BelongedFaction);
+
+                    break;
+                }
             }
             /*foreach (Person i in this.Persons)
             {
