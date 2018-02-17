@@ -447,19 +447,6 @@ namespace GameFormFramePlugin
                         this.MapViewSelectorButtonSelected = false;
                     }
                 }
-                if (leftDown)
-                {
-                    if (StaticMethods.PointInRectangle(position, this.titleRectangle))
-                    {
-                        this.Draging = true;
-                    }
-                    if (this.Draging)
-                    {
-                        this.frameContent.FramePosition = new Rectangle(this.frameContent.FramePosition.X + Session.MainGame.mainGameScreen.MouseOffset.X, this.frameContent.FramePosition.Y + Session.MainGame.mainGameScreen.MouseOffset.Y, this.frameContent.FramePosition.Width, this.frameContent.FramePosition.Height);
-                        this.SetPosition(this.frameContent.FramePosition);
-                        this.frameContent.ReCalculate();
-                    }
-                }
             }
         }
 
