@@ -4593,6 +4593,15 @@ namespace GameObjects
             //type.ID = preferredType; 
             PersonGenerateParam param = new PersonGenerateParam(this,this.BelongedFaction.Leader, true,preferredType ,isAI);
             Person r = Person.createPerson(param, true);
+            if (this.BelongedFaction.IsAlien && r.PersonalLoyalty >= 2)
+            {
+                if (!isAI)
+                {
+                    Session.MainGame.mainGameScreen.xianshishijiantupian(this.BelongedFaction.Leader, this.Name, "ZhaoXianFailed", "ZhaoXian.jpg", "ZhaoXianFailed", true);
+                }
+                this.BelongedFaction.ZhaoxianFailureCount++;
+                return;
+            }
             r.Ideal = (this.BelongedFaction.Leader.Ideal + GameObject.Random(r.IdealTendency.Offset * 2 + 1) - r.IdealTendency.Offset) % 150;
             this.ZhaoXian(r);
             this.BelongedFaction.YearOfficialLimit++;
