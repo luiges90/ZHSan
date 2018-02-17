@@ -4923,7 +4923,10 @@ namespace GameObjects
                 }
             }
 
-            killer.LoseReputationBy(0.02f * this.PersonalLoyalty);
+            if (!executingFaction.IsAlien)
+            {
+                killer.LoseReputationBy(0.02f * this.PersonalLoyalty);
+            }
         }
 
         public void execute(Faction executingFaction)
