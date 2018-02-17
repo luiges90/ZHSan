@@ -1108,7 +1108,7 @@ namespace GameObjects
             //int leaderExecutionRate = uncruelty * uncruelty * uncruelty * 4;
             foreach (Captive i in this.Captives)
             {
-                if ((!i.CaptivePerson.RecruitableBy(this.BelongedFaction, (int)((uncruelty - 2) * Session.Parameters.AIExecutePersonIdealToleranceMultiply)) || this.BelongedFaction.Leader.Hates(i.CaptivePerson)) &&
+                if ((!i.CaptivePerson.RecruitableBy(this.BelongedFaction, (int)((uncruelty - 2) * Session.Parameters.AIExecutePersonIdealToleranceMultiply)) || this.BelongedFaction.Leader.Hates(i.CaptivePerson) || i.CaptivePerson.Hates(this.BelongedFaction.Leader)) &&
                     GameObject.Random((int)(uncruelty * uncruelty * (Session.GlobalVariables.AIExecuteBetterOfficer ? 100000.0 / i.CaptivePerson.Merit : i.CaptivePerson.Merit / 100000.0)
                         * (100.0 / Session.GlobalVariables.AIExecutionRate))) == 0)  //处斩几率修改系数就可以，可设为小数
                 {
@@ -1120,10 +1120,15 @@ namespace GameObjects
                         break;
                     }
                 }
-                if (this.BelongedFaction.IsAlien && i.CaptivePerson.PersonalLoyalty >= 2 && GameObject.Chance(10))
+                if (this.BelongedFaction.IsAlien && 
+                    (i.CaptivePerson.PersonalLoyalty >= 2 || this.BelongedFaction.Leader.Hates(i.CaptivePerson) || i.CaptivePerson.Hates(this.BelongedFaction.Leader)) && 
+                    GameObject.Chance(10))
                 {
-                    Session.MainGame.mainGameScreen.OnExecute(this.BelongedFaction.Leader, i.CaptivePerson);
-                    i.CaptivePerson.execute(this.BelongedFaction);
+                    if (!this.BelongedFaction.Leader.HasStrainTo(i.CaptivePerson))
+                    {
+                        Session.MainGame.mainGameScreen.OnExecute(this.BelongedFaction.Leader, i.CaptivePerson);
+                        i.CaptivePerson.execute(this.BelongedFaction);
+                    }
 
                     break;
                 }
