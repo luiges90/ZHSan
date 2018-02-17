@@ -6485,7 +6485,10 @@ namespace GameObjects
             {
                 if (((this.BelongedFaction == null) && this.ViewArea.HasPoint(troop.Position)) || (((this.BelongedFaction != null) && this.BelongedFaction.IsPositionKnown(troop.Position)) && (this.IsFriendly(troop.BelongedFaction) == friendly)))
                 {
-                    area.AddPoint(troop.Position);
+                    if (troop.Status != TroopStatus.埋伏)
+                    {
+                        area.AddPoint(troop.Position);
+                    }
                 }
             }
             if (architectureTarget)

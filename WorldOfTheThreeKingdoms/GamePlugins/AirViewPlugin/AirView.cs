@@ -124,6 +124,7 @@ namespace AirViewPlugin
         {
             Color color = Color.White;
             if (troop.Destroyed) return;
+            if (troop.Status == TroopStatus.埋伏) return;
             if (troop.BelongedFaction != null)
             {
                 color = troop.BelongedFaction.FactionColor;

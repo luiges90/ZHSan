@@ -3051,7 +3051,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     {
                         troopByPosition = null;
                     }
-                    if (troopByPosition != null)
+                    if (troopByPosition != null && troopByPosition.Status != TroopStatus.埋伏)
                     {
                         this.Plugins.TroopSurveyPlugin.SetTroop(troopByPosition);
                         this.Plugins.TroopSurveyPlugin.SetFaction(Session.Current.Scenario.CurrentPlayer);
