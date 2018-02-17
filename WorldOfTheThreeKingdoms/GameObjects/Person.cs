@@ -3548,9 +3548,12 @@ namespace GameObjects
             Session.MainGame.mainGameScreen.xianshishijiantupian(shizhe, sourceFaction.Leader.Name, TextMessageKind.QuanXiang, "QuanXiangDiplomaticRelation", "QuanXiangDiplomaticRelation.jpg", "shilimiewang", targetFaction.Name, true);
 
             Session.Current.Scenario.YearTable.addChangeFactionEntry(Session.Current.Scenario.Date, targetFaction, sourceFaction);
+
+            GameObjectList rebelCandidates = targetFaction.Persons.GetList();
+
             targetFaction.ChangeFaction(sourceFaction);
             
-            targetFaction.AfterChangeLeader(sourceFaction, targetFaction.Leader, sourceFaction.Leader);
+            targetFaction.AfterChangeLeader(sourceFaction, rebelCandidates, targetFaction.Leader, sourceFaction.Leader);
                 
             foreach (Treasure treasure in targetFaction.Leader.Treasures.GetList())
             {

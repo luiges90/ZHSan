@@ -3968,8 +3968,9 @@ namespace GameObjects
                     }
                     Session.MainGame.mainGameScreen.OnAIMergeAgainstPlayer(strongestPlayer, strongestAI, toMerge);
                     this.YearTable.addChangeFactionEntry(this.Date, toMerge, strongestAI);
+                    GameObjectList rebelCandidates = toMerge.Persons.GetList();
                     toMerge.ChangeFaction(strongestAI);
-                    toMerge.AfterChangeLeader(strongestAI, toMerge.Leader, strongestAI.Leader);
+                    toMerge.AfterChangeLeader(strongestAI, rebelCandidates, toMerge.Leader, strongestAI.Leader);
                 }
             }
 

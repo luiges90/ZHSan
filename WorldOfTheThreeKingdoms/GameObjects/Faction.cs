@@ -2651,7 +2651,7 @@ namespace GameObjects
             ExtensionInterface.call("ChangeFaction", new Object[] { Session.Current.Scenario, this });
         }
 
-        public void AfterChangeLeader(Faction newFaction, Person oldLeader, Person newLeader)
+        public void AfterChangeLeader(Faction newFaction, GameObjectList candidates, Person oldLeader, Person newLeader)
         {
             foreach (Architecture a in this.Architectures)
             {
@@ -2660,8 +2660,10 @@ namespace GameObjects
                     a.PrincessChangeLeader(false, a.BelongedFaction, p);
                 }
             }
+            PersonList pl = new PersonList();
+            pl.AddRange(candidates);
 
-            Session.Current.Scenario.NewFaction(newFaction.Persons, true, oldLeader.Strain != newLeader.Strain && !newLeader.IsVeryCloseTo(oldLeader));
+            Session.Current.Scenario.NewFaction(pl, true, oldLeader.Strain != newLeader.Strain && !newLeader.IsVeryCloseTo(oldLeader));
         }
 
         public Faction ChangeLeaderAfterLeaderDeath()
@@ -2801,6 +2803,7 @@ namespace GameObjects
                 if (maxFriendlyDiplomaticRelation != null)
                 {
                     Session.Current.Scenario.YearTable.addChangeFactionEntry(Session.Current.Scenario.Date, this, maxFriendlyDiplomaticRelation);
+                    GameObjectList rebelCandidates = this.Persons.GetList();
                     this.ChangeFaction(maxFriendlyDiplomaticRelation);
                     foreach (Treasure treasure in leader.Treasures.GetList())
                     {
@@ -2808,7 +2811,7 @@ namespace GameObjects
                         leader.LoseTreasure(treasure);
                         treasure.Available = false;
                     }
-                    this.AfterChangeLeader(maxFriendlyDiplomaticRelation, leader, maxFriendlyDiplomaticRelation.Leader);
+                    this.AfterChangeLeader(maxFriendlyDiplomaticRelation, rebelCandidates, leader, maxFriendlyDiplomaticRelation.Leader);
                     return maxFriendlyDiplomaticRelation;
                 }
             }
@@ -2899,7 +2902,7 @@ namespace GameObjects
                 }
                 ExtensionInterface.call("ChangeKing", new Object[] { Session.Current.Scenario, this });
                 Session.Current.Scenario.YearTable.addChangeKingEntry(Session.Current.Scenario.Date, this.Leader, this, leader);
-                this.AfterChangeLeader(this, leader, this.Leader);
+                this.AfterChangeLeader(this, this.Persons, leader, this.Leader);
                 return this;
             }
             foreach (Treasure treasure in leader.Treasures.GetList())
