@@ -485,7 +485,6 @@ namespace GameObjects
             }
             set
             {
-                oldInjuraRate = injureRate;
                 if (this.Identity() != 0)
                 {
                     injureRate = value;
@@ -502,6 +501,10 @@ namespace GameObjects
             get
             {
                 return oldInjuraRate;
+            }
+            set
+            {
+                oldInjuraRate = value;
             }
         }
         public int captiveEscapeChance;

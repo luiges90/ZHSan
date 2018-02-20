@@ -1471,6 +1471,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if (Person.GetInjuryString(p.InjureRate) != Person.GetInjuryString(p.OldInjureRate) && 
                     (p.OldInjureRate - p.InjureRate >= 0.1 || (p.OldInjureRate >= 1 && p.InjureRate < 1)))
                 {
+                    p.OldInjureRate = p.InjureRate;
                     p.TextResultString = p.InjuryString;
                     this.Plugins.GameRecordPlugin.AddBranch(p, "OfficerSick", p.Position);
                 }
