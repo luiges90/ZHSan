@@ -3930,7 +3930,8 @@ namespace GameObjects
             {
                 if (p.OutsideTask == OutsideTaskKind.情报)
                 {
-                    result.Add(p.TargetArchitecture);
+                    Architecture a = Session.Current.Scenario.GetArchitectureByPositionNoCheck(p.OutsideDestination.Value);
+                    result.Add(a);
                 }
             }
             return result;
