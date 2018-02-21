@@ -4044,7 +4044,7 @@ namespace GameObjects
             public Point position;
         }
 
-        private bool BuildOffensiveTroop(Architecture destination, LinkKind linkkind, bool offensive, int reserve, int targetScale)
+        private bool BuildOffensiveTroop(Architecture destination, LinkKind linkkind, bool offensive, int reserve)
         {
             Troop troop;
             if (linkkind == LinkKind.None)
@@ -4181,11 +4181,11 @@ namespace GameObjects
             {
                 int willCreateScale = 0;
                 int destScale = 0;
-                if (!this.IsTroopExceedsLimit || willCreate.Count == this.GetAllAvailableArea(false).Area.Count)
+                if (!ranOutOfArea)
                 {
                     foreach (CreateTroopInfo info in willCreate)
                     {
-                        willCreateScale += info.military.Scales;
+                        willCreateScale += info.military.FightingForce;
                     }
                     GameObjectList destMilitary = destination.Militaries.GetList();
                     destMilitary.PropertyName = "FightingForce";
@@ -4200,7 +4200,7 @@ namespace GameObjects
                     }
                 }
 
-                if (willCreateScale >= targetScale || ranOutOfArea)
+                if (willCreateScale >= destScale || ranOutOfArea)
                 {
                     foreach (CreateTroopInfo info in willCreate)
                     {
@@ -5623,7 +5623,7 @@ namespace GameObjects
                         break;
                     }
 
-                    bool built = this.BuildOffensiveTroop(a, LinkKind.Land, true, reserve, 0);
+                    bool built = this.BuildOffensiveTroop(a, LinkKind.Land, true, reserve);
                     if (!built)
                     {
                         this.AIBattlingArchitectures.Remove(a);
@@ -10789,8 +10789,7 @@ namespace GameObjects
                                         else
                                         {
 
-                                            bool hasCreatedTroop = this.BuildOffensiveTroop(wayToTarget.A, wayToTarget.Kind, true, ignoreReserve ? 0 : reserve, 
-                                                IsTroopExceedsLimit || !Session.Current.Scenario.IsPlayer(wayToTarget.A.BelongedFaction) ? 0 : armyScaleRequiredForAttack);
+                                            bool hasCreatedTroop = this.BuildOffensiveTroop(wayToTarget.A, wayToTarget.Kind, true, ignoreReserve ? 0 : reserve);
                                             if (armyScaleHere <= reserve || !hasCreatedTroop)
                                             {
                                                 this.PlanArchitecture = null;
