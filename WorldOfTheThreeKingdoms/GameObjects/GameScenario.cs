@@ -1471,7 +1471,7 @@ namespace GameObjects
             }
         }
 
-        private void detectCurrentPlayerBattleState(Faction faction, MainGameScreen mgs = null)
+        private void detectCurrentPlayerBattleState(Faction faction, bool init = false)
         {
 
             if (faction == null) return;
@@ -1494,13 +1494,7 @@ namespace GameObjects
                         //architecture.JustAttacked = true;
                         architecture.BelongedFaction.StopToControl = Setting.Current.GlobalVariables.StopToControlOnAttack;
                         architecture.RecentlyAttacked = 5;
-                        if (Session.MainGame.mainGameScreen != null)
-                        {
-                            Session.MainGame.mainGameScreen.ArchitectureBeginRecentlyAttacked(architecture);  //提示玩家建筑视野范围内出现敌军。
-                        } else if (mgs != null)
-                        {
-                            mgs.ArchitectureBeginRecentlyAttacked(architecture);
-                        }
+                        Session.MainGame.mainGameScreen.ArchitectureBeginRecentlyAttacked(architecture);  //提示玩家建筑视野范围内出现敌军。
 
                     }
                     architecture.hostileTroopInViewLastDay = true;
@@ -1551,15 +1545,9 @@ namespace GameObjects
                 faction.BattleState = ZhandouZhuangtai.攻守兼备;
             }
 
-            if (originalBattleState != faction.BattleState)
+            if (originalBattleState != faction.BattleState || init)
             {
-                if (Session.MainGame.mainGameScreen != null)
-                {
-                    Session.MainGame.mainGameScreen.SwichMusic(this.Date.Season);
-                } else if (mgs != null)
-                {
-                    mgs.SwichMusic(this.Date.Season);
-                }
+                Session.MainGame.mainGameScreen.SwichMusic(this.Date.Season);
             }
 
         }
@@ -3825,8 +3813,6 @@ namespace GameObjects
                 this.OnAfterLoadScenario();
             }
 
-            this.detectCurrentPlayerBattleState(this.CurrentPlayer, screen);
-
             this.LoadedFileName = "";
 
             this.sessionStartTime = DateTime.Now;
@@ -3857,9 +3843,7 @@ namespace GameObjects
             {
                 this.OnAfterLoadScenario();
             }
-
-            this.detectCurrentPlayerBattleState(this.CurrentPlayer, screen);
-
+            
             if (this.PlayerFactions.Count == 0)
             {
                 oldDialogShowTime = Setting.Current.GlobalVariables.DialogShowTime;
@@ -3880,6 +3864,11 @@ namespace GameObjects
             this.ForceOptionsOnAutoplay();
 
             this.sessionStartTime = DateTime.Now;
+        }
+
+        public void AfterInit()
+        {
+            detectCurrentPlayerBattleState(this.CurrentPlayer, true);
         }
 
         private int oldDialogShowTime = -1;

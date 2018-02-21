@@ -528,6 +528,8 @@ namespace GameManager
 
                 mainGameScreen.Initialize();
                 Session.MainGame.mainGameScreen = mainGameScreen;
+
+                Session.Current.Scenario.AfterInit();
             };
         }
 
