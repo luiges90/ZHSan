@@ -3869,6 +3869,7 @@ namespace GameObjects
         public void AfterInit()
         {
             detectCurrentPlayerBattleState(this.CurrentPlayer, true);
+            this.CurrentPlayer.RefreshImportantPerson();
         }
 
         private int oldDialogShowTime = -1;

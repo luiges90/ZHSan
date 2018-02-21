@@ -2985,7 +2985,7 @@ namespace GameObjects
             this.troopSequence = -1;
         }
 
-        private void RefreshImportantPerson()
+        public void RefreshImportantPerson()
         {
             //阿柒:得到本势力除君主外的所有人物的名单
             List<Person> PersonInCurrentFaction = new List<Person>();
