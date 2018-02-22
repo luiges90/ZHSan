@@ -6205,7 +6205,7 @@ namespace GameObjects
                         opFactor = 1;
                     }
 
-                    if (!(this.Endurance > this.EnduranceCeiling * 0.2f && this.TotalFriendlyForce * opFactor > this.TotalHostileForce && friendlyTroopsInView.Count >= 4))
+                    if (!(this.Endurance > this.EnduranceCeiling * 0.2f && this.TotalFriendlyForce > this.TotalHostileForce * opFactor && friendlyTroopsInView.Count >= 4))
                     {
                         Troop troop2;
                         SortedBoundedSet<Troop> list4 = new SortedBoundedSet<Troop>(Session.Parameters.MaxAITroopCountCandidates, new FightingForceComparer());
@@ -6219,7 +6219,7 @@ namespace GameObjects
                                 TroopList candidates = this.AISelectPersonIntoTroop(this, military, false);
                                 foreach (Troop t in candidates)
                                 {
-                                    if (t.FightingForce < 10000 && t.FightingForce < (this.TotalHostileForce * 5 - this.TotalFriendlyForce) / 25)
+                                    if (t.FightingForce < 10000 && t.FightingForce < (this.TotalHostileForce * opFactor - this.TotalFriendlyForce) / 25)
                                     {
                                         t.Destroy(true, false);
                                         continue;
@@ -6284,7 +6284,7 @@ namespace GameObjects
                                 this.TotalFriendlyForce += troop2.FightingForce;
                                 troopSent++;
 
-                                if (this.TotalFriendlyForce * opFactor > this.TotalHostileForce && friendlyTroopsInView.Count + troopSent >= 4)
+                                if (this.TotalFriendlyForce > this.TotalHostileForce * opFactor && friendlyTroopsInView.Count + troopSent >= 4)
                                 {
                                     break;
                                 }
