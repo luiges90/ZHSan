@@ -4181,7 +4181,7 @@ namespace GameObjects
             {
                 int willCreateScale = 0;
                 int destScale = 0;
-                if (!ranOutOfArea)
+                if (!ranOutOfArea && willCreate.Count < 4)
                 {
                     foreach (CreateTroopInfo info in willCreate)
                     {
@@ -4200,7 +4200,7 @@ namespace GameObjects
                     }
                 }
 
-                if (willCreateScale >= destScale || ranOutOfArea)
+                if (willCreateScale >= destScale || ranOutOfArea || willCreate.Count >= 4)
                 {
                     foreach (CreateTroopInfo info in willCreate)
                     {
@@ -6195,116 +6195,109 @@ namespace GameObjects
                     int troopSent = 0;
                     int militaryCount = this.MilitaryCount;
 
-                    Troop troop2;
-                    SortedBoundedSet<Troop> list4 = new SortedBoundedSet<Troop>(Session.Parameters.MaxAITroopCountCandidates, new FightingForceComparer());
-                    bool isBesideWater = this.IsBesideWater;
-
-                    foreach (Military military in this.Militaries.GetRandomList())
+                    int opFactor = 2;
+                    if (this.Food > this.AbundantFood)
                     {
-                        if (military.IsFewScaleNeedRetreat && this.Endurance >= 30) continue;
-                        if ((isBesideWater || (military.Kind.Type != MilitaryType.水军)) && (((((this.Endurance < 30) || military.Kind.AirOffence) || (military.Scales >= 2)) && (military.Morale > 0x2d)) && ((this.Endurance < 30) || (military.InjuryQuantity < military.Kind.MinScale))))
-                        {
-                            TroopList candidates = this.AISelectPersonIntoTroop(this, military, false);
-                            foreach (Troop t in candidates)
-                            {
-                                if (t.FightingForce < 10000 && t.FightingForce < (this.TotalHostileForce * 5 - this.TotalFriendlyForce) / 25)
-                                {
-                                    t.Destroy(true, false);
-                                    continue;
-                                }
-                                if (t.Army.Scales < 5 && this.Endurance > 30)
-                                {
-                                    t.Destroy(true, false);
-                                    continue;
-                                }
-
-                                Troop removed;
-                                list4.Add(t, out removed);
-                                if (removed != null)
-                                {
-                                    removed.Destroy(true, false);
-                                }
-                            }
-                        }
+                        opFactor = 5;
+                    }
+                    else if (this.Food < this.EnoughFood)
+                    {
+                        opFactor = 1;
                     }
 
-                    if (list4.Count > 0)
+                    if (!(this.Endurance > this.EnduranceCeiling * 0.2f && this.TotalFriendlyForce * opFactor > this.TotalHostileForce && friendlyTroopsInView.Count >= 4))
                     {
-                        foreach (Troop troop in list4)
+                        Troop troop2;
+                        SortedBoundedSet<Troop> list4 = new SortedBoundedSet<Troop>(Session.Parameters.MaxAITroopCountCandidates, new FightingForceComparer());
+                        bool isBesideWater = this.IsBesideWater;
+
+                        foreach (Military military in this.Militaries.GetRandomList())
                         {
-                            bool personAlreadyOut = false;
-                            foreach (Person p in troop.Candidates)
+                            if (military.IsFewScaleNeedRetreat && this.Endurance >= 30) continue;
+                            if ((isBesideWater || (military.Kind.Type != MilitaryType.水军)) && (((((this.Endurance < 30) || military.Kind.AirOffence) || (military.Scales >= 2)) && (military.Morale > 0x2d)) && ((this.Endurance < 30) || (military.InjuryQuantity < military.Kind.MinScale))))
                             {
-                                if (p.LocationTroop != null)
+                                TroopList candidates = this.AISelectPersonIntoTroop(this, military, false);
+                                foreach (Troop t in candidates)
                                 {
-                                    personAlreadyOut = true;
-                                    break;
+                                    if (t.FightingForce < 10000 && t.FightingForce < (this.TotalHostileForce * 5 - this.TotalFriendlyForce) / 25)
+                                    {
+                                        t.Destroy(true, false);
+                                        continue;
+                                    }
+                                    if (t.Army.Scales < 5 && this.Endurance > 30)
+                                    {
+                                        t.Destroy(true, false);
+                                        continue;
+                                    }
+
+                                    Troop removed;
+                                    list4.Add(t, out removed);
+                                    if (removed != null)
+                                    {
+                                        removed.Destroy(true, false);
+                                    }
                                 }
-                            }
-                            if (personAlreadyOut) continue;
-                            bool militaryOut = true;
-                            foreach (Military m in this.Militaries)
-                            {
-                                if (troop.Army == m)
-                                {
-                                    militaryOut = false;
-                                    break;
-                                }
-                            }
-                            if (militaryOut) continue;
-
-                            Point? nullable = this.GetCampaignPosition(troop, orientations, troop.Army.Scales > 0);
-                            if (!nullable.HasValue)
-                            {
-                                break;
-                            }
-
-                            Person leader = troop.Candidates[0] as Person;
-                            PersonList candidates = this.SelectSubOfficersToTroop(troop);
-                            troop2 = this.CreateTroop(candidates, leader, troop.Army, -1, nullable.Value);
-                            troop2.WillArchitecture = this;
-                            if (this.DefensiveLegion == null)
-                            {
-                                this.CreateDefensiveLegion();
-                            }
-                            this.DefensiveLegion.AddTroop(troop2);
-                            //this.PostCreateTroop(troop2, false);
-                            this.TotalFriendlyForce += troop2.FightingForce;
-                            troopSent++;
-
-                            if (this.Endurance > this.EnduranceCeiling * 0.2f && this.TotalFriendlyForce * 5 > this.TotalHostileForce)
-                            {
-                                break;
                             }
                         }
 
-                        foreach (Troop t in list4)
+                        if (list4.Count > 0)
                         {
-                            t.Destroy(true, false);
+                            foreach (Troop troop in list4)
+                            {
+                                bool personAlreadyOut = false;
+                                foreach (Person p in troop.Candidates)
+                                {
+                                    if (p.LocationTroop != null)
+                                    {
+                                        personAlreadyOut = true;
+                                        break;
+                                    }
+                                }
+                                if (personAlreadyOut) continue;
+                                bool militaryOut = true;
+                                foreach (Military m in this.Militaries)
+                                {
+                                    if (troop.Army == m)
+                                    {
+                                        militaryOut = false;
+                                        break;
+                                    }
+                                }
+                                if (militaryOut) continue;
+
+                                Point? nullable = this.GetCampaignPosition(troop, orientations, troop.Army.Scales > 0);
+                                if (!nullable.HasValue)
+                                {
+                                    break;
+                                }
+
+                                Person leader = troop.Candidates[0] as Person;
+                                PersonList candidates = this.SelectSubOfficersToTroop(troop);
+                                troop2 = this.CreateTroop(candidates, leader, troop.Army, -1, nullable.Value);
+                                troop2.WillArchitecture = this;
+                                if (this.DefensiveLegion == null)
+                                {
+                                    this.CreateDefensiveLegion();
+                                }
+                                this.DefensiveLegion.AddTroop(troop2);
+                                //this.PostCreateTroop(troop2, false);
+                                this.TotalFriendlyForce += troop2.FightingForce;
+                                troopSent++;
+
+                                if (this.TotalFriendlyForce * opFactor > this.TotalHostileForce && friendlyTroopsInView.Count + troopSent >= 4)
+                                {
+                                    break;
+                                }
+                            }
+
+                            foreach (Troop t in list4)
+                            {
+                                t.Destroy(true, false);
+                            }
                         }
                     }
                 }
             }
-            else if (!this.HasPerson() && this.HasCampaignableMilitary())
-            {
-                int totalHostilePersonCount = 0;
-                foreach (Troop troop in this.GetHostileTroopsInView())
-                {
-                    totalHostilePersonCount += troop.PersonCount;
-                }
-                int send = totalHostilePersonCount / 2;
-                foreach (Architecture a in this.BelongedSection.Architectures)
-                {
-                    if (a == this) continue;
-                    if (a.HasHostileTroopsInView()) continue;
-
-                    if (a.PersonCount <= send) continue;
-
-                    this.CallPeople(a, send);
-
-                }
-            }
-
             else if (!this.HasPerson() && this.HasCampaignableMilitary())
             {
                 int totalHostilePersonCount = 0;
