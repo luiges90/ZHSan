@@ -408,6 +408,9 @@ namespace GameObjects
         public int ConvinceIdealSkip { get; set; }
         public int LongetivityIncreaseByInfluence { get; set; }
 
+        [DataMember]
+        public bool Immortal { get; set; }
+
         //public OngoingBattle Battle { get; set; }
         [DataMember]
         public int BattleSelfDamage { get; set; }
@@ -5920,7 +5923,7 @@ namespace GameObjects
         {
             get
             {
-                if (Session.GlobalVariables.PersonNaturalDeath == true && Session.Current.Scenario != null && Session.Current.Scenario.Date != null)
+                if (!Immortal && Session.GlobalVariables.PersonNaturalDeath == true && Session.Current.Scenario != null && Session.Current.Scenario.Date != null)
                 {
                     return Session.Current.Scenario.Date.Year - this.yearBorn;
                 }
