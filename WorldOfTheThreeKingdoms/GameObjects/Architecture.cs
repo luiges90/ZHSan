@@ -4605,12 +4605,7 @@ namespace GameObjects
             Person r = Person.createPerson(param, true);
             if (this.BelongedFaction.IsAlien && r.PersonalLoyalty >= 2)
             {
-                if (!isAI)
-                {
-                    Session.MainGame.mainGameScreen.xianshishijiantupian(this.BelongedFaction.Leader, this.Name, "ZhaoXianFailed", "ZhaoXian.jpg", "ZhaoXianFailed", true);
-                }
-                this.BelongedFaction.ZhaoxianFailureCount++;
-                return;
+                r.PersonalLoyalty = GameObject.Random(0, 1);
             }
             r.Ideal = (this.BelongedFaction.Leader.Ideal + GameObject.Random(r.IdealTendency.Offset * 2 + 1) - r.IdealTendency.Offset) % 150;
             this.ZhaoXian(r);
