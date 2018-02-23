@@ -1124,7 +1124,7 @@ namespace GameObjects
                     (i.CaptivePerson.PersonalLoyalty >= 2 || this.BelongedFaction.Leader.Hates(i.CaptivePerson) || i.CaptivePerson.Hates(this.BelongedFaction.Leader)) && 
                     GameObject.Chance(10))
                 {
-                    if (!this.BelongedFaction.Leader.HasStrainTo(i.CaptivePerson))
+                    if (!this.BelongedFaction.Leader.HasStrainTo(i.CaptivePerson) && !this.BelongedFaction.Leader.isLegalFeiZi(i.CaptivePerson))
                     {
                         Session.MainGame.mainGameScreen.OnExecute(this.BelongedFaction.Leader, i.CaptivePerson);
                         i.CaptivePerson.execute(this.BelongedFaction);
