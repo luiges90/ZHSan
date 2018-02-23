@@ -2345,9 +2345,9 @@ namespace GameObjects
             {
                 foreach (KeyValuePair<Person, int> i in this.relations)
                 {
-                    if (i.Value >= Session.Parameters.VeryCloseThreshold / 2 && i.Key.GetRelation(this) >= Session.Parameters.VeryCloseThreshold && i.Key.BelongedFaction == this.BelongedFaction
+                    if (i.Value >= Session.Parameters.VeryCloseThreshold / 2 && i.Key.GetRelation(this) >= Session.Parameters.VeryCloseThreshold && i.Key.BelongedFactionWithPrincess == this.BelongedFactionWithPrincess
                          && !this.HasStrainTo(i.Key) && !this.IsVeryCloseTo(i.Key)
-                        && (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (Math.Abs(this.Age - i.Key.Age) <= 40 && this.Age <= 50 && i.Key.Age <= 50
+                        && (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (Math.Abs(this.Age - i.Key.Age) <= 40 && this.Age <= (50 + (this.Sex ? 0 : 10)) && i.Key.Age <= (50 + (i.Key.Sex ? 0 : 10))
                             && this.Age >= 16 && i.Key.Age >= 16))
                             && this.LocationArchitecture == i.Key.LocationArchitecture)
                     {
@@ -2400,34 +2400,48 @@ namespace GameObjects
                                 }
                             }
                         }
-                        else if ((this.Spouse == null || (Session.Current.Scenario.GlobalVariables.AutoMultipleMarriage && 
-                            (!this.Sex && !i.Key.Hates(this.Spouse) && !this.Spouse.Hates(i.Key))) && i.Key.Spouse == null))
+                        else
                         {
-                            if (this.isLegalFeiZi(i.Key) && i.Key.isLegalFeiZi(this))
+                            bool valid = false;
+                            if (this.Spouse == null && i.Key.Spouse == null)
                             {
-                                if (this.Spouse == null)
+                                valid = true;
+                            }
+                            if (Session.Current.Scenario.GlobalVariables.AutoMultipleMarriage || i.Key.Status == PersonStatus.Princess)
+                            {
+                                if (!this.Sex && i.Key.Spouse == null && !i.Key.Hates(this.Spouse) && !this.Spouse.Hates(i.Key))
                                 {
-                                    this.Spouse = i.Key;
+                                    valid = true;
                                 }
-                                if (i.Key.Spouse == null)
+                            }
+                            if (valid)
+                            {
+                                if (this.isLegalFeiZi(i.Key) && i.Key.isLegalFeiZi(this))
                                 {
-                                    i.Key.Spouse = this;
-                                }
+                                    if (this.Spouse == null)
+                                    {
+                                        this.Spouse = i.Key;
+                                    }
+                                    if (i.Key.Spouse == null)
+                                    {
+                                        i.Key.Spouse = this;
+                                    }
 
-                                if (!this.Spouse.suoshurenwuList.HasGameObject(i.Key))
-                                {
-                                    this.Spouse.suoshurenwuList.Add(i.Key);
-                                }
-                                if (!i.Key.suoshurenwuList.HasGameObject(this.Spouse))
-                                {
-                                    i.Key.suoshurenwuList.Add(this.Spouse);
-                                }
+                                    if (!this.Spouse.suoshurenwuList.HasGameObject(i.Key))
+                                    {
+                                        this.Spouse.suoshurenwuList.Add(i.Key);
+                                    }
+                                    if (!i.Key.suoshurenwuList.HasGameObject(this.Spouse))
+                                    {
+                                        i.Key.suoshurenwuList.Add(this.Spouse);
+                                    }
 
 
-                                Session.Current.Scenario.YearTable.addCreateSpouseEntry(Session.Current.Scenario.Date, this, i.Key);
-                                if (this.OnCreateSpouse != null)
-                                {
-                                    this.OnCreateSpouse(this, i.Key);
+                                    Session.Current.Scenario.YearTable.addCreateSpouseEntry(Session.Current.Scenario.Date, this, i.Key);
+                                    if (this.OnCreateSpouse != null)
+                                    {
+                                        this.OnCreateSpouse(this, i.Key);
+                                    }
                                 }
                             }
                         }
@@ -10053,9 +10067,9 @@ namespace GameObjects
             {
                 if (i != p && i != q && i != causer && i != null 
                     && i.Status != PersonStatus.Princess && ((p.Status != PersonStatus.Princess && q.Status != PersonStatus.Princess) || alreadyPrincess)
-                    && !i.IsCloseTo(p) && !i.HasCloseStrainTo(p)
-                    && !i.IsCloseTo(q) && !i.HasCloseStrainTo(q)
-                    && !i.IsCloseTo(causer) && !i.HasCloseStrainTo(causer) 
+                    && !i.IsCloseTo(p)
+                    && !i.IsCloseTo(q)
+                    && !i.IsCloseTo(causer)
                     && !p.IsCloseTo(i) && !q.IsCloseTo(i) && !causer.IsCloseTo(i)
                     && !result.ContainsKey(i))
                 {
