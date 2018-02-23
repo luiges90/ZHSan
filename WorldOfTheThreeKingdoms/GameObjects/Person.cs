@@ -1942,7 +1942,7 @@ namespace GameObjects
 
         private void CheckDeath()
         {
-            if (Session.GlobalVariables.PersonNaturalDeath == true && this.LocationArchitecture != null && this.Alive)
+            if (!this.Immortal && Session.GlobalVariables.PersonNaturalDeath == true && this.LocationArchitecture != null && this.Alive)
             {
                 int yearDead;
                 if (this.DeadReason == PersonDeadReason.自然死亡)
@@ -5938,7 +5938,7 @@ namespace GameObjects
         {
             get
             {
-                return Session.GlobalVariables.PersonNaturalDeath == true ? (Session.Current.Scenario.Date.Year - this.yearBorn).ToString() : "--";
+                return Session.GlobalVariables.PersonNaturalDeath == true && !this.Immortal ? (Session.Current.Scenario.Date.Year - this.yearBorn).ToString() : "--";
             }
         }
 
