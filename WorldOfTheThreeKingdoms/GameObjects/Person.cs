@@ -9842,6 +9842,12 @@ namespace GameObjects
 
             nvren.LocationArchitecture.DecreaseFund(Session.Parameters.NafeiCost);
 
+            if (nvren.Status == PersonStatus.Captive)
+            {
+                nvren.SetBelongedCaptive(null, PersonStatus.Normal);
+                nvren.ChangeFaction(this.BelongedFaction);
+            }
+
             nvren.Status = PersonStatus.Princess;
             nvren.workKind = ArchitectureWorkKind.无;
 

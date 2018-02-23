@@ -1258,6 +1258,31 @@ namespace GameObjects
                             candidate.Add(p);
                         }
                     }
+                    if (this.IsAlien)
+                    {
+                        foreach (Architecture a in this.Architectures)
+                        {
+                            foreach (Person p in a.NoFactionPersons)
+                            {
+                                if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) continue;
+                                Person spousePerson = p.Spouse == null ? null : p.Spouse;
+                                if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null && !p.IsCaptive)
+                                {
+                                    candidate.Add(p);
+                                }
+                            }
+                        }
+                        foreach (Captive c in this.Captives)
+                        {
+                            Person p = c.CaptivePerson;
+                            if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) continue;
+                            Person spousePerson = p.Spouse == null ? null : p.Spouse;
+                            if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null && !p.IsCaptive)
+                            {
+                                candidate.Add(p);
+                            }
+                        }
+                    }
                     candidate.PropertyName = "UntiredMerit";
                     candidate.IsNumber = true;
                     candidate.SmallToBig = false;

@@ -14673,6 +14673,24 @@ namespace GameObjects
                     nvxingwujiangliebiao.Add(person);
                 }
             }
+            if (this.BelongedFaction.IsAlien)
+            {
+                foreach (Person person in this.NoFactionPersons)
+                {
+                    if (person.BelongedFaction.Leader.isLegalFeiZi(person))
+                    {
+                        nvxingwujiangliebiao.Add(person);
+                    }
+                }
+                foreach (Captive c in this.Captives)
+                {
+                    Person person = c.CaptivePerson;
+                    if (person.BelongedFaction.Leader.isLegalFeiZi(person))
+                    {
+                        nvxingwujiangliebiao.Add(person);
+                    }
+                }
+            }
             return nvxingwujiangliebiao;
         }
 
