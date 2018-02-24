@@ -14486,7 +14486,7 @@ namespace GameObjects
         {
             if (Session.GlobalVariables.hougongGetChildrenRate <= 0) return false;
 
-            if (this.nvxingwujiang().Count > 0 && this.Fund >= Session.Parameters.NafeiCost && 
+            if (this.nvxingwujiang().Count > 0 && (this.Fund >= Session.Parameters.NafeiCost || this.BelongedFaction.IsAlien) && 
                 (this.Meinvkongjian > this.Feiziliebiao.Count || this.BelongedFaction.IsAlien)
                 && this.Persons.GameObjects.Contains(this.BelongedFaction.Leader))
             {

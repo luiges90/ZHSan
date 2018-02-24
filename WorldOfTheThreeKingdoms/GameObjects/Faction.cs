@@ -1236,7 +1236,8 @@ namespace GameObjects
                 this.Leader.LocationTroop == null && this.Leader.WaitForFeiZi == null)
             {
                 Architecture dest = null;
-                if ((this.Leader.LocationArchitecture.Meinvkongjian - this.Leader.LocationArchitecture.Feiziliebiao.Count > 0 || this.IsAlien) && this.Fund >= 60000)
+                if ((this.Leader.LocationArchitecture.Meinvkongjian - this.Leader.LocationArchitecture.Feiziliebiao.Count > 0 && 
+                    this.Leader.LocationArchitecture.Fund >= Session.Parameters.NafeiCost + this.Leader.LocationArchitecture.EnoughFund) || this.IsAlien)
                 {
                     dest = this.Leader.LocationArchitecture;
                 }
@@ -1244,7 +1245,8 @@ namespace GameObjects
                 {
                     foreach (Architecture a in this.Architectures)
                     {
-                        if ((a.Meinvkongjian - a.Feiziliebiao.Count > 0 || this.IsAlien) && (dest == null || a.Population > dest.Population) && a.Fund >= 60000)
+                        if (((a.Meinvkongjian - a.Feiziliebiao.Count > 0 && a.Fund >= Session.Parameters.NafeiCost + a.EnoughFund) || this.IsAlien) 
+                            && (dest == null || a.Population > dest.Population))
                         {
                             dest = a;
                         }

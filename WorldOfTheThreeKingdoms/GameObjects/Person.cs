@@ -9857,7 +9857,10 @@ namespace GameObjects
 
             makeHateCausedByAffair(leader, nvren, leader);
 
-            nvren.LocationArchitecture.DecreaseFund(Session.Parameters.NafeiCost);
+            if (!this.LocationArchitecture.BelongedFaction.IsAlien)
+            {
+                nvren.LocationArchitecture.DecreaseFund(Session.Parameters.NafeiCost);
+            }
 
             if (nvren.Status == PersonStatus.Captive)
             {
