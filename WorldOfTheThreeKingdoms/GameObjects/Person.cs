@@ -2782,7 +2782,7 @@ namespace GameObjects
                             this.AddTacticsExperience(180);
                             this.BelongedFaction.IncreaseTechniquePoint(30 * this.MultipleOfTacticsTechniquePoint * 100);
 
-                            this.illegallyKilled(this.BelongedFaction, this);
+                            this.ConvincingPerson.illegallyKilled(this.BelongedFaction, this);
 
                             Session.MainGame.mainGameScreen.PersonAssassinateSuccessKilled(this, this.ConvincingPerson, architectureByPosition);
 
