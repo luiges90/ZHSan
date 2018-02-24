@@ -2789,7 +2789,7 @@ namespace GameObjects
                             ExtensionInterface.call("Assassinated", new Object[] { Session.Current.Scenario, this, this.ConvincingPerson });
 
                             Session.Current.Scenario.YearTable.addAssassinateEntry(Session.Current.Scenario.Date, this, this.ConvincingPerson);
-                            this.ConvincingPerson.ToDeath(this, this.BelongedFaction);
+                            this.ConvincingPerson.ToDeath(this, this.ConvincingPerson.BelongedFaction);
                         }
                         else
                         {
