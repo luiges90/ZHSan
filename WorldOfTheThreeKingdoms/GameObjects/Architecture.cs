@@ -11634,6 +11634,10 @@ namespace GameObjects
             {
                 this.RecentlyBreaked--;
             }
+            if (this.RecentlyHit > 0)
+            {
+                this.RecentlyHit--;
+            }
         }
 
         public bool ResetDiplomaticRelationAvail()
