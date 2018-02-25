@@ -388,6 +388,8 @@ namespace GameObjects
         [DataMember]
         public int RecentlyAttacked;
         [DataMember]
+        public int RecentlyHit;
+        [DataMember]
         public int RecentlyBreaked;
 
         public MilitaryList RecruitmentMilitaryList = new MilitaryList();
@@ -2030,6 +2032,8 @@ namespace GameObjects
                             assignWork(p, p.firstPreferred, need, needOnlyOneDomination, needOnlyOneMorale, needOnlyOneTrain);
                             if (p.WorkKind == ArchitectureWorkKind.无) // 如果不成功，随机挑一样工作
                                 assignRandomWork(p, need, needOnlyOneDomination, needOnlyOneMorale, needOnlyOneTrain);
+                            if (p.WorkKind == ArchitectureWorkKind.无) // keep everyone busy
+                                assignRandomWork(p, new bool[] { true, true, true, true, true, true, true }, false, false, false);
                         }
                         else // 10%随机
                         {
@@ -12134,6 +12138,7 @@ namespace GameObjects
 
             }
             this.RecentlyAttacked = 10;
+            this.RecentlyHit = 10;
             //this.AttackedReminder();
         }
 
@@ -14088,7 +14093,7 @@ namespace GameObjects
             get
             {
                 double num = Math.Round((double)(((((Session.Parameters.DefaultPopulationDevelopingRate + this.PDRAgricultureFix) + this.PDRCommerceFix) + this.PDRDominationFix) + this.PDRMoraleFix) + this.RateIncrementOfPopulationDevelop), 6);
-                if (!((this.RecentlyAttacked <= 0) || this.DayAvoidInfluenceByBattle))
+                if (!((this.RecentlyHit <= 0) || this.DayAvoidInfluenceByBattle))
                 {
                     num += -0.00030000000000000003;
                 }
