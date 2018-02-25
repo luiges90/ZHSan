@@ -2648,7 +2648,7 @@ namespace GameObjects
                     if (relationFactor > 0 && GameObject.Random((int)
                         (10000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
                     {
-                        this.suoshurenwu = this.Spouse.ID;
+                        this.suoshurenwu = this.BelongedFactionWithPrincess.Leader.ID;
                         this.BelongedFactionWithPrincess.Leader.suoshurenwu = this.ID;
                         if (this.Sex)
                         {
