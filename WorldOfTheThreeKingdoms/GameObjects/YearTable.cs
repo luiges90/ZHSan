@@ -380,6 +380,14 @@ namespace GameObjects
                 String.Format(yearTableStrings["becomePrincess_q"], p.Name, p.BelongedArchitecture.Name, leader.Name));
         }
 
+        public void addReleaseFromPrincessEntry(GameDate date, Person p, Person leader)
+        {
+            this.addTableEntry(date, composeFactionList(p.BelongedFaction),
+                String.Format(yearTableStrings["releaseFromPrincess"], p.Name, p.BelongedArchitecture.Name, leader.Name), false);
+            this.addPersonInGameBiography(p, date,
+                String.Format(yearTableStrings["releaseFromPrincess_p"], p.Name, p.BelongedArchitecture.Name, leader.Name));
+        }
+
         public void addSelectPrinceEntry(GameDate date, Person p, Person leader)//立储
         {
             this.addTableEntry(date, composeFactionList(p.BelongedFaction),

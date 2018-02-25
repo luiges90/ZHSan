@@ -149,6 +149,7 @@
                     <MenuItem ID="1" Name="nafei" DisplayName="纳妃" DisplayIfTrue="kenafei" />
                     <MenuItem ID="2" Name="hougong" DisplayName="宠幸" DisplayIfTrue="kejinhougong" />
 					<MenuItem ID="3" Name="moveFeizi" DisplayName="移动妃子" DisplayIfTrue="CanMoveFeizi" />
+					<MenuItem ID="4" Name="releaseFeizi" DisplayName="释放妃子" DisplayIfTrue="HaveReleasableFeizis" />
                 </MenuItem>
 				<MenuItem ID="10" Name="TrainChildren" DisplayName="子女培育" DisplayIfTrue="HasChildrenToTrain" />
                 <MenuItem ID="7" Name="Refuse" DisplayName="自动拒绝" OppositeName="手动拒绝" OppositeIfTrue="FactionAutoRefuse" />

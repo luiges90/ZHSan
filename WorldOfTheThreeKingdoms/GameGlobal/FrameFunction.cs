@@ -79,6 +79,7 @@ namespace GameGlobal
         xuanzemeinv,
         chongxingmeinv,
         MoveFeizi,
+        ReleaseFeizi,
         KillPerson,
         KillCaptive,
         MoveCaptive,

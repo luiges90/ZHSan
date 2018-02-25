@@ -728,6 +728,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.MoveFeizi, false, true, true, false, this.CurrentArchitecture.movableFeizis, null, "移动妃子", "");
                     break;
 
+                case ContextMenuResult.Monarch_hougongTop_releaseFeizi:
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.ReleaseFeizi, false, true, true, true, this.CurrentArchitecture.ReleasableFeizis, null, "释放妃子", "");
+                    break;
+
                 case ContextMenuResult.Monarch_Refuse:
                     this.CurrentArchitecture.BelongedFaction.AutoRefuse = !this.CurrentArchitecture.BelongedFaction.AutoRefuse;
                     break;

@@ -1126,7 +1126,7 @@ namespace GameObjects
                     (i.CaptivePerson.PersonalLoyalty >= 2 || this.BelongedFaction.Leader.Hates(i.CaptivePerson) || i.CaptivePerson.Hates(this.BelongedFaction.Leader)) && 
                     GameObject.Chance(10))
                 {
-                    if (!this.BelongedFaction.Leader.HasStrainTo(i.CaptivePerson) && !this.BelongedFaction.Leader.isLegalFeiZi(i.CaptivePerson))
+                    if (!this.BelongedFaction.Leader.HasStrainTo(i.CaptivePerson) && !this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(i.CaptivePerson))
                     {
                         Session.MainGame.mainGameScreen.OnExecute(this.BelongedFaction.Leader, i.CaptivePerson);
                         i.CaptivePerson.execute(this.BelongedFaction);
@@ -7458,6 +7458,30 @@ namespace GameObjects
             }
 
             return area;
+        }
+
+        public PersonList ReleasableFeizis
+        {
+            get
+            {
+                PersonList list = new PersonList();
+                foreach (Person p in this.Feiziliebiao)
+                {
+                    if (p.PrincessTaker != this.BelongedFaction.Leader)
+                    {
+                        list.Add(p);
+                    }
+                }
+                return list;
+            }
+        }
+
+        public bool HaveReleasableFeizis
+        {
+            get
+            {
+                return ReleasableFeizis.Count > 0;
+            }
         }
 
         public bool MoveCaptiveAvail() //俘虏可移动
@@ -14629,7 +14653,7 @@ namespace GameObjects
             PersonList meihuailiebiao = new PersonList();
             foreach (Person person in this.Feiziliebiao)
             {
-                if (!person.faxianhuaiyun && this.BelongedFaction.Leader.isLegalFeiZi(person) && person.ArrivingDays <= 0)
+                if (!person.faxianhuaiyun && this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person) && person.ArrivingDays <= 0)
                     meihuailiebiao.Add(person);
             }
             return meihuailiebiao;
@@ -14668,7 +14692,7 @@ namespace GameObjects
             PersonList nvxingwujiangliebiao = new PersonList();
             foreach (Person person in this.Persons)
             {
-                if (person.BelongedFaction.Leader.isLegalFeiZi(person))
+                if (person.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person))
                 {
                     nvxingwujiangliebiao.Add(person);
                 }
@@ -14677,7 +14701,7 @@ namespace GameObjects
             {
                 foreach (Person person in this.NoFactionPersons)
                 {
-                    if (person.BelongedFaction.Leader.isLegalFeiZi(person))
+                    if (person.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person))
                     {
                         nvxingwujiangliebiao.Add(person);
                     }
@@ -14685,7 +14709,7 @@ namespace GameObjects
                 foreach (Captive c in this.Captives)
                 {
                     Person person = c.CaptivePerson;
-                    if (person.BelongedFaction.Leader.isLegalFeiZi(person))
+                    if (person.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person))
                     {
                         nvxingwujiangliebiao.Add(person);
                     }

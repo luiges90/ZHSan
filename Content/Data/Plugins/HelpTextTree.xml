@@ -1121,7 +1121,7 @@ Color="4294375158" />
     </Branch>
 	<Branch Name="Monarch_hougongTop_moveFeizi">
 		<Leaf Text="君主" Color="4294375158" />
-        <Leaf Text="宠幸" Color="4283349491" />
+        <Leaf Text="移动妃子" Color="4283349491" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -1129,6 +1129,18 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
 		<Leaf Text="移动目的地必须有充足的妃子空间。另外如果城池视野范围内有敌军，则不可移动妃子。" Color="4294375158" />
+	</Branch>
+	<Branch Name="Monarch_hougongTop_releaseFeizi">
+		<Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="释放妃子" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="释放某个妃子。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="妃子被释放后，不会再为妃子，将作为势力里的一般武将。" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="该妃子不能是由现任君主所纳。" Color="4294375158" />
 	</Branch>
     <Branch Name="Section_New">
         <Leaf Text="委任" Color="4294375158" />

@@ -127,6 +127,7 @@ namespace GameGlobal
         Monarch_hougongTop_nafei,
         Monarch_hougongTop_hougong,
         Monarch_hougongTop_moveFeizi,
+        Monarch_hougongTop_releaseFeizi,
         Monarch_Refuse,
         Monarch_Treasure_Confiscate,
         Monarch_Treasure_Award,

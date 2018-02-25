@@ -104,3 +104,5 @@ appointMayor {0}在{1}被{2}任命为县令了。
 appointMayor_p 在{1}被{2}任命为县令了。
 zhaoXian {0}在{1}被{2}登庸了。
 zhaoXian_p 在{1}被{2}登庸了。
+releaseFromPrincess {0}在{1}的指示下，不再是妃子了。
+releaseFromPrincess_p 在{0}的指示下，不再是妃子了。

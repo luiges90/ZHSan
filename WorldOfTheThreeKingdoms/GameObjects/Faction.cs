@@ -867,9 +867,19 @@ namespace GameObjects
             this.AdjustByArchitectures();
         }
 
-        private bool IsPersonForHouGong(Person p)
+        private bool IsPersonForHouGong(Person p, bool alreadyTaken = false)
         {
-            if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) return false;
+            if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) return false;
+
+            if (p.Age >= 45 + (p.Sex ? 0 : 10)) return false;
+
+            if (this.Leader.Age >= 45 + (this.Leader.Sex ? 0 : 10)) return false;
+        
+            if (p.BelongedFaction != null && p.marriageGranter == p.BelongedFaction.Leader)
+            {
+                return false;
+            }
+
             int unAmbition = Enum.GetNames(typeof(PersonAmbition)).Length - (int)this.Leader.Ambition;
             bool take = p.UntiredMerit > ((unAmbition - 1) * Session.Parameters.AINafeiAbilityThresholdRate) &&
                                         (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (p.Age >= 16 && p.Age <= Session.Parameters.AINafeiMaxAgeThresholdAdd + (int)leader.Ambition * Session.Parameters.AINafeiMaxAgeThresholdMultiply)) &&
@@ -882,7 +892,14 @@ namespace GameObjects
                 return true;
             }
 
-            return take && (hater == null || (leader.PersonalLoyalty <= (int)PersonLoyalty.普通 && hater.UnalteredUntiredMerit * (leader.PersonalLoyalty * Session.Parameters.AINafeiStealSpouseThresholdRateMultiply + Session.Parameters.AINafeiStealSpouseThresholdRateAdd) < this.Leader.UnalteredUntiredMerit));
+            if (hater != null)
+            {
+                if (this.leader.PersonalLoyalty >= 4) return false;
+                if (this.leader.PersonalLoyalty >= 3 && this.leader.NumberOfChildren > 0) return false;
+                if (this.leader.PersonalLoyalty >= 2 && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse != null && p.Spouse.Alive))) return false;
+            }
+
+            return (take || alreadyTaken) && (hater == null || (leader.PersonalLoyalty <= (int)PersonLoyalty.普通 && hater.UnalteredUntiredMerit * (leader.PersonalLoyalty * Session.Parameters.AINafeiStealSpouseThresholdRateMultiply + Session.Parameters.AINafeiStealSpouseThresholdRateAdd) < this.Leader.UnalteredUntiredMerit));
         }
 
         private Person WillHateLeaderDueToAffair(Person p, GameObjectList suoshu)
@@ -929,7 +946,7 @@ namespace GameObjects
                         }
                         p.WaitForFeiZi = null;
                     }
-                    else if (!p.isLegalFeiZi(p.WaitForFeiZi) || p.WaitForFeiZi.isLegalFeiZi(p))
+                    else if (!p.isLegalFeiZiExcludeAge(p.WaitForFeiZi) || p.WaitForFeiZi.isLegalFeiZiExcludeAge(p))
                     {
                         if (p.WaitForFeiZi != null)
                         {
@@ -1215,7 +1232,7 @@ namespace GameObjects
                 this.Leader.LocationTroop == null)
             {
                 if ((this.Leader.LocationArchitecture.Meinvkongjian - this.Leader.LocationArchitecture.Feiziliebiao.Count <= 0 && ! this.IsAlien) ||
-                    !this.Leader.isLegalFeiZi(leader.WaitForFeiZi) ||
+                    !this.Leader.isLegalFeiZiExcludeAge(leader.WaitForFeiZi) ||
                     this.Leader.WaitForFeiZi.BelongedFaction != this)
                 {
                     leader.WaitForFeiZi.WaitForFeiZi = null;
@@ -1258,7 +1275,7 @@ namespace GameObjects
                     PersonList candidate = new PersonList();
                     foreach (Person p in this.Persons)
                     {
-                        if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) continue;
+                        if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
                         Person spousePerson = p.Spouse == null ? null : p.Spouse;
                         if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null && !p.IsCaptive)
                         {
@@ -1271,7 +1288,7 @@ namespace GameObjects
                         {
                             foreach (Person p in a.NoFactionPersons)
                             {
-                                if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) continue;
+                                if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
                                 Person spousePerson = p.Spouse == null ? null : p.Spouse;
                                 if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null && !p.IsCaptive)
                                 {
@@ -1282,7 +1299,7 @@ namespace GameObjects
                         foreach (Captive c in this.Captives)
                         {
                             Person p = c.CaptivePerson;
-                            if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) continue;
+                            if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
                             Person spousePerson = p.Spouse == null ? null : p.Spouse;
                             if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null)
                             {
@@ -1356,7 +1373,7 @@ namespace GameObjects
                 }
             }
 
-            //chongxing
+            //chongxing or release
             if (this.Leader.Status == PersonStatus.Normal && this.Leader.LocationArchitecture != null && this.Leader.LocationTroop == null &&
                 !this.Leader.huaiyun && this.Leader.WaitForFeiZi == null)
             {
@@ -1372,26 +1389,28 @@ namespace GameObjects
                     {
                         foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
                         {
-                            if (!this.Leader.isLegalFeiZi(p) || !p.isLegalFeiZi(this.Leader)) continue;
-                            Person hater = WillHateLeaderDueToAffair(p, p.suoshurenwuList);
-                            if (hater != null)
+                            if (!IsPersonForHouGong(p, true))
                             {
-                                if (this.leader.PersonalLoyalty >= 4) continue;
-                                if (this.leader.PersonalLoyalty >= 3 && this.leader.NumberOfChildren > 0) continue;
-                                if (this.leader.PersonalLoyalty >= 2 && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse != null && p.Spouse.Alive))) continue;
+                                if (p.PrincessTaker != this.Leader && !p.Hates(this.Leader))
+                                {
+                                    p.feiziRelease();
+                                }
                             }
-                            if (p.GetRelation(this.leader) < Session.Parameters.HateThreshold + 100 && !p.Hates(this.Leader))
+                            else
                             {
-                                target = p;
-                                location = a;
-                                break;
-                            }
-                            int pval = p.NumberOfChildren > 0 ? p.Merit / p.NumberOfChildren : int.MaxValue;
-                            int tval = target == null ? 0 : (target.NumberOfChildren > 0 ? target.UntiredMerit / target.NumberOfChildren : int.MaxValue);
-                            if (target == null || pval > tval)
-                            {
-                                target = p;
-                                location = a;
+                                if (p.GetRelation(this.leader) < Session.Parameters.HateThreshold + 100 && !p.Hates(this.Leader))
+                                {
+                                    target = p;
+                                    location = a;
+                                    break;
+                                }
+                                int pval = p.NumberOfChildren > 0 ? p.Merit / p.NumberOfChildren : int.MaxValue;
+                                int tval = target == null ? 0 : (target.NumberOfChildren > 0 ? target.UntiredMerit / target.NumberOfChildren : int.MaxValue);
+                                if (target == null || pval > tval)
+                                {
+                                    target = p;
+                                    location = a;
+                                }
                             }
                         }
                     }

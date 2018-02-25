@@ -1000,7 +1000,22 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
-       
+        private void FrameFunction_Monarch_hougongTop_releaseFeizi()
+        {
+            if (this.CurrentArchitecture != null)
+            {
+                this.CurrentGameObjects = this.CurrentArchitecture.Feiziliebiao.GetSelectedList();
+                if (this.CurrentGameObjects != null)
+                {
+                    foreach (GameObject o in this.CurrentGameObjects)
+                    {
+                        ((Person)o).feiziRelease();
+                    }
+
+                }
+            }
+        }
+
         /*
         private void FrameFunction_Monarch_ZhaoXianBang_DengYong() //强制登用武将
         {
@@ -1404,6 +1419,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 case FrameFunction.MoveFeizi:
                     this.FrameFunction_Monarch_hougongTop_moveFeizi();
+                    break;
+
+                case FrameFunction.ReleaseFeizi:
+                    this.FrameFunction_Monarch_hougongTop_releaseFeizi();
                     break;
 
                 case FrameFunction.MoveCaptive: //俘虏可移动
