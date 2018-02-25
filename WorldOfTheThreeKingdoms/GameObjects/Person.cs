@@ -2590,18 +2590,37 @@ namespace GameObjects
                     }
                 }
                 else if (this.Spouse != null && !this.huaiyun && !this.Spouse.huaiyun && Session.GlobalVariables.getChildrenRate > 0 &&
-                    ((this.SameLocationAs(this.Spouse) && this.Status == PersonStatus.Normal && this.Spouse.Status == PersonStatus.Normal) ||
-                    (this.Status == PersonStatus.Princess && this.BelongedArchitecture == this.Spouse.LocationArchitecture) ||
-                    (this.Spouse.Status == PersonStatus.Princess && this.Spouse.BelongedArchitecture == this.LocationArchitecture)) &&
+                    this.SameLocationAs(this.Spouse) && this.Status == PersonStatus.Normal && this.Spouse.Status == PersonStatus.Normal &&
                     this.isLegalFeiZi(this.Spouse) && this.Spouse.isLegalFeiZi(this) &&
                     this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit &&
                     this.Spouse.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
                 {
                     float relationFactor = this.PregnancyRate(this.Spouse);
-                    if (this.Status == PersonStatus.Princess || this.Spouse.Status == PersonStatus.Princess)
+
+                    if (relationFactor > 0 && GameObject.Random((int)
+                        (10000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
                     {
-                        relationFactor *= 3;
+                        this.suoshurenwu = this.Spouse.ID;
+                        this.Spouse.suoshurenwu = this.ID;
+                        if (this.Sex)
+                        {
+                            this.huaiyun = true;
+                            this.huaiyuntianshu = 0;
+                        }
+                        else
+                        {
+                            this.Spouse.huaiyun = true;
+                            this.Spouse.huaiyuntianshu = 0;
+                        }
                     }
+                } 
+                else if (this.Status == PersonStatus.Princess && this.BelongedFactionWithPrincess.Leader.LocationArchitecture == this.BelongedArchitecture
+                    && !this.huaiyun && !this.Spouse.huaiyun && Session.GlobalVariables.getChildrenRate > 0 &&
+                    this.isLegalFeiZi(this.Spouse) && this.Spouse.isLegalFeiZi(this) &&
+                    this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit &&
+                    this.Spouse.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
+                {
+                    float relationFactor = this.PregnancyRate(this.Spouse) * 3;
 
                     if (relationFactor > 0 && GameObject.Random((int)
                         (10000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
