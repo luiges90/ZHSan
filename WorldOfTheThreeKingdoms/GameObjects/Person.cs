@@ -2590,32 +2590,18 @@ namespace GameObjects
                     }
                 }
                 else if (this.Spouse != null && !this.huaiyun && !this.Spouse.huaiyun && Session.GlobalVariables.getChildrenRate > 0 &&
-                    this.SameLocationAs(this.Spouse) &&
-                    this.Status == PersonStatus.Normal && this.Spouse.Status == PersonStatus.Normal &&
+                    ((this.SameLocationAs(this.Spouse) && this.Status == PersonStatus.Normal && this.Spouse.Status == PersonStatus.Normal) ||
+                    (this.Status == PersonStatus.Princess && this.BelongedArchitecture == this.Spouse.LocationArchitecture) ||
+                    (this.Spouse.Status == PersonStatus.Princess && this.Spouse.BelongedArchitecture == this.LocationArchitecture)) &&
                     this.isLegalFeiZi(this.Spouse) && this.Spouse.isLegalFeiZi(this) &&
                     this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit &&
                     this.Spouse.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
                 {
-                    float relationFactor = (1 + this.GetRelation(this.Spouse) * 0.0001f + this.Spouse.GetRelation(this) * 0.0001f)
-                        * (1 + this.pregnantChance / 100.0f + this.Spouse.pregnantChance / 100.0f);
-                    float ageRate = 1;
-                    if (this.Age > 40 + (this.Sex ? 0 : 10))
+                    float relationFactor = this.PregnancyRate(this.Spouse);
+                    if (this.Status == PersonStatus.Princess || this.Spouse.Status == PersonStatus.Princess)
                     {
-                        ageRate -= (this.Age - 40 - (this.Sex ? 0 : 10)) / 10.0f;
+                        relationFactor *= 3;
                     }
-                    if (this.Spouse.Age > 40 + (this.Spouse.Sex ? 0 : 10))
-                    {
-                        ageRate -= (this.Spouse.Age - 40 - (this.Sex ? 0 : 10)) / 10.0f;
-                    }
-                    if (this.Age < 16)
-                    {
-                        ageRate *= 0.25f * (this.Age - 12);
-                    }
-                    if (this.Spouse.Age < 16)
-                    {
-                        ageRate *= 0.25f * (this.Spouse.Age - 12);
-                    }
-                    relationFactor *= ageRate; 
 
                     if (relationFactor > 0 && GameObject.Random((int)
                         (10000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
@@ -2637,7 +2623,45 @@ namespace GameObjects
             }
         }
 
+        public float PregnancyRate(Person q)
+        {
+            float extraRate = 1;
+            if (this.Closes(q))
+            {
+                extraRate += 0.1f;
+            }
+            if (q.Closes(this))
+            {
+                extraRate += 0.1f;
+            }
+            if (q.Ideal == this.Ideal)
+            {
+                extraRate += 0.2f;
+            }
+            if (this.Spouse == q)
+            {
+                extraRate += 1.6f;
+            }
+            extraRate += q.GetRelation(this) * 0.0001f + this.GetRelation(q) * 0.0001f;
 
+            if (this.Age > 40 + (this.Sex ? 0 : 10))
+            {
+                extraRate -= (this.Age - 40 - (this.Sex ? 0 : 10)) / 10.0f;
+            }
+            if (q.Age > 40 + (q.Sex ? 0 : 10))
+            {
+                extraRate -= (q.Age - 40 - (this.Sex ? 0 : 10)) / 10.0f;
+            }
+            if (this.Age < 16)
+            {
+                extraRate *= 0.25f * (this.Age - 12);
+            }
+            if (q.Age < 16)
+            {
+                extraRate *= 0.25f * (q.Age - 12);
+            }
+            return extraRate;
+        }
 
         public int Uncruelty
         {
@@ -9917,24 +9941,6 @@ namespace GameObjects
 
                 PersonList all = new PersonList();
                 all.Add(nvren);
-                foreach (Person q in this.LocationArchitecture.Feiziliebiao)
-                {
-                    if (q == nvren) continue;
-                    if (q.Hates(this)) continue;
-                    if (q.faxianhuaiyun) continue;
-                    if (GameObject.Chance(q.GetRelation(this) / 40 + this.GetRelation(q) / 40 + this.Glamour / 20 + q.Glamour / 20))
-                    {
-                        all.Add(q);
-                    }
-                }
-                if (this.Spouse != null && this.Spouse.LocationArchitecture == this.LocationArchitecture)
-                {
-                    if (!this.Spouse.Hates(this) && ! this.Spouse.faxianhuaiyun && 
-                        GameObject.Chance(this.Spouse.GetRelation(this) / 40 + this.GetRelation(this.Spouse) / 40 + this.Glamour / 20 + this.Spouse.Glamour / 20))
-                    {
-                        all.Add(this.Spouse);
-                    }
-                }
 
                 foreach (Person q in all)
                 {
@@ -9942,44 +9948,7 @@ namespace GameObjects
                         ((q.Sex && q.huaiyuntianshu >= -1) || (this.Sex && this.huaiyuntianshu >= -1)) &&
                         this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit && q.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
                     {
-                        float extraRate = 1;
-                        if (this.Closes(q))
-                        {
-                            extraRate += 0.1f;
-                        }
-                        if (q.Closes(this))
-                        {
-                            extraRate += 0.1f;
-                        }
-                        if (q.Ideal == this.Ideal)
-                        {
-                            extraRate += 0.2f;
-                        }
-                        if (this.Spouse == q)
-                        {
-                            extraRate += 1.6f;
-                        }
-                        extraRate += q.GetRelation(this) * 0.0001f + this.GetRelation(q) * 0.0001f;
-                        if (!Session.Current.Scenario.IsPlayer(this.BelongedFaction))
-                        {
-                            extraRate += Session.Parameters.AIExtraPerson - 1;
-                        }
-                        if (this.Age > 40 + (this.Sex ? 0 : 10))
-                        {
-                            extraRate -= (this.Age - 40 - (this.Sex ? 0 : 10)) / 10.0f;
-                        }
-                        if (q.Age > 40 + (q.Sex ? 0 : 10))
-                        {
-                            extraRate -= (q.Age - 40 - (this.Sex ? 0 : 10)) / 10.0f;
-                        }
-                        if (this.Age < 16)
-                        {
-                            extraRate *= 0.25f * (this.Age - 12);
-                        }
-                        if (q.Age < 16)
-                        {
-                            extraRate *= 0.25f * (q.Age - 12);
-                        }
+                        float extraRate = q.PregnancyRate(this);
 
                         float pregnantChance = Session.GlobalVariables.hougongGetChildrenRate / 100.0f;
                         pregnantChance *= houGongDays * extraRate;
