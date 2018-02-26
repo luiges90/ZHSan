@@ -2887,7 +2887,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     this.Plugins.ConmentTextPlugin.BuildSecondText("", false);
                 }
-                if ((troopByPosition != null) && (Session.GlobalVariables.SkyEye || ((Session.Current.Scenario.CurrentPlayer != null) && Session.Current.Scenario.CurrentPlayer.IsPositionKnown(this.position))))
+                if ((troopByPosition != null && troopByPosition.Status != TroopStatus.埋伏) && (Session.GlobalVariables.SkyEye || ((Session.Current.Scenario.CurrentPlayer != null) && Session.Current.Scenario.CurrentPlayer.IsPositionKnown(this.position))))
                 {
                     this.Plugins.ConmentTextPlugin.BuildFirstText(troopByPosition.DisplayName + " " + this.mainMapLayer.GetTerrainNameByPosition(this.position), true);
                 }
