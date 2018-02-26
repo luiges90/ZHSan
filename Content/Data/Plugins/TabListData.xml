@@ -4429,7 +4429,7 @@
     </ListKind>
 	<ListKind ID="29" Name="YearTable" DisplayName="年表" ShowPortrait="false">
       <Columns>
-        <Column ID="1" Name="Date" IsNumber="false" DisplayName="日期" MinWidth="120" DetailLevel="1"
+        <Column ID="1" Name="Date" IsNumber="false" DisplayName="日期" MinWidth="140" DetailLevel="1"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
