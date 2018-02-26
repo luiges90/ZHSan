@@ -7349,7 +7349,9 @@ namespace GameObjects
         public bool SameLocationAs(Person b)
         {
             return (this.LocationArchitecture != null && this.LocationArchitecture == b.LocationArchitecture) ||
-                (this.LocationTroop != null && this.LocationTroop == b.LocationTroop);
+                (this.LocationTroop != null && this.LocationTroop == b.LocationTroop) || 
+                (this.Status == PersonStatus.Princess && this.BelongedArchitecture == b.LocationArchitecture) || 
+                (b.Status == PersonStatus.Princess && b.BelongedArchitecture == this.LocationArchitecture);
         }
 
         public string Location
