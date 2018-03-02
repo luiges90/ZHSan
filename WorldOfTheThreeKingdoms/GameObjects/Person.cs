@@ -10207,9 +10207,8 @@ namespace GameObjects
                     this.Spouse.AdjustRelation(this.BelongedFaction.Leader, 20, 5);
 
                     this.BelongedFaction.Leader.IncreaseReputation(300);
-
-                    Session.Current.Scenario.YearTable.addReleaseFromPrincessEntry(Session.Current.Scenario.Date, this, this.BelongedFaction.Leader);
                 }
+                Session.Current.Scenario.YearTable.addReleaseFromPrincessEntry(Session.Current.Scenario.Date, this, this.BelongedFaction.Leader);
             }
         }
 
