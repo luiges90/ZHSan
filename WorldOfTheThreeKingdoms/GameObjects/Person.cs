@@ -10077,6 +10077,27 @@ namespace GameObjects
 
                 makeHateCausedByAffair(this, nvren, this, true);
 
+                if (GameObject.Chance(20) && nvren.GetRelation(this) >= Session.Parameters.VeryCloseThreshold / 2 && nvren.Spouse == null && 
+                    this.isLegalFeiZi(nvren) && nvren.isLegalFeiZi(this))
+                {
+                    nvren.Spouse = this;
+
+                    if (!this.Spouse.suoshurenwuList.HasGameObject(nvren))
+                    {
+                        this.Spouse.suoshurenwuList.Add(nvren);
+                    }
+                    if (!nvren.suoshurenwuList.HasGameObject(this.Spouse))
+                    {
+                        nvren.suoshurenwuList.Add(this.Spouse);
+                    }
+                
+                    Session.Current.Scenario.YearTable.addCreateSpouseEntry(Session.Current.Scenario.Date, this, nvren);
+                    if (this.OnCreateSpouse != null)
+                    {
+                        this.OnCreateSpouse(this, nvren);
+                    }
+                }
+
                 this.OutsideTask = OutsideTaskKind.后宮;
                 this.TargetArchitecture = this.LocationArchitecture;
                 this.ArrivingDays = houGongDays;
