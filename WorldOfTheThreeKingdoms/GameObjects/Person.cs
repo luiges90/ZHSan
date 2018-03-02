@@ -2692,7 +2692,7 @@ namespace GameObjects
             }
             if (q.Age > 40 + (q.Sex ? 0 : 10))
             {
-                extraRate -= (q.Age - 40 - (this.Sex ? 0 : 10)) / 10.0f;
+                extraRate -= (q.Age - 40 - (q.Sex ? 0 : 10)) / 10.0f;
             }
             if (this.Age < 16)
             {
