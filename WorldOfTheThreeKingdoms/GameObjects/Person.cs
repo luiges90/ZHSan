@@ -10082,15 +10082,6 @@ namespace GameObjects
                 {
                     nvren.Spouse = this;
 
-                    if (!this.Spouse.suoshurenwuList.HasGameObject(nvren))
-                    {
-                        this.Spouse.suoshurenwuList.Add(nvren);
-                    }
-                    if (!nvren.suoshurenwuList.HasGameObject(this.Spouse))
-                    {
-                        nvren.suoshurenwuList.Add(this.Spouse);
-                    }
-                
                     Session.Current.Scenario.YearTable.addCreateSpouseEntry(Session.Current.Scenario.Date, this, nvren);
                     if (this.OnCreateSpouse != null)
                     {
