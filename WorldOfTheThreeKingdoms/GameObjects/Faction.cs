@@ -4780,7 +4780,7 @@ namespace GameObjects
         {
             if (Session.Current.Scenario.IsPlayer(this)) return;
 
-            bool relationBroken = false;
+            //bool relationBroken = false;
 
             if (Session.GlobalVariables.PinPointAtPlayer)
             {
@@ -4790,12 +4790,44 @@ namespace GameObjects
                     if (i.Relation >= -Session.GlobalVariables.FriendlyDiplomacyThreshold && Session.Current.Scenario.IsPlayer(opposite))
                     {
                         i.Relation -= 15; //focus到玩家的时候，每月降低15点友好度
-                        relationBroken = true;
+                        //relationBroken = true;
                     }
                 }
             }
+
             if ((this.Leader.StrategyTendency != PersonStrategyTendency.维持现状))
             {
+                FactionList nonFriendlyFactions = new FactionList();
+                foreach (Faction f in Session.Current.Scenario.Factions)
+                {
+                    if (this.adjacentTo(f) && Session.Current.Scenario.GetDiplomaticRelation(this.ID, f.ID) < Session.GlobalVariables.FriendlyDiplomacyThreshold)
+                    {
+                        nonFriendlyFactions.Add(f);
+                    }
+                }
+                if (nonFriendlyFactions.Count <= 0)
+                {
+                    FactionList nearbyFactions = this.GetAdjecentFactions();
+                    Faction toBreak = null;
+                    int power = int.MaxValue;
+                    foreach (Faction f in nearbyFactions)
+                    {
+                        if (f.Power < power && Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(this.ID, toBreak.ID).Truce <= 0)
+                        {
+                            power = f.Power;
+                            toBreak = f;
+                        }
+                    }
+
+                    if (toBreak != null)
+                    {
+                        Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(this.ID, toBreak.ID).Relation = 0;
+                        //AI宣布主动解盟
+                        Session.MainGame.mainGameScreen.xianshishijiantupian(this.Leader, this.Leader.Name, TextMessageKind.ResetDiplomaticRelation, "ResetDiplomaticRelation", "ResetDiplomaticRelation.jpg", "ResetDiplomaticRelation", toBreak.LeaderName, true);
+                    }
+                }
+
+                /*
                 int minTroop = int.MaxValue;
                 DiplomaticRelation minTroopFactionRelation = null;
                 Faction minTroopFactionopposite = null;
@@ -4843,6 +4875,7 @@ namespace GameObjects
                     //AI宣布主动解盟
                     Session.MainGame.mainGameScreen.xianshishijiantupian(this.Leader, this.Leader.Name, TextMessageKind.ResetDiplomaticRelation, "ResetDiplomaticRelation", "ResetDiplomaticRelation.jpg", "ResetDiplomaticRelation", minTroopFactionopposite.LeaderName, true);
                 }
+                */
             }
         }
 
