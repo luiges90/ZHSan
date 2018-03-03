@@ -2292,7 +2292,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoChengZhongWuJiang").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuWanJiaFuLu").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoFuLuZhongCheng").Selected = false;
-                    Session.globalVariablesTemp.PinPointAtPlayer = true;
+                    Session.globalVariablesTemp.PinPointAtPlayer = false;
                     Session.globalVariablesTemp.internalSurplusRateForPlayer = false;
                     Session.globalVariablesTemp.internalSurplusRateForAI = false;
                     Session.globalVariablesTemp.AIAutoTakeNoFactionCaptives = false;
@@ -2343,7 +2343,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoChengZhongWuJiang").Selected = true;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuWanJiaFuLu").Selected = true;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoFuLuZhongCheng").Selected = true;
-                    Session.globalVariablesTemp.PinPointAtPlayer = true;
+                    Session.globalVariablesTemp.PinPointAtPlayer = false;
                     Session.globalVariablesTemp.internalSurplusRateForPlayer = true;
                     Session.globalVariablesTemp.internalSurplusRateForAI = false;
                     Session.globalVariablesTemp.AIAutoTakeNoFactionCaptives = true;
