@@ -2621,7 +2621,7 @@ namespace GameObjects
                     float relationFactor = this.PregnancyRate(this.Spouse);
 
                     if (relationFactor > 0 && GameObject.Random((int)
-                        (30000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
+                        (50000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
                     {
                         this.suoshurenwu = this.Spouse.ID;
                         this.Spouse.suoshurenwu = this.ID;
@@ -2646,7 +2646,7 @@ namespace GameObjects
                     float relationFactor = this.PregnancyRate(this.BelongedFactionWithPrincess.Leader) * 3;
 
                     if (relationFactor > 0 && GameObject.Random((int)
-                        (30000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
+                        (50000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
                     {
                         this.suoshurenwu = this.BelongedFactionWithPrincess.Leader.ID;
                         this.BelongedFactionWithPrincess.Leader.suoshurenwu = this.ID;
@@ -10004,7 +10004,7 @@ namespace GameObjects
                         float extraRate = q.PregnancyRate(this);
 
                         float pregnantChance = Session.GlobalVariables.hougongGetChildrenRate / 100.0f;
-                        pregnantChance *= houGongDays * extraRate / 2;
+                        pregnantChance *= houGongDays * extraRate;
 
                         if (GameObject.Chance(Math.Max((int)pregnantChance, Session.Parameters.MinPregnantProb))
                             && !q.huaiyun && !this.huaiyun && this.isLegalFeiZiExcludeAge(q) &&
