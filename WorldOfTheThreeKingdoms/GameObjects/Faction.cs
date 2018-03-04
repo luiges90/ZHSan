@@ -4805,26 +4805,47 @@ namespace GameObjects
                         nonFriendlyFactions.Add(f);
                     }
                 }
-                if (nonFriendlyFactions.Count <= 0)
+                
+                FactionList nearbyFactions = this.GetAdjecentFactions();
+                Faction toBreak = null;
+                int power = int.MaxValue;
+                int totalPower = 0;
+                foreach (Faction f in nearbyFactions)
                 {
-                    FactionList nearbyFactions = this.GetAdjecentFactions();
-                    Faction toBreak = null;
-                    int power = int.MaxValue;
-                    foreach (Faction f in nearbyFactions)
+                    DiplomaticRelation rel = Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(this.ID, f.ID);
+                    if (rel.Relation < Session.GlobalVariables.FriendlyDiplomacyThreshold)
                     {
-                        if (f.Power < power && Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(this.ID, toBreak.ID).Truce <= 0)
+                        totalPower += f.Power;
+                    }
+                }
+                foreach (Faction f in nearbyFactions)
+                {
+                    DiplomaticRelation rel = Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(this.ID, f.ID);
+                    if (rel.Truce <= 0)
+                    {
+                        if (nonFriendlyFactions.Count == 0 && f.Power < this.Power)
                         {
                             power = f.Power;
                             toBreak = f;
                         }
+                        else if (this.Power > totalPower * ((4 - this.Leader.Ambition + (this.Leader.Calmness - this.Leader.Braveness) / 2) * 0.2 + 0.6) && 
+                            rel.Relation >= Session.GlobalVariables.FriendlyDiplomacyThreshold)
+                        {
+                            float ratio = (float)this.Power / f.Power;
+                            if (GameObject.Chance((int)((ratio - 1) * this.Leader.Ambition * 10)))
+                            {
+                                power = f.Power;
+                                toBreak = f;
+                            }
+                        }
                     }
+                }
 
-                    if (toBreak != null)
-                    {
-                        Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(this.ID, toBreak.ID).Relation = 0;
-                        //AI宣布主动解盟
-                        Session.MainGame.mainGameScreen.xianshishijiantupian(this.Leader, this.Leader.Name, TextMessageKind.ResetDiplomaticRelation, "ResetDiplomaticRelation", "ResetDiplomaticRelation.jpg", "ResetDiplomaticRelation", toBreak.LeaderName, true);
-                    }
+                if (toBreak != null)
+                {
+                    Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(this.ID, toBreak.ID).Relation = 0;
+                    //AI宣布主动解盟
+                    Session.MainGame.mainGameScreen.xianshishijiantupian(this.Leader, this.Leader.Name, TextMessageKind.ResetDiplomaticRelation, "ResetDiplomaticRelation", "ResetDiplomaticRelation.jpg", "ResetDiplomaticRelation", toBreak.LeaderName, true);
                 }
 
                 /*
