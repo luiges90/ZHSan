@@ -2668,6 +2668,8 @@ namespace GameObjects
         public float PregnancyRate(Person q)
         {
             float extraRate = 1;
+            extraRate *= 1 + this.pregnantChance / 100.0f + q.pregnantChance / 100.0f;
+
             if (this.Closes(q))
             {
                 extraRate += 0.1f;
@@ -10002,8 +10004,7 @@ namespace GameObjects
                         float extraRate = q.PregnancyRate(this);
 
                         float pregnantChance = Session.GlobalVariables.hougongGetChildrenRate / 100.0f;
-                        pregnantChance *= houGongDays * extraRate;
-                        pregnantChance *= (1 + this.pregnantChance / 100.0f) + (1 + q.pregnantChance / 100.0f);
+                        pregnantChance *= houGongDays * extraRate / 2;
 
                         if (GameObject.Chance(Math.Max((int)pregnantChance, Session.Parameters.MinPregnantProb))
                             && !q.huaiyun && !this.huaiyun && this.isLegalFeiZiExcludeAge(q) &&
