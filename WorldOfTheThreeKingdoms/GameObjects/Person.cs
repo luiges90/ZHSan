@@ -2682,7 +2682,7 @@ namespace GameObjects
             {
                 extraRate += 0.2f;
             }
-            if (this.Spouse == q)
+            if (this.Spouse == q || q.Spouse == this)
             {
                 extraRate += 1.6f;
             }
