@@ -4797,6 +4797,7 @@ namespace GameObjects
 
             if ((this.Leader.StrategyTendency != PersonStrategyTendency.维持现状))
             {
+                // Break Relations
                 FactionList nonFriendlyFactions = new FactionList();
                 foreach (Faction f in Session.Current.Scenario.Factions)
                 {
@@ -4828,7 +4829,7 @@ namespace GameObjects
                             power = f.Power;
                             toBreak = f;
                         }
-                        else if (this.Power > totalPower * ((4 - this.Leader.Ambition + (this.Leader.Calmness - this.Leader.Braveness) / 2) * 0.2 + 0.6) && 
+                        else if (this.Power > totalPower * ((4 - this.Leader.Ambition + (this.Leader.Calmness - this.Leader.Braveness) / 4) * 0.2 + 0.6) && 
                             rel.Relation >= Session.GlobalVariables.FriendlyDiplomacyThreshold)
                         {
                             float ratio = (float)this.Power / f.Power;
@@ -4845,59 +4846,71 @@ namespace GameObjects
                 {
                     Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(this.ID, toBreak.ID).Relation = 0;
                     //AI宣布主动解盟
-                    Session.MainGame.mainGameScreen.xianshishijiantupian(this.Leader, this.Leader.Name, TextMessageKind.ResetDiplomaticRelation, "ResetDiplomaticRelation", "ResetDiplomaticRelation.jpg", "ResetDiplomaticRelation", toBreak.LeaderName, true);
+                    Session.MainGame.mainGameScreen.xianshishijiantupian(toBreak.Leader, this.Leader.Name, TextMessageKind.ResetDiplomaticRelation, "ResetDiplomaticRelation", "ResetDiplomaticRelation.jpg", "ResetDiplomaticRelation", toBreak.LeaderName, true);
                 }
 
-                /*
-                int minTroop = int.MaxValue;
-                DiplomaticRelation minTroopFactionRelation = null;
-                Faction minTroopFactionopposite = null;
-
-                foreach (DiplomaticRelation i in Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelationListByFactionID(base.ID))
+                // Randomly alter relations
+                foreach (DiplomaticRelation rel in Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelationListByFactionID(base.ID))
                 {
-                    Faction opposite = i.GetDiplomaticFaction(this.ID);
-                    //if (i.Relation < 300) continue; 
-                    if (!this.adjacentTo(opposite)) continue;    //不接壤的AI不主动改变关系值
-                    if (GameObject.Chance((int)((double)this.armyScale / opposite.ArmyScale * ((int)this.Leader.Ambition + 1) * 20))
-                        && i.Relation < Session.GlobalVariables.FriendlyDiplomacyThreshold)
+                    Faction opposite = rel.GetDiplomaticFaction(this.ID);
+                    if (rel.Relation > 300) continue;
+                    if (rel.Truce > 0)
                     {
-                        i.Relation -= (7 + (int)Random(15)); //根据总兵力情况每月随机减少
-                        i.Relation -= (Person.GetIdealOffset(this.Leader, opposite.Leader)) / 10;
-                        relationBroken = true;
-                        break;
+                        rel.Relation += 5;
                     }
-                    //增加关系300以上，随机一个降低数值后主动解盟的情况
-                    if (GameObject.Chance((int)(Person.GetIdealOffset(this.Leader, opposite.Leader) / 3)) && i.Relation >= 300)
-                    {
-                        i.Relation -= (7 + (int)Random(15));
-                        i.Relation -= (Person.GetIdealOffset(this.Leader, opposite.Leader)) / 10;
-                        relationBroken = true;
-                        if (i.Relation < Session.GlobalVariables.FriendlyDiplomacyThreshold)
-                        {
-                            //显示联盟破裂画面
-                            Session.MainGame.mainGameScreen.xianshishijiantupian(this.Leader, this.Leader.Name, TextMessageKind.BreakDiplomaticRelation, "BreakDiplomaticRelation", "BreakDiplomaticRelation.jpg", "BreakDiplomaticRelation", opposite.Leader.Name, true);
-                        }
-                        break;
-                    }
+                    rel.Relation += (int)(Person.GetIdealAttraction(opposite.Leader, this.Leader) * (GameObject.Random(100) / 1000.0f + 0.1f) / (Math.Abs(rel.Relation) / 10.0f + 1));
+                }
 
-                    if (!this.hasNonFriendlyFrontline)
+                    /*
+                    int minTroop = int.MaxValue;
+                    DiplomaticRelation minTroopFactionRelation = null;
+                    Faction minTroopFactionopposite = null;
+
+                    foreach (DiplomaticRelation i in Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelationListByFactionID(base.ID))
                     {
-                        if (opposite.ArmyScale < minTroop)
+                        Faction opposite = i.GetDiplomaticFaction(this.ID);
+                        //if (i.Relation < 300) continue; 
+                        if (!this.adjacentTo(opposite)) continue;    //不接壤的AI不主动改变关系值
+                        if (GameObject.Chance((int)((double)this.armyScale / opposite.ArmyScale * ((int)this.Leader.Ambition + 1) * 20))
+                            && i.Relation < Session.GlobalVariables.FriendlyDiplomacyThreshold)
                         {
-                            minTroop = opposite.ArmyScale;
-                            minTroopFactionRelation = i;
-                            minTroopFactionopposite = i.GetDiplomaticFaction(this.ID);
+                            i.Relation -= (7 + (int)Random(15)); //根据总兵力情况每月随机减少
+                            i.Relation -= (Person.GetIdealOffset(this.Leader, opposite.Leader)) / 10;
+                            relationBroken = true;
+                            break;
+                        }
+                        //增加关系300以上，随机一个降低数值后主动解盟的情况
+                        if (GameObject.Chance((int)(Person.GetIdealOffset(this.Leader, opposite.Leader) / 3)) && i.Relation >= 300)
+                        {
+                            i.Relation -= (7 + (int)Random(15));
+                            i.Relation -= (Person.GetIdealOffset(this.Leader, opposite.Leader)) / 10;
+                            relationBroken = true;
+                            if (i.Relation < Session.GlobalVariables.FriendlyDiplomacyThreshold)
+                            {
+                                //显示联盟破裂画面
+                                Session.MainGame.mainGameScreen.xianshishijiantupian(this.Leader, this.Leader.Name, TextMessageKind.BreakDiplomaticRelation, "BreakDiplomaticRelation", "BreakDiplomaticRelation.jpg", "BreakDiplomaticRelation", opposite.Leader.Name, true);
+                            }
+                            break;
+                        }
+
+                        if (!this.hasNonFriendlyFrontline)
+                        {
+                            if (opposite.ArmyScale < minTroop)
+                            {
+                                minTroop = opposite.ArmyScale;
+                                minTroopFactionRelation = i;
+                                minTroopFactionopposite = i.GetDiplomaticFaction(this.ID);
+                            }
                         }
                     }
+                    if (minTroopFactionRelation != null && !relationBroken)
+                    {
+                        minTroopFactionRelation.Relation = 0;
+                        //AI宣布主动解盟
+                        Session.MainGame.mainGameScreen.xianshishijiantupian(this.Leader, this.Leader.Name, TextMessageKind.ResetDiplomaticRelation, "ResetDiplomaticRelation", "ResetDiplomaticRelation.jpg", "ResetDiplomaticRelation", minTroopFactionopposite.LeaderName, true);
+                    }
+                    */
                 }
-                if (minTroopFactionRelation != null && !relationBroken)
-                {
-                    minTroopFactionRelation.Relation = 0;
-                    //AI宣布主动解盟
-                    Session.MainGame.mainGameScreen.xianshishijiantupian(this.Leader, this.Leader.Name, TextMessageKind.ResetDiplomaticRelation, "ResetDiplomaticRelation", "ResetDiplomaticRelation.jpg", "ResetDiplomaticRelation", minTroopFactionopposite.LeaderName, true);
-                }
-                */
-            }
         }
 
         public bool RoutewayPathAvail(Point start, Point end, bool hasEnd)
