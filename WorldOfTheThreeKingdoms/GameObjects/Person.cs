@@ -10003,7 +10003,7 @@ namespace GameObjects
                     {
                         float extraRate = q.PregnancyRate(this);
 
-                        float pregnantChance = Session.GlobalVariables.hougongGetChildrenRate / 100.0f;
+                        float pregnantChance = Session.GlobalVariables.hougongGetChildrenRate / 100.0f * 2;
                         pregnantChance *= houGongDays * extraRate;
 
                         if (GameObject.Chance(Math.Max((int)pregnantChance, Session.Parameters.MinPregnantProb))
