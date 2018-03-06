@@ -4824,12 +4824,13 @@ namespace GameObjects
                     DiplomaticRelation rel = Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(this.ID, f.ID);
                     if (rel.Truce <= 0)
                     {
+                        int unAmbition = 4 - this.Leader.Ambition;
                         if (nonFriendlyFactions.Count == 0 && f.Power < this.Power)
                         {
                             power = f.Power;
                             toBreak = f;
                         }
-                        else if (this.Power > totalPower * ((4 - this.Leader.Ambition + (this.Leader.Calmness - this.Leader.Braveness) / 4) * 0.2 + 0.6) && 
+                        else if (this.Power > totalPower * ((unAmbition * unAmbition + (this.Leader.Calmness - this.Leader.Braveness) / 4) * 0.2 + 0.6) && 
                             rel.Relation >= Session.GlobalVariables.FriendlyDiplomacyThreshold)
                         {
                             float ratio = (float)this.Power / f.Power;
