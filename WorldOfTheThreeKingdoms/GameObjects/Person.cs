@@ -2257,7 +2257,7 @@ namespace GameObjects
 
         private void AutoLearnEvent()
         {
-            if (this.BelongedFaction != null)
+            if (this.BelongedFactionWithPrincess != null)
             {
                 this.AutoLearnSkill();
                 this.AutoLearnStunt();
@@ -10033,6 +10033,59 @@ namespace GameObjects
                     {
                         this.AdjustRelation(q, houGongDays / 30.0f, 0);
                         q.AdjustRelation(this, houGongDays / 30.0f, 0);
+
+                        if (GameObject.Random(30000 / this.CommandExperience) == 0)
+                        {
+                            q.AddCommandExperience(GameObject.Random(houGongDays) + 1);
+                        }
+                        if (GameObject.Random(30000 / this.StrengthExperience) == 0)
+                        {
+                            q.AddStrengthExperience(GameObject.Random(houGongDays) + 1);
+                        }
+                        if (GameObject.Random(30000 / this.IntelligenceExperience) == 0)
+                        {
+                            q.AddIntelligenceExperience(GameObject.Random(houGongDays) + 1);
+                        }
+                        if (GameObject.Random(30000 / this.PoliticsExperience) == 0)
+                        {
+                            q.AddPoliticsExperience(GameObject.Random(houGongDays) + 1);
+                        }
+                        if (GameObject.Random(30000 / this.GlamourExperience) == 0)
+                        {
+                            q.AddGlamourExperience(GameObject.Random(houGongDays) + 1);
+                        }
+                        if (GameObject.Random(30000 / this.BubingExperience) == 0)
+                        {
+                            q.AddBubingExperience(GameObject.Random(houGongDays) + 1);
+                        }
+                        if (GameObject.Random(30000 / this.NubingExperience) == 0)
+                        {
+                            q.AddNubingExperience(GameObject.Random(houGongDays) + 1);
+                        }
+                        if (GameObject.Random(30000 / this.QibingExperience) == 0)
+                        {
+                            q.AddQibingExperience(GameObject.Random(houGongDays) + 1);
+                        }
+                        if (GameObject.Random(30000 / this.ShuijunExperience) == 0)
+                        {
+                            q.AddShuijunExperience(GameObject.Random(houGongDays) + 1);
+                        }
+                        if (GameObject.Random(30000 / this.QixieExperience) == 0)
+                        {
+                            q.AddQixieExperience(GameObject.Random(houGongDays) + 1);
+                        }
+                        if (GameObject.Random(30000 / this.TacticsExperience) == 0)
+                        {
+                            q.AddTacticsExperience(GameObject.Random(houGongDays) + 1);
+                        }
+                        if (GameObject.Random(30000 / this.StratagemExperience) == 0)
+                        {
+                            q.AddStratagemExperience(GameObject.Random(houGongDays) + 1);
+                        }
+                        if (GameObject.Random(30000 / this.InternalExperience) == 0)
+                        {
+                            q.AddInternalExperience(GameObject.Random(houGongDays) + 1);
+                        }
                     }
 
                     if (this.huaiyun) break;
