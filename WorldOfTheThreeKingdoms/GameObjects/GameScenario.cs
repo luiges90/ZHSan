@@ -4031,10 +4031,14 @@ namespace GameObjects
                         if (q.Available && q.Alive && p.BelongedFactionWithPrincess != null && GameObject.Random(30) == 0)
                         {
                             if (p.BelongedFactionWithPrincess == q.BelongedFactionWithPrincess &&
-                                    (p.Status == PersonStatus.Normal && q.Status == PersonStatus.Normal &&
-                                    ((p.WorkKind == q.WorkKind) && (p.WorkKind != ArchitectureWorkKind.无)) ||
-                                    ((p.OutsideTask == q.OutsideTask) && (p.OutsideTask != OutsideTaskKind.无))) ||
-                                (p.Status == PersonStatus.Princess && q.Status == PersonStatus.Princess))
+                                    (
+                                        (p.Status == PersonStatus.Normal && q.Status == PersonStatus.Normal &&
+                                            ((p.WorkKind == q.WorkKind && p.WorkKind != ArchitectureWorkKind.无) ||
+                                            (p.OutsideTask == q.OutsideTask && p.OutsideTask != OutsideTaskKind.无))
+                                        ) ||
+                                        (p.Status == PersonStatus.Princess && q.Status == PersonStatus.Princess)
+                                    )
+                                )
                             {
                                 if (GameObject.Chance((p.Uncruelty * 5 + q.Glamour / 2) / 2))
                                 {
@@ -4043,12 +4047,16 @@ namespace GameObjects
                                         if (p.Status == PersonStatus.Normal)
                                         {
                                             //p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedArchitecture.Persons.Count - 1)), 2);
-                                            p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedArchitecture.Persons.Count - 1)) * Session.Parameters.DayInTurn, 2 * Session.Parameters.DayInTurn);
+                                            p.AdjustRelation(q, 3f * Session.Parameters.DayInTurn, 2 * Session.Parameters.DayInTurn);
                                         }
                                         else
                                         {
                                             //p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)), 2);
                                             p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)) * Session.Parameters.DayInTurn, 2 * Session.Parameters.DayInTurn);
+                                            if (p.LocationArchitecture == q.LocationArchitecture)
+                                            {
+                                                p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)) * Session.Parameters.DayInTurn, 2 * Session.Parameters.DayInTurn);
+                                            }
                                         }
                                     }
                                 }
