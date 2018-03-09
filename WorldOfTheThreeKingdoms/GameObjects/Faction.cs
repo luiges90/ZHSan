@@ -1416,7 +1416,7 @@ namespace GameObjects
                             }
                         }
                     }
-                    if (target != null)
+                    if (target != null && target.PregnancyRate(this.Leader) > 0)
                     {
                         if (location == this.Leader.LocationArchitecture)
                         {
