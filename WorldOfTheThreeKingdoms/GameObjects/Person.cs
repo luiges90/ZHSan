@@ -9994,6 +9994,7 @@ namespace GameObjects
                 {
                     houGongDays = GameObject.Random(10) + 60;
                 }
+                houGongDays /= 2;
 
                 PersonList all = new PersonList();
                 all.Add(nvren);
@@ -10006,8 +10007,8 @@ namespace GameObjects
                     {
                         float extraRate = q.PregnancyRate(this);
 
-                        float pregnantChance = Session.GlobalVariables.hougongGetChildrenRate / 100.0f * 2 * (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson);
-                        pregnantChance *= houGongDays * extraRate;
+                        float pregnantChance = Session.GlobalVariables.hougongGetChildrenRate / 100.0f * (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson);
+                        pregnantChance *= houGongDays * 2 * extraRate;
 
                         if (GameObject.Chance(Math.Max((int)pregnantChance, Session.Parameters.MinPregnantProb))
                             && !q.huaiyun && !this.huaiyun && this.isLegalFeiZiExcludeAge(q) &&
