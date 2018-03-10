@@ -2602,6 +2602,9 @@ namespace GameObjects
                                 this.AdjustRelation(haizifuqin, 3, -5);
                                 haizifuqin.AdjustRelation(this, 3, -5);
 
+                                this.Father.IncreaseReputation(haizi.Sex ? 150 : 200);
+                                this.Mother.IncreaseReputation(haizi.Sex ? 200 : 300);
+
                                 count++;
                             } while ((GameObject.Chance(haizifuqin.multipleChildrenRate) || GameObject.Chance(this.multipleChildrenRate)) && count < Math.Max(haizifuqin.maxChildren, this.maxChildren));
 
@@ -10086,6 +10089,7 @@ namespace GameObjects
                         {
                             q.AddInternalExperience(GameObject.Random(houGongDays) + 1);
                         }
+                        q.IncreaseReputation(houGongDays * 2);
                     }
 
                     if (this.huaiyun) break;
