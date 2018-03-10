@@ -10034,55 +10034,55 @@ namespace GameObjects
                         this.AdjustRelation(q, houGongDays / 30.0f, 0);
                         q.AdjustRelation(this, houGongDays / 30.0f, 0);
 
-                        if (GameObject.Random(30000 / this.CommandExperience + 1) == 0)
+                        if (GameObject.Random(30000 / (this.CommandExperience + 1)) == 0)
                         {
                             q.AddCommandExperience(GameObject.Random(houGongDays) + 1);
                         }
-                        if (GameObject.Random(30000 / this.StrengthExperience + 1) == 0)
+                        if (GameObject.Random(30000 / (this.StrengthExperience + 1)) == 0)
                         {
                             q.AddStrengthExperience(GameObject.Random(houGongDays) + 1);
                         }
-                        if (GameObject.Random(30000 / this.IntelligenceExperience + 1) == 0)
+                        if (GameObject.Random(30000 / (this.IntelligenceExperience + 1)) == 0)
                         {
                             q.AddIntelligenceExperience(GameObject.Random(houGongDays) + 1);
                         }
-                        if (GameObject.Random(30000 / this.PoliticsExperience + 1) == 0)
+                        if (GameObject.Random(30000 / (this.PoliticsExperience + 1)) == 0)
                         {
                             q.AddPoliticsExperience(GameObject.Random(houGongDays) + 1);
                         }
-                        if (GameObject.Random(30000 / this.GlamourExperience + 1) == 0)
+                        if (GameObject.Random(30000 / (this.GlamourExperience + 1)) == 0)
                         {
                             q.AddGlamourExperience(GameObject.Random(houGongDays) + 1);
                         }
-                        if (GameObject.Random(30000 / this.BubingExperience + 1) == 0)
+                        if (GameObject.Random(30000 / (this.BubingExperience + 1)) == 0)
                         {
                             q.AddBubingExperience(GameObject.Random(houGongDays) + 1);
                         }
-                        if (GameObject.Random(30000 / this.NubingExperience + 1) == 0)
+                        if (GameObject.Random(30000 / (this.NubingExperience + 1)) == 0)
                         {
                             q.AddNubingExperience(GameObject.Random(houGongDays) + 1);
                         }
-                        if (GameObject.Random(30000 / this.QibingExperience + 1) == 0)
+                        if (GameObject.Random(30000 / (this.QibingExperience + 1)) == 0)
                         {
                             q.AddQibingExperience(GameObject.Random(houGongDays) + 1);
                         }
-                        if (GameObject.Random(30000 / this.ShuijunExperience + 1) == 0)
+                        if (GameObject.Random(30000 / (this.ShuijunExperience + 1)) == 0)
                         {
                             q.AddShuijunExperience(GameObject.Random(houGongDays) + 1);
                         }
-                        if (GameObject.Random(30000 / this.QixieExperience + 1) == 0)
+                        if (GameObject.Random(30000 / (this.QixieExperience + 1)) == 0)
                         {
                             q.AddQixieExperience(GameObject.Random(houGongDays) + 1);
                         }
-                        if (GameObject.Random(30000 / this.TacticsExperience + 1) == 0)
+                        if (GameObject.Random(30000 / (this.TacticsExperience + 1)) == 0)
                         {
                             q.AddTacticsExperience(GameObject.Random(houGongDays) + 1);
                         }
-                        if (GameObject.Random(30000 / this.StratagemExperience + 1) == 0)
+                        if (GameObject.Random(30000 / (this.StratagemExperience + 1)) == 0)
                         {
                             q.AddStratagemExperience(GameObject.Random(houGongDays) + 1);
                         }
-                        if (GameObject.Random(30000 / this.InternalExperience + 1) == 0)
+                        if (GameObject.Random(30000 / (this.InternalExperience + 1)) == 0)
                         {
                             q.AddInternalExperience(GameObject.Random(houGongDays) + 1);
                         }
