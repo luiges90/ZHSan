@@ -10063,11 +10063,11 @@ namespace GameObjects
                         }
                     }
 
-                    this.AdjustRelation(q, houGongDays / 30.0f, 0);
-                    q.AdjustRelation(this, houGongDays / 30.0f, 0);
-
                     if (!q.Hates(this) && !this.Hates(q))
                     {
+                        this.AdjustRelation(q, houGongDays / 30.0f, 0);
+                        q.AdjustRelation(this, houGongDays / 30.0f, 0);
+                    
                         if (GameObject.Random(30000 / (this.CommandExperience + 1)) == 0)
                         {
                             q.AddCommandExperience(GameObject.Random(houGongDays) + 1);
