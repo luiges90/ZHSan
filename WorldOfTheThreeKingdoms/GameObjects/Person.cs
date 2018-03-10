@@ -9943,10 +9943,35 @@ namespace GameObjects
                 nvren.LocationArchitecture.DecreaseFund(Session.Parameters.NafeiCost);
             }
 
+            bool addHate = false;
             if (nvren.Status == PersonStatus.Captive)
             {
                 nvren.SetBelongedCaptive(null, PersonStatus.Normal);
                 nvren.ChangeFaction(this.BelongedFaction);
+                addHate = true;
+            }
+            else if (nvren.Status == PersonStatus.NoFaction)
+            {
+                addHate = true;
+            }
+
+            if (addHate)
+            {
+                nvren.AddHated(leader);
+                foreach (Person p in Session.Current.Scenario.Persons)
+                {
+                    if (p == nvren) continue;
+                    if (p == leader) continue;
+                    if (p.IsVeryCloseTo(nvren))
+                    {
+                        p.AddHated(leader);
+                    }
+                    if (p.HasCloseStrainTo(nvren))
+                    {
+                        // person close to killed one hates executor
+                        p.AddHated(leader);
+                    }
+                }
             }
 
             nvren.Status = PersonStatus.Princess;
@@ -10254,6 +10279,7 @@ namespace GameObjects
             if (this.Status == PersonStatus.Princess)
             {
                 this.Status = PersonStatus.Normal;
+                /*
                 if (!this.Hates(this.BelongedFaction.Leader) && this.Spouse != null && this.Spouse != this.BelongedFaction.Leader)
                 {
                     this.AdjustRelation(this.BelongedFaction.Leader, 20, 5);
@@ -10261,6 +10287,7 @@ namespace GameObjects
 
                     this.BelongedFaction.Leader.IncreaseReputation(300);
                 }
+                */
                 Session.Current.Scenario.YearTable.addReleaseFromPrincessEntry(Session.Current.Scenario.Date, this, this.BelongedFaction.Leader);
             }
         }
@@ -10510,10 +10537,6 @@ namespace GameObjects
             {
                 this.hatedPersons.Add(p);
                 this.EnsureRelationAtMost(p, Session.Parameters.HateThreshold);
-            }
-            else if (p != null && p != this)
-            {
-                this.AdjustRelation(p, 0, Session.Parameters.HateThreshold);
             }
         }
 
