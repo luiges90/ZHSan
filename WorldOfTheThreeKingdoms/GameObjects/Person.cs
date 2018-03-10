@@ -10171,7 +10171,7 @@ namespace GameObjects
                 makeHateCausedByAffair(this, nvren, this, true);
 
                 if (GameObject.Chance(20) && nvren.GetRelation(this) >= Session.Parameters.VeryCloseThreshold / 2 && nvren.Spouse == null && 
-                    this.isLegalFeiZi(nvren) && nvren.isLegalFeiZi(this))
+                    this.isLegalFeiZi(nvren) && nvren.isLegalFeiZi(this) && !this.Hates(nvren))
                 {
                     nvren.Spouse = this;
 
