@@ -1391,6 +1391,7 @@ namespace GameObjects
                     {
                         foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
                         {
+                            if (p.huaiyun) continue;
                             if (!IsPersonForHouGong(p, true))
                             {
                                 if (p.PrincessTaker != this.Leader && !p.Hates(this.Leader))
