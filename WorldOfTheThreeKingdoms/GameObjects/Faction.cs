@@ -6305,7 +6305,6 @@ namespace GameObjects
                 }
 
                 float num = (Session.Parameters.InternalSurplusFactor - this.Power) / (float) Session.Parameters.InternalSurplusFactor;
-                num = num * num;
 
                 if (num < 0.2f)
                 {
