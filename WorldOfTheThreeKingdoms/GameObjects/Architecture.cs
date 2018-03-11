@@ -10742,7 +10742,7 @@ namespace GameObjects
                     int armyScaleRequiredForAttack = (int)(this.getArmyScaleRequiredForAttack(wayToTarget) * (GameObject.Random(minRequiredFactor, 100) / 100.0f));
                     int armyScaleHere = (wayToTarget.Kind == LinkKind.Land ? this.LandArmyScale : (this.WaterArmyScale + this.LandArmyScale / 2));
 
-                    if (armyScaleHere < armyScaleRequiredForAttack && !this.IsTroopExceedsLimit)
+                    if (armyScaleHere < armyScaleRequiredForAttack)
                     {
                         this.PlanArchitecture = null;
                         return;
