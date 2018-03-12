@@ -9963,7 +9963,9 @@ namespace GameObjects
 
             if (addHate)
             {
-                nvren.AddHated(leader);
+                if (nvren.PersonalLoyalty >= 4) nvren.Hates(leader);
+                else if (nvren.PersonalLoyalty >= 2 && nvren.Spouse != null && nvren.Spouse.Alive) nvren.Hates(leader);
+
                 foreach (Person p in Session.Current.Scenario.Persons)
                 {
                     if (p == nvren) continue;
