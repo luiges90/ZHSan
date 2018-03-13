@@ -2695,7 +2695,8 @@ namespace GameObjects
             {
                 extraRate += 1.6f;
             }
-            extraRate += q.GetRelation(this) * 0.0001f + this.GetRelation(q) * 0.0001f;
+            extraRate += q.GetRelation(this) * 0.0001f * Math.Max(1, (float) Session.Parameters.MaxRelation / (Session.Parameters.MaxRelation + Session.Parameters.VeryCloseThreshold - q.GetRelation(this)));
+            extraRate += this.GetRelation(q) * 0.0001f * Math.Max(1, (float) Session.Parameters.MaxRelation / (Session.Parameters.MaxRelation + Session.Parameters.VeryCloseThreshold - this.GetRelation(q)));
 
             if (this.Age > 40 + (this.Sex ? 0 : 10))
             {
@@ -10659,16 +10660,16 @@ namespace GameObjects
                     float actualVal;
                     if (this.relations[p] > 0)
                     {
-                        actualVal = val * (10000.0f - this.relations[p]) / 10000 * 2;
+                        actualVal = val * ((float) Session.Parameters.MaxRelation - this.relations[p]) / Session.Parameters.MaxRelation * 2;
                     }
                     else
                     {
                         actualVal = val;
                     }
                     this.relations[p] = (int)(this.relations[p] + actualVal);
-                    if (this.relations[p] > 10000)
+                    if (this.relations[p] > Session.Parameters.MaxRelation)
                     {
-                        this.relations[p] = 10000;
+                        this.relations[p] = Session.Parameters.MaxRelation;
                     }
                 }
                 else

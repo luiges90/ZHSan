@@ -336,6 +336,8 @@ namespace GameGlobal
         public float InternalSurplusMinEffect = 0.2f;
         [DataMember]
         public int DayInTurn = 1;
+        [DataMember]
+        public int MaxRelation = 10000;
 
         public Parameters Clone()
         {
@@ -516,6 +518,7 @@ namespace GameGlobal
             InternalSurplusMinEffect = float.Parse(nextSibling.Attributes.GetNamedItem("InternalSurplusMinEffect").Value);
 
             DayInTurn = int.Parse(nextSibling.Attributes.GetNamedItem("DayInTurn").Value);
+            MaxRelation = int.Parse(nextSibling.Attributes.GetNamedItem("MaxRelation").Value);
 
             InitBaseRates();
         }
@@ -550,6 +553,14 @@ namespace GameGlobal
             AIAntiSurround = (int) (year * AIAntiSurroundIncreaseRate + BasicAIAntiSurround);
             AIAntiStratagem = (int) (year * AIAntiStratagemIncreaseRate + BasicAIAntiStratagem);
             AIExtraPerson = year * AIExtraPersonIncreaseRate + BasicAIExtraPerson;
+        }
+
+        public void MigrateData()
+        {
+            if (MaxRelation == 0)
+            {
+                MaxRelation = 10000;
+            }
         }
     }
 }

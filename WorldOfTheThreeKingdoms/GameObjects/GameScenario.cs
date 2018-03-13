@@ -2299,6 +2299,8 @@ namespace GameObjects
                 }
             }
 
+            Session.Parameters.MigrateData();
+
             /*
             this.GameProgressCaution = new GameFreeText.FreeText(new System.Drawing.Font("宋体", 16f), new Color(1f, 1f, 1f));
             this.GameProgressCaution.Text = "——";
