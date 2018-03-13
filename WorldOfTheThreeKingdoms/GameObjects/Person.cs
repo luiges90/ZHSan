@@ -9963,8 +9963,7 @@ namespace GameObjects
 
             if (addHate)
             {
-                if (nvren.PersonalLoyalty >= 4) nvren.Hates(leader);
-                else if (nvren.PersonalLoyalty >= 2 && nvren.Spouse != null && nvren.Spouse.Alive) nvren.Hates(leader);
+                if (nvren.PersonalLoyalty >= 2) nvren.Hates(leader);
 
                 foreach (Person p in Session.Current.Scenario.Persons)
                 {
@@ -9976,7 +9975,6 @@ namespace GameObjects
                     }
                     if (p.HasCloseStrainTo(nvren))
                     {
-                        // person close to killed one hates executor
                         p.AddHated(leader);
                     }
                 }
