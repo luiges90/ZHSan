@@ -4855,12 +4855,15 @@ namespace GameObjects
                 foreach (DiplomaticRelation rel in Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelationListByFactionID(base.ID))
                 {
                     Faction opposite = rel.GetDiplomaticFaction(this.ID);
-                    if (rel.Relation > 300) continue;
-                    if (rel.Truce > 0)
+                    if (opposite != null)
                     {
-                        rel.Relation += 5;
+                        if (rel.Relation > 300) continue;
+                        if (rel.Truce > 0)
+                        {
+                            rel.Relation += 5;
+                        }
+                        rel.Relation += (int)(Person.GetIdealAttraction(opposite.Leader, this.Leader) * (GameObject.Random(100) / 1000.0f + 0.1f) / (Math.Abs(rel.Relation) / 10.0f + 1));
                     }
-                    rel.Relation += (int)(Person.GetIdealAttraction(opposite.Leader, this.Leader) * (GameObject.Random(100) / 1000.0f + 0.1f) / (Math.Abs(rel.Relation) / 10.0f + 1));
                 }
 
                     /*
