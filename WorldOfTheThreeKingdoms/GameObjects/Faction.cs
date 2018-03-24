@@ -1122,6 +1122,8 @@ namespace GameObjects
 
             if (this.Leader.NumberOfChildren >= Session.GlobalVariables.OfficerChildrenLimit) return;
 
+            if (this.Leader.Age <= 12) return;
+
             // build hougong
             if (this.meinvkongjian() - this.feiziCount() <= 0 && !this.isAlien && 
                 GameObject.Random((int)(GameObject.Square(unAmbition) * Session.Parameters.AIBuildHougongUnambitionProbWeight + GameObject.Square(this.meinvkongjian()) * unAmbition * Session.Parameters.AIBuildHougongSpaceBuiltProbWeight)) == 0)
