@@ -1095,6 +1095,23 @@ namespace GameObjects
                                 }
                             }
                         }
+                        if (dest == null)
+                        {
+                            foreach (Architecture b in this.Architectures)
+                            {
+                                if (a == b) continue;
+                                if (!b.HasHostileTroopsInView() &&
+                                    (b.Meinvkongjian > b.Feiziliebiao.Count || b.BelongedFaction.IsAlien) &&
+                                    (a.withoutTruceFrontline || b.Meinvkongjian > a.Meinvkongjian))
+                                {
+                                    if (b.Population > maxPop * 1.1 && (dest == null || b.Endurance > dest.Endurance) && b.Endurance > a.Endurance)
+                                    {
+                                        maxPop = b.Population;
+                                        dest = b;
+                                    }
+                                }
+                            }
+                        }
                         if (dest != null)
                         {
                             int cnt = dest.BelongedFaction.IsAlien ? 9999 : dest.Meinvkongjian - dest.Feiziliebiao.Count;
