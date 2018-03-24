@@ -10198,17 +10198,17 @@ namespace GameObjects
             foreach (Person i in suoshurenwuList)
             {
                 PersonList t = new PersonList();
-                if (i.Status != PersonStatus.Princess && ((p.Status != PersonStatus.Princess && q.Status != PersonStatus.Princess) || alreadyPrincess))
+                if (i.Status != PersonStatus.Princess)
                 {
-                    if (i != null && i != p && !i.IsCloseTo(p) && !result.ContainsKey(i) && !i.Hates(p))
+                    if (i != null && i != p && p.Status != PersonStatus.Princess && !i.IsCloseTo(p) && !result.ContainsKey(i) && !i.Hates(p))
                     {
                         t.Add(p);
                     }
-                    if (i != null && i != q && !i.IsCloseTo(q) && !result.ContainsKey(i) && !i.Hates(q))
+                    if (i != null && i != q && q.Status != PersonStatus.Princess && !i.IsCloseTo(q) && !result.ContainsKey(i) && !i.Hates(q))
                     {
                         t.Add(q);
                     }
-                    if (i != null && i != causer && !i.IsCloseTo(causer) && !result.ContainsKey(i) && !i.Hates(causer))
+                    if (i != null && i != causer && causer.Status != PersonStatus.Princess && !i.IsCloseTo(causer) && !result.ContainsKey(i) && !i.Hates(causer))
                     {
                         t.Add(causer);
                     }
@@ -10229,7 +10229,15 @@ namespace GameObjects
                     {
                         t.Add(causer);
                     }
-                    result.Add(p, t);
+                    if (result.ContainsKey(p))
+                    {
+                        t.AddRange(result[p]);
+                        result[p] = t;
+                    }
+                    else
+                    {
+                        result.Add(p, t);
+                    }
                 }
             }
             if (q.Spouse != null && !q.IsVeryCloseTo(p) && !q.IsVeryCloseTo(causer) && q != causer && q != p)
@@ -10245,7 +10253,15 @@ namespace GameObjects
                     {
                         t.Add(causer);
                     }
-                    result.Add(q, t);
+                    if (result.ContainsKey(q))
+                    {
+                        t.AddRange(result[q]);
+                        result[q] = t;
+                    }
+                    else
+                    {
+                        result.Add(q, t);
+                    }
                 }
             }
 
