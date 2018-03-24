@@ -9964,7 +9964,7 @@ namespace GameObjects
 
             if (addHate)
             {
-                if (nvren.PersonalLoyalty >= 2) nvren.Hates(leader);
+                if (nvren.PersonalLoyalty >= 2) nvren.AddHated(leader);
 
                 foreach (Person p in Session.Current.Scenario.Persons)
                 {
@@ -10192,34 +10192,28 @@ namespace GameObjects
             }
         }
 
-        public Dictionary<Person, PersonList> willHateCausedByAffair(Person p, Person q, Person causer, GameObjectList suoshurenwuList, bool alreadyPrincess = false)
+        public static Dictionary<Person, PersonList> willHateCausedByAffair(Person p, Person q, Person causer, GameObjectList suoshurenwuList, bool alreadyPrincess = false)
         {
             Dictionary<Person, PersonList> result = new Dictionary<Person, PersonList>();
             foreach (Person i in suoshurenwuList)
             {
-                if (i != p && i != q && i != causer && i != null 
-                    && i.Status != PersonStatus.Princess && ((p.Status != PersonStatus.Princess && q.Status != PersonStatus.Princess) || alreadyPrincess)
-                    && !i.IsCloseTo(p)
-                    && !i.IsCloseTo(q)
-                    && !i.IsCloseTo(causer)
-                    && !p.IsCloseTo(i) && !q.IsCloseTo(i) && !causer.IsCloseTo(i)
-                    && !result.ContainsKey(i))
+                PersonList t = new PersonList();
+                if (i.Status != PersonStatus.Princess && ((p.Status != PersonStatus.Princess && q.Status != PersonStatus.Princess) || alreadyPrincess))
                 {
-                    PersonList t = new PersonList();
-                    if (!i.Hates(p))
+                    if (i != null && i != p && !i.IsCloseTo(p) && !result.ContainsKey(i) && !i.Hates(p))
                     {
                         t.Add(p);
                     }
-                    if (!i.Hates(q))
+                    if (i != null && i != q && !i.IsCloseTo(q) && !result.ContainsKey(i) && !i.Hates(q))
                     {
                         t.Add(q);
                     }
-                    if (!i.Hates(causer))
+                    if (i != null && i != causer && !i.IsCloseTo(causer) && !result.ContainsKey(i) && !i.Hates(causer))
                     {
                         t.Add(causer);
                     }
-                    result.Add(i, t);
                 }
+                result.Add(i, t);
             }
 
             if (p.Spouse != null && !p.IsVeryCloseTo(q) && !p.IsVeryCloseTo(causer) && p != causer && p != q)
@@ -10262,7 +10256,7 @@ namespace GameObjects
         {
             GameObjectList list = p.suoshurenwuList.GetList();
             list.AddRange(q.suoshurenwuList);
-            Dictionary<Person, PersonList> t = willHateCausedByAffair(p, q, causer, list, alreadyPrincess);
+            Dictionary<Person, PersonList> t = Person.willHateCausedByAffair(p, q, causer, list, alreadyPrincess);
             foreach (KeyValuePair<Person, PersonList> i in t)
             {
                 foreach (Person j in i.Value)

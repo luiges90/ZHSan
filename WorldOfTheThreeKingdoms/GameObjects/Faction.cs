@@ -906,7 +906,7 @@ namespace GameObjects
 
         private Person WillHateLeaderDueToAffair(Person p, GameObjectList suoshu)
         {
-            Dictionary<Person, PersonList> haters = p.willHateCausedByAffair(p, this.Leader, this.Leader, suoshu, p.Status == PersonStatus.Princess);
+            Dictionary<Person, PersonList> haters = Person.willHateCausedByAffair(p, this.Leader, this.Leader, suoshu, p.Status == PersonStatus.Princess);
             PersonList leaderHaters = new PersonList();
             foreach (KeyValuePair<Person, PersonList> i in haters)
             {
