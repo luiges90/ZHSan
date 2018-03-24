@@ -1099,6 +1099,107 @@ namespace GameGlobal
             }
             return true;
         }
+
+        public void SaveToXml()
+        {
+            XmlDocument document = new XmlDocument();
+
+            XmlNode docNode = document.CreateXmlDeclaration("1.0", "utf-8", null);
+            document.AppendChild(docNode);
+
+            XmlElement element = document.CreateElement("GlobalVariables");
+            element.SetAttribute("MapScrollSpeed", MapScrollSpeed.ToString());
+            element.SetAttribute("TroopMoveSpeed", TroopMoveSpeed.ToString());
+            element.SetAttribute("RunWhileNotFocused", RunWhileNotFocused.ToString());
+            element.SetAttribute("PlayMusic", PlayMusic.ToString());
+            element.SetAttribute("PlayNormalSound", PlayNormalSound.ToString());
+            element.SetAttribute("PlayBattleSound", PlayBattleSound.ToString());
+            element.SetAttribute("DrawMapVeil", DrawMapVeil.ToString());
+            element.SetAttribute("DrawTroopAnimation", DrawTroopAnimation.ToString());
+            element.SetAttribute("SkyEye", SkyEye.ToString());
+            element.SetAttribute("MultipleResource", MultipleResource.ToString());
+            element.SetAttribute("SingleSelectionOneClick", SingleSelectionOneClick.ToString());
+            element.SetAttribute("NoHintOnSmallFacility", NoHintOnSmallFacility.ToString());
+            element.SetAttribute("HintPopulation", HintPopulation.ToString());
+            element.SetAttribute("HintPopulationUnder1000", HintPopulationUnder1000.ToString());
+            element.SetAttribute("PopulationRecruitmentLimit", PopulationRecruitmentLimit.ToString());
+            element.SetAttribute("MilitaryKindSpeedValid", MilitaryKindSpeedValid.ToString());
+            element.SetAttribute("CommonPersonAvailable", CommonPersonAvailable.ToString());
+            element.SetAttribute("AdditionalPersonAvailable", AdditionalPersonAvailable.ToString());
+            element.SetAttribute("PlayerPersonAvailable", PlayerPersonAvailable.ToString());
+            element.SetAttribute("PersonNaturalDeath", PersonNaturalDeath.ToString());
+            element.SetAttribute("IdealTendencyValid", IdealTendencyValid.ToString());
+            element.SetAttribute("PinPointAtPlayer", PinPointAtPlayer.ToString());
+            element.SetAttribute("IgnoreStrategyTendency", IgnoreStrategyTendency.ToString());
+            element.SetAttribute("createChildren", createChildren.ToString());
+            element.SetAttribute("zainanfashengjilv", zainanfashengjilv.ToString());
+            element.SetAttribute("doAutoSave", doAutoSave.ToString());
+            element.SetAttribute("createChildrenIgnoreLimit", createChildrenIgnoreLimit.ToString());
+            element.SetAttribute("internalSurplusRateForPlayer", internalSurplusRateForPlayer.ToString());
+            element.SetAttribute("internalSurplusRateForAI", internalSurplusRateForAI.ToString());
+            element.SetAttribute("getChildrenRate", getChildrenRate.ToString());
+            element.SetAttribute("hougongGetChildrenRate", hougongGetChildrenRate.ToString());
+            element.SetAttribute("AIExecutionRate", AIExecutionRate.ToString());
+            element.SetAttribute("AIExecuteBetterOfficer", AIExecuteBetterOfficer.ToString());
+            element.SetAttribute("maxExperience", maxExperience.ToString());
+            element.SetAttribute("lockChildrenLoyalty", lockChildrenLoyalty.ToString());
+            element.SetAttribute("AIAutoTakeNoFactionCaptives", AIAutoTakeNoFactionCaptives.ToString());
+            element.SetAttribute("AIAutoTakeNoFactionPerson", AIAutoTakeNoFactionPerson.ToString());
+            element.SetAttribute("AIAutoTakePlayerCaptives", AIAutoTakePlayerCaptives.ToString());
+            element.SetAttribute("AIAutoTakePlayerCaptiveOnlyUnfull", AIAutoTakePlayerCaptiveOnlyUnfull.ToString());
+            element.SetAttribute("DialogShowTime", DialogShowTime.ToString());
+            element.SetAttribute("TechniquePointMultiple", TechniquePointMultiple.ToString());
+            element.SetAttribute("PermitFactionMerge", PermitFactionMerge.ToString());
+            element.SetAttribute("GameDifficulty", GameDifficulty.ToString());
+            element.SetAttribute("LeadershipOffenceRate", LeadershipOffenceRate.ToString());
+            element.SetAttribute("LiangdaoXitong", LiangdaoXitong.ToString());
+            element.SetAttribute("WujiangYoukenengDuli", WujiangYoukenengDuli.ToString());
+            element.SetAttribute("FastBattleSpeed", FastBattleSpeed.ToString());
+            element.SetAttribute("AINoTeamTransfer", AINoTeamTransfer.ToString());
+            element.SetAttribute("EnableCheat", EnableCheat.ToString());
+            element.SetAttribute("HardcoreMode", HardcoreMode.ToString());
+            element.SetAttribute("LandArmyCanGoDownWater", LandArmyCanGoDownWater.ToString());
+            element.SetAttribute("MaxAbility", MaxAbility.ToString());
+            element.SetAttribute("TirednessIncrease", TirednessIncrease.ToString());
+            element.SetAttribute("TirednessDecrease", TirednessDecrease.ToString());
+            element.SetAttribute("EnableAgeAbilityFactor", EnableAgeAbilityFactor.ToString());
+            element.SetAttribute("TabListDetailLevel", TabListDetailLevel.ToString());
+            element.SetAttribute("EnableExtensions", EnableExtensions.ToString());
+            element.SetAttribute("EncryptSave", EncryptSave.ToString());
+            element.SetAttribute("AutoSaveFrequency", AutoSaveFrequency.ToString());
+            element.SetAttribute("ShowChallengeAnimation", ShowChallengeAnimation.ToString());
+            element.SetAttribute("PersonDieInChallenge", PersonDieInChallenge.ToString());
+            element.SetAttribute("OfficerDieInBattleRate", OfficerDieInBattleRate.ToString());
+            element.SetAttribute("OfficerChildrenLimit", OfficerChildrenLimit.ToString());
+            element.SetAttribute("StopToControlOnAttack", StopToControlOnAttack.ToString());
+            element.SetAttribute("MaxMilitaryExperience", MaxMilitaryExperience.ToString());
+            element.SetAttribute("CreateRandomOfficerChance", CreateRandomOfficerChance.ToString());
+            element.SetAttribute("ZhaoXianSuccessRate", ZhaoXianSuccessRate.ToString());
+            element.SetAttribute("CreatedOfficerAbilityFactor", CreatedOfficerAbilityFactor.ToString());
+            element.SetAttribute("EnablePersonRelations", EnablePersonRelations.ToString());
+            element.SetAttribute("ChildrenAvailableAge", ChildrenAvailableAge.ToString());
+            element.SetAttribute("FullScreen", FullScreen.ToString());
+            element.SetAttribute("FriendlyDiplomacyThreshold", FriendlyDiplomacyThreshold.ToString());
+            element.SetAttribute("SurroundFactor", SurroundFactor.ToString());
+            element.SetAttribute("ArmyPopulationCap", ArmyPopulationCap.ToString());
+            element.SetAttribute("PermitQuanXiang", PermitQuanXiang.ToString());
+            element.SetAttribute("PermitManualAwardTitleAutoLearn", PermitManualAwardTitleAutoLearn.ToString());
+            element.SetAttribute("zhaoxianOfficerMax", zhaoxianOfficerMax.ToString());
+            element.SetAttribute("FactionMilitaryLimt", FactionMilitaryLimt.ToString());
+            element.SetAttribute("FixedUnnaturalDeathAge", FixedUnnaturalDeathAge.ToString());
+            element.SetAttribute("AIQuickBattle", AIQuickBattle.ToString());
+            element.SetAttribute("PlayerAutoSectionHasAIResourceBonus", PlayerAutoSectionHasAIResourceBonus.ToString());
+            element.SetAttribute("ChildrenAbilityFactor", ChildrenAbilityFactor.ToString());
+            element.SetAttribute("ProhibitFactionAgainstDestroyer", ProhibitFactionAgainstDestroyer.ToString());
+            element.SetAttribute("AIMergeAgainstPlayer", AIMergeAgainstPlayer.ToString());
+            element.SetAttribute("RemoveSpouseIfNotAvailable", RemoveSpouseIfNotAvailable.ToString());
+            element.SetAttribute("SkyEyeSimpleNotification", SkyEyeSimpleNotification.ToString());
+            element.SetAttribute("AutoMultipleMarriage", AutoMultipleMarriage.ToString());
+
+            document.AppendChild(element);
+        
+            Platform.Current.SaveUserFile("Content/Data/GlobalVariables.xml", document.OuterXml, true);
+        }
     }
 }
 

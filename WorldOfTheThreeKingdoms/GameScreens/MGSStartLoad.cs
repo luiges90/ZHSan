@@ -204,6 +204,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             if (base.LoadScenarioInInitialization)
             {
+                Session.GlobalVariables.SaveToXml();
+                Session.Parameters.SaveToXml();
                 Session.Current.Scenario.AfterLoadGameScenario(this);
             }
             else
