@@ -14705,7 +14705,7 @@ namespace GameObjects
             {
                 foreach (Person person in this.NoFactionPersons)
                 {
-                    if (person.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person))
+                    if (person.BelongedFactionWithPrincess == null || person.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person))
                     {
                         nvxingwujiangliebiao.Add(person);
                     }
