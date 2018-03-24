@@ -519,8 +519,6 @@ namespace GameGlobal
 
             DayInTurn = int.Parse(nextSibling.Attributes.GetNamedItem("DayInTurn").Value);
             MaxRelation = int.Parse(nextSibling.Attributes.GetNamedItem("MaxRelation").Value);
-
-            InitBaseRates();
         }
 
         public void InitBaseRates()
@@ -531,7 +529,7 @@ namespace GameGlobal
             BasicAITroopDefenceRate = AITroopDefenceRate;
             BasicAIArchitectureDamageRate = AIArchitectureDamageRate;
             BasicAITrainingSpeedRate = AITrainingSpeedRate;
-            BasicAIRecruitmentSpeedRate = AIRecruitmentSpeedRate;
+            BasicAIRecruitmentSpeedRate = AIRecruitmentSpeedRate; 
             BasicAIArmyExperienceRate = AIArmyExperienceRate;
             BasicAIOfficerExperienceRate = AIOfficerExperienceRate;
             BasicAIAntiStratagem = AIAntiStratagem;

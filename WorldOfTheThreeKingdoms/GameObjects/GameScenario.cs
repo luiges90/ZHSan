@@ -2266,7 +2266,6 @@ namespace GameObjects
 
         public void InitialGameData()
         {
-            Session.Parameters.InitBaseRates();
             this.InitializeSectionData();
             this.InitializeRoutewayData();
             this.InitializeArchitectureData();
@@ -3809,6 +3808,7 @@ namespace GameObjects
             this.Persons.ApplyInfluences();
             this.Preparing = false;
             this.InitialGameData();
+            Session.Parameters.InitBaseRates();
 
             if (this.OnAfterLoadScenario != null)
             {
