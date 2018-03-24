@@ -10965,7 +10965,7 @@ namespace GameObjects
         {
             get
             {
-                return this.IsGeneratedChildren && this.Alive && this.Age >= 4;
+                return this.IsGeneratedChildren && this.Alive && this.Age >= 4 && !(this.Available && this.Age >= 12);
             }
         }
 
