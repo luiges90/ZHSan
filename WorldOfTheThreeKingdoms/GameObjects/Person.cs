@@ -10169,7 +10169,7 @@ namespace GameObjects
                     p.AdjustRelation(nvren, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
                 }
 
-                makeHateCausedByAffair(this, nvren, this, true);
+                makeHateCausedByAffair(this, nvren, this);
 
                 if (GameObject.Chance(20) && nvren.GetRelation(this) >= Session.Parameters.VeryCloseThreshold / 2 && nvren.Spouse == null && 
                     this.isLegalFeiZi(nvren) && nvren.isLegalFeiZi(this) && !this.Hates(nvren))
@@ -10192,7 +10192,7 @@ namespace GameObjects
             }
         }
 
-        public static Dictionary<Person, PersonList> willHateCausedByAffair(Person p, Person q, Person causer, GameObjectList suoshurenwuList, bool alreadyPrincess = false)
+        public static Dictionary<Person, PersonList> willHateCausedByAffair(Person p, Person q, Person causer, GameObjectList suoshurenwuList, bool simulateMarry)
         {
             Dictionary<Person, PersonList> result = new Dictionary<Person, PersonList>();
             foreach (Person i in suoshurenwuList)
@@ -10200,15 +10200,15 @@ namespace GameObjects
                 PersonList t = new PersonList();
                 if (i.Status != PersonStatus.Princess)
                 {
-                    if (i != null && i != p && p.Status != PersonStatus.Princess && !i.IsCloseTo(p) && !result.ContainsKey(i) && !i.Hates(p))
+                    if (i != null && i != p && p.Status != PersonStatus.Princess && !i.IsCloseTo(p) && p.Spouse != i && !t.HasGameObject(p) && !i.Hates(p) && (simulateMarry && i != p && i != q && i != causer))
                     {
                         t.Add(p);
                     }
-                    if (i != null && i != q && q.Status != PersonStatus.Princess && !i.IsCloseTo(q) && !result.ContainsKey(i) && !i.Hates(q))
+                    if (i != null && i != q && q.Status != PersonStatus.Princess && !i.IsCloseTo(q) && q.Spouse != i && !t.HasGameObject(q) && !i.Hates(q) && (simulateMarry && i != p && i != q && i != causer))
                     {
                         t.Add(q);
                     }
-                    if (i != null && i != causer && causer.Status != PersonStatus.Princess && !i.IsCloseTo(causer) && !result.ContainsKey(i) && !i.Hates(causer))
+                    if (i != null && i != causer && causer.Status != PersonStatus.Princess && !i.IsCloseTo(causer) && causer.Spouse != i && !t.HasGameObject(causer) && !i.Hates(causer) && (simulateMarry && i != p && i != q && i != causer))
                     {
                         t.Add(causer);
                     }
@@ -10216,63 +10216,95 @@ namespace GameObjects
                 result.Add(i, t);
             }
 
-            if (p.Spouse != null && !p.IsVeryCloseTo(q) && !p.IsVeryCloseTo(causer) && p != causer && p != q)
+            if (p.Spouse != null && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse.Alive)))
             {
-                if (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse.Alive))
+                PersonList t = new PersonList();
+                if (p != q && !p.Hates(q) && !p.IsVeryCloseTo(q) && !t.HasGameObject(q))
                 {
-                    PersonList t = new PersonList();
-                    if (!p.Hates(q))
-                    {
-                        t.Add(q);
-                    }
-                    if (!p.Hates(causer))
-                    {
-                        t.Add(causer);
-                    }
-                    if (result.ContainsKey(p))
-                    {
-                        t.AddRange(result[p]);
-                        result[p] = t;
-                    }
-                    else
-                    {
-                        result.Add(p, t);
-                    }
+                    t.Add(q);
+                }
+                if (p != causer && !p.Hates(causer) && !p.IsVeryCloseTo(causer) && !t.HasGameObject(causer))
+                {
+                    t.Add(causer);
+                }
+                if (result.ContainsKey(p))
+                {
+                    t.AddRange(result[p]);
+                    result[p] = t;
+                }
+                else
+                {
+                    result.Add(p, t);
+                }
+
+                PersonList u = new PersonList();
+                if (p.Spouse != q && !p.Spouse.Hates(q) && !p.Spouse.IsVeryCloseTo(q) && !u.HasGameObject(q))
+                {
+                    u.Add(q);
+                }
+                if (p.Spouse != causer && !p.Spouse.Hates(causer) && !p.Spouse.IsVeryCloseTo(causer) && !u.HasGameObject(causer))
+                {
+                    u.Add(causer);
+                }
+                if (result.ContainsKey(p.Spouse))
+                {
+                    u.AddRange(result[p.Spouse]);
+                    result[p.Spouse] = u;
+                }
+                else
+                {
+                    result.Add(p.Spouse, u);
                 }
             }
-            if (q.Spouse != null && !q.IsVeryCloseTo(p) && !q.IsVeryCloseTo(causer) && q != causer && q != p)
+            if (q.Spouse != null && (q.PersonalLoyalty >= 4 || (q.PersonalLoyalty >= 2 && q.Spouse.Alive)))
             {
-                if (q.PersonalLoyalty >= 4 || (q.PersonalLoyalty >= 2 && q.Spouse.Alive))
+                PersonList t = new PersonList();
+                if (q != p && !q.Hates(p) && !q.IsVeryCloseTo(p) && !t.HasGameObject(p))
                 {
-                    PersonList t = new PersonList();
-                    if (!q.Hates(p))
-                    {
-                        t.Add(p);
-                    }
-                    if (!q.Hates(causer))
-                    {
-                        t.Add(causer);
-                    }
-                    if (result.ContainsKey(q))
-                    {
-                        t.AddRange(result[q]);
-                        result[q] = t;
-                    }
-                    else
-                    {
-                        result.Add(q, t);
-                    }
+                    t.Add(p);
+                }
+                if (q != causer && !q.Hates(causer) && !q.IsVeryCloseTo(causer) && !t.HasGameObject(causer))
+                {
+                    t.Add(causer);
+                }
+                if (result.ContainsKey(q))
+                {
+                    t.AddRange(result[q]);
+                    result[q] = t;
+                }
+                else
+                {
+                    result.Add(q, t);
+                }
+
+                PersonList u = new PersonList();
+                if (q.Spouse != p && !q.Spouse.Hates(p) && !q.Spouse.IsVeryCloseTo(p) && !u.HasGameObject(p))
+                {
+                    u.Add(p);
+                }
+                if (q.Spouse != causer && !q.Spouse.Hates(causer) && !q.Spouse.IsVeryCloseTo(causer) && !u.HasGameObject(causer))
+                {
+                    u.Add(causer);
+                }
+                if (result.ContainsKey(q.Spouse))
+                {
+                    u.AddRange(result[q.Spouse]);
+                    result[q.Spouse] = u;
+                }
+                else
+                {
+                    result.Add(q.Spouse, u);
                 }
             }
 
             return result;
         }
 
-        public void makeHateCausedByAffair(Person p, Person q, Person causer, bool alreadyPrincess = false)
+        public void makeHateCausedByAffair(Person p, Person q, Person causer)
         {
             GameObjectList list = p.suoshurenwuList.GetList();
             list.AddRange(q.suoshurenwuList);
-            Dictionary<Person, PersonList> t = Person.willHateCausedByAffair(p, q, causer, list, alreadyPrincess);
+            Dictionary<Person, PersonList> t = Person.willHateCausedByAffair(p, q, causer, list, false);
             foreach (KeyValuePair<Person, PersonList> i in t)
             {
                 foreach (Person j in i.Value)

@@ -2293,6 +2293,7 @@ namespace GameObjects
                 {
                     if (!p.Available && p.Spouse != null && !p.Spouse.Available)
                     {
+                        p.suoshurenwuList.Remove(p.Spouse);
                         p.Spouse = null;
                     }
                 }

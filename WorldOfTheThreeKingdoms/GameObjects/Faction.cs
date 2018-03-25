@@ -887,7 +887,7 @@ namespace GameObjects
                                         (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (p.Age >= 16 && p.Age <= Session.Parameters.AINafeiMaxAgeThresholdAdd + (int)leader.Ambition * Session.Parameters.AINafeiMaxAgeThresholdMultiply)) &&
                                         p.marriageGranter != this.Leader && !p.Hates(this.Leader);
 
-            Person hater = WillHateLeaderDueToAffair(p, p.suoshurenwuList.GetList());
+            Person hater = WillHateLeaderDueToAffair(p, this.Leader, p.suoshurenwuList.GetList(), false);
 
             if (this.IsAlien && (hater == null ||  hater.PersonalLoyalty >= 2))
             {
@@ -904,9 +904,9 @@ namespace GameObjects
             return (take || alreadyTaken) && (hater == null || (leader.PersonalLoyalty <= (int)PersonLoyalty.普通 && hater.UnalteredUntiredMerit * (leader.PersonalLoyalty * Session.Parameters.AINafeiStealSpouseThresholdRateMultiply + Session.Parameters.AINafeiStealSpouseThresholdRateAdd) < this.Leader.UnalteredUntiredMerit));
         }
 
-        private Person WillHateLeaderDueToAffair(Person p, GameObjectList suoshu)
+        private Person WillHateLeaderDueToAffair(Person p, Person q, GameObjectList suoshu, bool simulateMarry)
         {
-            Dictionary<Person, PersonList> haters = Person.willHateCausedByAffair(p, this.Leader, this.Leader, suoshu, p.Status == PersonStatus.Princess);
+            Dictionary<Person, PersonList> haters = Person.willHateCausedByAffair(p, q, this.Leader, suoshu, simulateMarry);
             PersonList leaderHaters = new PersonList();
             foreach (KeyValuePair<Person, PersonList> i in haters)
             {
@@ -1007,14 +1007,14 @@ namespace GameObjects
                             if (Session.GlobalVariables.hougongGetChildrenRate > 0)
                             {
                                 if (IsPersonForHouGong(q)) continue;
+                                
+                                GameObjectList simulatSuoshu = p.suoshurenwuList.GetList();
+                                simulatSuoshu.Add(p);
+                                simulatSuoshu.AddRange(q.suoshurenwuList.GetList());
+                                simulatSuoshu.Add(q);
 
-                                Person t = p.Sex != Leader.Sex ? p : q;
-                                Person u = p.Sex != Leader.Sex ? q : p;
-                                GameObjectList simulatSuoshu = t.suoshurenwuList.GetList();
-                                simulatSuoshu.Add(u);
-
-                                Person hater = WillHateLeaderDueToAffair(t, simulatSuoshu);
-                                if (hater != null && hater != u) continue;
+                                Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, true);
+                                if (hater != null && hater != p && hater != q) continue;
                             }
 
                             if (p.LocationArchitecture == q.LocationArchitecture && p.LocationArchitecture != null &&
