@@ -10064,6 +10064,12 @@ namespace GameObjects
                         }
                     }
 
+                    if ((!q.Hates(this) && !this.Hates(q)) || (GameObject.Chance(this.Glamour / 2)))
+                    {
+                        this.AdjustRelation(q, houGongDays / 30.0f, 0);
+                        q.AdjustRelation(this, houGongDays / 30.0f, 0);
+                    }
+
                     if (!q.Hates(this) && !this.Hates(q))
                     {
                         this.AdjustRelation(q, houGongDays / 30.0f, 0);
