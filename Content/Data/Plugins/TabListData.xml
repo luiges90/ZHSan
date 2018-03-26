@@ -1885,16 +1885,23 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-<Column ID="38" Name="TransferingMilitaryCount" IsNumber="true" DisplayName="运输编队数量" MinWidth="80" DetailLevel="3"
+		<Column ID="38" Name="TransferingMilitaryCount" IsNumber="true" DisplayName="运输编队数量" MinWidth="80" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
+		<Column ID="40" Name="IsAlien" IsNumber="true" DisplayName="异族" MinWidth="40" DetailLevel="3"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4294375158"
+                Align="Middle">
+        </Column>
       </Columns>
       <Tabs Margin="5">
-        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 30 2 3 8 4 5 6 7 9 18">
+        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 30 2 3 8 4 5 6 7 9 18 40">
         </Tab>
         <Tab ID="2"  Name="Detail" DisplayName="细节" Columns="1 30 36 10 14 17 12 38 13 20">
         </Tab>
