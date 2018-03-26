@@ -158,8 +158,6 @@ namespace GameObjects
             LoseSkill = new List<KeyValuePair<int, int>>();
 
             maxExperience = Session.GlobalVariables.maxExperience;
-
-            princessTakerID = -1;
         }
         
         public int ChanceOfNoCapture;
