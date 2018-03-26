@@ -10334,6 +10334,8 @@ namespace GameObjects
             if (this.Status == PersonStatus.Princess)
             {
                 this.Status = PersonStatus.Normal;
+                Captive captive = Captive.Create(this, this.BelongedFaction);
+                this.Status = PersonStatus.Captive;
                 /*
                 if (!this.Hates(this.BelongedFaction.Leader) && this.Spouse != null && this.Spouse != this.BelongedFaction.Leader)
                 {
