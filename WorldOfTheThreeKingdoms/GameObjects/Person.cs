@@ -10217,7 +10217,15 @@ namespace GameObjects
                         t.Add(causer);
                     }
                 }
-                result.Add(i, t);
+                if (result.ContainsKey(i))
+                {
+                    t.AddRange(result[i]);
+                    result[i] = t;
+                }
+                else
+                {
+                    result.Add(i, t);
+                }
             }
 
             if (p.Spouse != null && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse.Alive)))
