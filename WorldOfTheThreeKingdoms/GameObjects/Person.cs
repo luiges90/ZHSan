@@ -2669,22 +2669,26 @@ namespace GameObjects
                     this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit &&
                     this.BelongedFactionWithPrincess.Leader.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
                 {
-                    float relationFactor = this.PregnancyRate(this.BelongedFactionWithPrincess.Leader) * 3;
-
-                    if (relationFactor > 0 && GameObject.Random((int)
-                        (30000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
+                    if (this.suoshurenwuList.HasGameObject(this.BelongedFactionWithPrincess.Leader) &&
+                        this.BelongedFactionWithPrincess.Leader.suoshurenwuList.HasGameObject(this))
                     {
-                        this.suoshurenwu = this.BelongedFactionWithPrincess.Leader.ID;
-                        this.BelongedFactionWithPrincess.Leader.suoshurenwu = this.ID;
-                        if (this.Sex)
+                        float relationFactor = this.PregnancyRate(this.BelongedFactionWithPrincess.Leader) * 4;
+
+                        if (relationFactor > 0 && GameObject.Random((int)
+                            (30000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
                         {
-                            this.huaiyun = true;
-                            this.huaiyuntianshu = 0;
-                        }
-                        else
-                        {
-                            this.BelongedFactionWithPrincess.Leader.huaiyun = true;
-                            this.BelongedFactionWithPrincess.Leader.huaiyuntianshu = 0;
+                            this.suoshurenwu = this.BelongedFactionWithPrincess.Leader.ID;
+                            this.BelongedFactionWithPrincess.Leader.suoshurenwu = this.ID;
+                            if (this.Sex)
+                            {
+                                this.huaiyun = true;
+                                this.huaiyuntianshu = 0;
+                            }
+                            else
+                            {
+                                this.BelongedFactionWithPrincess.Leader.huaiyun = true;
+                                this.BelongedFactionWithPrincess.Leader.huaiyuntianshu = 0;
+                            }
                         }
                     }
                 }
@@ -10047,8 +10051,6 @@ namespace GameObjects
                     houGongDays = GameObject.Random(10) + 60;
                 }
                 houGongDays /= 2;
-
-                nvren.PrincessTaker = this.BelongedFactionWithPrincess.Leader;
 
                 PersonList all = new PersonList();
                 all.Add(nvren);

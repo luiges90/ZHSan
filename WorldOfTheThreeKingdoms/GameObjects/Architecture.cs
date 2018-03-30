@@ -7467,7 +7467,7 @@ namespace GameObjects
                 PersonList list = new PersonList();
                 foreach (Person p in this.Feiziliebiao)
                 {
-                    if (p.PrincessTaker != this.BelongedFaction.Leader)
+                    if (!this.BelongedFaction.Leader.suoshurenwuList.HasGameObject(p))
                     {
                         list.Add(p);
                     }
