@@ -2642,6 +2642,9 @@ namespace GameObjects
                             this.Spouse.huaiyun = true;
                             this.Spouse.huaiyuntianshu = 0;
                         }
+
+                        this.AdjustRelation(this.Spouse, 1, 0);
+                        this.Spouse.AdjustRelation(this, 1, 0);
                     }
                 } 
                 else if (this.Status == PersonStatus.Princess && this.BelongedFactionWithPrincess.Leader.LocationArchitecture == this.BelongedArchitecture
@@ -2667,6 +2670,9 @@ namespace GameObjects
                             this.BelongedFactionWithPrincess.Leader.huaiyun = true;
                             this.BelongedFactionWithPrincess.Leader.huaiyuntianshu = 0;
                         }
+
+                        this.AdjustRelation(this.BelongedFactionWithPrincess.Leader, 1, 0);
+                        this.BelongedFactionWithPrincess.Leader.AdjustRelation(this, 1, 0);
                     }
                 }
             }
@@ -10070,9 +10076,6 @@ namespace GameObjects
 
                     if (!q.Hates(this) && !this.Hates(q))
                     {
-                        this.AdjustRelation(q, houGongDays / 30.0f, 0);
-                        q.AdjustRelation(this, houGongDays / 30.0f, 0);
-                    
                         if (GameObject.Random(30000 / (this.CommandExperience + 1)) == 0)
                         {
                             q.AddCommandExperience(GameObject.Random(houGongDays) + 1);
