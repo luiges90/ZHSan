@@ -2520,13 +2520,13 @@ namespace GameObjects
                         Person p = Session.Current.Scenario.Persons.GetGameObject(this.suoshurenwu) as Person;
                         if (!this.Hates(p) && !p.Hates(this))
                         {
-                            this.AdjustRelation(p, 0.5f, -1);
-                            p.AdjustRelation(this, 0.5f, -1);
+                            this.AdjustRelation(p, 0.25f, -1);
+                            p.AdjustRelation(this, 0.25f, -1);
 
                             if (this.LocationArchitecture == p.LocationArchitecture)
                             {
-                                this.AdjustRelation(p, 0.5f, 0);
-                                p.AdjustRelation(this, 0.5f, 0);
+                                this.AdjustRelation(p, 0.25f, 0);
+                                p.AdjustRelation(this, 0.25f, 0);
                             }
                         }
                     }
@@ -2639,7 +2639,9 @@ namespace GameObjects
                     }
                 }
                 else if (this.Spouse != null && !this.huaiyun && !this.Spouse.huaiyun && Session.GlobalVariables.getChildrenRate > 0 &&
-                    this.SameLocationAs(this.Spouse) && this.Status == PersonStatus.Normal && this.Spouse.Status == PersonStatus.Normal &&
+                    this.SameLocationAs(this.Spouse) && 
+                    (this.Status == PersonStatus.Normal || this.OutsideTask == OutsideTaskKind.后宮) && 
+                    (this.Spouse.Status == PersonStatus.Normal || this.Spouse.OutsideTask == OutsideTaskKind.后宮) &&
                     this.isLegalFeiZiExcludeAge(this.Spouse) && this.Spouse.isLegalFeiZiExcludeAge(this) &&
                     this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit &&
                     this.Spouse.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
