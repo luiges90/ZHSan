@@ -10204,15 +10204,15 @@ namespace GameObjects
                 PersonList t = new PersonList();
                 if (i.Status != PersonStatus.Princess)
                 {
-                    if (i != null && i != p && p.Status != PersonStatus.Princess && !i.IsCloseTo(p) && p.Spouse != i && !t.HasGameObject(p) && !i.Hates(p) && (simulateMarry && i != p && i != q && i != causer))
+                    if (i != null && i != p && p.Status != PersonStatus.Princess && !i.IsCloseTo(p) && p.Spouse != i && !t.HasGameObject(p) && !i.Hates(p) && (!simulateMarry || (i != p && i != q && i != causer)))
                     {
                         t.Add(p);
                     }
-                    if (i != null && i != q && q.Status != PersonStatus.Princess && !i.IsCloseTo(q) && q.Spouse != i && !t.HasGameObject(q) && !i.Hates(q) && (simulateMarry && i != p && i != q && i != causer))
+                    if (i != null && i != q && q.Status != PersonStatus.Princess && !i.IsCloseTo(q) && q.Spouse != i && !t.HasGameObject(q) && !i.Hates(q) && (!simulateMarry || (i != p && i != q && i != causer)))
                     {
                         t.Add(q);
                     }
-                    if (i != null && i != causer && causer.Status != PersonStatus.Princess && !i.IsCloseTo(causer) && causer.Spouse != i && !t.HasGameObject(causer) && !i.Hates(causer) && (simulateMarry && i != p && i != q && i != causer))
+                    if (i != null && i != causer && causer.Status != PersonStatus.Princess && !i.IsCloseTo(causer) && causer.Spouse != i && !t.HasGameObject(causer) && !i.Hates(causer) && (!simulateMarry || (i != p && i != q && i != causer)))
                     {
                         t.Add(causer);
                     }
@@ -10231,11 +10231,11 @@ namespace GameObjects
             if (p.Spouse != null && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse.Alive)))
             {
                 PersonList t = new PersonList();
-                if (p != q && !p.Hates(q) && !p.IsVeryCloseTo(q) && !t.HasGameObject(q))
+                if (p != q && !p.Hates(q) && !p.IsVeryCloseTo(q) && !t.HasGameObject(q) && q.Status != PersonStatus.Princess)
                 {
                     t.Add(q);
                 }
-                if (p != causer && !p.Hates(causer) && !p.IsVeryCloseTo(causer) && !t.HasGameObject(causer))
+                if (p != causer && !p.Hates(causer) && !p.IsVeryCloseTo(causer) && !t.HasGameObject(causer) && causer.Status != PersonStatus.Princess)
                 {
                     t.Add(causer);
                 }
@@ -10250,11 +10250,11 @@ namespace GameObjects
                 }
 
                 PersonList u = new PersonList();
-                if (p.Spouse != q && !p.Spouse.Hates(q) && !p.Spouse.IsVeryCloseTo(q) && !u.HasGameObject(q))
+                if (p.Spouse != q && !p.Spouse.Hates(q) && !p.Spouse.IsVeryCloseTo(q) && !u.HasGameObject(q) && q.Status != PersonStatus.Princess)
                 {
                     u.Add(q);
                 }
-                if (p.Spouse != causer && !p.Spouse.Hates(causer) && !p.Spouse.IsVeryCloseTo(causer) && !u.HasGameObject(causer))
+                if (p.Spouse != causer && !p.Spouse.Hates(causer) && !p.Spouse.IsVeryCloseTo(causer) && !u.HasGameObject(causer) && causer.Status != PersonStatus.Princess)
                 {
                     u.Add(causer);
                 }
@@ -10271,11 +10271,11 @@ namespace GameObjects
             if (q.Spouse != null && (q.PersonalLoyalty >= 4 || (q.PersonalLoyalty >= 2 && q.Spouse.Alive)))
             {
                 PersonList t = new PersonList();
-                if (q != p && !q.Hates(p) && !q.IsVeryCloseTo(p) && !t.HasGameObject(p))
+                if (q != p && !q.Hates(p) && !q.IsVeryCloseTo(p) && !t.HasGameObject(p) && p.Status != PersonStatus.Princess)
                 {
                     t.Add(p);
                 }
-                if (q != causer && !q.Hates(causer) && !q.IsVeryCloseTo(causer) && !t.HasGameObject(causer))
+                if (q != causer && !q.Hates(causer) && !q.IsVeryCloseTo(causer) && !t.HasGameObject(causer) && causer.Status != PersonStatus.Princess)
                 {
                     t.Add(causer);
                 }
@@ -10290,11 +10290,11 @@ namespace GameObjects
                 }
 
                 PersonList u = new PersonList();
-                if (q.Spouse != p && !q.Spouse.Hates(p) && !q.Spouse.IsVeryCloseTo(p) && !u.HasGameObject(p))
+                if (q.Spouse != p && !q.Spouse.Hates(p) && !q.Spouse.IsVeryCloseTo(p) && !u.HasGameObject(p) && p.Status != PersonStatus.Princess)
                 {
                     u.Add(p);
                 }
-                if (q.Spouse != causer && !q.Spouse.Hates(causer) && !q.Spouse.IsVeryCloseTo(causer) && !u.HasGameObject(causer))
+                if (q.Spouse != causer && !q.Spouse.Hates(causer) && !q.Spouse.IsVeryCloseTo(causer) && !u.HasGameObject(causer) && causer.Status != PersonStatus.Princess)
                 {
                     u.Add(causer);
                 }
