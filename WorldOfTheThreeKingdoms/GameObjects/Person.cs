@@ -10048,6 +10048,8 @@ namespace GameObjects
                 }
                 houGongDays /= 2;
 
+                nvren.PrincessTaker = this.BelongedFactionWithPrincess.Leader;
+
                 PersonList all = new PersonList();
                 all.Add(nvren);
 
