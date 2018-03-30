@@ -2516,6 +2516,19 @@ namespace GameObjects
 
                             }
                         }
+
+                        Person p = Session.Current.Scenario.Persons.GetGameObject(this.suoshurenwu) as Person;
+                        if (!this.Hates(p) && !p.Hates(this))
+                        {
+                            this.AdjustRelation(p, 0.5f, -1);
+                            p.AdjustRelation(this, 0.5f, -1);
+
+                            if (this.LocationArchitecture == p.LocationArchitecture)
+                            {
+                                this.AdjustRelation(p, 0.5f, 0);
+                                p.AdjustRelation(this, 0.5f, 0);
+                            }
+                        }
                     }
                     else if (GameObject.Chance((this.huaiyuntianshu - 290) * 5))
                     {
@@ -2597,8 +2610,14 @@ namespace GameObjects
                                     Session.Current.Scenario.haizichusheng(haizi, haizifuqin, this, origChildren.Count > 0);
                                 }
 
-                                this.AdjustRelation(haizifuqin, 3, -5);
-                                haizifuqin.AdjustRelation(this, 3, -5);
+                                this.AdjustRelation(haizifuqin, 1.5f, -5);
+                                haizifuqin.AdjustRelation(this, 1.5f, -5);
+
+                                if (this.LocationArchitecture == haizifuqin.LocationArchitecture)
+                                {
+                                    this.AdjustRelation(haizifuqin, 1.5f, 0);
+                                    haizifuqin.AdjustRelation(this, 1.5f, 0);
+                                }
 
                                 if (this.Father != null)
                                 {
@@ -2642,9 +2661,6 @@ namespace GameObjects
                             this.Spouse.huaiyun = true;
                             this.Spouse.huaiyuntianshu = 0;
                         }
-
-                        this.AdjustRelation(this.Spouse, 1, 0);
-                        this.Spouse.AdjustRelation(this, 1, 0);
                     }
                 } 
                 else if (this.Status == PersonStatus.Princess && this.BelongedFactionWithPrincess.Leader.LocationArchitecture == this.BelongedArchitecture
@@ -2670,9 +2686,6 @@ namespace GameObjects
                             this.BelongedFactionWithPrincess.Leader.huaiyun = true;
                             this.BelongedFactionWithPrincess.Leader.huaiyuntianshu = 0;
                         }
-
-                        this.AdjustRelation(this.BelongedFactionWithPrincess.Leader, 1, 0);
-                        this.BelongedFactionWithPrincess.Leader.AdjustRelation(this, 1, 0);
                     }
                 }
             }
