@@ -10356,8 +10356,7 @@ namespace GameObjects
             if (this.Status == PersonStatus.Princess)
             {
                 this.Status = PersonStatus.Normal;
-                Captive captive = Captive.Create(this, this.BelongedFaction);
-                this.Status = PersonStatus.Captive;
+                Captive captive = Captive.Create(this, null);
                 /*
                 if (!this.Hates(this.BelongedFaction.Leader) && this.Spouse != null && this.Spouse != this.BelongedFaction.Leader)
                 {
@@ -10368,6 +10367,7 @@ namespace GameObjects
                 }
                 */
                 Session.Current.Scenario.YearTable.addReleaseFromPrincessEntry(Session.Current.Scenario.Date, this, this.BelongedFaction.Leader);
+                captive.TransformToNoFactionCaptive();
             }
         }
 

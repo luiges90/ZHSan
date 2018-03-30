@@ -7476,12 +7476,9 @@ namespace GameObjects
             }
         }
 
-        public bool HaveReleasableFeizis
+        public bool HaveReleasableFeizis()
         {
-            get
-            {
-                return ReleasableFeizis.Count > 0;
-            }
+            return ReleasableFeizis.Count > 0;
         }
 
         public bool MoveCaptiveAvail() //俘虏可移动
