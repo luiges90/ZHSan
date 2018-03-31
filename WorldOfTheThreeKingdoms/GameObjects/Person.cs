@@ -9966,8 +9966,6 @@ namespace GameObjects
             Person tookSpouse = null;
             Person leader = this.LocationArchitecture.BelongedFaction.Leader;
 
-            makeHateCausedByAffair(leader, nvren, leader);
-
             if (!this.LocationArchitecture.BelongedFaction.IsAlien)
             {
                 nvren.LocationArchitecture.DecreaseFund(Session.Parameters.NafeiCost);
@@ -10011,6 +10009,8 @@ namespace GameObjects
 
             nvren.LocationTroop = null;
             nvren.TargetArchitecture = null;
+
+            makeHateCausedByAffair(leader, nvren, leader);
 
             if (nvren.Spouse != null)
             {
