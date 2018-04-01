@@ -1413,7 +1413,7 @@ namespace GameObjects
                             if (p.huaiyun) continue;
                             if (!IsPersonForHouGong(p, true))
                             {
-                                if (p.PrincessTaker != this.Leader && !p.Hates(this.Leader) && p.RecruitableBy(this, 0))
+                                if (!this.Leader.suoshurenwuList.HasGameObject(p) && !p.Hates(this.Leader) && p.RecruitableBy(this, 0))
                                 {
                                     p.feiziRelease();
                                 }
