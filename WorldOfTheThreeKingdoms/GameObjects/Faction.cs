@@ -1142,10 +1142,9 @@ namespace GameObjects
             if (this.Leader.Age <= 12) return;
 
             // build hougong
-            if (this.meinvkongjian() - this.feiziCount() <= 0 && !this.isAlien && 
+            if (this.meinvkongjian() - this.feiziCount() <= 0 && !this.isAlien && this.Leader.Age < 50 &&
                 GameObject.Random((int)(GameObject.Square(unAmbition) * Session.Parameters.AIBuildHougongUnambitionProbWeight + GameObject.Square(this.meinvkongjian()) * unAmbition * Session.Parameters.AIBuildHougongSpaceBuiltProbWeight)) == 0)
             {
-                if (this.Leader.Age >= 50) return;
                 Architecture buildAt = null;
                 bool planned = false;
                 foreach (Architecture a in this.Architectures)
@@ -1272,9 +1271,8 @@ namespace GameObjects
                 }
             }
             else if (this.Leader.Status == PersonStatus.Normal && this.Leader.LocationArchitecture != null &&
-                this.Leader.LocationTroop == null && this.Leader.WaitForFeiZi == null)
+                this.Leader.LocationTroop == null && this.Leader.WaitForFeiZi == null && this.Leader.Age < 50)
             {
-                if (this.Leader.Age >= 50) return;
                 Architecture dest = null;
                 if ((this.Leader.LocationArchitecture.Meinvkongjian - this.Leader.LocationArchitecture.Feiziliebiao.Count > 0 && 
                     this.Leader.LocationArchitecture.Fund >= Session.Parameters.NafeiCost + this.Leader.LocationArchitecture.EnoughFund) || this.IsAlien)
