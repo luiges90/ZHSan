@@ -30370,7 +30370,7 @@
           "Name": "渔港",
           "AIBuildConditionWeightString": null,
           "AILevel": 50,
-          "ArchitectureLimit": 1,
+          "ArchitectureLimit": 3,
           "ConditionTableString": "2703",
           "Days": 10,
           "Endurance": 200,
@@ -52332,8 +52332,8 @@
         "Key": 3010,
         "Value": {
           "ID": 3010,
-          "Name": "建筑每月获得粮草增加6000",
-          "Description": "建筑内每月获得粮草增加6000",
+          "Name": "建筑每月获得粮草增加3000",
+          "Description": "建筑内每月获得粮草增加3000",
           "Kind": {
             "ID": 3010,
             "Name": "建筑每月获得粮草增加",
@@ -52343,7 +52343,7 @@
             "TroopLeaderValid": false,
             "Type": 0
           },
-          "Parameter": "6000",
+          "Parameter": "3000",
           "Parameter2": ""
         }
       },
@@ -52351,8 +52351,8 @@
         "Key": 3011,
         "Value": {
           "ID": 3011,
-          "Name": "建筑每月获得粮草增加30000",
-          "Description": "建筑内每月获得粮草增加30000",
+          "Name": "建筑每月获得粮草增加15000",
+          "Description": "建筑内每月获得粮草增加15000",
           "Kind": {
             "ID": 3010,
             "Name": "建筑每月获得粮草增加",
@@ -52362,7 +52362,7 @@
             "TroopLeaderValid": false,
             "Type": 0
           },
-          "Parameter": "30000",
+          "Parameter": "15000",
           "Parameter2": ""
         }
       },
@@ -52370,6 +52370,25 @@
         "Key": 3012,
         "Value": {
           "ID": 3012,
+          "Name": "建筑每月获得粮草增加75000",
+          "Description": "建筑内每月获得粮草增加75000",
+          "Kind": {
+            "ID": 3010,
+            "Name": "建筑每月获得粮草增加",
+            "AIPersonValue": 0,
+            "AIPersonValuePow": 0,
+            "Combat": false,
+            "TroopLeaderValid": false,
+            "Type": 0
+          },
+          "Parameter": "75000",
+          "Parameter2": ""
+        }
+      },
+      {
+        "Key": 3013,
+        "Value": {
+          "ID": 3013,
           "Name": "建筑每月获得粮草增加150000",
           "Description": "建筑内每月获得粮草增加150000",
           "Kind": {
@@ -52382,25 +52401,6 @@
             "Type": 0
           },
           "Parameter": "150000",
-          "Parameter2": ""
-        }
-      },
-      {
-        "Key": 3013,
-        "Value": {
-          "ID": 3013,
-          "Name": "建筑每月获得粮草增加300000",
-          "Description": "建筑内每月获得粮草增加300000",
-          "Kind": {
-            "ID": 3010,
-            "Name": "建筑每月获得粮草增加",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 0
-          },
-          "Parameter": "300000",
           "Parameter2": ""
         }
       },
@@ -73688,7 +73688,7 @@
         "Key": 3014,
         "Value": {
           "ID": 3014,
-          "Name": "建筑每月获得粮草增加600000",
+          "Name": "建筑每月获得粮草增加300000",
           "Description": "建筑内每月获得粮草增加300000",
           "Kind": {
             "ID": 3010,
@@ -73699,7 +73699,7 @@
             "TroopLeaderValid": false,
             "Type": 0
           },
-          "Parameter": "600000",
+          "Parameter": "300000",
           "Parameter2": ""
         }
       }
