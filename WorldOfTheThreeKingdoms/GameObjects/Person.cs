@@ -987,7 +987,7 @@ namespace GameObjects
         {
             foreach (Title t in this.Titles)
             {
-                if (t.Kind == kind)
+                if (t.Kind.Equals(kind))
                 {
                     return t;
                 }
