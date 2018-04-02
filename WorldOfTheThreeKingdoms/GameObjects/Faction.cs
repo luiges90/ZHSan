@@ -4344,6 +4344,7 @@ namespace GameObjects
             this.PlayerAIArchitectures();
             this.PlayerAILegions();
             this.PlayerAIAppointMayor();
+            this.AITrainChildren();
             this.AIFinished = true;
             Session.Current.Scenario.Threading = false;
         }
