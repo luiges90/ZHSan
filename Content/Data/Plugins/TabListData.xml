@@ -1306,7 +1306,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="7" Name="Food" IsNumber="true" DisplayName="军粮" MinWidth="80" DetailLevel="2"
+        <Column ID="7" Name="Food" IsNumber="true" DisplayName="军粮" MinWidth="100" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
