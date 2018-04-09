@@ -2360,10 +2360,9 @@ namespace GameObjects
                                 learnedTitleLevels += pTitle.Merit;
                             }
                         }
-                        total = unlearnedTitleLevels + learnedTitleLevels;
-                        if (total > 0)
+                        if (unlearnedTitleLevels > 0)
                         {
-                            unfinishedTitleFactor = (float)unlearnedTitleLevels / total;
+                            unfinishedTitleFactor = (float)(unlearnedTitleLevels - learnedTitleLevels) / unlearnedTitleLevels;
                         }
                         else
                         {
