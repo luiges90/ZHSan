@@ -1705,6 +1705,10 @@ namespace GameObjects
             }
             if (gameObject != null)
             {
+                if (this.IsGeneratedChildren)
+                {
+                    Person.HandleChildrenBiography(this.Father, this.Mother, this, gameObject);
+                }
                 this.IsGeneratedChildren = false;
                 ExtensionInterface.call("PersonBecomeAvailable", new Object[] { Session.Current.Scenario, this });
                 Session.Current.Scenario.PreparedAvailablePersons.Add(this);
@@ -8989,7 +8993,7 @@ namespace GameObjects
                 biography = biography.Substring(0, biography.Length - 1);
                 if (adjectives.Count > 0)
                 {
-                    biography += "的" + (suffixes.Count > 0 ? suffixes[GameObject.Random(suffixes.Count)] : "將領");
+                    biography += "的" + (suffixes.Count > 0 ? suffixes[GameObject.Random(suffixes.Count)] : "将领");
                 }
                 biography += "。";
             }
