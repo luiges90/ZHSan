@@ -1707,7 +1707,7 @@ namespace GameObjects
             {
                 if (this.IsGeneratedChildren)
                 {
-                    Person.HandleChildrenBiography(this.Father, this.Mother, this, gameObject);
+                    this.PersonBiography.Brief += Person.GenerateBiography(this);
                 }
                 this.IsGeneratedChildren = false;
                 ExtensionInterface.call("PersonBecomeAvailable", new Object[] { Session.Current.Scenario, this });
@@ -9381,6 +9381,8 @@ namespace GameObjects
 
                 HandleChildrenFaction(father, mother, r);
 
+                HandleChildrenBiography(father, mother, r, bornArch, false);
+
                 r.IsGeneratedChildren = true;
                 r.TrainPolicy = (TrainPolicy) Session.Current.Scenario.GameCommonData.AllTrainPolicies.GetGameObject(1);
             }
@@ -9497,7 +9499,7 @@ namespace GameObjects
             
         }
 
-        private static void HandleChildrenBiography(Person father, Person mother, Person r, Architecture bornArch)
+        private static void HandleChildrenBiography(Person father, Person mother, Person r, Architecture bornArch, bool generateAbilityBiography = true)
         {
             String biography = "";
             int fatherChildCount = father.NumberOfChildren;
@@ -9517,7 +9519,10 @@ namespace GameObjects
                 biography += root.Name + "的后代。";
             }
 
-            biography += Person.GenerateBiography(r);
+            if (generateAbilityBiography)
+            {
+                biography += Person.GenerateBiography(r);
+            }
 
             Biography bio = new Biography();
             bio.Brief = biography;
