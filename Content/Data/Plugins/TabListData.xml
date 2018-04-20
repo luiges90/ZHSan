@@ -4160,7 +4160,7 @@
                 FontColor="4294375158"
                 Align="Left">
         </Column>
-        <Column ID="2" Name="Description" IsNumber="false" DisplayName="简介" MinWidth="600" DetailLevel="1"
+        <Column ID="2" Name="Description" IsNumber="false" DisplayName="简介" MinWidth="750" DetailLevel="1"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
