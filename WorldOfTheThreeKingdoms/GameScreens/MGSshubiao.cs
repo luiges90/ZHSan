@@ -129,7 +129,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         private void HandleLaterMouseLeftDown()
         {
             //if (((this.previousMouseState.LeftButton == ButtonState.Released) && (InputManager.NowMouse.LeftButton == ButtonState.Pressed)) && (this.viewMove == ViewMove.Stop))
-            if (InputManager.IsReleasePre && InputManager.IsDown && this.viewMove == ViewMove.Stop)
+            if (InputManager.IsDown && this.viewMove == ViewMove.Stop)
             {
                 if (this.editMode)
                 {
