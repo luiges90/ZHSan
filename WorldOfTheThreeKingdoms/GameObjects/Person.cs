@@ -2651,6 +2651,10 @@ namespace GameObjects
                     this.Spouse.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
                 {
                     float relationFactor = this.PregnancyRate(this.Spouse);
+                    if (this.Status == PersonStatus.Princess || this.Spouse.Status == PersonStatus.Princess)
+                    {
+                        relationFactor *= 4;
+                    }
 
                     if (relationFactor > 0 && GameObject.Random((int)
                         (30000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
