@@ -3642,6 +3642,7 @@ namespace json_and_excel
                         }
                     }
                 }
+                GameGlobal.StaticMethods.LoadFromString(a.LevelUpKindID, dt.Rows[i]["LevelUpKindID"].ToString());
                 a.AttackDefaultKind = (TroopAttackDefaultKind)int.Parse(dt.Rows[i]["AttackDefaultKind"].ToString());
                 a.AttackTargetKind = (TroopAttackTargetKind)int.Parse(dt.Rows[i]["AttackTargetKind"].ToString());
                 a.CastDefaultKind = (TroopCastDefaultKind)int.Parse(dt.Rows[i]["CastDefaultKind"].ToString());

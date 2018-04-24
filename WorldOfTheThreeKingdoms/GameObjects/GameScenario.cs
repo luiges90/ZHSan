@@ -6387,7 +6387,7 @@ namespace GameObjects
                                     int allTitleCount = this.GameCommonData.AllTitles.Count;
                                     foreach (Title t in this.GameCommonData.AllTitles.Titles.Values)
                                     {
-                                        if (t.Kind.RandomTeachable && t.Level <= maxLevel && GameObject.Chance((10 - t.Level) * 5) && GameObject.Chance(t.InheritChance) && t.CanBeBorn(p))
+                                        if (t.Kind.RandomTeachable && t.Level <= maxLevel + q.childrenTitleChanceIncrease && GameObject.Chance((10 - t.Level) * 5) && GameObject.Chance(t.InheritChance) && t.CanBeBorn(p))
                                         {
                                             extraTeach.Add(t);
                                         }
@@ -6407,7 +6407,7 @@ namespace GameObjects
                                         {
                                             extraChance += 5;
                                         }
-                                        if (GameObject.Chance(t.InheritChance * 3 + q.childrenTitleChanceIncrease + extraChance) && t.CanBeBorn(p))
+                                        if (GameObject.Chance(t.InheritChance * 3 + q.childrenTitleChanceIncrease * 3 + extraChance) && t.CanBeBorn(p))
                                         {
                                             Title existing = null;
                                             foreach (Title u in p.Titles)

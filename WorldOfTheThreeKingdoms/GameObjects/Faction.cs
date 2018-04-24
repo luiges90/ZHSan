@@ -1142,7 +1142,7 @@ namespace GameObjects
             if (this.Leader.Age <= 12) return;
 
             // build hougong
-            if (this.meinvkongjian() - this.feiziCount() <= 0 && !this.isAlien && 
+            if (this.meinvkongjian() - this.feiziCount() <= 0 && !this.isAlien && this.Leader.Age < 50 &&
                 GameObject.Random((int)(GameObject.Square(unAmbition) * Session.Parameters.AIBuildHougongUnambitionProbWeight + GameObject.Square(this.meinvkongjian()) * unAmbition * Session.Parameters.AIBuildHougongSpaceBuiltProbWeight)) == 0)
             {
                 Architecture buildAt = null;
@@ -1271,7 +1271,7 @@ namespace GameObjects
                 }
             }
             else if (this.Leader.Status == PersonStatus.Normal && this.Leader.LocationArchitecture != null &&
-                this.Leader.LocationTroop == null && this.Leader.WaitForFeiZi == null)
+                this.Leader.LocationTroop == null && this.Leader.WaitForFeiZi == null && this.Leader.Age < 50)
             {
                 Architecture dest = null;
                 if ((this.Leader.LocationArchitecture.Meinvkongjian - this.Leader.LocationArchitecture.Feiziliebiao.Count > 0 && 
@@ -1413,7 +1413,7 @@ namespace GameObjects
                             if (p.huaiyun) continue;
                             if (!IsPersonForHouGong(p, true))
                             {
-                                if (p.PrincessTaker != this.Leader && !p.Hates(this.Leader) && p.RecruitableBy(this, 0))
+                                if (!this.Leader.suoshurenwuList.HasGameObject(p) && !p.Hates(this.Leader) && p.RecruitableBy(this, 0))
                                 {
                                     p.feiziRelease();
                                 }
@@ -2273,6 +2273,102 @@ namespace GameObjects
                     }
                     else if (p.Age >= 8)
                     {
+                        float unfinishedSkillFactor;
+                        int unlearnedSkillCount = 0;
+                        int learnedSkillCount = 0;
+                        foreach (Skill j in p.Father.GetSkillList())
+                        {
+                            learnedSkillCount += j.Merit;
+                            if (!p.HasSkill(j.ID))
+                            {
+                                unlearnedSkillCount += j.Merit;
+                            }
+                        }
+                        foreach (Skill j in p.Mother.GetSkillList())
+                        {
+                            learnedSkillCount += j.Merit;
+                            if (!p.HasSkill(j.ID))
+                            {
+                                unlearnedSkillCount += j.Merit;
+                            }
+                        }
+                        int total = learnedSkillCount + unlearnedSkillCount;
+                        if (total > 0)
+                        {
+                            unfinishedSkillFactor = ((float)unlearnedSkillCount / total);
+                        }
+                        else
+                        {
+                            unfinishedSkillFactor = 0;
+                        }
+
+                        float unfinishedStuntFactor;
+                        int unlearnedStuntCount = 0;
+                        int learnedStuntCount = 0;
+                        foreach (Stunt j in p.Father.GetStuntList())
+                        {
+                            learnedStuntCount++;
+                            if (!p.HasStunt(j.ID))
+                            {
+                                unlearnedStuntCount++;
+                            }
+                        }
+                        foreach (Stunt j in p.Mother.GetStuntList())
+                        {
+                            learnedStuntCount++;
+                            if (!p.HasStunt(j.ID))
+                            {
+                                unlearnedStuntCount++;
+                            }
+                        }
+                        total = learnedStuntCount + unlearnedStuntCount;
+                        if (total > 0)
+                        {
+                            unfinishedStuntFactor = ((float)unlearnedStuntCount / total);
+                        }
+                        else
+                        {
+                            unfinishedStuntFactor = 0;
+                        }
+
+                        float unfinishedTitleFactor;
+                        int unlearnedTitleLevels = 0;
+                        int learnedTitleLevels = 0;
+                        foreach (TitleKind tk in Session.Current.Scenario.GameCommonData.AllTitleKinds.TitleKinds.Values)
+                        {
+                            if (!tk.RandomTeachable) continue;
+                            Title fatherTitle = p.Father.getTitleOfKind(tk);
+                            Title motherTitle = p.Mother.getTitleOfKind(tk);
+                            Title pTitle = p.getTitleOfKind(tk);
+                            if (fatherTitle != null && motherTitle != null)
+                            {
+                                unlearnedTitleLevels += Math.Max(fatherTitle.Merit, motherTitle.Merit);
+                            }
+                            else
+                            {
+                                if (fatherTitle != null)
+                                {
+                                    unlearnedTitleLevels += fatherTitle.Merit;
+                                }
+                                if (motherTitle != null)
+                                {
+                                    unlearnedTitleLevels += motherTitle.Merit;
+                                }
+                            }
+                            if (pTitle != null)
+                            {
+                                learnedTitleLevels += pTitle.Merit;
+                            }
+                        }
+                        if (unlearnedTitleLevels > 0)
+                        {
+                            unfinishedTitleFactor = (float)(unlearnedTitleLevels - learnedTitleLevels) / unlearnedTitleLevels;
+                        }
+                        else
+                        {
+                            unfinishedTitleFactor = 0;
+                        }
+
                         Dictionary<TrainPolicy, float> candidates = new Dictionary<TrainPolicy, float>();
                         foreach (TrainPolicy tp in Session.Current.Scenario.GameCommonData.AllTrainPolicies)
                         {
@@ -2288,14 +2384,17 @@ namespace GameObjects
                             if (p.Strength > 50 || p.Command > 50 || p.Intelligence > 50 || p.Politics > 50 || p.Glamour > 50)
                             {
                                 skill = (p.AbilitySum - 50) / 5 * tp.Skill / tp.WeightSum + 1;
+                                skill *= unfinishedSkillFactor;
                             }
                             if (p.Strength > 60 || p.Command > 60 || p.Intelligence > 60)
                             {
                                 stunt = (p.AbilitySum - 60) / 5 * tp.Stunt / tp.WeightSum + 1;
+                                stunt *= unfinishedStuntFactor;
                             }
                             if (p.Strength > 70 || p.Command > 70 || p.Intelligence > 70 || p.Politics > 70 || p.Glamour > 70)
                             {
                                 title = (p.AbilitySum - 70) / 5 * tp.Title / tp.WeightSum + 1;
+                                title *= unfinishedTitleFactor;
                             }
 
                             candidates.Add(tp, c + s + i + o + g + skill + stunt + title);
@@ -4344,6 +4443,7 @@ namespace GameObjects
             this.PlayerAIArchitectures();
             this.PlayerAILegions();
             this.PlayerAIAppointMayor();
+            this.AITrainChildren();
             this.AIFinished = true;
             Session.Current.Scenario.Threading = false;
         }

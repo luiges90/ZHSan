@@ -987,7 +987,7 @@ namespace GameObjects
         {
             foreach (Title t in this.Titles)
             {
-                if (t.Kind == kind)
+                if (t.Kind.Equals(kind))
                 {
                     return t;
                 }
@@ -1705,6 +1705,10 @@ namespace GameObjects
             }
             if (gameObject != null)
             {
+                if (this.IsGeneratedChildren)
+                {
+                    this.PersonBiography.Brief += Person.GenerateBiography(this);
+                }
                 this.IsGeneratedChildren = false;
                 ExtensionInterface.call("PersonBecomeAvailable", new Object[] { Session.Current.Scenario, this });
                 Session.Current.Scenario.PreparedAvailablePersons.Add(this);
@@ -2647,6 +2651,10 @@ namespace GameObjects
                     this.Spouse.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
                 {
                     float relationFactor = this.PregnancyRate(this.Spouse);
+                    if (this.Status == PersonStatus.Princess || this.Spouse.Status == PersonStatus.Princess)
+                    {
+                        relationFactor *= 4;
+                    }
 
                     if (relationFactor > 0 && GameObject.Random((int)
                         (30000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
@@ -8989,7 +8997,7 @@ namespace GameObjects
                 biography = biography.Substring(0, biography.Length - 1);
                 if (adjectives.Count > 0)
                 {
-                    biography += "的" + (suffixes.Count > 0 ? suffixes[GameObject.Random(suffixes.Count)] : "將領");
+                    biography += "的" + (suffixes.Count > 0 ? suffixes[GameObject.Random(suffixes.Count)] : "将领");
                 }
                 biography += "。";
             }
@@ -9377,6 +9385,8 @@ namespace GameObjects
 
                 HandleChildrenFaction(father, mother, r);
 
+                HandleChildrenBiography(father, mother, r, bornArch, false);
+
                 r.IsGeneratedChildren = true;
                 r.TrainPolicy = (TrainPolicy) Session.Current.Scenario.GameCommonData.AllTrainPolicies.GetGameObject(1);
             }
@@ -9493,7 +9503,7 @@ namespace GameObjects
             
         }
 
-        private static void HandleChildrenBiography(Person father, Person mother, Person r, Architecture bornArch)
+        private static void HandleChildrenBiography(Person father, Person mother, Person r, Architecture bornArch, bool generateAbilityBiography = true)
         {
             String biography = "";
             int fatherChildCount = father.NumberOfChildren;
@@ -9513,7 +9523,10 @@ namespace GameObjects
                 biography += root.Name + "的后代。";
             }
 
-            biography += Person.GenerateBiography(r);
+            if (generateAbilityBiography)
+            {
+                biography += Person.GenerateBiography(r);
+            }
 
             Biography bio = new Biography();
             bio.Brief = biography;
@@ -9966,8 +9979,6 @@ namespace GameObjects
             Person tookSpouse = null;
             Person leader = this.LocationArchitecture.BelongedFaction.Leader;
 
-            makeHateCausedByAffair(leader, nvren, leader);
-
             if (!this.LocationArchitecture.BelongedFaction.IsAlien)
             {
                 nvren.LocationArchitecture.DecreaseFund(Session.Parameters.NafeiCost);
@@ -10011,6 +10022,8 @@ namespace GameObjects
 
             nvren.LocationTroop = null;
             nvren.TargetArchitecture = null;
+
+            makeHateCausedByAffair(leader, nvren, leader);
 
             if (nvren.Spouse != null)
             {

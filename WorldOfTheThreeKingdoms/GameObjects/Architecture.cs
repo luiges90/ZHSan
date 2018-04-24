@@ -1236,7 +1236,7 @@ namespace GameObjects
                         }
                     }
                     //remove facilities if not enough fund to support
-                    if (this.FacilityMaintenanceCost * 30 + 1000 > this.ExpectedFund && this.BelongedSection.AIDetail.AllowFacilityRemoval)
+                    if (this.FacilityMaintenanceCost * 30 + 100 > this.ExpectedFund && this.BelongedSection.AIDetail.AllowFacilityRemoval)
                     {
                         GameObjectList f = this.Facilities.GetList();
                         f.PropertyName = "AIValue";
@@ -1254,7 +1254,7 @@ namespace GameObjects
                                 this.Facilities.Remove(i);
                                 Session.Current.Scenario.Facilities.Remove(i);
                             }
-                            if (this.FacilityMaintenanceCost * 30 + 1000 <= this.ExpectedFund) break;
+                            if (this.FacilityMaintenanceCost * 30 + 100 <= this.ExpectedFund) break;
                         }
                     }
 
