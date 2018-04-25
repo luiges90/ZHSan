@@ -97440,7 +97440,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"913 260 280 103 6601 281 290 292 8559",
+"InfluencesString":"913 260 6312 280 103 6601 6073 6191 281 290 292 8559",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -97473,7 +97473,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"912 260 280 102 6600 281 290 292 8542",
+"InfluencesString":"912 260 6053 280 102 6600 6140 6177 6193 281 290 292 8542 6550",
 "InheritChance":7,
 "Kind":{
 "ID":1,
@@ -97572,7 +97572,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"913 40 41 260",
+"InfluencesString":"913 40 41 260 6613",
 "InheritChance":7,
 "Kind":{
 "ID":1,
@@ -97605,7 +97605,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"270 281 407 641 672 703 8556 293 8545",
+"InfluencesString":"270 281 408 641 672 704 8556 293 8545",
 "InheritChance":5,
 "Kind":{
 "ID":1,
@@ -97638,7 +97638,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"281 402 632 640 703 290 292 8541",
+"InfluencesString":"281 402 633 641 703 668 290 292 8541",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -97671,7 +97671,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"912 30 260 6120 6110",
+"InfluencesString":"912 30 260 6121 6111",
 "InheritChance":9,
 "Kind":{
 "ID":1,
@@ -97704,7 +97704,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"260 262 281 388 403 521 551 601 4051 613 290 292 8570",
+"InfluencesString":"260 262 281 388 403 521 551 601 4051 613 621 6241 290 292 8570",
 "InheritChance":7,
 "Kind":{
 "ID":1,
@@ -97748,7 +97748,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":6,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -97781,7 +97781,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":5,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -97847,7 +97847,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":5,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -97880,7 +97880,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":4,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -97913,7 +97913,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":3,
+"Level":2,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -97946,7 +97946,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":5,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -98045,7 +98045,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":7,
+"Level":5,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -98342,7 +98342,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":4,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -98375,7 +98375,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":5,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -98507,7 +98507,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":4,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -98540,7 +98540,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":4,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -98661,7 +98661,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"270 281 408 642 704 280 656",
+"InfluencesString":"270 281 409 643 4051 658 698",
 "InheritChance":5,
 "Kind":{
 "ID":1,
@@ -98694,7 +98694,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"281 406 631 702 280 681",
+"InfluencesString":"281 406 633 701 683",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -98727,7 +98727,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"281 406 630 640 651 702 290 292 8542",
+"InfluencesString":"281 406 632 642 653 6560 4051 290 292 8542",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -98760,7 +98760,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"281 406 630 701 280 680",
+"InfluencesString":"281 408 631 641 700 681 691",
 "InheritChance":9,
 "Kind":{
 "ID":1,
@@ -98793,7 +98793,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"900 281 406 602 630 640 702 290 292 8562",
+"InfluencesString":"900 281 406 602 631 641 661 702 290 292 8562",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -98826,7 +98826,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"902 281 401 603 701",
+"InfluencesString":"902 281 403 411 603 701",
 "InheritChance":9,
 "Kind":{
 "ID":1,
@@ -98859,7 +98859,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"901 281 402 406 701 290 292 8558",
+"InfluencesString":"901 281 403 407 701 290 292 8558",
 "InheritChance":9,
 "Kind":{
 "ID":1,
@@ -98892,7 +98892,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"261 620 903 701 6101 281 290 292 8568",
+"InfluencesString":"261 621 404 903 701 6101 281 290 292 8568",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -98925,7 +98925,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"261 521 903 701 6101 281 290 292 8570",
+"InfluencesString":"261 521 903 701 6101 5010 5020 281 290 292 8570",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -98969,7 +98969,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":3,
+"Level":2,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -99035,7 +99035,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":3,
+"Level":2,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -99123,7 +99123,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"281 607 701 290 291 292 8560",
+"InfluencesString":"281 607 421 701 290 291 292 8560",
 "InheritChance":12,
 "Kind":{
 "ID":1,
@@ -99156,7 +99156,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"902 281 402 364 701",
+"InfluencesString":"902 281 402 411 364 701",
 "InheritChance":9,
 "Kind":{
 "ID":1,
@@ -99189,7 +99189,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"900 281 400 613 700",
+"InfluencesString":"900 281 401 410 613 700",
 "InheritChance":12,
 "Kind":{
 "ID":1,
@@ -99222,7 +99222,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"903 281 402 408 666 602 703 290 292 8541",
+"InfluencesString":"903 281 402 408 411 666 602 703 5020 6250 290 292 8541",
 "InheritChance":5,
 "Kind":{
 "ID":1,
@@ -99255,7 +99255,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"904 260 523 533 281 403 406 553 613 704 290 292 8547",
+"InfluencesString":"904 260 523 533 281 403 406 553 613 4051 5030 5071 290 292 8547",
 "InheritChance":4,
 "Kind":{
 "ID":1,
@@ -99288,7 +99288,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"902 281 402 406 551 660 703 290 292 8561",
+"InfluencesString":"902 281 402 406 553 651 661 703 6240 6250 290 292 8561",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -99321,7 +99321,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"903 364 281 403 551 613 704 290 292 8540",
+"InfluencesString":"903 364 281 403 554 613 704 5056 290 292 8540",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -99354,7 +99354,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"902 281 402 407 607 603 703 290 292 8563",
+"InfluencesString":"902 281 402 407 607 603 703 5010 5020 691 6516 290 292 8563",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -99387,7 +99387,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"902 281 403 552 608 613 704",
+"InfluencesString":"902 281 403 552 608 613 704 5030 5101 6273 6280",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -99420,7 +99420,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"903 523 281 403 551 703 290 292 8555",
+"InfluencesString":"903 523 281 403 414 553 4051 290 292 8555",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -99453,7 +99453,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"904 281 403 407 553 633 613 704 6102 290 292 8554",
+"InfluencesString":"904 281 403 407 553 633 613 704 6103 6565 290 292 8554",
 "InheritChance":4,
 "Kind":{
 "ID":1,
@@ -99464,7 +99464,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":9,
+"Level":10,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -99486,7 +99486,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"903 281 402 406 552 631 703 290 292 8554",
+"InfluencesString":"903 281 402 406 552 613 632 703 6560 290 292 8554",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -99519,7 +99519,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"902 604 281 402 406 702 290 292 8543",
+"InfluencesString":"902 604 281 402 406 604 704 6252 290 292 8543",
 "InheritChance":7,
 "Kind":{
 "ID":1,
@@ -99552,7 +99552,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"270 281 407 641 672 703 8556 293 8545",
+"InfluencesString":"270 281 407 641 672 677 703 8556 293 8545",
 "InheritChance":5,
 "Kind":{
 "ID":1,
@@ -99585,7 +99585,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"281 406 640 671 701",
+"InfluencesString":"281 406 640 671 676 701",
 "InheritChance":7,
 "Kind":{
 "ID":1,
@@ -99662,7 +99662,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":4,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -99728,7 +99728,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":5,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -99761,7 +99761,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":5,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -99794,7 +99794,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":4,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -99827,7 +99827,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":6,
+"Level":5,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -99882,7 +99882,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"570 571 562 272 714 281 16946 16945 8548",
+"InfluencesString":"570 571 562 272 714 281 6995 16946 16945 8548",
 "InheritChance":5,
 "Kind":{
 "ID":1,
@@ -99915,7 +99915,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"572 712",
+"InfluencesString":"571 572 562 272 712 6923 6993",
 "InheritChance":9,
 "Kind":{
 "ID":1,
@@ -99948,7 +99948,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"573 502 561 712 281 8564",
+"InfluencesString":"272 571 573 504 561 712 6901 6990 281 8564",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -99981,7 +99981,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"502 563 713 281 6923 8569",
+"InfluencesString":"504 563 571 714 281 6993 6903 6923 8569",
 "InheritChance":5,
 "Kind":{
 "ID":1,
@@ -100025,7 +100025,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":6,
+"Level":4,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100058,7 +100058,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":5,
+"Level":4,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100091,7 +100091,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":7,
+"Level":6,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100113,7 +100113,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"272 571 605 701 712 281 8565",
+"InfluencesString":"272 503 571 605 701 712 281 678 6990 8565",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -100146,7 +100146,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"902 290 609 281 403 408 422 703",
+"InfluencesString":"902 290 609 281 404 409 414 424 4051",
 "InheritChance":9,
 "Kind":{
 "ID":1,
@@ -100157,7 +100157,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":7,
+"Level":6,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100179,7 +100179,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"901 291 610 611 281 403 408 702 8552",
+"InfluencesString":"901 291 610 611 404 409 414 424 702 8552",
 "InheritChance":9,
 "Kind":{
 "ID":1,
@@ -100190,7 +100190,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":7,
+"Level":6,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100212,7 +100212,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"903 292 553 281 403 408 704 711",
+"InfluencesString":"903 292 553 281 404 409 414 424 4051 711",
 "InheritChance":9,
 "Kind":{
 "ID":1,
@@ -100223,7 +100223,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":7,
+"Level":6,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100245,7 +100245,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"293 612 281 403 408 703 711 8545",
+"InfluencesString":"293 612 281 404 409 414 424 703 711 8545",
 "InheritChance":7,
 "Kind":{
 "ID":1,
@@ -100278,7 +100278,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"294 606 281 403 408 702",
+"InfluencesString":"294 606 281 404 409 414 424 702",
 "InheritChance":12,
 "Kind":{
 "ID":1,
@@ -100289,7 +100289,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":6,
+"Level":5,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100322,7 +100322,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":5,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100344,7 +100344,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"291 610 281 401 406 700",
+"InfluencesString":"291 610 281 401 406 411 700",
 "InheritChance":18,
 "Kind":{
 "ID":1,
@@ -100355,7 +100355,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":5,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100388,7 +100388,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":5,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100410,7 +100410,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"293 281 402 407 701",
+"InfluencesString":"293 281 402 407 411 421 701",
 "InheritChance":18,
 "Kind":{
 "ID":1,
@@ -100421,7 +100421,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":4,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100443,7 +100443,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"294 606 281 401 406 700",
+"InfluencesString":"294 606 281 401 406 411 421 700",
 "InheritChance":18,
 "Kind":{
 "ID":1,
@@ -100454,7 +100454,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":4,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100487,7 +100487,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":3,
+"Level":2,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100751,7 +100751,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":5,
+"Level":4,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100784,7 +100784,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":5,
+"Level":4,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100916,7 +100916,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":4,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100949,7 +100949,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":4,
+"Level":3,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -100982,7 +100982,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":3,
+"Level":2,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -101015,7 +101015,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":3,
+"Level":2,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -101037,7 +101037,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"281 580 590 630 640 280 6461 6905 6049 8549",
+"InfluencesString":"281 580 590 630 640 280 6461 6905 6049 6997 8549",
 "InheritChance":5,
 "Kind":{
 "ID":1,
@@ -101070,7 +101070,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"502 563 713 601 6925 281 8567",
+"InfluencesString":"504 563 713 601 6925 6938 281 8567",
 "InheritChance":6,
 "Kind":{
 "ID":1,
@@ -101103,7 +101103,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"281 902 604 402 406 702 8553",
+"InfluencesString":"281 902 604 402 406 412 704 4022 8553",
 "InheritChance":7,
 "Kind":{
 "ID":1,
@@ -101136,7 +101136,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[5,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"281 590 661",
+"InfluencesString":"281 590 661 6560",
 "InheritChance":10,
 "Kind":{
 "ID":1,
@@ -101147,7 +101147,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":4,
+"Level":6,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -101169,7 +101169,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[5,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"281 590 681",
+"InfluencesString":"281 590 681 6991",
 "InheritChance":10,
 "Kind":{
 "ID":1,
@@ -101180,7 +101180,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":4,
+"Level":5,
 "LoseConditionsString":"",
 "ManualAward":false,
 "MapLimit":9999,
@@ -101202,7 +101202,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"3042 121 671 676 640 630 590 609 663 6049 7243 7248",
+"InfluencesString":"3042 121 671 676 640 630 590 609 663 6561 6049 7243 7248",
 "InheritChance":20,
 "Kind":{
 "ID":3,
@@ -101213,7 +101213,7 @@
 "StudyDay":90,
 "SuccessRate":0
 },
-"Level":10,
+"Level":14,
 "LoseConditionsString":"30921",
 "ManualAward":false,
 "MapLimit":999,
@@ -101268,7 +101268,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"590 609 662 6049 281 560 675 272 640",
+"InfluencesString":"30 121 590 609 662 6049 6193 6361 6400 281 640 675 6560",
 "InheritChance":0,
 "Kind":{
 "ID":3,
@@ -101862,7 +101862,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"281 406 411 400 701",
+"InfluencesString":"7301 5",
 "InheritChance":20,
 "Kind":{
 "ID":1,
