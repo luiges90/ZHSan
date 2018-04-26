@@ -4019,7 +4019,7 @@ namespace GameObjects
         {
             foreach (Person p in this.Persons)
             {
-                if (p.Available && p.Alive && GameObject.Random(30 / Parameters.DayInTurn) == 0)
+                if (p.Available && p.Alive && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                 {
                     foreach (Person q in this.Persons)
                     {
@@ -4031,7 +4031,7 @@ namespace GameObjects
                             continue;
                         }
 
-                        if (q.Available && q.Alive && p.BelongedFactionWithPrincess != null && GameObject.Random(30 / Parameters.DayInTurn) == 0)
+                        if (q.Available && q.Alive && p.BelongedFactionWithPrincess != null && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                         {
                             if (p.BelongedFactionWithPrincess == q.BelongedFactionWithPrincess &&
                                     (
@@ -4050,15 +4050,15 @@ namespace GameObjects
                                         if (p.Status == PersonStatus.Normal)
                                         {
                                             //p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedArchitecture.Persons.Count - 1)), 2);
-                                            p.AdjustRelation(q, 3f * Session.Parameters.DayInTurn, 2 * Session.Parameters.DayInTurn);
+                                            p.AdjustRelation(q, 3f, 2);
                                         }
                                         else
                                         {
                                             //p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)), 2);
-                                            p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)) * Session.Parameters.DayInTurn, 2 * Session.Parameters.DayInTurn);
+                                            p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)), 2);
                                             if (p.LocationArchitecture == q.LocationArchitecture)
                                             {
-                                                p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)) * Session.Parameters.DayInTurn, 2 * Session.Parameters.DayInTurn);
+                                                p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)), 2);
                                             }
                                         }
                                     }
@@ -4074,12 +4074,12 @@ namespace GameObjects
                                 if (p.LocationArchitecture == q.LocationArchitecture || p.LocationTroop == q.LocationTroop)
                                 {
                                     //p.AdjustRelation(q, -d / 20f, 0);
-                                    p.AdjustRelation(q, -d / 20f * Session.Parameters.DayInTurn, 0);
+                                    p.AdjustRelation(q, -d / 20f, 0);
                                 }
                                 else
                                 {
                                     //p.AdjustRelation(q, -d / 50f, 0);
-                                    p.AdjustRelation(q, -d / 50f * Session.Parameters.DayInTurn, 0);
+                                    p.AdjustRelation(q, -d / 50f, 0);
                                 }
 
                                 if (p.GetRelation(q) < 0)
@@ -4100,12 +4100,12 @@ namespace GameObjects
                                 if (p.LocationArchitecture == q.LocationArchitecture || p.LocationTroop == q.LocationTroop)
                                 {
                                     //p.AdjustRelation(q, -d / 20, 0);
-                                    p.AdjustRelation(q, -d / 20 * Session.Parameters.DayInTurn, 0);
+                                    p.AdjustRelation(q, -d / 20, 0);
                                 }
                                 else
                                 {
                                     //p.AdjustRelation(q, -d / 50, 0);
-                                    p.AdjustRelation(q, -d / 50 * Session.Parameters.DayInTurn, 0);
+                                    p.AdjustRelation(q, -d / 50, 0);
                                 }
 
                                 if (p.GetRelation(q) > 0)

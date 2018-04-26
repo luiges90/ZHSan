@@ -2657,7 +2657,7 @@ namespace GameObjects
                     }
 
                     if (relationFactor > 0 && GameObject.Random((int)
-                        (30000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
+                        (30000.0f / Session.GlobalVariables.getChildrenRate * 20 / Session.Parameters.DayInTurn / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
                     {
                         this.suoshurenwu = this.Spouse.ID;
                         this.Spouse.suoshurenwu = this.ID;
@@ -2685,7 +2685,7 @@ namespace GameObjects
                         float relationFactor = this.PregnancyRate(this.BelongedFactionWithPrincess.Leader) * 4;
 
                         if (relationFactor > 0 && GameObject.Random((int)
-                            (30000.0f / Session.GlobalVariables.getChildrenRate * 20 / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
+                            (30000.0f / Session.GlobalVariables.getChildrenRate * 20 / Session.Parameters.DayInTurn / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
                         {
                             this.suoshurenwu = this.BelongedFactionWithPrincess.Leader.ID;
                             this.BelongedFactionWithPrincess.Leader.suoshurenwu = this.ID;
