@@ -63,7 +63,7 @@ namespace GameObjects
             {
                 return false;
             }
-            if (this.Day >= 30)
+            if (this.Day >= 30 - Session.Parameters.DayInTurn + 1)
             {
                 if ((this.OnMonthPassed != null) && !this.OnMonthPassed())
                 {
