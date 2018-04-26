@@ -4859,7 +4859,7 @@ namespace GameObjects
         {
             if (this.BuildingDaysLeft > 0)
             {
-                this.BuildingDaysLeft -= Session.Parameters.DayInTurn;
+                this.BuildingDaysLeft -= 1;
                 if (this.BuildingDaysLeft <= 0)
                 {
                     FacilityKind facilityKind = Session.Current.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(this.BuildingFacility);

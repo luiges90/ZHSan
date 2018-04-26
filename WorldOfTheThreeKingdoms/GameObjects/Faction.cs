@@ -6053,8 +6053,7 @@ namespace GameObjects
         {
             if (this.UpgradingTechnique >= 0)
             {
-                //this.UpgradingDaysLeft--;
-                this.UpgradingDaysLeft -= Session.Parameters.DayInTurn;
+                this.UpgradingDaysLeft--;
                 if (this.UpgradingDaysLeft <= 0)
                 {
                     Technique technique = Session.Current.Scenario.GameCommonData.AllTechniques.GetTechnique(this.UpgradingTechnique);

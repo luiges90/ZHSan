@@ -4019,7 +4019,7 @@ namespace GameObjects
         {
             foreach (Person p in this.Persons)
             {
-                if (p.Available && p.Alive && GameObject.Random(30) == 0)
+                if (p.Available && p.Alive && GameObject.Random(30 / Parameters.DayInTurn) == 0)
                 {
                     foreach (Person q in this.Persons)
                     {
@@ -4031,7 +4031,7 @@ namespace GameObjects
                             continue;
                         }
 
-                        if (q.Available && q.Alive && p.BelongedFactionWithPrincess != null && GameObject.Random(30) == 0)
+                        if (q.Available && q.Alive && p.BelongedFactionWithPrincess != null && GameObject.Random(30 / Parameters.DayInTurn) == 0)
                         {
                             if (p.BelongedFactionWithPrincess == q.BelongedFactionWithPrincess &&
                                     (
