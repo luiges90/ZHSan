@@ -2209,7 +2209,7 @@ namespace GameObjects
                                 num2 = this.Capital.Fund - this.Capital.EnoughFund;
                                 this.Capital.DecreaseFund(num2);
                                 //architecture.AddFundPack(num2, (int)(Session.Current.Scenario.GetDistance(this.Capital.ArchitectureArea, architecture.ArchitectureArea) / 5.0));
-                                architecture.AddFundPack(num2, (int)(Session.Current.Scenario.GetDistance(this.Capital.ArchitectureArea, architecture.ArchitectureArea) / 5.0) * Session.Parameters.DayInTurn);
+                                architecture.AddFundPack(num2, (int)(Session.Current.Scenario.GetDistance(this.Capital.ArchitectureArea, architecture.ArchitectureArea) / 5.0));
                             }
                             this.ChangeCapital(architecture);
                         }
@@ -2226,7 +2226,7 @@ namespace GameObjects
                             num2 = this.Capital.Fund - this.Capital.EnoughFund;
                             this.Capital.DecreaseFund(num2);
                             //architecture.AddFundPack(num2, (int)(Session.Current.Scenario.GetDistance(this.Capital.ArchitectureArea, architecture.ArchitectureArea) / 5.0));
-                            architecture.AddFundPack(num2, (int)(Session.Current.Scenario.GetDistance(this.Capital.ArchitectureArea, architecture.ArchitectureArea) / 5.0) * Session.Parameters.DayInTurn);
+                            architecture.AddFundPack(num2, (int)(Session.Current.Scenario.GetDistance(this.Capital.ArchitectureArea, architecture.ArchitectureArea) / 5.0));
                         }
                         this.ChangeCapital(architecture);
                     }

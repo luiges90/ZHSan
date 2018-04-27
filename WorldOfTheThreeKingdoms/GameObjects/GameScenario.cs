@@ -2123,7 +2123,7 @@ namespace GameObjects
         public int GetTransferFundDays(Architecture from, Architecture to)
         {
             //return (int)Math.Ceiling(this.GetDistance(from.ArchitectureArea, to.ArchitectureArea) / 2.5);
-            return (int)Math.Ceiling(this.GetDistance(from.ArchitectureArea, to.ArchitectureArea) / 2.5 * Session.Parameters.DayInTurn);
+            return (int)Math.Ceiling(this.GetDistance(from.ArchitectureArea, to.ArchitectureArea) / 2.5);
         }
 
 
