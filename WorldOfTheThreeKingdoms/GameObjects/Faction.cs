@@ -4898,6 +4898,16 @@ namespace GameObjects
 
         private void ResetFriendlyDiplomaticRelations()
         {
+            foreach (DiplomaticRelation i in Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelationListByFactionID(base.ID))
+            {
+                if (this.IsAlien) continue;
+                Faction opposite = i.GetDiplomaticFaction(this.ID);
+                if (i.Relation >= -Session.GlobalVariables.FriendlyDiplomacyThreshold && opposite.IsAlien)
+                {
+                    i.Relation -= 15; 
+                }
+            }
+
             if (Session.Current.Scenario.IsPlayer(this)) return;
 
             //bool relationBroken = false;
@@ -4910,7 +4920,6 @@ namespace GameObjects
                     if (i.Relation >= -Session.GlobalVariables.FriendlyDiplomacyThreshold && Session.Current.Scenario.IsPlayer(opposite))
                     {
                         i.Relation -= 15; //focus到玩家的时候，每月降低15点友好度
-                        //relationBroken = true;
                     }
                 }
             }
