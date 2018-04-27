@@ -5904,7 +5904,7 @@ namespace GameObjects
             {
                 //this.ArrivingDays--;
                 //if ((this.ArrivingDays == 0) && (this.TargetArchitecture != null) && this.Status != PersonStatus.Princess)
-                this.ArrivingDays -= Session.Parameters.DayInTurn;
+                this.ArrivingDays -= 1;
                 if ((this.ArrivingDays <= 0) && (this.TargetArchitecture != null) && this.Status != PersonStatus.Princess)
                 {
                     this.ReturnedDaySince = 0;
