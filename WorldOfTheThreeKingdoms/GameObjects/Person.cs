@@ -5489,17 +5489,17 @@ namespace GameObjects
                 if (startingPoint.HasValue)
                 {
                     //this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(startingPoint.Value, a.ArchitectureArea) / 10.0));
-                    this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(startingPoint.Value, a.ArchitectureArea) / 10.0)) * Session.Parameters.DayInTurn;
+                    this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(startingPoint.Value, a.ArchitectureArea) / 10.0));
                 }
                 else if (this.LocationArchitecture != null)
                 {
                     //this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(this.LocationArchitecture.ArchitectureArea, a.ArchitectureArea) / 10.0));
-                    this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(this.LocationArchitecture.ArchitectureArea, a.ArchitectureArea) / 10.0)) * Session.Parameters.DayInTurn;
+                    this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(this.LocationArchitecture.ArchitectureArea, a.ArchitectureArea) / 10.0));
                 }
                 else if (targetArchitecture != null)
                 {
                     //this.ArrivingDays += (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(targetArchitecture.ArchitectureArea, a.ArchitectureArea) / 10.0));
-                    this.ArrivingDays += (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(targetArchitecture.ArchitectureArea, a.ArchitectureArea) / 10.0)) * Session.Parameters.DayInTurn;
+                    this.ArrivingDays += (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(targetArchitecture.ArchitectureArea, a.ArchitectureArea) / 10.0));
                     if ((((this.OutsideTask == OutsideTaskKind.情报) || (this.OutsideTask == OutsideTaskKind.搜索)) || (this.OutsideTask == OutsideTaskKind.技能)) || (this.OutsideTask == OutsideTaskKind.称号))
                     {
                         this.TaskDays = this.ArrivingDays;
@@ -5508,7 +5508,7 @@ namespace GameObjects
                 else if (a.ArchitectureArea != null)
                 {
                     //this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, a.ArchitectureArea.Centre) / 10.0));
-                    this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, a.ArchitectureArea.Centre) / 10.0)) * Session.Parameters.DayInTurn;
+                    this.ArrivingDays = (int)Math.Ceiling((double)(Session.Current.Scenario.GetDistance(position, a.ArchitectureArea.Centre) / 10.0));
                 }
                 if (this.ArrivingDays == 0)
                 {
@@ -5524,7 +5524,7 @@ namespace GameObjects
             //this.ArrivingDays = (int) (this.ArrivingDays * (1 - MovementDaysBonus));
             //this.ArrivingDays = Math.Max(1, this.ArrivingDays);
             this.ArrivingDays = (int)(this.ArrivingDays * (1 - MovementDaysBonus));
-            this.ArrivingDays = Math.Max(1, this.ArrivingDays) * Session.Parameters.DayInTurn;
+            this.ArrivingDays = Math.Max(1, this.ArrivingDays);
 
             if (this.TargetArchitecture != null)
             {
