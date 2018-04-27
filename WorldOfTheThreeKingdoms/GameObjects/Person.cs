@@ -4812,7 +4812,7 @@ namespace GameObjects
             {
                 this.OutsideTask = OutsideTaskKind.搜索;
                 this.TargetArchitecture = this.LocationArchitecture;
-                this.ArrivingDays = Math.Max(1, Session.Parameters.SearchDays);
+                this.ArrivingDays = Math.Max(1, Session.Parameters.SearchDays) / Session.Parameters.DayInTurn + 1;
                 this.TaskDays = this.ArrivingDays;
                 this.Status = PersonStatus.Moving;
                 ExtensionInterface.call("GoForSearch", new Object[] { Session.Current.Scenario, this });
@@ -5886,7 +5886,7 @@ namespace GameObjects
             {
                 //this.TaskDays--;
                 //if ((this.TaskDays == 0) && (this.OutsideTask != OutsideTaskKind.无))
-                this.TaskDays -= Session.Parameters.DayInTurn;
+                this.TaskDays -= 1;
                 if ((this.TaskDays <= 0) && (this.OutsideTask != OutsideTaskKind.无))
                 {
                     if (this.BelongedFaction != null)
@@ -10224,7 +10224,7 @@ namespace GameObjects
 
                 this.OutsideTask = OutsideTaskKind.后宮;
                 this.TargetArchitecture = this.LocationArchitecture;
-                this.ArrivingDays = houGongDays;
+                this.ArrivingDays = houGongDays / Session.Parameters.DayInTurn + 1;
                 this.Status = PersonStatus.Moving;
                 this.TaskDays = this.ArrivingDays;
                 ExtensionInterface.call("GoForHouGong", new Object[] { Session.Current.Scenario, this, nvren });
