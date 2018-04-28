@@ -619,7 +619,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             military.StartingArchitecture = this.CurrentArchitecture;
                             military.TargetArchitecture = targetArchitecture;
                             //military.ArrivingDays = Math.Max(1, military.TransferDays(distance));
-                            military.ArrivingDays = Math.Max(1, military.TransferDays(distance)) * Session.Parameters.DayInTurn;
+                            military.ArrivingDays = Math.Max(1, military.TransferDays(distance));
                             this.CurrentArchitecture.RemoveMilitary(military);
                             this.CurrentArchitecture.BelongedFaction.TransferingMilitaries.Add(military);
                             this.CurrentArchitecture.BelongedFaction.TransferingMilitaryCount++;
