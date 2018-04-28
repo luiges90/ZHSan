@@ -63,6 +63,14 @@ namespace GameObjects
             }
         }
 
+        public int DaysText
+        {
+            get
+            {
+                return this.Kind.Days * Session.Parameters.DayInTurn;
+            }
+        }
+
         public string Description
         {
             get

@@ -4,6 +4,7 @@ using GameObjects.Conditions;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using GameManager;
 
 namespace GameObjects.ArchitectureDetail
 {
@@ -109,6 +110,14 @@ namespace GameObjects.ArchitectureDetail
             set
             {
                 this.days = value;
+            }
+        }
+
+        public int DaysText
+        {
+            get
+            {
+                return this.days * Session.Parameters.DayInTurn;
             }
         }
 
