@@ -3516,7 +3516,7 @@ namespace GameObjects
                     int max = 0;
                     PersonGeneratorType type = null;
                     foreach (PersonGeneratorType t in list) {
-                        if (t.CostFund > max)
+                        if (t.CostFund > max && t.CostFund < a.Fund)
                         {
                             type = t;
                             max = t.CostFund;
