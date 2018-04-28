@@ -5325,7 +5325,7 @@ namespace GameObjects
 
         private void AdjustIdeal()
         {
-            if (this.BelongedFaction != null)
+            if (this.BelongedFactionWithPrincess != null)
             {
                 if (this.Status == PersonStatus.Captive)
                 {
