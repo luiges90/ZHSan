@@ -295,7 +295,7 @@
                                 this.InfluenceText.AddText(stunt.Name, this.InfluenceText.SubTitleColor);
                                 this.InfluenceText.AddNewLine();
                                 this.InfluenceText.AddText("持续天数", this.InfluenceText.SubTitleColor2);
-                                this.InfluenceText.AddText(stunt.Period.ToString(), this.InfluenceText.SubTitleColor3);
+                                this.InfluenceText.AddText((stunt.Period * Session.Parameters.DayInTurn).ToString(), this.InfluenceText.SubTitleColor3);
                                 this.InfluenceText.AddText("天", this.InfluenceText.SubTitleColor2);
                                 this.InfluenceText.AddNewLine();
                                 foreach (Influence influence in stunt.Influences.Influences.Values)

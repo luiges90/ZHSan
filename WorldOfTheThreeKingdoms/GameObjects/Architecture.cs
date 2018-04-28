@@ -14490,7 +14490,7 @@ namespace GameObjects
             {
                 if (this.youzainan)
                 {
-                    return this.zainan.shengyutianshu.ToString();
+                    return (this.zainan.shengyutianshu * Session.Parameters.DayInTurn).ToString();
                 }
                 else
                 {

@@ -3443,7 +3443,7 @@ namespace ArchitectureDetail
                         this.FacilityText.AddText("建造中：");
                         this.FacilityText.AddText(facilityKind.Name, this.FacilityText.SubTitleColor);
                         this.FacilityText.AddText("，剩余时间：");
-                        this.FacilityText.AddText(this.ShowingArchitecture.BuildingDaysLeft.ToString(), this.FacilityText.SubTitleColor2);
+                        this.FacilityText.AddText((this.ShowingArchitecture.BuildingDaysLeft * Session.Parameters.DayInTurn).ToString(), this.FacilityText.SubTitleColor2);
                         this.FacilityText.AddText("天");
                         this.FacilityText.AddNewLine();
                     }
@@ -3536,7 +3536,7 @@ namespace ArchitectureDetail
                                 this.TheFacility1Text.AddText("建造中：");
                                 this.TheFacility1Text.AddText(facilityKind.Name, this.TheFacility1Text.SubTitleColor);
                                 this.TheFacility1Text.AddText("，剩余时间：");
-                                this.TheFacility1Text.AddText(this.ShowingArchitecture.BuildingDaysLeft.ToString(), this.TheFacility1Text.SubTitleColor2);
+                                this.TheFacility1Text.AddText((this.ShowingArchitecture.BuildingDaysLeft * Session.Parameters.DayInTurn).ToString(), this.TheFacility1Text.SubTitleColor2);
                                 this.TheFacility1Text.AddText("天");
                                 this.TheFacility1Text.AddNewLine();
                             }
@@ -3702,7 +3702,7 @@ namespace ArchitectureDetail
                             HasBuildingFacility = true;
                             TheBuildingFacilityID=facilityKind.ID;
                             TheBuildingFacilityName = facilityKind.Name;
-                            TheBuildingFacilityDay = this.ShowingArchitecture.BuildingDaysLeft.ToString();
+                            TheBuildingFacilityDay = (this.ShowingArchitecture.BuildingDaysLeft * Session.Parameters.DayInTurn).ToString();
                         }
                     }
                     if (Switch42 == "on")
@@ -3724,7 +3724,7 @@ namespace ArchitectureDetail
                                 this.TheFacility3Text.AddText(this.TheFacility3Text2);
                                 this.TheFacility3Text.AddText(facilityKind.Name, this.TheFacility3Text.SubTitleColor);
                                 this.TheFacility3Text.AddText(this.TheFacility3Text3);
-                                this.TheFacility3Text.AddText(this.ShowingArchitecture.BuildingDaysLeft.ToString(), this.TheFacility3Text.SubTitleColor2);
+                                this.TheFacility3Text.AddText((this.ShowingArchitecture.BuildingDaysLeft * Session.Parameters.DayInTurn).ToString(), this.TheFacility3Text.SubTitleColor2);
                                 this.TheFacility3Text.AddText(this.TheFacility3Text4);
                                 this.TheFacility3Text.AddNewLine();
                             }

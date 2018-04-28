@@ -368,7 +368,7 @@ namespace ArchitectureSurveyPlugin
                 this.CommerceText.Text = this.ArchitectureToSurvey.CommerceString;
                 this.TechnologyText.Text = this.ArchitectureToSurvey.TechnologyString;
                 this.MoraleText.Text = this.ArchitectureToSurvey.MoraleString;
-                this.BuildingDaysLeftText.Text = this.ArchitectureToSurvey.BuildingDaysLeft.ToString();
+                this.BuildingDaysLeftText.Text = (this.ArchitectureToSurvey.BuildingDaysLeft * Session.Parameters.DayInTurn).ToString();
                 this.MayorNameText.Text = this.ArchitectureToSurvey.MayorName;
                 //↓判断建筑种类对应文理
                 if (Switch1 == "on")

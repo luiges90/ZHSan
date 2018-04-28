@@ -1938,7 +1938,7 @@ namespace GameObjects
             {
                 if (this.ArrivingDays > 0)
                 {
-                    return (this.ArrivingDays + "天");
+                    return (this.ArrivingDays * Session.Parameters.DayInTurn + "天");
                 }
                 return "----";
             }

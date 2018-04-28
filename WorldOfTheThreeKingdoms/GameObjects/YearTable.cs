@@ -628,7 +628,7 @@ namespace GameObjects
                         architectureStrings,
                         "",
                         "",
-                        dayDiff + "天",
+                        dayDiff  * Session.Parameters.DayInTurn + "天",
                         victorDescription), false);
                 }
                 this.addPersonInGameBiography(p, date, String.Format(yearTableStrings["battleSkirmish_p"],
@@ -638,7 +638,7 @@ namespace GameObjects
                     architectureStrings,
                     "",
                     "",
-                    dayDiff + "天",
+                    dayDiff  * Session.Parameters.DayInTurn + "天",
                     selfDescription));
             }
             else
@@ -657,7 +657,7 @@ namespace GameObjects
                                 a.Name,
                                 a.BelongedFaction == null ? "贼军" : a.BelongedFaction.Name,
                                 a.OldFactionName,
-                                dayDiff + "天"), false);
+                                dayDiff  * Session.Parameters.DayInTurn + "天"), false);
                         }
 
                         if (p.BelongedFaction == a.BelongedFaction)
@@ -669,7 +669,7 @@ namespace GameObjects
                                     a.Name,
                                     a.BelongedFaction == null ? "贼军" : a.BelongedFaction.Name,
                                     a.OldFactionName,
-                                    dayDiff + "天"));
+                                    dayDiff * Session.Parameters.DayInTurn + "天"));
                         }
                         else if (p.BelongedFaction.Name == a.OldFactionName)
                         {
@@ -680,7 +680,7 @@ namespace GameObjects
                                     a.Name,
                                     a.BelongedFaction == null ? "贼军" : a.BelongedFaction.Name,
                                     a.OldFactionName,
-                                    dayDiff + "天"));
+                                    dayDiff * Session.Parameters.DayInTurn + "天"));
                         }
                         else
                         {
@@ -691,7 +691,7 @@ namespace GameObjects
                                     a.Name,
                                     a.BelongedFaction == null ? "贼军" : a.BelongedFaction.Name,
                                     a.OldFactionName,
-                                    dayDiff + "天"));
+                                    dayDiff * Session.Parameters.DayInTurn + "天"));
                         }
                     }
                     else
@@ -719,7 +719,7 @@ namespace GameObjects
                                 a.Name,
                                 offenderString,
                                 a.OldFactionName,
-                                dayDiff + "天"), false);
+                                dayDiff * Session.Parameters.DayInTurn + "天"), false);
                         }
 
                         if (a.BelongedFaction == p.BelongedFaction)
@@ -731,7 +731,7 @@ namespace GameObjects
                                 a.Name,
                                 offenderString,
                                 a.OldFactionName,
-                                dayDiff + "天"));
+                                dayDiff * Session.Parameters.DayInTurn + "天"));
                         }
                         else
                         {
@@ -742,7 +742,7 @@ namespace GameObjects
                                 a.Name,
                                 offenderString,
                                 a.OldFactionName,
-                                dayDiff + "天"));
+                                dayDiff * Session.Parameters.DayInTurn + "天"));
                         }
                     }
                 }

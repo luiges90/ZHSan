@@ -73,11 +73,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                         int returnDays = 0;
                         if (this.SingleWay)
                         {
-                            returnDays = Math.Max(Session.Current.Scenario.GetReturnDays(this.SelectedPoint, this.FromArea) / 2, 1);
+                            returnDays = Math.Max(Session.Current.Scenario.GetReturnDays(this.SelectedPoint, this.FromArea) / 2, 1) * Session.Parameters.DayInTurn;
                         }
                         else
                         {
-                            returnDays = Session.Current.Scenario.GetReturnDays(this.SelectedPoint, this.FromArea);
+                            returnDays = Session.Current.Scenario.GetReturnDays(this.SelectedPoint, this.FromArea) * Session.Parameters.DayInTurn;
                         }
                         this.Conment.Text = returnDays.ToString() + "天";
                         this.Conment.Draw(0.5f);

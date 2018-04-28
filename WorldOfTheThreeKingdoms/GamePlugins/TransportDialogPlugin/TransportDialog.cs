@@ -511,14 +511,14 @@ namespace TransportDialogPlugin
                     {
                         case TransportKind.EmperorFood:
                         case TransportKind.EmperorFund:
-                            this.Days = 1;
+                            this.Days = Session.Parameters.DayInTurn;
                             this.DestinationCommentText.Text = "";
                             break;
 
                         //case TransportKind.Resource:
                         case TransportKind.Fund:
                         case TransportKind.Food:
-                            this.Days = Session.Current.Scenario.GetTransferFundDays(this.SourceArchitecture, this.DestinationArchitecture);
+                            this.Days = Session.Current.Scenario.GetTransferFundDays(this.SourceArchitecture, this.DestinationArchitecture) * Session.Parameters.DayInTurn;
                             this.DestinationCommentText.Text = "运抵时间：" + this.Days.ToString() + "天";
                             break;
 

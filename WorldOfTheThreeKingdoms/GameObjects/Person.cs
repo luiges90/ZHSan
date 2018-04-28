@@ -7859,7 +7859,7 @@ namespace GameObjects
             {
                 if (this.TaskDays > 0)
                 {
-                    return (this.TaskDays.ToString() + "天");
+                    return (this.TaskDays * Session.Parameters.DayInTurn + "天");
                 }
                 return "----";
             }
@@ -8485,7 +8485,7 @@ namespace GameObjects
             {
                 if (this.ArrivingDays > 0)
                 {
-                    return (this.ArrivingDays + "天");
+                    return (this.ArrivingDays * Session.Parameters.DayInTurn + "天");
                 }
                 return "----";
             }
