@@ -2333,8 +2333,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.nstDianNaoXunLian2.NowNumber = 0.05f;
                     this.nstDianNaoWuJiangJingYan2.NowNumber = 0.0f;
                     this.nstDianNaoBuDuiJingYan2.NowNumber = 0.02f;
-                    this.nstDianNaoKangJi2.NowNumber = 0.2f;
-                    this.nstDianNaoKangWei2.NowNumber = 0.2f;
+                    this.nstDianNaoKangJi2.NowNumber = 0.1f;
+                    this.nstDianNaoKangWei2.NowNumber = 0.1f;
 
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoWanJiaDiRen").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianWanJia").Selected = true;
@@ -2384,8 +2384,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.nstDianNaoXunLian2.NowNumber = 0.1f;
                     this.nstDianNaoWuJiangJingYan2.NowNumber = 0.0f;
                     this.nstDianNaoBuDuiJingYan2.NowNumber = 0.1f;
-                    this.nstDianNaoKangJi2.NowNumber = 1.0f;
-                    this.nstDianNaoKangWei2.NowNumber = 1.0f;                    
+                    this.nstDianNaoKangJi2.NowNumber = 0.5f;
+                    this.nstDianNaoKangWei2.NowNumber = 0.5f;                    
 
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoWanJiaDiRen").Selected = true;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianWanJia").Selected = true;
