@@ -3580,7 +3580,7 @@ namespace GameObjects
                     double distance = Session.Current.Scenario.GetDistance(a.ArchitectureArea, sourceFaction.Capital.ArchitectureArea);
                     m.TargetArchitecture = sourceFaction.Capital;
                     //m.ArrivingDays += Math.Max(1, (int)(m.TransferDays(distance) * (1 - a.TroopTransportDayRate)));
-                    m.ArrivingDays += Math.Max(1, (int)(m.TransferDays(distance) * (1 - a.TroopTransportDayRate))) * Session.Parameters.DayInTurn;
+                    m.ArrivingDays += Math.Max(1, (int)(m.TransferDays(distance) * (1 - a.TroopTransportDayRate)));
                 }
             }
             a.ChangeFaction(targetFaction);
