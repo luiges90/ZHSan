@@ -125,8 +125,7 @@
                 <MenuItem ID="2" Name="ChangeCapital" DisplayName="迁都" DisplayIfTrue="ChangeCapitalAvail" />
                 <MenuItem ID="9" Name="SelectPrince"  DisplayName="立储" DisplayIfTrue="SelectPrinceAvail" />
                 <MenuItem ID="11" Name="ZhaoXianBang"  DisplayName="招贤榜">                
-                    <MenuItem ID="1" Name="GenerateOfficer" DisplayName="招贤" DisplayIfTrue="CanZhaoXian" />
-                    <MenuItem ID="2" Name="DismissOfficer" DisplayName="遣散" DisplayIfTrue="DismissOfficerAvail" />               
+                    <MenuItem ID="1" Name="GenerateOfficer" DisplayName="招贤" DisplayIfTrue="CanZhaoXian" />           
                 </MenuItem>
                 <MenuItem ID="3" Name="Diplomatic" DisplayName="外交">
                     <MenuItem ID="1" Name="EnhanceDiplomaticRelation" DisplayName="亲善" DisplayIfTrue="EnhanceDiplomaticRelationAvail" />
