@@ -5274,7 +5274,7 @@ namespace GameObjects
 
         public void AdjustIdealToFactionLeader(int diff)
         {
-            if (this.BelongedFaction == null) return;
+            if (this.BelongedFactionWithPrincess == null) return;
             if (diff == 0) return;
 
             if (diff > 75)
@@ -5282,20 +5282,20 @@ namespace GameObjects
                 diff = 75;
             }
 
-            int oldDiff = Person.GetIdealOffset(this, this.BelongedFaction.Leader);
+            int oldDiff = Person.GetIdealOffset(this, this.BelongedFactionWithPrincess.Leader);
 
-            if (this.Ideal == this.BelongedFaction.Leader.Ideal)
+            if (this.Ideal == this.BelongedFactionWithPrincess.Leader.Ideal)
             {
                 if (diff < 0) return;
                 this.Ideal += diff * (GameObject.Chance(50) ? 1 : -1);
             }
-            else if (this.Ideal > this.BelongedFaction.Leader.Ideal)
+            else if (this.Ideal > this.BelongedFactionWithPrincess.Leader.Ideal)
             {
-                if (this.Ideal < this.BelongedFaction.Leader.Ideal + 75)
+                if (this.Ideal < this.BelongedFactionWithPrincess.Leader.Ideal + 75)
                 {
                     this.Ideal += Math.Min(oldDiff, diff);
                 }
-                else if (this.Ideal > this.BelongedFaction.Leader.Ideal + 75)
+                else if (this.Ideal > this.BelongedFactionWithPrincess.Leader.Ideal + 75)
                 {
                     this.Ideal -= Math.Min(oldDiff, diff);
                 }
@@ -5306,11 +5306,11 @@ namespace GameObjects
             }
             else
             {
-                if (this.Ideal > this.BelongedFaction.Leader.Ideal - 75)
+                if (this.Ideal > this.BelongedFactionWithPrincess.Leader.Ideal - 75)
                 {
                     this.Ideal -= Math.Min(oldDiff, diff);
                 }
-                else if (this.Ideal < this.BelongedFaction.Leader.Ideal - 75)
+                else if (this.Ideal < this.BelongedFactionWithPrincess.Leader.Ideal - 75)
                 {
                     this.Ideal += Math.Min(oldDiff, diff);
                 }
