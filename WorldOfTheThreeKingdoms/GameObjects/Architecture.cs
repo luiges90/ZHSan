@@ -12820,6 +12820,15 @@ namespace GameObjects
                 this.buildingDaysLeft = value;
             }
         }
+
+        public int BuildingDaysLeftText
+        {
+            get
+            {
+                return this.buildingDaysLeft * Session.Parameters.DayInTurn;
+            }
+        }
+
         [DataMember]
         public int BuildingFacility { get; set; }
         //{
