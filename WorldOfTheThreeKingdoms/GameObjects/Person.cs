@@ -5333,14 +5333,14 @@ namespace GameObjects
                 {
                     if (GameObject.Chance((10 - this.Uncruelty) * 10))
                     {
-                        this.AdjustIdealToFactionLeader(1);
+                        this.AdjustIdealToFactionLeader(-1);
                     }
                 }
                 else
                 {
                     if (GameObject.Chance(this.IdealTendency.Offset / 4))
                     {
-                        this.AdjustIdealToFactionLeader(-1);
+                        this.AdjustIdealToFactionLeader(1);
                     }
                 }
 
