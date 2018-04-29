@@ -5284,39 +5284,41 @@ namespace GameObjects
 
             int oldDiff = Person.GetIdealOffset(this, this.BelongedFactionWithPrincess.Leader);
 
-            if (this.Ideal == this.BelongedFactionWithPrincess.Leader.Ideal)
+            int targetIdeal = this.BelongedFactionWithPrincess.Leader.Ideal;
+
+            if (this.Ideal == targetIdeal)
             {
-                if (diff < 0) return;
+                if (diff <= 0) return;
                 this.Ideal += diff * (GameObject.Chance(50) ? 1 : -1);
-            }
-            else if (this.Ideal > this.BelongedFactionWithPrincess.Leader.Ideal)
-            {
-                if (this.Ideal < this.BelongedFactionWithPrincess.Leader.Ideal + 75)
-                {
-                    this.Ideal += Math.Min(oldDiff, diff);
-                }
-                else if (this.Ideal > this.BelongedFactionWithPrincess.Leader.Ideal + 75)
-                {
-                    this.Ideal -= Math.Min(oldDiff, diff);
-                }
-                else
-                {
-                    this.Ideal += diff * (GameObject.Chance(50) ? 1 : -1);
-                }
             }
             else
             {
-                if (this.Ideal > this.BelongedFactionWithPrincess.Leader.Ideal - 75)
+                int opposite = (targetIdeal + 75) % 150;
+                if (this.Ideal == opposite)
                 {
-                    this.Ideal -= Math.Min(oldDiff, diff);
+                    this.Ideal += diff * (GameObject.Chance(50) ? 1 : -1);
                 }
-                else if (this.Ideal < this.BelongedFactionWithPrincess.Leader.Ideal - 75)
+                else if (opposite < targetIdeal)
                 {
-                    this.Ideal += Math.Min(oldDiff, diff);
+                    if (opposite < this.Ideal && this.Ideal < targetIdeal)
+                    {
+                        this.Ideal += Math.Min(oldDiff, diff);
+                    }
+                    else
+                    {
+                        this.Ideal -= Math.Min(oldDiff, diff);
+                    }
                 }
                 else
                 {
-                    this.Ideal += diff * (GameObject.Chance(50) ? 1 : -1);
+                    if (targetIdeal < this.Ideal && this.Ideal < opposite)
+                    {
+                        this.Ideal -= Math.Min(oldDiff, diff);
+                    }
+                    else
+                    {
+                        this.Ideal += Math.Min(oldDiff, diff);
+                    }
                 }
             }
 
