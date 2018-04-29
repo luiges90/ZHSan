@@ -9380,12 +9380,12 @@ namespace GameObjects
                 AdjustChildrenIdeal(father, mother, r);
 
                 HandleChildrenCharacter(father, mother, r);
-
+               
                 Architecture bornArch = HandleChildrenRegion(father, mother, r);
 
-                HandleChildrenFaction(father, mother, r);
-
                 HandleChildrenBiography(father, mother, r, bornArch, false);
+
+                HandleChildrenFaction(father, mother, r);
 
                 r.IsGeneratedChildren = true;
                 r.TrainPolicy = (TrainPolicy) Session.Current.Scenario.GameCommonData.AllTrainPolicies.GetGameObject(1);
