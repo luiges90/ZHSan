@@ -74255,7 +74255,7 @@
 "MountainAdaptability":6,
 "MountainRate":1,
 "Movability":20,
-"ObliqueOffence":true,
+"ObliqueOffence":false,
 "ObliqueStratagem":false,
 "ObliqueView":false,
 "ObtainProb":1,
