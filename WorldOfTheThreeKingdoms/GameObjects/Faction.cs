@@ -3334,8 +3334,7 @@ namespace GameObjects
 
             foreach (Military m in this.TransferingMilitaries)
             {
-                //m.ArrivingDays--;
-                m.ArrivingDays -= Session.Parameters.DayInTurn;
+                m.ArrivingDays--;
 
                 if (m.ArrivingDays <= 0)
                 {
