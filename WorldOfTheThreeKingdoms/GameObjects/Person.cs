@@ -5288,8 +5288,7 @@ namespace GameObjects
 
             if (this.Ideal == targetIdeal)
             {
-                if (diff <= 0) return;
-                this.Ideal += diff * (GameObject.Chance(50) ? 1 : -1);
+                return;
             }
             else
             {
