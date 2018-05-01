@@ -766,12 +766,12 @@ namespace GameObjects
 
                 Person joinToPerson = person.Father;
 
-                if (joinToPerson != null && joinToPerson.Available && joinToPerson.Alive && joinToPerson.BelongedFaction != null && joinToPerson.BelongedCaptive == null)
+                if (joinToPerson != null && joinToPerson.Available && joinToPerson.Alive && joinToPerson.BelongedFactionWithPrincess != null && joinToPerson.BelongedCaptive == null)
                 {
                     person.LocationArchitecture = joinToPerson.BelongedArchitecture;
                     person.Status = PersonStatus.Normal;
                     person.YearJoin = this.Date.Year;
-                    Session.MainGame.mainGameScreen.xianshishijiantupian(joinToPerson.BelongedFaction.Leader, joinToPerson.Name, TextMessageKind.ChildJoin, "ChildJoin", "", "", person.Name, false);
+                    Session.MainGame.mainGameScreen.xianshishijiantupian(joinToPerson.BelongedFactionWithPrincess.Leader, joinToPerson.Name, TextMessageKind.ChildJoin, "ChildJoin", "", "", person.Name, false);
                     if (person.LocationArchitecture != null)
                     {
                         Session.MainGame.mainGameScreen.xianshishijiantupian(person, person.LocationArchitecture.Name, TextMessageKind.ChildJoinSelfTalk, "ChildJoinSelfTalk", "", "", false);
@@ -783,12 +783,12 @@ namespace GameObjects
                 }
 
                 joinToPerson = person.Mother;
-                if (joinToPerson != null && joinToPerson.Available && joinToPerson.Alive && joinToPerson.BelongedFaction != null && joinToPerson.BelongedCaptive == null)
+                if (joinToPerson != null && joinToPerson.Available && joinToPerson.Alive && joinToPerson.BelongedFactionWithPrincess != null && joinToPerson.BelongedCaptive == null)
                 {
                     person.LocationArchitecture = joinToPerson.BelongedArchitecture;
                     person.Status = PersonStatus.Normal;
                     person.YearJoin = this.Date.Year;
-                    Session.MainGame.mainGameScreen.xianshishijiantupian(joinToPerson.BelongedFaction.Leader, joinToPerson.Name, TextMessageKind.ChildJoin, "ChildJoin", "", "", person.Name, false);
+                    Session.MainGame.mainGameScreen.xianshishijiantupian(joinToPerson.BelongedFactionWithPrincess.Leader, joinToPerson.Name, TextMessageKind.ChildJoin, "ChildJoin", "", "", person.Name, false);
                     Session.MainGame.mainGameScreen.xianshishijiantupian(person, person.LocationArchitecture.Name, TextMessageKind.ChildJoinSelfTalk, "ChildJoinSelfTalk", "", "", false);
                     this.AvailablePersons.Add(person);
                     Session.MainGame.mainGameScreen.haizizhangdachengren(joinToPerson, person, false);
@@ -797,7 +797,7 @@ namespace GameObjects
                 }
 
                 joinToPerson = person.Spouse;
-                if (joinToPerson != null && joinToPerson.Available && joinToPerson.Alive && joinToPerson.BelongedFaction != null && joinToPerson.BelongedCaptive == null)
+                if (joinToPerson != null && joinToPerson.Available && joinToPerson.Alive && joinToPerson.BelongedFactionWithPrincess != null && joinToPerson.BelongedCaptive == null)
                 {
                     person.LocationArchitecture = joinToPerson.BelongedArchitecture;
                     person.Status = PersonStatus.Normal;

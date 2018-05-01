@@ -7132,7 +7132,7 @@ namespace GameObjects
                 HashSet<Person> result = new HashSet<Person>();
                 foreach (Person p in Session.Current.Scenario.Persons)
                 {
-                    if (p.Alive && !p.Available && p.Age >= 0 && ((p.Father != null && p.Father.BelongedFaction == this) || (p.Mother != null && p.Mother.BelongedFaction == this))
+                    if (p.Alive && !p.Available && p.Age >= 0 && ((p.Father != null && p.Father.BelongedFactionWithPrincess == this) || (p.Mother != null && p.Mother.BelongedFactionWithPrincess == this))
                         && (p.ID < 7000 || p.ID > 8000))
                     {
                         result.Add(p);
