@@ -5283,6 +5283,7 @@ namespace GameObjects
             }
 
             int oldDiff = Person.GetIdealOffset(this, this.BelongedFactionWithPrincess.Leader);
+            int newValue = this.Ideal;
 
             int targetIdeal = this.BelongedFactionWithPrincess.Leader.Ideal;
 
@@ -5295,33 +5296,33 @@ namespace GameObjects
                 int opposite = (targetIdeal + 75) % 150;
                 if (this.Ideal == opposite)
                 {
-                    this.Ideal += diff * (GameObject.Chance(50) ? 1 : -1);
+                    newValue += diff * (GameObject.Chance(50) ? 1 : -1);
                 }
                 else if (opposite < targetIdeal)
                 {
                     if (opposite < this.Ideal && this.Ideal < targetIdeal)
                     {
-                        this.Ideal += Math.Min(oldDiff, diff);
+                        newValue += Math.Min(oldDiff, diff);
                     }
                     else
                     {
-                        this.Ideal -= Math.Min(oldDiff, diff);
+                        newValue -= Math.Min(oldDiff, diff);
                     }
                 }
                 else
                 {
                     if (targetIdeal < this.Ideal && this.Ideal < opposite)
                     {
-                        this.Ideal -= Math.Min(oldDiff, diff);
+                        newValue -= Math.Min(oldDiff, diff);
                     }
                     else
                     {
-                        this.Ideal += Math.Min(oldDiff, diff);
+                        newValue += Math.Min(oldDiff, diff);
                     }
                 }
             }
 
-            this.Ideal = (this.Ideal + 150) % 150;
+            this.Ideal = (newValue + 150) % 150;
         }
 
         private void AdjustIdeal()
