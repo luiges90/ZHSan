@@ -882,11 +882,23 @@ namespace GameObjects
                 return false;
             }
 
-            int unAmbition = Enum.GetNames(typeof(PersonAmbition)).Length - (int)this.Leader.Ambition;
-            bool take = p.UntiredMerit > ((unAmbition - 1) * Session.Parameters.AINafeiAbilityThresholdRate) &&
-                                        (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (p.Age >= 16 && p.Age <= Session.Parameters.AINafeiMaxAgeThresholdAdd + (int)leader.Ambition * Session.Parameters.AINafeiMaxAgeThresholdMultiply)) &&
-                                        p.marriageGranter != this.Leader && !p.Hates(this.Leader);
+            bool hasSon = false;
+            if (this.Leader.NumberOfChildren > 0)
+            {
+                foreach (Person q in this.Leader.ChildrenList)
+                {
+                    if (!q.Sex)
+                    {
+                        hasSon = true;
+                    }
+                }
+            }
 
+            int unAmbition = Enum.GetNames(typeof(PersonAmbition)).Length - (int)this.Leader.Ambition;
+            bool take = (p.UntiredMerit > ((unAmbition - 1) * Session.Parameters.AINafeiAbilityThresholdRate) || !hasSon) &&
+                                        (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (p.Age >= 16 && (p.Age <= Session.Parameters.AINafeiMaxAgeThresholdAdd + (int)leader.Ambition * Session.Parameters.AINafeiMaxAgeThresholdMultiply || !hasSon))) &&
+                                        p.marriageGranter != this.Leader && !p.Hates(this.Leader);
+   
             Person hater = WillHateLeaderDueToAffair(p, this.Leader, p.suoshurenwuList.GetList(), false);
 
             if (this.IsAlien && (hater == null ||  hater.PersonalLoyalty >= 2))
