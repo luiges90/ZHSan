@@ -74,5 +74,17 @@ namespace GameObjects.PersonDetail
             this.Person = person;
             this.RelationValue = relationValue;
         }
-	}
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is PersonRelationValue)) return false;
+            PersonRelationValue other = (PersonRelationValue)obj;
+            return this.Source.Equals(other.Source) && this.Person.Equals(other.Person);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Source.GetHashCode() * 31 + this.Person.GetHashCode();
+        }
+    }
 }

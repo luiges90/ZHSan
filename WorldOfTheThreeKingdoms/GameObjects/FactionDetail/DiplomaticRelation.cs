@@ -43,11 +43,6 @@ namespace GameObjects.FactionDetail
             return null;
         }
 
-        public override int GetHashCode()
-        {
-            return (this.RelationFaction1ID.ToString() + " " + this.RelationFaction2ID.ToString()).GetHashCode();
-        }
-
         public int GetTheOtherFactionID(int factionID)
         {
             if (factionID == this.RelationFaction1ID)
@@ -153,6 +148,18 @@ namespace GameObjects.FactionDetail
                 }
                 return "----";
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is DiplomaticRelation)) return false;
+            DiplomaticRelation other = (DiplomaticRelation)obj;
+            return this.RelationFaction1ID == other.RelationFaction1ID && this.RelationFaction2ID == other.RelationFaction2ID;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.RelationFaction1ID * 31 + this.RelationFaction2ID;
         }
     }
 }

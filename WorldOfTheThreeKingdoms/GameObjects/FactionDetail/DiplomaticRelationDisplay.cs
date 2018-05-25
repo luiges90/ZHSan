@@ -62,6 +62,17 @@ namespace GameObjects.FactionDetail
                 this.LinkedDiplomaticRelation.Truce = value;
             }
         }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is DiplomaticRelationDisplay)) return false;
+            return this.LinkedDiplomaticRelation.Equals(((DiplomaticRelationDisplay)obj).LinkedDiplomaticRelation);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.LinkedDiplomaticRelation.GetHashCode();
+        }
     }
 }
 
