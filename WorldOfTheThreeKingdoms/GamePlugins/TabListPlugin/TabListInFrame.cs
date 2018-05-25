@@ -551,7 +551,10 @@ namespace TabListPlugin
                                         this.iTroopDetail.SetTroop(gameObjectByPosition);
                                         this.iTroopDetail.IsShowing = true;
                                     }
-                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Troop).Position);
+                                    Point pos = (gameObjectByPosition as Troop).Position;
+                                    if (pos != Point.Zero) { 
+                                        Session.MainGame.mainGameScreen.JumpTo(pos);
+                                    }
                                 }
                                 else if (gameObjectByPosition is Person)
                                 {
@@ -563,7 +566,11 @@ namespace TabListPlugin
                                     }
                                     if (!(gameObjectByPosition as Person).IsCaptive)
                                     {
-                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Person).Position);
+                                        Point pos = (gameObjectByPosition as Person).Position;
+                                        if (pos != Point.Zero)
+                                        {
+                                            Session.MainGame.mainGameScreen.JumpTo(pos);
+                                        }
                                     }
                                 }
                                 else if (gameObjectByPosition is Architecture)
@@ -574,7 +581,11 @@ namespace TabListPlugin
                                         this.iArchitectureDetail.SetArchitecture(gameObjectByPosition);
                                         this.iArchitectureDetail.IsShowing = true;
                                     }
-                                    Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Architecture).Position);
+                                    Point pos = (gameObjectByPosition as Architecture).Position;
+                                    if (pos != Point.Zero)
+                                    {
+                                        Session.MainGame.mainGameScreen.JumpTo(pos);
+                                    }
                                 }
                                 else if (gameObjectByPosition is Military)
                                 {
