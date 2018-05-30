@@ -4913,7 +4913,7 @@ namespace GameObjects
             {
                 if (this.IsAlien) continue;
                 Faction opposite = i.GetDiplomaticFaction(this.ID);
-                if (i.Relation >= -Session.GlobalVariables.FriendlyDiplomacyThreshold && opposite.IsAlien)
+                if (opposite != null && i.Relation >= -Session.GlobalVariables.FriendlyDiplomacyThreshold && opposite.IsAlien)
                 {
                     i.Relation -= 15; 
                 }
