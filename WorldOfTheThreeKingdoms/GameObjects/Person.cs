@@ -2437,7 +2437,7 @@ namespace GameObjects
                             }
                             if (Session.Current.Scenario.GlobalVariables.AutoMultipleMarriage || i.Key.Status == PersonStatus.Princess)
                             {
-                                if (!this.Sex && i.Key.Spouse == null && !i.Key.Hates(this.Spouse) && !this.Spouse.Hates(i.Key))
+                                if (!this.Sex && this.Spouse != null && i.Key.Spouse == null && !i.Key.Hates(this.Spouse) && !this.Spouse.Hates(i.Key))
                                 {
                                     valid = true;
                                 }
