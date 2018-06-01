@@ -88,7 +88,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         NumericSetTextureF nstArmySpeed, nstDialogTime, nstBattleSpeed, nstAutoSaveTime;
 
-        NumericSetTextureF nstViewDetail, nstGeneralBattleDead, nstGeneralYun, nstFeiZiYun, nstZhaoXian, nstSearchGen, nstZaiNan;
+        NumericSetTextureF nstViewDetail, nstGeneralBattleDead, nstGeneralYun, nstFeiZiYun, nstZhaoXian, nstSearchGen, nstZaiNan, nstDayInTurn;
 
         NumericSetTextureF nstMaxExperience, nstMaxSkill, nstPiLeiUp, nstPiLeiDown, nstExperienceUp, nstTreasureDiscover;
 
@@ -551,26 +551,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 3.5f))
             {
-                ID = "LuShangBuDui"
-            };
-            btOne.OnButtonPress += (sender, e) =>
-            {
-                var bt = (ButtonTexture)sender;
-                if (bt.Selected)
-                {
-                    bt.Selected = false;
-                    Session.globalVariablesTemp.LandArmyCanGoDownWater = false;
-                }
-                else
-                {
-                    bt.Selected = true;
-                    Session.globalVariablesTemp.LandArmyCanGoDownWater = true;
-                }
-            };
-            btConfigList1.Add(btOne);
-
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 4.0f))
-            {
                 ID = "ShiLiHeBing"
             };
             btOne.OnButtonPress += (sender, e) =>
@@ -589,7 +569,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 4.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 4.0f))
             {
                 ID = "RenKouXiaoYu"
             };
@@ -609,27 +589,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 5.0f))
-            {
-                ID = "ZiYuanJiaBei"
-            };
-            btOne.OnButtonPress += (sender, e) =>
-            {
-                var bt = (ButtonTexture)sender;
-                if (bt.Selected)
-                {
-                    bt.Selected = false;
-                    Session.globalVariablesTemp.MultipleResource = false;
-                }
-                else
-                {
-                    bt.Selected = true;
-                    Session.globalVariablesTemp.MultipleResource = true;
-                }
-            };
-            btConfigList1.Add(btOne);
-
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 5.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 4.5f))
             {
                 ID = "KaiQiTianYan"
             };
@@ -711,26 +671,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left2, heightBase + height * 1.5f))
             {
-                ID = "DanTiaoYanShi"
-            };
-            btOne.OnButtonPress += (sender, e) =>
-            {
-                var bt = (ButtonTexture)sender;
-                if (bt.Selected)
-                {
-                    bt.Selected = false;
-                    Session.globalVariablesTemp.ShowChallengeAnimation = false;
-                }
-                else
-                {
-                    bt.Selected = true;
-                    Session.globalVariablesTemp.ShowChallengeAnimation = true;
-                }
-            };
-            btConfigList1.Add(btOne);
-
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left2, heightBase + height * 2.0f))
-            {
                 ID = "JianYiAI"
             };
             btOne.OnButtonPress += (sender, e) =>
@@ -749,7 +689,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            nstViewDetail = new NumericSetTextureF(0, 9, 9, null, new Vector2(left2 + 300, heightBase + height * 2.5f), true)
+            nstViewDetail = new NumericSetTextureF(0, 9, 9, null, new Vector2(left2 + 300, heightBase + height * 2.0f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -757,7 +697,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralBattleDead = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 3f), true)
+            nstGeneralBattleDead = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 2.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -765,7 +705,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralYun = new NumericSetTextureF(0, 300, 300, null, new Vector2(left2 + 300, heightBase + height * 3.5f), true)
+            nstGeneralYun = new NumericSetTextureF(0, 300, 300, null, new Vector2(left2 + 300, heightBase + height * 3.0f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -773,7 +713,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstFeiZiYun = new NumericSetTextureF(0, 300, 300, null, new Vector2(left2 + 300, heightBase + height * 4f), true)
+            nstFeiZiYun = new NumericSetTextureF(0, 300, 300, null, new Vector2(left2 + 300, heightBase + height * 3.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -781,7 +721,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstZhaoXian = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 4.5f), true)
+            nstZhaoXian = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 4.0f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -789,7 +729,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstSearchGen = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 5f), true)
+            nstSearchGen = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 4.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -797,12 +737,20 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstZaiNan = new NumericSetTextureF(0, 100000, 100000, null, new Vector2(left2 + 300, heightBase + height * 5.5f), true)
+            nstZaiNan = new NumericSetTextureF(0, 100000, 100000, null, new Vector2(left2 + 300, heightBase + height * 5.0f), true)
             {
                 IntMode = true,
                 DisNumber = false,
                 NowNumber = 50000,
                 Unit = 1000
+            };
+
+            nstDayInTurn = new NumericSetTextureF(1, 6, 6, null, new Vector2(left2 + 300, heightBase + height * 5.5f), true)
+            {
+                IntMode = true,
+                DisNumber = false,
+                NowNumber = 1,
+                Unit = 1
             };
 
             btConfigList2 = new List<ButtonTexture>();
@@ -2530,14 +2478,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btConfigList1.FirstOrDefault(bt => bt.ID == "WuJiangDuli").Selected = (bool)Session.globalVariablesTemp.WujiangYoukenengDuli;
 
-            btConfigList1.FirstOrDefault(bt => bt.ID == "LuShangBuDui").Selected = (bool)Session.globalVariablesTemp.LandArmyCanGoDownWater;
-
             btConfigList1.FirstOrDefault(bt => bt.ID == "ShiLiHeBing").Selected = (bool)Session.globalVariablesTemp.PermitFactionMerge;
 
             btConfigList1.FirstOrDefault(bt => bt.ID == "RenKouXiaoYu").Selected = (bool)Session.globalVariablesTemp.PopulationRecruitmentLimit;
-
-            btConfigList1.FirstOrDefault(bt => bt.ID == "ZiYuanJiaBei").Selected = (bool)Session.globalVariablesTemp.MultipleResource;
-
+           
             btConfigList1.FirstOrDefault(bt => bt.ID == "KaiQiTianYan").Selected = (bool)Session.globalVariablesTemp.SkyEye;
 
             btConfigList1.FirstOrDefault(bt => bt.ID == "KaiQiZuoBi").Selected = (bool)Session.globalVariablesTemp.EnableCheat;
@@ -2545,9 +2489,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             btConfigList1.FirstOrDefault(bt => bt.ID == "YingHeMoshi").Selected = (bool)Session.globalVariablesTemp.HardcoreMode;
 
             btConfigList1.FirstOrDefault(bt => bt.ID == "ShengChengZiSi").Selected = (bool)Session.globalVariablesTemp.createChildren;
-
-            btConfigList1.FirstOrDefault(bt => bt.ID == "DanTiaoYanShi").Selected = (bool)Session.globalVariablesTemp.ShowChallengeAnimation;
-
+           
             btConfigList1.FirstOrDefault(bt => bt.ID == "JianYiAI").Selected = (bool)Session.globalVariablesTemp.AIQuickBattle;
 
             nstViewDetail.NowNumber = Session.globalVariablesTemp.TabListDetailLevel;
@@ -2563,6 +2505,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             nstSearchGen.NowNumber = Session.globalVariablesTemp.CreateRandomOfficerChance;
 
             nstZaiNan.NowNumber = Session.globalVariablesTemp.zainanfashengjilv;
+
+            nstDayInTurn.NowNumber = Session.parametersTemp.DayInTurn;
 
             //人物
  
@@ -2913,7 +2857,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     btConfigList1.ForEach(bt => bt.Update());
 
-                    var nsts = new NumericSetTextureF[] { nstViewDetail, nstGeneralBattleDead, nstGeneralYun, nstFeiZiYun, nstZhaoXian, nstSearchGen, nstZaiNan };
+                    var nsts = new NumericSetTextureF[] { nstViewDetail, nstGeneralBattleDead, nstGeneralYun, nstFeiZiYun, nstZhaoXian, nstSearchGen, nstZaiNan, nstDayInTurn };
 
                     foreach (var nst in nsts)
                     {
@@ -2970,6 +2914,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     if (Session.globalVariablesTemp.zainanfashengjilv != (int)nstZaiNan.NowNumber)
                     {
                         Session.globalVariablesTemp.zainanfashengjilv = (int)nstZaiNan.NowNumber;
+                    }
+
+                    if (Session.parametersTemp.DayInTurn != (int)nstDayInTurn.NowNumber)
+                    {
+                        Session.parametersTemp.DayInTurn = (int)nstDayInTurn.NowNumber;
                     }
 
                 }
@@ -3652,7 +3601,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     btConfigList1.ForEach(bt => bt.Draw());
 
-                    var nsts = new NumericSetTextureF[] { nstViewDetail, nstGeneralBattleDead, nstGeneralYun, nstFeiZiYun, nstZhaoXian, nstSearchGen, nstZaiNan };
+                    var nsts = new NumericSetTextureF[] { nstViewDetail, nstGeneralBattleDead, nstGeneralYun, nstFeiZiYun, nstZhaoXian, nstSearchGen, nstZaiNan, nstDayInTurn };
 
                     foreach (var nst in nsts)
                     {
@@ -3673,15 +3622,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     CacheManager.DrawString(Session.Current.Font, "武将有可能独立", new Vector2(left1, heightBase + height * 3f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "陆上部队可直接下水", new Vector2(left1, heightBase + height * 3.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "容许势力合并", new Vector2(left1, heightBase + height * 3.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "容许势力合并", new Vector2(left1, heightBase + height * 4f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "人口小于兵力时禁止征兵", new Vector2(left1, heightBase + height * 4f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "人口小于兵力时禁止征兵", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
-
-                    CacheManager.DrawString(Session.Current.Font, "资源收入加倍", new Vector2(left1, heightBase + height * 5f), Color.Black * alpha);
-
-                    CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 5.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
 
                     CacheManager.DrawString(Session.Current.Font, "开启作弊功能", new Vector2(left2, heightBase), Color.Black * alpha);
 
@@ -3689,24 +3634,23 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     CacheManager.DrawString(Session.Current.Font, "生成虚拟子嗣", new Vector2(left2, heightBase + height * 1f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "单挑演示", new Vector2(left2, heightBase + height * 1.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "使用简易AI战斗算法", new Vector2(left2, heightBase + height * 1.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "使用简易AI战斗算法", new Vector2(left2, heightBase + height * 2f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "资料显示详细度", new Vector2(left2 - 60, heightBase + height * 2f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "资料显示详细度", new Vector2(left2 - 60, heightBase + height * 2.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "武将战死率", new Vector2(left2 - 60, heightBase + height * 2.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "武将战死率", new Vector2(left2 - 60, heightBase + height * 3f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "武将怀孕机率", new Vector2(left2 - 60, heightBase + height * 3f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "武将怀孕机率", new Vector2(left2 - 60, heightBase + height * 3.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "妃子怀孕机率", new Vector2(left2 - 60, heightBase + height * 3.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "妃子怀孕机率", new Vector2(left2 - 60, heightBase + height * 4f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "招贤成功率", new Vector2(left2 - 60, heightBase + height * 4f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "招贤成功率", new Vector2(left2 - 60, heightBase + height * 4.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "搜索武将成功率", new Vector2(left2 - 60, heightBase + height * 4.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "搜索武将成功率", new Vector2(left2 - 60, heightBase + height * 5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "灾难发生几率(1/此数)", new Vector2(left2 - 60, heightBase + height * 5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "灾难发生几率(1/此数)", new Vector2(left2 - 60, heightBase + height * 5.5f), Color.Black * alpha);
-
+                    CacheManager.DrawString(Session.Current.Font, "每回天数", new Vector2(left2 - 60, heightBase + height * 5.5f), Color.Black * alpha);
                 }
                 else if (CurrentSetting == "人物")
                 {
