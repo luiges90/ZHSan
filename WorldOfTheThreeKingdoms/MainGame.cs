@@ -109,7 +109,7 @@ namespace WorldOfTheThreeKingdoms
             if (Platform.PlatFormType == PlatFormType.Win)  //Platform.PlatFormType == PlatFormType.UWP
             {
                 DateTime buildDate = new FileInfo(Platform.Current.Location).LastWriteTime;
-                base.Window.Title = "中华三国志(已命名修改版1.1-v3 - build-" + buildDate.Year + "-" + buildDate.Month + "-" + buildDate.Day + ")";
+                base.Window.Title = "中华三国志(已命名修改版1.1-v3-dev - build-" + buildDate.Year + "-" + buildDate.Month + "-" + buildDate.Day + ")";
             }
 
             Platform.Current.SetMouseVisible(false);
