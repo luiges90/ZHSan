@@ -116665,6 +116665,39 @@
 }
 },
 {
+"Key":10999,
+"Value":{
+"ID":10999,
+"Name":"妖王降臨",
+"ArchitectureConditionsString":"",
+"AutoLearn":0,
+"AutoLearnText":"",
+"AutoLearnTextByCourier":"",
+"Combat":true,
+"ConditionTableString":"900 902",
+"FactionConditionsString":"",
+"FactionLimit":9999,
+"GenerateConditionsString":"6009 6019 6029 6039 6049",
+"GenerationChance":[0,0,0,0,0,0,1000,0,0,0],
+"InfluencesString":"260 262 6053 6303 6361 6113 280 386 601 613 5056 6103 6513 6243 6998",
+"InheritChance":5,
+"Kind":{
+"ID":1,
+"Name":"称号",
+"Combat":false,
+"RandomTeachable":true,
+"Recallable":false,
+"StudyDay":90,
+"SuccessRate":0
+},
+"Level":5,
+"LoseConditionsString":"",
+"ManualAward":false,
+"MapLimit":9999,
+"RelatedAbility":0
+}
+},
+{
 "Key":11020,
 "Value":{
 "ID":11020,

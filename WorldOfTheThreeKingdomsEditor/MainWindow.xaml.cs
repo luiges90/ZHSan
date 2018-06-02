@@ -51,6 +51,7 @@ namespace WorldOfTheThreeKingdomsEditor
             new FacilityTab(scen, dgFacility).setup();
 
             // Common
+            /*
             new TitleTab(scen, dgTitle).setup();
             new SkillTab(scen, dgSkill).setup();
             new StuntTab(scen, dgStunt).setup();
@@ -64,6 +65,7 @@ namespace WorldOfTheThreeKingdomsEditor
             new TroopEventEffectTab(scen, dgTroopEventEffect).setup();
             new TroopEventEffectKindTab(scen, dgTroopEventEffectKind).setup();
             new FacilityKindTab(scen, dgFacilityKind).setup();
+            */
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)
@@ -101,7 +103,7 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 String filename = saveFileDialog.FileName;
                 
-                scen.SaveGameScenario(filename, true, true, false, false, true, true);
+                scen.SaveGameScenario(filename, true, false, false, false, true, true);
 
                 MessageBox.Show("劇本已儲存為" + filename);
             }
