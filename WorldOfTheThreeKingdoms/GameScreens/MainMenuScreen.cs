@@ -867,7 +867,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralChildsMax = new NumericSetTextureF(1, 300, 300, null, new Vector2(left2 + 200, heightBase + height * 1.5f), true)
+            nstGeneralChildsMax = new NumericSetTextureF(1, 100, 100, null, new Vector2(left2 + 200, heightBase + height * 1.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -2999,6 +2999,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     if (Session.globalVariablesTemp.OfficerChildrenLimit != (int)nstGeneralChildsMax.NowNumber)
                     {
                         Session.globalVariablesTemp.OfficerChildrenLimit = (int)nstGeneralChildsMax.NowNumber;
+                        if (nstGeneralChildsMax.NowNumber >= 100)
+                        {
+                            Session.globalVariablesTemp.OfficerChildrenLimit = 100000;
+                        }
                     }
 
                     if (Session.globalVariablesTemp.ChildrenAvailableAge != (int)nstGeneralChildsAppear.NowNumber)
