@@ -10168,11 +10168,11 @@ namespace GameObjects
                     if (this.huaiyun) break;
                 }
 
-                float factor = 1;
+                float factor = Session.Current.Scenario.Parameters.HougongRelationHateFactor;
                 foreach (Person p in this.BelongedFaction.GetFeiziList())
                 {
                     if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50) || 
-                        (p.Spouse != null && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse.Alive)))) && !p.Hates(this))
+                        (p.WillHateIfChongxing || p.Spouse == p.BelongedFactionWithPrincess.Leader)) && !p.Hates(this))
                     {
                         factor *= 0.9f + (100 - p.Glamour) * 0.001f;
                     }
@@ -10183,17 +10183,17 @@ namespace GameObjects
                     if (p == nvren) continue;
                     if (p.faxianhuaiyun || this.faxianhuaiyun) continue;
                     if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50) ||
-                        (p.Spouse != null && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse.Alive)))) && !p.Hates(this)) continue;
+                        (p.WillHateIfChongxing || p.Spouse == p.BelongedFactionWithPrincess.Leader)) && !p.Hates(this)) continue;
 
                     p.AdjustRelation(this, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
                     p.AdjustRelation(nvren, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
                 }
 
-                factor = 1;
+                factor = Session.Current.Scenario.Parameters.HougongRelationHateFactor;
                 foreach (Person p in nvren.LocationArchitecture.Feiziliebiao)
                 {
                     if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50) ||
-                        (p.Spouse != null && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse.Alive)))) && !p.Hates(this))
+                        (p.WillHateIfChongxing || p.Spouse == p.BelongedFactionWithPrincess.Leader)) && !p.Hates(this))
                     {
                         factor *= 0.9f + (100 - p.Glamour) * 0.001f;
                     }
@@ -10204,7 +10204,7 @@ namespace GameObjects
                     if (p == nvren) continue;
                     if (p.faxianhuaiyun || this.faxianhuaiyun) continue;
                     if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50) ||
-                        (p.Spouse != null && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse.Alive)))) && !p.Hates(this)) continue;
+                        (p.WillHateIfChongxing || p.Spouse == p.BelongedFactionWithPrincess.Leader)) && !p.Hates(this)) continue;
 
                     p.AdjustRelation(this, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
                     p.AdjustRelation(nvren, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
@@ -10230,6 +10230,14 @@ namespace GameObjects
                 this.Status = PersonStatus.Moving;
                 this.TaskDays = this.ArrivingDays;
                 ExtensionInterface.call("GoForHouGong", new Object[] { Session.Current.Scenario, this, nvren });
+            }
+        }
+
+        public bool WillHateIfChongxing
+        {
+            get
+            {
+                return (this.Spouse != null && (this.PersonalLoyalty >= 4 || (this.PersonalLoyalty >= 2 && this.Spouse.Alive))) && (this.Spouse != this.BelongedFactionWithPrincess.Leader);
             }
         }
 
@@ -10265,7 +10273,7 @@ namespace GameObjects
                 }
             }
 
-            if (p.Spouse != null && (p.PersonalLoyalty >= 4 || (p.PersonalLoyalty >= 2 && p.Spouse.Alive)))
+            if (p.Spouse != null && p.WillHateIfChongxing)
             {
                 PersonList t = new PersonList();
                 if (p != q && !p.Hates(q) && !p.IsVeryCloseTo(q) && !t.HasGameObject(q) && q.Status != PersonStatus.Princess)
@@ -10305,7 +10313,7 @@ namespace GameObjects
                     result.Add(p.Spouse, u);
                 }
             }
-            if (q.Spouse != null && (q.PersonalLoyalty >= 4 || (q.PersonalLoyalty >= 2 && q.Spouse.Alive)))
+            if (q.Spouse != null && q.WillHateIfChongxing)
             {
                 PersonList t = new PersonList();
                 if (q != p && !q.Hates(p) && !q.IsVeryCloseTo(p) && !t.HasGameObject(p) && p.Status != PersonStatus.Princess)

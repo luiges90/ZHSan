@@ -338,6 +338,8 @@ namespace GameGlobal
         public int DayInTurn = 1;
         [DataMember]
         public int MaxRelation = 10000;
+        [DataMember]
+        public float HougongRelationHateFactor = 1.0f;
 
         public Parameters Clone()
         {
@@ -519,6 +521,8 @@ namespace GameGlobal
 
             DayInTurn = int.Parse(nextSibling.Attributes.GetNamedItem("DayInTurn").Value);
             MaxRelation = int.Parse(nextSibling.Attributes.GetNamedItem("MaxRelation").Value);
+
+            HougongRelationHateFactor = float.Parse(nextSibling.Attributes.GetNamedItem("HougongRelationHateFactor").Value);
         }
 
         public void InitBaseRates()
@@ -708,6 +712,7 @@ namespace GameGlobal
             element.SetAttribute("InternalSurplusMinEffect", InternalSurplusMinEffect.ToString());
             element.SetAttribute("DayInTurn", DayInTurn.ToString());
             element.SetAttribute("MaxRelation", MaxRelation.ToString());
+            element.SetAttribute("HougongRelationHateFactor", HougongRelationHateFactor.ToString());
 
             document.AppendChild(element);
 
