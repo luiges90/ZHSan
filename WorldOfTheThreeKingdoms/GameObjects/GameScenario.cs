@@ -66,6 +66,8 @@ namespace GameObjects
 
         public Dictionary<PathCacheKey, List<Point>> pathCache = new Dictionary<PathCacheKey, List<Point>>();
 
+        public bool JustSaved = false;
+
         public GameScenario Clone()
         {
             return this.MemberwiseClone() as GameScenario;
@@ -1263,6 +1265,8 @@ namespace GameObjects
         public void DayPassedEvent()
         {
             ExtensionInterface.call("DayEvent", new Object[] { this });
+
+            JustSaved = false;
 
             //this.GameProgressCaution.Text = "开始";
             Session.Parameters.DayEvent(this.PlayerArchitectureCount);
@@ -4989,6 +4993,8 @@ namespace GameObjects
             }
 
             scenarioClone = null;
+
+            JustSaved = true;
 
             //ExtensionInterface.call("Save", new Object[] { this });
 
