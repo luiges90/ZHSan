@@ -2255,6 +2255,7 @@ namespace GameObjects
             enduranceAbility = 0;
             trainingAbility = 0;
             higherLevelLearnableTitle = null;
+            makeMarryableInFactionCache = null;
         }
 
         private void AutoLearnEvent()
@@ -2324,8 +2325,33 @@ namespace GameObjects
             return result;
         }
 
+        public String MakeMarryableList
+        {
+            get
+            {
+                PersonList pl = MakeMarryableInFaction();
+                pl.PropertyName = "Merit";
+                pl.SmallToBig = false;
+                pl.IsNumber = true;
+                pl.ReSort();
+
+                int cnt = 1;
+                String s = "";
+                foreach (Person p in pl)
+                {
+                    s += p.Name + " ";
+                    cnt++;
+                    if (cnt > 5) break;
+                }
+                return s;
+            }
+        }
+
+        private PersonList makeMarryableInFactionCache = null;
         public PersonList MakeMarryableInFaction()
         {
+            if (makeMarryableInFactionCache != null) return makeMarryableInFactionCache;
+
             PersonList result = new PersonList();
 
             if (this.Spouse != null) return result;
@@ -2341,6 +2367,8 @@ namespace GameObjects
                     result.Add(p);
                 }
             }
+
+            makeMarryableInFactionCache = result;
 
             return result;
         }
@@ -2364,6 +2392,11 @@ namespace GameObjects
 
             Session.Current.Scenario.YearTable.addCreateSpouseEntry(Session.Current.Scenario.Date, this, p);
             Session.MainGame.mainGameScreen.MakeMarriage(this, p);
+
+            foreach (Person q in this.BelongedFaction.Persons)
+            {
+                q.makeMarryableInFactionCache = null;
+            }
         }
 
         private void createRelations()
