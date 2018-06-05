@@ -29617,7 +29617,7 @@
 "Name":"市集",
 "AIBuildConditionWeightString":null,
 "AILevel":20,
-"ArchitectureLimit":5,
+"ArchitectureLimit":10,
 "ConditionTableString":"2382",
 "Days":45,
 "Endurance":400,
