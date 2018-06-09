@@ -3069,7 +3069,7 @@ namespace GameObjects
                 int thr = (4 - target.PersonalLoyalty) * 25;
                 if (!target.IsCaptive)
                 {
-                    thr -= 25;
+                    thr -= 10;
                 }
                 ConvinceSuccess &= target.Loyalty < thr;
             }

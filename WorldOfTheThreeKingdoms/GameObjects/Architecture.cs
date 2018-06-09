@@ -5792,7 +5792,38 @@ namespace GameObjects
             {
                 if (GameObject.Random(5) == 0 && !GameObject.Chance(p.CaptivePerson.PersonalLoyalty * 25))
                 {
-                    p.CaptivePerson.TempLoyaltyChange--;
+                    if (p.CaptiveFaction != null)
+                    {
+                        bool pass = true;
+                        if (p.CaptivePerson.HasStrainTo(p.CaptiveFaction.Leader) && GameObject.Chance(33))
+                        {
+                            pass = false;
+                        }
+                        if (p.CaptivePerson.HasCloseStrainTo(p.CaptiveFaction.Leader) && GameObject.Chance(67))
+                        {
+                            pass = false;
+                        }
+                        if (p.CaptivePerson.IsCloseTo(p.CaptiveFaction.Leader) && GameObject.Chance(33))
+                        {
+                            pass = false;
+                        }
+                        if (p.CaptivePerson.IsVeryCloseTo(p.CaptiveFaction.Leader) && GameObject.Chance(67))
+                        {
+                            pass = false;
+                        }
+                        if (p.CaptivePerson.Hates(p.CaptiveFaction.Leader))
+                        {
+                            pass = true;
+                        }
+                        if (pass)
+                        {
+                            p.CaptivePerson.TempLoyaltyChange--;
+                        }
+                    }
+                    else
+                    {
+                        p.CaptivePerson.TempLoyaltyChange--;
+                    }
                 }
                 if (GameObject.Random((this.Domination * 10 + this.Morale) * 20) + 200 <= GameObject.Random(p.CaptivePerson.CaptiveAbility))
                 {
