@@ -340,6 +340,8 @@ namespace GameGlobal
         public int MaxRelation = 10000;
         [DataMember]
         public float HougongRelationHateFactor = 1.0f;
+        [DataMember]
+        public int AIMaxFeizi = 20;
 
         public Parameters Clone()
         {
@@ -521,6 +523,7 @@ namespace GameGlobal
 
             DayInTurn = int.Parse(nextSibling.Attributes.GetNamedItem("DayInTurn").Value);
             MaxRelation = int.Parse(nextSibling.Attributes.GetNamedItem("MaxRelation").Value);
+            AIMaxFeizi = int.Parse(nextSibling.Attributes.GetNamedItem("AIMaxFeizi").Value);
 
             HougongRelationHateFactor = float.Parse(nextSibling.Attributes.GetNamedItem("HougongRelationHateFactor").Value);
         }
@@ -713,6 +716,7 @@ namespace GameGlobal
             element.SetAttribute("DayInTurn", DayInTurn.ToString());
             element.SetAttribute("MaxRelation", MaxRelation.ToString());
             element.SetAttribute("HougongRelationHateFactor", HougongRelationHateFactor.ToString());
+            element.SetAttribute("AIMaxFeizi", AIMaxFeizi.ToString());
 
             document.AppendChild(element);
 
