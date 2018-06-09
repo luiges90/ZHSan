@@ -14736,7 +14736,7 @@ namespace GameObjects
             PersonList nvxingwujiangliebiao = new PersonList();
             foreach (Person person in this.Persons)
             {
-                if (person.BelongedFaction.Leader.isLegalFeiZi(person))
+                if (person.BelongedFaction.Leader.isLegalFeiZi(person) || (this.BelongedFaction.IsAlien && person.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person)))
                 {
                     nvxingwujiangliebiao.Add(person);
                 }
