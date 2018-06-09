@@ -2382,7 +2382,8 @@ namespace GameObjects
                                             firstHalfPerson.NonFightingNumber > firstHalfPerson.FightingNumber &&
                                             (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive) &&
                                             GameObject.Random(architecture2.GetGossipablePersonCount() + 4) >= 4
-                                            && GameObject.Random(firstHalfPerson.GossipAbility) >= 200)
+                                            && GameObject.Random(firstHalfPerson.GossipAbility) >= 200
+                                            && GameObject.Chance(100 - architecture2.captureChance))
                                         {
                                             firstHalfPerson.GoForGossip(Session.Current.Scenario.GetClosestPoint(architecture2.ArchitectureArea, this.Position));
                                         }
@@ -2469,7 +2470,8 @@ namespace GameObjects
                                     firstHalfPerson = this.GetFirstHalfPerson("JailBreakAbility");
                                     if (firstHalfPerson != null && !firstHalfPerson.HasLeadingArmy &&
                                             firstHalfPerson.NonFightingNumber > firstHalfPerson.FightingNumber &&
-                                            (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive))
+                                            (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive)
+                                             && GameObject.Chance(100 - target.captureChance))
                                     {
                                         firstHalfPerson.GoForJailBreak(Session.Current.Scenario.GetClosestPoint(target.ArchitectureArea, this.Position));
                                     }
@@ -2516,7 +2518,7 @@ namespace GameObjects
                                         int targetAbility = target.DefendAssassinateAbility;
                                         foreach (Person p in candidates)
                                         {
-                                            if (killer.AssassinateAbility > targetAbility && killer.UntiredMerit * 0.9 < p.UntiredMerit)
+                                            if (killer.AssassinateAbility > targetAbility && killer.UntiredMerit * 0.9 < p.UntiredMerit && GameObject.Chance(100 - p.BelongedArchitecture.captureChance))
                                             {
                                                 killer.OutsideDestination = new Point?(Session.Current.Scenario.GetClosestPoint(p.BelongedArchitecture.ArchitectureArea, this.Position));
                                                 killer.GoForAssassinate(p);
