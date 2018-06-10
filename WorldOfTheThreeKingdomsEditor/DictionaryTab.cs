@@ -1,6 +1,7 @@
 ﻿using GameObjects;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,8 @@ namespace WorldOfTheThreeKingdomsEditor
         private String name;
         private DataGrid dg;
 
+        private static bool settingUp = false;
+
         // dict is write-thru
         public DictionaryTab(Dictionary<K, V> dict, String name, DataGrid dg)
         {
@@ -26,6 +29,8 @@ namespace WorldOfTheThreeKingdomsEditor
 
         public void setup()
         {
+            settingUp = true;
+
             DataTable dt = new DataTable(name);
 
             dt.Columns.Add("Key", typeof(K));
@@ -41,11 +46,16 @@ namespace WorldOfTheThreeKingdomsEditor
                 dt.Rows.Add(row);
             }
 
+            DependencyPropertyDescriptor dpd = DependencyPropertyDescriptor.FromProperty(ItemsControl.ItemsSourceProperty, typeof(DataGrid));
+
             dg.ItemsSource = dt.AsDataView();
 
             dt.TableNewRow += Dt_TableNewRow;
             dt.RowChanged += Dt_RowChanged;
             dt.RowDeleted += Dt_RowDeleted;
+
+            dpd.AddValueChanged(dg, dg_ItemsSourceChanged);
+            settingUp = false;
         }
 
         private void Dt_RowDeleted(object sender, DataRowChangeEventArgs e)
@@ -94,5 +104,35 @@ namespace WorldOfTheThreeKingdomsEditor
                 // MessageBox.Show("資料輸入錯誤。" + ex.Message);
             }
         }
+
+        private void dg_ItemsSourceChanged(object sender, EventArgs e)
+        {
+            if (settingUp) return;
+
+            DataGrid dataGrid = (DataGrid)sender;
+
+            for (int r = 0; r < dataGrid.Items.Count; r++)
+            {
+                DataRowView item = dataGrid.Items[r] as DataRowView;
+                if (item == null)
+                {
+                    continue;
+                }
+
+                K key = (K)item.Row["Key"];
+                V value = (V)item.Row["Value"];
+
+                if (dict.ContainsKey(key))
+                {
+                    dict[key] = value;
+                }
+                else
+                {
+                    dict.Remove(key);
+                    dict.Add(key, value);
+                }
+            }
+        }
+
     }
 }
