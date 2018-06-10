@@ -46,7 +46,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 "guanjue",
                 "UpgradingTechnique",
                 "UpgradingDaysLeft",
-                "AvailableTechniques",
+                "AvailableTechniquesString",
                 "PreferredTechniqueKinds",
                 "PlanTechnique",
                 "IsAlien",

@@ -68,7 +68,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         protected FieldInfo[] getFieldInfos()
         {
-            return sampleInstance.GetType().GetFields()
+            return sampleInstance.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
                 .Where(x => Attribute.IsDefined(x, typeof(DataMemberAttribute)))
                 .Where(x => supportedTypes.Contains(x.FieldType))
                 .ToArray();
@@ -76,7 +76,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         protected PropertyInfo[] getPropertyInfos()
         {
-            return sampleInstance.GetType().GetProperties()
+            return sampleInstance.GetType().GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
                 .Where(x => Attribute.IsDefined(x, typeof(DataMemberAttribute)))
                 .Where(x => supportedTypes.Contains(x.PropertyType))
                 .ToArray();
