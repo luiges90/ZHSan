@@ -2764,11 +2764,11 @@ namespace GameObjects
 
             if (this.Age > 40 + (this.Sex ? 0 : 10))
             {
-                extraRate -= (this.Age - 40 - (this.Sex ? 0 : 10)) / 5.0f;
+                extraRate *= 1 - (this.Age - 40 - (this.Sex ? 0 : 10)) / 10.0f;
             }
             if (q.Age > 40 + (q.Sex ? 0 : 10))
             {
-                extraRate -= (q.Age - 40 - (q.Sex ? 0 : 10)) / 5.0f;
+                extraRate *= 1 - (q.Age - 40 - (q.Sex ? 0 : 10)) / 10.0f;
             }
             if (this.Age < 16)
             {
@@ -9978,7 +9978,7 @@ namespace GameObjects
             return false;
         }
 
-        public bool isLegalFeiZi(Person b)
+        public bool isLegalFeiZi(Person b, bool princess = false)
         {
             if (this == b) return false;
 
@@ -9990,7 +9990,10 @@ namespace GameObjects
 
                 if ((b.Age > 50 + (b.Sex ? 0 : 10)) || (this.Age > 50 + (this.Sex ? 0 : 10))) return false;
 
-                if ((Math.Abs(this.Age - b.Age) > 25)) return false;
+                if (!princess)
+                {
+                    if ((Math.Abs(this.Age - b.Age) > 25)) return false;
+                }
             }
 
             if (this.HasStrainTo(b)) return false;
@@ -10204,7 +10207,7 @@ namespace GameObjects
                 float factor = Session.Current.Scenario.Parameters.HougongRelationHateFactor;
                 foreach (Person p in this.BelongedFaction.GetFeiziList())
                 {
-                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50) || 
+                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age >= 50) || 
                         (p.WillHateIfChongxing || p.Spouse == p.BelongedFactionWithPrincess.Leader)) && !p.Hates(this))
                     {
                         factor *= 0.9f + (100 - p.Glamour) * 0.001f;
@@ -10215,7 +10218,7 @@ namespace GameObjects
                 {
                     if (p == nvren) continue;
                     if (p.faxianhuaiyun || this.faxianhuaiyun) continue;
-                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50) ||
+                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age >= 50) ||
                         (p.WillHateIfChongxing || p.Spouse == p.BelongedFactionWithPrincess.Leader)) && !p.Hates(this)) continue;
 
                     p.AdjustRelation(this, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
@@ -10225,7 +10228,7 @@ namespace GameObjects
                 factor = Session.Current.Scenario.Parameters.HougongRelationHateFactor;
                 foreach (Person p in nvren.LocationArchitecture.Feiziliebiao)
                 {
-                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50) ||
+                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age >= 50) ||
                         (p.WillHateIfChongxing || p.Spouse == p.BelongedFactionWithPrincess.Leader)) && !p.Hates(this))
                     {
                         factor *= 0.9f + (100 - p.Glamour) * 0.001f;
@@ -10236,7 +10239,7 @@ namespace GameObjects
                 {
                     if (p == nvren) continue;
                     if (p.faxianhuaiyun || this.faxianhuaiyun) continue;
-                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age > 50) ||
+                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age >= 50) ||
                         (p.WillHateIfChongxing || p.Spouse == p.BelongedFactionWithPrincess.Leader)) && !p.Hates(this)) continue;
 
                     p.AdjustRelation(this, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
@@ -10246,7 +10249,7 @@ namespace GameObjects
                 makeHateCausedByAffair(this, nvren, this);
 
                 if (GameObject.Chance(20) && nvren.GetRelation(this) >= Session.Parameters.VeryCloseThreshold / 2 && nvren.Spouse == null && 
-                    this.isLegalFeiZi(nvren) && nvren.isLegalFeiZi(this) && !this.Hates(nvren))
+                    this.isLegalFeiZi(nvren, true) && nvren.isLegalFeiZi(this, true) && !this.Hates(nvren))
                 {
                     nvren.Spouse = this;
 
