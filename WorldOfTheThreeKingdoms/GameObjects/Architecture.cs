@@ -7079,8 +7079,7 @@ namespace GameObjects
             for (int i = this.FundPacks.Count - 1; i >= 0; i--)
             {
                 FundPack local1 = this.FundPacks[i];
-                //local1.Days--;
-                local1.Days -= Session.Parameters.DayInTurn;
+                local1.Days--;
                 if (this.FundPacks[i].Days <= 0)
                 {
                     this.IncreaseFund(this.FundPacks[i].Fund);
@@ -7094,8 +7093,7 @@ namespace GameObjects
             for (int i = this.FoodPacks.Count - 1; i >= 0; i--)
             {
                 FoodPack local1 = this.FoodPacks[i];
-                //local1.Days--;
-                local1.Days -= Session.Parameters.DayInTurn;
+                local1.Days--;
                 if (this.FoodPacks[i].Days <= 0)
                 {
                     this.IncreaseFood(this.FoodPacks[i].Food);
