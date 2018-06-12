@@ -78,7 +78,7 @@ namespace WorldOfTheThreeKingdomsEditor
             return dt;
         }
 
-        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        private void OpenCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "劇本檔 (*.json)|*.json";
@@ -94,7 +94,7 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
-        private void btnSave_Click(object sender, RoutedEventArgs e)
+        private void SaveCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "劇本檔 (*.json)|*.json";
@@ -102,14 +102,14 @@ namespace WorldOfTheThreeKingdomsEditor
             if (saveFileDialog.ShowDialog() == true)
             {
                 String filename = saveFileDialog.FileName;
-                
+
                 scen.SaveGameScenario(filename, true, false, false, false, true, true);
 
                 MessageBox.Show("劇本已儲存為" + filename);
             }
         }
 
-        private void btnCopy_Click(object sender, RoutedEventArgs e)
+        private void CopyCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Grid grid = (Grid)tabControl.SelectedContent;
             DataGrid dataGrid = (DataGrid)grid.Children[0];
@@ -131,7 +131,7 @@ namespace WorldOfTheThreeKingdomsEditor
             Clipboard.SetText(sb.ToString());
         }
 
-        private void btnPaste_Click(object sender, RoutedEventArgs e)
+        private void PasteCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Grid grid = (Grid)tabControl.SelectedContent;
             DataGrid dataGrid = (DataGrid)grid.Children[0];
@@ -167,7 +167,7 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        private void DeleteCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Grid grid = (Grid)tabControl.SelectedContent;
             DataGrid dataGrid = (DataGrid)grid.Children[0];
@@ -178,6 +178,11 @@ namespace WorldOfTheThreeKingdomsEditor
                 ((DataRowView)dataGrid.SelectedCells[i].Item).Row.Delete();
             }
                 
+        }
+
+        private void btnQuit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

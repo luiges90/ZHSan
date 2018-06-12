@@ -6,17 +6,26 @@
         xmlns:local="clr-namespace:WorldOfTheThreeKingdomsEditor"
         mc:Ignorable="d"
         Title="中華三國志劇本編輯器" Height="600" Width="960">
+    <Window.CommandBindings>
+        <CommandBinding Command="Open" Executed="OpenCommandBinding_Executed"/>
+        <CommandBinding Command="Save" Executed="SaveCommandBinding_Executed"/>
+        <CommandBinding Command="Copy" Executed="CopyCommandBinding_Executed"/>
+        <CommandBinding Command="Paste" Executed="PasteCommandBinding_Executed"/>
+        <CommandBinding Command="Delete" Executed="DeleteCommandBinding_Executed"/>
+    </Window.CommandBindings>
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="檔案">
-                    <MenuItem Header="讀取劇本" Click="btnLoad_Click"/>
-                    <MenuItem Header="儲存劇本" Click="btnSave_Click"/>
+                    <MenuItem Header="讀取劇本" Command="Open" InputGestureText="Ctrl+O"/>
+                    <MenuItem Header="儲存劇本" Command="Save" InputGestureText="Ctrl+S"/>
+                    <Separator/>
+                    <MenuItem Header="退出" Click="btnQuit_Click"/>
                 </MenuItem>
                 <MenuItem Header="編輯">
-                    <MenuItem Header="複製" Click="btnCopy_Click"/>
-                    <MenuItem Header="貼上" Click="btnPaste_Click"/>
-                    <MenuItem Header="刪除" Click="btnDelete_Click"/>
+                    <MenuItem Header="複製" Command="Copy" InputGestureText="Ctrl+C"/>
+                    <MenuItem Header="貼上" Command="Paste" InputGestureText="Ctrl+V"/>
+                    <MenuItem Header="刪除" Command="Delete"/>
                 </MenuItem>
             </Menu>
             <StackPanel Height="552" VerticalAlignment="Bottom"></StackPanel>
