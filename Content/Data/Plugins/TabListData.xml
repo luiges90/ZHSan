@@ -2053,6 +2053,13 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
+		<Column ID="18" Name="Speed" IsNumber="true" DisplayName="行动速率" MinWidth="70" DetailLevel="4"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4294375158"
+                Align="Right">
+        </Column>
         <Column ID="20" Name="Offence" IsNumber="true" DisplayName="攻击力" MinWidth="70" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
@@ -2409,7 +2416,7 @@
         </Tab>
         <Tab ID="2"  Name="Ability" DisplayName="能力" Columns="0 4 5 6 7 8 120 121 130">
         </Tab>
-        <Tab ID="3"  Name="Combat" DisplayName="战斗" Columns="0 20 21 30 31 22 23 24 28 29">
+        <Tab ID="3"  Name="Combat" DisplayName="战斗" Columns="0 18 20 21 30 31 22 23 24 28 29">
         </Tab>
         <Tab ID="4"  Name="Stratagem" DisplayName="计略" Columns="0 6 32 33 25 26 27">
         </Tab>
