@@ -1104,9 +1104,9 @@ namespace GameObjects
             int uncruelty = this.Leader.Uncruelty;
             int unAmbition = Enum.GetNames(typeof(PersonAmbition)).Length - (int)this.Leader.Ambition;
 
-            // move feizis
             if (GameObject.Random(10) == 0)
             {
+                // move
                 foreach (Architecture a in this.Architectures)
                 {
                     if (a.Feiziliebiao.Count > 0)
@@ -1162,7 +1162,23 @@ namespace GameObjects
                         }
                     }
                 }
+
+                //release
+                foreach (Architecture a in this.Architectures)
+                {
+                    foreach (Person p in a.ReleasableFeizis)
+                    {
+                        if (!IsPersonForHouGong(p, true))
+                        {
+                            if (!this.Leader.suoshurenwuList.HasGameObject(p) && !p.Hates(this.Leader) && p.RecruitableBy(this, 0))
+                            {
+                                p.feiziRelease();
+                            }
+                        }
+                    }
+                }
             }
+
 
             
             // if (this.Leader.LocationArchitecture == null || this.Leader.LocationArchitecture.HasHostileTroopsInView()) return;
@@ -1429,7 +1445,7 @@ namespace GameObjects
                 }
             }
 
-            //chongxing or release
+            //chongxing
             if (this.Leader.Status == PersonStatus.Normal && this.Leader.LocationArchitecture != null && this.Leader.LocationTroop == null &&
                 !this.Leader.huaiyun && this.Leader.WaitForFeiZi == null)
             {
@@ -1446,14 +1462,7 @@ namespace GameObjects
                         foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
                         {
                             if (p.huaiyun) continue;
-                            if (!IsPersonForHouGong(p, true))
-                            {
-                                if (!this.Leader.suoshurenwuList.HasGameObject(p) && !p.Hates(this.Leader) && p.RecruitableBy(this, 0))
-                                {
-                                    p.feiziRelease();
-                                }
-                            }
-                            else
+                            if (IsPersonForHouGong(p, true))
                             {
                                 if (p.GetRelation(this.leader) < Session.Parameters.HateThreshold + 100 && !p.Hates(this.Leader))
                                 {
