@@ -106,4 +106,4 @@ zhaoXian {0}在{1}被{2}登庸了。
 zhaoXian_p 在{1}被{2}登庸了。
 releaseFromPrincess {0}在{2}的指示下，不再是妃子了。
 releaseFromPrincess_p 在{2}的指示下，不再是妃子了。
-releaseFromPrincess_q 指示{0}離開后宮，使{0}不再是妃子了。
+releaseFromPrincess_q 指示{0}离开后宫，使{0}不再是妃子了。
