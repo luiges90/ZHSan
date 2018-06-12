@@ -16,6 +16,9 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using GameObjects;
 using System.Data;
+using System.IO;
+using Tools;
+using GameGlobal;
 
 namespace WorldOfTheThreeKingdomsEditor
 {
@@ -102,8 +105,51 @@ namespace WorldOfTheThreeKingdomsEditor
             if (saveFileDialog.ShowDialog() == true)
             {
                 String filename = saveFileDialog.FileName;
+                String scenName = filename.Substring(filename.LastIndexOf(@"\") + 1, filename.LastIndexOf(".") - filename.LastIndexOf(@"\") - 1);
+                String scenPath = filename.Substring(0, filename.LastIndexOf(@"\"));
 
                 scen.SaveGameScenario(filename, true, false, false, false, true, true);
+
+                String scenariosPath = scenPath + @"\Scenarios.json";
+                List<GameManager.Scenario> scesList = null;
+                if (File.Exists(scenariosPath))
+                {
+                    scesList = SimpleSerializer.DeserializeJsonFile<List<GameManager.Scenario>>(scenariosPath, false).NullToEmptyList();
+                }
+                if (scesList == null)
+                {
+                    scesList = new List<GameManager.Scenario>();
+                }
+
+                string time = scen.Date.Year + "-" + scen.Date.Month + "-" + scen.Date.Day;
+                GameManager.Scenario s1 = new GameManager.Scenario()
+                {
+                    Create = DateTime.Now.ToSeasonDateTime(),
+                    Desc = scen.ScenarioDescription,
+                    First = StaticMethods.SaveToString(scen.ScenarioMap.JumpPosition),
+                    IDs = scen.Factions.GameObjects.Select(x => x.ID.ToString()).Aggregate((a, b) => a + "," + b),
+                    Info = "电脑",
+                    Name = scenName,
+                    Names = scen.Factions.GameObjects.Select(x => x.Name).Aggregate((a, b) => a + "," + b),
+                    //  Path = "",
+                    // PlayTime = scenario.GameTime.ToString(),
+                    // Player = "",
+                    //  Players = String.Join(",", scenario.PlayerList.NullToEmptyList()),
+                    Time = time.ToSeasonDate(),
+                    Title = scen.ScenarioTitle
+                };
+
+                int index = scesList.FindIndex(x => x.Name == scenName);
+                if (index >= 0)
+                {
+                    scesList[index] = s1;
+                } else
+                {
+                    scesList.Add(s1);
+                }
+
+                string s2 = Newtonsoft.Json.JsonConvert.SerializeObject(scesList, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(scenariosPath, s2);
 
                 MessageBox.Show("劇本已儲存為" + filename);
             }
