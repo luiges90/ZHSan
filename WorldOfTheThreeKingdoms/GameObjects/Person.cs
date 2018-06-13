@@ -81,9 +81,15 @@ namespace GameObjects
 
             hatedPersons = new PersonList();
 
-            joinFactionID = new List<int>();
+            if (joinFactionID == null)
+            {
+                joinFactionID = new List<int>();
+            }
 
-            prohibitedFactionID = new Dictionary<int, int>();
+            if (prohibitedFactionID == null)
+            {
+                prohibitedFactionID = new Dictionary<int, int>();
+            }
 
             Skills = new SkillTable();
 

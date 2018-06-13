@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -118,9 +119,10 @@ namespace GameObjects.FactionDetail
 
         public void RemoveDiplomaticRelationByFactionID(int factionID)
         {
-            foreach (DiplomaticRelation relation in this.GetDiplomaticRelationListByFactionID(factionID))
+            foreach (Faction f in Session.Current.Scenario.Factions)
             {
-                this.DiplomaticRelations.Remove(relation.GetHashCode());
+                this.DiplomaticRelations.Remove(this.GetHashCode(factionID, f.ID));
+                this.DiplomaticRelations.Remove(this.GetHashCode(f.ID, factionID));
             }
         }
 

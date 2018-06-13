@@ -1562,7 +1562,7 @@ namespace GameObjects
             
             foreach (Troop troop in this.Troops.GetList())
             {
-                if (troop.BelongedFaction == null || troop.BelongedLegion == null)
+                if (troop.BelongedFaction == null || troop.BelongedLegion == null || !troop.BelongedLegion.Troops.HasGameObject(troop))
                 {
                     troop.AI();
                 }
