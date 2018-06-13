@@ -342,6 +342,8 @@ namespace GameGlobal
         public float HougongRelationHateFactor = 1.0f;
         [DataMember]
         public int AIMaxFeizi = 20;
+        [DataMember]
+        public int MaxReputationForRecruit = 3000000;
 
         public Parameters Clone()
         {
@@ -526,6 +528,7 @@ namespace GameGlobal
             AIMaxFeizi = int.Parse(nextSibling.Attributes.GetNamedItem("AIMaxFeizi").Value);
 
             HougongRelationHateFactor = float.Parse(nextSibling.Attributes.GetNamedItem("HougongRelationHateFactor").Value);
+            MaxReputationForRecruit = int.Parse(nextSibling.Attributes.GetNamedItem("MaxReputationForRecruit").Value);
         }
 
         public void InitBaseRates()
@@ -717,6 +720,7 @@ namespace GameGlobal
             element.SetAttribute("MaxRelation", MaxRelation.ToString());
             element.SetAttribute("HougongRelationHateFactor", HougongRelationHateFactor.ToString());
             element.SetAttribute("AIMaxFeizi", AIMaxFeizi.ToString());
+            element.SetAttribute("MaxReputationForRecruit", MaxReputationForRecruit.ToString());
 
             document.AppendChild(element);
 
@@ -728,6 +732,10 @@ namespace GameGlobal
             if (MaxRelation == 0)
             {
                 MaxRelation = 10000;
+            }
+            if (MaxReputationForRecruit == 0)
+            {
+                MaxReputationForRecruit = 3000000;
             }
         }
     }

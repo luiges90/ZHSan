@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using GameObjects.Influences;
 using System;
 
@@ -33,7 +34,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
 
         public override double AIFacilityValue(Architecture a)
         {
-            return (a.BelongedFaction.Reputation >= a.BelongedFaction.MaxPossibleReputation ? 0.001 : this.increment / 5.0);
+            return (a.BelongedFaction.Reputation >= Session.Current.Scenario.Parameters.MaxReputationForRecruit ? 0.001 : this.increment / 5.0);
         }
     }
 }
