@@ -7178,7 +7178,10 @@ namespace GameObjects
                     if (p.Alive && !p.Available && p.Age >= 0 && ((p.Father != null && p.Father.BelongedFactionWithPrincess == this) || (p.Mother != null && p.Mother.BelongedFactionWithPrincess == this))
                         && (p.ID < 7000 || p.ID > 8000))
                     {
-                        result.Add(p);
+                        if (!(p.Father != null && p.Father.Alive && (p.Father.BelongedFactionWithPrincess != this)))
+                        {
+                            result.Add(p);
+                        }
                     }
                 }
                 PersonList result2 = new PersonList();
