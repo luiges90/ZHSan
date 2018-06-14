@@ -10279,7 +10279,7 @@ namespace GameObjects
         {
             get
             {
-                return (this.Spouse != null && (this.PersonalLoyalty >= 4 || (this.PersonalLoyalty >= 2 && this.Spouse.Alive))) && (this.Spouse != this.BelongedFactionWithPrincess.Leader);
+                return (this.Spouse != null && (this.PersonalLoyalty >= 4 || (this.PersonalLoyalty >= 2 && this.Spouse.Alive))) && (this.BelongedFactionWithPrincess == null || this.Spouse != this.BelongedFactionWithPrincess.Leader);
             }
         }
 
