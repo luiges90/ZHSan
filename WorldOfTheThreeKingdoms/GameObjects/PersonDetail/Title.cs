@@ -418,17 +418,12 @@ namespace GameObjects.PersonDetail
                 this.level = value;
             }
         }
-
-        private int? merit = null;
+        
         public int Merit
         {
             get
             {
-                if (merit == null)
-                {
-                    merit = (int)(Math.Pow(Math.Max(1, AIPersonValue - 15) * 0.2828 + 1, 0.75) * 5);
-                }
-                return merit.Value;
+                return (int) AIPersonValue;
             }
         }
 
@@ -437,24 +432,15 @@ namespace GameObjects.PersonDetail
         {
             get
             {
-                if (fightingMerit == null)
-                {
-                    fightingMerit = (int)(Math.Pow(Math.Max(1, AIFightingPersonValue - 15) * 0.2828 + 1, 0.75) * 5);
-                }
-                return fightingMerit.Value;
+                return (int) AIFightingPersonValue;
             }
         }
 
-        private int? subOfficerMerit = null;
         public int SubOfficerMerit
         {
             get
             {
-                if (subOfficerMerit == null)
-                {
-                    subOfficerMerit = (int)(Math.Pow(Math.Max(1, AISubOfficerPersonValue - 15) * 0.2828 + 1, 0.75) * 5);
-                }
-                return subOfficerMerit.Value;
+                return (int) AISubOfficerPersonValue;
             }
         }
 
@@ -605,7 +591,17 @@ namespace GameObjects.PersonDetail
                 {
                     return aiPersonLevel.Value;
                 }
-                aiPersonLevel = (int)(Math.Sqrt(Math.Max(1, AIPersonValue - 15)) * 0.2828 + 1);
+                if (AIPersonValue < 14)
+                {
+                    aiPersonLevel = 1;
+                }
+                else
+                {
+                    double a = 35.0 / 11.0;
+                    float b = 5;
+                    double c = 14 - AIPersonValue;
+                    aiPersonLevel = (int)Math.Ceiling((-b + Math.Sqrt(b * b - 4 * a * c)) / (2 * a));
+                }
                 return aiPersonLevel.Value;
             }
         }
