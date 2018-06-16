@@ -54,7 +54,6 @@ namespace WorldOfTheThreeKingdomsEditor
             new FacilityTab(scen, dgFacility).setup();
 
             // Common
-            /*
             new TitleTab(scen, dgTitle).setup();
             new SkillTab(scen, dgSkill).setup();
             new StuntTab(scen, dgStunt).setup();
@@ -68,7 +67,6 @@ namespace WorldOfTheThreeKingdomsEditor
             new TroopEventEffectTab(scen, dgTroopEventEffect).setup();
             new TroopEventEffectKindTab(scen, dgTroopEventEffectKind).setup();
             new FacilityKindTab(scen, dgFacilityKind).setup();
-            */
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)
@@ -91,6 +89,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 String filename = openFileDialog.FileName;
 
                 scen = WorldOfTheThreeKingdoms.GameScreens.MainGameScreen.LoadScenarioData(filename, true, null, true);
+                scen.GameCommonData = CommonData.Current;
 
                 populateTables();
                 Title = "中華三國志劇本編輯器 - " + filename;
@@ -110,6 +109,29 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 scen.SaveGameScenario(filename, true, false, false, false, true, true);
 
+                // GameCommonData.json
+                String commonPath = @"Content\Data\Common\CommonData.json";
+                GameScenario.SaveGameCommonData(scen);
+                string ss1 = "";
+                System.Runtime.Serialization.Json.DataContractJsonSerializer serializer = new System.Runtime.Serialization.Json.DataContractJsonSerializer(typeof(CommonData));
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    //lock (Platform.SerializerLock)
+                    {
+                        serializer.WriteObject(stream, scen.GameCommonData);
+                    }
+                    var array = stream.ToArray();
+                    ss1 = Encoding.UTF8.GetString(array, 0, array.Length);
+                }
+                ss1 = ss1.Replace("{\"", "{\r\n\"");
+                ss1 = ss1.Replace("[{", "[\r\n{");
+                ss1 = ss1.Replace(",\"", ",\r\n\"");
+                ss1 = ss1.Replace("}", "\r\n}");
+                ss1 = ss1.Replace("},{", "},\r\n{");
+                ss1 = ss1.Replace("}]", "}\r\n]");
+                File.WriteAllText(commonPath, ss1);
+
+                // Scenarios.json
                 String scenariosPath = scenPath + @"\Scenarios.json";
                 List<GameManager.Scenario> scesList = null;
                 if (File.Exists(scenariosPath))
