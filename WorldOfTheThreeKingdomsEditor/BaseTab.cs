@@ -70,7 +70,7 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             return sampleInstance.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
                 .Where(x => Attribute.IsDefined(x, typeof(DataMemberAttribute)))
-                .Where(x => supportedTypes.Contains(x.FieldType))
+                .Where(x => supportedTypes.Contains(x.FieldType) || x.FieldType.IsEnum)
                 .ToArray();
         }
 
@@ -78,7 +78,7 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             return sampleInstance.GetType().GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
                 .Where(x => Attribute.IsDefined(x, typeof(DataMemberAttribute)))
-                .Where(x => supportedTypes.Contains(x.PropertyType))
+                .Where(x => supportedTypes.Contains(x.PropertyType) || x.PropertyType.IsEnum)
                 .ToArray();
         }
 
@@ -142,9 +142,18 @@ namespace WorldOfTheThreeKingdomsEditor
                     }
                 }
 
-                DataColumn col = new DataColumn(name, type);
-                col.DefaultValue = defaultValue;
-                dt.Columns.Add(col);
+                if (type.IsEnum)
+                {
+                    DataColumn col = new DataColumn(name, 1.GetType());
+                    col.DefaultValue = 0;
+                    dt.Columns.Add(col);
+                }
+                else
+                {
+                    DataColumn col = new DataColumn(name, type);
+                    col.DefaultValue = defaultValue;
+                    dt.Columns.Add(col);
+                }
             }
 
             foreach (T p in GetDataList(scen))
@@ -153,13 +162,27 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 foreach (FieldInfo i in fields)
                 {
-                    row[i.Name] = i.GetValue(p);
+                    if (i.FieldType.IsEnum)
+                    {
+                        row[i.Name] = (int) i.GetValue(p);
+                    }
+                    else
+                    {
+                        row[i.Name] = i.GetValue(p);
+                    }
                 }
                 foreach (PropertyInfo i in properties)
                 {
                     try
                     {
-                        row[i.Name] = i.GetValue(p) ?? DBNull.Value;
+                        if (i.PropertyType.IsEnum)
+                        {
+                            row[i.Name] = (int)i.GetValue(p);
+                        }
+                        else
+                        {
+                            row[i.Name] = i.GetValue(p) ?? DBNull.Value;
+                        }
                     }
                     catch
                     {
@@ -200,16 +223,30 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 foreach (FieldInfo i in fields)
                 {
-                    if (e.Row[i.Name] != DBNull.Value)
+                    if (i.FieldType.IsEnum)
                     {
-                        i.SetValue(p, e.Row[i.Name]);
+                        i.SetValue(p, (Int32) Enum.ToObject(i.FieldType, e.Row[i.Name]));
+                    }
+                    else
+                    {
+                        if (e.Row[i.Name] != DBNull.Value)
+                        {
+                            i.SetValue(p, e.Row[i.Name]);
+                        }
                     }
                 }
                 foreach (PropertyInfo i in properties)
                 {
-                    if (e.Row[i.Name] != DBNull.Value)
+                    if (i.PropertyType.IsEnum)
                     {
-                        i.SetValue(p, e.Row[i.Name]);
+                        i.SetValue(p, (Int32) Enum.ToObject(i.PropertyType, e.Row[i.Name]));
+                    }
+                    else
+                    {
+                        if (e.Row[i.Name] != DBNull.Value)
+                        {
+                            i.SetValue(p, e.Row[i.Name]);
+                        }
                     }
                 }
             }
@@ -257,16 +294,30 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 foreach (FieldInfo i in fields)
                 {
-                    if (item[i.Name] != DBNull.Value)
+                    if (i.FieldType.IsEnum)
                     {
-                        i.SetValue(p, item[i.Name]);
+                        i.SetValue(p, (Int32) Enum.ToObject(i.FieldType, item[i.Name]));
+                    }
+                    else
+                    {
+                        if (item[i.Name] != DBNull.Value)
+                        {
+                            i.SetValue(p, item[i.Name]);
+                        }
                     }
                 }
                 foreach (PropertyInfo i in properties)
                 {
-                    if (item[i.Name] != DBNull.Value)
+                    if (i.PropertyType.IsEnum)
                     {
-                        i.SetValue(p, item[i.Name]);
+                        i.SetValue(p, (Int32) Enum.ToObject(i.PropertyType, item[i.Name]));
+                    }
+                    else
+                    {
+                        if (item[i.Name] != DBNull.Value)
+                        {
+                            i.SetValue(p, item[i.Name]);
+                        }
                     }
                 }
             }
