@@ -6316,7 +6316,7 @@ namespace GameObjects
                                     {
                                         extraChance += 5;
                                     }
-                                    if (GameObject.Chance(10 + q.childrenStuntChanceIncrease + extraChance))
+                                    if (GameObject.Chance((10 + q.childrenStuntChanceIncrease + extraChance) / 3))
                                     {
                                         p.Stunts.AddStunt(t);
                                         p.AdjustRelation(q, 0, 10);
