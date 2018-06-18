@@ -1259,7 +1259,7 @@
         </Tab>
 		<Tab ID="13"  Name="CombatTimes" DisplayName="战斗次数" Columns="1 83 84 154 155 156 157 158 163 159 160 161 162">
         </Tab>
-        <Tab ID="14"  Name="PersonRelations" DisplayName="人物关系" Columns="1 121 122 123 125 126 132 133 134 135">
+        <Tab ID="14"  Name="PersonRelations" DisplayName="人物关系" Columns="1 121 122 123 125 126 132 133 135">
         </Tab>
 		<Tab ID="15" Name="PersonSpecialRelations" DisplayName="关系武将" Columns="1 180" ListKind="PersonRelationValue" ListMethod="GetPersonRelationList">
         </Tab>

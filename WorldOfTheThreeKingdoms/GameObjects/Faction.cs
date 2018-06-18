@@ -998,10 +998,6 @@ namespace GameObjects
                 {
                     if (p.WaitForFeiZi != null) continue;
                     if (p.Spouse != null) continue;
-                    if (Session.GlobalVariables.hougongGetChildrenRate > 0)
-                    {
-                        if (IsPersonForHouGong(p)) continue;
-                    }
                     PersonList allCandidates = p.MakeMarryableInFaction();
                     PersonList candidates = new PersonList();
                     foreach (Person q in allCandidates)
@@ -1018,7 +1014,7 @@ namespace GameObjects
                         {
                             if (Session.GlobalVariables.hougongGetChildrenRate > 0)
                             {
-                                if (IsPersonForHouGong(q)) continue;
+                                if ((IsPersonForHouGong(p) || IsPersonForHouGong(q)) && !(this.Leader == p || this.Leader == q)) continue;
                                 
                                 GameObjectList simulatSuoshu = p.suoshurenwuList.GetList();
                                 simulatSuoshu.Add(p);
