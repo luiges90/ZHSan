@@ -2290,7 +2290,7 @@ namespace GameObjects
 
         private void AITrainChildren()
         {
-            if (GameObject.Random(90) == 0)
+            if (GameObject.Random(90 / Session.Current.Scenario.Parameters.DayInTurn) == 0)
             {
                 foreach (Person p in this.Children)
                 {
@@ -2311,7 +2311,7 @@ namespace GameObjects
                         }
                         p.TrainPolicy = candidates.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
                     }
-                    else if (p.Age >= 8)
+                    else if (p.Age >= 8) 
                     {
                         float unfinishedSkillFactor;
                         int unlearnedSkillCount = 0;
