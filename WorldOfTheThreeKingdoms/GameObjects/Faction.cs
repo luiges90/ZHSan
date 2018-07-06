@@ -1498,6 +1498,7 @@ namespace GameObjects
             foreach (Faction f in Session.Current.Scenario.PlayerFactions) 
             {
                 if (!this.adjacentTo(f)) continue;
+                if (this.IsFriendly(f)) continue;
                 if (this == f) continue;
                 if (GameObject.Random(1000) < Session.Parameters.AIEncirclePlayerRate && GameObject.Chance(f.ArchitectureCount))
                 {
