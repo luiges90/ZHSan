@@ -1116,9 +1116,9 @@ namespace GameObjects
                                 (b.Meinvkongjian > b.Feiziliebiao.Count || b.BelongedFaction.IsAlien) && 
                                 (a.withoutTruceFrontline || b.Meinvkongjian > a.Meinvkongjian))
                             {
-                                if (b.Population > maxPop * 1.1 && b.Endurance > Math.Min(500, b.EnduranceCeiling * 0.5))
+                                if (b.Endurance > maxPop)
                                 {
-                                    maxPop = b.Population;
+                                    maxPop = b.Endurance;
                                     dest = b;
                                 }
                             }
@@ -1132,9 +1132,9 @@ namespace GameObjects
                                     (b.Meinvkongjian > b.Feiziliebiao.Count || b.BelongedFaction.IsAlien) &&
                                     (a.withoutTruceFrontline || b.Meinvkongjian > a.Meinvkongjian))
                                 {
-                                    if (b.Population > maxPop * 1.1 && (dest == null || b.Endurance > dest.Endurance) && b.Endurance > a.Endurance)
+                                    if (b.Endurance > maxPop)
                                     {
-                                        maxPop = b.Population;
+                                        maxPop = b.Endurance;
                                         dest = b;
                                     }
                                 }
