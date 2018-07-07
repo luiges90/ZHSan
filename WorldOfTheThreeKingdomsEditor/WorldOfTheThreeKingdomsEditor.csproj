@@ -88,6 +88,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ArchitectureKindTab.cs" />
+    <Compile Include="MilitaryKindTab.cs" />
     <Compile Include="TroopEventEffectKindTab.cs" />
     <Compile Include="EventEffectKindTab.cs" />
     <Compile Include="TroopEventEffectTab.cs" />

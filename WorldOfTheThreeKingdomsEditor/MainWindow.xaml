@@ -170,6 +170,16 @@
                     <DataGrid x:Name="dgFacilityKind" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="建築類">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgArchitectureKind" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="兵種類">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgMilitaryKind" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
