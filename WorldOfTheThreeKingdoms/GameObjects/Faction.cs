@@ -1128,7 +1128,7 @@ namespace GameObjects
                             foreach (Architecture b in this.Architectures)
                             {
                                 if (a == b) continue;
-                                if (!b.HasHostileTroopsInView() &&
+                                if (b.RecentlyAttacked <= 0 && b.RecentlyBreaked <= 0 &&
                                     (b.Meinvkongjian > b.Feiziliebiao.Count || b.BelongedFaction.IsAlien) &&
                                     (a.withoutTruceFrontline || b.Meinvkongjian > a.Meinvkongjian))
                                 {
@@ -1315,7 +1315,7 @@ namespace GameObjects
                 }
             }
             else if (this.Leader.Status == PersonStatus.Normal && this.Leader.LocationArchitecture != null &&
-                this.Leader.LocationTroop == null && this.Leader.WaitForFeiZi == null && this.Leader.Age < 50 + this.Leader.Ambition * 2 && TotalFeiziCount() < Session.Current.Scenario.Parameters.AIMaxFeizi)
+                this.Leader.LocationTroop == null && this.Leader.WaitForFeiZi == null && this.Leader.Age < 50 + this.Leader.Ambition * 2 && (TotalFeiziCount() < Session.Current.Scenario.Parameters.AIMaxFeizi || this.IsAlien))
             {
                 Architecture dest = null;
                 if ((this.Leader.LocationArchitecture.Meinvkongjian - this.Leader.LocationArchitecture.Feiziliebiao.Count > 0 && 
