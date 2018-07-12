@@ -3084,7 +3084,7 @@ namespace GameObjects
                 Session.GlobalVariables.AIAutoTakePlayerCaptives && target.IsCaptive &&
                 (!Session.GlobalVariables.AIAutoTakePlayerCaptiveOnlyUnfull || target.Loyalty < 100);
             
-            ConvinceSuccess = ConvinceSuccess && (!this.BelongedFaction.IsAlien || (int)target.PersonalLoyalty < 2);  //异族只能说服义理为2以下的武将。
+            ConvinceSuccess = ConvinceSuccess && (!this.BelongedFaction.IsAlien || (int)target.PersonalLoyalty < 2 || target.HasStrainTo(this.BelongedFaction.Leader));  //异族只能说服义理为2以下的武将。
 
             // prohibitedFactionID overrides all.
             if (target.ProhibitedFactionID.ContainsKey(this.BelongedFaction.ID))
