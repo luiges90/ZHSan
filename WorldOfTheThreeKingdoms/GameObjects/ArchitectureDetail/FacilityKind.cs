@@ -295,11 +295,11 @@ namespace GameObjects.ArchitectureDetail
                     }
                     else if (i.Kind.ID == 3020)
                     {
-                        fundIncrease += this.MaintenanceCost * 31;
+                        return 1;
                     }
                     else if (i.Kind.ID == 3210)
                     {
-                        fundIncrease += this.MaintenanceCost * 31;
+                        return 1;
                     }
                 }
                 return fundIncrease - this.MaintenanceCost * 30;

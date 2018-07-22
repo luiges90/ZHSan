@@ -87,6 +87,8 @@ namespace GameObjects
 
             RoutewayPathBuilder = new RoutewayPathFinder();
 
+            ClosedRouteways = new Dictionary<Point, object>();
+
             Routeways = new RoutewayList();
 
             SecondTierKnownPaths = new Dictionary<ClosedPathEndpoints, List<Point>>();
@@ -151,7 +153,7 @@ namespace GameObjects
 
         private Architecture capital;
         private int capitalID;
-        [DataMember]
+
         public Dictionary<Point, object> ClosedRouteways = new Dictionary<Point, object>();
         private int colorIndex;
         private bool controlling;
