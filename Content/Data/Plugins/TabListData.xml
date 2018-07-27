@@ -3875,7 +3875,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="7" Name="Days" IsNumber="true" DisplayName="建造时间" MinWidth="80" DetailLevel="3"
+        <Column ID="7" Name="DaysText" IsNumber="true" DisplayName="建造时间" MinWidth="80" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
