@@ -2631,7 +2631,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             nstDianNaoYinWanJiaHeBing.NowNumber = Session.globalVariablesTemp.AIMergeAgainstPlayer;
 
-            nstDianNaoChuZhan.NowNumber = Session.globalVariablesTemp.LeadershipOffenceRate;
+            nstDianNaoChuZhan.NowNumber = Session.globalVariablesTemp.AIExecutionRate;
 
             nstDianNaoZiJing1.NowNumber = Session.parametersTemp.AIFundRate;
 
@@ -3254,9 +3254,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         Session.globalVariablesTemp.AIMergeAgainstPlayer = (float)nstDianNaoYinWanJiaHeBing.NowNumber;
                     }
 
-                    if (Session.globalVariablesTemp.LeadershipOffenceRate != (float)nstDianNaoChuZhan.NowNumber)
+                    if (Session.globalVariablesTemp.AIExecutionRate != (int)nstDianNaoChuZhan.NowNumber)
                     {
-                        Session.globalVariablesTemp.LeadershipOffenceRate = (float)nstDianNaoChuZhan.NowNumber;
+                        Session.globalVariablesTemp.AIExecutionRate = (int)nstDianNaoChuZhan.NowNumber;
                     }
 
                     if (Session.parametersTemp.AIFundRate != (float)nstDianNaoZiJing1.NowNumber)
