@@ -5569,7 +5569,7 @@ namespace GameObjects
 
             if (this.TargetArchitecture != null)
             {
-                if (this.Status != PersonStatus.Princess   && this.Status != PersonStatus.Captive)
+                if (this.Status != PersonStatus.Princess && this.Status != PersonStatus.Captive)
                 {
                     this.WorkKind = ArchitectureWorkKind.无;
 
@@ -5589,7 +5589,6 @@ namespace GameObjects
                 }
                 else
                 {
-                   // throw new Exception("try to disappear");
                     Session.Current.Scenario.ClearPersonStatusCache();
                 }
 
