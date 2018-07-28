@@ -188,6 +188,13 @@ namespace GameObjects
                 sum += i;
             }
 
+            if (sum <= 0)
+            {
+                var enu = weights.Keys.GetEnumerator();
+                enu.MoveNext();
+                return enu.Current;
+            }
+
             int p = GameObject.Random(randMax);
             double pt = 0;
             foreach (KeyValuePair<T, float> td in weights)
