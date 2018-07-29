@@ -394,10 +394,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (((Session.Current.Scenario.CurrentPlayer != null) && father.BelongedArchitecture != null &&
                     Session.Current.Scenario.IsCurrentPlayer(father.BelongedArchitecture.BelongedFaction)) || Session.GlobalVariables.SkyEye)
             {
-                //person.TextResultString = person.Name;
-                //this.Plugins.tupianwenziPlugin.SetGameObjectBranch(father, father, TextMessageKind.ChildrenBorn, "xiaohaichusheng");
-                //this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
-                //this.Plugins.tupianwenziPlugin.IsShowing = true;
+                if (father.BelongedFaction != null && father.BelongedFaction.Leader == father && mother.Status == PersonStatus.Princess)
+                {
+                    person.TextResultString = person.Name;
+                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(father, father, TextMessageKind.ChildrenBorn, "xiaohaichusheng");
+                    this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                }
 
                 if (father.BelongedArchitecture != null)
                 {
