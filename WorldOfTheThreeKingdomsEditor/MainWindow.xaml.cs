@@ -28,30 +28,38 @@ namespace WorldOfTheThreeKingdomsEditor
     public partial class MainWindow : Window
     {
         private GameScenario scen;
+        private bool scenLoaded = false;
 
         public MainWindow()
         {
             InitializeComponent();
 
             CommonData.Current = Tools.SimpleSerializer.DeserializeJsonFile<CommonData>(@"Content\Data\Common\CommonData.json", false, false);
+
+            scen = new GameScenario();
+            scen.GameCommonData = CommonData.Current;
+            populateTables(false);
         }
 
-        private void populateTables()
+        private void populateTables(bool hasScen)
         {
-            new PersonTab(scen, dgPerson).setup();
-            new DictionaryTab<int, int>(scen.FatherIds, "FatherIds", dgFatherId).setup();
-            new DictionaryTab<int, int>(scen.MotherIds, "MotherIds", dgMotherId).setup();
-            new DictionaryTab<int, int>(scen.SpouseIds, "SpouseIds", dgSpouseId).setup();
-            // new DictionaryTab<int, int[]>(scen.BrotherIds, "BrotherIds", dgBrotherId).setup();
-            new ArchitectureTab(scen, dgArchitecture).setup();
-            new FactionTab(scen, dgFaction).setup();
-            new MilitaryTab(scen, dgMilitary).setup();
-            new TroopTab(scen, dgTroop).setup();
-            new CaptiveTab(scen, dgCaptive).setup();
-            new EventTab(scen, dgEvent).setup();
-            new TroopEventTab(scen, dgTroopEvent).setup();
-            new TreasureTab(scen, dgTreasure).setup();
-            new FacilityTab(scen, dgFacility).setup();
+            if (hasScen)
+            {
+                new PersonTab(scen, dgPerson).setup();
+                new DictionaryTab<int, int>(scen.FatherIds, "FatherIds", dgFatherId).setup();
+                new DictionaryTab<int, int>(scen.MotherIds, "MotherIds", dgMotherId).setup();
+                new DictionaryTab<int, int>(scen.SpouseIds, "SpouseIds", dgSpouseId).setup();
+                // new DictionaryTab<int, int[]>(scen.BrotherIds, "BrotherIds", dgBrotherId).setup();
+                new ArchitectureTab(scen, dgArchitecture).setup();
+                new FactionTab(scen, dgFaction).setup();
+                new MilitaryTab(scen, dgMilitary).setup();
+                new TroopTab(scen, dgTroop).setup();
+                new CaptiveTab(scen, dgCaptive).setup();
+                new EventTab(scen, dgEvent).setup();
+                new TroopEventTab(scen, dgTroopEvent).setup();
+                new TreasureTab(scen, dgTreasure).setup();
+                new FacilityTab(scen, dgFacility).setup();
+            }
 
             // Common
             new TitleTab(scen, dgTitle).setup();
@@ -93,24 +101,97 @@ namespace WorldOfTheThreeKingdomsEditor
                 scen = WorldOfTheThreeKingdoms.GameScreens.MainGameScreen.LoadScenarioData(filename, true, null, true);
                 scen.GameCommonData = CommonData.Current;
 
-                populateTables();
+                populateTables(true);
+                scenLoaded = true;
                 Title = "中華三國志劇本編輯器 - " + filename;
             }
         }
 
         private void SaveCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "劇本檔 (*.json)|*.json";
-            saveFileDialog.InitialDirectory = @"Content\Data\Scenario";
-            if (saveFileDialog.ShowDialog() == true)
+            if (scenLoaded)
             {
-                String filename = saveFileDialog.FileName;
-                String scenName = filename.Substring(filename.LastIndexOf(@"\") + 1, filename.LastIndexOf(".") - filename.LastIndexOf(@"\") - 1);
-                String scenPath = filename.Substring(0, filename.LastIndexOf(@"\"));
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "劇本檔 (*.json)|*.json";
+                saveFileDialog.InitialDirectory = @"Content\Data\Scenario";
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    String filename = saveFileDialog.FileName;
+                    String scenName = filename.Substring(filename.LastIndexOf(@"\") + 1, filename.LastIndexOf(".") - filename.LastIndexOf(@"\") - 1);
+                    String scenPath = filename.Substring(0, filename.LastIndexOf(@"\"));
 
-                scen.SaveGameScenario(filename, true, false, false, false, true, true);
+                    scen.SaveGameScenario(filename, true, false, false, false, true, true);
 
+                    // GameCommonData.json
+                    String commonPath = @"Content\Data\Common\CommonData.json";
+                    GameScenario.SaveGameCommonData(scen);
+                    string ss1 = "";
+                    System.Runtime.Serialization.Json.DataContractJsonSerializer serializer = new System.Runtime.Serialization.Json.DataContractJsonSerializer(typeof(CommonData));
+                    using (MemoryStream stream = new MemoryStream())
+                    {
+                        //lock (Platform.SerializerLock)
+                        {
+                            serializer.WriteObject(stream, scen.GameCommonData);
+                        }
+                        var array = stream.ToArray();
+                        ss1 = Encoding.UTF8.GetString(array, 0, array.Length);
+                    }
+                    ss1 = ss1.Replace("{\"", "{\r\n\"");
+                    ss1 = ss1.Replace("[{", "[\r\n{");
+                    ss1 = ss1.Replace(",\"", ",\r\n\"");
+                    ss1 = ss1.Replace("}", "\r\n}");
+                    ss1 = ss1.Replace("},{", "},\r\n{");
+                    ss1 = ss1.Replace("}]", "}\r\n]");
+                    File.WriteAllText(commonPath, ss1);
+
+                    // Scenarios.json
+                    String scenariosPath = scenPath + @"\Scenarios.json";
+                    List<GameManager.Scenario> scesList = null;
+                    if (File.Exists(scenariosPath))
+                    {
+                        scesList = SimpleSerializer.DeserializeJsonFile<List<GameManager.Scenario>>(scenariosPath, false).NullToEmptyList();
+                    }
+                    if (scesList == null)
+                    {
+                        scesList = new List<GameManager.Scenario>();
+                    }
+
+                    string time = scen.Date.Year + "-" + scen.Date.Month + "-" + scen.Date.Day;
+                    GameManager.Scenario s1 = new GameManager.Scenario()
+                    {
+                        Create = DateTime.Now.ToSeasonDateTime(),
+                        Desc = scen.ScenarioDescription,
+                        First = StaticMethods.SaveToString(scen.ScenarioMap.JumpPosition),
+                        IDs = scen.Factions.GameObjects.Select(x => x.ID.ToString()).Aggregate((a, b) => a + "," + b),
+                        Info = "电脑",
+                        Name = scenName,
+                        Names = scen.Factions.GameObjects.Select(x => x.Name).Aggregate((a, b) => a + "," + b),
+                        //  Path = "",
+                        // PlayTime = scenario.GameTime.ToString(),
+                        // Player = "",
+                        //  Players = String.Join(",", scenario.PlayerList.NullToEmptyList()),
+                        Time = time.ToSeasonDate(),
+                        Title = scen.ScenarioTitle
+                    };
+
+                    int index = scesList.FindIndex(x => x.Name == scenName);
+                    if (index >= 0)
+                    {
+                        scesList[index] = s1;
+                    }
+                    else
+                    {
+                        scesList.Add(s1);
+                    }
+
+                    string s2 = Newtonsoft.Json.JsonConvert.SerializeObject(scesList, Newtonsoft.Json.Formatting.Indented);
+                    File.WriteAllText(scenariosPath, s2);
+
+                    MessageBox.Show("劇本已儲存為" + filename);
+                }
+            }
+            else
+            {
                 // GameCommonData.json
                 String commonPath = @"Content\Data\Common\CommonData.json";
                 GameScenario.SaveGameCommonData(scen);
@@ -133,49 +214,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 ss1 = ss1.Replace("}]", "}\r\n]");
                 File.WriteAllText(commonPath, ss1);
 
-                // Scenarios.json
-                String scenariosPath = scenPath + @"\Scenarios.json";
-                List<GameManager.Scenario> scesList = null;
-                if (File.Exists(scenariosPath))
-                {
-                    scesList = SimpleSerializer.DeserializeJsonFile<List<GameManager.Scenario>>(scenariosPath, false).NullToEmptyList();
-                }
-                if (scesList == null)
-                {
-                    scesList = new List<GameManager.Scenario>();
-                }
-
-                string time = scen.Date.Year + "-" + scen.Date.Month + "-" + scen.Date.Day;
-                GameManager.Scenario s1 = new GameManager.Scenario()
-                {
-                    Create = DateTime.Now.ToSeasonDateTime(),
-                    Desc = scen.ScenarioDescription,
-                    First = StaticMethods.SaveToString(scen.ScenarioMap.JumpPosition),
-                    IDs = scen.Factions.GameObjects.Select(x => x.ID.ToString()).Aggregate((a, b) => a + "," + b),
-                    Info = "电脑",
-                    Name = scenName,
-                    Names = scen.Factions.GameObjects.Select(x => x.Name).Aggregate((a, b) => a + "," + b),
-                    //  Path = "",
-                    // PlayTime = scenario.GameTime.ToString(),
-                    // Player = "",
-                    //  Players = String.Join(",", scenario.PlayerList.NullToEmptyList()),
-                    Time = time.ToSeasonDate(),
-                    Title = scen.ScenarioTitle
-                };
-
-                int index = scesList.FindIndex(x => x.Name == scenName);
-                if (index >= 0)
-                {
-                    scesList[index] = s1;
-                } else
-                {
-                    scesList.Add(s1);
-                }
-
-                string s2 = Newtonsoft.Json.JsonConvert.SerializeObject(scesList, Newtonsoft.Json.Formatting.Indented);
-                File.WriteAllText(scenariosPath, s2);
-
-                MessageBox.Show("劇本已儲存為" + filename);
+                MessageBox.Show("CommonData已儲存為" + commonPath);
             }
         }
 
