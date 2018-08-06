@@ -3771,245 +3771,252 @@ namespace GameObjects
         private int stuckedFor = 0;
         public void DayEvent()
         {
-            if (!GameObject.Chance(this.chanceTirednessStopIncrease))
+            if (this.Morale <= 0)
             {
-                this.Army.Tiredness += Session.GlobalVariables.TirednessIncrease;
-            }
-            foreach (Person p in this.Persons)
-            {
-                if (!GameObject.Chance(p.chanceTirednessStopIncrease) && !GameObject.Chance(this.chanceTirednessStopIncrease) && !this.IsRobber)
-                {
-                    p.Tiredness += Session.GlobalVariables.TirednessIncrease;
-                }
-            }
-
-            foreach (Person p in this.Persons)
-            {
-                p.CommandExperience += this.CommandExperienceIncrease;
-                p.StrengthExperience += this.StrengthExperienceIncrease;
-                p.IntelligenceExperience += this.IntelligenceExperienceIncrease;
-                p.PoliticsExperience += this.PoliticsExperienceIncrease;
-                p.GlamourExperience += this.GlamourExperienceIncrease;
-                p.Reputation += this.ReputationIncrease;
-            }
-
-            if (this.BelongedFaction != null)
-            {
-                this.ViewingWillArchitecture = this.IsViewingWillArchitecture();
-                this.ContactingWillArchitecture = this.IsContactingWillArchitecture();
-                this.OffencingWillArchitecture = this.IsOffencingWillArchitecture();
-                this.ContactHostileTroopCount = this.GetContactHostileTroops().Count;
-                this.ContactFriendlyTroopCount = this.GetContactFriendlyTroops().Count;
-                this.SetFriendlyTroopsInView();
-                this.SetHostileTroopsInView();
-            }
-            if (this.StartingArchitecture != null)
-            {
-            }
-            if ((this.IncrementPerDayOfCombativity + this.CombativityIncrementPerDayByViewArea) > 0)
-            {
-                this.IncreaseCombativity(this.IncrementPerDayOfCombativity + this.CombativityIncrementPerDayByViewArea);
-            }
-            if ((this.DecrementPerDayOfCombativity + this.CombativityDecrementPerDayByViewArea) > 0)
-            {
-                this.DecreaseCombativity(this.DecrementPerDayOfCombativity + this.CombativityDecrementPerDayByViewArea);
-            }
-            if (GameObject.Chance(this.TirednessIncreaseChanceByViewArea))
-            {
-                this.Army.Tiredness += 1;
-                foreach (Person p in this.Persons)
-                {
-                    p.Tiredness += 1;
-                }
-            }
-            if (GameObject.Chance(this.TirednessDecreaseChanceByViewArea) && this.Army.Tiredness > 0)
-            {
-                this.Army.Tiredness -= 1;
-                foreach (Person p in this.Persons)
-                {
-                    p.Tiredness -= 1;
-                }
-            }
-            if (this.InjuryLostByViewArea > 0)
-            {
-                this.DecreaseInjuryQuantity(this.InjuryLostByViewArea);
-            }
-            if (this.TroopRecoverByViewArea > 0)
-            {
-                this.IncreaseQuantity(this.TroopRecoverByViewArea);
-            }
-            if (this.TroopLostByViewArea > 0)
-            {
-                this.DecreaseQuantity(this.TroopRecoverByViewArea);
-            }
-            if (this.MoraleIncreaseByViewArea + this.IncrementPerDayOfMorale  > 0)
-            {
-                this.IncreaseMorale(this.MoraleIncreaseByViewArea + this.IncrementPerDayOfMorale);
-            }
-            if (this.MoraleDecreaseByViewArea > 0)
-            {
-                this.DecreaseMorale(this.MoraleDecreaseByViewArea);
-            }
-
-            int moraleRate = 1;
-            foreach (Point p in this.BaseViewArea.Area)
-            {
-                Architecture a = Session.Current.Scenario.GetArchitectureByPositionNoCheck(p);
-                if (a != null && a.Endurance > 0 && a.BelongedFaction == this.BelongedFaction)
-                {
-                    moraleRate = 2;
-                }
-            }
-            Architecture a2 = Session.Current.Scenario.GetArchitectureByPositionNoCheck(this.Position);
-            if (a2 != null && a2.Endurance > 0 && a2.BelongedFaction == this.BelongedFaction)
-            {
-                moraleRate = 3;
-            }
-
-            if (this.Army.Leader != null)
-            {
-                if (this.Tiredness <= 20)
-                {
-                    this.IncreaseMorale(((GameObject.Chance(this.Army.Leader.Command) ? 1 : 0) + (GameObject.Chance(this.Army.Leader.Command) ? 1 : 0)) * moraleRate);
-                }
-                else if (this.Tiredness <= 40)
-                {
-                    this.IncreaseMorale((GameObject.Chance(this.Army.Leader.Command) ? 1 : 0) * moraleRate);
-                }
-                else if (this.Tiredness > 60)
-                {
-                    this.DecreaseMorale((this.Tiredness - 30) / 30 + ((GameObject.Chance(this.Army.Leader.Command) ? 1 : 0)) * moraleRate);
-                }
-            }
-
-            if ((this.InjuryRecoveryPerDayRate > 0f || this.InjuryRecoverByViewArea > 0) && (this.InjuryQuantity > 0))
-            {
-                int number = this.Army.Recovery(this.InjuryRecoveryPerDayRate + this.InjuryRecoverByViewArea);
-                if (number > 0)
-                {
-                    this.RefreshOffence();
-                    this.RefreshDefence();
-                    this.IncrementNumberList.AddNumber(number, CombatNumberKind.人数, this.Position);
-                    this.ShowNumber = true;
-                }
-            }
-            if (this.ChaosDayLeft > 0)
-            {
-                this.ChaosDayLeft--;
-                if ((this.ChaosDayLeft == 0) || this.StuntRecoverFromChaos)
-                {
-                    this.SetRecoverFromChaos();
-                }
-            }
-
-            if (this.ChaosDayLeft > 0 && GameObject.Chance(this.ChaosRecoverByViewArea))
-            {
-                this.SetRecoverFromChaos();
-            }
-            if (GameObject.Chance(this.ChaosByViewArea))
-            {
-                this.SetChaos(1 + GameObject.Random(2));
-            }
-
-            if (Session.Current.Scenario.FireTable.HasPosition(this.Position))
-            {
-                this.SetOnFire(Session.Parameters.FireDamageScale * Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(this.Position).FireDamageRate);
-            }
-            if (this.CutRoutewayDays > 0)
-            {
-                this.CutRoutewayDays--;
-                if (this.CutRoutewayDays == 0)
-                {
-                    this.CutPositionRouteway();
-                }
-                else if (this.CheckPositionRouteway())
-                {
-                    this.Controllable = false;
-                    this.Operated = true;
-                }
-                else
-                {
-                    this.CutRoutewayDays = 0;
-                    if (this.OnEndCutRouteway != null)
-                    {
-                        this.OnEndCutRouteway(this, false);
-                    }
-                }
-            }
-            if (this.Food >= this.FoodCostPerDay)
-            {
-                this.Food -= this.FoodCostPerDay;
-                this.RefillFood();
-
+                this.BeRouted();
             }
             else
             {
-                this.RefillFood();
-
-                if (this.Food < this.FoodCostPerDay)
+                if (!GameObject.Chance(this.chanceTirednessStopIncrease))
                 {
-                    this.Food = 0;
-                    if (this.RecentlyFighting > 0)
+                    this.Army.Tiredness += Session.GlobalVariables.TirednessIncrease;
+                }
+                foreach (Person p in this.Persons)
+                {
+                    if (!GameObject.Chance(p.chanceTirednessStopIncrease) && !GameObject.Chance(this.chanceTirednessStopIncrease) && !this.IsRobber)
                     {
-                        this.DecreaseCombativity(10);
-                        this.DecreaseMorale((int)(10f * this.MoraleChangeRateOnOutOfFood));
+                        p.Tiredness += Session.GlobalVariables.TirednessIncrease;
+                    }
+                }
+
+                foreach (Person p in this.Persons)
+                {
+                    p.CommandExperience += this.CommandExperienceIncrease;
+                    p.StrengthExperience += this.StrengthExperienceIncrease;
+                    p.IntelligenceExperience += this.IntelligenceExperienceIncrease;
+                    p.PoliticsExperience += this.PoliticsExperienceIncrease;
+                    p.GlamourExperience += this.GlamourExperienceIncrease;
+                    p.Reputation += this.ReputationIncrease;
+                }
+
+                if (this.BelongedFaction != null)
+                {
+                    this.ViewingWillArchitecture = this.IsViewingWillArchitecture();
+                    this.ContactingWillArchitecture = this.IsContactingWillArchitecture();
+                    this.OffencingWillArchitecture = this.IsOffencingWillArchitecture();
+                    this.ContactHostileTroopCount = this.GetContactHostileTroops().Count;
+                    this.ContactFriendlyTroopCount = this.GetContactFriendlyTroops().Count;
+                    this.SetFriendlyTroopsInView();
+                    this.SetHostileTroopsInView();
+                }
+                if (this.StartingArchitecture != null)
+                {
+                }
+                if ((this.IncrementPerDayOfCombativity + this.CombativityIncrementPerDayByViewArea) > 0)
+                {
+                    this.IncreaseCombativity(this.IncrementPerDayOfCombativity + this.CombativityIncrementPerDayByViewArea);
+                }
+                if ((this.DecrementPerDayOfCombativity + this.CombativityDecrementPerDayByViewArea) > 0)
+                {
+                    this.DecreaseCombativity(this.DecrementPerDayOfCombativity + this.CombativityDecrementPerDayByViewArea);
+                }
+                if (GameObject.Chance(this.TirednessIncreaseChanceByViewArea))
+                {
+                    this.Army.Tiredness += 1;
+                    foreach (Person p in this.Persons)
+                    {
+                        p.Tiredness += 1;
+                    }
+                }
+                if (GameObject.Chance(this.TirednessDecreaseChanceByViewArea) && this.Army.Tiredness > 0)
+                {
+                    this.Army.Tiredness -= 1;
+                    foreach (Person p in this.Persons)
+                    {
+                        p.Tiredness -= 1;
+                    }
+                }
+                if (this.InjuryLostByViewArea > 0)
+                {
+                    this.DecreaseInjuryQuantity(this.InjuryLostByViewArea);
+                }
+                if (this.TroopRecoverByViewArea > 0)
+                {
+                    this.IncreaseQuantity(this.TroopRecoverByViewArea);
+                }
+                if (this.TroopLostByViewArea > 0)
+                {
+                    this.DecreaseQuantity(this.TroopRecoverByViewArea);
+                }
+                if (this.MoraleIncreaseByViewArea + this.IncrementPerDayOfMorale > 0)
+                {
+                    this.IncreaseMorale(this.MoraleIncreaseByViewArea + this.IncrementPerDayOfMorale);
+                }
+                if (this.MoraleDecreaseByViewArea > 0)
+                {
+                    this.DecreaseMorale(this.MoraleDecreaseByViewArea);
+                }
+
+                int moraleRate = 1;
+                foreach (Point p in this.BaseViewArea.Area)
+                {
+                    Architecture a = Session.Current.Scenario.GetArchitectureByPositionNoCheck(p);
+                    if (a != null && a.Endurance > 0 && a.BelongedFaction == this.BelongedFaction)
+                    {
+                        moraleRate = 2;
+                    }
+                }
+                Architecture a2 = Session.Current.Scenario.GetArchitectureByPositionNoCheck(this.Position);
+                if (a2 != null && a2.Endurance > 0 && a2.BelongedFaction == this.BelongedFaction)
+                {
+                    moraleRate = 3;
+                }
+
+                if (this.Army.Leader != null)
+                {
+                    if (this.Tiredness <= 20)
+                    {
+                        this.IncreaseMorale(((GameObject.Chance(this.Army.Leader.Command) ? 1 : 0) + (GameObject.Chance(this.Army.Leader.Command) ? 1 : 0)) * moraleRate);
+                    }
+                    else if (this.Tiredness <= 40)
+                    {
+                        this.IncreaseMorale((GameObject.Chance(this.Army.Leader.Command) ? 1 : 0) * moraleRate);
+                    }
+                    else if (this.Tiredness > 60)
+                    {
+                        this.DecreaseMorale((this.Tiredness - 30) / 30 + ((GameObject.Chance(this.Army.Leader.Command) ? 1 : 0)) * moraleRate);
+                    }
+                }
+
+                if ((this.InjuryRecoveryPerDayRate > 0f || this.InjuryRecoverByViewArea > 0) && (this.InjuryQuantity > 0))
+                {
+                    int number = this.Army.Recovery(this.InjuryRecoveryPerDayRate + this.InjuryRecoverByViewArea);
+                    if (number > 0)
+                    {
+                        this.RefreshOffence();
+                        this.RefreshDefence();
+                        this.IncrementNumberList.AddNumber(number, CombatNumberKind.人数, this.Position);
+                        this.ShowNumber = true;
+                    }
+                }
+                if (this.ChaosDayLeft > 0)
+                {
+                    this.ChaosDayLeft--;
+                    if ((this.ChaosDayLeft == 0) || this.StuntRecoverFromChaos)
+                    {
+                        this.SetRecoverFromChaos();
+                    }
+                }
+
+                if (this.ChaosDayLeft > 0 && GameObject.Chance(this.ChaosRecoverByViewArea))
+                {
+                    this.SetRecoverFromChaos();
+                }
+                if (GameObject.Chance(this.ChaosByViewArea))
+                {
+                    this.SetChaos(1 + GameObject.Random(2));
+                }
+
+                if (Session.Current.Scenario.FireTable.HasPosition(this.Position))
+                {
+                    this.SetOnFire(Session.Parameters.FireDamageScale * Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(this.Position).FireDamageRate);
+                }
+                if (this.CutRoutewayDays > 0)
+                {
+                    this.CutRoutewayDays--;
+                    if (this.CutRoutewayDays == 0)
+                    {
+                        this.CutPositionRouteway();
+                    }
+                    else if (this.CheckPositionRouteway())
+                    {
+                        this.Controllable = false;
+                        this.Operated = true;
                     }
                     else
                     {
-                        this.DecreaseCombativity(5);
-                        this.DecreaseMorale(5);
+                        this.CutRoutewayDays = 0;
+                        if (this.OnEndCutRouteway != null)
+                        {
+                            this.OnEndCutRouteway(this, false);
+                        }
                     }
-                    this.DecreaseQuantity(this.Quantity / 10);
-                    CheckTroopRout(this);
+                }
+                if (this.Food >= this.FoodCostPerDay)
+                {
+                    this.Food -= this.FoodCostPerDay;
+                    this.RefillFood();
+
                 }
                 else
                 {
-                    this.Food -= this.FoodCostPerDay;
-                }
-            }
-            if (this.BelongedFaction != null)
-            {
-                foreach (TroopEvent event2 in Session.Current.Scenario.TroopEvents.GetList())
-                {
-                    if (event2.CheckTroop(this))
+                    this.RefillFood();
+
+                    if (this.Food < this.FoodCostPerDay)
                     {
-                        TroopList list = null;
-                        if (Session.Current.Scenario.TroopEventsToApply.TryGetValue(event2, out list))
+                        this.Food = 0;
+                        if (this.RecentlyFighting > 0)
                         {
-                            list.Add(this);
+                            this.DecreaseCombativity(10);
+                            this.DecreaseMorale((int)(10f * this.MoraleChangeRateOnOutOfFood));
                         }
                         else
                         {
-                            list = new TroopList();
-                            list.Add(this);
-                            Session.Current.Scenario.TroopEventsToApply.Add(event2, list);
+                            this.DecreaseCombativity(5);
+                            this.DecreaseMorale(5);
                         }
-                        event2.ApplyEventDialogs(this);
+                        this.DecreaseQuantity(this.Quantity / 10);
+                        CheckTroopRout(this);
+                    }
+                    else
+                    {
+                        this.Food -= this.FoodCostPerDay;
                     }
                 }
-            }
-            if ((this.CurrentStunt != null) && (this.StuntDayLeft > 0))
-            {
-                this.StuntDayLeft--;
-                if (this.StuntDayLeft == 0)
+                if (this.BelongedFaction != null)
                 {
-                    this.CurrentStunt.Purify(this);
-                    this.CurrentStunt = null;
-                    this.RefreshAllData();
+                    foreach (TroopEvent event2 in Session.Current.Scenario.TroopEvents.GetList())
+                    {
+                        if (event2.CheckTroop(this))
+                        {
+                            TroopList list = null;
+                            if (Session.Current.Scenario.TroopEventsToApply.TryGetValue(event2, out list))
+                            {
+                                list.Add(this);
+                            }
+                            else
+                            {
+                                list = new TroopList();
+                                list.Add(this);
+                                Session.Current.Scenario.TroopEventsToApply.Add(event2, list);
+                            }
+                            event2.ApplyEventDialogs(this);
+                        }
+                    }
                 }
-            }
+                if ((this.CurrentStunt != null) && (this.StuntDayLeft > 0))
+                {
+                    this.StuntDayLeft--;
+                    if (this.StuntDayLeft == 0)
+                    {
+                        this.CurrentStunt.Purify(this);
+                        this.CurrentStunt = null;
+                        this.RefreshAllData();
+                    }
+                }
 
-            if (Session.Current.Scenario.IsPlayer(this.BelongedFaction) && this.TargetTroop == null && this.TargetArchitecture == null
-                && this.Position.Equals(this.Destination)
-                && this.Status == TroopStatus.一般 && this.WillArchitecture == this.StartingArchitecture
-                && !this.HasHostileTroopInView() && !this.HasHostileArchitectureInView()
-                && this.mingling != "移动" && this.mingling != "待命")
-            {
-                this.minglingweizhi = this.Destination = Session.Current.Scenario.GetClosestPoint(this.StartingArchitecture.ArchitectureArea, this.Position);
-                this.mingling = "入城";
-                this.TargetArchitecture = this.StartingArchitecture;
+                if (Session.Current.Scenario.IsPlayer(this.BelongedFaction) && this.TargetTroop == null && this.TargetArchitecture == null
+                    && this.Position.Equals(this.Destination)
+                    && this.Status == TroopStatus.一般 && this.WillArchitecture == this.StartingArchitecture
+                    && !this.HasHostileTroopInView() && !this.HasHostileArchitectureInView()
+                    && this.mingling != "移动" && this.mingling != "待命")
+                {
+                    this.minglingweizhi = this.Destination = Session.Current.Scenario.GetClosestPoint(this.StartingArchitecture.ArchitectureArea, this.Position);
+                    this.mingling = "入城";
+                    this.TargetArchitecture = this.StartingArchitecture;
+                }
+                this.DrawSelected = false;
             }
-            this.DrawSelected = false;
         }
 
         private void RefillFood()
