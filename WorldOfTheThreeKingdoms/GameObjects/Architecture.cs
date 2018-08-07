@@ -8170,12 +8170,23 @@ namespace GameObjects
         public MilitaryList GetLevelUpMilitaryList()
         {
             this.LevelUpMilitaryList.Clear();
+            Dictionary<MilitaryKind, bool> canLevelUp = new Dictionary<MilitaryKind, bool>();
             foreach (Military military in this.Militaries)
             {
                 bool hasLevelupable = false;
                 foreach (int id in military.Kind.LevelUpKindID)
                 {
-                    if (military.Kind.LevelUpAvail(this)) 
+                    bool flag = false;
+                    if (canLevelUp.ContainsKey(military.Kind))
+                    {
+                        flag = canLevelUp[military.Kind];
+                    }
+                    else
+                    {
+                        flag = military.Kind.LevelUpAvail(this);
+                        canLevelUp[military.Kind] = flag;
+                    }
+                    if (flag) 
                     {
                         hasLevelupable = true;
                         break;

@@ -98,7 +98,9 @@ namespace GameObjects
             ThirdTierKnownPaths = new Dictionary<ClosedPathEndpoints, List<Point>>();
 
             Troops = new TroopList();
-           
+
+            TransferingMilitaries = new MilitaryList();
+
             count = new Dictionary<PersonGeneratorType, int>();
 
             RateOfCombativityRecoveryAfterAttacked = 0;
@@ -3281,26 +3283,7 @@ namespace GameObjects
         [DataMember]
         public string TransferingMilitariesString { get; set; }
 
-        public MilitaryList TransferingMilitaries
-        {
-            get
-            {
-                MilitaryList list = new MilitaryList();
-
-                if (Session.Current.Scenario != null && Session.Current.Scenario.Militaries != null)
-                {
-                    foreach (Military m in Session.Current.Scenario.Militaries)
-                    {
-                        if (m.StartingArchitecture != null && m.TargetArchitecture != null && m.ArrivingDays > 0 && m.StartingArchitecture.BelongedFaction != null && m.StartingArchitecture.BelongedFaction == this && m.BelongedArchitecture == null)
-                        {
-                            list.Add(m);
-                        }
-                    }
-                }
-        
-                return list;
-            }
-        }
+        public MilitaryList TransferingMilitaries { get; set; }
 
         public List<string> LoadTransferingMilitariesFromString(MilitaryList militaries, string dataString)
         {
@@ -3374,8 +3357,7 @@ namespace GameObjects
         private void MilitaryDayEvent()
         {
             //if (this.TransferingMilitaryCount == 0) return;
-
-            foreach (Military m in this.TransferingMilitaries)
+            foreach (Military m in this.TransferingMilitaries.GetList())
             {
                 m.ArrivingDays--;
 
