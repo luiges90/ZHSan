@@ -30,6 +30,9 @@ namespace WorldOfTheThreeKingdomsEditor
         private GameScenario scen;
         private bool scenLoaded = false;
 
+        private ArchitectureTab architectureTab;
+        private FactionTab factionTab;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -50,8 +53,10 @@ namespace WorldOfTheThreeKingdomsEditor
                 new DictionaryTab<int, int>(scen.MotherIds, "MotherIds", dgMotherId).setup();
                 new DictionaryTab<int, int>(scen.SpouseIds, "SpouseIds", dgSpouseId).setup();
                 // new DictionaryTab<int, int[]>(scen.BrotherIds, "BrotherIds", dgBrotherId).setup();
-                new ArchitectureTab(scen, dgArchitecture).setup();
-                new FactionTab(scen, dgFaction).setup();
+                architectureTab = new ArchitectureTab(scen, dgArchitecture);
+                architectureTab.setup();
+                factionTab = new FactionTab(scen, dgFaction);
+                factionTab.setup();
                 new MilitaryTab(scen, dgMilitary).setup();
                 new TroopTab(scen, dgTroop).setup();
                 new CaptiveTab(scen, dgCaptive).setup();
@@ -272,7 +277,7 @@ namespace WorldOfTheThreeKingdomsEditor
             }
             catch (Exception ex)
             {
-                // invalid input text, ignore.
+                MessageBox.Show("導入資料錯誤:" + ex);
             }
         }
 
@@ -296,8 +301,15 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void btnNewFaction_Click(object sender, RoutedEventArgs e)
         {
-            NewFactionWindow newFactionWindow = new NewFactionWindow();
+            NewFactionWindow newFactionWindow = new NewFactionWindow(scen);
             newFactionWindow.Show();
+            newFactionWindow.Closed += NewFactionWindow_Closed;
+        }
+
+        private void NewFactionWindow_Closed(object sender, EventArgs e)
+        {
+            architectureTab.setup();
+            factionTab.setup();
         }
     }
 }
