@@ -34,153 +34,153 @@
             <StackPanel Height="552" VerticalAlignment="Bottom"></StackPanel>
         </DockPanel>
 
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="535" Margin="10,24,0,0" VerticalAlignment="Top" Width="932">
+        <TabControl x:Name="tabControl" Margin="10,24,10,10">
             <TabItem Header="武將">
-                <Grid Background="#FFE5E5E5" Margin="0,0,-2,10">
-                    <DataGrid x:Name="dgPerson" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926" Margin="0,0,0,-12"/>
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgPerson"/>
                 </Grid>
             </TabItem>
             <TabItem Header="父親">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgFatherId" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgFatherId"/>
                 </Grid>
             </TabItem>
             <TabItem Header="母親">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgMotherId" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgMotherId"/>
                 </Grid>
             </TabItem>
             <TabItem Header="配偶">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgSpouseId" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgSpouseId"/>
                 </Grid>
             </TabItem>
             <!--
             <TabItem Header="義兄">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgBrotherId" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgBrotherId"/>
                 </Grid>
             </TabItem>
             -->
             <TabItem Header="建築">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgArchitecture" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgArchitecture"/>
                 </Grid>
             </TabItem>
             <TabItem Header="勢力">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgFaction" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgFaction"/>
                 </Grid>
             </TabItem>
             <TabItem Header="編隊">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgMilitary" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgMilitary"/>
                 </Grid>
             </TabItem>
             <TabItem Header="部隊">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTroop" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgTroop"/>
                 </Grid>
             </TabItem>
             <TabItem Header="設施">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgFacility" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgFacility"/>
                 </Grid>
             </TabItem>
             <TabItem Header="俘虜">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgCaptive" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgCaptive"/>
                 </Grid>
             </TabItem>
             <TabItem Header="事件">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgEvent" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgEvent"/>
                 </Grid>
             </TabItem>
             <TabItem Header="部隊事件">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTroopEvent" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgTroopEvent"/>
                 </Grid>
             </TabItem>
             <TabItem Header="寶物">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTreasure" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgTreasure" />
                 </Grid>
             </TabItem>
             <!-- common -->
             <TabItem Header="稱號">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTitle" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgTitle" />
                 </Grid>
             </TabItem>
             <TabItem Header="技能">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgSkill" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgSkill" />
                 </Grid>
             </TabItem>
             <TabItem Header="特技">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgStunt" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgStunt" />
                 </Grid>
             </TabItem>
             <TabItem Header="戰法">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgCombatMethod" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgCombatMethod" />
                 </Grid>
             </TabItem>
             <TabItem Header="影響">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgInfluence" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgInfluence" />
                 </Grid>
             </TabItem>
             <TabItem Header="影響類">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgInflunceKind" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgInflunceKind" />
                 </Grid>
             </TabItem>
             <TabItem Header="條件">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgCondition" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgCondition" />
                 </Grid>
             </TabItem>
             <TabItem Header="條件類">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgConditionKind" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgConditionKind" />
                 </Grid>
             </TabItem>
             <TabItem Header="事件影響">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgEventEffect" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgEventEffect" />
                 </Grid>
             </TabItem>
             <TabItem Header="事件影響類">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgEventEffectKind" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgEventEffectKind" />
                 </Grid>
             </TabItem>
             <TabItem Header="部隊事件影響">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTroopEventEffect" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgTroopEventEffect" />
                 </Grid>
             </TabItem>
             <TabItem Header="部隊事件影響類">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTroopEventEffectKind" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgTroopEventEffectKind" />
                 </Grid>
             </TabItem>
             <TabItem Header="設施類">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgFacilityKind" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgFacilityKind" />
                 </Grid>
             </TabItem>
             <TabItem Header="建築類">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgArchitectureKind" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgArchitectureKind" />
                 </Grid>
             </TabItem>
             <TabItem Header="兵種類">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgMilitaryKind" HorizontalAlignment="Left" Height="491" VerticalAlignment="Top" Width="926"/>
+                    <DataGrid x:Name="dgMilitaryKind" />
                 </Grid>
             </TabItem>
         </TabControl>
