@@ -293,5 +293,11 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             Application.Current.Shutdown();
         }
+
+        private void btnNewFaction_Click(object sender, RoutedEventArgs e)
+        {
+            NewFactionWindow newFactionWindow = new NewFactionWindow();
+            newFactionWindow.Show();
+        }
     }
 }
