@@ -761,13 +761,11 @@ namespace ContextMenuPlugin
             get
             {
                 if (!Session.GlobalVariables.EnableCheat && this.DisplayName.Contains("*")) return false;
-                if (this.BelongedFaction.hougongChance <= 0 && this.Name.Equals("hougongTop")) return false;
                 return this.visible;
             }
             set
             {
                 if (!Session.GlobalVariables.EnableCheat && this.DisplayName.Contains("*")) return;
-                if (this.BelongedFaction.hougongChance <= 0 && this.Name.Equals("hougongTop")) return;
                 this.visible = value;
                 if (value)
                 {
