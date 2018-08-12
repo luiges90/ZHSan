@@ -10115,13 +10115,13 @@ namespace GameObjects
 
                 foreach (Person q in all)
                 {
-                    if (Session.GlobalVariables.hougongGetChildrenRate > 0 &&
+                    if (this.BelongedFaction.hougongChildrenChance > 0 &&
                         ((q.Sex && q.huaiyuntianshu >= -1) || (this.Sex && this.huaiyuntianshu >= -1)) &&
                         this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit && q.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
                     {
                         float extraRate = q.PregnancyRate(this);
 
-                        float pregnantChance = Session.GlobalVariables.hougongGetChildrenRate / 100.0f * (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson);
+                        float pregnantChance = this.BelongedFaction.hougongChildrenChance / 100.0f * (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson);
                         pregnantChance *= houGongDays * 2 * extraRate;
 
                         if (GameObject.Chance(Math.Max((int)pregnantChance, Session.Parameters.MinPregnantProb))

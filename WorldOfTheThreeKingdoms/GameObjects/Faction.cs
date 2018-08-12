@@ -947,6 +947,21 @@ namespace GameObjects
             return spousePerson;
         }
 
+        public int hougongChildrenChance
+        {
+            get
+            {
+                if (this.IsAlien)
+                {
+                    return Session.GlobalVariables.hougongForAlien;
+                }
+                else
+                {
+                    return Session.GlobalVariables.hougongGetChildrenRate;
+                }
+            }
+        }
+
         private void AIMakeMarriage()
         {
             if (Session.Current.Scenario.IsPlayer(this)) return;
@@ -1016,7 +1031,7 @@ namespace GameObjects
                         Person q = candidates.GetMaxUntiredMeritPerson();
                         if (q.WaitForFeiZi == null)
                         {
-                            if (Session.GlobalVariables.hougongGetChildrenRate > 0)
+                            if (this.hougongChildrenChance > 0)
                             {
                                 if ((IsPersonForHouGong(p) || IsPersonForHouGong(q)) && !(this.Leader == p || this.Leader == q)) continue;
                                 
@@ -1183,7 +1198,7 @@ namespace GameObjects
             
             // if (this.Leader.LocationArchitecture == null || this.Leader.LocationArchitecture.HasHostileTroopsInView()) return;
 
-            if (Session.GlobalVariables.hougongGetChildrenRate <= 0) return;
+            if (this.hougongChildrenChance <= 0) return;
 
             if (this.Leader.NumberOfChildren >= Session.GlobalVariables.OfficerChildrenLimit) return;
 
