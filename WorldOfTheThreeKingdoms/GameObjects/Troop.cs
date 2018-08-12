@@ -2157,11 +2157,11 @@ namespace GameObjects
                     {
                         if (this.BelongedFaction == t.BelongedFaction)
                         {
-                            t.Morale -= 12 - (t.Leader.Command / 10);
+                            t.Morale -= (int) ((12 - (t.Leader.Command / 10)) * Session.Current.Scenario.Parameters.TroopMoraleChange);
                         }
                         else
                         {
-                            t.Morale += t.Leader.Command / 20;
+                            t.Morale += (int) (t.Leader.Command / 20 * Session.Current.Scenario.Parameters.TroopMoraleChange);
                         }
                     }
                 }

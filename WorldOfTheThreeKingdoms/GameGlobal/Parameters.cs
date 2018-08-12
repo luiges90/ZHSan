@@ -344,6 +344,8 @@ namespace GameGlobal
         public int AIMaxFeizi = 20;
         [DataMember]
         public int MaxReputationForRecruit = 3000000;
+        [DataMember]
+        public float TroopMoraleChange = 1.0f;
 
         public Parameters Clone()
         {
@@ -529,6 +531,8 @@ namespace GameGlobal
 
             HougongRelationHateFactor = float.Parse(nextSibling.Attributes.GetNamedItem("HougongRelationHateFactor").Value);
             MaxReputationForRecruit = int.Parse(nextSibling.Attributes.GetNamedItem("MaxReputationForRecruit").Value);
+
+            TroopMoraleChange = float.Parse(nextSibling.Attributes.GetNamedItem("TroopMoraleChange").Value);
         }
 
         public void InitBaseRates()
@@ -721,6 +725,7 @@ namespace GameGlobal
             element.SetAttribute("HougongRelationHateFactor", HougongRelationHateFactor.ToString());
             element.SetAttribute("AIMaxFeizi", AIMaxFeizi.ToString());
             element.SetAttribute("MaxReputationForRecruit", MaxReputationForRecruit.ToString());
+            element.SetAttribute("TroopMoraleChange", TroopMoraleChange.ToString());
 
             document.AppendChild(element);
 
@@ -736,6 +741,10 @@ namespace GameGlobal
             if (MaxReputationForRecruit == 0)
             {
                 MaxReputationForRecruit = 3000000;
+            }
+            if (TroopMoraleChange == 0)
+            {
+                TroopMoraleChange = 1;
             }
         }
     }
