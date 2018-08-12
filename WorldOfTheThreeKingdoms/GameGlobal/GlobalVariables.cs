@@ -276,7 +276,7 @@ namespace GameGlobal
         [DataMember]
         public bool AutoMultipleMarriage = false;
         [DataMember]
-        public int hougongForAlien = true;
+        public int hougongForAlien = 100;
 
         public const string cryptKey = "A3g0c3%2";
 
