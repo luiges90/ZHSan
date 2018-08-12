@@ -300,11 +300,25 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void btnSyncScenario_Click(object sender, RoutedEventArgs e)
         {
-            String path = @"Content\Data\Scenario\Scenarios.json";
-            MessageBoxResult result = MessageBox.Show("更新" + path + "檔案，使遊戲能辨認劇本資料夾裡的劇本。是否繼續？", "更新Scenarios.json", MessageBoxButton.OKCancel);
+            String scenariosPath = @"Content\Data\Scenario\Scenarios.json";
+            MessageBoxResult result = MessageBox.Show("更新" + scenariosPath + "檔案，使遊戲能辨認劇本資料夾裡的劇本。是否繼續？", "更新Scenarios.json", MessageBoxButton.OKCancel);
             if (result == MessageBoxResult.OK)
             {
+                List<GameManager.Scenario> scesList = new List<GameManager.Scenario>();
 
+                FileInfo[] files = new DirectoryInfo(@"Content\Data\Scenario").GetFiles("*.json", SearchOption.TopDirectoryOnly);
+                foreach (FileInfo file in files)
+                {
+                    if (file.Name.Equals("Scenarios.json")) continue;
+                    GameScenario s = WorldOfTheThreeKingdoms.GameScreens.MainGameScreen.LoadScenarioData(file.FullName, true, null, true);
+                    GameManager.Scenario s1 = createScenarioObject(s, file.Name);
+                    scesList.Add(s1);
+                }
+
+                string s2 = Newtonsoft.Json.JsonConvert.SerializeObject(scesList, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(scenariosPath, s2);
+
+                MessageBox.Show("已更新" + scenariosPath);
             }
         }
 
