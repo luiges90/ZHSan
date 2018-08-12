@@ -129,25 +129,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
                     // GameCommonData.json
                     String commonPath = @"Content\Data\Common\CommonData.json";
-                    GameScenario.SaveGameCommonData(scen);
-                    string ss1 = "";
-                    System.Runtime.Serialization.Json.DataContractJsonSerializer serializer = new System.Runtime.Serialization.Json.DataContractJsonSerializer(typeof(CommonData));
-                    using (MemoryStream stream = new MemoryStream())
-                    {
-                        //lock (Platform.SerializerLock)
-                        {
-                            serializer.WriteObject(stream, scen.GameCommonData);
-                        }
-                        var array = stream.ToArray();
-                        ss1 = Encoding.UTF8.GetString(array, 0, array.Length);
-                    }
-                    ss1 = ss1.Replace("{\"", "{\r\n\"");
-                    ss1 = ss1.Replace("[{", "[\r\n{");
-                    ss1 = ss1.Replace(",\"", ",\r\n\"");
-                    ss1 = ss1.Replace("}", "\r\n}");
-                    ss1 = ss1.Replace("},{", "},\r\n{");
-                    ss1 = ss1.Replace("}]", "}\r\n]");
-                    File.WriteAllText(commonPath, ss1);
+                    saveGameCommonData(commonPath);
 
                     // Scenarios.json
                     String scenariosPath = scenPath + @"\Scenarios.json";
@@ -199,28 +181,33 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 // GameCommonData.json
                 String commonPath = @"Content\Data\Common\CommonData.json";
-                GameScenario.SaveGameCommonData(scen);
-                string ss1 = "";
-                System.Runtime.Serialization.Json.DataContractJsonSerializer serializer = new System.Runtime.Serialization.Json.DataContractJsonSerializer(typeof(CommonData));
-                using (MemoryStream stream = new MemoryStream())
-                {
-                    //lock (Platform.SerializerLock)
-                    {
-                        serializer.WriteObject(stream, scen.GameCommonData);
-                    }
-                    var array = stream.ToArray();
-                    ss1 = Encoding.UTF8.GetString(array, 0, array.Length);
-                }
-                ss1 = ss1.Replace("{\"", "{\r\n\"");
-                ss1 = ss1.Replace("[{", "[\r\n{");
-                ss1 = ss1.Replace(",\"", ",\r\n\"");
-                ss1 = ss1.Replace("}", "\r\n}");
-                ss1 = ss1.Replace("},{", "},\r\n{");
-                ss1 = ss1.Replace("}]", "}\r\n]");
-                File.WriteAllText(commonPath, ss1);
+                saveGameCommonData(commonPath);
 
                 MessageBox.Show("CommonData已儲存為" + commonPath);
             }
+        }
+
+        private void saveGameCommonData(String commonPath)
+        {
+            GameScenario.SaveGameCommonData(scen);
+            string ss1 = "";
+            System.Runtime.Serialization.Json.DataContractJsonSerializer serializer = new System.Runtime.Serialization.Json.DataContractJsonSerializer(typeof(CommonData));
+            using (MemoryStream stream = new MemoryStream())
+            {
+                //lock (Platform.SerializerLock)
+                {
+                    serializer.WriteObject(stream, scen.GameCommonData);
+                }
+                var array = stream.ToArray();
+                ss1 = Encoding.UTF8.GetString(array, 0, array.Length);
+            }
+            ss1 = ss1.Replace("{\"", "{\r\n\"");
+            ss1 = ss1.Replace("[{", "[\r\n{");
+            ss1 = ss1.Replace(",\"", ",\r\n\"");
+            ss1 = ss1.Replace("}", "\r\n}");
+            ss1 = ss1.Replace("},{", "},\r\n{");
+            ss1 = ss1.Replace("}]", "}\r\n]");
+            File.WriteAllText(commonPath, ss1);
         }
 
         private void CopyCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -304,6 +291,11 @@ namespace WorldOfTheThreeKingdomsEditor
             NewFactionWindow newFactionWindow = new NewFactionWindow(scen);
             newFactionWindow.Show();
             newFactionWindow.Closed += NewFactionWindow_Closed;
+        }
+
+        private void btnSyncScenario_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("更新");
         }
 
         private void NewFactionWindow_Closed(object sender, EventArgs e)
