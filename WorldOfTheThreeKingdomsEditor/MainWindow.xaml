@@ -20,7 +20,7 @@
                     <MenuItem Header="讀取劇本" Command="Open" InputGestureText="Ctrl+O"/>
                     <MenuItem Header="儲存劇本" Command="Save" InputGestureText="Ctrl+S"/>
                     <Separator/>
-                    <MenuItem Header="更新Scenario.json" Click="btnSyncScenario_Click"/>
+                    <MenuItem Header="更新Scenarios.json" Click="btnSyncScenario_Click"/>
                     <Separator/>
                     <MenuItem Header="退出" Click="btnQuit_Click"/>
                 </MenuItem>

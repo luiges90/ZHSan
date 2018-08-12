@@ -143,23 +143,7 @@ namespace WorldOfTheThreeKingdomsEditor
                         scesList = new List<GameManager.Scenario>();
                     }
 
-                    string time = scen.Date.Year + "-" + scen.Date.Month + "-" + scen.Date.Day;
-                    GameManager.Scenario s1 = new GameManager.Scenario()
-                    {
-                        Create = DateTime.Now.ToSeasonDateTime(),
-                        Desc = scen.ScenarioDescription,
-                        First = StaticMethods.SaveToString(scen.ScenarioMap.JumpPosition),
-                        IDs = scen.Factions.GameObjects.Select(x => x.ID.ToString()).Aggregate((a, b) => a + "," + b),
-                        Info = "电脑",
-                        Name = scenName,
-                        Names = scen.Factions.GameObjects.Select(x => x.Name).Aggregate((a, b) => a + "," + b),
-                        //  Path = "",
-                        // PlayTime = scenario.GameTime.ToString(),
-                        // Player = "",
-                        //  Players = String.Join(",", scenario.PlayerList.NullToEmptyList()),
-                        Time = time.ToSeasonDate(),
-                        Title = scen.ScenarioTitle
-                    };
+                    GameManager.Scenario s1 = createScenarioObject(scen, scenName);
 
                     int index = scesList.FindIndex(x => x.Name == scenName);
                     if (index >= 0)
@@ -208,6 +192,27 @@ namespace WorldOfTheThreeKingdomsEditor
             ss1 = ss1.Replace("},{", "},\r\n{");
             ss1 = ss1.Replace("}]", "}\r\n]");
             File.WriteAllText(commonPath, ss1);
+        }
+
+        private GameManager.Scenario createScenarioObject(GameScenario scen, String scenName)
+        {
+            string time = scen.Date.Year + "-" + scen.Date.Month + "-" + scen.Date.Day;
+            return new GameManager.Scenario()
+            {
+                Create = DateTime.Now.ToSeasonDateTime(),
+                Desc = scen.ScenarioDescription,
+                First = StaticMethods.SaveToString(scen.ScenarioMap.JumpPosition),
+                IDs = scen.Factions.GameObjects.Select(x => x.ID.ToString()).Aggregate((a, b) => a + "," + b),
+                Info = "电脑",
+                Name = scenName,
+                Names = scen.Factions.GameObjects.Select(x => x.Name).Aggregate((a, b) => a + "," + b),
+                //  Path = "",
+                // PlayTime = scenario.GameTime.ToString(),
+                // Player = "",
+                //  Players = String.Join(",", scenario.PlayerList.NullToEmptyList()),
+                Time = time.ToSeasonDate(),
+                Title = scen.ScenarioTitle
+            };
         }
 
         private void CopyCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -295,7 +300,12 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void btnSyncScenario_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("更新");
+            String path = @"Content\Data\Scenario\Scenarios.json";
+            MessageBoxResult result = MessageBox.Show("更新" + path + "檔案，使遊戲能辨認劇本資料夾裡的劇本。是否繼續？", "更新Scenarios.json", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+
+            }
         }
 
         private void NewFactionWindow_Closed(object sender, EventArgs e)
