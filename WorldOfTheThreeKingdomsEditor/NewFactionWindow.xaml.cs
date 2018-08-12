@@ -90,6 +90,14 @@ namespace WorldOfTheThreeKingdomsEditor
             f.TransferingMilitaries = new MilitaryList();
             f.TransferingMilitariesString = "";
             f.TransferingMilitaryCount = 0;
+            f.AvailableTechniquesString = "";
+            f.GetGeneratorPersonCountString = "0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0";
+            f.InformationsString = "";
+            f.LegionsString = "";
+            f.MilitariesString = "";
+            f.RoutewaysString = "";
+            f.SectionsString = "";
+            f.TroopListString = "";
 
             scen.Factions.Add(f);
             architecture.PersonsString = tbPersons.Text;
