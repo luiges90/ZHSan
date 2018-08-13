@@ -7303,7 +7303,7 @@ namespace GameObjects
             this.BuildableFacilityKindList.Clear();
             foreach (FacilityKind kind in Session.Current.Scenario.GameCommonData.AllFacilityKinds.FacilityKinds.Values)
             {
-                if (this.BelongedFaction.hougongChildrenChance <= 0 && kind.rongna > 0 && kind.InfluenceCount == 0) continue;
+                if (Session.GlobalVariables.hougongGetChildrenRate <= 0 && kind.rongna > 0 && kind.InfluenceCount == 0) continue;
                 if (this.FacilityBuildable(kind))
                 {
                     this.BuildableFacilityKindList.Add(kind);
@@ -14567,7 +14567,7 @@ namespace GameObjects
 
         public bool kenafei()
         {
-            if (this.BelongedFaction.hougongChildrenChance <= 0) return false;
+            if (Session.GlobalVariables.hougongGetChildrenRate <= 0) return false;
 
             if (this.nvxingwujiang().Count > 0 && (this.Fund >= Session.Parameters.NafeiCost || this.BelongedFaction.IsAlien) && 
                 (this.Meinvkongjian > this.Feiziliebiao.Count || this.BelongedFaction.IsAlien)
@@ -14802,7 +14802,7 @@ namespace GameObjects
         public bool PrincessChangeLeader(bool byOccupy, Faction capturer, Person p)
         {
             bool result = false;
-            if (capturer.Leader.isLegalFeiZiExcludeAge(p) && capturer.hougongChildrenChance > 0)
+            if (capturer.Leader.isLegalFeiZiExcludeAge(p))
              {
                 if (byOccupy)
                 {
