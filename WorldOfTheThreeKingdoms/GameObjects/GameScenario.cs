@@ -1086,6 +1086,7 @@ namespace GameObjects
             if (leader.Status != PersonStatus.Normal && leader.Status != PersonStatus.NoFaction) return;
 
             Faction newFaction = new Faction();
+            newFaction.Init();
             newFaction.ID = this.Factions.GetFreeGameObjectID();
             this.Factions.AddFactionWithEvent(newFaction);
             foreach (Faction faction2 in this.Factions)
