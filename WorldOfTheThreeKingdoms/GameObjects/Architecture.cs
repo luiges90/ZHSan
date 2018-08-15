@@ -86,6 +86,7 @@ namespace GameObjects
             NewMilitaryKindList = new MilitaryKindList();
 
             PopulationPacks = new List<PopulationPack>();
+            MilitaryPopulationPacks = new List<PopulationPack>();
             PrivateMilitaryKinds = new MilitaryKindTable();
 
             RecruitmentMilitaryList = new MilitaryList();
@@ -349,8 +350,12 @@ namespace GameObjects
 
         [DataMember]
         public string PopulationPacksString { get; set; }
+
+        [DataMember]
+        public string MilitaryPopulationPacksString { get; set; }
         
         public List<PopulationPack> PopulationPacks = new List<PopulationPack>();
+        public List<PopulationPack> MilitaryPopulationPacks = new List<PopulationPack>();
         public MilitaryKindTable PrivateMilitaryKinds = new MilitaryKindTable();
 
         public float RateIncrementOfPopulationCeiling;
@@ -1033,6 +1038,12 @@ namespace GameObjects
         {
             PopulationPack item = new PopulationPack(days, population);
             this.PopulationPacks.Add(item);
+        }
+
+        public void AddMilitaryPopulationPack(int days, int population)
+        {
+            PopulationPack item = new PopulationPack(days, population);
+            this.MilitaryPopulationPacks.Add(item);
         }
 
         /*
@@ -6702,10 +6713,7 @@ namespace GameObjects
 
         public void DevelopMilitaryPopulation()
         {
-            if (this.ExpectedMilitaryPopulation > 0)
-            {
-                this.IncreaseMilitaryPopulation(this.ExpectedMilitaryPopulation);
-            }
+
         }
 
         private void DevelopMonth()
@@ -6761,8 +6769,22 @@ namespace GameObjects
             if (populationDevelopingRate != 0.0)
             {
                 //this.IncreasePopulation(StaticMethods.GetRandomValue(this.population + (0x3e8 * this.AreaCount), (int) (1.0 / populationDevelopingRate)));
-                this.IncreasePopulation(StaticMethods.GetBigRandomValue(this.PopulationCeiling + (1000 * this.AreaCount), (int)(1.0 / populationDevelopingRate)));
+                int pop = StaticMethods.GetBigRandomValue(this.PopulationCeiling + (1000 * this.AreaCount), (int)(1.0 / populationDevelopingRate));
+                this.IncreasePopulation(pop);
 
+                float mPop;
+                if (this.Population > 500000)
+                {
+                    mPop = pop / 4;
+                }
+                else
+                {
+                    mPop = (int) (pop * (0.25 + (500000 - this.Population) / 500000 * 0.25));
+                }
+                this.IncreaseMilitaryPopulation((int) mPop);
+                if (GameObject.Chance((int) ((mPop - (int) mPop) * 100))) {
+                    this.IncreaseMilitaryPopulation(1);
+                }
             }
         }
 
@@ -9426,10 +9448,6 @@ namespace GameObjects
         public void IncreaseMilitaryPopulation(int increment)
         {
             this.militaryPopulation += increment;
-            if (this.militaryPopulation > (int)(this.Population * (Session.Parameters.MilitaryPopulationCap + militaryPopulationRateIncrease)))
-            {
-                this.militaryPopulation = (int)(this.Population * (Session.Parameters.MilitaryPopulationCap + militaryPopulationRateIncrease));
-            }
         }
 
 
@@ -10292,6 +10310,28 @@ namespace GameObjects
             return errorMsg;
         }
 
+        public List<string> LoadMilitaryPopulationPacksFromString(string dataString)
+        {
+            if (dataString == null) return new List<string>();
+
+            List<string> errorMsg = new List<string>();
+            char[] separator = new char[] { ' ', '\n', '\r', '\t' };
+            string[] strArray = dataString.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            this.MilitaryPopulationPacks.Clear();
+            try
+            {
+                for (int i = 0; i < strArray.Length; i += 2)
+                {
+                    this.MilitaryPopulationPacks.Add(new PopulationPack(int.Parse(strArray[i]), int.Parse(strArray[i + 1])));
+                }
+            }
+            catch
+            {
+                errorMsg.Add("人口包應為半型空格分隔的數字，糧草、日數相間");
+            }
+            return errorMsg;
+        }
+
         /*
         public void LoadSpyPacksFromString(string dataString)
         {
@@ -11133,6 +11173,18 @@ namespace GameObjects
                     this.PopulationPacks.RemoveAt(i);
                 }
             }
+
+            for (int i = this.MilitaryPopulationPacks.Count - 1; i >= 0; i--)
+            {
+                PopulationPack local1 = this.MilitaryPopulationPacks[i];
+                //local1.Days--;
+                local1.Days -= Session.Parameters.DayInTurn;
+                if (this.MilitaryPopulationPacks[i].Days <= 0)
+                {
+                    this.ReceiveMilitaryPopulation(this.MilitaryPopulationPacks[i].Population);
+                    this.MilitaryPopulationPacks.RemoveAt(i);
+                }
+            }
         }
 
         /*
@@ -11279,6 +11331,25 @@ namespace GameObjects
         {
             int population = this.Population;
             quantity = this.IncreasePopulation(quantity);
+            if (quantity > 0)
+            {
+                if (this.BelongedFaction != null)
+                {
+                    this.Domination = (int)(((long)this.Domination * population) / this.Population);
+                    this.Morale = (int)(((long)this.Morale * population) / this.Population);
+                }
+                if (this.OnPopulationEnter != null)
+                {
+                    this.OnPopulationEnter(this, quantity);
+                }
+                ExtensionInterface.call("ReceivePopulation", new Object[] { Session.Current.Scenario, this, quantity });
+            }
+        }
+
+        private void ReceiveMilitaryPopulation(int quantity)
+        {
+            int population = this.MilitaryPopulation;
+            this.IncreaseMilitaryPopulation(quantity);
             if (quantity > 0)
             {
                 if (this.BelongedFaction != null)

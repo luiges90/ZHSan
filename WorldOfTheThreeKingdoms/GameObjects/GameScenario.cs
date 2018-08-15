@@ -3321,6 +3321,8 @@ namespace GameObjects
                 //architecture.PopulationPacksString = reader["PopulationPacks"].ToString();
                 e.AddRange(architecture.LoadPopulationPacksFromString(architecture.PopulationPacksString));
 
+                e.AddRange(architecture.LoadMilitaryPopulationPacksFromString(architecture.MilitaryPopulationPacksString));
+
                 //architecture.CaptivesString = reader["Captives"].ToString();
                 e.AddRange(architecture.LoadCaptivesFromString(this.Captives, architecture.CaptivesString));
 
@@ -3797,8 +3799,21 @@ namespace GameObjects
             }
         }
 
+        private void MigrateScenario()
+        {
+            foreach (Architecture a in this.Architectures)
+            {
+                if (a.MilitaryPopulation == 0)
+                {
+                    a.MilitaryPopulation = (int) (a.Population * (0.25 + (500000 - a.Population) / 500000 * 0.25));
+                }
+            }
+        }
+
         public void AfterLoadGameScenario(MainGameScreen screen)
         {
+            MigrateScenario();
+
             this.InitPluginsWithScenario(screen);
             this.InitializeMapData();
             this.TroopAnimations.UpdateDirectionAnimations(ScenarioMap.TileWidth);

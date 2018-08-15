@@ -3118,11 +3118,6 @@ namespace GameObjects
                     receiving.AddRoutedCount();
                     receiving.ReleaseCaptiveBeforeBeRouted();
                 }
-                if (receiving.StartingArchitecture != null)
-                {
-                    //receiving.StartingArchitecture.AddPopulationPack((int)(Session.Current.Scenario.GetDistance(receiving.Position, receiving.StartingArchitecture.ArchitectureArea) / 2.0), receiving.GetPopulation());
-                    receiving.StartingArchitecture.AddPopulationPack((int)(Session.Current.Scenario.GetDistance(receiving.Position, receiving.StartingArchitecture.ArchitectureArea) / 2.0) * Session.Parameters.DayInTurn, receiving.GetPopulation());
-                }
                 Session.MainGame.mainGameScreen.OnTroopRout(null, receiving);
                 receiving.BeRouted();
             }
@@ -3251,11 +3246,6 @@ namespace GameObjects
                     {
                         sending.CheckCaptiveBeforeRout(receiving);
                     }
-                }
-                if (sending.StartingArchitecture != null)
-                {
-                    //sending.StartingArchitecture.AddPopulationPack((int)(Session.Current.Scenario.GetDistance(receiving.Position, sending.StartingArchitecture.ArchitectureArea) / 2.0), receiving.GetPopulation());
-                    sending.StartingArchitecture.AddPopulationPack((int)(Session.Current.Scenario.GetDistance(receiving.Position, sending.StartingArchitecture.ArchitectureArea) / 2.0 * Session.Parameters.DayInTurn), receiving.GetPopulation());
                 }
                 Architecture oldLandedArch = Session.Current.Scenario.GetArchitectureByPosition(receiving.Position);
                 if (sending.Army.Kind.ArchitectureCounterDamageRate <= 0 && oldLandedArch != null && !sending.BelongedFaction.IsFriendly(oldLandedArch.BelongedFaction))
@@ -4125,6 +4115,8 @@ namespace GameObjects
             }
             this.DecrementNumberList.AddNumber(quantity, CombatNumberKind.人数, this.Position);
             this.ShowNumber = true;
+
+            this.StartingArchitecture.AddMilitaryPopulationPack((int)(Session.Current.Scenario.GetDistance(this.Position, this.StartingArchitecture.ArchitectureArea) / 2.0) * Session.Parameters.DayInTurn, (int) (quantity * Math.Max(0.1f, (100 - this.Morale) / 100.0f)));
         }
 
         public void Destroy(bool removeReferences, bool removeArmy)
@@ -6068,16 +6060,6 @@ namespace GameObjects
                 return flag;
             }
             return this.CheckReLaunchPathFinder(kind);
-        }
-
-        public int GetPopulation()
-        {
-            int totalQuantity = this.TotalQuantity;
-            if (totalQuantity > 0)
-            {
-                return (GameObject.Random(totalQuantity) + 1);
-            }
-            return 0;
         }
 
         private int GetPositionIndexInCurrentPath(Point p)
