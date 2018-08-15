@@ -3546,7 +3546,10 @@ namespace GameObjects
                             max = t.CostFund;
                         }
                     }
-                    a.DoZhaoXian(type);
+                    if (type != null)
+                    {
+                        a.DoZhaoXian(type);
+                    }
 
                 }
             }     

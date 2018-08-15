@@ -2163,7 +2163,10 @@ namespace GameObjects
                         {
                             t.Morale += (int) (t.Leader.Command / 20 * Session.Current.Scenario.Parameters.TroopMoraleChange);
                         }
-                        CheckTroopRout(t);
+                        if (t != this)
+                        {
+                            CheckTroopRout(t);
+                        }
                     }
                 }
 
