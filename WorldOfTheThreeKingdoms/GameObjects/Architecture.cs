@@ -11930,7 +11930,7 @@ namespace GameObjects
                             (this.MovingPersons[0] as Person).MoveToArchitecture(this.BelongedFaction.Capital, this.Position);
                         }
                     }
-                    foreach (Military m in this.BelongedFaction.TransferingMilitaries)
+                    foreach (Military m in this.BelongedFaction.TransferingMilitaries.GetList())
                     {
                         if (m.TargetArchitecture == this)
                         {
