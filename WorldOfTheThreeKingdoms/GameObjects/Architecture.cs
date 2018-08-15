@@ -11181,6 +11181,7 @@ namespace GameObjects
                 local1.Days -= Session.Parameters.DayInTurn;
                 if (this.MilitaryPopulationPacks[i].Days <= 0)
                 {
+                    this.ReceivePopulation(this.MilitaryPopulationPacks[i].Population);
                     this.ReceiveMilitaryPopulation(this.MilitaryPopulationPacks[i].Population);
                     this.MilitaryPopulationPacks.RemoveAt(i);
                 }
@@ -11350,19 +11351,6 @@ namespace GameObjects
         {
             int population = this.MilitaryPopulation;
             this.IncreaseMilitaryPopulation(quantity);
-            if (quantity > 0)
-            {
-                if (this.BelongedFaction != null)
-                {
-                    this.Domination = (int)(((long)this.Domination * population) / this.Population);
-                    this.Morale = (int)(((long)this.Morale * population) / this.Population);
-                }
-                if (this.OnPopulationEnter != null)
-                {
-                    this.OnPopulationEnter(this, quantity);
-                }
-                ExtensionInterface.call("ReceivePopulation", new Object[] { Session.Current.Scenario, this, quantity });
-            }
         }
 
         public bool RecruitmentAvail()

@@ -1313,6 +1313,13 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
+		<Column ID="112" Name="MilitaryPopulation" IsNumber="true" DisplayName="兵役人口" MinWidth="80" DetailLevel="2"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4294375158"
+                Align="Right">
+        </Column>
         <Column ID="6" Name="Fund" IsNumber="true" DisplayName="资金" MinWidth="80" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
@@ -1694,7 +1701,7 @@
 		</Tab>
         <Tab ID="2"  Name="Internal" DisplayName="内政" Columns="1 60 10 11 12 13 14 15 24 92 93">
         </Tab>
-        <Tab ID="3"  Name="Military" DisplayName="军备" Columns="1 8 20 21 70 71 80">
+        <Tab ID="3"  Name="Military" DisplayName="军备" Columns="1 112 8 20 21 70 71 80">
         </Tab>
         <Tab ID="4"  Name="Normal" DisplayName="一般" Columns="1 30 31 3 4 34 35 90 102 105">
         </Tab>
