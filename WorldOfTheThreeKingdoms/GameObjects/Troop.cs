@@ -2163,6 +2163,7 @@ namespace GameObjects
                         {
                             t.Morale += (int) (t.Leader.Command / 20 * Session.Current.Scenario.Parameters.TroopMoraleChange);
                         }
+                        CheckTroopRout(t);
                     }
                 }
 
@@ -3773,7 +3774,7 @@ namespace GameObjects
         {
             if (this.Morale <= 0)
             {
-                this.BeRouted();
+                CheckTroopRout(this);
             }
             else
             {
