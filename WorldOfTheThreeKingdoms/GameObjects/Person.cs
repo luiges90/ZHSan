@@ -2653,13 +2653,13 @@ namespace GameObjects
                                     Session.Current.Scenario.haizichusheng(haizi, haizifuqin, this, origChildren.Count > 0);
                                 }
 
-                                this.AdjustRelation(haizifuqin, 1.5f, -5);
-                                haizifuqin.AdjustRelation(this, 1.5f, -5);
+                                this.AdjustRelation(haizifuqin, 2f, -5);
+                                haizifuqin.AdjustRelation(this, 2f, -5);
 
                                 if (this.LocationArchitecture == haizifuqin.LocationArchitecture)
                                 {
-                                    this.AdjustRelation(haizifuqin, 1.5f, 0);
-                                    haizifuqin.AdjustRelation(this, 1.5f, 0);
+                                    this.AdjustRelation(haizifuqin, 2f, 0);
+                                    haizifuqin.AdjustRelation(this, 2f, 0);
                                 }
 
                                 if (this.Father != null)

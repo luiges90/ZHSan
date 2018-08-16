@@ -4067,19 +4067,21 @@ namespace GameObjects
                                 {
                                     if (!p.Hates(q))
                                     {
-                                        if (p.Status == PersonStatus.Normal)
+                                        p.AdjustRelation(q, 2f, 0);
+                                        if (GameObject.Chance(70))
                                         {
-                                            //p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedArchitecture.Persons.Count - 1)), 2);
-                                            p.AdjustRelation(q, 3f, 2);
+                                            q.AdjustRelation(p, 2f, 0);
                                         }
-                                        else
+                                    }
+                                }
+                                if (GameObject.Chance(((13 - p.Uncruelty) * 5 + (100 - q.Glamour) / 2) / 2))
+                                {
+                                    if (!p.Closes(q))
+                                    {
+                                        p.AdjustRelation(q, -2f, 0);
+                                        if (GameObject.Chance(70))
                                         {
-                                            //p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)), 2);
-                                            p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)), 2);
-                                            if (p.LocationArchitecture == q.LocationArchitecture)
-                                            {
-                                                p.AdjustRelation(q, 3f / Math.Max(1, (p.BelongedFactionWithPrincess.feiziCount() - 1)), 2);
-                                            }
+                                            q.AdjustRelation(p, -2f, 0);
                                         }
                                     }
                                 }
