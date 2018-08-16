@@ -4053,36 +4053,34 @@ namespace GameObjects
 
                         if (q.Available && q.Alive && p.BelongedFactionWithPrincess != null && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                         {
-                            if (p.BelongedFactionWithPrincess == q.BelongedFactionWithPrincess &&
+                            bool samePlace = p.BelongedFactionWithPrincess == q.BelongedFactionWithPrincess &&
                                     (
                                         (p.Status == PersonStatus.Normal && q.Status == PersonStatus.Normal &&
                                             ((p.WorkKind == q.WorkKind && p.WorkKind != ArchitectureWorkKind.无) ||
                                             (p.OutsideTask == q.OutsideTask && p.OutsideTask != OutsideTaskKind.无))
                                         ) ||
                                         (p.Status == PersonStatus.Princess && q.Status == PersonStatus.Princess)
-                                    )
-                                )
+                                    );
+
+                            if (GameObject.Chance((p.Uncruelty * 5 + q.Glamour / 2) / 2) && (samePlace || GameObject.Chance(20)))
                             {
-                                if (GameObject.Chance((p.Uncruelty * 5 + q.Glamour / 2) / 2))
+                                if (!p.Hates(q))
                                 {
-                                    if (!p.Hates(q))
+                                    p.AdjustRelation(q, 2f, 0);
+                                    if (GameObject.Chance(70))
                                     {
-                                        p.AdjustRelation(q, 2f, 0);
-                                        if (GameObject.Chance(70))
-                                        {
-                                            q.AdjustRelation(p, 2f, 0);
-                                        }
+                                        q.AdjustRelation(p, 2f, 0);
                                     }
                                 }
-                                if (GameObject.Chance(((13 - p.Uncruelty) * 5 + (100 - q.Glamour) / 2) / 2))
+                            }
+                            if (GameObject.Chance(((13 - p.Uncruelty) * 5 + (100 - q.Glamour) / 2) / 2) && (samePlace || GameObject.Chance(20)))
+                            {
+                                if (!p.Closes(q))
                                 {
-                                    if (!p.Closes(q))
+                                    p.AdjustRelation(q, -2f, 0);
+                                    if (GameObject.Chance(70))
                                     {
-                                        p.AdjustRelation(q, -2f, 0);
-                                        if (GameObject.Chance(70))
-                                        {
-                                            q.AdjustRelation(p, -2f, 0);
-                                        }
+                                        q.AdjustRelation(p, -2f, 0);
                                     }
                                 }
                             }
