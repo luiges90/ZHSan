@@ -2189,7 +2189,7 @@ namespace GameObjects
                     foreach (Person q in persons)
                     {
                         if (p == q) continue;
-                        p.AdjustRelation(q, -0.5f / Math.Max(1, persons.Count), -3);
+                        p.AdjustRelation(q, -1f / Math.Max(1, persons.Count), -6);
                     }
                 }
                 foreach (Person person in persons)
@@ -2951,7 +2951,7 @@ namespace GameObjects
 
                         foreach (Person q in this.Persons)
                         {
-                            person.AdjustRelation(q, -1f / Math.Max(1, this.persons.Count), -3);
+                            person.AdjustRelation(q, -2f / Math.Max(1, this.persons.Count), -6);
                         }
 
                         ExtensionInterface.call("CapturedByTroop", new Object[] { Session.Current.Scenario, this, person });
@@ -3175,10 +3175,12 @@ namespace GameObjects
                     if (sending.Leader == p)
                     {
                         p.IncreaseReputation(75);
+                        p.IncreaseOfficerMerit(75);
                     }
                     else
                     {
                         p.IncreaseReputation(50);
+                        p.IncreaseOfficerMerit(50);
                     }
                 }
                 if (sending.BelongedFaction != null)
@@ -3195,7 +3197,7 @@ namespace GameObjects
                                 if (p.Hates(q)) continue;
                                 if (GameObject.Chance((p.Uncruelty * 5 + q.Glamour / 2) / 2))
                                 {
-                                    p.AdjustRelation(q, 0.2f / Math.Max(1, sending.persons.Count), 2);
+                                    p.AdjustRelation(q, 0.5f / Math.Max(1, sending.persons.Count), 2);
                                 }
                             }
                         }
@@ -3209,7 +3211,7 @@ namespace GameObjects
                             {
                                 if (GameObject.Chance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2) / 2))
                                 {
-                                    p.AdjustRelation(q, -0.2f / Math.Max(1, sending.persons.Count), -2);
+                                    p.AdjustRelation(q, -0.5f / Math.Max(1, sending.persons.Count), -2);
                                 }
                             }
                         }
@@ -3368,7 +3370,7 @@ namespace GameObjects
                             {
                                 if (GameObject.Chance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2) / 2))
                                 {
-                                    p.AdjustRelation(q, -0.2f / Math.Max(1, sending.persons.Count), -2);
+                                    p.AdjustRelation(q, -0.5f / Math.Max(1, sending.persons.Count), -2);
                                 }
                             }
                         }
@@ -3380,7 +3382,7 @@ namespace GameObjects
                             if (p == q) continue;
                             if (GameObject.Chance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2)))
                             {
-                                p.AdjustRelation(q, -0.5f / Math.Max(1, sending.persons.Count), -3);
+                                p.AdjustRelation(q, -1f / Math.Max(1, sending.persons.Count), -3);
                             }
 
                         }
@@ -3392,7 +3394,7 @@ namespace GameObjects
                             if (p == q) continue;
                             if (GameObject.Chance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2)))
                             {
-                                p.AdjustRelation(q, -0.5f / Math.Max(1, sending.persons.Count), -3);
+                                p.AdjustRelation(q, -1f / Math.Max(1, sending.persons.Count), -3);
                             }
                         }
                     }
@@ -3682,10 +3684,12 @@ namespace GameObjects
                         if (person == this.Leader)
                         {
                             person.IncreaseReputation((num * 5) * 2);
+                            person.IncreaseOfficerMerit(num * 5 * 2);
                         }
                         else
                         {
                             person.IncreaseReputation(num * 5);
+                            person.IncreaseOfficerMerit(num * 5);
                         }
                     }
                     success = true;
@@ -7566,10 +7570,12 @@ namespace GameObjects
                 if (person == this.Leader)
                 {
                     person.IncreaseReputation((increment * 2) * 2);
+                    person.IncreaseOfficerMerit(increment * 4);
                 }
                 else
                 {
                     person.IncreaseReputation(increment * 2);
+                    person.IncreaseOfficerMerit(increment * 2);
                 }
             }
         }
@@ -7584,12 +7590,14 @@ namespace GameObjects
                     person2.AddIntelligenceExperience(increment * 2);
                     person2.AddStratagemExperience(increment * 12);
                     person2.IncreaseReputation(increment * 4);
+                    person2.IncreaseOfficerMerit(increment * 4);
                 }
                 else
                 {
                     person2.AddIntelligenceExperience(increment);
                     person2.AddStratagemExperience(increment * 6);
                     person2.IncreaseReputation(increment * 2);
+                    person2.IncreaseOfficerMerit(increment * 2);
                 }
             }
         }
@@ -7635,10 +7643,12 @@ namespace GameObjects
                         if (person == this.Leader)
                         {
                             person.IncreaseReputation(80);
+                            person.IncreaseOfficerMerit(80);
                         }
                         else
                         {
                             person.IncreaseReputation(40);
+                            person.IncreaseOfficerMerit(40);
                         }
                     }
                 }
@@ -7652,10 +7662,12 @@ namespace GameObjects
                     if (person == this.Leader)
                     {
                         person.IncreaseReputation(20);
+                        person.IncreaseOfficerMerit(20);
                     }
                     else
                     {
                         person.IncreaseReputation(10);
+                        person.IncreaseOfficerMerit(10);
                     }
                 }
             }
@@ -7984,10 +7996,12 @@ namespace GameObjects
                     if (person == this.Leader)
                     {
                         person.IncreaseReputation((2 * food) / 0x2710);
+                        person.IncreaseOfficerMerit((2 * food) / 0x2710);
                     }
                     else
                     {
                         person.IncreaseReputation(food / 0x2710);
+                        person.IncreaseOfficerMerit(food / 0x2710);
                     }
                 }
                 this.BelongedFaction.IncreaseTechniquePoint(food / 200);

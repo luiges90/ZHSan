@@ -567,6 +567,21 @@ namespace GameObjects
         //private Dictionary<int, Treasure> effectiveTreasures = new Dictionary<int, Treasure>();
         public Dictionary<int, Treasure> effectiveTreasures = new Dictionary<int, Treasure>();
 
+        private int officerMerit;
+
+        [DataMember]
+        public int OfficerMerit
+        {
+            get
+            {
+                return officerMerit;
+            }
+            set
+            {
+                officerMerit = value;
+            }
+        }
+
         private int tiredness;
 
         [DataMember]
@@ -2161,6 +2176,7 @@ namespace GameObjects
 
         public void ConfiscatedTreasure(Treasure t)
         {
+            this.AdjustRelation(this.BelongedFaction.Leader, -t.Worth / 3.0f, -5);
             this.LoseTreasure(t);
 
             if (this.OnBeConfiscatedTreasure != null)
@@ -2391,8 +2407,8 @@ namespace GameObjects
             this.Spouse = p;
             p.Spouse = this;
 
-            this.AdjustRelation(p, 1, 50);
-            p.AdjustRelation(this, 1, 50);
+            this.AdjustRelation(p, 5, 10);
+            p.AdjustRelation(this, 5, 10);
 
             this.marriageGranter = maker;
 
@@ -2563,13 +2579,13 @@ namespace GameObjects
                         Person p = Session.Current.Scenario.Persons.GetGameObject(this.suoshurenwu) as Person;
                         if (!this.Hates(p) && !p.Hates(this))
                         {
-                            this.AdjustRelation(p, 0.25f, -1);
-                            p.AdjustRelation(this, 0.25f, -1);
+                            this.AdjustRelation(p, 2f, -5);
+                            p.AdjustRelation(this, 2f, -5);
 
                             if (this.LocationArchitecture == p.LocationArchitecture)
                             {
-                                this.AdjustRelation(p, 0.25f, 0);
-                                p.AdjustRelation(this, 0.25f, 0);
+                                this.AdjustRelation(p, 2f, 0);
+                                p.AdjustRelation(this, 2f, 0);
                             }
                         }
                     }
@@ -2653,13 +2669,13 @@ namespace GameObjects
                                     Session.Current.Scenario.haizichusheng(haizi, haizifuqin, this, origChildren.Count > 0);
                                 }
 
-                                this.AdjustRelation(haizifuqin, 2f, -5);
-                                haizifuqin.AdjustRelation(this, 2f, -5);
+                                this.AdjustRelation(haizifuqin, 3f, -5);
+                                haizifuqin.AdjustRelation(this, 3f, -5);
 
                                 if (this.LocationArchitecture == haizifuqin.LocationArchitecture)
                                 {
-                                    this.AdjustRelation(haizifuqin, 2f, 0);
-                                    haizifuqin.AdjustRelation(this, 2f, 0);
+                                    this.AdjustRelation(haizifuqin, 3f, 0);
+                                    haizifuqin.AdjustRelation(this, 3f, 0);
                                 }
 
                                 if (this.Father != null)
@@ -2876,11 +2892,17 @@ namespace GameObjects
                         {
                             if (!GameObject.Chance(architectureByPosition.noEscapeChance) || GameObject.Chance(c.CaptivePerson.captiveEscapeChance))
                             {
+                                c.CaptivePerson.AdjustRelation(this, 3f, 0);
+                                c.CaptivePerson.AdjustRelation(this.BelongedFaction.Leader, 1f, 0);
+                                architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -2f, -2);
+                                architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -1f, -1);
+
                                 success = true;
                                 this.AddStrengthExperience(10);
                                 this.AddIntelligenceExperience(10);
                                 this.AddTacticsExperience(60);
                                 this.IncreaseReputation(20);
+                                this.IncreaseOfficerMerit(20);
                                 this.BelongedFaction.IncreaseReputation(10 * this.MultipleOfTacticsReputation);
                                 this.BelongedFaction.IncreaseTechniquePoint((10 * this.MultipleOfTacticsTechniquePoint) * 100);
                                 ExtensionInterface.call("DoJailBreakSuccess", new Object[] { Session.Current.Scenario, this, c });
@@ -2925,6 +2947,9 @@ namespace GameObjects
                         this.ConvincingPerson.InjureRate -= diff / 1000.0f;
                         if (this.ConvincingPerson.InjureRate < 0.05 && Session.GlobalVariables.OfficerDieInBattleRate > 0)
                         {
+                            architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -20f, -20);
+                            architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -5f, -5);
+
                             this.AddStrengthExperience(30);
                             this.AddIntelligenceExperience(30);
                             this.AddTacticsExperience(180);
@@ -2941,6 +2966,10 @@ namespace GameObjects
                         }
                         else
                         {
+                            this.ConvincingPerson.AdjustRelation(this, -diff / 10.0f, -10);
+                            architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -5f, -5);
+                            architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -2f, -2);
+
                             this.AddStrengthExperience(10);
                             this.AddIntelligenceExperience(10);
                             this.AddTacticsExperience(60);
@@ -2972,6 +3001,8 @@ namespace GameObjects
                             this.InjureRate -= (-diff - 200) / 1000.0f;
                             if (this.InjureRate < 0.05 && Session.GlobalVariables.OfficerDieInBattleRate > 0)
                             {
+                                architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -5f, -5);
+
                                 ExtensionInterface.call("Assassinated", new Object[] { Session.Current.Scenario, this, this.ConvincingPerson });
 
                                 Session.Current.Scenario.YearTable.addReverseAssassinateEntry(Session.Current.Scenario.Date, this, this.ConvincingPerson);
@@ -3167,6 +3198,20 @@ namespace GameObjects
                     person.ProhibitedFactionID.Remove(person.BelongedFaction.ID);
                 }
                 person.ProhibitedFactionID.Add(person.BelongedFaction.ID, 90);
+
+                foreach (Person p in this.BelongedFaction.Persons)
+                {
+                    if (p == this.BelongedFaction.Leader)
+                    {
+                        p.AdjustRelation(this, -15f - p.PersonalLoyalty * 1.5f, -8);
+                        this.AdjustRelation(p, -3f, -2);
+                    }
+                    else
+                    {
+                        p.AdjustRelation(this, -6f - p.PersonalLoyalty * 0.5f, -4);
+                    }
+                }
+
                 belongedFaction = person.BelongedFaction;
                 Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedFaction.ID, person.BelongedFaction.ID, -10);
                 if (person.BelongedFaction.Leader.HasStrainTo(person))
@@ -3179,6 +3224,7 @@ namespace GameObjects
                 }
                 person.RebelCount++;
                 person.Reputation = (int)(person.Reputation * 0.9);
+                person.OfficerMerit = (int)(person.OfficerMerit * 0.2);
             }
             if (this.BelongedFaction != null)
             {
@@ -3229,6 +3275,7 @@ namespace GameObjects
             }*/
             this.AddGlamourExperience(40);
             this.IncreaseReputation(40);
+            this.IncreaseOfficerMerit(40);
             this.BelongedFaction.IncreaseReputation(20 * this.MultipleOfTacticsReputation);
             this.BelongedFaction.IncreaseTechniquePoint((20 * this.MultipleOfTacticsTechniquePoint) * 100);
 
@@ -3276,6 +3323,8 @@ namespace GameObjects
             {
                 if (architectureByPosition.BelongedFaction != this.BelongedFaction)
                 {
+                    architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -3f, -2);
+                    architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -1f, -1);
                     if ((architectureByPosition.Endurance > 0) && (this.InevitableSuccessOfDestroy || (GameObject.Random(architectureByPosition.Domination * 8) < GameObject.Random(this.DestroyAbility))))
                     {
                         int randomValue = StaticMethods.GetRandomValue(this.DestroyAbility, 12);
@@ -3329,6 +3378,8 @@ namespace GameObjects
             {
                 if ((architectureByPosition.BelongedFaction != null) && (this.BelongedFaction != architectureByPosition.BelongedFaction))
                 {
+                    architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -3f, -2);
+                    architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -1f, -1);
                     if (this.InevitableSuccessOfGossip || (GameObject.Random(architectureByPosition.Domination * 5) < GameObject.Random(this.GossipAbility)))
                     {
                         architectureByPosition.DamageByGossip(this.GossipAbility);
@@ -3394,6 +3445,7 @@ namespace GameObjects
                 this.AddTacticsExperience(increment * 6);
                 this.AddIntelligenceExperience(increment);
                 this.IncreaseReputation(increment * 2);
+                this.IncreaseOfficerMerit(increment * 2);
                 this.BelongedFaction.IncreaseReputation(increment * this.MultipleOfTacticsReputation);
                 this.BelongedFaction.IncreaseTechniquePoint((increment * this.MultipleOfTacticsTechniquePoint) * 100);
                 ExtensionInterface.call("DoInformationSuccess", new Object[] { Session.Current.Scenario, this, information });
@@ -3430,6 +3482,8 @@ namespace GameObjects
             {
                 if (architectureByPosition.BelongedFaction != this.BelongedFaction)
                 {
+                    architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -3f, -2);
+                    architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -1f, -1);
                     if ((architectureByPosition.Domination > 0) && (this.InevitableSuccessOfInstigate || (GameObject.Random((architectureByPosition.Morale * 2) + 200) < GameObject.Random(this.InstigateAbility))))
                     {
                         int randomValue = StaticMethods.GetRandomValue(this.InstigateAbility, 60);
@@ -3485,6 +3539,18 @@ namespace GameObjects
             this.OutsideDestination = null;
             if ((this.BelongedFaction != null) && (this.TargetArchitecture.BelongedFaction != null))
             {
+                if (!this.TargetArchitecture.BelongedFaction.Leader.Hates(this))
+                {
+                    this.TargetArchitecture.BelongedFaction.Leader.AdjustRelation(this, 3f, 2);
+                }
+                if (!this.Hates(this.TargetArchitecture.BelongedFaction.Leader))
+                {
+                    this.AdjustRelation(this.TargetArchitecture.BelongedFaction.Leader, 3f, 2);
+                }
+                if (!this.TargetArchitecture.BelongedFaction.Leader.Hates(this.BelongedFaction.Leader))
+                {
+                    this.TargetArchitecture.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, 3f, 2);
+                }
                 //int g = (5 + (int)(5 * this.Glamour / 100));
                 int c = 2;
                 if (this.TargetArchitecture.BelongedFaction.Leader.IsCloseTo(this))
@@ -3507,6 +3573,7 @@ namespace GameObjects
                 this.TargetArchitecture = this.LocationArchitecture;
                 this.AddPoliticsExperience(5);
                 this.IncreaseReputation(50);
+                this.IncreaseOfficerMerit(50);
             }
         }
 
@@ -3548,21 +3615,33 @@ namespace GameObjects
                 int cd = Session.Current.Scenario.GetDiplomaticRelation(this.BelongedFaction.ID, this.TargetArchitecture.BelongedFaction.ID);
                 if (g > 180)
                 {
+                    this.TargetArchitecture.BelongedFaction.Leader.AdjustRelation(this, 6f, 4);
+                    this.AdjustRelation(this.TargetArchitecture.BelongedFaction.Leader, 6f, 4);
+                    this.TargetArchitecture.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, 9f, 6);
+                    this.BelongedFaction.Leader.AdjustRelation(this.TargetArchitecture.BelongedFaction.Leader, 9f, 6);
+
                     Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedFaction.ID, this.TargetArchitecture.BelongedFaction.ID, 36);
                     this.TargetArchitecture.Fund += 20000;
                     Session.MainGame.mainGameScreen.xianshishijiantupian(this, this.BelongedFaction.Leader.Name, TextMessageKind.CreateAlly, "AllyDiplomaticRelation", "AllyDiplomaticRelation.jpg", "AllyDiplomaticRelation", this.TargetArchitecture.BelongedFaction.Name, true);
                     this.TargetArchitecture = this.LocationArchitecture;
                     this.AddPoliticsExperience(5);
-                    this.IncreaseReputation(500);
+                    this.IncreaseReputation(1000);
+                    this.IncreaseOfficerMerit(1000);
                 }
                 else
                 {
+                    this.TargetArchitecture.BelongedFaction.Leader.AdjustRelation(this, -3f, -2);
+                    this.AdjustRelation(this.TargetArchitecture.BelongedFaction.Leader, -3f, -2);
+                    this.TargetArchitecture.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -4.5f, -3);
+                    this.BelongedFaction.Leader.AdjustRelation(this.TargetArchitecture.BelongedFaction.Leader, -4.5f, -3);
+
                     Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedFaction.ID, this.TargetArchitecture.BelongedFaction.ID, -10);
                     this.BelongedArchitecture.Fund += 20000;
                     Session.MainGame.mainGameScreen.xianshishijiantupian(this, this.BelongedFaction.Leader.Name, TextMessageKind.CreateAllyFailed, "AllyDiplomaticRelationFailed", "chuzhan.jpg", "BreakDiplomaticRelation", this.TargetArchitecture.BelongedFaction.Name, true);
                     this.TargetArchitecture = this.LocationArchitecture;
                     this.AddPoliticsExperience(1);
                     this.IncreaseReputation(50);
+                    this.IncreaseOfficerMerit(50);
                 }
             }
         }
@@ -3633,6 +3712,7 @@ namespace GameObjects
             shizhe.TargetArchitecture = shizhe.LocationArchitecture;
             shizhe.AddPoliticsExperience(50);
             shizhe.IncreaseReputation(500);
+            shizhe.IncreaseOfficerMerit(20);
         }
 
         public void DoQuanXiangDiplomatic()
@@ -3712,6 +3792,8 @@ namespace GameObjects
 
         private static void QuanXiangSuccess(Faction sourceFaction, Faction targetFaction, Person shizhe)
         {
+            sourceFaction.Leader.AdjustRelation(targetFaction.Leader, 9f, 6);
+
             //势力合并
             Session.MainGame.mainGameScreen.xianshishijiantupian(shizhe, sourceFaction.Leader.Name, TextMessageKind.QuanXiang, "QuanXiangDiplomaticRelation", "QuanXiangDiplomaticRelation.jpg", "shilimiewang", targetFaction.Name, true);
 
@@ -3732,10 +3814,14 @@ namespace GameObjects
             shizhe.TargetArchitecture = shizhe.LocationArchitecture;
             shizhe.AddPoliticsExperience(50);
             shizhe.IncreaseReputation(500);
+            shizhe.IncreaseOfficerMerit(500);
         }
 
         private static void QuanXiangFailed(Faction sourceFaction, Faction targetFaction, Person shizhe)
         {
+            sourceFaction.Leader.AdjustRelation(targetFaction.Leader, -9f, -6);
+            targetFaction.Leader.AdjustRelation(sourceFaction.Leader, -9f, -6);
+
             Session.Current.Scenario.ChangeDiplomaticRelation(sourceFaction.ID, targetFaction.ID, -100);
             shizhe.BelongedArchitecture.Fund += 20000;
             shizhe.TargetArchitecture.Fund += 30000;
@@ -3746,6 +3832,7 @@ namespace GameObjects
             shizhe.TargetArchitecture = shizhe.LocationArchitecture;
             shizhe.AddPoliticsExperience(10);
             shizhe.IncreaseReputation(50);
+            shizhe.IncreaseOfficerMerit(50);
         }
         
       
@@ -3788,6 +3875,11 @@ namespace GameObjects
                 int cd = Session.Current.Scenario.GetDiplomaticRelation(this.BelongedFaction.ID, this.TargetArchitecture.BelongedFaction.ID);
                 if (g > (80 - cd / 4))
                 {
+                    this.TargetArchitecture.BelongedFaction.Leader.AdjustRelation(this, 3f, 2);
+                    this.AdjustRelation(this.TargetArchitecture.BelongedFaction.Leader, 3f, 2);
+                    this.TargetArchitecture.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, 3f, 2);
+                    this.BelongedFaction.Leader.AdjustRelation(this.TargetArchitecture.BelongedFaction.Leader, 3f, 2);
+
                     int di = 10;
                     if (cd + di > 290)
                     {
@@ -3805,9 +3897,15 @@ namespace GameObjects
                     this.TargetArchitecture = this.LocationArchitecture;
                     this.AddPoliticsExperience(5);
                     this.IncreaseReputation(500);
+                    this.IncreaseOfficerMerit(500);
                 }
                 else
                 {
+                    this.TargetArchitecture.BelongedFaction.Leader.AdjustRelation(this, -3f, -2);
+                    this.AdjustRelation(this.TargetArchitecture.BelongedFaction.Leader, -3f, -2);
+                    this.TargetArchitecture.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -6f, -4);
+                    this.BelongedFaction.Leader.AdjustRelation(this.TargetArchitecture.BelongedFaction.Leader, -6f, -4);
+
                     Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedFaction.ID, this.TargetArchitecture.BelongedFaction.ID, -10);
                     this.BelongedArchitecture.Fund += 30000;
                     this.TargetArchitecture.Fund += 20000;
@@ -3815,6 +3913,7 @@ namespace GameObjects
                     this.TargetArchitecture = this.LocationArchitecture;
                     this.AddPoliticsExperience(1);
                     this.IncreaseReputation(50);
+                    this.IncreaseOfficerMerit(50);
                 }
             }
         }
@@ -3975,6 +4074,7 @@ namespace GameObjects
                     this.AddPoliticsExperience(5);
                     this.AddGlamourExperience(10);
                     this.IncreaseReputation(20);
+                    this.IncreaseOfficerMerit(20);
                     this.BelongedFaction.IncreaseReputation(10 * this.MultipleOfTacticsReputation);
                     this.BelongedFaction.IncreaseTechniquePoint((10 * this.MultipleOfTacticsTechniquePoint) * 100);
                     if (this.OnSearchFinished != null)
@@ -4952,7 +5052,7 @@ namespace GameObjects
         public void DecreaseReputation(int v)
         {
             this.reputation -= v;
-            if (this.reputation == 0)
+            if (this.reputation <= 0)
             {
                 this.reputation = 0;
             }
@@ -4961,6 +5061,22 @@ namespace GameObjects
         public bool IncreaseReputation(int increment)
         {
             this.reputation += increment;
+            return true;
+        }
+
+        public bool IncreaseOfficerMerit(int x)
+        {
+            this.officerMerit += x;
+            return true;
+        }
+
+        public bool DecreaseOfficerMerit(int x)
+        {
+            this.reputation -= x;
+            if (this.reputation <= 0)
+            {
+                this.reputation = 0;
+            }
             return true;
         }
 
@@ -5212,6 +5328,21 @@ namespace GameObjects
                 this.ProhibitedFactionID.Add(this.BelongedFaction.ID, 90);
             }
 
+            foreach (Person p in this.BelongedFaction.Persons)
+            {
+                if (p == this.BelongedFaction.Leader)
+                {
+                    p.AdjustRelation(this, -5f - p.PersonalLoyalty * 0.5f, -4);
+                    this.AdjustRelation(p, -3f, -2);
+                }
+                else
+                {
+                    p.AdjustRelation(this, -3f - p.PersonalLoyalty * 0.25f, -2);
+                }
+            }
+
+            this.OfficerMerit = (int)(this.OfficerMerit * 0.2);
+
             if (TargetArchitecture != null)
             {
                 this.TargetArchitecture = null;
@@ -5234,6 +5365,18 @@ namespace GameObjects
             {
                 this.ProhibitedFactionID.Remove(this.BelongedFaction.ID);
             }
+
+            foreach (Person p in this.BelongedFaction.Persons)
+            {
+                if (p == this.BelongedFaction.Leader)
+                {
+                    p.AdjustRelation(this, -5f - p.PersonalLoyalty * 0.5f, -4);
+                    this.AdjustRelation(p, -10f - p.PersonalLoyalty * 1f, -8);
+                }
+            }
+
+            this.OfficerMerit = (int)(this.OfficerMerit * 0.2);
+
             this.ProhibitedFactionID.Add(this.BelongedFaction.ID, 360);
             this.Status = PersonStatus.NoFaction;
         }

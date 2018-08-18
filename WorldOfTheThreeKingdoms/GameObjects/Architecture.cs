@@ -6552,6 +6552,7 @@ namespace GameObjects
                         person.AddPoliticsExperience(randomValue * 2);
                         person.AddGlamourExperience(randomValue * 2);
                         person.IncreaseReputation(randomValue * 4);
+                        person.IncreaseOfficerMerit(randomValue * 4);
                         this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfAgricultureReputation);
                         this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfAgricultureTechniquePoint) * 100);
                         this.IncreaseAgriculture(randomValue);
@@ -6593,6 +6594,7 @@ namespace GameObjects
                         person.AddPoliticsExperience(randomValue * 2);
                         person.AddGlamourExperience(randomValue);
                         person.IncreaseReputation(randomValue * 4);
+                        person.IncreaseOfficerMerit(randomValue * 4);
                         this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfCommerceReputation);
                         this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfCommerceTechniquePoint) * 100);
                         this.IncreaseCommerce(randomValue);
@@ -6662,6 +6664,7 @@ namespace GameObjects
                         person.AddCommandExperience(randomValue);
                         person.AddGlamourExperience(randomValue);
                         person.IncreaseReputation(randomValue * 4);
+                        person.IncreaseOfficerMerit(randomValue * 4);
                         this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfDominationReputation);
                         this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfDominationTechniquePoint) * 100);
                         this.IncreaseDomination(randomValue);
@@ -6693,6 +6696,7 @@ namespace GameObjects
                         person.AddIntelligenceExperience(randomValue);
                         person.AddPoliticsExperience(randomValue);
                         person.IncreaseReputation(randomValue * 4);
+                        person.IncreaseOfficerMerit(randomValue * 4);
                         this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfEnduranceReputation);
                         this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfEnduranceTechniquePoint) * 100);
                         this.IncreaseEndurance(randomValue);
@@ -6755,6 +6759,7 @@ namespace GameObjects
                         person.AddPoliticsExperience(randomValue);
                         person.AddGlamourExperience(randomValue * 2);
                         person.IncreaseReputation(randomValue * 4);
+                        person.IncreaseOfficerMerit(randomValue * 4);
                         this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfMoraleReputation);
                         this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfMoraleTechniquePoint) * 100);
                         this.IncreaseMorale(randomValue);
@@ -6821,6 +6826,7 @@ namespace GameObjects
                         person.AddIntelligenceExperience(randomValue * 2);
                         person.AddPoliticsExperience(randomValue * 2);
                         person.IncreaseReputation(randomValue * 4);
+                        person.IncreaseOfficerMerit(randomValue * 4);
                         this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfTechnologyReputation);
                         this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfTechnologyTechniquePoint) * 100);
                         this.IncreaseTechnology(randomValue);
@@ -11506,6 +11512,7 @@ namespace GameObjects
                         military.RecruitmentPerson.AddCommandExperience(increment / 2);
                         military.RecruitmentPerson.AddGlamourExperience(increment / 2);
                         military.RecruitmentPerson.IncreaseReputation(increment * 4);
+                        military.RecruitmentPerson.IncreaseOfficerMerit(randomValue * 4);
                         military.RecruitmentPerson.BelongedFaction.IncreaseReputation(increment * 2);
                         military.RecruitmentPerson.BelongedFaction.IncreaseTechniquePoint(increment * 100);
                     }
@@ -12501,6 +12508,7 @@ namespace GameObjects
                                     //person.AddTrainingExperience(pingjunJinyan * 2);
                                     person.AddCommandExperience(pingjunJinyan * 2);
                                     person.IncreaseReputation(pingjunJinyan * 3);
+                                    person.IncreaseOfficerMerit(pingjunJinyan * 3);
                                     person.BelongedFaction.IncreaseReputation(pingjunJinyan * 2);
                                     person.BelongedFaction.IncreaseTechniquePoint(pingjunJinyan * 50);
                                 }
@@ -12534,6 +12542,7 @@ namespace GameObjects
                                     //person.AddTrainingExperience(pingjunJinyan);
                                     person.AddStrengthExperience(pingjunJinyan);
                                     person.IncreaseReputation(pingjunJinyan);
+                                    person.IncreaseOfficerMerit(pingjunJinyan);
                                     person.BelongedFaction.IncreaseReputation(0);
                                     person.BelongedFaction.IncreaseTechniquePoint(pingjunJinyan * 20);
                                 }
