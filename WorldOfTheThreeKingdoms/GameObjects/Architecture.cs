@@ -9881,6 +9881,7 @@ namespace GameObjects
                 int num = (m.Quantity * militaryKind.MinScale) / m.Kind.MinScale;
                 int num2 = ((m.Experience - m.Kind.LevelUpExperience) * militaryKind.MinScale) / m.Kind.MinScale;
                 this.IncreasePopulation(m.Quantity - num);
+                this.IncreaseMilitaryPopulation(m.Quantity - num);
                 m.Kind = militaryKind;
                 m.Quantity = num;
                 m.Experience = num2;
