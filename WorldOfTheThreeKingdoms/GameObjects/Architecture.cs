@@ -11512,7 +11512,7 @@ namespace GameObjects
                         military.RecruitmentPerson.AddCommandExperience(increment / 2);
                         military.RecruitmentPerson.AddGlamourExperience(increment / 2);
                         military.RecruitmentPerson.IncreaseReputation(increment * 4);
-                        military.RecruitmentPerson.IncreaseOfficerMerit(randomValue * 4);
+                        military.RecruitmentPerson.IncreaseOfficerMerit(increment * 4);
                         military.RecruitmentPerson.BelongedFaction.IncreaseReputation(increment * 2);
                         military.RecruitmentPerson.BelongedFaction.IncreaseTechniquePoint(increment * 100);
                     }

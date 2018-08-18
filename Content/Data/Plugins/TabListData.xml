@@ -149,7 +149,7 @@
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4294375158"
-                Align="Middle">
+                Align="Right">
         </Column>
         <Column ID="20" Name="CalledName" IsNumber="false" DisplayName="字" MinWidth="50" DetailLevel="2"
                 FontName="方正隶变_GBK"
