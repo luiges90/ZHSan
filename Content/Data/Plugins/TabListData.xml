@@ -1244,9 +1244,9 @@
         </Column>
       </Columns>
       <Tabs Margin="5">
-        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 2 8 17 18 3 4 5 30 70 71 170">
+        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 2 8 17 3 4 30 70 71 170">
         </Tab>
-        <Tab ID="2"  Name="Ability" DisplayName="能力" Columns="1 6 7 9 10 11 12 13 14 15 16 600">
+        <Tab ID="2"  Name="Ability" DisplayName="能力" Columns="1 6 7 9 10 11 12 13 14 15 16 600 5 18">
         </Tab>
         <Tab ID="3"  Name="Personal" DisplayName="个人" Columns="1 20 21 22 23 24 25 26 120 124 150 510">
         </Tab>
