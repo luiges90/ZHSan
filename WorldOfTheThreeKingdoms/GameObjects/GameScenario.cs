@@ -4066,10 +4066,10 @@ namespace GameObjects
                                 {
                                     if (!p.Hates(q))
                                     {
-                                        p.AdjustRelation(q, 3f, 2);
-                                        if (GameObject.Chance(70))
+                                        p.AdjustRelation(q, 2f, 1);
+                                        if (GameObject.Chance(70) && !q.Hates(p))
                                         {
-                                            q.AdjustRelation(p, 3f, 2);
+                                            q.AdjustRelation(p, 2f, 1);
                                         }
                                     }
                                 }
@@ -4077,10 +4077,10 @@ namespace GameObjects
                                 {
                                     if (!p.Closes(q))
                                     {
-                                        p.AdjustRelation(q, -3f, -2);
-                                        if (GameObject.Chance(70))
+                                        p.AdjustRelation(q, -2f, -1);
+                                        if (GameObject.Chance(70) && !q.Closes(p))
                                         {
-                                            q.AdjustRelation(p, -3f, -2);
+                                            q.AdjustRelation(p, -2f, -1);
                                         }
                                     }
                                 }
