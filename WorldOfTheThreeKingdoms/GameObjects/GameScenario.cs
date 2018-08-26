@@ -4094,13 +4094,11 @@ namespace GameObjects
                                 float d = Session.Parameters.CloseThreshold / Math.Max(10, p.GetRelation(q));
                                 if (p.LocationArchitecture == q.LocationArchitecture || p.LocationTroop == q.LocationTroop)
                                 {
-                                    //p.AdjustRelation(q, -d / 20f, 0);
-                                    p.AdjustRelation(q, -d / 20f, 0);
+                                    p.AdjustRelation(q, -d / 10f, 0);
                                 }
                                 else
                                 {
-                                    //p.AdjustRelation(q, -d / 50f, 0);
-                                    p.AdjustRelation(q, -d / 50f, 0);
+                                    p.AdjustRelation(q, -d / 25f, 0);
                                 }
 
                                 if (p.GetRelation(q) < 0)
@@ -4120,13 +4118,11 @@ namespace GameObjects
                                 }
                                 if (p.LocationArchitecture == q.LocationArchitecture || p.LocationTroop == q.LocationTroop)
                                 {
-                                    //p.AdjustRelation(q, -d / 20, 0);
-                                    p.AdjustRelation(q, -d / 20, 0);
+                                    p.AdjustRelation(q, -d / 10f, 0);
                                 }
                                 else
                                 {
-                                    //p.AdjustRelation(q, -d / 50, 0);
-                                    p.AdjustRelation(q, -d / 50, 0);
+                                    p.AdjustRelation(q, -d / 25f, 0);
                                 }
 
                                 if (p.GetRelation(q) > 0)
