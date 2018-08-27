@@ -4051,6 +4051,7 @@ namespace GameObjects
                             continue;
                         }
 
+                        /*
                         if (q.Available && q.Alive && p.BelongedFactionWithPrincess != null && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                         {
                             bool samePlace = p.SameLocationAs(q) &&
@@ -4085,7 +4086,7 @@ namespace GameObjects
                                     }
                                 }
                             }
-                        }
+                        }*/
 
                         if (p.GetRelation(q) > 0)
                         {
