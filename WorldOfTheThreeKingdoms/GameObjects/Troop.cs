@@ -2155,18 +2155,19 @@ namespace GameObjects
                     Troop t = Session.Current.Scenario.GetTroopByPosition(p);
                     if (t != null)
                     {
-                        if (this.BelongedFaction == t.BelongedFaction)
+                        if (this.BelongedFaction == t.BelongedFaction && t.Morale > 0)
                         {
                             t.Morale -= (int) ((12 - (t.Leader.Command / 10)) * Session.Current.Scenario.Parameters.TroopMoraleChange);
+                            if (t != this)
+                            {
+                                CheckTroopRout(t);
+                            }
                         }
                         else
                         {
                             t.Morale += (int) (t.Leader.Command / 20 * Session.Current.Scenario.Parameters.TroopMoraleChange);
                         }
-                        if (t != this)
-                        {
-                            CheckTroopRout(t);
-                        }
+
                     }
                 }
 
