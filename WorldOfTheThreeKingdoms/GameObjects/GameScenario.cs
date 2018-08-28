@@ -4051,42 +4051,43 @@ namespace GameObjects
                             continue;
                         }
 
-                        /*
                         if (q.Available && q.Alive && p.BelongedFactionWithPrincess != null && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                         {
-                            bool samePlace = p.SameLocationAs(q) &&
+                            float likeability = Person.GetIdealAttraction(p, q) * 4 + q.Glamour * 1.5f + p.Glamour / 2 + q.PersonalLoyalty * 15 + p.PersonalLoyalty * 5 - q.Ambition * 10 - p.Ambition * 10 - 100;
+                            
+                            bool sameWork = p.SameLocationAs(q) &&
                                     (
                                         (p.Status == PersonStatus.Normal && q.Status == PersonStatus.Normal &&
                                             ((p.WorkKind == q.WorkKind) || (p.OutsideTask == q.OutsideTask))
                                         ) ||
                                         (p.Status == PersonStatus.Princess && q.Status == PersonStatus.Princess)
                                     );
-                            if (samePlace)
+                            if (sameWork || (p.SameLocationAs(q) && GameObject.Chance(25)))
                             {
-                                if (GameObject.Chance((p.Uncruelty * 5 + q.Glamour / 2) / 2))
+                                if (GameObject.Chance((int) (likeability / 4.0f)))
                                 {
                                     if (!p.Hates(q))
                                     {
-                                        p.AdjustRelation(q, 2f, 1);
-                                        if (GameObject.Chance(70) && !q.Hates(p))
+                                        p.AdjustRelation(q, 3f, 2);
+                                        if (!q.Hates(p))
                                         {
-                                            q.AdjustRelation(p, 2f, 1);
+                                            q.AdjustRelation(p, 3f, 2);
                                         }
                                     }
                                 }
-                                if (GameObject.Chance(((13 - p.Uncruelty) * 5 + (100 - q.Glamour) / 2) / 2))
+                                else if (GameObject.Chance((int)(-likeability / 4.0f)))
                                 {
                                     if (!p.Closes(q))
                                     {
-                                        p.AdjustRelation(q, -2f, -1);
-                                        if (GameObject.Chance(70) && !q.Closes(p))
+                                        p.AdjustRelation(q, -3f, -2);
+                                        if (!q.Closes(p))
                                         {
-                                            q.AdjustRelation(p, -2f, -1);
+                                            q.AdjustRelation(p, -3f, -2);
                                         }
                                     }
                                 }
                             }
-                        }*/
+                        }
 
                         if (p.GetRelation(q) > 0)
                         {
