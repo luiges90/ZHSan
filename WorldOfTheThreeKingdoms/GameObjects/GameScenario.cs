@@ -4113,7 +4113,7 @@ namespace GameObjects
                         {
                             if (!p.Hates(q))
                             {
-                                float d = Session.Parameters.HateThreshold / -p.GetRelation(q) / 5;
+                                float d = Session.Parameters.HateThreshold / -p.GetRelation(q) / 5f;
                                 if (p.Status == PersonStatus.Princess && q.Status == PersonStatus.Princess)
                                 {
                                     d *= 4;
