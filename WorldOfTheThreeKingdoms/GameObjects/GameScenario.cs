@@ -4093,7 +4093,7 @@ namespace GameObjects
                         {
                             if (!p.Closes(q) && GameObject.Chance((5 - p.PersonalLoyalty) * 20 - 10))
                             {
-                                float d = Session.Parameters.CloseThreshold / Math.Max(10, p.GetRelation(q));
+                                float d = (float) Session.Parameters.CloseThreshold / Math.Max(10, p.GetRelation(q));
                                 if (p.LocationArchitecture == q.LocationArchitecture || p.LocationTroop == q.LocationTroop)
                                 {
                                     p.AdjustRelation(q, -d / 10f, 0);
