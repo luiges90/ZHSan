@@ -3199,16 +3199,18 @@ namespace GameObjects
                 }
                 person.ProhibitedFactionID.Add(person.BelongedFaction.ID, 90);
 
-                foreach (Person p in this.BelongedFaction.Persons)
+                foreach (Person p in person.BelongedFaction.Persons)
                 {
-                    if (p == this.BelongedFaction.Leader)
+                    if (p == person.BelongedFaction.Leader)
                     {
-                        p.AdjustRelation(this, -15f - p.PersonalLoyalty * 1.5f, -8);
-                        this.AdjustRelation(p, -3f, -2);
+                        p.AdjustRelation(person, -15f - p.PersonalLoyalty * 1.5f, -8);
+                        person.AdjustRelation(p, -3f, -2);
+                        p.AdjustRelation(this, -7.5f, -4);
+                        p.AdjustRelation(this.BelongedFaction.Leader, -2f, -1);
                     }
                     else
                     {
-                        p.AdjustRelation(this, -6f - p.PersonalLoyalty * 0.5f, -4);
+                        p.AdjustRelation(person, -6f - p.PersonalLoyalty * 0.5f, -4);
                     }
                 }
 
