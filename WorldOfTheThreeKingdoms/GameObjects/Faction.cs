@@ -4885,9 +4885,9 @@ namespace GameObjects
                     {
                         if (i != j)
                         {
-                            if (Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(i.ID, j.ID).Truce < 180)
+                            if (Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(i.ID, j.ID).Truce < 180 * Session.Parameters.DayInTurn)
                             {
-                                Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(i.ID, j.ID).Truce = 180;
+                                Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(i.ID, j.ID).Truce = 180 * Session.Parameters.DayInTurn;
                             }
                         }
                     }
@@ -4916,7 +4916,7 @@ namespace GameObjects
             {
                 if (f.Relation < Session.GlobalVariables.FriendlyDiplomacyThreshold / 2)
                 {
-                    f.Relation -= 20;
+                    f.Relation -= 100;
                 }
             }
             //加入包围圈判定
