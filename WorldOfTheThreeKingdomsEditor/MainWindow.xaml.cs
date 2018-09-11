@@ -196,7 +196,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private GameManager.Scenario createScenarioObject(GameScenario scen, String scenName)
         {
-            string time = scen.Date.Year + "-" + scen.Date.Month + "-" + scen.Date.Day;
+            string time = scen.Date.Year.ToString().PadLeft(4, '0') + "-" + scen.Date.Month.ToString().PadLeft(2, '0') + "-" + scen.Date.Day.ToString().PadLeft(2, '0');
             return new GameManager.Scenario()
             {
                 Create = DateTime.Now.ToSeasonDateTime(),
@@ -204,13 +204,13 @@ namespace WorldOfTheThreeKingdomsEditor
                 First = StaticMethods.SaveToString(scen.ScenarioMap.JumpPosition),
                 IDs = scen.Factions.GameObjects.Select(x => x.ID.ToString()).Aggregate((a, b) => a + "," + b),
                 Info = "电脑",
-                Name = scenName,
+                Name = scenName.Substring(0, scenName.IndexOf(".json")),
                 Names = scen.Factions.GameObjects.Select(x => x.Name).Aggregate((a, b) => a + "," + b),
                 //  Path = "",
                 // PlayTime = scenario.GameTime.ToString(),
                 // Player = "",
                 //  Players = String.Join(",", scenario.PlayerList.NullToEmptyList()),
-                Time = time.ToSeasonDate(),
+                Time = time,
                 Title = scen.ScenarioTitle
             };
         }
