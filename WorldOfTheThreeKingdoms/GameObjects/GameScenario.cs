@@ -4039,7 +4039,7 @@ namespace GameObjects
         {
             foreach (Person p in this.Persons)
             {
-                if (p.Available && p.Alive && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
+                if (p.Available && p.Alive && GameObject.Random(60 / Session.Parameters.DayInTurn) == 0)
                 {
                     foreach (Person q in this.Persons)
                     {
@@ -4053,7 +4053,7 @@ namespace GameObjects
 
                         if (q.Available && q.Alive && p.BelongedFactionWithPrincess != null && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                         {
-                            float likeability = Person.GetIdealAttraction(p, q) * 8 + q.Glamour * 0.75f + p.Glamour * 0.25f + q.PersonalLoyalty * 7.5f + p.PersonalLoyalty * 2.5f - q.Ambition * 5 - p.Ambition * 5 - 125;
+                            float likeability = Person.GetIdealAttraction(p, q) * 8 + q.Glamour * 0.75f + p.Glamour * 0.25f + q.PersonalLoyalty * 7.5f + p.PersonalLoyalty * 2.5f - q.Ambition * 5 - p.Ambition * 5 - 100;
                             
                             bool sameWork = p.SameLocationAs(q) &&
                                     (
