@@ -4211,7 +4211,7 @@ namespace GameObjects
             {
                 foreach (Treasure treasure in Session.Current.Scenario.Treasures.GetRandomList())
                 {
-                    if (((!treasure.Available && (treasure.BelongedPerson == null)) && (treasure.HidePlace == this.TargetArchitecture)) && (treasure.AppearYear <= Session.Current.Scenario.Date.Year))
+                    if (((!treasure.Available && (treasure.BelongedPerson == null)) && (treasure.HidePlace == this.TargetArchitecture || treasure.HidePlace == null)) && (treasure.AppearYear <= Session.Current.Scenario.Date.Year))
                     {
                         if (GameObject.Random(treasure.Worth) <= GameObject.Random(Session.Parameters.FindTreasureChance))
                         {
