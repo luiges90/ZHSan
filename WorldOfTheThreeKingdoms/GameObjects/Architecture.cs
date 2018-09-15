@@ -561,6 +561,10 @@ namespace GameObjects
                         result.Add(r);
                     }
                 }
+                foreach (Person q in this.Feiziliebiao)
+                {
+                    result.Add(q);
+                }
                 PersonList result2 = new PersonList();
                 foreach (Person q in result)
                 {
@@ -9480,12 +9484,7 @@ namespace GameObjects
             if (this.PopulationCeiling == 0) return 0;
             int old = this.Population;
 
-            float actualIncrement = increment > 0 ? increment * (1-(float)this.Population / this.PopulationCeiling) : increment;
-            this.Population += (int)Math.Floor(actualIncrement);
-            if (GameObject.Random(1000000) < (actualIncrement - Math.Floor(actualIncrement)) * 1000000)
-            {
-                this.Population++;
-            }
+            this.Population += increment;
 
             if (this.Population > this.PopulationCeiling)
             {
