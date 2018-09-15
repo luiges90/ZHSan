@@ -2179,10 +2179,6 @@ namespace GameObjects
                     this.WillArchitecture.SuspendTroopTransfer = 0;
                 }
                 bool flag = false;
-                if ((this.BelongedFaction.Leader == this.Leader) && (this.BelongedFaction.ArchitectureCount == 0))
-                {
-                    //flag = true;
-                }
                 Faction f = this.BelongedFaction;
                 Architecture starting = this.StartingArchitecture;
                 GameObjectList persons = this.persons.GetList();
