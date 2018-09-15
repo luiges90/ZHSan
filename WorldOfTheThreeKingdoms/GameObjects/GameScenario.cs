@@ -5901,12 +5901,8 @@ namespace GameObjects
                                             if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 10 / siblingCount))
                                             {
                                                 teachers.Add(q);
-                                                if (q.Spouse != null && !q.SameLocationAs(q.Spouse) && GameObject.Chance(30 + q.PersonalLoyalty * 10))
-                                                {
-                                                    teachers.Add(q);
-                                                }
-                                                break;
                                             }
+                                            if (teachers.Count >= 3) break;
                                         }
                                     }
 
@@ -5956,12 +5952,8 @@ namespace GameObjects
                                             if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 10 / siblingCount))
                                             {
                                                 teachers.Add(q);
-                                                if (q.Spouse != null && !q.SameLocationAs(q.Spouse) && GameObject.Chance(30 + q.PersonalLoyalty * 10))
-                                                {
-                                                    teachers.Add(q);
-                                                }
-                                                break;
                                             }
+                                            if (teachers.Count >= 3) break;
                                         }
                                     }
 
@@ -6011,12 +6003,8 @@ namespace GameObjects
                                             if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 10 / siblingCount))
                                             {
                                                 teachers.Add(q);
-                                                if (q.Spouse != null && !q.SameLocationAs(q.Spouse) && GameObject.Chance(30 + q.PersonalLoyalty * 10))
-                                                {
-                                                    teachers.Add(q);
-                                                }
-                                                break;
                                             }
+                                            if (teachers.Count >= 3) break;
                                         }
                                     }
                                 }
@@ -6066,12 +6054,8 @@ namespace GameObjects
                                             if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 10 / siblingCount))
                                             {
                                                 teachers.Add(q);
-                                                if (q.Spouse != null && !q.SameLocationAs(q.Spouse) && GameObject.Chance(30 + q.PersonalLoyalty * 10))
-                                                {
-                                                    teachers.Add(q);
-                                                }
-                                                break;
                                             }
+                                            if (teachers.Count >= 3) break;
                                         }
                                     }
 
@@ -6121,12 +6105,8 @@ namespace GameObjects
                                             if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 10 / siblingCount))
                                             {
                                                 teachers.Add(q);
-                                                if (q.Spouse != null && !q.SameLocationAs(q.Spouse) && GameObject.Chance(30 + q.PersonalLoyalty * 10))
-                                                {
-                                                    teachers.Add(q);
-                                                }
-                                                break;
                                             }
+                                            if (teachers.Count >= 3) break;
                                         }
                                     }
 
@@ -6176,12 +6156,8 @@ namespace GameObjects
                                             if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 10 / siblingCount))
                                             {
                                                 teachers.Add(q);
-                                                if (q.Spouse != null && !q.SameLocationAs(q.Spouse) && GameObject.Chance(30 + q.PersonalLoyalty * 10))
-                                                {
-                                                    teachers.Add(q);
-                                                }
-                                                break;
                                             }
+                                            if (teachers.Count >= 3) break;
                                         }
                                     }
                                 }
@@ -6253,12 +6229,8 @@ namespace GameObjects
                                             if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 10 / siblingCount))
                                             {
                                                 teachers.Add(q);
-                                                if (q.Spouse != null && !q.SameLocationAs(q.Spouse) && GameObject.Chance(30 + q.PersonalLoyalty * 10))
-                                                {
-                                                    teachers.Add(q);
-                                                }
-                                                break;
                                             }
+                                            if (teachers.Count >= 3) break;
                                         }
                                     }
 
@@ -6324,12 +6296,8 @@ namespace GameObjects
                                             if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 10 / siblingCount + 10))
                                             {
                                                 teachers.Add(q);
-                                                if (q.Spouse != null && !q.SameLocationAs(q.Spouse) && GameObject.Chance(30 + q.PersonalLoyalty * 10))
-                                                {
-                                                    teachers.Add(q);
-                                                }
-                                                break;
                                             }
+                                            if (teachers.Count >= 3) break;
                                         }
                                     }
 
