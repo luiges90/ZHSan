@@ -4053,7 +4053,7 @@ namespace GameObjects
 
                         if (q.Available && q.Alive && p.BelongedFactionWithPrincess != null && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                         {
-                            float likeability = Person.GetIdealAttraction(p, q) * 4 + q.Glamour * 1.5f + p.Glamour / 2 + q.PersonalLoyalty * 15 + p.PersonalLoyalty * 5 - q.Ambition * 10 - p.Ambition * 10 - 120;
+                            float likeability = Person.GetIdealAttraction(p, q) * 4 + q.Glamour * 1.5f + p.Glamour / 2 + q.PersonalLoyalty * 15 + p.PersonalLoyalty * 5 - q.Ambition * 10 - p.Ambition * 10 - 125;
                             
                             bool sameWork = p.SameLocationAs(q) &&
                                     (
@@ -4062,7 +4062,7 @@ namespace GameObjects
                                         ) ||
                                         (p.Status == PersonStatus.Princess && q.Status == PersonStatus.Princess)
                                     );
-                            if (sameWork || (p.SameLocationAs(q) && GameObject.Chance(25)))
+                            if (sameWork || (p.SameLocationAs(q) && GameObject.Chance(50)) || (p.BelongedFactionWithPrincess == q.BelongedFactionWithPrincess && GameObject.Chance(20)))
                             {
                                 if (GameObject.Chance((int) (likeability / 4.0f)))
                                 {
