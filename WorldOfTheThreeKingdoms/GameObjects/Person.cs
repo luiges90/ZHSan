@@ -2428,7 +2428,7 @@ namespace GameObjects
             {
                 foreach (KeyValuePair<Person, int> i in this.relations)
                 {
-                    if (i.Value >= Session.Parameters.VeryCloseThreshold / 2 && i.Key.GetRelation(this) >= Session.Parameters.VeryCloseThreshold && i.Key.BelongedFactionWithPrincess == this.BelongedFactionWithPrincess
+                    if (i.Value >= Session.Parameters.VeryCloseThreshold && i.Key.GetRelation(this) >= Session.Parameters.VeryCloseThreshold && i.Key.BelongedFactionWithPrincess == this.BelongedFactionWithPrincess
                          && !this.HasStrainTo(i.Key) && !this.IsVeryCloseTo(i.Key)
                         && (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (Math.Abs(this.Age - i.Key.Age) <= 40 && this.Age <= (50 + (this.Sex ? 0 : 10)) && i.Key.Age <= (50 + (i.Key.Sex ? 0 : 10))
                             && this.Age >= 16 && i.Key.Age >= 16))
@@ -10288,7 +10288,7 @@ namespace GameObjects
                         }
                     }
 
-                    if ((!q.Hates(this) && !this.Hates(q)) || (GameObject.Chance(this.Glamour / 2)))
+                    if (GameObject.Chance(this.Glamour / 2))
                     {
                         this.AdjustRelation(q, houGongDays / 30.0f, 0);
                         q.AdjustRelation(this, houGongDays / 30.0f, 0);

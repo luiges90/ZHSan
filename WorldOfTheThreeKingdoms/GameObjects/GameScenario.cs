@@ -4053,7 +4053,7 @@ namespace GameObjects
 
                         if (q.Available && q.Alive && p.BelongedFactionWithPrincess != null && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                         {
-                            float likeability = Person.GetIdealAttraction(p, q) * 4 + q.Glamour * 1.5f + p.Glamour / 2 + q.PersonalLoyalty * 15 + p.PersonalLoyalty * 5 - q.Ambition * 10 - p.Ambition * 10 - 125;
+                            float likeability = Person.GetIdealAttraction(p, q) * 8 + q.Glamour * 0.75f + p.Glamour * 0.25f + q.PersonalLoyalty * 7.5f + p.PersonalLoyalty * 2.5f - q.Ambition * 5 - p.Ambition * 5 - 125;
                             
                             bool sameWork = p.SameLocationAs(q) &&
                                     (
