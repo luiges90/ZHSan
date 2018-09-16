@@ -2335,20 +2335,20 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.nstDianNaoKangJi2.NowNumber = 0.2f;
                     this.nstDianNaoKangWei2.NowNumber = 0.2f;                    
 
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoWanJiaDiRen").Selected = true;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoWanJiaDiRen").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianWanJia").Selected = true;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianDianNao").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuFuLu").Selected = true;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoChengZhongWuJiang").Selected = true;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuWanJiaFuLu").Selected = true;
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoFuLuZhongCheng").Selected = false;
-                    Session.globalVariablesTemp.PinPointAtPlayer = true;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoFuLuZhongCheng").Selected = true;
+                    Session.globalVariablesTemp.PinPointAtPlayer = false;
                     Session.globalVariablesTemp.internalSurplusRateForPlayer = true;
                     Session.globalVariablesTemp.internalSurplusRateForAI = false;
                     Session.globalVariablesTemp.AIAutoTakeNoFactionCaptives = true;
                     Session.globalVariablesTemp.AIAutoTakeNoFactionPerson = true;
                     Session.globalVariablesTemp.AIAutoTakePlayerCaptives = true;
-                    Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = false;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = true;
 
                     this.nstDianNaoShengTao.NowNumber = 20f;
                     this.nstDianNaoEWai1.NowNumber = 1.0f;
