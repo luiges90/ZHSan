@@ -4565,7 +4565,7 @@ namespace GameObjects
         public bool CanZhaoXian()
         {
             if (this.BelongedFaction != null && Session.GlobalVariables.ZhaoXianSuccessRate > 0 && Session.Current.Scenario.Date.Month == 3
-              && this.BelongedFaction.ZhaoxianFailureCount < 1 && Session.Current.Scenario.OfficerCount < Session.Current.Scenario.OfficerLimit)
+              && this.BelongedFaction.ZhaoxianFailureCount < 1)
                 
             {
                 if (this.AvailGeneratorTypeList().Count > 0 )
