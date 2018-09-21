@@ -93,6 +93,7 @@
     <Compile Include="NewFactionWindow.xaml.cs">
       <DependentUpon>NewFactionWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TechniqueTab.cs" />
     <Compile Include="TroopEventEffectKindTab.cs" />
     <Compile Include="EventEffectKindTab.cs" />
     <Compile Include="TroopEventEffectTab.cs" />

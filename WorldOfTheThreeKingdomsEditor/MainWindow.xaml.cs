@@ -82,6 +82,7 @@ namespace WorldOfTheThreeKingdomsEditor
             new FacilityKindTab(scen, dgFacilityKind).setup();
             new ArchitectureKindTab(scen, dgArchitectureKind).setup();
             new MilitaryKindTab(scen, dgMilitaryKind).setup();
+            new TechniqueTab(scen, dgTechniques).setup();
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)

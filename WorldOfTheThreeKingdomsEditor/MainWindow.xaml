@@ -185,6 +185,11 @@
                     <DataGrid x:Name="dgMilitaryKind" />
                 </Grid>
             </TabItem>
+            <TabItem Header="技巧類">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgTechniques" />
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
