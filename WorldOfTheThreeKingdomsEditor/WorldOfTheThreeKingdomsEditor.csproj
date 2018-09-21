@@ -93,6 +93,9 @@
     <Compile Include="NewFactionWindow.xaml.cs">
       <DependentUpon>NewFactionWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewPersonWindow.xaml.cs">
+      <DependentUpon>NewPersonWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TechniqueTab.cs" />
     <Compile Include="TroopEventEffectKindTab.cs" />
     <Compile Include="EventEffectKindTab.cs" />
@@ -123,6 +126,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewFactionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewPersonWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

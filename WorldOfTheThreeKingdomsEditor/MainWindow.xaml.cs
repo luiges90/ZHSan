@@ -301,6 +301,12 @@ namespace WorldOfTheThreeKingdomsEditor
             newFactionWindow.Closed += NewFactionWindow_Closed;
         }
 
+        private void NewFactionWindow_Closed(object sender, EventArgs e)
+        {
+            architectureTab.setup();
+            factionTab.setup();
+        }
+
         private void btnSyncScenario_Click(object sender, RoutedEventArgs e)
         {
             String scenariosPath = @"Content\Data\Scenario\Scenarios.json";
@@ -325,12 +331,6 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
-        private void NewFactionWindow_Closed(object sender, EventArgs e)
-        {
-            architectureTab.setup();
-            factionTab.setup();
-        }
-
         private void btnRandomizeIdeal_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("把所有武將的相性及相性考慮隨機化，是否確認？", "隨機化相性", MessageBoxButton.OKCancel);
@@ -339,10 +339,23 @@ namespace WorldOfTheThreeKingdomsEditor
                 foreach (Person p in scen.Persons)
                 {
                     p.Ideal = GameObject.Random(0, 149);
-                    p.IdealTendencyIDString = GameObject.Random(0, scen.GameCommonData.AllIdealTendencyKinds.Count - 1);
+                    p.IdealTendencyIDString = scen.GameCommonData.AllIdealTendencyKinds.GetRandomObject().ID;
                 }
                 personTab.setup();
             }
         }
+
+        private void btnNewPerson_Click(object sender, RoutedEventArgs e)
+        {
+            NewPersonWindow newPersonWindow = new NewPersonWindow(scen);
+            newPersonWindow.Show();
+            newPersonWindow.Closed += NewPersonWindow_Closed;
+        }
+
+        private void NewPersonWindow_Closed(object sender, EventArgs e)
+        {
+            personTab.setup();
+        }
     }
+
 }
