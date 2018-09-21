@@ -31,6 +31,8 @@
                 </MenuItem>
                 <MenuItem Header="功能">
                     <MenuItem Header="新增勢力" Click="btnNewFaction_Click"/>
+                    <Separator/>
+                    <MenuItem Header="隨機化相性" Click="btnRandomizeIdeal_Click"/>
                 </MenuItem>
             </Menu>
             <StackPanel Height="552" VerticalAlignment="Bottom"></StackPanel>

@@ -32,6 +32,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private ArchitectureTab architectureTab;
         private FactionTab factionTab;
+        private PersonTab personTab;
 
         public MainWindow()
         {
@@ -48,7 +49,8 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             if (hasScen)
             {
-                new PersonTab(scen, dgPerson).setup();
+                personTab = new PersonTab(scen, dgPerson);
+                personTab.setup();
                 new DictionaryTab<int, int>(scen.FatherIds, "FatherIds", dgFatherId).setup();
                 new DictionaryTab<int, int>(scen.MotherIds, "MotherIds", dgMotherId).setup();
                 new DictionaryTab<int, int>(scen.SpouseIds, "SpouseIds", dgSpouseId).setup();
@@ -327,6 +329,20 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             architectureTab.setup();
             factionTab.setup();
+        }
+
+        private void btnRandomizeIdeal_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("把所有武將的相性及相性考慮隨機化，是否確認？", "隨機化相性", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                foreach (Person p in scen.Persons)
+                {
+                    p.Ideal = GameObject.Random(0, 149);
+                    p.IdealTendencyIDString = GameObject.Random(0, scen.GameCommonData.AllIdealTendencyKinds.Count - 1);
+                }
+                personTab.setup();
+            }
         }
     }
 }
