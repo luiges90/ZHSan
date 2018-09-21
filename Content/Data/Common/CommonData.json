@@ -9992,6 +9992,760 @@
 }
 },
 {
+"Key":7300,
+"Value":{
+"ID":7300,
+"Name":"功绩达到1000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"1000",
+"Parameter2":""
+}
+},
+{
+"Key":7301,
+"Value":{
+"ID":7301,
+"Name":"功绩达到2000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"2000",
+"Parameter2":""
+}
+},
+{
+"Key":7302,
+"Value":{
+"ID":7302,
+"Name":"功绩达到3000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"3000",
+"Parameter2":""
+}
+},
+{
+"Key":7303,
+"Value":{
+"ID":7303,
+"Name":"功绩达到4000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"4000",
+"Parameter2":""
+}
+},
+{
+"Key":7304,
+"Value":{
+"ID":7304,
+"Name":"功绩达到5000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"5000",
+"Parameter2":""
+}
+},
+{
+"Key":7305,
+"Value":{
+"ID":7305,
+"Name":"功绩达到6000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"6000",
+"Parameter2":""
+}
+},
+{
+"Key":7306,
+"Value":{
+"ID":7306,
+"Name":"功绩达到7000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"7000",
+"Parameter2":""
+}
+},
+{
+"Key":7307,
+"Value":{
+"ID":7307,
+"Name":"功绩达到8000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"8000",
+"Parameter2":""
+}
+},
+{
+"Key":7308,
+"Value":{
+"ID":7308,
+"Name":"功绩达到9000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"9000",
+"Parameter2":""
+}
+},
+{
+"Key":7309,
+"Value":{
+"ID":7309,
+"Name":"功绩达到10000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"10000",
+"Parameter2":""
+}
+},
+{
+"Key":7310,
+"Value":{
+"ID":7310,
+"Name":"功绩达到15000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"15000",
+"Parameter2":""
+}
+},
+{
+"Key":7311,
+"Value":{
+"ID":7311,
+"Name":"功绩达到20000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"20000",
+"Parameter2":""
+}
+},
+{
+"Key":7312,
+"Value":{
+"ID":7312,
+"Name":"功绩达到25000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"25000",
+"Parameter2":""
+}
+},
+{
+"Key":7313,
+"Value":{
+"ID":7313,
+"Name":"功绩达到30000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"30000",
+"Parameter2":""
+}
+},
+{
+"Key":7314,
+"Value":{
+"ID":7314,
+"Name":"功绩达到35000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"35000",
+"Parameter2":""
+}
+},
+{
+"Key":7315,
+"Value":{
+"ID":7315,
+"Name":"功绩达到40000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"40000",
+"Parameter2":""
+}
+},
+{
+"Key":7316,
+"Value":{
+"ID":7316,
+"Name":"功绩达到45000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"45000",
+"Parameter2":""
+}
+},
+{
+"Key":7317,
+"Value":{
+"ID":7317,
+"Name":"功绩达到50000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"50000",
+"Parameter2":""
+}
+},
+{
+"Key":7318,
+"Value":{
+"ID":7318,
+"Name":"功绩达到55000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"55000",
+"Parameter2":""
+}
+},
+{
+"Key":7319,
+"Value":{
+"ID":7319,
+"Name":"功绩达到60000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"60000",
+"Parameter2":""
+}
+},
+{
+"Key":7320,
+"Value":{
+"ID":7320,
+"Name":"功绩达到65000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"65000",
+"Parameter2":""
+}
+},
+{
+"Key":7321,
+"Value":{
+"ID":7321,
+"Name":"功绩达到70000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"70000",
+"Parameter2":""
+}
+},
+{
+"Key":7322,
+"Value":{
+"ID":7322,
+"Name":"功绩达到75000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"75000",
+"Parameter2":""
+}
+},
+{
+"Key":7323,
+"Value":{
+"ID":7323,
+"Name":"功绩达到80000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"80000",
+"Parameter2":""
+}
+},
+{
+"Key":7324,
+"Value":{
+"ID":7324,
+"Name":"功绩达到85000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"85000",
+"Parameter2":""
+}
+},
+{
+"Key":7325,
+"Value":{
+"ID":7325,
+"Name":"功绩达到90000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"90000",
+"Parameter2":""
+}
+},
+{
+"Key":7326,
+"Value":{
+"ID":7326,
+"Name":"功绩达到95000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"95000",
+"Parameter2":""
+}
+},
+{
+"Key":7327,
+"Value":{
+"ID":7327,
+"Name":"功绩达到100000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"100000",
+"Parameter2":""
+}
+},
+{
+"Key":7328,
+"Value":{
+"ID":7328,
+"Name":"功绩达到150000",
+"Kind":{
+"ID":310,
+"Name":"功绩达到若干"
+},
+"Parameter":"150000",
+"Parameter2":""
+}
+},
+{
+"Key":7400,
+"Value":{
+"ID":7400,
+"Name":"功绩少于1000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"1000",
+"Parameter2":""
+}
+},
+{
+"Key":7401,
+"Value":{
+"ID":7401,
+"Name":"功绩少于2000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"2000",
+"Parameter2":""
+}
+},
+{
+"Key":7402,
+"Value":{
+"ID":7402,
+"Name":"功绩少于3000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"3000",
+"Parameter2":""
+}
+},
+{
+"Key":7403,
+"Value":{
+"ID":7403,
+"Name":"功绩少于4000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"4000",
+"Parameter2":""
+}
+},
+{
+"Key":7404,
+"Value":{
+"ID":7404,
+"Name":"功绩少于5000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"5000",
+"Parameter2":""
+}
+},
+{
+"Key":7405,
+"Value":{
+"ID":7405,
+"Name":"功绩少于6000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"6000",
+"Parameter2":""
+}
+},
+{
+"Key":7406,
+"Value":{
+"ID":7406,
+"Name":"功绩少于7000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"7000",
+"Parameter2":""
+}
+},
+{
+"Key":7407,
+"Value":{
+"ID":7407,
+"Name":"功绩少于8000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"8000",
+"Parameter2":""
+}
+},
+{
+"Key":7408,
+"Value":{
+"ID":7408,
+"Name":"功绩少于9000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"9000",
+"Parameter2":""
+}
+},
+{
+"Key":7409,
+"Value":{
+"ID":7409,
+"Name":"功绩少于10000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"10000",
+"Parameter2":""
+}
+},
+{
+"Key":7410,
+"Value":{
+"ID":7410,
+"Name":"功绩少于15000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"15000",
+"Parameter2":""
+}
+},
+{
+"Key":7411,
+"Value":{
+"ID":7411,
+"Name":"功绩少于20000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"20000",
+"Parameter2":""
+}
+},
+{
+"Key":7412,
+"Value":{
+"ID":7412,
+"Name":"功绩少于25000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"25000",
+"Parameter2":""
+}
+},
+{
+"Key":7413,
+"Value":{
+"ID":7413,
+"Name":"功绩少于30000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"30000",
+"Parameter2":""
+}
+},
+{
+"Key":7414,
+"Value":{
+"ID":7414,
+"Name":"功绩少于35000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"35000",
+"Parameter2":""
+}
+},
+{
+"Key":7415,
+"Value":{
+"ID":7415,
+"Name":"功绩少于40000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"40000",
+"Parameter2":""
+}
+},
+{
+"Key":7416,
+"Value":{
+"ID":7416,
+"Name":"功绩少于45000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"45000",
+"Parameter2":""
+}
+},
+{
+"Key":7417,
+"Value":{
+"ID":7417,
+"Name":"功绩少于50000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"50000",
+"Parameter2":""
+}
+},
+{
+"Key":7418,
+"Value":{
+"ID":7418,
+"Name":"功绩少于55000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"55000",
+"Parameter2":""
+}
+},
+{
+"Key":7419,
+"Value":{
+"ID":7419,
+"Name":"功绩少于60000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"60000",
+"Parameter2":""
+}
+},
+{
+"Key":7420,
+"Value":{
+"ID":7420,
+"Name":"功绩少于65000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"65000",
+"Parameter2":""
+}
+},
+{
+"Key":7421,
+"Value":{
+"ID":7421,
+"Name":"功绩少于70000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"70000",
+"Parameter2":""
+}
+},
+{
+"Key":7422,
+"Value":{
+"ID":7422,
+"Name":"功绩少于75000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"75000",
+"Parameter2":""
+}
+},
+{
+"Key":7423,
+"Value":{
+"ID":7423,
+"Name":"功绩少于80000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"80000",
+"Parameter2":""
+}
+},
+{
+"Key":7424,
+"Value":{
+"ID":7424,
+"Name":"功绩少于85000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"85000",
+"Parameter2":""
+}
+},
+{
+"Key":7425,
+"Value":{
+"ID":7425,
+"Name":"功绩少于90000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"90000",
+"Parameter2":""
+}
+},
+{
+"Key":7426,
+"Value":{
+"ID":7426,
+"Name":"功绩少于95000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"95000",
+"Parameter2":""
+}
+},
+{
+"Key":7427,
+"Value":{
+"ID":7427,
+"Name":"功绩少于100000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"100000",
+"Parameter2":""
+}
+},
+{
+"Key":7428,
+"Value":{
+"ID":7428,
+"Name":"功绩少于150000",
+"Kind":{
+"ID":315,
+"Name":"功绩少于若干"
+},
+"Parameter":"150000",
+"Parameter2":""
+}
+},
+{
 "Key":350,
 "Value":{
 "ID":350,
@@ -102670,7 +103424,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『长水校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 220 169",
+"ConditionTableString":"901 902 7303 803 158 220 169",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -102687,7 +103441,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -102703,7 +103457,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『屯骑校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 220 169",
+"ConditionTableString":"901 902 7303 803 158 220 169",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -102720,7 +103474,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -102736,7 +103490,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『步兵校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 200 169",
+"ConditionTableString":"901 902 7303 803 158 200 169",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -102753,7 +103507,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -102769,7 +103523,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『射声校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 210 169",
+"ConditionTableString":"901 902 7303 803 158 210 169",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -102786,7 +103540,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -102802,7 +103556,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『越骑校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 220 169",
+"ConditionTableString":"901 902 7303 803 158 220 169",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -102819,7 +103573,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -102835,7 +103589,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『折冲校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30902",
+"ConditionTableString":"901 902 7301 803 156 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -102852,7 +103606,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -102868,7 +103622,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『厉锋校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157 220",
+"ConditionTableString":"901 902 7301 803 157 220",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -102885,7 +103639,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -102901,7 +103655,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『讨虏校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157 30902",
+"ConditionTableString":"901 902 7301 803 157 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -102918,7 +103672,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -102934,7 +103688,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『讨寇校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157 30902",
+"ConditionTableString":"901 902 7301 803 157 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -102951,7 +103705,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -102967,7 +103721,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『平虏校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157 4090",
+"ConditionTableString":"901 902 7301 803 157 4090",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -102984,7 +103738,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103000,7 +103754,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『司盐校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 4120 30909 610",
+"ConditionTableString":"901 902 7301 803 156 4120 30909 610",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103017,7 +103771,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103033,7 +103787,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『怀义校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30902",
+"ConditionTableString":"901 902 7301 803 156 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103050,7 +103804,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103066,7 +103820,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『奉业校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30909",
+"ConditionTableString":"901 902 7301 803 156 30909",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103083,7 +103837,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103099,7 +103853,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『先登校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 150",
+"ConditionTableString":"901 902 7301 803 156 150",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103116,7 +103870,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103132,7 +103886,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『武锋校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157 150",
+"ConditionTableString":"901 902 7301 803 157 150",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103149,7 +103903,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103165,7 +103919,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『辅义校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 165",
+"ConditionTableString":"901 902 7301 803 156 165",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103182,7 +103936,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103198,7 +103952,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『奋武校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157 4120 169 30902",
+"ConditionTableString":"901 902 7301 803 157 4120 169 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103215,7 +103969,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103231,7 +103985,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『恭义校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157 195",
+"ConditionTableString":"901 902 7301 803 157 195",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103248,7 +104002,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103264,7 +104018,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『护军校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 158 165",
+"ConditionTableString":"901 902 7301 803 158 165",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103281,7 +104035,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103297,7 +104051,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『扬武校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 158 195",
+"ConditionTableString":"901 902 7301 803 158 195",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103314,7 +104068,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103330,7 +104084,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『承烈校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157 150",
+"ConditionTableString":"901 902 7301 803 157 150",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103347,7 +104101,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103363,7 +104117,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『正议校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157 166 4090",
+"ConditionTableString":"901 902 7301 803 157 166 4090",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103380,7 +104134,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103396,7 +104150,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『威越校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30902",
+"ConditionTableString":"901 902 7301 803 156 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103413,7 +104167,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103429,7 +104183,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『武卫校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 150",
+"ConditionTableString":"901 902 7301 803 156 150",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103446,7 +104200,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103462,7 +104216,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『副军校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 158 169",
+"ConditionTableString":"901 902 7301 803 158 169",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103479,7 +104233,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103495,7 +104249,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『荡寇校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 150",
+"ConditionTableString":"901 902 7301 803 156 150",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103512,7 +104266,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103528,7 +104282,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『建义校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 158 610",
+"ConditionTableString":"901 902 7301 803 158 610",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103545,7 +104299,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103561,7 +104315,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『建武校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 195",
+"ConditionTableString":"901 902 7301 803 156 195",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103578,7 +104332,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103594,7 +104348,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『灭贼校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 158 4120 150",
+"ConditionTableString":"901 902 7301 803 158 4120 150",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103611,7 +104365,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103627,7 +104381,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『奋威校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 158 30902",
+"ConditionTableString":"901 902 7301 803 158 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103644,7 +104398,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103660,7 +104414,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『昭义校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 158 4120 610",
+"ConditionTableString":"901 902 7301 803 158 4120 610",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103677,7 +104431,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103693,7 +104447,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『度支中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 180",
+"ConditionTableString":"901 902 7303 803 158 180",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103710,7 +104464,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103726,7 +104480,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『建义中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 160 169",
+"ConditionTableString":"901 902 7303 803 160 169",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103743,7 +104497,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103759,7 +104513,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『扬武中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 195 30902",
+"ConditionTableString":"901 902 7303 803 158 195 30902",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103776,7 +104530,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103792,7 +104546,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『司金中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 30910 4090 165",
+"ConditionTableString":"901 902 7303 803 158 30910 4090 165",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103809,7 +104563,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103825,7 +104579,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『宁国中郎将 』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 161 165 190",
+"ConditionTableString":"901 902 7303 803 161 165 190",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103842,7 +104596,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103858,7 +104612,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『奉义中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 150",
+"ConditionTableString":"901 902 7303 803 158 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103875,7 +104629,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103891,7 +104645,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『平虏中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 160 166 195",
+"ConditionTableString":"901 902 7303 803 160 166 195",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103908,7 +104662,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103924,7 +104678,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『武卫中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 30903",
+"ConditionTableString":"901 902 7303 803 158 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103941,7 +104695,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103957,7 +104711,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『笃信中郎将 』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 30903",
+"ConditionTableString":"901 902 7303 803 158 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -103974,7 +104728,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -103990,7 +104744,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『昭武中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 160 165",
+"ConditionTableString":"901 902 7303 803 160 165",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104007,7 +104761,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104023,7 +104777,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『绥南中郎将 』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 169 150",
+"ConditionTableString":"901 902 7303 803 157 169 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104040,7 +104794,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104056,7 +104810,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『司市中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 181 165",
+"ConditionTableString":"901 902 7303 803 158 181 165",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104073,7 +104827,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104089,7 +104843,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『司直中郎将 』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 170",
+"ConditionTableString":"901 902 7303 803 158 170",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104106,7 +104860,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104122,7 +104876,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『建忠中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 150",
+"ConditionTableString":"901 902 7303 803 158 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104139,7 +104893,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104155,7 +104909,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『督军中郎将 』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 160 195 4090",
+"ConditionTableString":"901 902 7303 803 160 195 4090",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104172,7 +104926,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104188,7 +104942,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『昭义中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 160 4120 610",
+"ConditionTableString":"901 902 7303 803 160 4120 610",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104205,7 +104959,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104221,7 +104975,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『定武中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 150 165",
+"ConditionTableString":"901 902 7303 803 158 150 165",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104238,7 +104992,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104254,7 +105008,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『安东中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 160 195 150",
+"ConditionTableString":"901 902 7303 803 160 195 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104271,7 +105025,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104287,7 +105041,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『抚军中郎将 』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 161 150 165",
+"ConditionTableString":"901 902 7303 803 161 150 165",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104304,7 +105058,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104320,7 +105074,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『建威中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 30903",
+"ConditionTableString":"901 902 7303 803 158 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104337,7 +105091,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104353,7 +105107,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『横野中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 150",
+"ConditionTableString":"901 902 7303 803 158 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104370,7 +105124,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104386,7 +105140,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『荡寇中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 150 195",
+"ConditionTableString":"901 902 7303 803 158 150 195",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104403,7 +105157,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104419,7 +105173,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『武锋中郎将 』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 160 150",
+"ConditionTableString":"901 902 7303 803 160 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104436,7 +105190,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104452,7 +105206,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『讨越中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 150 169",
+"ConditionTableString":"901 902 7303 803 158 150 169",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104469,7 +105223,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104485,7 +105239,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『征虏中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 150 169",
+"ConditionTableString":"901 902 7303 803 158 150 169",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104502,7 +105256,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104518,7 +105272,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『安军中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 160 4090 150",
+"ConditionTableString":"901 902 7303 803 160 4090 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104535,7 +105289,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104551,7 +105305,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『辅义中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 170",
+"ConditionTableString":"901 902 7303 803 158 170",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104568,7 +105322,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104584,7 +105338,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『威武中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 150 195",
+"ConditionTableString":"901 902 7303 803 158 150 195",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104601,7 +105355,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104617,7 +105371,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『昭信中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 150",
+"ConditionTableString":"901 902 7303 803 158 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104634,7 +105388,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104650,7 +105404,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『辅军中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 160 166 4091",
+"ConditionTableString":"901 902 7303 803 160 166 4091",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104667,7 +105421,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104683,7 +105437,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『奋武中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 150 169 4120",
+"ConditionTableString":"901 902 7303 803 158 150 169 4120",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104700,7 +105454,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104716,7 +105470,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『建武中郎将 』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 160 165 195",
+"ConditionTableString":"901 902 7303 803 160 165 195",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104733,7 +105487,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104749,7 +105503,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『奋武将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 150 165",
+"ConditionTableString":"901 902 7307 803 161 150 165",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104766,7 +105520,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104782,7 +105536,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『平虏将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 166 195 150",
+"ConditionTableString":"901 902 7307 803 161 166 195 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104799,7 +105553,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104815,7 +105569,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『建武将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 166 190",
+"ConditionTableString":"901 902 7307 803 161 166 190",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104832,7 +105586,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104848,7 +105602,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『奋威将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 151 169",
+"ConditionTableString":"901 902 7307 803 161 151 169",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104865,7 +105619,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104881,7 +105635,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『建忠将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 151",
+"ConditionTableString":"901 902 7307 803 161 151",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104898,7 +105652,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104914,7 +105668,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『建威将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 151 165",
+"ConditionTableString":"901 902 7307 803 161 151 165",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104931,7 +105685,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104947,7 +105701,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『辅国将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 162 165 30903",
+"ConditionTableString":"901 902 7307 803 162 165 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104964,7 +105718,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -104980,7 +105734,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『中坚将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 162 166",
+"ConditionTableString":"901 902 7307 803 162 166",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -104997,7 +105751,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105013,7 +105767,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『鹰扬将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105030,7 +105784,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105046,7 +105800,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『虎牙将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105063,7 +105817,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105079,7 +105833,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『建义将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 162 165",
+"ConditionTableString":"901 902 7307 803 162 165",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105096,7 +105850,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105112,7 +105866,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『安国将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 162 165 190",
+"ConditionTableString":"901 902 7307 803 162 165 190",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105129,7 +105883,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105145,7 +105899,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『横野将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105162,7 +105916,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105178,7 +105932,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『捕虏将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 151",
+"ConditionTableString":"901 902 7307 803 161 151",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105195,7 +105949,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105211,7 +105965,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『讨逆将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 151 165",
+"ConditionTableString":"901 902 7307 803 161 151 165",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105228,7 +105982,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105244,7 +105998,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『兴业将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 165 181",
+"ConditionTableString":"901 902 7307 803 161 165 181",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105261,7 +106015,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105277,7 +106031,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『副军将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903 166",
+"ConditionTableString":"901 902 7307 803 161 30903 166",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105294,7 +106048,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105310,7 +106064,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『楼船将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903 230",
+"ConditionTableString":"901 902 7307 803 161 30903 230",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105327,7 +106081,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105343,7 +106097,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『辅汉将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 152",
+"ConditionTableString":"901 902 7307 803 161 152",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105360,7 +106114,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105376,7 +106130,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『辅军将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 162 171",
+"ConditionTableString":"901 902 7307 803 162 171",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105393,7 +106147,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105409,7 +106163,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『抚军将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 162 165 195",
+"ConditionTableString":"901 902 7307 803 162 165 195",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105426,7 +106180,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105442,7 +106196,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『奉义将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 151 169",
+"ConditionTableString":"901 902 7307 803 161 151 169",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105459,7 +106213,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105475,7 +106229,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『横海将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 151 230",
+"ConditionTableString":"901 902 7307 803 161 151 230",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105492,7 +106246,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105508,7 +106262,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『辅义将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 171 4090",
+"ConditionTableString":"901 902 7307 803 161 171 4090",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105525,7 +106279,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105541,7 +106295,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『绥南将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 151 169",
+"ConditionTableString":"901 902 7307 803 161 151 169",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105558,7 +106312,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105574,7 +106328,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『折冲将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 152",
+"ConditionTableString":"901 902 7307 803 161 152",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105591,7 +106345,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105607,7 +106361,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『灭寇将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 152",
+"ConditionTableString":"901 902 7307 803 161 152",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105624,7 +106378,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105640,7 +106394,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『平难将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 165 4120",
+"ConditionTableString":"901 902 7307 803 161 165 4120",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105657,7 +106411,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105673,7 +106427,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『轻车将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 165 195",
+"ConditionTableString":"901 902 7307 803 161 165 195",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105690,7 +106444,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105706,7 +106460,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『牙门将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 162 152 166",
+"ConditionTableString":"901 902 7307 803 162 152 166",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105723,7 +106477,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105739,7 +106493,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『大司马』。",
 "Combat":true,
-"ConditionTableString":"901 902 328 803 30906 174 4122 192",
+"ConditionTableString":"901 902 7328 803 30906 174 4122 192",
 "FactionConditionsString":"3047",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105756,7 +106510,7 @@
 "SuccessRate":100
 },
 "Level":10,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7428",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105772,7 +106526,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『大将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 328 803 30906 151 4121 192",
+"ConditionTableString":"901 902 7328 803 30906 151 4121 192",
 "FactionConditionsString":"3047",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105789,7 +106543,7 @@
 "SuccessRate":100
 },
 "Level":10,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7428",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105805,7 +106559,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『骠骑大将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 327 803 30906 152 553",
+"ConditionTableString":"901 902 7327 803 30906 152 553",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105822,7 +106576,7 @@
 "SuccessRate":100
 },
 "Level":9,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7427",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105838,7 +106592,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『车骑大将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 327 803 30906 152 553",
+"ConditionTableString":"901 902 7327 803 30906 152 553",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105855,7 +106609,7 @@
 "SuccessRate":100
 },
 "Level":9,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7427",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105871,7 +106625,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『卫将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 327 803 30906 151 551",
+"ConditionTableString":"901 902 7327 803 30906 151 551",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105888,7 +106642,7 @@
 "SuccessRate":100
 },
 "Level":9,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7427",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105904,7 +106658,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『抚军大将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 327 803 30906 151 551",
+"ConditionTableString":"901 902 7327 803 30906 151 551",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105921,7 +106675,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7427",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105937,7 +106691,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『中军大将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 327 803 30906 151 551",
+"ConditionTableString":"901 902 7327 803 30906 151 551",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105954,7 +106708,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7427",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -105970,7 +106724,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『辅国将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 325 803 164 172 552",
+"ConditionTableString":"901 902 7325 803 164 172 552",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -105987,7 +106741,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7425",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106003,7 +106757,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『镇国将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 325 803 164 172 552",
+"ConditionTableString":"901 902 7325 803 164 172 552",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106020,7 +106774,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7425",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106036,7 +106790,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『镇军将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 325 803 164 172 552",
+"ConditionTableString":"901 902 7325 803 164 172 552",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106053,7 +106807,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7425",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106069,7 +106823,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『征西大将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 325 803 164 151 553",
+"ConditionTableString":"901 902 7325 803 164 151 553",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106086,7 +106840,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7425",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106102,7 +106856,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『征南大将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 325 803 164 151 553",
+"ConditionTableString":"901 902 7325 803 164 151 553",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106119,7 +106873,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7425",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106135,7 +106889,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『征东大将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 325 803 164 151 553",
+"ConditionTableString":"901 902 7325 803 164 151 553",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106152,7 +106906,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7425",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106168,7 +106922,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『征北大将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 325 803 164 151 553",
+"ConditionTableString":"901 902 7325 803 164 151 553",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106185,7 +106939,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7425",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106201,7 +106955,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『前将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 319 803 163 154 554 220 200",
+"ConditionTableString":"901 902 7319 803 163 154 554 220 200",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106218,7 +106972,7 @@
 "SuccessRate":100
 },
 "Level":7,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7419",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106234,7 +106988,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『后将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 319 803 163 154 554 220 200",
+"ConditionTableString":"901 902 7319 803 163 154 554 220 200",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106251,7 +107005,7 @@
 "SuccessRate":100
 },
 "Level":7,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7419",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106267,7 +107021,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『左将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 319 803 163 154 554 220 200",
+"ConditionTableString":"901 902 7319 803 163 154 554 220 200",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106284,7 +107038,7 @@
 "SuccessRate":100
 },
 "Level":7,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7419",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106300,7 +107054,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『右将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 319 803 163 154 554 220 200",
+"ConditionTableString":"901 902 7319 803 163 154 554 220 200",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106317,7 +107071,7 @@
 "SuccessRate":100
 },
 "Level":7,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7419",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106333,7 +107087,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『征西将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 313 803 163 151 550 210",
+"ConditionTableString":"901 902 7313 803 163 151 550 210",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106350,7 +107104,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106366,7 +107120,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『征南将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 313 803 163 151 550 220",
+"ConditionTableString":"901 902 7313 803 163 151 550 220",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106383,7 +107137,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106399,7 +107153,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『征东将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 313 803 163 151 550 210",
+"ConditionTableString":"901 902 7313 803 163 151 550 210",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106416,7 +107170,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106432,7 +107186,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『征北将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 313 803 163 151 550 200",
+"ConditionTableString":"901 902 7313 803 163 151 550 200",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106449,7 +107203,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106465,7 +107219,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『镇西将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 313 803 163 151 550 220",
+"ConditionTableString":"901 902 7313 803 163 151 550 220",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106482,7 +107236,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106498,7 +107252,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『镇南将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 313 803 163 151 550 220",
+"ConditionTableString":"901 902 7313 803 163 151 550 220",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106515,7 +107269,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106531,7 +107285,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『镇东将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 313 803 163 151 550 200",
+"ConditionTableString":"901 902 7313 803 163 151 550 200",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106548,7 +107302,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106564,7 +107318,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『镇北将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 313 803 163 151 550 220",
+"ConditionTableString":"901 902 7313 803 163 151 550 220",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106581,7 +107335,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106597,7 +107351,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『安西将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 310 803 162 153 550",
+"ConditionTableString":"901 902 7310 803 162 153 550",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106614,7 +107368,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106630,7 +107384,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『安南将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 310 803 162 153 550",
+"ConditionTableString":"901 902 7310 803 162 153 550",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106647,7 +107401,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106663,7 +107417,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『安东将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 310 803 162 153 550",
+"ConditionTableString":"901 902 7310 803 162 153 550",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106680,7 +107434,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106696,7 +107450,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『安北将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 310 803 162 153 550",
+"ConditionTableString":"901 902 7310 803 162 153 550",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106713,7 +107467,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106729,7 +107483,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『平西将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 310 803 162 153 550",
+"ConditionTableString":"901 902 7310 803 162 153 550",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106746,7 +107500,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106762,7 +107516,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『平南将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 310 803 162 153 550",
+"ConditionTableString":"901 902 7310 803 162 153 550",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106779,7 +107533,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106795,7 +107549,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『平东将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 310 803 162 153 550",
+"ConditionTableString":"901 902 7310 803 162 153 550",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106812,7 +107566,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106828,7 +107582,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『平北将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 310 803 162 153 550",
+"ConditionTableString":"901 902 7310 803 162 153 550",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106845,7 +107599,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106861,7 +107615,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『骁骑将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903 220",
+"ConditionTableString":"901 902 7307 803 161 30903 220",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106878,7 +107632,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106894,7 +107648,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『领军将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 172",
+"ConditionTableString":"901 902 7307 803 161 172",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106911,7 +107665,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106927,7 +107681,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『军师将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 173 30914",
+"ConditionTableString":"901 902 7307 803 161 173 30914",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106944,7 +107698,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106960,7 +107714,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『都护将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 162 4121",
+"ConditionTableString":"901 902 7307 803 162 4121",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -106977,7 +107731,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -106993,7 +107747,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『越骑将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903 220",
+"ConditionTableString":"901 902 7307 803 161 30903 220",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107010,7 +107764,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107026,7 +107780,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『护军将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 162 4121",
+"ConditionTableString":"901 902 7307 803 162 4121",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107043,7 +107797,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107059,7 +107813,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『伏波将军 』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107076,7 +107830,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107092,7 +107846,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『厉锋将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107109,7 +107863,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107125,7 +107879,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『武卫将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107142,7 +107896,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107158,7 +107912,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『荡寇将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107175,7 +107929,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107191,7 +107945,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『扬武将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107208,7 +107962,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107224,7 +107978,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『翊军将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903 4122",
+"ConditionTableString":"901 902 7307 803 161 30903 4122",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107241,7 +107995,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107257,7 +108011,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『镇远将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903 170",
+"ConditionTableString":"901 902 7307 803 161 30903 170",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107274,7 +108028,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107290,7 +108044,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『奉义将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107307,7 +108061,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107323,7 +108077,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『横江将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903 210",
+"ConditionTableString":"901 902 7307 803 161 30903 210",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107340,7 +108094,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107356,7 +108110,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『讨逆将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107373,7 +108127,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107389,7 +108143,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『征虏将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107406,7 +108160,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107422,7 +108176,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『讨虏将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107439,7 +108193,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107455,7 +108209,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『游击将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107472,7 +108226,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107488,7 +108242,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『讨寇将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 307 803 161 30903",
+"ConditionTableString":"901 902 7307 803 161 30903",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107505,7 +108259,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107521,7 +108275,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『偏将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 150",
+"ConditionTableString":"901 902 7303 803 157 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107538,7 +108292,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107554,7 +108308,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『裨将军』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 150",
+"ConditionTableString":"901 902 7303 803 157 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107571,7 +108325,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107587,7 +108341,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『军祭酒』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 173 30914",
+"ConditionTableString":"901 902 7303 803 157 173 30914",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107604,7 +108358,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107620,7 +108374,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『五官中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 170",
+"ConditionTableString":"901 902 7303 803 157 170",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107637,7 +108391,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107653,7 +108407,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『虎卉中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 150",
+"ConditionTableString":"901 902 7303 803 157 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107670,7 +108424,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107686,7 +108440,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『羽林中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 150",
+"ConditionTableString":"901 902 7303 803 157 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107703,7 +108457,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107719,7 +108473,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『军师中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 172 30914",
+"ConditionTableString":"901 902 7303 803 157 172 30914",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107736,7 +108490,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107752,7 +108506,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『武略中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 150",
+"ConditionTableString":"901 902 7303 803 157 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107769,7 +108523,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107785,7 +108539,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『折冲中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 150",
+"ConditionTableString":"901 902 7303 803 157 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107802,7 +108556,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107818,7 +108572,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『先登中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 150 4030",
+"ConditionTableString":"901 902 7303 803 157 150 4030",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107835,7 +108589,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107851,7 +108605,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『立武中郎将 』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158",
+"ConditionTableString":"901 902 7303 803 158",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107868,7 +108622,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107884,7 +108638,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『立节中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158",
+"ConditionTableString":"901 902 7303 803 158",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107901,7 +108655,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107917,7 +108671,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『平难中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 30910",
+"ConditionTableString":"901 902 7303 803 158 30910",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107934,7 +108688,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107950,7 +108704,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『镇民中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 30910 195",
+"ConditionTableString":"901 902 7303 803 157 30910 195",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -107967,7 +108721,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -107983,7 +108737,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『振威中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 150",
+"ConditionTableString":"901 902 7303 803 157 150",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108000,7 +108754,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108016,7 +108770,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『司律中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 170 4092",
+"ConditionTableString":"901 902 7303 803 157 170 4092",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108033,7 +108787,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108049,7 +108803,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『奉车中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 190",
+"ConditionTableString":"901 902 7303 803 157 190",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108066,7 +108820,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108082,7 +108836,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『掌军中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 157 170 4121",
+"ConditionTableString":"901 902 7303 803 157 170 4121",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108099,7 +108853,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108115,7 +108869,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『副军中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158 4120",
+"ConditionTableString":"901 902 7303 803 158 4120",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108132,7 +108886,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108148,7 +108902,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『威寇中郎将』。",
 "Combat":true,
-"ConditionTableString":"901 902 303 803 158",
+"ConditionTableString":"901 902 7303 803 158",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108165,7 +108919,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108181,7 +108935,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『典军校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30902",
+"ConditionTableString":"901 902 7301 803 156 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108198,7 +108952,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108214,7 +108968,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『骁骑校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30902 220",
+"ConditionTableString":"901 902 7301 803 156 30902 220",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108231,7 +108985,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108247,7 +109001,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『督军校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157 610 195",
+"ConditionTableString":"901 902 7301 803 157 610 195",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108264,7 +109018,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108280,7 +109034,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『军议校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 166 4091",
+"ConditionTableString":"901 902 7301 803 156 166 4091",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108297,7 +109051,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108313,7 +109067,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『儒林校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 166 4090",
+"ConditionTableString":"901 902 7301 803 156 166 4090",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108330,7 +109084,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108346,7 +109100,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『赞军校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 166 30912",
+"ConditionTableString":"901 902 7301 803 156 166 30912",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108363,7 +109117,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108379,7 +109133,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『破贼校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30902",
+"ConditionTableString":"901 902 7301 803 156 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108396,7 +109150,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108412,7 +109166,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『参军校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 166 4090",
+"ConditionTableString":"901 902 7301 803 156 166 4090",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108429,7 +109183,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108445,7 +109199,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『中军校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157 165 4120",
+"ConditionTableString":"901 902 7301 803 157 165 4120",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108462,7 +109216,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108478,7 +109232,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『行军校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157",
+"ConditionTableString":"901 902 7301 803 157",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108495,7 +109249,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108511,7 +109265,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『监军校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157 169",
+"ConditionTableString":"901 902 7301 803 157 169",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108528,7 +109282,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108544,7 +109298,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『鹰扬校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30902",
+"ConditionTableString":"901 902 7301 803 156 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108561,7 +109315,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108577,7 +109331,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『建忠校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30902",
+"ConditionTableString":"901 902 7301 803 156 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108594,7 +109348,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108610,7 +109364,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『宣信校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30902",
+"ConditionTableString":"901 902 7301 803 156 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108627,7 +109381,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108643,7 +109397,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『典学校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 157 169",
+"ConditionTableString":"901 902 7301 803 157 169",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108660,7 +109414,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108676,7 +109430,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『昭信校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30902",
+"ConditionTableString":"901 902 7301 803 156 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108693,7 +109447,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108709,7 +109463,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『定威校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30902",
+"ConditionTableString":"901 902 7301 803 156 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108726,7 +109480,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108742,7 +109496,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『忠义校尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30902",
+"ConditionTableString":"901 902 7301 803 156 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108759,7 +109513,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108775,7 +109529,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『武猛校尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 30902",
+"ConditionTableString":"901 902 7301 803 156 30902",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108792,7 +109546,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108808,7 +109562,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『军司马』。",
 "Combat":true,
-"ConditionTableString":"901 902 301 803 156 166 4090",
+"ConditionTableString":"901 902 7301 803 156 166 4090",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108825,7 +109579,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108841,7 +109595,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『扬武都尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 149",
+"ConditionTableString":"901 902 7300 803 155 149",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108858,7 +109612,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108874,7 +109628,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『绥集都尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 30908",
+"ConditionTableString":"901 902 7300 803 155 30908",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108891,7 +109645,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108907,7 +109661,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『陷陈都尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 149",
+"ConditionTableString":"901 902 7300 803 155 149",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108924,7 +109678,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108940,7 +109694,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『司金都尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 30908",
+"ConditionTableString":"901 902 7300 803 155 30908",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108957,7 +109711,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -108973,7 +109727,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『典曹都尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 30908",
+"ConditionTableString":"901 902 7300 803 155 30908",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -108990,7 +109744,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109006,7 +109760,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『绥戎都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 195",
+"ConditionTableString":"901 902 7300 803 155 195",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109023,7 +109777,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109039,7 +109793,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『奉正都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 149",
+"ConditionTableString":"901 902 7300 803 155 149",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109056,7 +109810,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109072,7 +109826,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『立信都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 195",
+"ConditionTableString":"901 902 7300 803 155 195",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109089,7 +109843,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109105,7 +109859,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『武卫都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 149",
+"ConditionTableString":"901 902 7300 803 155 149",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109122,7 +109876,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109138,7 +109892,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『右弼都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 156",
+"ConditionTableString":"901 902 7300 803 156",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109155,7 +109909,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109171,7 +109925,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『辅义都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 149",
+"ConditionTableString":"901 902 7300 803 155 149",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109188,7 +109942,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109204,7 +109958,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『辅正都尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 156",
+"ConditionTableString":"901 902 7300 803 156",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109221,7 +109975,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109237,7 +109991,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『兴业都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 30908",
+"ConditionTableString":"901 902 7300 803 155 30908",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109254,7 +110008,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109270,7 +110024,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『翼正都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 156",
+"ConditionTableString":"901 902 7300 803 156",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109287,7 +110041,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109303,7 +110057,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『破贼都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 149",
+"ConditionTableString":"901 902 7300 803 155 149",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109320,7 +110074,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109336,7 +110090,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『承烈都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 149",
+"ConditionTableString":"901 902 7300 803 155 149",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109353,7 +110107,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109369,7 +110123,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『建忠都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 149",
+"ConditionTableString":"901 902 7300 803 155 149",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109386,7 +110140,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109402,7 +110156,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『立义都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 149",
+"ConditionTableString":"901 902 7300 803 155 149",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109419,7 +110173,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109435,7 +110189,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『建武都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 156",
+"ConditionTableString":"901 902 7300 803 156",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109452,7 +110206,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109468,7 +110222,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『左辅都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 165",
+"ConditionTableString":"901 902 7300 803 155 165",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109485,7 +110239,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109501,7 +110255,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『安民都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 30908",
+"ConditionTableString":"901 902 7300 803 155 30908",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109518,7 +110272,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109534,7 +110288,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军文武兼济，雄才大略，今封为『协律都尉 』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 155 165",
+"ConditionTableString":"901 902 7300 803 155 165",
 "FactionConditionsString":"3041",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109551,7 +110305,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109567,7 +110321,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『都尉』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 30905",
+"ConditionTableString":"901 902 7300 803 30905",
 "FactionConditionsString":"3040",
 "FactionLimit":10,
 "GenerateConditionsString":"900",
@@ -109584,7 +110338,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109600,7 +110354,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『散骑』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 30905 220",
+"ConditionTableString":"901 902 7300 803 30905 220",
 "FactionConditionsString":"3040",
 "FactionLimit":10,
 "GenerateConditionsString":"900",
@@ -109617,7 +110371,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109633,7 +110387,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0将军躬先士卒，勇猛神武，今封为『卫士』。",
 "Combat":true,
-"ConditionTableString":"901 902 300 803 30900",
+"ConditionTableString":"901 902 7300 803 30900",
 "FactionConditionsString":"3040",
 "FactionLimit":10,
 "GenerateConditionsString":"900",
@@ -109650,7 +110404,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109666,7 +110420,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太尉』。",
 "Combat":false,
-"ConditionTableString":"901 902 327 803 184 174 162 4093 610",
+"ConditionTableString":"901 902 7327 803 184 174 162 4093 610",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109683,7 +110437,7 @@
 "SuccessRate":100
 },
 "Level":9,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7427",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109699,7 +110453,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『司徒』。",
 "Combat":false,
-"ConditionTableString":"901 902 327 803 184 174 191 4122",
+"ConditionTableString":"901 902 7327 803 184 174 191 4122",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109716,7 +110470,7 @@
 "SuccessRate":100
 },
 "Level":9,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7427",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109732,7 +110486,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『司空』。",
 "Combat":false,
-"ConditionTableString":"901 902 327 803 184 174 191 4122",
+"ConditionTableString":"901 902 7327 803 184 174 191 4122",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109749,7 +110503,7 @@
 "SuccessRate":100
 },
 "Level":9,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7427",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109765,7 +110519,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太常』。",
 "Combat":false,
-"ConditionTableString":"901 902 322 803 183 172",
+"ConditionTableString":"901 902 7322 803 183 172",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109782,7 +110536,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7422",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109798,7 +110552,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『光禄勋』。",
 "Combat":false,
-"ConditionTableString":"901 902 322 803 183 172 30913 4122",
+"ConditionTableString":"901 902 7322 803 183 172 30913 4122",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109815,7 +110569,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7422",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109831,7 +110585,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『卫尉』。",
 "Combat":false,
-"ConditionTableString":"901 902 322 803 183 172 160",
+"ConditionTableString":"901 902 7322 803 183 172 160",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109848,7 +110602,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7422",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109864,7 +110618,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太仆』。",
 "Combat":false,
-"ConditionTableString":"901 902 322 803 183 172",
+"ConditionTableString":"901 902 7322 803 183 172",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109881,7 +110635,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7422",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109897,7 +110651,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『廷尉』。",
 "Combat":false,
-"ConditionTableString":"901 902 322 803 183 172 30913",
+"ConditionTableString":"901 902 7322 803 183 172 30913",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109914,7 +110668,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7422",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109930,7 +110684,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『大鸿胪』。",
 "Combat":false,
-"ConditionTableString":"901 902 322 803 183 172 30913 4122",
+"ConditionTableString":"901 902 7322 803 183 172 30913 4122",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109947,7 +110701,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7422",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109963,7 +110717,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『宗正』。",
 "Combat":false,
-"ConditionTableString":"901 902 322 803 183 172",
+"ConditionTableString":"901 902 7322 803 183 172",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -109980,7 +110734,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7422",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -109996,7 +110750,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『大司农』。",
 "Combat":false,
-"ConditionTableString":"901 902 322 803 183 172",
+"ConditionTableString":"901 902 7322 803 183 172",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110013,7 +110767,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7422",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110029,7 +110783,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『少府』。",
 "Combat":false,
-"ConditionTableString":"901 902 322 803 183 172",
+"ConditionTableString":"901 902 7322 803 183 172",
 "FactionConditionsString":"3045",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110046,7 +110800,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7422",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110062,7 +110816,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『州牧』。",
 "Combat":false,
-"ConditionTableString":"901 902 322 803 183 554 161 191",
+"ConditionTableString":"901 902 7322 803 183 554 161 191",
 "FactionConditionsString":"3045",
 "FactionLimit":14,
 "GenerateConditionsString":"900",
@@ -110079,7 +110833,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7422",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110095,7 +110849,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『京兆尹』。",
 "Combat":false,
-"ConditionTableString":"901 902 317 803 182 170 195",
+"ConditionTableString":"901 902 7317 803 182 170 195",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110112,7 +110866,7 @@
 "SuccessRate":100
 },
 "Level":7,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7417",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110128,7 +110882,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『左冯翊』。",
 "Combat":false,
-"ConditionTableString":"901 902 317 803 182 170 195",
+"ConditionTableString":"901 902 7317 803 182 170 195",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110145,7 +110899,7 @@
 "SuccessRate":100
 },
 "Level":7,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7417",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110161,7 +110915,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『右扶风』。",
 "Combat":false,
-"ConditionTableString":"901 902 317 803 182 170 195",
+"ConditionTableString":"901 902 7317 803 182 170 195",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110178,7 +110932,7 @@
 "SuccessRate":100
 },
 "Level":7,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7417",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110194,7 +110948,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『侍中』。",
 "Combat":false,
-"ConditionTableString":"901 902 317 803 182 170",
+"ConditionTableString":"901 902 7317 803 182 170",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110211,7 +110965,7 @@
 "SuccessRate":100
 },
 "Level":7,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7417",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110227,7 +110981,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『侍郎』。",
 "Combat":false,
-"ConditionTableString":"901 902 317 803 182 170",
+"ConditionTableString":"901 902 7317 803 182 170",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110244,7 +110998,7 @@
 "SuccessRate":100
 },
 "Level":7,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7417",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110260,7 +111014,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『尚书令』。",
 "Combat":false,
-"ConditionTableString":"901 902 317 803 182 170",
+"ConditionTableString":"901 902 7317 803 182 170",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110277,7 +111031,7 @@
 "SuccessRate":100
 },
 "Level":7,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7417",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110293,7 +111047,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『中书令』。",
 "Combat":false,
-"ConditionTableString":"901 902 317 803 182 170",
+"ConditionTableString":"901 902 7317 803 182 170",
 "FactionConditionsString":"3044",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110310,7 +111064,7 @@
 "SuccessRate":100
 },
 "Level":7,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7417",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110326,7 +111080,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『卫尉丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 313 803 181 157 610 170",
+"ConditionTableString":"901 902 7313 803 181 157 610 170",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110343,7 +111097,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110359,7 +111113,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太常丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 313 803 181 170 610 4092",
+"ConditionTableString":"901 902 7313 803 181 170 610 4092",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110376,7 +111130,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110392,7 +111146,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『宗正丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 313 803 181",
+"ConditionTableString":"901 902 7313 803 181",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110409,7 +111163,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110425,7 +111179,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太仆丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 313 803 181",
+"ConditionTableString":"901 902 7313 803 181",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110442,7 +111196,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110458,7 +111212,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『少府丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 313 803 181",
+"ConditionTableString":"901 902 7313 803 181",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110475,7 +111229,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110491,7 +111245,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『光禄丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 313 803 181 171 610 4092",
+"ConditionTableString":"901 902 7313 803 181 171 610 4092",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110508,7 +111262,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110524,7 +111278,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『司农丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 313 803 181",
+"ConditionTableString":"901 902 7313 803 181",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110541,7 +111295,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110557,7 +111311,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『廷尉丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 313 803 181 171 157 610",
+"ConditionTableString":"901 902 7313 803 181 171 157 610",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110574,7 +111328,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110590,7 +111344,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『鸿胪丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 313 803 181 171 610 4092",
+"ConditionTableString":"901 902 7313 803 181 171 610 4092",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110607,7 +111361,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7413",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110623,7 +111377,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『光禄大夫』。",
 "Combat":false,
-"ConditionTableString":"901 902 310 803 180 171 610 30912",
+"ConditionTableString":"901 902 7310 803 180 171 610 30912",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110640,7 +111394,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110656,7 +111410,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『御史中丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 310 803 180 171 610 30912",
+"ConditionTableString":"901 902 7310 803 180 171 610 30912",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110673,7 +111427,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110689,7 +111443,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『谏议大夫』。",
 "Combat":false,
-"ConditionTableString":"901 902 310 803 180 171 610 30912 4121",
+"ConditionTableString":"901 902 7310 803 180 171 610 30912 4121",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110706,7 +111460,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110722,7 +111476,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『中散大夫』。",
 "Combat":false,
-"ConditionTableString":"901 902 310 803 180 171 610 30912",
+"ConditionTableString":"901 902 7310 803 180 171 610 30912",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110739,7 +111493,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110755,7 +111509,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『御史大夫』。",
 "Combat":false,
-"ConditionTableString":"901 902 310 803 180 171 610 30912 4121",
+"ConditionTableString":"901 902 7310 803 180 171 610 30912 4121",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110772,7 +111526,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110788,7 +111542,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『东观令』。",
 "Combat":false,
-"ConditionTableString":"901 902 307 803 30910 170",
+"ConditionTableString":"901 902 7307 803 30910 170",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110805,7 +111559,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110821,7 +111575,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『武库令』。",
 "Combat":false,
-"ConditionTableString":"901 902 307 803 30910 156 240 4030",
+"ConditionTableString":"901 902 7307 803 30910 156 240 4030",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110838,7 +111592,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110854,7 +111608,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太宰令』。",
 "Combat":false,
-"ConditionTableString":"901 902 307 803 30910",
+"ConditionTableString":"901 902 7307 803 30910",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110871,7 +111625,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110887,7 +111641,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太祝令』。",
 "Combat":false,
-"ConditionTableString":"901 902 307 803 30910 4120",
+"ConditionTableString":"901 902 7307 803 30910 4120",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110904,7 +111658,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110920,7 +111674,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太医令』。",
 "Combat":false,
-"ConditionTableString":"901 902 307 803 30910 170 4092 610",
+"ConditionTableString":"901 902 7307 803 30910 170 4092 610",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110937,7 +111691,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110953,7 +111707,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太乐令』。",
 "Combat":false,
-"ConditionTableString":"901 902 307 803 30910 170 4092 610",
+"ConditionTableString":"901 902 7307 803 30910 170 4092 610",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -110970,7 +111724,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -110986,7 +111740,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太卜令』。",
 "Combat":false,
-"ConditionTableString":"901 902 307 803 30910",
+"ConditionTableString":"901 902 7307 803 30910",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111003,7 +111757,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111019,7 +111773,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太史令』。",
 "Combat":false,
-"ConditionTableString":"901 902 307 803 30910",
+"ConditionTableString":"901 902 7307 803 30910",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111036,7 +111790,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111052,7 +111806,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『符节令』。",
 "Combat":false,
-"ConditionTableString":"901 902 307 803 30910 170 4092",
+"ConditionTableString":"901 902 7307 803 30910 170 4092",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111069,7 +111823,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111085,7 +111839,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『左长史』。",
 "Combat":false,
-"ConditionTableString":"901 902 303 803 179 610 166 4091",
+"ConditionTableString":"901 902 7303 803 179 610 166 4091",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111102,7 +111856,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111118,7 +111872,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『右长史』。",
 "Combat":false,
-"ConditionTableString":"901 902 303 803 179 610 166 4091",
+"ConditionTableString":"901 902 7303 803 179 610 166 4091",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111135,7 +111889,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111151,7 +111905,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『侍御史』。",
 "Combat":false,
-"ConditionTableString":"901 902 303 803 179 610 166 4091",
+"ConditionTableString":"901 902 7303 803 179 610 166 4091",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111168,7 +111922,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111184,7 +111938,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『丞相史』。",
 "Combat":false,
-"ConditionTableString":"901 902 303 803 179",
+"ConditionTableString":"901 902 7303 803 179",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111201,7 +111955,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111217,7 +111971,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『廷尉史』。",
 "Combat":false,
-"ConditionTableString":"901 902 303 803 179 155",
+"ConditionTableString":"901 902 7303 803 179 155",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111234,7 +111988,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111250,7 +112004,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『兵曹掾』。",
 "Combat":false,
-"ConditionTableString":"901 902 303 803 179 155 240",
+"ConditionTableString":"901 902 7303 803 179 155 240",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111267,7 +112021,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111283,7 +112037,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『东曹掾』。",
 "Combat":false,
-"ConditionTableString":"901 902 303 803 179 610 166 30912",
+"ConditionTableString":"901 902 7303 803 179 610 166 30912",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111300,7 +112054,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111316,7 +112070,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『西曹掾』。",
 "Combat":false,
-"ConditionTableString":"901 902 303 803 179 610 166 30912",
+"ConditionTableString":"901 902 7303 803 179 610 166 30912",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111333,7 +112087,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111349,7 +112103,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『文学掾』。",
 "Combat":false,
-"ConditionTableString":"901 902 303 803 179 610 170",
+"ConditionTableString":"901 902 7303 803 179 610 170",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111366,7 +112120,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111382,7 +112136,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太常掾』。",
 "Combat":false,
-"ConditionTableString":"901 902 303 803 179 610 166 4091",
+"ConditionTableString":"901 902 7303 803 179 610 166 4091",
 "FactionConditionsString":"3043",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111399,7 +112153,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111415,7 +112169,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太史丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 803 30909",
+"ConditionTableString":"901 902 7301 803 30909",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111432,7 +112186,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111448,7 +112202,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太乐丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 803 30909 610 4090 165",
+"ConditionTableString":"901 902 7301 803 30909 610 4090 165",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111465,7 +112219,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111481,7 +112235,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太祝丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 803 30909",
+"ConditionTableString":"901 902 7301 803 30909",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111498,7 +112252,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111514,7 +112268,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太仆丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 803 30909",
+"ConditionTableString":"901 902 7301 803 30909",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111531,7 +112285,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111547,7 +112301,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『太医丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 803 30909 610 4090 165",
+"ConditionTableString":"901 902 7301 803 30909 610 4090 165",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111564,7 +112318,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111580,7 +112334,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『尚书丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 803 30909",
+"ConditionTableString":"901 902 7301 803 30909",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111597,7 +112351,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111613,7 +112367,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『中书丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 803 30909",
+"ConditionTableString":"901 902 7301 803 30909",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111630,7 +112384,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111646,7 +112400,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『符节丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 803 30909 155",
+"ConditionTableString":"901 902 7301 803 30909 155",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111663,7 +112417,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111679,7 +112433,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『明堂丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 803 30909 610 4090 165",
+"ConditionTableString":"901 902 7301 803 30909 610 4090 165",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111696,7 +112450,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111712,7 +112466,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『灵台丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 803 30909 165",
+"ConditionTableString":"901 902 7301 803 30909 165",
 "FactionConditionsString":"3042",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -111729,7 +112483,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111745,7 +112499,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『县尉』。",
 "Combat":false,
-"ConditionTableString":"901 902 300 803 30908",
+"ConditionTableString":"901 902 7300 803 30908",
 "FactionConditionsString":"3041",
 "FactionLimit":5,
 "GenerateConditionsString":"900",
@@ -111762,7 +112516,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111778,7 +112532,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『县丞』。",
 "Combat":false,
-"ConditionTableString":"901 902 300 803 30908",
+"ConditionTableString":"901 902 7300 803 30908",
 "FactionConditionsString":"3041",
 "FactionLimit":5,
 "GenerateConditionsString":"900",
@@ -111795,7 +112549,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111811,7 +112565,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『县长』。",
 "Combat":false,
-"ConditionTableString":"901 902 300 803 30908",
+"ConditionTableString":"901 902 7300 803 30908",
 "FactionConditionsString":"3041",
 "FactionLimit":5,
 "GenerateConditionsString":"900",
@@ -111828,7 +112582,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111844,7 +112598,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『县令』。",
 "Combat":false,
-"ConditionTableString":"901 902 300 803 30908",
+"ConditionTableString":"901 902 7300 803 30908",
 "FactionConditionsString":"3041",
 "FactionLimit":5,
 "GenerateConditionsString":"900",
@@ -111861,7 +112615,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111877,7 +112631,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『钟官』。",
 "Combat":false,
-"ConditionTableString":"901 902 300 803 30907",
+"ConditionTableString":"901 902 7300 803 30907",
 "FactionConditionsString":"3040",
 "FactionLimit":5,
 "GenerateConditionsString":"900",
@@ -111894,7 +112648,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111910,7 +112664,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『导官』。",
 "Combat":false,
-"ConditionTableString":"901 902 300 803 30907",
+"ConditionTableString":"901 902 7300 803 30907",
 "FactionConditionsString":"3040",
 "FactionLimit":5,
 "GenerateConditionsString":"900",
@@ -111927,7 +112681,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111943,7 +112697,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『主事』。",
 "Combat":false,
-"ConditionTableString":"901 902 300 803 30907",
+"ConditionTableString":"901 902 7300 803 30907",
 "FactionConditionsString":"3040",
 "FactionLimit":5,
 "GenerateConditionsString":"900",
@@ -111960,7 +112714,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -111976,7 +112730,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『御府』。",
 "Combat":false,
-"ConditionTableString":"901 902 300 803 30907",
+"ConditionTableString":"901 902 7300 803 30907",
 "FactionConditionsString":"3040",
 "FactionLimit":5,
 "GenerateConditionsString":"900",
@@ -111993,7 +112747,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112009,7 +112763,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『尚方 』。",
 "Combat":false,
-"ConditionTableString":"901 902 300 803 30907",
+"ConditionTableString":"901 902 7300 803 30907",
 "FactionConditionsString":"3040",
 "FactionLimit":5,
 "GenerateConditionsString":"900",
@@ -112026,7 +112780,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112042,7 +112796,7 @@
 "AutoLearnText":"不才必效死命！",
 "AutoLearnTextByCourier":"%0大人上任以来恪尽职守，政绩斐然，今封为『书佐』。",
 "Combat":false,
-"ConditionTableString":"901 902 300 803 30907",
+"ConditionTableString":"901 902 7300 803 30907",
 "FactionConditionsString":"3040",
 "FactionLimit":5,
 "GenerateConditionsString":"900",
@@ -112059,7 +112813,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112075,7 +112829,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『皇后』。",
 "Combat":false,
-"ConditionTableString":"901 902 310 194 911 970 950",
+"ConditionTableString":"901 902 7310 194 911 970 950",
 "FactionConditionsString":"3047",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112092,7 +112846,7 @@
 "SuccessRate":100
 },
 "Level":10,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7410",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112108,7 +112862,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『婕妤』。",
 "Combat":false,
-"ConditionTableString":"901 902 309 193 911 970 950",
+"ConditionTableString":"901 902 7309 193 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112125,7 +112879,7 @@
 "SuccessRate":100
 },
 "Level":9,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7409",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112141,7 +112895,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『经娥』。",
 "Combat":false,
-"ConditionTableString":"901 902 309 193 911 970 950",
+"ConditionTableString":"901 902 7309 193 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112158,7 +112912,7 @@
 "SuccessRate":100
 },
 "Level":9,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7409",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112174,7 +112928,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『美人』。",
 "Combat":false,
-"ConditionTableString":"901 902 308 193 911 970 950",
+"ConditionTableString":"901 902 7308 193 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112191,7 +112945,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7408",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112207,7 +112961,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『容华』。",
 "Combat":false,
-"ConditionTableString":"901 902 308 193 911 970 950",
+"ConditionTableString":"901 902 7308 193 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112224,7 +112978,7 @@
 "SuccessRate":100
 },
 "Level":8,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7408",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112240,7 +112994,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『八子』。",
 "Combat":false,
-"ConditionTableString":"901 902 307 192 911 970 950",
+"ConditionTableString":"901 902 7307 192 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112257,7 +113011,7 @@
 "SuccessRate":100
 },
 "Level":7,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112273,7 +113027,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『充依』。",
 "Combat":false,
-"ConditionTableString":"901 902 307 192 911 970 950",
+"ConditionTableString":"901 902 7307 192 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112290,7 +113044,7 @@
 "SuccessRate":100
 },
 "Level":7,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7407",
 "ManualAward":true,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112306,7 +113060,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『七子』。",
 "Combat":false,
-"ConditionTableString":"901 902 305 192 911 970 950",
+"ConditionTableString":"901 902 7305 192 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112323,7 +113077,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7405",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112339,7 +113093,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『良人』。",
 "Combat":false,
-"ConditionTableString":"901 902 305 192 911 970 950",
+"ConditionTableString":"901 902 7305 192 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112356,7 +113110,7 @@
 "SuccessRate":100
 },
 "Level":6,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7405",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112372,7 +113126,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『长使』。",
 "Combat":false,
-"ConditionTableString":"901 902 304 192 911 970 950",
+"ConditionTableString":"901 902 7304 192 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112389,7 +113143,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7404",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112405,7 +113159,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『少使』。",
 "Combat":false,
-"ConditionTableString":"901 902 304 192 911 970 950",
+"ConditionTableString":"901 902 7304 192 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112422,7 +113176,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7404",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112438,7 +113192,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『五官』。",
 "Combat":false,
-"ConditionTableString":"901 902 304 192 911 970 950",
+"ConditionTableString":"901 902 7304 192 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112455,7 +113209,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7404",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112471,7 +113225,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『顺常』。",
 "Combat":false,
-"ConditionTableString":"901 902 304 192 911 970 950",
+"ConditionTableString":"901 902 7304 192 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112488,7 +113242,7 @@
 "SuccessRate":100
 },
 "Level":5,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7404",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112504,7 +113258,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『无涓』。",
 "Combat":false,
-"ConditionTableString":"901 902 303 191 911 970 950",
+"ConditionTableString":"901 902 7303 191 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112521,7 +113275,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112537,7 +113291,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『共和』。",
 "Combat":false,
-"ConditionTableString":"901 902 303 191 911 970 950",
+"ConditionTableString":"901 902 7303 191 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112554,7 +113308,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112570,7 +113324,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『娱灵』。",
 "Combat":false,
-"ConditionTableString":"901 902 303 191 911 970 950",
+"ConditionTableString":"901 902 7303 191 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112587,7 +113341,7 @@
 "SuccessRate":100
 },
 "Level":4,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7403",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112603,7 +113357,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『保林』。",
 "Combat":false,
-"ConditionTableString":"901 902 302 191 911 970 950",
+"ConditionTableString":"901 902 7302 191 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112620,7 +113374,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7402",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112636,7 +113390,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『良使』。",
 "Combat":false,
-"ConditionTableString":"901 902 302 191 911 970 950",
+"ConditionTableString":"901 902 7302 191 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112653,7 +113407,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7402",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112669,7 +113423,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『夜者』。",
 "Combat":false,
-"ConditionTableString":"901 902 302 191 911 970 950",
+"ConditionTableString":"901 902 7302 191 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112686,7 +113440,7 @@
 "SuccessRate":100
 },
 "Level":3,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7402",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112702,7 +113456,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『上家人子』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 190 911 970 950",
+"ConditionTableString":"901 902 7301 190 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112719,7 +113473,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112735,7 +113489,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『中家人子』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 190 911 970 950",
+"ConditionTableString":"901 902 7301 190 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112752,7 +113506,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112768,7 +113522,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『材人』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 190 911 970 950",
+"ConditionTableString":"901 902 7301 190 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112785,7 +113539,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112801,7 +113555,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『待诏掖庭』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 190 911 970 950",
+"ConditionTableString":"901 902 7301 190 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112818,7 +113572,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112834,7 +113588,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『中宫史』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 190 911 970 950",
+"ConditionTableString":"901 902 7301 190 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112851,7 +113605,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112867,7 +113621,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『学事史』。",
 "Combat":false,
-"ConditionTableString":"901 902 301 190 911 970 950",
+"ConditionTableString":"901 902 7301 190 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112884,7 +113638,7 @@
 "SuccessRate":100
 },
 "Level":2,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7401",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112900,7 +113654,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『诸姬』。",
 "Combat":false,
-"ConditionTableString":"901 902 300 190 911 970 950",
+"ConditionTableString":"901 902 7300 190 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112917,7 +113671,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
@@ -112933,7 +113687,7 @@
 "AutoLearnText":"谢主公恩典。",
 "AutoLearnTextByCourier":"%0贤良淑德，舍尊位而祈国运，掩自身而祷昌明，其志其心，堪为后宫典范，今封为『长御』。",
 "Combat":false,
-"ConditionTableString":"901 902 300 190 911 970 950",
+"ConditionTableString":"901 902 7300 190 911 970 950",
 "FactionConditionsString":"3046",
 "FactionLimit":1,
 "GenerateConditionsString":"900",
@@ -112950,7 +113704,7 @@
 "SuccessRate":100
 },
 "Level":1,
-"LoseConditionsString":"800",
+"LoseConditionsString":"7400",
 "ManualAward":false,
 "MapLimit":9999,
 "RelatedAbility":0
