@@ -5892,9 +5892,9 @@ namespace GameObjects
                             {
                                 PersonList teachers = new PersonList();
 
-                                if (parental != null && parental.LocationArchitecture != null)
+                                if (parental != null && parental.BelongedArchitecture != null)
                                 {
-                                    GameObjectList list = parental.LocationArchitecture.PersonAndChildren.GetRandomList();
+                                    GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
                                     foreach (Person q in list)
                                     {
                                         if (q.Strength > p.Strength && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(50 / list.Count) || q == parental || q == p.Father || q == p.Mother))
@@ -5943,9 +5943,9 @@ namespace GameObjects
                             {
                                 PersonList teachers = new PersonList();
 
-                                if (parental != null && parental.LocationArchitecture != null)
+                                if (parental != null && parental.BelongedArchitecture != null)
                                 {
-                                    GameObjectList list = parental.LocationArchitecture.PersonAndChildren.GetRandomList();
+                                    GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
                                     foreach (Person q in list)
                                     {
                                         if (q.Command > p.Command && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(50 / list.Count) || q == parental || q == p.Father || q == p.Mother))
@@ -5994,9 +5994,9 @@ namespace GameObjects
                             {
                                 PersonList teachers = new PersonList();
 
-                                if (parental != null && parental.LocationArchitecture != null)
+                                if (parental != null && parental.BelongedArchitecture != null)
                                 {
-                                    GameObjectList list = parental.LocationArchitecture.PersonAndChildren.GetRandomList();
+                                    GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
                                     foreach (Person q in list)
                                     {
                                         if (q.Intelligence > p.Intelligence && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(50 / list.Count) || q == parental || q == p.Father || q == p.Mother))
@@ -6044,9 +6044,9 @@ namespace GameObjects
                             {
                                 PersonList teachers = new PersonList();
 
-                                if (parental != null && parental.LocationArchitecture != null)
+                                if (parental != null && parental.BelongedArchitecture != null)
                                 {
-                                    GameObjectList list = parental.LocationArchitecture.PersonAndChildren.GetRandomList();
+                                    GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
                                     foreach (Person q in list)
                                     {
                                         if (q.Politics > p.Politics && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(50 / list.Count) || q == parental || q == p.Father || q == p.Mother))
@@ -6095,9 +6095,9 @@ namespace GameObjects
                             {
                                 PersonList teachers = new PersonList();
 
-                                if (parental != null && parental.LocationArchitecture != null)
+                                if (parental != null && parental.BelongedArchitecture != null)
                                 {
-                                    GameObjectList list = parental.LocationArchitecture.PersonAndChildren.GetRandomList();
+                                    GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
                                     foreach (Person q in list)
                                     {
                                         if (q.Glamour > p.Glamour && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(50 / list.Count) || q == parental || q == p.Father || q == p.Mother))
@@ -6146,9 +6146,9 @@ namespace GameObjects
                             {
                                 PersonList teachers = new PersonList();
 
-                                if (parental != null && parental.LocationArchitecture != null)
+                                if (parental != null && parental.BelongedArchitecture != null)
                                 {
-                                    GameObjectList list = parental.LocationArchitecture.PersonAndChildren.GetRandomList();
+                                    GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
                                     foreach (Person q in list)
                                     {
                                         if ((GameObject.Chance(50 / list.Count) || q == parental || q == p.Father || q == p.Mother) && q.IsValidTeacher && q.Age > 8)
@@ -6219,9 +6219,9 @@ namespace GameObjects
                             {
                                 PersonList teachers = new PersonList();
 
-                                if (parental != null && parental.LocationArchitecture != null)
+                                if (parental != null && parental.BelongedArchitecture != null)
                                 {
-                                    GameObjectList list = parental.LocationArchitecture.PersonAndChildren.GetRandomList();
+                                    GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
                                     foreach (Person q in list)
                                     {
                                         if ((GameObject.Chance(50 / list.Count) || q == parental || q == p.Father || q == p.Mother) && q.IsValidTeacher && q.Age > 8)
@@ -6286,9 +6286,9 @@ namespace GameObjects
                             {
                                 PersonList teachers = new PersonList();
 
-                                if (parental != null && parental.LocationArchitecture != null)
+                                if (parental != null && parental.BelongedArchitecture != null)
                                 {
-                                    GameObjectList list = parental.LocationArchitecture.PersonAndChildren.GetRandomList();
+                                    GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
                                     foreach (Person q in list)
                                     {
                                         if ((GameObject.Chance(50 / list.Count) || q == parental || q == p.Father || q == p.Mother) && q.IsValidTeacher && q.Age > 8)
