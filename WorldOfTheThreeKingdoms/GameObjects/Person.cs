@@ -2036,7 +2036,7 @@ namespace GameObjects
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
                     //else if (this.DeadReason == PersonDeadReason.自然死亡 && GameObject.Random(20) == 0)
-                    else if (this.DeadReason == PersonDeadReason.自然死亡 && GameObject.Random(20 / Session.Parameters.DayInTurn) == 0)
+                    else if (this.DeadReason == PersonDeadReason.自然死亡 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
