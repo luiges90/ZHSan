@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "中华三国志"
-#define MyAppVersion "v1.1-1"
+#define MyAppVersion "v3"
 #define MyAppPublisher "中华三国志"
 #define MyAppURL "http://www.zhsan.com"
 #define MyAppExeName "WorldOfTheThreeKingdoms.exe"
@@ -32,8 +32,8 @@ Name: "chinesetraditional"; MessagesFile: "compiler:Languages\ChineseTraditional
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\Documents\ZhongHuaSanGuoZhiMobile0716\ZhongHuaSanGuoZhiMobile\WorldOfTheThreeKingdoms\bin\x64\Release\WorldOfTheThreeKingdoms.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Documents\ZhongHuaSanGuoZhiMobile0716\ZhongHuaSanGuoZhiMobile\WorldOfTheThreeKingdoms\bin\x64\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\Peter\Documents\ZhongHuaSanGuoZhiMobile0716\ZhongHuaSanGuoZhiMobile\WorldOfTheThreeKingdoms\bin\x64\Release\WorldOfTheThreeKingdoms.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Peter\Documents\ZhongHuaSanGuoZhiMobile0716\ZhongHuaSanGuoZhiMobile\WorldOfTheThreeKingdoms\bin\x64\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
@@ -41,7 +41,6 @@ Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{group}\游戏资料夹"; Filename: "{app}"
 Name: "{group}\官方论坛"; Filename: "{#MyAppURL}"
 Name: "{group}\百度贴吧"; Filename: "http://tieba.baidu.com/f?kw=%D6%D0%BB%AA%C8%FD%B9%FA%D6%BE"
-Name: "{group}\游侠专区"; Filename: "http://game.ali213.net/forum-876-1.html"
 Name: "{group}\解除安装"; Filename: "{uninstallexe}"
 
 [Run]
