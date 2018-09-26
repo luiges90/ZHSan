@@ -2385,21 +2385,20 @@ namespace GameObjects
                             Title fatherTitle = p.Father.getTitleOfKind(tk);
                             Title motherTitle = p.Mother.getTitleOfKind(tk);
                             Title pTitle = p.getTitleOfKind(tk);
-                            if (fatherTitle != null && motherTitle != null)
+
+                            int fm = 0;
+                            int mm = 0;
+                            if (fatherTitle != null && fatherTitle.CanBeBorn(p))
                             {
-                                unlearnedTitleLevels += Math.Max(fatherTitle.Merit, motherTitle.Merit);
+                                fm = fatherTitle.Merit;
                             }
-                            else
+                            if (motherTitle != null && motherTitle.CanBeBorn(p))
                             {
-                                if (fatherTitle != null)
-                                {
-                                    unlearnedTitleLevels += fatherTitle.Merit;
-                                }
-                                if (motherTitle != null)
-                                {
-                                    unlearnedTitleLevels += motherTitle.Merit;
-                                }
+                                mm = motherTitle.Merit;
                             }
+
+                            unlearnedTitleLevels += Math.Max(fm, mm);
+
                             if (pTitle != null)
                             {
                                 learnedTitleLevels += pTitle.Merit;
