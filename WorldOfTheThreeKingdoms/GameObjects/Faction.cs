@@ -2425,19 +2425,21 @@ namespace GameObjects
                             float skill = 0;
                             float stunt = 0;
                             float title = 0;
-                            if (p.Strength > 50 || p.Command > 50 || p.Intelligence > 50 || p.Politics > 50 || p.Glamour > 50)
+                            int abyMax = Math.Max(Math.Max(Math.Max(Math.Max(p.Strength, p.Command), p.Intelligence), p.Politics), p.Glamour);
+                            int csiMax = Math.Max(Math.Max(p.Command, p.Strength), p.Intelligence);
+                            if (abyMax > 50)
                             {
-                                skill = (p.AbilitySum - 50) / 5 * tp.Skill / tp.WeightSum + 1;
+                                skill = (abyMax - 50) * (100 / 50.0f) * tp.Skill / tp.WeightSum + 1;
                                 skill *= unfinishedSkillFactor;
                             }
-                            if (p.Strength > 60 || p.Command > 60 || p.Intelligence > 60)
+                            if (csiMax > 60)
                             {
-                                stunt = (p.AbilitySum - 60) / 5 * tp.Stunt / tp.WeightSum + 1;
+                                stunt = (csiMax - 60) * (100 / 60.0f) * tp.Stunt / tp.WeightSum + 1;
                                 stunt *= unfinishedStuntFactor;
                             }
-                            if (p.Strength > 70 || p.Command > 70 || p.Intelligence > 70 || p.Politics > 70 || p.Glamour > 70)
+                            if (abyMax > 70)
                             {
-                                title = (p.AbilitySum - 70) / 5 * tp.Title / tp.WeightSum + 1;
+                                title = (abyMax - 70) * (100 / 70.0f) * tp.Title / tp.WeightSum + 1;
                                 title *= unfinishedTitleFactor;
                             }
 
