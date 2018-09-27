@@ -4669,15 +4669,15 @@ namespace GameObjects
             }
             if (src.Spouse == target)
             {
-                v += 50;
+                v += 15;
             }
             if (src.Brothers.GameObjects.Contains(target))
             {
-                v += 50;
+                v += 15;
             }
             if (src.Hates(target))
             {
-                v -= 50;
+                v -= 20;
             }
 
             return v;
@@ -10397,7 +10397,7 @@ namespace GameObjects
 
                 makeHateCausedByAffair(this, nvren, this);
 
-                if (GameObject.Chance(20) && nvren.GetRelation(this) >= Session.Parameters.VeryCloseThreshold / 2 && nvren.Spouse == null && 
+                if (GameObject.Chance(20) && nvren.GetRelation(this) >= Session.Parameters.VeryCloseThreshold && nvren.Spouse == null && 
                     this.isLegalFeiZi(nvren, true) && nvren.isLegalFeiZi(this, true) && !this.Hates(nvren))
                 {
                     nvren.Spouse = this;
