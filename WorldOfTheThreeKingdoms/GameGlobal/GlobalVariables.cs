@@ -275,6 +275,8 @@ namespace GameGlobal
         public bool SkyEyeSimpleNotification = false;
         [DataMember]
         public bool AutoMultipleMarriage = false;
+        [DataMember]
+        public bool BornHistoricalChildren = false;
 
         public const string cryptKey = "A3g0c3%2";
 
@@ -1097,6 +1099,15 @@ namespace GameGlobal
                 exception = exception24;
                 throw new Exception("AutoMultipleMarriage:\n" + exception.ToString());
             }
+            try
+            {
+                BornHistoricalChildren = bool.Parse(nextSibling.Attributes.GetNamedItem("BornHistoricalChildren").Value);
+            }
+            catch (Exception exception24)
+            {
+                exception = exception24;
+                throw new Exception("BornHistoricalChildren:\n" + exception.ToString());
+            }
             return true;
         }
 
@@ -1195,6 +1206,7 @@ namespace GameGlobal
             element.SetAttribute("RemoveSpouseIfNotAvailable", RemoveSpouseIfNotAvailable.ToString());
             element.SetAttribute("SkyEyeSimpleNotification", SkyEyeSimpleNotification.ToString());
             element.SetAttribute("AutoMultipleMarriage", AutoMultipleMarriage.ToString());
+            element.SetAttribute("BornHistoricalChildren", BornHistoricalChildren.ToString());
 
             document.AppendChild(element);
         

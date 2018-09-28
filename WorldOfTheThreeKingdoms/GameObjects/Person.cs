@@ -2616,7 +2616,7 @@ namespace GameObjects
                             do
                             {
                                 PersonList origChildren = haizifuqin.meichushengdehaiziliebiao();
-                                if (origChildren.Count > 0)
+                                if (origChildren.Count > 0 && Session.GlobalVariables.BornHistoricalChildren)
                                 {
                                     haizi = origChildren[0] as Person;
 
