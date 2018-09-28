@@ -14781,6 +14781,31 @@ namespace GameObjects
             }
 
             Session.Current.Scenario.SetMapTileArchitecture(this);
+
+            this.ViewArea = null;
+            this.LongViewArea = null;
+            if (!Session.Current.Scenario.Preparing)
+            {
+                foreach (Architecture architecture2 in Session.Current.Scenario.Architectures)
+                {
+                    architecture2.RefreshViewArea();
+                }
+                foreach (Troop troop in Session.Current.Scenario.Troops)
+                {
+                    troop.RefreshViewArchitectureRelatedArea();
+                }
+            }
+            if (this.AutoRefillFoodInLongViewArea)
+            {
+                foreach (Point point in this.LongViewArea.Area)
+                {
+                    if (!Session.Current.Scenario.PositionOutOfRange(point))
+                    {
+                        Session.Current.Scenario.MapTileData[point.X, point.Y].AddSupplyingArchitecture(this);
+                    }
+                }
+            }
+            this.BelongedFaction.AddArchitectureKnownData(this);
         }
 
         public PersonList meifaxianhuaiyundefeiziliebiao()
