@@ -9459,6 +9459,18 @@ namespace GameObjects
         public void IncreaseMilitaryPopulation(int increment)
         {
             this.militaryPopulation += increment;
+
+            if (this.militaryPopulation > this.PopulationCeiling)
+            {
+                this.militaryPopulation = this.PopulationCeiling;
+            }
+
+            if (this.militaryPopulation < 0)
+            {
+                this.militaryPopulation = 0;
+            }
+
+         
         }
 
 
