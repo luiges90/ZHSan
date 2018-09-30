@@ -8477,10 +8477,10 @@ namespace GameObjects
                 if (currentArchitecture.BelongedFaction != null)
                 {
                     currentArchitecture.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -1.5f, -3);
-                    foreach (Point p in currentArchitecture.ArchitectureArea.Area)
+                    foreach (Point p in currentArchitecture.LongViewArea.Area)
                     {
                         Troop t = Session.Current.Scenario.GetTroopByPosition(p);
-                        if (t != null && t.BelongedFaction != this.BelongedFaction)
+                        if (t != null && t.BelongedFaction != currentArchitecture.BelongedFaction)
                         {
                             currentArchitecture.BelongedFaction.Leader.AdjustRelation(t.Leader, -1.5f, -3);
                         }
