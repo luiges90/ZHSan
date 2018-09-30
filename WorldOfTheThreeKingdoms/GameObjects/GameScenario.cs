@@ -1166,6 +1166,7 @@ namespace GameObjects
             if (oldFaction != null && !GameObject.Chance((int)oldFaction.Leader.PersonalLoyalty * 10))
             {
                 oldFaction.Leader.AddHated(leader);
+                leader.AdjustRelation(oldFaction.Leader, -20f, -10);
             }
             foreach (Person p in this.AvailablePersons)
             {
@@ -1179,8 +1180,13 @@ namespace GameObjects
                         {
                             if (p.BelongedFaction != null)
                             {
+                                p.BelongedFaction.Leader.AdjustRelation(p, -15f - p.PersonalLoyalty * 1.5f, -8);
+                                p.BelongedFaction.Leader.AdjustRelation(newFaction.Leader, -5f, -2.5f);
+                                p.AdjustRelation(p.BelongedFaction.Leader, -3f, -2);
                                 p.ChangeFaction(newFaction);
                             }
+                            newFaction.Leader.AdjustRelation(p, 10f, 3);
+                            p.AdjustRelation(newFaction.Leader, 3f, 1);
                             if (p.LocationTroop == null)
                             {
                                 p.MoveToArchitecture(newFactionCapital);
