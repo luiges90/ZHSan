@@ -951,6 +951,8 @@ namespace GameObjects
 
         public void AddCaptive(Captive captive)
         {
+            captive.CaptivePerson.AdjustRelation(this.Leader, -0.5f, -2);
+
             captive.CaptivePerson.LocationTroop = this;
             if (this.BelongedFaction != null)
             {
@@ -8472,9 +8474,26 @@ namespace GameObjects
                     }
                 }
 
+                if (currentArchitecture.BelongedFaction != null)
+                {
+                    currentArchitecture.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -1.5f, -3);
+                    foreach (Point p in currentArchitecture.ArchitectureArea.Area)
+                    {
+                        Troop t = Session.Current.Scenario.GetTroopByPosition(p);
+                        if (t != null && t.BelongedFaction != this.BelongedFaction)
+                        {
+                            currentArchitecture.BelongedFaction.Leader.AdjustRelation(t.Leader, -1.5f, -3);
+                        }
+                    }
+                }
+
                 GameObjectList princesses = currentArchitecture.Feiziliebiao.GetList();
                 foreach (Person p in princesses)
                 {
+                    if (currentArchitecture.BelongedFaction != null)
+                    {
+                        p.AdjustRelation(currentArchitecture.BelongedFaction.Leader, -2f, -5);
+                    }
                     if (!currentArchitecture.PrincessChangeLeader(true, this.BelongedFaction, p))
                     {
                         Captive captive = Captive.Create(p, this.BelongedFaction);
@@ -8530,7 +8549,6 @@ namespace GameObjects
                         military.Morale /= 2;
                         military.Combativity /= 2;
                     }
-
 
                     Session.MainGame.mainGameScreen.xianshishijiantupian(this.BelongedFaction.Leader, currentArchitecture.Name, TextMessageKind.LeaderOccupy, "zhanling", "zhanling.jpg", "zhanling", false);
                     currentArchitecture.ResetFaction(this.BelongedFaction);
