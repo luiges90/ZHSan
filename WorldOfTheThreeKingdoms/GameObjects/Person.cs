@@ -8146,62 +8146,6 @@ namespace GameObjects
         //    }
         //}
 
-        public Person Parental
-        {
-            get
-            {
-                Person p = this;
-                Person parental = p.Father;
-                if (!parental.IsValidTeacher)
-                {
-                    parental = p.Mother;
-                }
-                if (!parental.IsValidTeacher)
-                {
-                    GameObjectList candidate = new GameObjectList();
-                    foreach (Person q in Session.Current.Scenario.Persons)
-                    {
-                        if (q.IsValidTeacher && ((q.Father == p.Father) || (q.Mother == p.Mother)) && q != p)
-                        {
-                            candidate.Add(q);
-                        }
-                    }
-                    candidate.PropertyName = "Age";
-                    candidate.IsNumber = true;
-                    candidate.SmallToBig = false;
-                    candidate.ReSort();
-                    if (candidate.Count > 0)
-                    {
-                        parental = (Person)candidate[0];
-                    }
-                }
-                if (!parental.IsValidTeacher)
-                {
-                    GameObjectList candidate = new GameObjectList();
-                    foreach (Person q in Session.Current.Scenario.Persons)
-                    {
-                        if (q.IsValidTeacher && q.HasStrainTo(p) && q != p)
-                        {
-                            candidate.Add(q);
-                        }
-                    }
-                    candidate.PropertyName = "Age";
-                    candidate.IsNumber = true;
-                    candidate.SmallToBig = false;
-                    candidate.ReSort();
-                    if (candidate.Count > 0)
-                    {
-                        parental = (Person)candidate[0];
-                    }
-                }
-                if (!parental.IsValidTeacher)
-                {
-                    parental = null;
-                }
-                return parental;
-            }
-        }
-
         public Point Position
         {
             get
@@ -8230,10 +8174,13 @@ namespace GameObjects
                 {
                     return this.TargetArchitecture.Position;
                 }
-                Person p = this.Parental;
-                if (p != null)
+                if (this.Father != null)
                 {
-                    return p.Position;
+                    return this.Father.Position;
+                }
+                if (this.Mother != null)
+                {
+                    return this.Mother.Position;
                 }
                 return Point.Zero;
             }

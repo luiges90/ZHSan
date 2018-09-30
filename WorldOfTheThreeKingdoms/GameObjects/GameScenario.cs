@@ -5823,7 +5823,53 @@ namespace GameObjects
                     }
                     int r = GameObject.WeightedRandom(weighting);
 
-                    Person parental = p.Parental;
+                    Person parental = p.Father;
+                    if (!parental.IsValidTeacher)
+                    {
+                        parental = p.Mother;
+                    }
+                    if (!parental.IsValidTeacher)
+                    {
+                        GameObjectList candidate = new GameObjectList();
+                        foreach (Person q in this.Persons)
+                        {
+                            if (q.IsValidTeacher && ((q.Father == p.Father) || (q.Mother == p.Mother)) && q != p)
+                            {
+                                candidate.Add(q);
+                            }
+                        }
+                        candidate.PropertyName = "Age";
+                        candidate.IsNumber = true;
+                        candidate.SmallToBig = false;
+                        candidate.ReSort();
+                        if (candidate.Count > 0)
+                        {
+                            parental = (Person)candidate[0];
+                        }
+                    }
+                    if (!parental.IsValidTeacher)
+                    {
+                        GameObjectList candidate = new GameObjectList();
+                        foreach (Person q in this.Persons)
+                        {
+                            if (q.IsValidTeacher && q.HasStrainTo(p) && q != p)
+                            {
+                                candidate.Add(q);
+                            }
+                        }
+                        candidate.PropertyName = "Age";
+                        candidate.IsNumber = true;
+                        candidate.SmallToBig = false;
+                        candidate.ReSort();
+                        if (candidate.Count > 0)
+                        {
+                            parental = (Person)candidate[0];
+                        }
+                    }
+                    if (!parental.IsValidTeacher)
+                    {
+                        parental = null;
+                    }
 
                     int siblingCount = 0;
 
