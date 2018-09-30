@@ -1173,7 +1173,7 @@ namespace GameObjects
                 if ((p.BelongedFaction == null || p.BelongedFaction == oldFaction) && !p.IsCaptive && p.Status != PersonStatus.Princess && p != leader)
                 {
                     int offset = Person.GetIdealOffset(leader, p);
-                    if (p.HasCloseStrainTo(leader) || p.IsVeryCloseTo(leader) || (GameObject.Chance(100 - offset * 20)))
+                    if (p.HasCloseStrainTo(leader) || p.IsVeryCloseTo(leader) || (GameObject.Chance(100 - offset * 20) && p.BelongedFaction == oldFaction))
                     {
                         if (p.BelongedFaction == null || p.IsVeryCloseTo(leader) || (GameObject.Chance(100 - ((int)p.PersonalLoyalty) * 25 + (5 - offset) * 10)
                             && GameObject.Chance(220 - p.Loyalty * 2 + (5 - offset) * 20)))
