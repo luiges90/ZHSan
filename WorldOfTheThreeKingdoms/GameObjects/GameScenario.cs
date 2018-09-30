@@ -1139,6 +1139,11 @@ namespace GameObjects
             Architecture newFactionCapital = leader.LocationArchitecture;
             Faction oldFaction = newFactionCapital.BelongedFaction;
 
+            foreach (Technique tech in oldFaction.AvailableTechniques.GetTechniqueList())
+            {
+                newFaction.AvailableTechniques.AddTechnique(tech);
+            }
+
             newFaction.Capital = newFactionCapital;
 
             if (leader.BelongedFaction == null)
