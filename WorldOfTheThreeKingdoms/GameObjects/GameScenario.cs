@@ -4235,10 +4235,10 @@ namespace GameObjects
                         location.Domination * 200 + location.Morale * 10) >
                     GameObject.Random(p.Reputation *
                     (p.LeaderPossibility ? 3 : 1) *
-                    (leaderChange && nonInherited ? p.Ambition * p.Ambition : 1) *
+                    (leaderChange && nonInherited ? p.Ambition * p.Ambition * (p.Glamour / 20) : 1) *
                     (faction != null && leaderChange && nonInherited ? Person.GetIdealOffset(p, faction.Leader) / 10 + 1 : 1) *
-                    (faction != null && (p.Hates(faction.Leader) || faction.Leader.Hates(p)) ? (leaderChange ? 1000 : 3) : 1) *
-                    (faction == null ? 2 : 1))) continue;
+                    (faction != null && (p.Hates(faction.Leader) || faction.Leader.Hates(p)) ? (leaderChange ? 10000 : 3) : 1) *
+                    (faction == null ? 3 : 1))) continue;
                 this.CreateNewFaction(p);
             }
         }
