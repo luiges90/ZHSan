@@ -86999,12 +86999,12 @@
 "__type":"PersonGeneratorType:#GameObjects.PersonDetail",
 "ID":0,
 "Name":"将军",
-"CostFund":80000,
+"CostFund":90000,
 "FactionLimit":10,
 "TypeCount":0,
 "affectedByRateParameter":true,
-"ambitionHi":5,
-"ambitionLo":3,
+"ambitionHi":4,
+"ambitionLo":2,
 "braveHi":9,
 "braveLo":5,
 "calmnessHi":7,
@@ -87016,8 +87016,8 @@
 "glamourLo":30,
 "intelligenceHi":70,
 "intelligenceLo":30,
-"personalLoyaltyHi":5,
-"personalLoyaltyLo":3,
+"personalLoyaltyHi":4,
+"personalLoyaltyLo":2,
 "politicsHi":60,
 "politicsLo":20,
 "strengthHi":100,
@@ -87028,7 +87028,7 @@
 "__type":"PersonGeneratorType:#GameObjects.PersonDetail",
 "ID":1,
 "Name":"猛将",
-"CostFund":60000,
+"CostFund":50000,
 "FactionLimit":10,
 "TypeCount":1,
 "affectedByRateParameter":true,
@@ -87045,8 +87045,8 @@
 "glamourLo":30,
 "intelligenceHi":40,
 "intelligenceLo":10,
-"personalLoyaltyHi":5,
-"personalLoyaltyLo":3,
+"personalLoyaltyHi":4,
+"personalLoyaltyLo":2,
 "politicsHi":30,
 "politicsLo":1,
 "strengthHi":100,
@@ -87057,12 +87057,12 @@
 "__type":"PersonGeneratorType:#GameObjects.PersonDetail",
 "ID":2,
 "Name":"军师",
-"CostFund":100000,
+"CostFund":85000,
 "FactionLimit":10,
 "TypeCount":2,
 "affectedByRateParameter":true,
-"ambitionHi":5,
-"ambitionLo":1,
+"ambitionHi":4,
+"ambitionLo":0,
 "braveHi":5,
 "braveLo":1,
 "calmnessHi":9,
@@ -87074,8 +87074,8 @@
 "glamourLo":1,
 "intelligenceHi":100,
 "intelligenceLo":80,
-"personalLoyaltyHi":5,
-"personalLoyaltyLo":1,
+"personalLoyaltyHi":4,
+"personalLoyaltyLo":0,
 "politicsHi":100,
 "politicsLo":60,
 "strengthHi":70,
@@ -87086,12 +87086,12 @@
 "__type":"PersonGeneratorType:#GameObjects.PersonDetail",
 "ID":3,
 "Name":"识者",
-"CostFund":80000,
+"CostFund":60000,
 "FactionLimit":10,
 "TypeCount":0,
 "affectedByRateParameter":true,
-"ambitionHi":5,
-"ambitionLo":1,
+"ambitionHi":4,
+"ambitionLo":0,
 "braveHi":3,
 "braveLo":1,
 "calmnessHi":9,
@@ -87103,8 +87103,8 @@
 "glamourLo":1,
 "intelligenceHi":100,
 "intelligenceLo":70,
-"personalLoyaltyHi":5,
-"personalLoyaltyLo":1,
+"personalLoyaltyHi":4,
+"personalLoyaltyLo":0,
 "politicsHi":100,
 "politicsLo":80,
 "strengthHi":40,
@@ -87115,12 +87115,12 @@
 "__type":"PersonGeneratorType:#GameObjects.PersonDetail",
 "ID":4,
 "Name":"智将",
-"CostFund":120000,
+"CostFund":100000,
 "FactionLimit":10,
 "TypeCount":13,
 "affectedByRateParameter":true,
-"ambitionHi":5,
-"ambitionLo":1,
+"ambitionHi":4,
+"ambitionLo":0,
 "braveHi":9,
 "braveLo":3,
 "calmnessHi":9,
@@ -87132,8 +87132,8 @@
 "glamourLo":30,
 "intelligenceHi":100,
 "intelligenceLo":70,
-"personalLoyaltyHi":5,
-"personalLoyaltyLo":1,
+"personalLoyaltyHi":4,
+"personalLoyaltyLo":0,
 "politicsHi":50,
 "politicsLo":1,
 "strengthHi":100,
@@ -87144,12 +87144,12 @@
 "__type":"PersonGeneratorType:#GameObjects.PersonDetail",
 "ID":5,
 "Name":"君主",
-"CostFund":150000,
+"CostFund":90000,
 "FactionLimit":1,
 "TypeCount":9,
 "affectedByRateParameter":true,
-"ambitionHi":5,
-"ambitionLo":3,
+"ambitionHi":4,
+"ambitionLo":2,
 "braveHi":9,
 "braveLo":3,
 "calmnessHi":9,
@@ -87161,8 +87161,8 @@
 "glamourLo":80,
 "intelligenceHi":100,
 "intelligenceLo":60,
-"personalLoyaltyHi":5,
-"personalLoyaltyLo":1,
+"personalLoyaltyHi":4,
+"personalLoyaltyLo":0,
 "politicsHi":100,
 "politicsLo":60,
 "strengthHi":70,
@@ -87173,7 +87173,7 @@
 "__type":"PersonGeneratorType:#GameObjects.PersonDetail",
 "ID":6,
 "Name":"全能",
-"CostFund":250000,
+"CostFund":360000,
 "FactionLimit":1,
 "TypeCount":13,
 "affectedByRateParameter":false,
@@ -87206,25 +87206,25 @@
 "FactionLimit":9,
 "TypeCount":1,
 "affectedByRateParameter":true,
-"ambitionHi":5,
-"ambitionLo":1,
+"ambitionHi":2,
+"ambitionLo":0,
 "braveHi":5,
 "braveLo":1,
 "calmnessHi":9,
 "calmnessLo":5,
-"commandHi":60,
-"commandLo":40,
+"commandHi":50,
+"commandLo":1,
 "generationChance":150,
-"glamourHi":100,
-"glamourLo":70,
+"glamourHi":70,
+"glamourLo":1,
 "intelligenceHi":70,
-"intelligenceLo":60,
-"personalLoyaltyHi":5,
-"personalLoyaltyLo":1,
-"politicsHi":100,
-"politicsLo":70,
-"strengthHi":70,
-"strengthLo":30,
+"intelligenceLo":50,
+"personalLoyaltyHi":4,
+"personalLoyaltyLo":0,
+"politicsHi":70,
+"politicsLo":50,
+"strengthHi":50,
+"strengthLo":1,
 "titleChance":50
 },
 {
@@ -87235,25 +87235,25 @@
 "FactionLimit":9,
 "TypeCount":0,
 "affectedByRateParameter":true,
-"ambitionHi":5,
-"ambitionLo":1,
+"ambitionHi":2,
+"ambitionLo":0,
 "braveHi":9,
 "braveLo":3,
 "calmnessHi":9,
 "calmnessLo":1,
 "commandHi":70,
-"commandLo":60,
+"commandLo":50,
 "generationChance":150,
-"glamourHi":90,
-"glamourLo":30,
-"intelligenceHi":70,
-"intelligenceLo":30,
-"personalLoyaltyHi":5,
-"personalLoyaltyLo":1,
-"politicsHi":60,
-"politicsLo":20,
+"glamourHi":70,
+"glamourLo":1,
+"intelligenceHi":50,
+"intelligenceLo":1,
+"personalLoyaltyHi":4,
+"personalLoyaltyLo":0,
+"politicsHi":50,
+"politicsLo":1,
 "strengthHi":70,
-"strengthLo":60,
+"strengthLo":50,
 "titleChance":50
 }
 ],
@@ -87599,7 +87599,7 @@
 "InfluencesString":"0 ",
 "Kind":0,
 "Level":1,
-"RelatedAbility":0
+"RelatedAbility":3
 }
 },
 {
@@ -87615,7 +87615,7 @@
 "InfluencesString":"1 ",
 "Kind":0,
 "Level":1,
-"RelatedAbility":0
+"RelatedAbility":3
 }
 },
 {
@@ -87631,7 +87631,7 @@
 "InfluencesString":"2 ",
 "Kind":0,
 "Level":1,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -87663,7 +87663,7 @@
 "InfluencesString":"4 ",
 "Kind":0,
 "Level":1,
-"RelatedAbility":0
+"RelatedAbility":4
 }
 },
 {
@@ -87679,7 +87679,7 @@
 "InfluencesString":"5 ",
 "Kind":0,
 "Level":1,
-"RelatedAbility":0
+"RelatedAbility":3
 }
 },
 {
@@ -87695,7 +87695,7 @@
 "InfluencesString":"90 ",
 "Kind":0,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -87711,7 +87711,7 @@
 "InfluencesString":"10 ",
 "Kind":1,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":3
 }
 },
 {
@@ -87727,7 +87727,7 @@
 "InfluencesString":"11 ",
 "Kind":1,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":3
 }
 },
 {
@@ -87743,7 +87743,7 @@
 "InfluencesString":"12 ",
 "Kind":1,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -87775,7 +87775,7 @@
 "InfluencesString":"14 ",
 "Kind":1,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":4
 }
 },
 {
@@ -87791,7 +87791,7 @@
 "InfluencesString":"15 ",
 "Kind":1,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":3
 }
 },
 {
@@ -87807,7 +87807,7 @@
 "InfluencesString":"91 ",
 "Kind":1,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":4
 }
 },
 {
@@ -87823,7 +87823,7 @@
 "InfluencesString":"292 201 207 ",
 "Kind":2,
 "Level":1,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -87839,7 +87839,7 @@
 "InfluencesString":"290 291 202 ",
 "Kind":2,
 "Level":1,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -87855,7 +87855,7 @@
 "InfluencesString":"290 291 204 ",
 "Kind":2,
 "Level":1,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -87871,7 +87871,7 @@
 "InfluencesString":"293 205 ",
 "Kind":2,
 "Level":1,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -87887,7 +87887,7 @@
 "InfluencesString":"281 290 291 292 250 ",
 "Kind":2,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -87903,7 +87903,7 @@
 "InfluencesString":"281 293 250 ",
 "Kind":2,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -87919,7 +87919,7 @@
 "InfluencesString":"281 615 ",
 "Kind":2,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -87935,7 +87935,7 @@
 "InfluencesString":"290 320 ",
 "Kind":3,
 "Level":1,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -87983,7 +87983,7 @@
 "InfluencesString":"290 350 ",
 "Kind":3,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -87999,7 +87999,7 @@
 "InfluencesString":"281 290 7096 ",
 "Kind":3,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88015,7 +88015,7 @@
 "InfluencesString":"281 290 424 ",
 "Kind":3,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88127,7 +88127,7 @@
 "InfluencesString":"610 ",
 "Kind":4,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88143,7 +88143,7 @@
 "InfluencesString":"281 291 333 ",
 "Kind":4,
 "Level":4,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88207,7 +88207,7 @@
 "InfluencesString":"292 551 ",
 "Kind":5,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88223,7 +88223,7 @@
 "InfluencesString":"281 292 413 ",
 "Kind":5,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88239,7 +88239,7 @@
 "InfluencesString":"281 292 7081 ",
 "Kind":5,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88335,7 +88335,7 @@
 "InfluencesString":"281 293 413 ",
 "Kind":6,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88351,7 +88351,7 @@
 "InfluencesString":"281 293 423 ",
 "Kind":6,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88367,7 +88367,7 @@
 "InfluencesString":"281 293 354 551",
 "Kind":6,
 "Level":4,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88463,7 +88463,7 @@
 "InfluencesString":"281 294 424",
 "Kind":7,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88479,7 +88479,7 @@
 "InfluencesString":"281 294 364",
 "Kind":7,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88495,7 +88495,7 @@
 "InfluencesString":"281 290 430 ",
 "Kind":8,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88511,7 +88511,7 @@
 "InfluencesString":"281 291 430 ",
 "Kind":8,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88527,7 +88527,7 @@
 "InfluencesString":"281 292 430 ",
 "Kind":8,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88543,7 +88543,7 @@
 "InfluencesString":"281 293 430 ",
 "Kind":8,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88559,7 +88559,7 @@
 "InfluencesString":"281 294 430 ",
 "Kind":8,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88575,7 +88575,7 @@
 "InfluencesString":"440 ",
 "Kind":8,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 },
 {
@@ -88591,7 +88591,7 @@
 "InfluencesString":"281 431 ",
 "Kind":8,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":4
 }
 },
 {
@@ -88607,7 +88607,7 @@
 "InfluencesString":"450 ",
 "Kind":9,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -88623,7 +88623,7 @@
 "InfluencesString":"451 ",
 "Kind":9,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -88639,7 +88639,7 @@
 "InfluencesString":"452 ",
 "Kind":9,
 "Level":1,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -88655,7 +88655,7 @@
 "InfluencesString":"453 ",
 "Kind":9,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -88671,7 +88671,7 @@
 "InfluencesString":"454 ",
 "Kind":9,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -88687,7 +88687,7 @@
 "InfluencesString":"455 ",
 "Kind":9,
 "Level":3,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -88703,7 +88703,7 @@
 "InfluencesString":"456 ",
 "Kind":9,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -88719,7 +88719,7 @@
 "InfluencesString":"460 ",
 "Kind":10,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -88751,7 +88751,7 @@
 "InfluencesString":"462 ",
 "Kind":10,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -88767,7 +88767,7 @@
 "InfluencesString":"463 ",
 "Kind":10,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -88783,7 +88783,7 @@
 "InfluencesString":"464 ",
 "Kind":10,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -88799,7 +88799,7 @@
 "InfluencesString":"465 ",
 "Kind":10,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":4
 }
 },
 {
@@ -88815,7 +88815,7 @@
 "InfluencesString":"466 ",
 "Kind":10,
 "Level":2,
-"RelatedAbility":0
+"RelatedAbility":4
 }
 },
 {
@@ -88831,7 +88831,7 @@
 "InfluencesString":"860 ",
 "Kind":11,
 "Level":4,
-"RelatedAbility":0
+"RelatedAbility":2
 }
 },
 {
@@ -88847,7 +88847,7 @@
 "InfluencesString":"262",
 "Kind":11,
 "Level":4,
-"RelatedAbility":0
+"RelatedAbility":1
 }
 }
 ]
