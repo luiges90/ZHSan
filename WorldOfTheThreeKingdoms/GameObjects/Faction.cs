@@ -2406,7 +2406,7 @@ namespace GameObjects
                         }
                         if (unlearnedTitleLevels > 0)
                         {
-                            unfinishedTitleFactor = (float)(unlearnedTitleLevels - learnedTitleLevels) / unlearnedTitleLevels;
+                            unfinishedTitleFactor = (float)unlearnedTitleLevels / (unlearnedTitleLevels + learnedTitleLevels);
                         }
                         else
                         {
