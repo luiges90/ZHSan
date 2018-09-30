@@ -951,8 +951,6 @@ namespace GameObjects
 
         public void AddCaptive(Captive captive)
         {
-            captive.CaptivePerson.AdjustRelation(this.Leader, -0.5f, -2);
-
             captive.CaptivePerson.LocationTroop = this;
             if (this.BelongedFaction != null)
             {
@@ -2980,6 +2978,7 @@ namespace GameObjects
             Captive captive = Captive.Create(person, this.BelongedFaction);
             if (captive != null)
             {
+                captive.CaptivePerson.AdjustRelation(this.Leader, -0.5f, -2);
                 this.AddCaptive(captive);
             }
             person.LocationTroop = this;
@@ -3014,6 +3013,7 @@ namespace GameObjects
                         Captive captive = Captive.Create(person, this.BelongedFaction);
                         if (captive != null)
                         {
+                            captive.CaptivePerson.AdjustRelation(this.Leader, -0.5f, -2);
                             this.AddCaptive(captive);
                         }
                         person.LocationArchitecture = null;
