@@ -4891,9 +4891,9 @@ namespace GameObjects
                                 Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(i.ID, j.ID).Truce = 180 * Session.Parameters.DayInTurn;
                             }
                         }
-                        target.Leader.AdjustRelation(this.Leader, -6f, -4);
-                        this.Leader.AdjustRelation(target.Leader, -1.5f, -1);
                     }
+                    target.Leader.AdjustRelation(i.Leader, -6f, -4);
+                    i.Leader.AdjustRelation(target.Leader, -1.5f, -1);
                 }
             }
         }
