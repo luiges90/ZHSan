@@ -147,15 +147,17 @@ namespace WorldOfTheThreeKingdomsEditor
                     }
 
                     GameManager.Scenario s1 = createScenarioObject(scen, scenName);
-
-                    int index = scesList.FindIndex(x => x.Name == scenName);
-                    if (index >= 0)
+                    if (s1 != null)
                     {
-                        scesList[index] = s1;
-                    }
-                    else
-                    {
-                        scesList.Add(s1);
+                        int index = scesList.FindIndex(x => x.Name == scenName);
+                        if (index >= 0)
+                        {
+                            scesList[index] = s1;
+                        }
+                        else
+                        {
+                            scesList.Add(s1);
+                        }
                     }
 
                     string s2 = Newtonsoft.Json.JsonConvert.SerializeObject(scesList, Newtonsoft.Json.Formatting.Indented);
@@ -199,6 +201,8 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private GameManager.Scenario createScenarioObject(GameScenario scen, String scenName)
         {
+            if (scen.Factions.Count == 0) return null;
+
             string time = scen.Date.Year.ToString().PadLeft(4, '0') + "-" + scen.Date.Month.ToString().PadLeft(2, '0') + "-" + scen.Date.Day.ToString().PadLeft(2, '0');
             return new GameManager.Scenario()
             {
@@ -321,7 +325,10 @@ namespace WorldOfTheThreeKingdomsEditor
                     if (file.Name.Equals("Scenarios.json")) continue;
                     GameScenario s = WorldOfTheThreeKingdoms.GameScreens.MainGameScreen.LoadScenarioData(file.FullName, true, null, true);
                     GameManager.Scenario s1 = createScenarioObject(s, file.Name);
-                    scesList.Add(s1);
+                    if (s1 != null)
+                    {
+                        scesList.Add(s1);
+                    }
                 }
 
                 string s2 = Newtonsoft.Json.JsonConvert.SerializeObject(scesList, Newtonsoft.Json.Formatting.Indented);
