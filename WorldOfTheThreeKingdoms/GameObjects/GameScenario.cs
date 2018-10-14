@@ -4050,7 +4050,7 @@ namespace GameObjects
         {
             foreach (Person p in this.Persons)
             {
-                if (p.Available && p.Alive && GameObject.Random(60 / Session.Parameters.DayInTurn) == 0)
+                if (p.Available && p.Alive && GameObject.Random(120 / Session.Parameters.DayInTurn) == 0)
                 {
                     foreach (Person q in this.Persons)
                     {
