@@ -4133,6 +4133,7 @@ namespace GameObjects
                     }
                 }
 
+                if (GameObject.Random((this.BelongedFaction.PersonCount - 50) / 50) == 0)
                 {
                     if (GameObject.Random((int)(10000 * Math.Pow(this.BelongedFaction.PersonCount, Session.Parameters.SearchPersonArchitectureCountPower))) <
                         Session.GlobalVariables.CreateRandomOfficerChance * 100)
