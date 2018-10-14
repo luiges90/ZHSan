@@ -211,7 +211,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 First = StaticMethods.SaveToString(scen.ScenarioMap.JumpPosition),
                 IDs = scen.Factions.GameObjects.Select(x => x.ID.ToString()).Aggregate((a, b) => a + "," + b),
                 Info = "电脑",
-                Name = scenName.Substring(0, scenName.IndexOf(".json")),
+                Name = (scenName.IndexOf(".json") >= 0) ? scenName.Substring(0, scenName.IndexOf(".json")) : scenName,
                 Names = scen.Factions.GameObjects.Select(x => x.Name).Aggregate((a, b) => a + "," + b),
                 //  Path = "",
                 // PlayTime = scenario.GameTime.ToString(),
