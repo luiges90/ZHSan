@@ -142436,7 +142436,7 @@
 "Loyalty":-4,
 "ShowDialog":false,
 "shengwangshangxian":30000,
-"xuyaochengchi":1,
+"xuyaochengchi":0,
 "xuyaogongxiandu":50000
 }
 },
@@ -142448,7 +142448,7 @@
 "Loyalty":-3,
 "ShowDialog":false,
 "shengwangshangxian":50000,
-"xuyaochengchi":2,
+"xuyaochengchi":0,
 "xuyaogongxiandu":100000
 }
 },
@@ -142460,7 +142460,7 @@
 "Loyalty":-2,
 "ShowDialog":false,
 "shengwangshangxian":100000,
-"xuyaochengchi":4,
+"xuyaochengchi":0,
 "xuyaogongxiandu":200000
 }
 },
@@ -142472,7 +142472,7 @@
 "Loyalty":-1,
 "ShowDialog":true,
 "shengwangshangxian":150000,
-"xuyaochengchi":6,
+"xuyaochengchi":0,
 "xuyaogongxiandu":300000
 }
 },
@@ -142484,7 +142484,7 @@
 "Loyalty":-1,
 "ShowDialog":true,
 "shengwangshangxian":200000,
-"xuyaochengchi":8,
+"xuyaochengchi":1,
 "xuyaogongxiandu":400000
 }
 },
@@ -142496,7 +142496,7 @@
 "Loyalty":0,
 "ShowDialog":true,
 "shengwangshangxian":400000,
-"xuyaochengchi":10,
+"xuyaochengchi":3,
 "xuyaogongxiandu":1000000
 }
 },
@@ -142508,7 +142508,7 @@
 "Loyalty":0,
 "ShowDialog":true,
 "shengwangshangxian":600000,
-"xuyaochengchi":12,
+"xuyaochengchi":5,
 "xuyaogongxiandu":1200000
 }
 },
@@ -142520,7 +142520,7 @@
 "Loyalty":1,
 "ShowDialog":true,
 "shengwangshangxian":800000,
-"xuyaochengchi":15,
+"xuyaochengchi":7,
 "xuyaogongxiandu":1500000
 }
 },
@@ -142532,7 +142532,7 @@
 "Loyalty":1,
 "ShowDialog":true,
 "shengwangshangxian":1000000,
-"xuyaochengchi":18,
+"xuyaochengchi":10,
 "xuyaogongxiandu":1800000
 }
 },
@@ -142544,7 +142544,7 @@
 "Loyalty":2,
 "ShowDialog":true,
 "shengwangshangxian":1200000,
-"xuyaochengchi":21,
+"xuyaochengchi":13,
 "xuyaogongxiandu":2100000
 }
 },
@@ -142556,7 +142556,7 @@
 "Loyalty":3,
 "ShowDialog":true,
 "shengwangshangxian":1500000,
-"xuyaochengchi":24,
+"xuyaochengchi":16,
 "xuyaogongxiandu":2400000
 }
 },
@@ -142568,7 +142568,7 @@
 "Loyalty":5,
 "ShowDialog":true,
 "shengwangshangxian":2000000,
-"xuyaochengchi":30,
+"xuyaochengchi":20,
 "xuyaogongxiandu":3000000
 }
 },
