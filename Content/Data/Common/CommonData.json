@@ -17470,12 +17470,12 @@
 "Key":2261,
 "Value":{
 "ID":2261,
-"Name":"建筑人口超过150000",
+"Name":"建筑人口超过100000",
 "Kind":{
 "ID":2260,
 "Name":"建筑人口达到若干"
 },
-"Parameter":"150000",
+"Parameter":"100000",
 "Parameter2":""
 }
 },
@@ -17483,12 +17483,12 @@
 "Key":2262,
 "Value":{
 "ID":2262,
-"Name":"建筑人口超过450000",
+"Name":"建筑人口超过250000",
 "Kind":{
 "ID":2260,
 "Name":"建筑人口达到若干"
 },
-"Parameter":"450000",
+"Parameter":"250000",
 "Parameter2":""
 }
 },
@@ -17496,12 +17496,12 @@
 "Key":2263,
 "Value":{
 "ID":2263,
-"Name":"建筑人口超过650000",
+"Name":"建筑人口超过550000",
 "Kind":{
 "ID":2260,
 "Name":"建筑人口达到若干"
 },
-"Parameter":"650000",
+"Parameter":"550000",
 "Parameter2":""
 }
 },
@@ -31019,7 +31019,7 @@
 "Endurance":1000,
 "FactionLimit":9999,
 "FundCost":120000,
-"InfluencesString":"1060 1061 1062 1063 1400 1404 3260 1020",
+"InfluencesString":"31050 1060 1061 1062 1063 1020 1400 1404 3260",
 "MaintenanceCost":0,
 "PointCost":10000,
 "PopulationRelated":true,
@@ -31042,7 +31042,7 @@
 "Endurance":2000,
 "FactionLimit":9999,
 "FundCost":240000,
-"InfluencesString":"31050 1060 1061 1062 1073 1020 1401 1405 3261",
+"InfluencesString":"31052 1060 1061 1062 1073 1020 1401 1405 3261",
 "MaintenanceCost":0,
 "PointCost":50000,
 "PopulationRelated":true,
@@ -31065,7 +31065,7 @@
 "Endurance":3000,
 "FactionLimit":9999,
 "FundCost":480000,
-"InfluencesString":"31052 1060 1061 1062 1083 1021 1402 1406 3262",
+"InfluencesString":"31054 1070 1071 1072 1083 1020 1402 1406 3262",
 "MaintenanceCost":0,
 "PointCost":200000,
 "PopulationRelated":true,
@@ -31088,7 +31088,7 @@
 "Endurance":4000,
 "FactionLimit":9999,
 "FundCost":960000,
-"InfluencesString":"31055 1060 1061 1062 1403 1407 3263",
+"InfluencesString":"31056 1080 1081 1082 1083 1020 1403 1407 3263",
 "MaintenanceCost":0,
 "PointCost":2000000,
 "PopulationRelated":true,
