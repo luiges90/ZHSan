@@ -4137,7 +4137,7 @@ namespace GameObjects
                 {
                     if (GameObject.Random((int)(10000 * Math.Pow(this.BelongedFaction.PersonCount, Session.Parameters.SearchPersonArchitectureCountPower))) <
                         Session.GlobalVariables.CreateRandomOfficerChance * 100)
-                    {
+                    { 
                         pack.FoundPerson = Person.createPerson(this.TargetArchitecture, this, true, false);
                         pack.FoundPerson.Ideal = (this.BelongedFaction.Leader.Ideal + GameObject.Random(pack.FoundPerson.IdealTendency.Offset * 2 + 1) - pack.FoundPerson.IdealTendency.Offset) % 150;
                         return true;

@@ -5934,14 +5934,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    if (rel.Value > Session.Parameters.HateThreshold)
-                                                    {
-                                                        p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
-                                                    }
-                                                    else
-                                                    {
-                                                        p.AdjustRelation(rel.Key, 0, -200);
-                                                    }
+                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                 }
                                             }
                                         }
@@ -5985,14 +5978,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    if (rel.Value > Session.Parameters.HateThreshold)
-                                                    {
-                                                        p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
-                                                    }
-                                                    else
-                                                    {
-                                                        p.AdjustRelation(rel.Key, 0, -200);
-                                                    }
+                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                 }
                                             }
                                         }
@@ -6035,14 +6021,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    if (rel.Value > Session.Parameters.HateThreshold)
-                                                    {
-                                                        p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
-                                                    }
-                                                    else
-                                                    {
-                                                        p.AdjustRelation(rel.Key, 0, -200);
-                                                    }
+                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                 }
                                             }
                                         }
@@ -6086,14 +6065,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    if (rel.Value > Session.Parameters.HateThreshold)
-                                                    {
-                                                        p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
-                                                    }
-                                                    else
-                                                    {
-                                                        p.AdjustRelation(rel.Key, 0, -200);
-                                                    }
+                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                 }
                                             }
                                         }
@@ -6137,14 +6109,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    if (rel.Value > Session.Parameters.HateThreshold)
-                                                    {
-                                                        p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
-                                                    }
-                                                    else
-                                                    {
-                                                        p.AdjustRelation(rel.Key, 0, -200);
-                                                    }
+                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                 }
                                             }
                                         }
@@ -6209,14 +6174,7 @@ namespace GameObjects
                                                 {
                                                     if (GameObject.Chance(100 / rels.Count))
                                                     {
-                                                        if (rel.Value > Session.Parameters.HateThreshold)
-                                                        {
-                                                            p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
-                                                        }
-                                                        else
-                                                        {
-                                                            p.AdjustRelation(rel.Key, 0, -200);
-                                                        }
+                                                        p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                     }
                                                 }
                                             }
@@ -6277,14 +6235,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    if (rel.Value > Session.Parameters.HateThreshold)
-                                                    {
-                                                        p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
-                                                    }
-                                                    else
-                                                    {
-                                                        p.AdjustRelation(rel.Key, 0, -200);
-                                                    }
+                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                 }
                                             }
                                         }
@@ -6381,14 +6332,7 @@ namespace GameObjects
                                                     {
                                                         if (GameObject.Chance(100 / rels.Count))
                                                         {
-                                                            if (rel.Value > Session.Parameters.HateThreshold)
-                                                            {
-                                                                p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
-                                                            }
-                                                            else
-                                                            {
-                                                                p.AdjustRelation(rel.Key, 0, -200);
-                                                            }
+                                                            p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
                                                         }
                                                     }
                                                 }
