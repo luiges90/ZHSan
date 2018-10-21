@@ -5206,10 +5206,9 @@ namespace GameObjects
                     foreach (Person q in Session.Current.Scenario.Persons)
                     {
                         if (p == q || q == this || q == killer) continue;
-                        if (GameObject.Chance((4 - p.PersonalLoyalty) * 25)) continue;
                         if (q.HasCloseStrainTo(killer))
                         {
-                            p.AddHated(q, -500 * p.PersonalLoyalty * p.PersonalLoyalty);
+                            p.AddHated(q, -200 * p.PersonalLoyalty * p.PersonalLoyalty);
                         }
                     }
                 }
@@ -10846,7 +10845,7 @@ namespace GameObjects
             if (p != null && p != this && !this.Hates(p))
             {
                 this.hatedPersons.Add(p);
-                this.SetRelation(p, relation);
+                this.EnsureRelationAtMost(p, relation);
                 this.EnsureRelationAtMost(p, Session.Parameters.HateThreshold);
             }
         }
