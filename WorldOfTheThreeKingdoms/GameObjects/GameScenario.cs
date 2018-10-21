@@ -1165,7 +1165,7 @@ namespace GameObjects
 
             if (oldFaction != null && !GameObject.Chance((int)oldFaction.Leader.PersonalLoyalty * 10))
             {
-                oldFaction.Leader.AddHated(leader);
+                oldFaction.Leader.AddHated(leader, -2000);
                 leader.AdjustRelation(oldFaction.Leader, -20f, -10);
             }
             foreach (Person p in this.AvailablePersons)

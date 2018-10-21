@@ -14916,7 +14916,7 @@ namespace GameObjects
                 }
                 if (p.Spouse != null && this.BelongedFaction != null)
                 {
-                    p.Spouse.AddHated(this.BelongedFaction.Leader);
+                    p.Spouse.AddHated(this.BelongedFaction.Leader, -200 * p.Spouse.PersonalLoyalty * p.Spouse.PersonalLoyalty);
                 }
                 result = true;
              } 

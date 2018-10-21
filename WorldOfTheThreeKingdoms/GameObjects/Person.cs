@@ -1830,14 +1830,14 @@ namespace GameObjects
                 if (p.Hates(this)) continue;
                 if (p.IsVeryCloseTo(this))
                 {
-                    p.AddHated(killer);
+                    p.AddHated(killer, -500 * p.PersonalLoyalty * p.PersonalLoyalty);
                 }
                 if (p.HasCloseStrainTo(this))
                 {
                     int hateChance = this.ClosePersonKilledReaction * 25;
                     if (GameObject.Chance(hateChance))
                     {
-                        p.AddHated(killer);
+                        p.AddHated(killer, -500 * p.PersonalLoyalty * p.PersonalLoyalty);
                     }
                 }
                 if (killer.BelongedFaction != null)
@@ -2669,13 +2669,16 @@ namespace GameObjects
                                     Session.Current.Scenario.haizichusheng(haizi, haizifuqin, this, origChildren.Count > 0);
                                 }
 
-                                this.AdjustRelation(haizifuqin, 3f, -5);
-                                haizifuqin.AdjustRelation(this, 3f, -5);
-
-                                if (this.LocationArchitecture == haizifuqin.LocationArchitecture)
+                                if (!this.Hates(haizifuqin) && !haizifuqin.Hates(this))
                                 {
-                                    this.AdjustRelation(haizifuqin, 3f, 0);
-                                    haizifuqin.AdjustRelation(this, 3f, 0);
+                                    this.AdjustRelation(haizifuqin, 3f, -5);
+                                    haizifuqin.AdjustRelation(this, 3f, -5);
+
+                                    if (this.LocationArchitecture == haizifuqin.LocationArchitecture)
+                                    {
+                                        this.AdjustRelation(haizifuqin, 3f, 0);
+                                        haizifuqin.AdjustRelation(this, 3f, 0);
+                                    }
                                 }
 
                                 if (this.Father != null)
@@ -5192,12 +5195,12 @@ namespace GameObjects
                 if (p == killer) continue;
                 if (p.IsVeryCloseTo(this))
                 {
-                    p.AddHated(killer);
+                    p.AddHated(killer, -500 * p.PersonalLoyalty * p.PersonalLoyalty);
                 }
                 if (p.HasCloseStrainTo(this))
                 {
                     // person close to killed one hates executor
-                    p.AddHated(killer);
+                    p.AddHated(killer, -500 * p.PersonalLoyalty * p.PersonalLoyalty);
 
                     // person close to killed one may also hate executor's close persons
                     foreach (Person q in Session.Current.Scenario.Persons)
@@ -5206,7 +5209,7 @@ namespace GameObjects
                         if (GameObject.Chance((4 - p.PersonalLoyalty) * 25)) continue;
                         if (q.HasCloseStrainTo(killer))
                         {
-                            p.AddHated(q);
+                            p.AddHated(q, -500 * p.PersonalLoyalty * p.PersonalLoyalty);
                         }
                     }
                 }
@@ -10194,7 +10197,7 @@ namespace GameObjects
 
             if (addHate)
             {
-                if (nvren.PersonalLoyalty >= 2) nvren.AddHated(leader);
+                nvren.AdjustRelation(leader, 0, -200 * nvren.PersonalLoyalty * nvren.PersonalLoyalty);
 
                 foreach (Person p in Session.Current.Scenario.Persons)
                 {
@@ -10202,11 +10205,11 @@ namespace GameObjects
                     if (p == leader) continue;
                     if (p.IsVeryCloseTo(nvren))
                     {
-                        p.AddHated(leader);
+                        p.AdjustRelation(leader, 0, -50 * nvren.PersonalLoyalty * nvren.PersonalLoyalty);
                     }
                     if (p.HasCloseStrainTo(nvren))
                     {
-                        p.AddHated(leader);
+                        p.AdjustRelation(leader, 0, -50 * nvren.PersonalLoyalty * nvren.PersonalLoyalty);
                     }
                 }
             }
@@ -10240,7 +10243,7 @@ namespace GameObjects
                         tookSpouse = p;
                         this.LoseReputationBy(0.05f);
 
-                        p.AddHated(this.BelongedFaction.Leader);
+                        p.AddHated(this.BelongedFaction.Leader, -200 * p.PersonalLoyalty * p.PersonalLoyalty);
                     }
                 }
             }// end if (this.CurrentPerson.Spouse != -1)
@@ -10560,7 +10563,7 @@ namespace GameObjects
             {
                 foreach (Person j in i.Value)
                 {
-                    i.Key.AddHated(j);
+                    i.Key.AddHated(j, -100 * i.Key.PersonalLoyalty * i.Key.PersonalLoyalty);
                 }
             }
 
@@ -10835,9 +10838,15 @@ namespace GameObjects
 
         public void AddHated(Person p)
         {
+            AddHated(p, -500);
+        }
+
+        public void AddHated(Person p, int relation)
+        {
             if (p != null && p != this && !this.Hates(p))
             {
                 this.hatedPersons.Add(p);
+                this.SetRelation(p, relation);
                 this.EnsureRelationAtMost(p, Session.Parameters.HateThreshold);
             }
         }
