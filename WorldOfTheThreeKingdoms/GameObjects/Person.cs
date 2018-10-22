@@ -2787,13 +2787,13 @@ namespace GameObjects
             extraRate += q.GetRelation(this) * 0.0001f * Math.Max(1, (float) Session.Parameters.MaxRelation / (Session.Parameters.MaxRelation + Session.Parameters.VeryCloseThreshold - q.GetRelation(this)));
             extraRate += this.GetRelation(q) * 0.0001f * Math.Max(1, (float) Session.Parameters.MaxRelation / (Session.Parameters.MaxRelation + Session.Parameters.VeryCloseThreshold - this.GetRelation(q)));
 
-            if (this.Age > 40 + (this.Sex ? 0 : 10))
+            if (this.Age > 40 && this.Sex)
             {
-                extraRate *= 1 - (this.Age - 40 - (this.Sex ? 0 : 10)) / 10.0f;
+                extraRate *= 1 - (this.Age - 40) / 10.0f;
             }
-            if (q.Age > 40 + (q.Sex ? 0 : 10))
+            if (q.Age > 40 && q.Sex)
             {
-                extraRate *= 1 - (q.Age - 40 - (q.Sex ? 0 : 10)) / 10.0f;
+                extraRate *= 1 - (q.Age - 40) / 10.0f;
             }
             if (this.Age < 16)
             {
