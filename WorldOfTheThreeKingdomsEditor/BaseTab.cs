@@ -1,4 +1,6 @@
 ﻿using GameObjects;
+using GameObjects.Conditions;
+using GameObjects.Influences;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,7 +61,11 @@ namespace WorldOfTheThreeKingdomsEditor
             typeof(float),
             typeof(double),
             typeof(char),
-            typeof(string)
+            typeof(string),
+            typeof(ConditionKind),
+            typeof(InfluenceKind),
+            typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind),
+            typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind)
         };
 
         private readonly T sampleInstance = Activator.CreateInstance<T>();
@@ -148,6 +154,30 @@ namespace WorldOfTheThreeKingdomsEditor
                     col.DefaultValue = 0;
                     dt.Columns.Add(col);
                 }
+                else if (type == typeof(InfluenceKind))
+                {
+                    DataColumn col = new DataColumn(name, 1.GetType());
+                    col.DefaultValue = 0;
+                    dt.Columns.Add(col);
+                }
+                else if (type == typeof(ConditionKind))
+                {
+                    DataColumn col = new DataColumn(name, 1.GetType());
+                    col.DefaultValue = 0;
+                    dt.Columns.Add(col);
+                }
+                else if (type == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
+                {
+                    DataColumn col = new DataColumn(name, 1.GetType());
+                    col.DefaultValue = 0;
+                    dt.Columns.Add(col);
+                }
+                else if (type == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
+                {
+                    DataColumn col = new DataColumn(name, 1.GetType());
+                    col.DefaultValue = 0;
+                    dt.Columns.Add(col);
+                }
                 else
                 {
                     DataColumn col = new DataColumn(name, type);
@@ -166,6 +196,22 @@ namespace WorldOfTheThreeKingdomsEditor
                     {
                         row[i.Name] = (int) i.GetValue(p);
                     }
+                    else if (i.FieldType == typeof(InfluenceKind))
+                    {
+                        row[i.Name] = ((InfluenceKind)i.GetValue(p)).ID;
+                    }
+                    else if (i.FieldType == typeof(ConditionKind))
+                    {
+                        row[i.Name] = ((ConditionKind)i.GetValue(p)).ID;
+                    }
+                    else if (i.FieldType == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
+                    {
+                        row[i.Name] = ((GameObjects.ArchitectureDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
+                    }
+                    else if (i.FieldType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
+                    {
+                        row[i.Name] = ((GameObjects.TroopDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
+                    }
                     else
                     {
                         row[i.Name] = i.GetValue(p);
@@ -178,6 +224,22 @@ namespace WorldOfTheThreeKingdomsEditor
                         if (i.PropertyType.IsEnum)
                         {
                             row[i.Name] = (int)i.GetValue(p);
+                        }
+                        else if (i.PropertyType == typeof(InfluenceKind))
+                        {
+                            row[i.Name] = ((InfluenceKind)i.GetValue(p)).ID;
+                        }
+                        else if (i.PropertyType == typeof(ConditionKind))
+                        {
+                            row[i.Name] = ((ConditionKind)i.GetValue(p)).ID;
+                        }
+                        else if (i.PropertyType == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
+                        {
+                            row[i.Name] = ((GameObjects.ArchitectureDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
+                        }
+                        else if (i.PropertyType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
+                        {
+                            row[i.Name] = ((GameObjects.TroopDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
                         }
                         else
                         {
@@ -227,6 +289,22 @@ namespace WorldOfTheThreeKingdomsEditor
                     {
                         i.SetValue(p, (Int32) Enum.ToObject(i.FieldType, e.Row[i.Name]));
                     }
+                    else if (i.FieldType == typeof(InfluenceKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllInfluenceKinds.GetInfluenceKind((int) e.Row[i.Name]));
+                    }
+                    else if (i.FieldType == typeof(ConditionKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllConditionKinds.GetConditionKind((int)e.Row[i.Name]));
+                    }
+                    else if (i.FieldType == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllEventEffectKinds.GetEventEffectKind((int)e.Row[i.Name]));
+                    }
+                    else if (i.FieldType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)e.Row[i.Name]));
+                    }
                     else
                     {
                         if (e.Row[i.Name] != DBNull.Value)
@@ -240,6 +318,22 @@ namespace WorldOfTheThreeKingdomsEditor
                     if (i.PropertyType.IsEnum)
                     {
                         i.SetValue(p, (Int32) Enum.ToObject(i.PropertyType, e.Row[i.Name]));
+                    }
+                    else if (i.PropertyType == typeof(InfluenceKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllInfluenceKinds.GetInfluenceKind((int)e.Row[i.Name]));
+                    }
+                    else if (i.PropertyType == typeof(ConditionKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllConditionKinds.GetConditionKind((int)e.Row[i.Name]));
+                    }
+                    else if (i.PropertyType == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllEventEffectKinds.GetEventEffectKind((int)e.Row[i.Name]));
+                    }
+                    else if (i.PropertyType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)e.Row[i.Name]));
                     }
                     else
                     {
@@ -298,6 +392,22 @@ namespace WorldOfTheThreeKingdomsEditor
                     {
                         i.SetValue(p, (Int32) Enum.ToObject(i.FieldType, item[i.Name]));
                     }
+                    else if (i.FieldType == typeof(InfluenceKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllInfluenceKinds.GetInfluenceKind((int)item[i.Name]));
+                    }
+                    else if (i.FieldType == typeof(ConditionKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllConditionKinds.GetConditionKind((int)item[i.Name]));
+                    }
+                    else if (i.FieldType == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllEventEffectKinds.GetEventEffectKind((int)item[i.Name]));
+                    }
+                    else if (i.FieldType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)item[i.Name]));
+                    }
                     else
                     {
                         if (item[i.Name] != DBNull.Value)
@@ -311,6 +421,22 @@ namespace WorldOfTheThreeKingdomsEditor
                     if (i.PropertyType.IsEnum)
                     {
                         i.SetValue(p, (Int32) Enum.ToObject(i.PropertyType, item[i.Name]));
+                    }
+                    else if (i.PropertyType == typeof(InfluenceKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllInfluenceKinds.GetInfluenceKind((int)item[i.Name]));
+                    }
+                    else if (i.PropertyType == typeof(ConditionKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllConditionKinds.GetConditionKind((int)item[i.Name]));
+                    }
+                    else if (i.PropertyType == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllEventEffectKinds.GetEventEffectKind((int)item[i.Name]));
+                    }
+                    else if (i.PropertyType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
+                    {
+                        i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)item[i.Name]));
                     }
                     else
                     {
