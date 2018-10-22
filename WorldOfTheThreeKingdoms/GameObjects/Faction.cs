@@ -1104,20 +1104,34 @@ namespace GameObjects
             int uncruelty = this.Leader.Uncruelty;
             int unAmbition = Enum.GetNames(typeof(PersonAmbition)).Length - (int)this.Leader.Ambition;
 
-            if (GameObject.Random(10) == 0)
+            // move
+            foreach (Architecture a in this.Architectures)
             {
-                // move
-                foreach (Architecture a in this.Architectures)
+                if (a.Feiziliebiao.Count > 0)
                 {
-                    if (a.Feiziliebiao.Count > 0)
+                    Architecture dest = null;
+                    int maxPop = 0;
+                    foreach (Architecture b in this.Architectures)
                     {
-                        Architecture dest = null;
-                        int maxPop = 0;
+                        if (a == b) continue;
+                        if (!b.withoutTruceFrontline && !b.JustAttacked && !b.HasHostileTroopsInView() &&
+                            (b.Meinvkongjian > b.Feiziliebiao.Count || b.BelongedFaction.IsAlien) && 
+                            (a.withoutTruceFrontline || b.Meinvkongjian > a.Meinvkongjian))
+                        {
+                            if (b.Endurance > maxPop)
+                            {
+                                maxPop = b.Endurance;
+                                dest = b;
+                            }
+                        }
+                    }
+                    if (dest == null)
+                    {
                         foreach (Architecture b in this.Architectures)
                         {
                             if (a == b) continue;
-                            if (!b.withoutTruceFrontline && 
-                                (b.Meinvkongjian > b.Feiziliebiao.Count || b.BelongedFaction.IsAlien) && 
+                            if (b.RecentlyAttacked <= 0 && b.RecentlyBreaked <= 0 &&
+                                (b.Meinvkongjian > b.Feiziliebiao.Count || b.BelongedFaction.IsAlien) &&
                                 (a.withoutTruceFrontline || b.Meinvkongjian > a.Meinvkongjian))
                             {
                                 if (b.Endurance > maxPop)
@@ -1127,42 +1141,28 @@ namespace GameObjects
                                 }
                             }
                         }
-                        if (dest == null)
+                    }
+                    if (dest != null)
+                    {
+                        int cnt = dest.BelongedFaction.IsAlien ? 9999 : dest.Meinvkongjian - dest.Feiziliebiao.Count;
+                        GameObjectList list = a.Feiziliebiao.GetList();
+                        list.PropertyName = "Merit";
+                        list.IsNumber = true;
+                        list.SmallToBig = false;
+                        list.ReSort();
+                        int moved = 0;
+                        foreach (Person p in list)
                         {
-                            foreach (Architecture b in this.Architectures)
-                            {
-                                if (a == b) continue;
-                                if (b.RecentlyAttacked <= 0 && b.RecentlyBreaked <= 0 &&
-                                    (b.Meinvkongjian > b.Feiziliebiao.Count || b.BelongedFaction.IsAlien) &&
-                                    (a.withoutTruceFrontline || b.Meinvkongjian > a.Meinvkongjian))
-                                {
-                                    if (b.Endurance > maxPop)
-                                    {
-                                        maxPop = b.Endurance;
-                                        dest = b;
-                                    }
-                                }
-                            }
-                        }
-                        if (dest != null)
-                        {
-                            int cnt = dest.BelongedFaction.IsAlien ? 9999 : dest.Meinvkongjian - dest.Feiziliebiao.Count;
-                            GameObjectList list = a.Feiziliebiao.GetList();
-                            list.PropertyName = "Merit";
-                            list.IsNumber = true;
-                            list.SmallToBig = false;
-                            list.ReSort();
-                            int moved = 0;
-                            foreach (Person p in list)
-                            {
-                                p.MoveToArchitecture(dest);
-                                moved++;
-                                if (moved >= cnt) break;
-                            }
+                            p.MoveToArchitecture(dest);
+                            moved++;
+                            if (moved >= cnt) break;
                         }
                     }
                 }
+            }
 
+            if (GameObject.Random(10) == 0)
+            {
                 //release
                 foreach (Architecture a in this.Architectures)
                 {
@@ -1178,7 +1178,6 @@ namespace GameObjects
                     }
                 }
             }
-
 
             
             // if (this.Leader.LocationArchitecture == null || this.Leader.LocationArchitecture.HasHostileTroopsInView()) return;
