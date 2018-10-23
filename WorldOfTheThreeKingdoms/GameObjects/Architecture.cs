@@ -6557,6 +6557,10 @@ namespace GameObjects
                         person.AddGlamourExperience(randomValue * 2);
                         person.IncreaseReputation(randomValue * 4);
                         person.IncreaseOfficerMerit(randomValue * 4);
+                        if (GameObject.Random(360 / Session.Current.Scenario.Parameters.DayInTurn) == 0)
+                        {
+                            person.IncreaseKarma(1);
+                        }
                         this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfAgricultureReputation);
                         this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfAgricultureTechniquePoint) * 100);
                         this.IncreaseAgriculture(randomValue);
@@ -6599,6 +6603,10 @@ namespace GameObjects
                         person.AddGlamourExperience(randomValue);
                         person.IncreaseReputation(randomValue * 4);
                         person.IncreaseOfficerMerit(randomValue * 4);
+                        if (GameObject.Random(540 / Session.Current.Scenario.Parameters.DayInTurn) == 0)
+                        {
+                            person.IncreaseKarma(1);
+                        }
                         this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfCommerceReputation);
                         this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfCommerceTechniquePoint) * 100);
                         this.IncreaseCommerce(randomValue);
@@ -6669,6 +6677,14 @@ namespace GameObjects
                         person.AddGlamourExperience(randomValue);
                         person.IncreaseReputation(randomValue * 4);
                         person.IncreaseOfficerMerit(randomValue * 4);
+                        if (GameObject.Random((190 - person.PersonalLoyalty * 10) / Session.Current.Scenario.Parameters.DayInTurn) == 0)
+                        {
+                            person.IncreaseKarma(1);
+                        }
+                        else if (GameObject.Random((160 + person.PersonalLoyalty * person.PersonalLoyalty * 20) / Session.Current.Scenario.Parameters.DayInTurn) == 0)
+                        {
+                            person.DecreaseKarma(1);
+                        }
                         this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfDominationReputation);
                         this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfDominationTechniquePoint) * 100);
                         this.IncreaseDomination(randomValue);
@@ -6764,6 +6780,14 @@ namespace GameObjects
                         person.AddGlamourExperience(randomValue * 2);
                         person.IncreaseReputation(randomValue * 4);
                         person.IncreaseOfficerMerit(randomValue * 4);
+                        if (GameObject.Random((190 - person.PersonalLoyalty * 10) / Session.Current.Scenario.Parameters.DayInTurn) == 0)
+                        {
+                            person.IncreaseKarma(1);
+                        }
+                        else if (GameObject.Random((160 + person.PersonalLoyalty * person.PersonalLoyalty * 20) / Session.Current.Scenario.Parameters.DayInTurn) == 0)
+                        {
+                            person.DecreaseKarma(1);
+                        }
                         this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfMoraleReputation);
                         this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfMoraleTechniquePoint) * 100);
                         this.IncreaseMorale(randomValue);
@@ -6831,6 +6855,10 @@ namespace GameObjects
                         person.AddPoliticsExperience(randomValue * 2);
                         person.IncreaseReputation(randomValue * 4);
                         person.IncreaseOfficerMerit(randomValue * 4);
+                        if (GameObject.Random(450 / Session.Current.Scenario.Parameters.DayInTurn) == 0)
+                        {
+                            person.IncreaseKarma(1);
+                        }
                         this.BelongedFaction.IncreaseReputation(randomValue * person.MultipleOfTechnologyReputation);
                         this.BelongedFaction.IncreaseTechniquePoint((randomValue * person.MultipleOfTechnologyTechniquePoint) * 100);
                         this.IncreaseTechnology(randomValue);

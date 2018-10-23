@@ -42,6 +42,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 "BasePolitics",
                 "BaseGlamour",
                 "Reputation",
+                "Karma",
                 "BaseBraveness",
                 "BaseCalmness",
                 "SkillsString",

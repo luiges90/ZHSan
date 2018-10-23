@@ -4950,7 +4950,8 @@ namespace GameObjects
                 foreach (DiplomaticRelation i in Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelationListByFactionID(base.ID))
                 {
                     Faction opposite = i.GetDiplomaticFaction(this.ID);
-                    if (i.Relation >= -Session.GlobalVariables.FriendlyDiplomacyThreshold && Session.Current.Scenario.IsPlayer(opposite))
+                    if (i.Relation >= -Session.GlobalVariables.FriendlyDiplomacyThreshold && !this.IsFriendly(opposite) &&
+                        Session.Current.Scenario.IsPlayer(opposite))
                     {
                         i.Relation -= 15; //focus到玩家的时候，每月降低15点友好度
                     }
@@ -5008,6 +5009,9 @@ namespace GameObjects
                 if (toBreak != null)
                 {
                     Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(this.ID, toBreak.ID).Relation = 0;
+
+                    this.Leader.DecreaseKarma(40);
+
                     //AI宣布主动解盟
                     Session.MainGame.mainGameScreen.xianshishijiantupian(toBreak.Leader, this.Leader.Name, TextMessageKind.ResetDiplomaticRelation, "ResetDiplomaticRelation", "ResetDiplomaticRelation.jpg", "ResetDiplomaticRelation", toBreak.LeaderName, true);
                 }

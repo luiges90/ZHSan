@@ -206,6 +206,8 @@
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect470.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect480.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect5.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect70.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect60.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect50.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect500.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect510.cs" />
@@ -471,6 +473,8 @@
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2900.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind2905.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind305.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind320.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind325.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind315.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind310.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind300.cs" />
