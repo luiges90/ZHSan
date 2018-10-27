@@ -1163,6 +1163,13 @@ namespace GameObjects
 
             leader.MoveToArchitecture(newFactionCapital);
 
+            foreach (Point p in newFactionCapital.ArchitectureArea.Area)
+            {
+                Troop t = GetTroopByPositionNoCheck(p);
+                t.Morale = -100;
+                Troop.CheckTroopRout(t);
+            }
+
             if (oldFaction != null && !GameObject.Chance((int)oldFaction.Leader.PersonalLoyalty * 10))
             {
                 oldFaction.Leader.AddHated(leader, -2000);
