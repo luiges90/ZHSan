@@ -139,6 +139,15 @@ namespace GameObjects
         [DataMember]
         public bool Minor = false;
 
+        private bool involveLeader = false;
+        public bool InvolveLeader
+        {
+            get
+            {
+                return involveLeader;
+            }
+        }
+
         public event ApplyEvent OnApplyEvent;
 
         public void Init()
@@ -478,6 +487,14 @@ namespace GameObjects
             foreach (KeyValuePair<int, List<EventEffect>> i in this.noEffect)
             {
                 matchedNoEffect.Add(matchedPersons[i.Key], i.Value);
+            }
+
+            foreach (Person p in matchedPersons.Values)
+            {
+                if (p == a.BelongedFaction.Leader)
+                {
+                    involveLeader = true;
+                }
             }
 
             return true;

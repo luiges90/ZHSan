@@ -2221,8 +2221,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void ApplyEvent(Event e, Architecture a, Screen screen)
         {
+
+
             if ((Session.Current.Scenario.CurrentPlayer == null || Session.Current.Scenario.CurrentPlayer.IsArchitectureKnown(a) || Session.GlobalVariables.SkyEye || e.GloballyDisplayed) 
-                && (e.matchedDialog != null && e.matchedDialog.Count > 0 && !e.Minor))
+                && (e.matchedDialog != null && e.matchedDialog.Count > 0 && (!e.Minor || e.InvolveLeader)))
             {
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, screen);
                 
