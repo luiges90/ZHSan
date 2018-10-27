@@ -225,15 +225,7 @@ namespace GameObjects.PersonDetail
 
         public bool WillLose(Person person) //失去条件
         {
-            foreach (Condition condition in this.LoseConditions.Conditions.Values)
-            {
-                if (!condition.CheckCondition(person))
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return this.LoseConditions.CheckCondition(person);
         }
 
         public bool CheckLimit(Person person)
@@ -296,14 +288,7 @@ namespace GameObjects.PersonDetail
             {
                 if (condition.Kind.ID == 902) return false;
             }
-            foreach (Condition c in this.GenerateConditions.Conditions.Values)
-            {
-                if (!c.CheckCondition(p))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return this.GenerateConditions.CheckCondition(p);
         }
 
         public bool CanBeBorn()
@@ -321,14 +306,7 @@ namespace GameObjects.PersonDetail
             {
                 if (condition.Kind.ID == 901) return false;
             }
-            foreach (Condition c in this.GenerateConditions.Conditions.Values)
-            {
-                if (!c.CheckCondition(person))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return this.GenerateConditions.CheckCondition(person);
         }
 
         public GameObjectList GetConditionList()

@@ -9883,18 +9883,7 @@ namespace GameObjects
                 if ((GameObject.Random(Session.Current.Scenario.GameCommonData.AllStunts.GetStuntList().Count * 2) == 0 ||
                     GameObject.Chance(father.childrenStuntChanceIncrease + mother.childrenStuntChanceIncrease)) && i.CanBeBorn(r))
                 {
-                    bool ok = true;
-                    foreach (Condition j in i.LearnConditions.Conditions.Values)
-                    {
-                        if (j.Kind.ID == 600 || j.Kind.ID == 610) //check personality kind only
-                        {
-                            if (!j.CheckCondition(r))
-                            {
-                                ok = false;
-                                break;
-                            }
-                        }
-                    }
+                    bool ok = i.LearnConditions.CheckPersonalityCondition(r);
                     if (ok)
                     {
                         r.Stunts.AddStunt(i);
