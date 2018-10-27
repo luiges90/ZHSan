@@ -53,7 +53,7 @@
                 FontColor="4294375158"
                 Align="Middle">
         </Column>
-        <Column ID="5" Name="Reputation" IsNumber="true" DisplayName="名声" MinWidth="80" DetailLevel="2"
+        <Column ID="5" Name="Reputation" IsNumber="true" DisplayName="名声" MinWidth="60" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -67,14 +67,14 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="7" Name="FightingForce" IsNumber="true" DisplayName="主将战斗力" MinWidth="80" DetailLevel="4"
+        <Column ID="7" Name="FightingForce" IsNumber="true" DisplayName="主将战斗" MinWidth="80" DetailLevel="4"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-		<Column ID="9" Name="SubFightingForce" IsNumber="true" DisplayName="副将战斗力" MinWidth="80" DetailLevel="4"
+		<Column ID="9" Name="SubFightingForce" IsNumber="true" DisplayName="副将战斗" MinWidth="80" DetailLevel="4"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -123,14 +123,14 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="15" Name="Braveness" IsNumber="true" DisplayName="勇猛度" MinWidth="60" DetailLevel="2"
+        <Column ID="15" Name="Braveness" IsNumber="true" DisplayName="勇猛" MinWidth="40" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Middle">
         </Column>
-        <Column ID="16" Name="Calmness" IsNumber="true" DisplayName="冷静度" MinWidth="60" DetailLevel="2"
+        <Column ID="16" Name="Calmness" IsNumber="true" DisplayName="冷静" MinWidth="40" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -144,7 +144,7 @@
                 FontColor="4294375158"
                 Align="Middle">
         </Column>
-		<Column ID="18" Name="OfficerMerit" IsNumber="true" DisplayName="功绩" MinWidth="80" DetailLevel="3"
+		<Column ID="18" Name="OfficerMerit" IsNumber="true" DisplayName="功绩" MinWidth="60" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
@@ -200,7 +200,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-		<Column ID="27" Name="Karma" IsNumber="true" DisplayName="善名" MinWidth="80" DetailLevel="7"
+		<Column ID="27" Name="Karma" IsNumber="true" DisplayName="善名" MinWidth="60" DetailLevel="7"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -543,7 +543,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="120" Name="TreasureCount" IsNumber="true" DisplayName="宝物数量" MinWidth="80" DetailLevel="3"
+        <Column ID="120" Name="TreasureCount" IsNumber="true" DisplayName="宝物" MinWidth="40" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -1255,7 +1255,7 @@
         </Tab>
         <Tab ID="2"  Name="Ability" DisplayName="能力" Columns="1 6 7 9 10 11 12 13 14 15 16 18 600">
         </Tab>
-        <Tab ID="3"  Name="Personal" DisplayName="个人" Columns="1 20 21 22 23 24 25 26 120 150 5 27 124 510">
+        <Tab ID="3"  Name="Personal" DisplayName="个人" Columns="1 20 21 22 23 24 25 26 120 150 124 5 27 510">
         </Tab>
         <Tab ID="4"  Name="Internal" DisplayName="内政" Columns="1 30 31 32 33 34 35 36 400">
         </Tab>
@@ -1766,7 +1766,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="6" Name="Fund" IsNumber="true" DisplayName="资金总数" MinWidth="80" DetailLevel="3"
+        <Column ID="6" Name="Fund" IsNumber="true" DisplayName="资金总数" MinWidth="100" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -4143,14 +4143,14 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="7" Name="Fund" IsNumber="true" DisplayName="资金总数" MinWidth="80" DetailLevel="3"
+        <Column ID="7" Name="Fund" IsNumber="true" DisplayName="资金总数" MinWidth="100" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="8" Name="Food" IsNumber="true" DisplayName="军粮总数" MinWidth="80" DetailLevel="3"
+        <Column ID="8" Name="Food" IsNumber="true" DisplayName="军粮总数" MinWidth="120" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
