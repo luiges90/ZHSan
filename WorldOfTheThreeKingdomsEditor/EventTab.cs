@@ -35,6 +35,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 "Name",
                 "happened",
                 "repeatable",
+                "Minor",
                 "AfterEventHappened",
                 "happenChance",
                 "GloballyDisplayed",

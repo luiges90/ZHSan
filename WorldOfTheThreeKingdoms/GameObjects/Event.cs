@@ -136,6 +136,9 @@ namespace GameObjects
         [DataMember]
         public int EndMonth = 12;
 
+        [DataMember]
+        public bool Minor = false;
+
         public event ApplyEvent OnApplyEvent;
 
         public void Init()
