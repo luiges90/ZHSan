@@ -547,6 +547,76 @@ namespace GameObjects
             }
         }
 
+        public PersonList AllPersonAndChildren
+        {
+            get
+            {
+                GameObjectList p = Session.Current.Scenario.GetPersonList(this).GetList();
+
+                HashSet<Person> result = new HashSet<Person>();
+                foreach (Person q in p)
+                {
+                    result.Add(q);
+                    foreach (Person r in q.ChildrenList)
+                    {
+                        result.Add(r);
+                    }
+                }
+
+                GameObjectList p2 = Session.Current.Scenario.GetMovingPersonList(this).GetList();
+                foreach (Person q in p2)
+                {
+                    result.Add(q);
+                    foreach (Person r in q.ChildrenList)
+                    {
+                        result.Add(r);
+                    }
+                }
+
+                GameObjectList p3 = Session.Current.Scenario.GetNoFactionPersonList(this).GetList();
+                foreach (Person q in p3)
+                {
+                    result.Add(q);
+                    foreach (Person r in q.ChildrenList)
+                    {
+                        result.Add(r);
+                    }
+                }
+
+                GameObjectList p4 = Session.Current.Scenario.GetNoFactionMovingPersonList(this).GetList();
+                foreach (Person q in p4)
+                {
+                    result.Add(q);
+                    foreach (Person r in q.ChildrenList)
+                    {
+                        result.Add(r);
+                    }
+                }
+
+                foreach (Captive q in this.Captives)
+                {
+                    result.Add(q.CaptivePerson);
+                }
+
+                foreach (Person q in this.Feiziliebiao)
+                {
+                    result.Add(q);
+                    foreach (Person r in q.ChildrenList)
+                    {
+                        result.Add(r);
+                    }
+                }
+
+                PersonList result2 = new PersonList();
+                foreach (Person q in result)
+                {
+                    result2.Add(q);
+                }
+                result2.SetImmutable();
+                return result2;
+            }
+        }
+
         public PersonList PersonAndChildren
         {
             get

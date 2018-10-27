@@ -453,6 +453,8 @@ namespace GameObjects.Conditions
     //[KnownType(typeof(ConditionKind5075))]
     public class ConditionKind : GameObject  //abstract
     {
+        protected static Person markedPerson = null;
+
         public virtual bool CheckConditionKind(Architecture architecture, Event e)
         {
             if (this.ID < 1000 || (this.ID >= 4000 && this.ID < 5000))

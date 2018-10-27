@@ -71,7 +71,7 @@ namespace WorldOfTheThreeKingdoms.Resources
             {
                 foreach (TerrainDetail detail in Session.Current.Scenario.GameCommonData.AllTerrainDetails.TerrainDetails.Values)
                 {
-                    detail.Textures = new GameObjects.MapDetail.TerrainTextures();
+                    detail.Textures = new TerrainTextures();
                     str = "Content/Textures/Resources/Terrain/" + detail.ID.ToString() + "/";
                     //if (Directory.Exists(str))
                     detail.Textures.BasicTextures.Clear();

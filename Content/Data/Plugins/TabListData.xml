@@ -4643,7 +4643,7 @@
                 FontColor="4294967295"
                 Align="Middle">
         </Column>
-		<Column ID="4" Name="HasCloseStrain" IsNumber="false" DisplayName="血亲" MinWidth="40" DetailLevel="8"
+		<Column ID="4" Name="HasCloseStrain" IsNumber="false" DisplayName="直属" MinWidth="40" DetailLevel="8"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"

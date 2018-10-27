@@ -304,19 +304,7 @@ namespace GameObjects
 
         public bool matchEventPersons(Architecture a)
         {
-            GameObjectList allPersons = a.PersonAndChildren.GetList();
-            foreach (Person p in a.NoFactionPersons)
-            {
-                allPersons.Add(p);
-            }
-            foreach (Captive p in a.Captives)
-            {
-                allPersons.Add(p.CaptivePerson);
-            }
-            foreach (Person p in a.Feiziliebiao)
-            {
-                allPersons.Add(p);
-            }
+            GameObjectList allPersons = a.AllPersonAndChildren.GetList();
 
             HashSet<int> haveCond = new HashSet<int>();
             foreach (KeyValuePair<int, List<Condition>> i in this.personCond)
