@@ -65,9 +65,11 @@ namespace GameObjects
         public string factionCondString { get; set; }
 
         public List<Condition> factionCond;
+        
+        public List<PersonIdDialog> dialog;
 
         [DataMember]
-        public List<PersonIdDialog> dialog;
+        public string dialogString { get; set; }
 
         [DataMember]
         public string effectString { get; set; }
@@ -78,11 +80,14 @@ namespace GameObjects
 
         public List<PersonDialog> matchedyesDialog = new List<PersonDialog>();
         public List<PersonDialog> matchednoDialog = new List<PersonDialog>();
+        
+        public List<PersonIdDialog> yesdialog = new List<PersonIdDialog>();
+        public List<PersonIdDialog> nodialog = new List<PersonIdDialog>();
 
         [DataMember]
-        public List<PersonIdDialog> yesdialog = new List<PersonIdDialog>();
+        public string yesdialogString { get; set; }
         [DataMember]
-        public List<PersonIdDialog> nodialog = new List<PersonIdDialog>();
+        public string nodialogString { get; set; }
 
         public Dictionary<Person, List<EventEffect>> matchedYesEffect;
         public Dictionary<Person, List<EventEffect>> matchedNoEffect;
@@ -115,10 +120,11 @@ namespace GameObjects
         public List<EventEffect> yesArchitectureEffect = new List<EventEffect>();
         public List<EventEffect> noArchitectureEffect = new List<EventEffect>();
 
-        [DataMember]
         public List<PersonIdDialog> scenBiography = new List<PersonIdDialog>() ;
 
         [DataMember]
+        public string scenBiographyString { get; set; }
+        
         public List<PersonDialog> matchedScenBiography = new List<PersonDialog> () ;
 
         [DataMember]

@@ -49,15 +49,19 @@ namespace WorldOfTheThreeKingdomsEditor
                 "architectureCondString",
                 "factionString",
                 "factionCondString",
+                "dialogString",
                 "effectString",
                 "architectureEffectString",
-                "factionEffectString",
+                "factionEffectIDString",
                 "Image",
                 "Sound",
+                "yesdialogString",
+                "nodialogString",
                 "yesEffectString",
                 "noEffectString",
                 "yesArchitectureEffectString",
                 "noArchitectureEffectString",
+                "scenBiographyString"
             };
         }
 

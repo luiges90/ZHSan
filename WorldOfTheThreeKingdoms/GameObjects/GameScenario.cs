@@ -3671,15 +3671,34 @@ namespace GameObjects
                 //e.factionEffectIDString = reader["FactionEffect"].ToString();
                 e.LoadFactionEffectFromString(this.GameCommonData.AllEventEffects, e.factionEffectIDString);
 
+                if (e.dialogString != null)
+                {
+                    e.LoadDialogFromString(e.dialogString);
+                }
+
                 //e.yesEffectString = reader["YesEffect"].ToString();
                 e.LoadYesEffectFromString(this.GameCommonData.AllEventEffects, e.yesEffectString);
                 //e.noEffectString = reader["NoEffect"].ToString();
                 e.LoadNoEffectFromString(this.GameCommonData.AllEventEffects, e.noEffectString);
 
+                if (e.yesdialogString != null)
+                {
+                    e.LoadyesDialogFromString(e.yesdialogString);
+                }
+                if (e.nodialogString != null)
+                {
+                    e.LoadnoDialogFromString(e.nodialogString);
+                }
+
                 //e.yesArchitectureEffectString = reader["YesArchitectureEffect"].ToString();
                 //e.noArchitectureEffectString = reader["NoArchitectureEffect"].ToString();
                 e.LoadYesArchitectureEffectFromString(this.GameCommonData.AllEventEffects, e.yesArchitectureEffectString);
                 e.LoadNoArchitectureEffectFromString(this.GameCommonData.AllEventEffects, e.noArchitectureEffectString);
+
+                if (e.scenBiographyString != null)
+                {
+                    e.LoadScenBiographyFromString(e.scenBiographyString);
+                }
 
                 //e.LoadScenBiographyFromString(reader["ScenBiography"].ToString());
                 this.AllEvents.AddEventWithEvent(e, false);
@@ -4932,13 +4951,17 @@ namespace GameObjects
                     e.architectureCondString = e.SaveArchitecureCondToString();
                     e.factionString = e.faction.SaveToString();
                     e.factionCondString = e.SaveFactionCondToString();
+                    e.dialogString = e.SaveDialogToString();
                     e.effectString = e.SaveEventEffectToString();
                     e.architectureEffectString = e.SaveArchitectureEffectToString();
                     e.factionEffectIDString = e.SaveFactionEffectToString();
+                    e.yesdialogString = e.SaveyesDialogToString();
+                    e.nodialogString = e.SavenoDialogToString();
                     e.yesEffectString = e.SaveYesEffectToString();
                     e.noEffectString = e.SaveNoEffectToString();
                     e.yesArchitectureEffectString = e.SaveYesArchitectureEffectToString();
                     e.noArchitectureEffectString = e.SaveNoArchitectureEffectToString();
+                    e.scenBiographyString = e.SaveScenBiographyToString();
                 }
             }
 
