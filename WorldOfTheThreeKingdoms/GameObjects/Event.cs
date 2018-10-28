@@ -182,6 +182,10 @@ namespace GameObjects
             {
                 nodialog = new List<PersonIdDialog>();
             }
+            if (scenBiography == null)
+            {
+                scenBiography = new List<PersonIdDialog>();
+            }
         }
 
         public void ApplyEventDialogs(Architecture a, Screen screen)
