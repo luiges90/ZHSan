@@ -2023,8 +2023,8 @@ namespace GameObjects
                 }
                 yearDead += this.LongetivityIncreaseByInfluence;
 
-                if (yearDead - 5 <= Session.Current.Scenario.Date.Year && Session.Current.Scenario.Date.Year < this.YearDead &&
-                    GameObject.Random(60 / Session.Parameters.DayInTurn) == 0 && GameObject.Chance((6 - (yearDead - Session.Current.Scenario.Date.Year)) * 18))
+                if (Session.Current.Scenario.Date.Year < this.YearDead &&
+                    GameObject.Random(60 / Session.Parameters.DayInTurn * (yearDead - Session.Current.Scenario.Date.Year)) == 0)
                     //GameObject.Random(60) == 0 && GameObject.Chance((6 - (yearDead - Session.Current.Scenario.Date.Year)) * 18))
                 {
                     this.InjureRate -= 0.1f;
@@ -2806,9 +2806,17 @@ namespace GameObjects
             {
                 extraRate *= 1 - (this.Age - 40) / 10.0f;
             }
+            else if (!this.Sex && this.Age > 50)
+            {
+                extraRate *= 1.0f / ((this.Age - 50) / 5.0f + 1);
+            }
             if (q.Age > 40 && q.Sex)
             {
                 extraRate *= 1 - (q.Age - 40) / 10.0f;
+            }
+            else if (!q.Sex && q.Age > 50)
+            {
+                extraRate *= 1.0f / ((q.Age - 50) / 5.0f + 1);
             }
             if (this.Age < 16)
             {
