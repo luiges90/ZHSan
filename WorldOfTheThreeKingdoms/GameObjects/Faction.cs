@@ -875,9 +875,9 @@ namespace GameObjects
         {
             if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) return false;
 
-            if (p.Age >= 45 + (p.Sex ? 0 : 10)) return false;
+            if (p.Sex && p.Age >= 45) return false;
 
-            if (this.Leader.Age >= 45 + (this.Leader.Sex ? 0 : 10)) return false;
+            if (this.Leader.Sex && this.Leader.Age >= 45) return false;
 
             if (p.Spouse == this.Leader || this.Leader.Spouse == p) return true;
         
