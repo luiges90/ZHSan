@@ -3839,7 +3839,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="3" Name="Truce" IsNumber="true" DisplayName="停战" MinWidth="80" DetailLevel="5"
+        <Column ID="3" Name="TruceDays" IsNumber="true" DisplayName="停战" MinWidth="80" DetailLevel="5"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Bold"

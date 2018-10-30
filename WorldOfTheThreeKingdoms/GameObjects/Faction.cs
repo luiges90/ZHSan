@@ -1469,17 +1469,20 @@ namespace GameObjects
                                     location = a;
                                     break;
                                 }
-                                int pval = p.NumberOfChildren > 0 ? p.Merit / p.NumberOfChildren : int.MaxValue;
-                                int tval = target == null ? 0 : (target.NumberOfChildren > 0 ? target.UntiredMerit / target.NumberOfChildren : int.MaxValue);
-                                if (target == null || pval > tval)
+                                if (p.PregnancyRate(this.Leader) > 0)
                                 {
-                                    target = p;
-                                    location = a;
+                                    int pval = p.NumberOfChildren > 0 ? p.Merit / p.NumberOfChildren : int.MaxValue;
+                                    int tval = target == null ? 0 : (target.NumberOfChildren > 0 ? target.UntiredMerit / target.NumberOfChildren : int.MaxValue);
+                                    if (target == null || pval > tval)
+                                    {
+                                        target = p;
+                                        location = a;
+                                    }
                                 }
                             }
                         }
                     }
-                    if (target != null && target.PregnancyRate(this.Leader) > 0)
+                    if (target != null)
                     {
                         if (location == this.Leader.LocationArchitecture)
                         {
@@ -4885,9 +4888,9 @@ namespace GameObjects
                     {
                         if (i != j)
                         {
-                            if (Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(i.ID, j.ID).Truce < 180 * Session.Parameters.DayInTurn)
+                            if (Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(i.ID, j.ID).Truce < 180)
                             {
-                                Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(i.ID, j.ID).Truce = 180 * Session.Parameters.DayInTurn;
+                                Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(i.ID, j.ID).Truce = 180;
                             }
                         }
                     }

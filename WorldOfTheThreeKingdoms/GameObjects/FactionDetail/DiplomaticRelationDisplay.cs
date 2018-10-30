@@ -1,4 +1,5 @@
-﻿using GameObjects;
+﻿using GameManager;
+using GameObjects;
 using System;
 
 
@@ -60,6 +61,14 @@ namespace GameObjects.FactionDetail
             set
             {
                 this.LinkedDiplomaticRelation.Truce = value;
+            }
+        }
+
+        public int TruceDays
+        {
+            get
+            {
+                return Truce * Session.Current.Scenario.Parameters.DayInTurn;
             }
         }
 
