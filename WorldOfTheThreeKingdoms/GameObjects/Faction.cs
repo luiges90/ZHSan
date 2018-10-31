@@ -3419,10 +3419,13 @@ namespace GameObjects
                 if (GameObject.Random(10) == 0 && (this.Capital != null) && this.Capital.BelongedFaction == this && this.Capital.SelectPrinceAvail())
                 {
                     Person person = this.Leader.ChildrenCanBeSelectedAsPrince()[0] as Person;
-                    this.PrinceID = person.ID;
-                    this.Capital.DecreaseFund(Session.Parameters.SelectPrinceCost);
-                    this.Capital.SelectPrince(person); //AI立储年表和报告
-                    //Session.MainGame.mainGameScreen.xianshishijiantupian(this.Leader, person.Name, "SelectPrince", "", "", true);
+                    if (person.ID != this.PrinceID)
+                    {
+                        this.PrinceID = person.ID;
+                        this.Capital.DecreaseFund(Session.Parameters.SelectPrinceCost);
+                        this.Capital.SelectPrince(person); //AI立储年表和报告
+                        //Session.MainGame.mainGameScreen.xianshishijiantupian(this.Leader, person.Name, "SelectPrince", "", "", true);
+                    }
 
                 }
             }

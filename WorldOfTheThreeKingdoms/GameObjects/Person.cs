@@ -8925,7 +8925,7 @@ namespace GameObjects
                     candicate.Add(person);
                 }
             }
-            candicate.PropertyName = "YearBorn";
+            candicate.PropertyName = "Merit";
             candicate.IsNumber = true;
             candicate.SmallToBig = true;
             candicate.ReSort();
