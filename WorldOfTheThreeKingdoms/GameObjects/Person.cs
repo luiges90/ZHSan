@@ -117,7 +117,7 @@ namespace GameObjects
 
             effectiveTreasures = new Dictionary<int, Treasure>();
 
-            oldInjuraRate = injuraRate;
+            oldInjuraRate = injureRate;
             //injureRate = 1.0f;
 
             DayLearnTitleDay = Session.Parameters.LearnTitleDays;
