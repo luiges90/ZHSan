@@ -2336,7 +2336,7 @@ namespace GameObjects
                 {
                     foreach (Person q in convincer)
                     {
-                        if (q.CanConvinceChance(p) > 10)
+                        if (q.CanConvinceChance(p) > 10 && q.Status == PersonStatus.Normal)
                         {
                             q.OutsideDestination = this.ArchitectureArea.Centre;
                             q.GoForConvince(p);
@@ -2365,7 +2365,7 @@ namespace GameObjects
             {
                 foreach (Person q in convincer)
                 {
-                    if (q.CanConvinceChance(p.CaptivePerson) > 20)
+                    if (q.CanConvinceChance(p.CaptivePerson) > 20 && q.Status == PersonStatus.Normal)
                     {
                         q.OutsideDestination = this.ArchitectureArea.Centre;
                         q.GoForConvince(p.CaptivePerson);
@@ -11564,6 +11564,7 @@ namespace GameObjects
             {
               
                 int randomValue = StaticMethods.GetRandomValue((int)((military.RecruitmentPerson.RecruitmentAbility * military.Kind.MinScale) * Session.Parameters.RecruitmentRate), 0x7d0);
+                // randomValue = (int)((float)randomValue * ((float)this.Population / 2 / this.ArmyQuantity));
                 int populationDecrement;
 
                 if ((randomValue + military.Quantity) > military.Kind.MaxScale)
