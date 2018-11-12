@@ -162,6 +162,8 @@ namespace GameGlobal
         [DataMember]
         public int hougongGetChildrenRate = 90;
         [DataMember]
+        public bool hougongAlienOnly = false;
+        [DataMember]
         public int getRaisedSoliderRate = 90;
         [DataMember]
         public int AIExecutionRate = 500;
@@ -1108,6 +1110,15 @@ namespace GameGlobal
                 exception = exception24;
                 throw new Exception("BornHistoricalChildren:\n" + exception.ToString());
             }
+            try
+            {
+                BornHistoricalChildren = bool.Parse(nextSibling.Attributes.GetNamedItem("hougongAlienOnly").Value);
+            }
+            catch (Exception exception24)
+            {
+                exception = exception24;
+                throw new Exception("hougongAlienOnly:\n" + exception.ToString());
+            }
             return true;
         }
 
@@ -1207,6 +1218,7 @@ namespace GameGlobal
             element.SetAttribute("SkyEyeSimpleNotification", SkyEyeSimpleNotification.ToString());
             element.SetAttribute("AutoMultipleMarriage", AutoMultipleMarriage.ToString());
             element.SetAttribute("BornHistoricalChildren", BornHistoricalChildren.ToString());
+            element.SetAttribute("hougongAlienOnly", hougongAlienOnly.ToString());
 
             document.AppendChild(element);
         

@@ -10332,7 +10332,7 @@ namespace GameObjects
 
                 foreach (Person q in all)
                 {
-                    if (Session.GlobalVariables.hougongGetChildrenRate > 0 &&
+                    if (this.BelongedFaction.hougongValid &&
                         ((q.Sex && q.huaiyuntianshu >= -1) || (this.Sex && this.huaiyuntianshu >= -1)) &&
                         this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit && q.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
                     {

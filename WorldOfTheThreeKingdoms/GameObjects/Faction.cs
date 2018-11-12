@@ -1016,7 +1016,7 @@ namespace GameObjects
                         Person q = candidates.GetMaxUntiredMeritPerson();
                         if (q.WaitForFeiZi == null)
                         {
-                            if (Session.GlobalVariables.hougongGetChildrenRate > 0)
+                            if (this.hougongValid)
                             {
                                 if ((IsPersonForHouGong(p) || IsPersonForHouGong(q)) && !(this.Leader == p || this.Leader == q)) continue;
                                 
@@ -1182,7 +1182,7 @@ namespace GameObjects
             
             // if (this.Leader.LocationArchitecture == null || this.Leader.LocationArchitecture.HasHostileTroopsInView()) return;
 
-            if (Session.GlobalVariables.hougongGetChildrenRate <= 0) return;
+            if (!this.hougongValid) return;
 
             if (this.Leader.NumberOfChildren >= Session.GlobalVariables.OfficerChildrenLimit) return;
 
@@ -6992,6 +6992,15 @@ namespace GameObjects
                 return result;
             }
         }
+
+        public bool hougongValid
+        {
+            get
+            {
+                return Session.GlobalVariables.hougongGetChildrenRate > 0 && (!Session.GlobalVariables.hougongAlienOnly || this.IsAlien);
+            }
+        }
+
         [DataMember]
         public int chaotinggongxiandu
         {

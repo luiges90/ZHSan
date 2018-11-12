@@ -609,6 +609,26 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 5.0f))
+            {
+                ID = "hougongAlienOnly"
+            };
+            btOne.OnButtonPress += (sender, e) =>
+            {
+                var bt = (ButtonTexture)sender;
+                if (bt.Selected)
+                {
+                    bt.Selected = false;
+                    Session.globalVariablesTemp.hougongAlienOnly = false;
+                }
+                else
+                {
+                    bt.Selected = true;
+                    Session.globalVariablesTemp.hougongAlienOnly = true;
+                }
+            };
+            btConfigList1.Add(btOne);
+
             btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left2, heightBase + height * 0f))
             {
                 ID = "KaiQiZuoBi"
@@ -2492,6 +2512,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
            
             btConfigList1.FirstOrDefault(bt => bt.ID == "JianYiAI").Selected = (bool)Session.globalVariablesTemp.AIQuickBattle;
 
+            btConfigList1.FirstOrDefault(bt => bt.ID == "hougongAlienOnly").Selected = (bool)Session.globalVariablesTemp.hougongAlienOnly;
+
             nstViewDetail.NowNumber = Session.globalVariablesTemp.TabListDetailLevel;
 
             nstGeneralBattleDead.NowNumber = Session.globalVariablesTemp.OfficerDieInBattleRate;
@@ -3631,6 +3653,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     CacheManager.DrawString(Session.Current.Font, "人口小于兵力时禁止征兵", new Vector2(left1, heightBase + height * 4f), Color.Black * alpha);
 
                     CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
+
+                    CacheManager.DrawString(Session.Current.Font, "后宫只限异族", new Vector2(left1, heightBase + height * 5.0f), Color.Black * alpha);
 
                     CacheManager.DrawString(Session.Current.Font, "开启作弊功能", new Vector2(left2, heightBase), Color.Black * alpha);
 
