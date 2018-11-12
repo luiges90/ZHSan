@@ -37098,7 +37098,7 @@
 "Value":{
 "ID":6300,
 "Name":"怀孕或致孕机率增加",
-"AIPersonValue":0.3,
+"AIPersonValue":1.5,
 "AIPersonValuePow":1,
 "Combat":false,
 "TroopLeaderValid":false,
@@ -57743,7 +57743,7 @@
 "Kind":{
 "ID":6300,
 "Name":"怀孕或致孕机率增加",
-"AIPersonValue":0.3,
+"AIPersonValue":1.5,
 "AIPersonValuePow":1,
 "Combat":false,
 "TroopLeaderValid":false,
@@ -57762,7 +57762,7 @@
 "Kind":{
 "ID":6300,
 "Name":"怀孕或致孕机率增加",
-"AIPersonValue":0.3,
+"AIPersonValue":1.5,
 "AIPersonValuePow":1,
 "Combat":false,
 "TroopLeaderValid":false,
@@ -57781,7 +57781,7 @@
 "Kind":{
 "ID":6300,
 "Name":"怀孕或致孕机率增加",
-"AIPersonValue":0.3,
+"AIPersonValue":1.5,
 "AIPersonValuePow":1,
 "Combat":false,
 "TroopLeaderValid":false,
@@ -57800,7 +57800,7 @@
 "Kind":{
 "ID":6300,
 "Name":"怀孕或致孕机率增加",
-"AIPersonValue":0.3,
+"AIPersonValue":1.5,
 "AIPersonValuePow":1,
 "Combat":false,
 "TroopLeaderValid":false,
@@ -68877,7 +68877,7 @@
 "Kind":{
 "ID":6300,
 "Name":"怀孕或致孕机率增加",
-"AIPersonValue":0.3,
+"AIPersonValue":1.5,
 "AIPersonValuePow":1,
 "Combat":false,
 "TroopLeaderValid":false,
