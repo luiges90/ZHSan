@@ -11564,7 +11564,7 @@ namespace GameObjects
             {
               
                 int randomValue = StaticMethods.GetRandomValue((int)((military.RecruitmentPerson.RecruitmentAbility * military.Kind.MinScale) * Session.Parameters.RecruitmentRate), 0x7d0);
-                // randomValue = (int)((float)randomValue * ((float)this.Population / 2 / this.ArmyQuantity));
+                randomValue = (int)((float)randomValue * ((float)this.Population / 2 / this.ArmyQuantity));
                 int populationDecrement;
 
                 if ((randomValue + military.Quantity) > military.Kind.MaxScale)
