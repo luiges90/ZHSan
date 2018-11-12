@@ -111,7 +111,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 populateTables(true);
                 scenLoaded = true;
-                Title = "中華三國志劇本編輯器 - " + filename;
+                Title = "中華三國志劇本編輯器 - " + openFileDialog.SafeFileName;
             }
         }
 
