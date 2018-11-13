@@ -7318,6 +7318,24 @@ namespace GameObjects
             }
         }
 
+        public bool HasSubofficerValidTitle
+        {
+            get
+            {
+                foreach (Title t in this.Titles)
+                {
+                    foreach (Influence i in t.Influences.Influences.Values)
+                    {
+                        if (i.Kind.Type == InfluenceType.战斗 || i.Kind.Type == InfluenceType.建筑战斗)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+        }
+
         /*
         public bool HasGuanzhi()
         {

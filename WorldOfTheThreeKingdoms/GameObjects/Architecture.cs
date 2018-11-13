@@ -1019,7 +1019,6 @@ namespace GameObjects
 
         private PersonList SelectSubOfficersToTroop(Troop t)
         {
-            int personCnt = 1;
             PersonList result = new PersonList();
             result.Add(t.Leader);
             if (t.TroopIntelligence < (75 - t.Leader.Calmness))
@@ -1032,7 +1031,6 @@ namespace GameObjects
                     {
                         person.Selected = true;
                         result.Add(person);
-                        personCnt++;
                         break;
                     }
                 }
@@ -1047,7 +1045,6 @@ namespace GameObjects
                     {
                         person.Selected = true;
                         result.Add(person);
-                        personCnt++;
                         break;
                     }
                 }
@@ -1062,11 +1059,36 @@ namespace GameObjects
                     {
                         person.Selected = true;
                         result.Add(person);
-                        personCnt++;
                         break;
                     }
                 }
             }
+
+            if (this.MovablePersons.GameObjects.Contains(t.Leader.Spouse))
+            {
+                if ((!t.Leader.Spouse.Selected && !t.Persons.HasGameObject(t.Leader.Spouse)) && ((t.Leader.Spouse.FightingForce < t.Leader.FightingForce)))
+                {
+                    t.Leader.Spouse.Selected = true;
+                    result.Add(t.Leader.Spouse);
+                }
+            }
+
+            GameObjectList pl = this.MovablePersons;
+            pl.PropertyName = "TitleSubofficerMerit";
+            pl.IsNumber = true;
+            pl.SmallToBig = false;
+            pl.ReSort();
+            foreach (Person person in pl)
+            {
+                if (person.WaitForFeiZi != null) continue;
+                if ((!person.Selected && !t.Persons.HasGameObject(person)) && ((person.FightingForce < t.Leader.FightingForce) && !person.HasLeaderValidTitle && person.HasSubofficerValidTitle))
+                {
+                    person.Selected = true;
+                    result.Add(person);
+                    break;
+                }
+            }
+            /*
             foreach (Person person in this.MovablePersons)
             {
                 if (person.WaitForFeiZi != null) continue;
@@ -1104,6 +1126,7 @@ namespace GameObjects
                 }
                 if (personCnt >= 5) break;
             }
+            */
             return result;
         }
 
