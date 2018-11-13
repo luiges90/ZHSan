@@ -1022,12 +1022,13 @@ namespace GameObjects
             int personCnt = 1;
             PersonList result = new PersonList();
             result.Add(t.Leader);
-            if (t.TroopIntelligence < (0x4b - t.Leader.Calmness))
+            if (t.TroopIntelligence < (75 - t.Leader.Calmness))
             {
                 foreach (Person person in this.MovablePersons)
                 {
                     if (person.WaitForFeiZi != null) continue;
-                    if ((!person.Selected && (person.Intelligence >= (0x4b - t.Leader.Calmness))) && (!t.Persons.HasGameObject(person) && ((((person.Strength < t.TroopStrength) && ((person.Intelligence - t.TroopIntelligence) >= 10)) && (person.FightingForce < t.Leader.FightingForce)) && !person.HasLeaderValidTitle)))
+                    if (!person.Selected && person.Intelligence >= 75 - t.Leader.Calmness && !t.Persons.HasGameObject(person) && t.Leader.Character.IntelligenceRate >= 0.75f &&
+                        person.Strength < t.TroopStrength && person.Intelligence - t.TroopIntelligence >= 10 && person.FightingForce < t.Leader.FightingForce && !person.HasLeaderValidTitle)
                     {
                         person.Selected = true;
                         result.Add(person);
@@ -1036,14 +1037,13 @@ namespace GameObjects
                     }
                 }
             }
-            if (t.TroopStrength < 0x4b)
+            if (t.TroopStrength < 75)
             {
                 foreach (Person person in this.MovablePersons)
                 {
                     if (person.WaitForFeiZi != null) continue;
-                    if (!person.Selected && person.Strength >= 0x4b && !t.Persons.HasGameObject(person) && person.Closes(t.Leader) &&
-                        person.Strength - t.TroopStrength >= 10 && person.FightingForce < t.Leader.FightingForce &&
-                        !person.HasLeaderValidTitle)
+                    if (!person.Selected && person.Strength >= 75 && !t.Persons.HasGameObject(person) && person.Closes(t.Leader) &&
+                        person.Strength - t.TroopStrength >= 10 && person.FightingForce < t.Leader.FightingForce && !person.HasLeaderValidTitle)
                     {
                         person.Selected = true;
                         result.Add(person);
@@ -1052,14 +1052,13 @@ namespace GameObjects
                     }
                 }
             }
-            if (t.TroopCommand < 0x4b)
+            if (t.TroopCommand < 75)
             {
                 foreach (Person person in this.MovablePersons)
                 {
                     if (person.WaitForFeiZi != null) continue;
-                    if (!person.Selected && person.Command >= 0x4b && !t.Persons.HasGameObject(person) && person.Closes(t.Leader) &&
-                        person.Command - t.TroopCommand >= 10 && person.FightingForce < t.Leader.FightingForce &&
-                        !person.HasLeaderValidTitle)
+                    if (!person.Selected && person.Command >= 75 && !t.Persons.HasGameObject(person) && person.Closes(t.Leader) &&
+                        person.Command - t.TroopCommand >= 10 && person.FightingForce < t.Leader.FightingForce && !person.HasLeaderValidTitle)
                     {
                         person.Selected = true;
                         result.Add(person);
@@ -1530,12 +1529,12 @@ namespace GameObjects
         {
             get
             {
-                int fundSupport = this.Fund / (Session.Parameters.RewardPersonCost * 3);
-                int develop = Math.Max((this.AgricultureCeiling - this.Agriculture) / 30,
-                    Math.Max((this.CommerceCeiling - this.Commerce) / 30,
-                    Math.Max((this.TechnologyCeiling - this.Technology) / 30,
-                    Math.Max((this.EnduranceCeiling - this.Endurance) / 30,
-                    Math.Max((this.MoraleCeiling - this.Morale) / 30,
+                int fundSupport = this.Fund / (Session.Parameters.InternalFundCost * 30);
+                int develop = Math.Max((this.AgricultureCeiling - this.Agriculture) / 90,
+                    Math.Max((this.CommerceCeiling - this.Commerce) / 90,
+                    Math.Max((this.TechnologyCeiling - this.Technology) / 90,
+                    Math.Max((this.EnduranceCeiling - this.Endurance) / 90,
+                    Math.Max((this.MoraleCeiling - this.Morale) / 90,
                     (this.DominationCeiling - this.Domination) / 30)))));
                 int frontLine = (this.withoutTruceFrontline || this.noFactionFrontline) ? this.EffectiveMilitaryCount * 2 : 0;
                 return Math.Min(this.MaxSupportableTroop, Math.Min(Math.Max(develop, frontLine), fundSupport));
@@ -10625,8 +10624,27 @@ namespace GameObjects
         private int getArmyScaleRequiredForAttack(LinkNode wayToTarget)
         {
             Person leader = this.BelongedFaction.Leader;
-            return (int)((wayToTarget.A.ArmyScale + wayToTarget.A.Endurance / 15 +
-                            (wayToTarget.A.DefensiveLegion == null || Session.Current.Scenario.IsPlayer(wayToTarget.A.BelongedFaction) ? 0 : wayToTarget.A.DefensiveLegion.ArmyScale * Session.Parameters.AIOffendDefendingTroopRate)) *
+      
+            float totalScale = 0;
+
+            int targetPersonCount = wayToTarget.A.PersonCount;
+            if (wayToTarget.A.BelongedFaction != null)
+            {
+                targetPersonCount = Math.Min(wayToTarget.A.BelongedFaction.PersonCount, targetPersonCount + wayToTarget.A.Endurance * 25);
+                int count = 0;
+                foreach (Military m in wayToTarget.A.Militaries)
+                {
+                    if (count > targetPersonCount) break;
+                    totalScale += m.Scale;
+                    count++;
+                }
+            }
+            else
+            {
+                totalScale = wayToTarget.A.ArmyScale;
+            }
+
+            return (int)(totalScale + wayToTarget.A.Endurance / 15 +
                             (Session.Parameters.AIOffendDefendTroopAdd + (leader.Calmness - leader.Braveness + (3 - (int)leader.Ambition) * 2) * Session.Parameters.AIOffendDefendTroopMultiply));
         }
 
@@ -10811,7 +10829,7 @@ namespace GameObjects
                         }
 
                         int minRequiredFactor = Math.Max(20, (5 - leader.Ambition) * 20 + (leader.Calmness - leader.Braveness) * 2);
-                        if (this.IsTroopExceedsLimit && this.IsVeryGood() && this.HasEnoughPeople)
+                        if (this.IsVeryGood() && this.HasEnoughPeople)
                         {
                             minRequiredFactor = Math.Min(33, minRequiredFactor);
                         }
@@ -10823,7 +10841,7 @@ namespace GameObjects
                         int reserve = Math.Max(0, reserveBase - i.A.ArmyScale);
                         int armyScaleRequiredForAttack = (int) (this.getArmyScaleRequiredForAttack(i) * (GameObject.Random(minRequiredFactor, 100) / 100.0f));
                         int armyScaleHere = (i.Kind == LinkKind.Land ? this.LandArmyScale : (this.WaterArmyScale + this.LandArmyScale / 2));
-                        if ((this.IsTroopExceedsLimit || this.ArmyScale > this.MaxSupportableTroopScale) && GameObject.Random(20 * (5 - this.BelongedFaction.Leader.Ambition)) == 0)
+                        if ((this.ArmyScale > this.MaxSupportableTroopScale) && GameObject.Random(20 * (5 - this.BelongedFaction.Leader.Ambition)) == 0)
                         {
                             ignoreReserve = true;
                         }
@@ -10928,7 +10946,7 @@ namespace GameObjects
                 if (wayToTarget != null)
                 {
                     int minRequiredFactor = Math.Max(20, (5 - leader.Ambition) * 20 + (leader.Calmness - leader.Braveness) * 2);
-                    if (this.IsTroopExceedsLimit && this.IsVeryGood() && this.HasEnoughPeople)
+                    if (this.IsVeryGood() && this.HasEnoughPeople)
                     {
                         minRequiredFactor = Math.Min(33, minRequiredFactor);
                     }
@@ -11564,7 +11582,7 @@ namespace GameObjects
             {
               
                 int randomValue = StaticMethods.GetRandomValue((int)((military.RecruitmentPerson.RecruitmentAbility * military.Kind.MinScale) * Session.Parameters.RecruitmentRate), 0x7d0);
-                randomValue = (int)((float)randomValue * ((float)this.Population / 2 / this.ArmyQuantity));
+                randomValue = (int)((float)randomValue * Math.Min(1.0f, ((float)this.Population * Session.Current.Scenario.Parameters.RecruitPopualationDecreaseRate / this.ArmyQuantity)));
                 int populationDecrement;
 
                 if ((randomValue + military.Quantity) > military.Kind.MaxScale)
@@ -12797,7 +12815,7 @@ namespace GameObjects
             {
                 int num = this.FacilityMaintenanceCost * 60;
                 num += this.RoutewayActiveCost * 60;
-                num += this.PersonCount * Session.Parameters.InternalFundCost * 2;
+                num += this.PersonCount * Session.Parameters.InternalFundCost * 10;
                 num += (this.BelongedFaction.BecomeEmperorLegallyAvail() || this.BelongedFaction.SelfBecomeEmperorAvail()) && this.BelongedFaction.Capital == this ? 100000 : 0;
                 num += this.BelongedFaction.Leader.WaitForFeiZi != null ? Session.Parameters.NafeiCost : 0;
                 num += (int)(Math.Sqrt(this.Population) * 8.0);
@@ -12807,7 +12825,6 @@ namespace GameObjects
                 }
                 num += this.BelongedFaction.Capital == this ? this.BelongedFaction.FundToAdvance : 0;
                 num += this.InformationDayCost * 15;
-                num += (this.PersonCount + this.MovingPersonCount) * Session.Parameters.RewardPersonCost * 3;
                 num += this.PlanFacilityKind == null ? 0 : this.PlanFacilityKind.FundCost;
                 num += this.BelongedFaction != null && this.BelongedFaction.PlanTechniqueArchitecture == this ? this.BelongedFaction.getTechniqueActualFundCost(this.BelongedFaction.PlanTechnique) : 0;
                 return num;
@@ -13327,7 +13344,6 @@ namespace GameObjects
             {
                 int num = this.FacilityMaintenanceCost * 30;
                 num += this.RoutewayActiveCost * 30;
-                num += (this.PersonCount + this.MovingPersonCount) * Session.Parameters.RewardPersonCost;
                 num += this.InformationDayCost * 15;
                 num += this.PlanFacilityKind == null ? 0 : this.PlanFacilityKind.FundCost;
                 num += this.BelongedFaction != null && this.BelongedFaction.PlanTechniqueArchitecture == this ? this.BelongedFaction.getTechniqueActualFundCost(this.BelongedFaction.PlanTechnique) : 0;

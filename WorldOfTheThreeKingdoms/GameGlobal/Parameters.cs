@@ -346,6 +346,8 @@ namespace GameGlobal
         public int MaxReputationForRecruit = 3000000;
         [DataMember]
         public float TroopMoraleChange = 1.0f;
+        [DataMember]
+        public float RecruitPopualationDecreaseRate = 0.25f;
 
         public Parameters Clone()
         {
@@ -533,6 +535,7 @@ namespace GameGlobal
             MaxReputationForRecruit = int.Parse(nextSibling.Attributes.GetNamedItem("MaxReputationForRecruit").Value);
 
             TroopMoraleChange = float.Parse(nextSibling.Attributes.GetNamedItem("TroopMoraleChange").Value);
+            RecruitPopualationDecreaseRate = float.Parse(nextSibling.Attributes.GetNamedItem("RecruitPopualationDecreaseRate").Value);
         }
 
         public void InitBaseRates()
@@ -726,6 +729,7 @@ namespace GameGlobal
             element.SetAttribute("AIMaxFeizi", AIMaxFeizi.ToString());
             element.SetAttribute("MaxReputationForRecruit", MaxReputationForRecruit.ToString());
             element.SetAttribute("TroopMoraleChange", TroopMoraleChange.ToString());
+            element.SetAttribute("RecruitPopualationDecreaseRate", RecruitPopualationDecreaseRate.ToString());
 
             document.AppendChild(element);
 
