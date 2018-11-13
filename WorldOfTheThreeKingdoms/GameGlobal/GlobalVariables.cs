@@ -1112,7 +1112,7 @@ namespace GameGlobal
             }
             try
             {
-                BornHistoricalChildren = bool.Parse(nextSibling.Attributes.GetNamedItem("hougongAlienOnly").Value);
+                hougongAlienOnly = bool.Parse(nextSibling.Attributes.GetNamedItem("hougongAlienOnly").Value);
             }
             catch (Exception exception24)
             {
