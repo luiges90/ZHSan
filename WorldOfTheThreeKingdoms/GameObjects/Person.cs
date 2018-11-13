@@ -2678,6 +2678,9 @@ namespace GameObjects
                                 haizifuqin.NumberOfChildren++;
                                 this.NumberOfChildren++;
 
+                                haizifuqin.childrenList.Add(haizi);
+                                this.childrenList.Add(haizi);
+
                                 if (!((bool)Session.GlobalVariables.PersonNaturalDeath) || Session.GlobalVariables.ChildrenAvailableAge <= 0)
                                 {
                                     Session.Current.Scenario.haizichusheng(haizi, haizifuqin, this, origChildren.Count > 0);
@@ -2853,22 +2856,27 @@ namespace GameObjects
         }
         */
 
+        private PersonList childrenList = null;
+
         public PersonList ChildrenList
         {
             get
             {
-                PersonList list = new PersonList();
-                if (Session.Current.Scenario != null && Session.Current.Scenario.Persons != null)
+                if (childrenList == null)
                 {
-                    foreach (Person p in Session.Current.Scenario.Persons)
+                    childrenList = new PersonList();
+                    if (Session.Current.Scenario != null && Session.Current.Scenario.Persons != null)
                     {
-                        if ((p.Father == this || p.Mother == this) && p.Age >= 0 && (((p.Available || p.YearBorn <= Session.Current.Scenario.Date.Year) && p.Alive) || (p.Available && !p.Alive)))
+                        foreach (Person p in Session.Current.Scenario.Persons)
                         {
-                            list.Add(p);
+                            if ((p.Father == this || p.Mother == this) && p.Age >= 0 && (((p.Available || p.YearBorn <= Session.Current.Scenario.Date.Year) && p.Alive) || (p.Available && !p.Alive)))
+                            {
+                                childrenList.Add(p);
+                            }
                         }
                     }
                 }
-                return list;
+                return childrenList;
             }
         }
 
