@@ -1066,7 +1066,7 @@ namespace GameObjects
 
             if (this.MovablePersons.GameObjects.Contains(t.Leader.Spouse))
             {
-                if ((!t.Leader.Spouse.Selected && !t.Persons.HasGameObject(t.Leader.Spouse)) && ((t.Leader.Spouse.FightingForce < t.Leader.FightingForce)))
+                if ((!t.Leader.Spouse.Selected && !t.Persons.HasGameObject(t.Leader.Spouse)) && ((t.Leader.Spouse.FightingForce < t.Leader.FightingForce)) && !t.Leader.Spouse.HasLeaderValidTitle)
                 {
                     t.Leader.Spouse.Selected = true;
                     result.Add(t.Leader.Spouse);
