@@ -501,7 +501,7 @@ namespace GameObjects
 
             foreach (Person p in matchedPersons.Values)
             {
-                if (p == a.BelongedFaction.Leader && Session.Current.Scenario.IsPlayer(a.BelongedFaction))
+                if (a.BelongedFaction != null && p == a.BelongedFaction.Leader && Session.Current.Scenario.IsPlayer(a.BelongedFaction))
                 {
                     involveLeader = true;
                 }

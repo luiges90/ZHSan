@@ -1074,18 +1074,20 @@ namespace GameObjects
             }
 
             GameObjectList pl = this.MovablePersons;
-            pl.PropertyName = "TitleSubofficerMerit";
+            pl.PropertyName = "SubFightingForce";
             pl.IsNumber = true;
             pl.SmallToBig = false;
             pl.ReSort();
+            int personCount = this.PersonCount;
             foreach (Person person in pl)
             {
                 if (person.WaitForFeiZi != null) continue;
-                if ((!person.Selected && !t.Persons.HasGameObject(person)) && ((person.FightingForce < t.Leader.FightingForce) && !person.HasLeaderValidTitle && person.HasSubofficerValidTitle))
+                if (person.SubFightingForce < t.Leader.FightingForce * result.Count / Math.Min(3, personCount / this.MilitaryCount + 1)) break;
+                if (!person.Selected && !t.Persons.HasGameObject(person) && person.FightingForce < t.Leader.FightingForce && 
+                    !person.HasLeaderValidTitle && person.HasSubofficerValidTitle)
                 {
                     person.Selected = true;
                     result.Add(person);
-                    break;
                 }
             }
             /*
