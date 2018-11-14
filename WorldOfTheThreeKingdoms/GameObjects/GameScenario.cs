@@ -6184,8 +6184,17 @@ namespace GameObjects
                                             skillToTeach.Add(s);
                                         }
                                     }
+                                    List<Skill> candidates = new List<Skill>();
+                                    foreach (Skill s in this.GameCommonData.AllSkills.Skills.Values)
+                                    {
+                                        if (s.CanBeBorn(p) && GameObject.Chance((s.GetRelatedAbility(q) - 50) / 5))
+                                        {
+                                            skillToTeach.Add(s);
+                                        }
+                                    }
 
                                     List<Skill> realSkillToTeach = new List<Skill>();
+                                    realSkillToTeach.Add(skillToTeach[GameObject.Random(skillToTeach.Count)]);
                                     realSkillToTeach.Add(skillToTeach[GameObject.Random(skillToTeach.Count)]);
                                     realSkillToTeach.Add(skillToTeach[GameObject.Random(skillToTeach.Count)]);
 
@@ -6242,7 +6251,6 @@ namespace GameObjects
                                 {
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
-                                    if (q.Stunts.Count <= 0) continue;
                                     List<Stunt> stuntToTeach = new List<Stunt>();
                                     foreach (Stunt s in q.Stunts.Stunts.Values)
                                     {
@@ -6251,25 +6259,42 @@ namespace GameObjects
                                             stuntToTeach.Add(s);
                                         }
                                     }
-                                    Stunt t = stuntToTeach[GameObject.Random(stuntToTeach.Count)];
-                                    int extraChance = 0;
-                                    if (p.Father.GetStuntList().GameObjects.Contains(t) || p.Mother.GetStuntList().GameObjects.Contains(t))
+
+                                    List<Stunt> candidates = new List<Stunt>();
+                                    foreach (Stunt s in this.GameCommonData.AllStunts.Stunts.Values)
                                     {
-                                        extraChance += 5;
-                                    }
-                                    if (GameObject.Chance((10 + q.childrenStuntChanceIncrease + extraChance) / 3))
-                                    {
-                                        p.Stunts.AddStunt(t);
-                                        p.AdjustRelation(q, 0, 10);
-                                        q.AdjustRelation(p, 0, 10);
-                                        if (GameObject.Chance(30))
+                                        if (s.CanBeBorn(p))
                                         {
-                                            Dictionary<Person, int> rels = q.GetAllRelations();
-                                            foreach (KeyValuePair<Person, int> rel in rels)
+                                            candidates.Add(s);
+                                        }
+                                    }
+                                    if (candidates.Count > 0 && GameObject.Chance((q.Strength + q.Command + q.Intelligence - 150) / 15))
+                                    {
+                                        stuntToTeach.Add(candidates[GameObject.Random(candidates.Count)]);
+                                    }
+
+                                    if (stuntToTeach.Count > 0)
+                                    {
+                                        Stunt t = stuntToTeach[GameObject.Random(stuntToTeach.Count)];
+                                        int extraChance = 0;
+                                        if (p.Father.GetStuntList().GameObjects.Contains(t) || p.Mother.GetStuntList().GameObjects.Contains(t))
+                                        {
+                                            extraChance += 10;
+                                        }
+                                        if (GameObject.Chance((10 + q.childrenStuntChanceIncrease + extraChance) / 3))
+                                        {
+                                            p.Stunts.AddStunt(t);
+                                            p.AdjustRelation(q, 0, 10);
+                                            q.AdjustRelation(p, 0, 10);
+                                            if (GameObject.Chance(30))
                                             {
-                                                if (GameObject.Chance(100 / rels.Count))
+                                                Dictionary<Person, int> rels = q.GetAllRelations();
+                                                foreach (KeyValuePair<Person, int> rel in rels)
                                                 {
-                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
+                                                    if (GameObject.Chance(100 / rels.Count))
+                                                    {
+                                                        p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
+                                                    }
                                                 }
                                             }
                                         }
@@ -6313,10 +6338,9 @@ namespace GameObjects
                                     }
 
                                     List<Title> extraTeach = new List<Title>();
-                                    int allTitleCount = this.GameCommonData.AllTitles.Count;
                                     foreach (Title t in this.GameCommonData.AllTitles.Titles.Values)
                                     {
-                                        if (t.Kind.RandomTeachable && t.Level <= maxLevel + q.childrenTitleChanceIncrease && GameObject.Chance((10 - t.Level) * 5) && GameObject.Chance(t.InheritChance) && t.CanBeBorn(p))
+                                        if (t.Kind.RandomTeachable && t.Level <= maxLevel + q.childrenTitleChanceIncrease + 1 && GameObject.Chance((int) (50.0f / t.Level)) && GameObject.Chance(t.InheritChance) && t.CanBeBorn(p))
                                         {
                                             extraTeach.Add(t);
                                         }
