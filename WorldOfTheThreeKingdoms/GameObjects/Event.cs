@@ -499,11 +499,14 @@ namespace GameObjects
                 matchedNoEffect.Add(matchedPersons[i.Key], i.Value);
             }
 
-            foreach (Person p in matchedPersons.Values)
+            if (a.BelongedFaction != null)
             {
-                if (a.BelongedFaction != null && p == a.BelongedFaction.Leader && Session.Current.Scenario.IsPlayer(a.BelongedFaction))
+                foreach (Person p in matchedPersons.Values)
                 {
-                    involveLeader = true;
+                    if (p == a.BelongedFaction.Leader && Session.Current.Scenario.IsPlayer(a.BelongedFaction))
+                    {
+                        involveLeader = true;
+                    }
                 }
             }
 
