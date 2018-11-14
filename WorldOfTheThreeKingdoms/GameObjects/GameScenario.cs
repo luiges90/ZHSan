@@ -6187,7 +6187,7 @@ namespace GameObjects
                                     List<Skill> candidates = new List<Skill>();
                                     foreach (Skill s in this.GameCommonData.AllSkills.Skills.Values)
                                     {
-                                        if (s.CanBeBorn(p) && GameObject.Chance((s.GetRelatedAbility(q) - 50) / 5))
+                                        if (s.CanBeBorn(p) && GameObject.Chance((s.GetRelatedAbility(q) - 50) / 5) && GameObject.Chance(100 / s.Level))
                                         {
                                             skillToTeach.Add(s);
                                         }
