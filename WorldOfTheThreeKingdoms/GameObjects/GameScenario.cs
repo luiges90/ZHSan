@@ -6187,7 +6187,7 @@ namespace GameObjects
                                     List<Skill> candidates = new List<Skill>();
                                     foreach (Skill s in this.GameCommonData.AllSkills.Skills.Values)
                                     {
-                                        if (s.CanBeBorn(p) && GameObject.Chance((s.GetRelatedAbility(q) - 50) / 5) && GameObject.Chance(100 / s.Level))
+                                        if (s.CanBeBorn(p) && GameObject.Chance((s.GetRelatedAbility(q) - 70) / 5) && GameObject.Chance(100 / s.Level))
                                         {
                                             skillToTeach.Add(s);
                                         }
@@ -6268,7 +6268,7 @@ namespace GameObjects
                                             candidates.Add(s);
                                         }
                                     }
-                                    if (candidates.Count > 0 && GameObject.Chance((q.Strength + q.Command + q.Intelligence - 150) / 15))
+                                    if (candidates.Count > 0 && GameObject.Chance((q.Strength + q.Command + q.Intelligence - 210) / 15))
                                     {
                                         stuntToTeach.Add(candidates[GameObject.Random(candidates.Count)]);
                                     }
