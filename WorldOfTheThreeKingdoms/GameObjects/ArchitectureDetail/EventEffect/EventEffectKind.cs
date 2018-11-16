@@ -107,6 +107,8 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
 //[KnownType(typeof(EventEffect2200))]
     public class EventEffectKind : GameObject  //abstract
     {
+        protected static Person markedPerson = null;
+
         public virtual void ApplyEffectKind(Person person, Event e)
         {
         }

@@ -213,6 +213,16 @@
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect510.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect600.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect650.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect827.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect826.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect825.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect824.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect823.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect822.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect821.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect820.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect810.cs" />
+    <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect800.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindPack\EventEffect700.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectKindTable.cs" />
     <Compile Include="GameObjects\ArchitectureDetail\EventEffect\EventEffectTable.cs" />
@@ -542,6 +552,8 @@
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4810.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4825.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4815.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4845.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4840.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4919.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4918.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind4917.cs" />
