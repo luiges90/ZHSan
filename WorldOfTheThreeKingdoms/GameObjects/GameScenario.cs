@@ -1166,8 +1166,11 @@ namespace GameObjects
             foreach (Point p in newFactionCapital.ArchitectureArea.Area)
             {
                 Troop t = GetTroopByPositionNoCheck(p);
-                t.Morale = -100;
-                Troop.CheckTroopRout(t);
+                if (t != null)
+                {
+                    t.Morale = -100;
+                    Troop.CheckTroopRout(t);
+                }
             }
 
             if (oldFaction != null && !GameObject.Chance((int)oldFaction.Leader.PersonalLoyalty * 10))
