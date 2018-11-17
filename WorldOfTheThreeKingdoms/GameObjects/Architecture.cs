@@ -4232,6 +4232,8 @@ namespace GameObjects
                         {
                             removed.Destroy(true, false);
                         }
+
+                        t.Leader.Selected = true;
                     }
                 }
             }
