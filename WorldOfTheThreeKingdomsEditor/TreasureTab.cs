@@ -10,9 +10,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class TreasureTab : BaseTab<Treasure>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.Treasures;
+            return new GameObjectItemList(scen.Treasures);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

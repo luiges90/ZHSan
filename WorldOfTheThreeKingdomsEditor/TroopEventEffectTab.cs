@@ -14,9 +14,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class TroopEventEffectTab : BaseTab<EventEffect>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.GameCommonData.AllTroopEventEffects.GetEventEffectList();
+            return new GameObjectDictionaryItemList(scen.GameCommonData.AllTroopEventEffects.EventEffects);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

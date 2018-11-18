@@ -14,9 +14,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class EventEffectTab : BaseTab<EventEffect>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.GameCommonData.AllEventEffects.GetEventEffectList();
+            return new GameObjectDictionaryItemList(scen.GameCommonData.AllEventEffects.EventEffects);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

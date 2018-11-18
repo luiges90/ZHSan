@@ -10,9 +10,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class EventTab : BaseTab<Event>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.AllEvents;
+            return new GameObjectItemList(scen.AllEvents);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

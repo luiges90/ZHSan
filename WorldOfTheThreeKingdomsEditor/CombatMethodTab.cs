@@ -12,9 +12,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class CombatMethodTab : BaseTab<CombatMethod>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.GameCommonData.AllCombatMethods.GetCombatMethodList();
+            return new GameObjectDictionaryItemList(scen.GameCommonData.AllCombatMethods.CombatMethods);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

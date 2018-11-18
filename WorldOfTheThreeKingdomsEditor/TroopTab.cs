@@ -10,9 +10,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class TroopTab : BaseTab<Troop>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.Troops;
+            return new GameObjectItemList(scen.Troops);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

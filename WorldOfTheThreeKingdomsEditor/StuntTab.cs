@@ -11,9 +11,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class StuntTab : BaseTab<Stunt>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.GameCommonData.AllStunts.GetStuntList();
+            return new GameObjectDictionaryItemList(scen.GameCommonData.AllStunts.Stunts);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

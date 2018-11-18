@@ -10,9 +10,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class FacilityTab : BaseTab<Facility>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.Facilities;
+            return new GameObjectItemList(scen.Facilities);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

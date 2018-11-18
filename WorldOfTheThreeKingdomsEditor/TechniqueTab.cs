@@ -16,9 +16,9 @@ namespace WorldOfTheThreeKingdomsEditor
             init(scen, dg);
         }
 
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.GameCommonData.AllTechniques.GetTechniqueList();
+            return new GameObjectDictionaryItemList(scen.GameCommonData.AllTechniques.Techniques);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

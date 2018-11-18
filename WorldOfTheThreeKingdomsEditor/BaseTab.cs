@@ -51,7 +51,7 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
-        protected Type[] supportedTypes = new Type[]
+        private Type[] supportedTypes = new Type[]
         {
             typeof(bool),
             typeof(byte),
@@ -72,7 +72,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private static bool settingUp = false;
 
-        protected FieldInfo[] getFieldInfos()
+        private FieldInfo[] getFieldInfos()
         {
             return sampleInstance.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
                 .Where(x => Attribute.IsDefined(x, typeof(DataMemberAttribute)))
@@ -80,7 +80,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 .ToArray();
         }
 
-        protected PropertyInfo[] getPropertyInfos()
+        private PropertyInfo[] getPropertyInfos()
         {
             return sampleInstance.GetType().GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
                 .Where(x => Attribute.IsDefined(x, typeof(DataMemberAttribute)))
@@ -97,11 +97,95 @@ namespace WorldOfTheThreeKingdomsEditor
             this.dg = dg;
         }
 
+        protected interface IItemList
+        {
+            GameObjectList GetList();
+            T GetGameObject(int id);
+            void Remove(T item);
+            void Add(T item);
+            int GetFreeGameObjectID();
+        }
+
+        protected class GameObjectItemList : IItemList
+        {
+            private GameObjectList list;
+
+            public GameObjectItemList(GameObjectList l)
+            {
+                this.list = l;
+            }
+
+            public void Add(T item)
+            {
+                list.Add(item);
+            }
+
+            public int GetFreeGameObjectID()
+            {
+                return list.GetFreeGameObjectID();
+            }
+
+            public T GetGameObject(int id)
+            {
+                return (T) list[id];
+            }
+
+            public GameObjectList GetList()
+            {
+                return list;
+            }
+
+            public void Remove(T item)
+            {
+                list.Remove(item);
+            }
+        }
+
+        protected class GameObjectDictionaryItemList : IItemList
+        {
+            private Dictionary<int, T> dict;
+
+            public GameObjectDictionaryItemList(Dictionary<int, T> d)
+            {
+                this.dict = d;
+            }
+
+            public void Add(T item)
+            {
+                dict.Add(item.ID, item);
+            }
+
+            public int GetFreeGameObjectID()
+            {
+                return dict.Keys.Max() + 1;
+            }
+
+            public T GetGameObject(int id)
+            {
+                return dict[id];
+            }
+
+            public GameObjectList GetList()
+            {
+                GameObjectList list = new GameObjectList();
+                foreach (T t in dict.Values)
+                {
+                    list.Add(t);
+                }
+                return list;
+            }
+
+            public void Remove(T item)
+            {
+                dict.Remove(item.ID);
+            }
+        }
+
         protected abstract String[] GetRawItemOrder();
 
         protected abstract Dictionary<String, String> GetDefaultValues();
 
-        protected abstract GameObjectList GetDataList(GameScenario scen);
+        protected abstract IItemList GetDataList(GameScenario scen);
 
         public void setup()
         {
@@ -186,7 +270,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 }
             }
 
-            foreach (T p in GetDataList(scen))
+            foreach (T p in GetDataList(scen).GetList())
             {
                 DataRow row = dt.NewRow();
 
@@ -269,7 +353,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void Dt_RowDeleting(object sender, DataRowChangeEventArgs e)
         {
-            GameObjectList list = (GameObjectList)GetDataList(scen);
+            IItemList list = GetDataList(scen);
             T p = (T)list.GetGameObject((int)e.Row["id"]);
             list.Remove(p);
         }
@@ -278,7 +362,7 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             try
             {
-                T p = (T)((GameObjectList)GetDataList(scen)).GetGameObject((int)e.Row["id"]);
+                T p = (T)(GetDataList(scen).GetGameObject((int)e.Row["id"]));
 
                 FieldInfo[] fields = getFieldInfos();
                 PropertyInfo[] properties = getPropertyInfos();
@@ -354,7 +438,7 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             T p = Activator.CreateInstance<T>();
 
-            GameObjectList list = (GameObjectList)GetDataList(scen);
+            IItemList list = GetDataList(scen);
             int id = list.GetFreeGameObjectID();
             e.Row["id"] = id;
             p.ID = id;
@@ -366,7 +450,7 @@ namespace WorldOfTheThreeKingdomsEditor
             if (settingUp) return;
 
             DataGrid dataGrid = (DataGrid)sender;
-            GameObjectList list = (GameObjectList)GetDataList(scen);
+            IItemList list = GetDataList(scen);
 
             for (int r = 0; r < dataGrid.Items.Count; r++)
             {

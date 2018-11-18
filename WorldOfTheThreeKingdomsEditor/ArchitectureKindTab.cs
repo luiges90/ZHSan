@@ -11,9 +11,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class ArchitectureKindTab : BaseTab<ArchitectureKind>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.GameCommonData.AllArchitectureKinds.GetArchitectureKindList();
+            return new GameObjectDictionaryItemList(scen.GameCommonData.AllArchitectureKinds.ArchitectureKinds);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

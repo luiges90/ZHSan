@@ -11,9 +11,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class TitleTab : BaseTab<Title>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.GameCommonData.AllTitles.GetTitleList();
+            return new GameObjectDictionaryItemList(scen.GameCommonData.AllTitles.Titles);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

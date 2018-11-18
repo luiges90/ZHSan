@@ -11,9 +11,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class SkillTab : BaseTab<Skill>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.GameCommonData.AllSkills.GetSkillList();
+            return new GameObjectDictionaryItemList(scen.GameCommonData.AllSkills.Skills);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

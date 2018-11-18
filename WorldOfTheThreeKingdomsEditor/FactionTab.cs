@@ -57,9 +57,9 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.Factions;
+            return new GameObjectItemList(scen.Factions);
         }
 
         public FactionTab(GameScenario scen, DataGrid dg)

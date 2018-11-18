@@ -63,9 +63,9 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.Architectures;
+            return new GameObjectItemList(scen.Architectures);
         }
 
         public ArchitectureTab(GameScenario scen, DataGrid dg)

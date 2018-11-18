@@ -10,9 +10,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class CaptiveTab : BaseTab<Captive>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.Captives;
+            return new GameObjectItemList(scen.Captives);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

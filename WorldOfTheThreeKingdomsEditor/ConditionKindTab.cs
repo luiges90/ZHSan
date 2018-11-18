@@ -13,9 +13,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class ConditionKindTab : BaseTab<ConditionKind>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.GameCommonData.AllConditionKinds.GetConditionKindList();
+            return new GameObjectDictionaryItemList(scen.GameCommonData.AllConditionKinds.ConditionKinds);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

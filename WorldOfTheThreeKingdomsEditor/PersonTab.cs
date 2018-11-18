@@ -96,9 +96,9 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.Persons;
+            return new GameObjectItemList(scen.Persons);
         }
 
         public PersonTab(GameScenario scen, DataGrid dg)

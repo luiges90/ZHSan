@@ -15,9 +15,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class MilitaryKindTab : BaseTab<MilitaryKind>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.GameCommonData.AllMilitaryKinds.GetMilitaryKindList();
+            return new GameObjectDictionaryItemList(scen.GameCommonData.AllMilitaryKinds.MilitaryKinds);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()

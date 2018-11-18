@@ -12,9 +12,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class InfleunceKindTab : BaseTab<InfluenceKind>
     {
-        protected override GameObjectList GetDataList(GameScenario scen)
+        protected override IItemList GetDataList(GameScenario scen)
         {
-            return scen.GameCommonData.AllInfluenceKinds.GetInfluenceKindList();
+            return new GameObjectDictionaryItemList(scen.GameCommonData.AllInfluenceKinds.InfluenceKinds);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()
