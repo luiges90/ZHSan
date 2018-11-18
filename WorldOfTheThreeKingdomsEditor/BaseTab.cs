@@ -127,7 +127,14 @@ namespace WorldOfTheThreeKingdomsEditor
 
             public T GetGameObject(int id)
             {
-                return (T)list.GetGameObject(id);
+                if (list.HasGameObject(id))
+                {
+                    return (T)list.GetGameObject(id);
+                }
+                else
+                {
+                    return null;
+                }
             }
 
             public GameObjectList GetList()
@@ -162,7 +169,14 @@ namespace WorldOfTheThreeKingdomsEditor
 
             public T GetGameObject(int id)
             {
-                return dict[id];
+                if (dict.ContainsKey(id))
+                {
+                    return dict[id];
+                }
+                else
+                {
+                    return null;
+                }
             }
 
             public GameObjectList GetList()
@@ -344,6 +358,7 @@ namespace WorldOfTheThreeKingdomsEditor
             dg.ItemsSource = dt.AsDataView();
 
             dt.TableNewRow += Dt_TableNewRow;
+            dt.ColumnChanging += Dt_ColumnChanging;
             dt.RowChanged += Dt_RowChanged;
             dt.RowDeleting += Dt_RowDeleting;
 
@@ -358,12 +373,26 @@ namespace WorldOfTheThreeKingdomsEditor
             list.Remove(p);
         }
 
+        private int oldID = -1;
+        private void Dt_ColumnChanging(object sender, DataColumnChangeEventArgs e)
+        {
+            oldID = (int)e.Row["id"];
+        }
+
         private void Dt_RowChanged(object sender, DataRowChangeEventArgs e)
         {
             try
             {
                 T p = (T)(GetDataList(scen).GetGameObject((int)e.Row["id"]));
-
+                if (p == null)
+                {
+                    p = (T)(GetDataList(scen).GetGameObject(oldID));
+                    GetDataList(scen).Remove(p);
+                    p.ID = (int)e.Row["id"];
+                    GetDataList(scen).Add(p);
+                }
+                oldID = -1;
+ 
                 FieldInfo[] fields = getFieldInfos();
                 PropertyInfo[] properties = getPropertyInfos();
 
