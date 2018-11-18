@@ -127,7 +127,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
             public T GetGameObject(int id)
             {
-                return (T) list[id];
+                return (T)list.GetGameObject(id);
             }
 
             public GameObjectList GetList()
