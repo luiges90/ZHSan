@@ -34,6 +34,8 @@ namespace WorldOfTheThreeKingdomsEditor
         private FactionTab factionTab;
         private PersonTab personTab;
 
+        public bool CopyIncludeTitle = true;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -228,6 +230,16 @@ namespace WorldOfTheThreeKingdomsEditor
             DataGrid dataGrid = (DataGrid)grid.Children[0];
 
             StringBuilder sb = new StringBuilder();
+
+            if (CopyIncludeTitle)
+            {
+                for (int i = 0; i < dataGrid.Columns.Count; ++i)
+                {
+                    sb.Append(dataGrid.Columns[i].Header).Append("\t");
+                }
+                sb.Append("\n");
+            }
+
             for (int i = 0; i < dataGrid.SelectedCells.Count; i += dataGrid.Columns.Count)
             {
                 object[] values = (dataGrid.SelectedCells[i].Item as DataRowView)?.Row?.ItemArray;
@@ -255,7 +267,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 String[] textRows = text.Split(new char[] { '\n' });
 
                 DataTable dt = ((DataView)dataGrid.ItemsSource).ToTable();
-                for (int i = 0; i < textRows.Count(); i++)
+                for (int i = (CopyIncludeTitle ? 1 : 0); i < textRows.Count(); i++)
                 {
                     if (textRows[i].Length == 0) continue;
 
@@ -362,6 +374,16 @@ namespace WorldOfTheThreeKingdomsEditor
         private void NewPersonWindow_Closed(object sender, EventArgs e)
         {
             personTab.setup();
+        }
+
+        private void MenuItem_IncludeTitle_Checked(object sender, EventArgs e)
+        {
+            CopyIncludeTitle = true;
+        }
+
+        private void MenuItem_IncludeTitle_Unchecked(object sender, EventArgs e)
+        {
+            CopyIncludeTitle = false;
         }
     }
 

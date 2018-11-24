@@ -25,6 +25,7 @@
                     <MenuItem Header="退出" Click="btnQuit_Click"/>
                 </MenuItem>
                 <MenuItem Header="編輯">
+                    <MenuItem IsCheckable="true" Header="包含標題" IsChecked="true" Checked="MenuItem_IncludeTitle_Checked" Unchecked="MenuItem_IncludeTitle_Unchecked"/>
                     <MenuItem Header="複製" Command="Copy" InputGestureText="Ctrl+C"/>
                     <MenuItem Header="貼上" Command="Paste" InputGestureText="Ctrl+V"/>
                     <MenuItem Header="刪除" Command="Delete"/>
