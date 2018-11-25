@@ -54,9 +54,9 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
-        public SkillTab(GameScenario scen, DataGrid dg)
+        public SkillTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
-            init(scen, dg);
+            init(scen, dg, helpTextBlock);
         }
     }
 }

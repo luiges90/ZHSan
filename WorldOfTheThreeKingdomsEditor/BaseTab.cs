@@ -90,11 +90,13 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private GameScenario scen;
         private DataGrid dg;
+        private TextBlock helpTextBlock;
 
-        protected void init(GameScenario scen, DataGrid dg)
+        protected void init(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
             this.scen = scen;
             this.dg = dg;
+            this.helpTextBlock = helpTextBlock;
         }
 
         protected interface IItemList
@@ -198,6 +200,13 @@ namespace WorldOfTheThreeKingdomsEditor
         protected abstract String[] GetRawItemOrder();
 
         protected abstract Dictionary<String, String> GetDefaultValues();
+
+        protected virtual Dictionary<String, String> GetHelpText()
+        {
+            return new Dictionary<string, string>()
+            {
+            };
+        }
 
         protected abstract IItemList GetDataList(GameScenario scen);
 
@@ -362,8 +371,24 @@ namespace WorldOfTheThreeKingdomsEditor
             dt.RowChanged += Dt_RowChanged;
             dt.RowDeleting += Dt_RowDeleting;
 
+            dg.CurrentCellChanged += Dg_CurrentCellChanged;
+
             dpd.AddValueChanged(dg, dg_ItemsSourceChanged);
             settingUp = false;
+        }
+
+        private void Dg_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dg.CurrentCell.Column != null)
+            {
+                string helpText = "";
+                GetHelpText().TryGetValue(dg.CurrentCell.Column.Header.ToString(), out helpText);
+                helpTextBlock.Text = dg.CurrentCell.Column.Header.ToString() + ": " + helpText;
+            }
+            else
+            {
+                helpTextBlock.Text = "";
+            }
         }
 
         private void Dt_RowDeleting(object sender, DataRowChangeEventArgs e)

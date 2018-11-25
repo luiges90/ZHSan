@@ -39,9 +39,9 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
-        public EventEffectTab(GameScenario scen, DataGrid dg)
+        public EventEffectTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
-            init(scen, dg);
+            init(scen, dg, helpTextBlock);
         }
     }
 }

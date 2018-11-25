@@ -62,9 +62,9 @@ namespace WorldOfTheThreeKingdomsEditor
             return new GameObjectItemList(scen.Factions);
         }
 
-        public FactionTab(GameScenario scen, DataGrid dg)
+        public FactionTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
-            init(scen, dg);
+            init(scen, dg, helpTextBlock);
         }
     }
 }

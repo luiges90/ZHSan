@@ -38,9 +38,9 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
-        public InfleunceKindTab(GameScenario scen, DataGrid dg)
+        public InfleunceKindTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
-            init(scen, dg);
+            init(scen, dg, helpTextBlock);
         }
     }
 }

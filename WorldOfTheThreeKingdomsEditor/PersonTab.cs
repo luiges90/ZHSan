@@ -101,9 +101,9 @@ namespace WorldOfTheThreeKingdomsEditor
             return new GameObjectItemList(scen.Persons);
         }
 
-        public PersonTab(GameScenario scen, DataGrid dg)
+        public PersonTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
-            init(scen, dg);
+            init(scen, dg, helpTextBlock);
         }
 
         

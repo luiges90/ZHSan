@@ -51,42 +51,42 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             if (hasScen)
             {
-                personTab = new PersonTab(scen, dgPerson);
+                personTab = new PersonTab(scen, dgPerson, lblColumnHelp);
                 personTab.setup();
                 new DictionaryTab<int, int>(scen.FatherIds, "FatherIds", dgFatherId).setup();
                 new DictionaryTab<int, int>(scen.MotherIds, "MotherIds", dgMotherId).setup();
                 new DictionaryTab<int, int>(scen.SpouseIds, "SpouseIds", dgSpouseId).setup();
                 // new DictionaryTab<int, int[]>(scen.BrotherIds, "BrotherIds", dgBrotherId).setup();
-                architectureTab = new ArchitectureTab(scen, dgArchitecture);
+                architectureTab = new ArchitectureTab(scen, dgArchitecture, lblColumnHelp);
                 architectureTab.setup();
-                factionTab = new FactionTab(scen, dgFaction);
+                factionTab = new FactionTab(scen, dgFaction, lblColumnHelp);
                 factionTab.setup();
-                new MilitaryTab(scen, dgMilitary).setup();
-                new TroopTab(scen, dgTroop).setup();
-                new CaptiveTab(scen, dgCaptive).setup();
-                new EventTab(scen, dgEvent).setup();
-                new TroopEventTab(scen, dgTroopEvent).setup();
-                new TreasureTab(scen, dgTreasure).setup();
-                new FacilityTab(scen, dgFacility).setup();
+                new MilitaryTab(scen, dgMilitary, lblColumnHelp).setup();
+                new TroopTab(scen, dgTroop, lblColumnHelp).setup();
+                new CaptiveTab(scen, dgCaptive, lblColumnHelp).setup();
+                new EventTab(scen, dgEvent, lblColumnHelp).setup();
+                new TroopEventTab(scen, dgTroopEvent, lblColumnHelp).setup();
+                new TreasureTab(scen, dgTreasure, lblColumnHelp).setup();
+                new FacilityTab(scen, dgFacility, lblColumnHelp).setup();
             }
 
             // Common
-            new TitleTab(scen, dgTitle).setup();
-            new SkillTab(scen, dgSkill).setup();
-            new StuntTab(scen, dgStunt).setup();
-            new CombatMethodTab(scen, dgCombatMethod).setup();
-            new InfleunceTab(scen, dgInfluence).setup();
-            new InfleunceKindTab(scen, dgInflunceKind).setup();
-            new ConditionTab(scen, dgCondition).setup();
-            new ConditionKindTab(scen, dgConditionKind).setup();
-            new EventEffectTab(scen, dgEventEffect).setup();
-            new EventEffectKindTab(scen, dgEventEffectKind).setup();
-            new TroopEventEffectTab(scen, dgTroopEventEffect).setup();
-            new TroopEventEffectKindTab(scen, dgTroopEventEffectKind).setup();
-            new FacilityKindTab(scen, dgFacilityKind).setup();
-            new ArchitectureKindTab(scen, dgArchitectureKind).setup();
-            new MilitaryKindTab(scen, dgMilitaryKind).setup();
-            new TechniqueTab(scen, dgTechniques).setup();
+            new TitleTab(scen, dgTitle, lblColumnHelp).setup();
+            new SkillTab(scen, dgSkill, lblColumnHelp).setup();
+            new StuntTab(scen, dgStunt, lblColumnHelp).setup();
+            new CombatMethodTab(scen, dgCombatMethod, lblColumnHelp).setup();
+            new InfleunceTab(scen, dgInfluence, lblColumnHelp).setup();
+            new InfleunceKindTab(scen, dgInflunceKind, lblColumnHelp).setup();
+            new ConditionTab(scen, dgCondition, lblColumnHelp).setup();
+            new ConditionKindTab(scen, dgConditionKind, lblColumnHelp).setup();
+            new EventEffectTab(scen, dgEventEffect, lblColumnHelp).setup();
+            new EventEffectKindTab(scen, dgEventEffectKind, lblColumnHelp).setup();
+            new TroopEventEffectTab(scen, dgTroopEventEffect, lblColumnHelp).setup();
+            new TroopEventEffectKindTab(scen, dgTroopEventEffectKind, lblColumnHelp).setup();
+            new FacilityKindTab(scen, dgFacilityKind, lblColumnHelp).setup();
+            new ArchitectureKindTab(scen, dgArchitectureKind, lblColumnHelp).setup();
+            new MilitaryKindTab(scen, dgMilitaryKind, lblColumnHelp).setup();
+            new TechniqueTab(scen, dgTechniques, lblColumnHelp).setup();
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)

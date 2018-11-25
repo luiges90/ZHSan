@@ -42,9 +42,9 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
-        public TreasureTab(GameScenario scen, DataGrid dg)
+        public TreasureTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
-            init(scen, dg);
+            init(scen, dg, helpTextBlock);
         }
     }
 }

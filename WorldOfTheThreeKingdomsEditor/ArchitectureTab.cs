@@ -68,9 +68,9 @@ namespace WorldOfTheThreeKingdomsEditor
             return new GameObjectItemList(scen.Architectures);
         }
 
-        public ArchitectureTab(GameScenario scen, DataGrid dg)
+        public ArchitectureTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
-            init(scen, dg);
+            init(scen, dg, helpTextBlock);
         }
     }
 }

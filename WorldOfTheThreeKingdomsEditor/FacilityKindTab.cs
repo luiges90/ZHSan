@@ -52,9 +52,9 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
-        public FacilityKindTab(GameScenario scen, DataGrid dg)
+        public FacilityKindTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
-            init(scen, dg);
+            init(scen, dg, helpTextBlock);
         }
     }
 }

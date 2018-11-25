@@ -104,9 +104,9 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
-        public MilitaryKindTab(GameScenario scen, DataGrid dg)
+        public MilitaryKindTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
-            init(scen, dg);
+            init(scen, dg, helpTextBlock);
         }
     }
 }

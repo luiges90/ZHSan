@@ -45,9 +45,9 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
-        public TroopTab(GameScenario scen, DataGrid dg)
+        public TroopTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
-            init(scen, dg);
+            init(scen, dg, helpTextBlock);
         }
     }
 }

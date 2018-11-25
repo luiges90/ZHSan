@@ -11,9 +11,9 @@ namespace WorldOfTheThreeKingdomsEditor
 {
     class TechniqueTab : BaseTab<Technique>
     {
-        public TechniqueTab(GameScenario scen, DataGrid dg)
+        public TechniqueTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
-            init(scen, dg);
+            init(scen, dg, helpTextBlock);
         }
 
         protected override IItemList GetDataList(GameScenario scen)

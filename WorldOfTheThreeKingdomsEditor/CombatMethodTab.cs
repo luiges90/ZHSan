@@ -43,9 +43,9 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
-        public CombatMethodTab(GameScenario scen, DataGrid dg)
+        public CombatMethodTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
-            init(scen, dg);
+            init(scen, dg, helpTextBlock);
         }
     }
 }
