@@ -85,7 +85,7 @@ namespace WorldOfTheThreeKingdomsEditor
             f.Name = leader.Name;
             f.CapitalID = architecture.ID;
             f.ArchitecturesString = architecture.ID.ToString();
-            f.BaseMilitaryKindsString = "0 1";
+            f.BaseMilitaryKindsString = "0 1 3";
             f.UpgradingTechnique = -1;
             f.TransferingMilitaries = new MilitaryList();
             f.TransferingMilitariesString = "";

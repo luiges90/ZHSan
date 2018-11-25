@@ -267,7 +267,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 String[] textRows = text.Split(new char[] { '\n' });
 
                 DataTable dt = ((DataView)dataGrid.ItemsSource).ToTable();
-                for (int i = (CopyIncludeTitle ? 1 : 0); i < textRows.Count(); i++)
+                for (int i = 0; i < textRows.Count(); i++)
                 {
                     if (textRows[i].Length == 0) continue;
 

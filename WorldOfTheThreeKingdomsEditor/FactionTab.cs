@@ -17,7 +17,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 {"CapitalID", "-1"},
                 {"PlanTechnique", "-1"},
                 {"PrinceID", "-1"},
-                {"BaseMilitaryKindsString", "0 1"},
+                {"BaseMilitaryKindsString", "0 1 3"},
                 {"UpgradingTechnique", "-1" },
                 {"AvailableTechniquesString", ""}
             };
