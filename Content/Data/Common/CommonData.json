@@ -89080,7 +89080,7 @@
 "__type":"PersonGeneratorType:#GameObjects.PersonDetail",
 "ID":6,
 "Name":"全能",
-"CostFund":360000,
+"CostFund":999999999,
 "FactionLimit":1,
 "TypeCount":13,
 "affectedByRateParameter":false,
