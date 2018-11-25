@@ -18,6 +18,7 @@ using System.Diagnostics;
 using System.Runtime.Serialization;
 using GameManager;
 using Platforms;
+using System.Linq;
 
 namespace GameObjects
 {
@@ -2415,9 +2416,12 @@ namespace GameObjects
                             }
                         }
                     }
-                    else if (refPath == null || (refPath.Count == 0 && this.Army.Kind.Type != MilitaryType.水军))
+                    else if (refPath == null || refPath.Count == 0)
                     {
-                        this.StartingArchitecture.actuallyUnreachableArch.Add(this.WillArchitecture);
+                        if (this.Army.Kind.Movability > new List<int>(this.Army.Kind.Adaptabilities).Min())
+                        {
+                            this.StartingArchitecture.actuallyUnreachableArch.Add(this.WillArchitecture);
+                        }
                         this.GoBack();
                         return false;
                     }

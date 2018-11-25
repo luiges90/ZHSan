@@ -4183,6 +4183,18 @@ namespace GameObjects
                 if (military.Scales < military.RetreatScale * 1.5) continue;
                 if (!military.Kind.Movable) continue;
                 if (military.IsTransport) continue; //never deal with transports in this function
+
+                bool movable = false;
+                foreach (Point p in this.ArchitectureArea.GetContactArea(false).Area)
+                {
+                    if (this.ArchitectureArea.Area.Contains(p)) continue;
+                    if (military.Kind.IsMovableOnPosition(p))
+                    {
+                        movable = true;
+                    }
+                }
+                if (!movable) continue;
+
                 switch (linkkind)
                 {
                     case LinkKind.Land:
@@ -4232,8 +4244,6 @@ namespace GameObjects
                         {
                             removed.Destroy(true, false);
                         }
-
-                        t.Leader.Selected = true;
                     }
                 }
             }
@@ -4276,6 +4286,7 @@ namespace GameObjects
                 Point position = sourceArea[GameObject.Random(sourceArea.Count)];
 
                 Person leader = troop2.Candidates[0] as Person;
+                leader.Selected = true;
                 PersonList candidates = this.SelectSubOfficersToTroop(troop2);
 
                 CreateTroopInfo info = new CreateTroopInfo();
@@ -4375,7 +4386,7 @@ namespace GameObjects
                                 if (troopCnt >= leaderablePersonList.Count) break;
                             }
                         }
-                        return (this.Food * consumptionRate >= this.Food * 1.1);
+                        return (this.Food >= crop * consumptionRate * 1.1);
                     }
 
                 case LinkKind.Water:
@@ -4391,7 +4402,7 @@ namespace GameObjects
                                 if (troopCnt >= leaderablePersonList.Count) break;
                             }
                         }
-                        return (this.Food * consumptionRate >= this.Food * 1.1);
+                        return (this.Food >= crop * consumptionRate * 1.1);
                     }
 
                 case LinkKind.Both:
@@ -4408,7 +4419,7 @@ namespace GameObjects
                             }
                         }
 
-                        return (this.Food * consumptionRate >= this.Food * 1.1);
+                        return (this.Food >= crop * consumptionRate * 1.1);
                     }
             }
             return false;

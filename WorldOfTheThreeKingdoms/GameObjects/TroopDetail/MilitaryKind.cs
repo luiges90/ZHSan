@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using GameManager;
+using Microsoft.Xna.Framework;
+using GameGlobal;
 
 namespace GameObjects.TroopDetail
 {
@@ -313,6 +315,51 @@ namespace GameObjects.TroopDetail
                 }
                 return false;
             }
+        }
+
+        public int GetTerrainAdaptability(TerrainKind terrain)
+        {
+            switch (terrain)
+            {
+                case TerrainKind.无:
+                    return 0xdac;
+
+                case TerrainKind.平原:
+                    return this.PlainAdaptability;
+
+                case TerrainKind.草原:
+                    return this.GrasslandAdaptability;
+
+                case TerrainKind.森林:
+                    return this.ForrestAdaptability;
+
+                case TerrainKind.湿地:
+                    return this.MarshAdaptability;
+
+                case TerrainKind.山地:
+                    return this.MountainAdaptability;
+
+                case TerrainKind.水域:
+                    return this.WaterAdaptability;
+
+                case TerrainKind.峻岭:
+                    return this.RidgeAdaptability;
+
+                case TerrainKind.荒地:
+                    return this.WastelandAdaptability;
+
+                case TerrainKind.沙漠:
+                    return this.DesertAdaptability;
+
+                case TerrainKind.栈道:
+                    return this.CliffAdaptability;
+            }
+            return 0xdac;
+        }
+
+        public bool IsMovableOnPosition(Point position)
+        {
+            return (this.GetTerrainAdaptability(Session.Current.Scenario.GetTerrainKindByPosition(position)) <= this.Movability);
         }
 
         public override string ToString()
