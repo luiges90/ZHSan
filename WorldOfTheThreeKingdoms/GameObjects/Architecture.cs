@@ -4356,6 +4356,7 @@ namespace GameObjects
                     leaderablePersonList.Add(p);
                 }
             }
+            double consumptionRate = Session.Current.Scenario.GetDistance(this.ArchitectureArea, node.A.ArchitectureArea) / 50.0 + 1;
             switch (node.Kind)
             {
                 case LinkKind.None:
@@ -4374,8 +4375,7 @@ namespace GameObjects
                                 if (troopCnt >= leaderablePersonList.Count) break;
                             }
                         }
-                        if (routeway.LastPoint == null) return false;
-                        return (((this.Food * (1f - routeway.LastPoint.ConsumptionRate)) * Session.Current.Scenario.Date.GetFoodRateBySeason(Session.Current.Scenario.Date.GetSeason(routeway.Length))) >= (crop * (routeway.Length + 6)));
+                        return (this.Food * consumptionRate >= this.Food * 1.1);
                     }
 
                 case LinkKind.Water:
@@ -4391,8 +4391,7 @@ namespace GameObjects
                                 if (troopCnt >= leaderablePersonList.Count) break;
                             }
                         }
-                        if (routeway.LastPoint == null) return false;
-                        return (((this.Food * (1f - routeway.LastPoint.ConsumptionRate)) * Session.Current.Scenario.Date.GetFoodRateBySeason(Session.Current.Scenario.Date.GetSeason(routeway.Length))) >= (crop * (routeway.Length + 6)));
+                        return (this.Food * consumptionRate >= this.Food * 1.1);
                     }
 
                 case LinkKind.Both:
@@ -4408,8 +4407,8 @@ namespace GameObjects
                                 if (troopCnt >= leaderablePersonList.Count) break;
                             }
                         }
-                        if (routeway.LastPoint == null) return false;
-                        return (((this.Food * (1f - routeway.LastPoint.ConsumptionRate)) * Session.Current.Scenario.Date.GetFoodRateBySeason(Session.Current.Scenario.Date.GetSeason(routeway.Length))) >= (crop * ((routeway.Length + 6) - (this.ArmyScale / 8))));
+
+                        return (this.Food * consumptionRate >= this.Food * 1.1);
                     }
             }
             return false;
