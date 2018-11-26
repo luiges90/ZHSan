@@ -3579,25 +3579,26 @@ namespace GameObjects
             if (Session.GlobalVariables.ZhaoXianSuccessRate <= 0) return;
 
             if (Session.Current.Scenario.IsPlayer(this)) return;
-
-            if (GameObject.Random(10) != 0) return;
-
+            
             foreach (Architecture a in this.Architectures)
             {
                 while (a.CanZhaoXian() && !a.HasEnoughPeople)
                 {
                     PersonGeneratorTypeList list = a.AvailGeneratorTypeList();
                     int max = 0;
-                    PersonGeneratorType type = null;
-                    foreach (PersonGeneratorType t in list) {
+                    
+                    foreach (PersonGeneratorType t in list)
+                    {
                         if (t.CostFund > max && t.CostFund < a.Fund)
                         {
-                            type = t;
                             max = t.CostFund;
                         }
                     }
-                    if (type != null)
-                    {
+
+                    PersonGeneratorType type = list.GetRandomObject() as PersonGeneratorType;
+
+                    if (type.CostFund > max / 2)
+                    { 
                         a.DoZhaoXian(type);
                     }
 
