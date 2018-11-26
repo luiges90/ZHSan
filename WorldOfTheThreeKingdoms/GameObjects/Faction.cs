@@ -3595,11 +3595,14 @@ namespace GameObjects
                         }
                     }
 
-                    PersonGeneratorType type = list.GetRandomObject() as PersonGeneratorType;
+                    if (list.Count > 0)
+                    {
+                        PersonGeneratorType type = list.GetRandomObject() as PersonGeneratorType;
 
-                    if (type.CostFund > max / 2)
-                    { 
-                        a.DoZhaoXian(type);
+                        if (type.CostFund > max / 2)
+                        {
+                            a.DoZhaoXian(type);
+                        }
                     }
 
                 }
