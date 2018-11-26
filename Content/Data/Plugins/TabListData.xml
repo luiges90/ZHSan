@@ -1277,9 +1277,9 @@
         </Tab>
 		<Tab ID="15" Name="PersonSpecialRelations" DisplayName="关系武将" Columns="1 180" ListKind="PersonRelationValue" ListMethod="GetPersonRelationList">
         </Tab>
-		<Tab ID="16"  Name="MoveTroopSkills" DisplayName="行军步兵" Columns="1 220 221 222 223 224 225 226 230 231 232 233 234 235 236">
+		<Tab ID="16"  Name="MoveTroopSkills" DisplayName="行军步兵" Columns="1 220 221 222 223 224 225 226 230 231 232 236 233 234 235">
         </Tab>
-		<Tab ID="17"  Name="GroundArmySkills" DisplayName="弩兵骑兵" Columns="1 240 241 242 243 244 245 246 250 251 252 253 254 255 256">
+		<Tab ID="17"  Name="GroundArmySkills" DisplayName="弩兵骑兵" Columns="1 240 241 242 246 243 244 245 250 251 252 253 256 254 255">
         </Tab>
 		<Tab ID="18"  Name="SpecialArmySkills" DisplayName="水战兵器" Columns="1 260 261 262 263 264 265 266 270 271 272 273 274 275 276">
         </Tab>

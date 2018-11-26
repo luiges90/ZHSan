@@ -9466,7 +9466,18 @@ namespace GameObjects
 
             setNewOfficerFace(r);
 
-
+            if (typeParam.genderFix == -1)
+            {
+                r.Sex = false;
+            }
+            else if (typeParam.genderFix == 1)
+            {
+                r.Sex = true;
+            }
+            else
+            {
+                r.Sex = GameObject.Chance(options.femaleChance) ? true : false;
+            }
 
             r.YearBorn = Session.Current.Scenario.Date.Year + GameObject.Random(options.bornLo, options.bornHi);
             r.YearAvailable = Session.Current.Scenario.Date.Year + (inGame ? 0 : GameObject.Random(options.debutLo, options.debutHi));
@@ -9513,7 +9524,6 @@ namespace GameObjects
 
             PersonGeneratorSetting options = Session.Current.Scenario.GameCommonData.PersonGeneratorSetting;
 
-            r.Sex = GameObject.Chance(options.femaleChance) ? true : false;
             return options;
         }
 

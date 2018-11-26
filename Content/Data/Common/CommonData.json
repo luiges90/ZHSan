@@ -1411,7 +1411,7 @@
 "Name":"鲁莽",
 "ChallengeChance":25,
 "ControversyChance":25,
-"GenerationChance":[5,20,0,0,5,0,3,5,5,10],
+"GenerationChance":[5,20,0,0,5,0,3,5,10,0],
 "IntelligenceRate":0.5
 },
 {
@@ -1419,7 +1419,7 @@
 "Name":"小心",
 "ChallengeChance":-25,
 "ControversyChance":-15,
-"GenerationChance":[3,0,3,10,5,5,3,10,20,5],
+"GenerationChance":[3,0,3,10,5,5,3,10,5,20],
 "IntelligenceRate":0.8
 },
 {
@@ -1427,7 +1427,7 @@
 "Name":"高傲",
 "ChallengeChance":10,
 "ControversyChance":15,
-"GenerationChance":[5,3,5,10,10,20,3,5,3,5],
+"GenerationChance":[5,3,5,10,10,20,3,5,5,5],
 "IntelligenceRate":0.7
 },
 {
@@ -1435,7 +1435,7 @@
 "Name":"坚韧",
 "ChallengeChance":5,
 "ControversyChance":0,
-"GenerationChance":[10,10,0,0,10,5,10,5,0,10],
+"GenerationChance":[10,10,0,0,10,5,10,5,10,5],
 "IntelligenceRate":0.9
 },
 {
@@ -1443,7 +1443,7 @@
 "Name":"稳健",
 "ChallengeChance":-10,
 "ControversyChance":-10,
-"GenerationChance":[10,0,10,5,10,10,10,10,0,10],
+"GenerationChance":[10,0,10,5,10,10,10,5,10,5],
 "IntelligenceRate":1
 },
 {
@@ -1451,7 +1451,7 @@
 "Name":"冷静",
 "ChallengeChance":-15,
 "ControversyChance":-5,
-"GenerationChance":[5,0,20,15,10,10,10,10,0,5],
+"GenerationChance":[5,0,20,15,10,10,10,10,5,10],
 "IntelligenceRate":1
 }
 ],
@@ -88947,6 +88947,7 @@
 "calmnessLo":1,
 "commandHi":70,
 "commandLo":40,
+"genderFix":0,
 "generationChance":100,
 "glamourHi":90,
 "glamourLo":30,
@@ -88976,6 +88977,7 @@
 "calmnessLo":5,
 "commandHi":100,
 "commandLo":60,
+"genderFix":0,
 "generationChance":100,
 "glamourHi":100,
 "glamourLo":1,
@@ -89005,6 +89007,7 @@
 "calmnessLo":5,
 "commandHi":50,
 "commandLo":1,
+"genderFix":0,
 "generationChance":100,
 "glamourHi":100,
 "glamourLo":1,
@@ -89034,6 +89037,7 @@
 "calmnessLo":3,
 "commandHi":100,
 "commandLo":70,
+"genderFix":0,
 "generationChance":60,
 "glamourHi":90,
 "glamourLo":30,
@@ -89063,6 +89067,7 @@
 "calmnessLo":3,
 "commandHi":100,
 "commandLo":60,
+"genderFix":-1,
 "generationChance":60,
 "glamourHi":100,
 "glamourLo":80,
@@ -89092,6 +89097,7 @@
 "calmnessLo":5,
 "commandHi":100,
 "commandLo":70,
+"genderFix":0,
 "generationChance":1,
 "glamourHi":100,
 "glamourLo":70,
@@ -89121,6 +89127,7 @@
 "calmnessLo":5,
 "commandHi":50,
 "commandLo":1,
+"genderFix":0,
 "generationChance":150,
 "glamourHi":70,
 "glamourLo":1,
@@ -89150,6 +89157,7 @@
 "calmnessLo":1,
 "commandHi":70,
 "commandLo":50,
+"genderFix":0,
 "generationChance":150,
 "glamourHi":70,
 "glamourLo":1,
@@ -89161,6 +89169,36 @@
 "politicsLo":1,
 "strengthHi":70,
 "strengthLo":50,
+"titleChance":50
+},
+{
+"__type":"PersonGeneratorType:#GameObjects.PersonDetail",
+"ID":9,
+"Name":"女官",
+"CostFund":60000,
+"FactionLimit":1000,
+"TypeCount":0,
+"affectedByRateParameter":true,
+"ambitionHi":2,
+"ambitionLo":0,
+"braveHi":3,
+"braveLo":1,
+"calmnessHi":9,
+"calmnessLo":5,
+"commandHi":40,
+"commandLo":1,
+"genderFix":1,
+"generationChance":150,
+"glamourHi":90,
+"glamourLo":60,
+"intelligenceHi":100,
+"intelligenceLo":40,
+"personalLoyaltyHi":4,
+"personalLoyaltyLo":0,
+"politicsHi":100,
+"politicsLo":40,
+"strengthHi":30,
+"strengthLo":1,
 "titleChance":50
 }
 ],
@@ -89502,7 +89540,7 @@
 "ConditionTableString":"1 131 141 ",
 "DisplayCol":0,
 "DisplayRow":0,
-"GenerationChance":[1,1,10,15,6,8,20,6,3,0],
+"GenerationChance":[1,1,10,15,6,8,15,6,3,10],
 "InfluencesString":"0 ",
 "Kind":0,
 "Level":1,
@@ -89518,7 +89556,7 @@
 "ConditionTableString":"1 120 131 140 ",
 "DisplayCol":1,
 "DisplayRow":0,
-"GenerationChance":[1,1,10,15,6,8,20,6,3,0],
+"GenerationChance":[1,1,10,15,6,8,15,6,3,10],
 "InfluencesString":"1 ",
 "Kind":0,
 "Level":1,
@@ -89534,7 +89572,7 @@
 "ConditionTableString":"1 121 131 ",
 "DisplayCol":2,
 "DisplayRow":0,
-"GenerationChance":[1,1,10,15,6,5,20,6,3,0],
+"GenerationChance":[1,1,10,15,6,5,15,6,3,10],
 "InfluencesString":"2 ",
 "Kind":0,
 "Level":1,
@@ -89550,7 +89588,7 @@
 "ConditionTableString":"1 101 110 140 ",
 "DisplayCol":3,
 "DisplayRow":0,
-"GenerationChance":[13,7,7,3,8,15,20,0,3,6],
+"GenerationChance":[13,7,7,3,8,15,15,3,6,3],
 "InfluencesString":"3 ",
 "Kind":0,
 "Level":1,
@@ -89566,7 +89604,7 @@
 "ConditionTableString":"1 110 130 141 ",
 "DisplayCol":4,
 "DisplayRow":0,
-"GenerationChance":[1,1,10,10,6,15,20,6,3,0],
+"GenerationChance":[1,1,10,10,6,15,15,6,3,10],
 "InfluencesString":"4 ",
 "Kind":0,
 "Level":1,
@@ -89582,7 +89620,7 @@
 "ConditionTableString":"1 100 110 120 130 ",
 "DisplayCol":5,
 "DisplayRow":0,
-"GenerationChance":[3,1,10,12,6,5,20,6,3,0],
+"GenerationChance":[3,1,10,12,6,5,15,5,5,5],
 "InfluencesString":"5 ",
 "Kind":0,
 "Level":1,
@@ -89598,7 +89636,7 @@
 "ConditionTableString":"200 210 220 230 240 101 111 ",
 "DisplayCol":6,
 "DisplayRow":0,
-"GenerationChance":[12,6,4,1,8,8,20,0,2,4],
+"GenerationChance":[12,6,4,1,8,8,15,0,2,0],
 "InfluencesString":"90 ",
 "Kind":0,
 "Level":2,
@@ -89614,7 +89652,7 @@
 "ConditionTableString":"3 133 143 ",
 "DisplayCol":0,
 "DisplayRow":1,
-"GenerationChance":[1,1,8,13,5,6,20,4,2,0],
+"GenerationChance":[1,1,8,13,5,6,15,4,2,4],
 "InfluencesString":"10 ",
 "Kind":1,
 "Level":2,
@@ -89630,7 +89668,7 @@
 "ConditionTableString":"3 121 133 141 ",
 "DisplayCol":1,
 "DisplayRow":1,
-"GenerationChance":[1,1,8,13,5,6,20,4,2,0],
+"GenerationChance":[1,1,8,13,5,6,15,4,2,4],
 "InfluencesString":"11 ",
 "Kind":1,
 "Level":2,
@@ -89646,7 +89684,7 @@
 "ConditionTableString":"3 123 133 ",
 "DisplayCol":2,
 "DisplayRow":1,
-"GenerationChance":[1,1,8,15,5,6,20,4,2,0],
+"GenerationChance":[1,1,8,15,5,6,15,4,2,4],
 "InfluencesString":"12 ",
 "Kind":1,
 "Level":2,
@@ -89662,7 +89700,7 @@
 "ConditionTableString":"3 103 111 141 ",
 "DisplayCol":3,
 "DisplayRow":1,
-"GenerationChance":[10,6,5,1,7,11,20,0,2,4],
+"GenerationChance":[10,6,5,1,7,11,15,2,4,2],
 "InfluencesString":"13 ",
 "Kind":1,
 "Level":2,
@@ -89678,7 +89716,7 @@
 "ConditionTableString":"3 111 131 143 ",
 "DisplayCol":4,
 "DisplayRow":1,
-"GenerationChance":[1,1,7,5,3,10,20,4,2,0],
+"GenerationChance":[1,1,7,5,3,10,15,4,2,4],
 "InfluencesString":"14 ",
 "Kind":1,
 "Level":2,
@@ -89694,7 +89732,7 @@
 "ConditionTableString":"3 101 111 121 131 ",
 "DisplayCol":5,
 "DisplayRow":1,
-"GenerationChance":[2,1,9,12,5,2,20,4,2,0],
+"GenerationChance":[2,1,9,12,5,2,15,3,3,3],
 "InfluencesString":"15 ",
 "Kind":1,
 "Level":2,
@@ -89710,7 +89748,7 @@
 "ConditionTableString":"4 112 142 ",
 "DisplayCol":6,
 "DisplayRow":1,
-"GenerationChance":[8,1,2,1,8,10,20,0,2,4],
+"GenerationChance":[8,1,2,1,8,10,15,0,4,1],
 "InfluencesString":"91 ",
 "Kind":1,
 "Level":2,
@@ -89726,7 +89764,7 @@
 "ConditionTableString":"221 ",
 "DisplayCol":0,
 "DisplayRow":2,
-"GenerationChance":[8,6,1,1,5,5,20,0,3,6],
+"GenerationChance":[8,6,1,1,5,5,15,0,6,0],
 "InfluencesString":"292 201 207 ",
 "Kind":2,
 "Level":1,
@@ -89742,7 +89780,7 @@
 "ConditionTableString":"200 210 ",
 "DisplayCol":1,
 "DisplayRow":2,
-"GenerationChance":[8,4,2,1,6,5,20,0,3,6],
+"GenerationChance":[8,4,2,1,6,5,15,0,6,0],
 "InfluencesString":"290 291 202 ",
 "Kind":2,
 "Level":1,
@@ -89758,7 +89796,7 @@
 "ConditionTableString":"201 211 ",
 "DisplayCol":2,
 "DisplayRow":2,
-"GenerationChance":[8,4,2,1,6,5,20,0,3,6],
+"GenerationChance":[8,4,2,1,6,5,15,0,6,0],
 "InfluencesString":"290 291 204 ",
 "Kind":2,
 "Level":1,
@@ -89774,7 +89812,7 @@
 "ConditionTableString":"231 ",
 "DisplayCol":3,
 "DisplayRow":2,
-"GenerationChance":[8,5,1,1,5,5,20,0,3,6],
+"GenerationChance":[8,5,1,1,5,5,15,0,6,0],
 "InfluencesString":"293 205 ",
 "Kind":2,
 "Level":1,
@@ -89790,7 +89828,7 @@
 "ConditionTableString":"202 212 222 114 ",
 "DisplayCol":4,
 "DisplayRow":2,
-"GenerationChance":[6,3,1,1,2,3,20,0,1,2],
+"GenerationChance":[6,3,1,1,2,3,12,0,2,0],
 "InfluencesString":"281 290 291 292 250 ",
 "Kind":2,
 "Level":3,
@@ -89806,7 +89844,7 @@
 "ConditionTableString":"232 112 ",
 "DisplayCol":5,
 "DisplayRow":2,
-"GenerationChance":[8,3,1,1,5,5,20,0,2,4],
+"GenerationChance":[8,3,1,1,5,5,15,0,4,0],
 "InfluencesString":"281 293 250 ",
 "Kind":2,
 "Level":2,
@@ -89822,7 +89860,7 @@
 "ConditionTableString":"200 210 220 240 121 131 ",
 "DisplayCol":6,
 "DisplayRow":2,
-"GenerationChance":[9,4,3,2,7,5,20,0,2,4],
+"GenerationChance":[9,4,3,2,7,5,15,0,4,0],
 "InfluencesString":"281 615 ",
 "Kind":2,
 "Level":2,
@@ -89838,7 +89876,7 @@
 "ConditionTableString":"200 110 ",
 "DisplayCol":0,
 "DisplayRow":3,
-"GenerationChance":[14,4,2,1,6,6,20,0,3,6],
+"GenerationChance":[14,4,2,1,6,6,15,0,6,0],
 "InfluencesString":"290 320 ",
 "Kind":3,
 "Level":1,
@@ -89854,7 +89892,7 @@
 "ConditionTableString":"201 101 ",
 "DisplayCol":1,
 "DisplayRow":3,
-"GenerationChance":[8,6,1,1,5,4,20,0,2,4],
+"GenerationChance":[8,6,1,1,5,4,15,0,6,0],
 "InfluencesString":"290 321 ",
 "Kind":3,
 "Level":2,
@@ -89870,7 +89908,7 @@
 "ConditionTableString":"202 102 ",
 "DisplayCol":2,
 "DisplayRow":3,
-"GenerationChance":[6,7,1,1,4,3,20,0,1,2],
+"GenerationChance":[6,7,1,1,4,3,12,0,1,0],
 "InfluencesString":"290 322 ",
 "Kind":3,
 "Level":3,
@@ -89886,7 +89924,7 @@
 "ConditionTableString":"201 111 ",
 "DisplayCol":4,
 "DisplayRow":3,
-"GenerationChance":[10,3,2,1,5,6,20,0,2,4],
+"GenerationChance":[10,3,2,1,5,6,15,0,2,0],
 "InfluencesString":"290 350 ",
 "Kind":3,
 "Level":2,
@@ -89902,7 +89940,7 @@
 "ConditionTableString":"202 102",
 "DisplayCol":5,
 "DisplayRow":3,
-"GenerationChance":[4,6,1,1,3,2,20,0,1,2],
+"GenerationChance":[4,6,1,1,3,2,12,0,2,0],
 "InfluencesString":"281 290 7096 ",
 "Kind":3,
 "Level":3,
@@ -89918,7 +89956,7 @@
 "ConditionTableString":"202 112",
 "DisplayCol":6,
 "DisplayRow":3,
-"GenerationChance":[6,5,1,1,3,2,20,0,1,2],
+"GenerationChance":[6,5,1,1,3,2,12,0,2,0],
 "InfluencesString":"281 290 424 ",
 "Kind":3,
 "Level":3,
@@ -89934,7 +89972,7 @@
 "ConditionTableString":"203 103 113",
 "DisplayCol":3,
 "DisplayRow":3,
-"GenerationChance":[2,4,1,1,1,1,20,0,0,1],
+"GenerationChance":[2,4,1,1,1,1,10,0,1,0],
 "InfluencesString":"281 290 323 ",
 "Kind":3,
 "Level":4,
@@ -89950,7 +89988,7 @@
 "ConditionTableString":"210 100 ",
 "DisplayCol":0,
 "DisplayRow":4,
-"GenerationChance":[12,4,6,1,10,5,20,0,3,6],
+"GenerationChance":[12,4,6,1,10,5,15,0,6,0],
 "InfluencesString":"291 330 ",
 "Kind":4,
 "Level":1,
@@ -89966,7 +90004,7 @@
 "ConditionTableString":"211 101 ",
 "DisplayCol":1,
 "DisplayRow":4,
-"GenerationChance":[9,5,1,1,7,4,20,0,2,4],
+"GenerationChance":[9,5,1,1,7,4,15,0,4,0],
 "InfluencesString":"291 331 ",
 "Kind":4,
 "Level":2,
@@ -89982,7 +90020,7 @@
 "ConditionTableString":"212 102 ",
 "DisplayCol":2,
 "DisplayRow":4,
-"GenerationChance":[6,7,1,1,5,3,20,0,1,2],
+"GenerationChance":[6,7,1,1,5,3,12,0,2,0],
 "InfluencesString":"291 332 ",
 "Kind":4,
 "Level":3,
@@ -89998,7 +90036,7 @@
 "ConditionTableString":"211 111 ",
 "DisplayCol":4,
 "DisplayRow":4,
-"GenerationChance":[9,7,3,1,9,1,20,0,2,4],
+"GenerationChance":[9,7,3,1,9,1,15,0,4,0],
 "InfluencesString":"291 351 ",
 "Kind":4,
 "Level":2,
@@ -90014,7 +90052,7 @@
 "ConditionTableString":"212 102",
 "DisplayCol":5,
 "DisplayRow":4,
-"GenerationChance":[4,6,1,1,3,2,20,0,1,2],
+"GenerationChance":[4,6,1,1,3,2,12,0,2,0],
 "InfluencesString":"281 291 402 ",
 "Kind":4,
 "Level":3,
@@ -90030,7 +90068,7 @@
 "ConditionTableString":"212 112",
 "DisplayCol":6,
 "DisplayRow":4,
-"GenerationChance":[6,5,1,1,3,2,20,0,1,2],
+"GenerationChance":[6,5,1,1,3,2,12,0,2,0],
 "InfluencesString":"610 ",
 "Kind":4,
 "Level":3,
@@ -90046,7 +90084,7 @@
 "ConditionTableString":"213 103 113",
 "DisplayCol":3,
 "DisplayRow":4,
-"GenerationChance":[3,2,1,1,1,1,20,0,0,1],
+"GenerationChance":[3,2,1,1,1,1,10,0,1,0],
 "InfluencesString":"281 291 333 ",
 "Kind":4,
 "Level":4,
@@ -90062,7 +90100,7 @@
 "ConditionTableString":"220 100 ",
 "DisplayCol":0,
 "DisplayRow":5,
-"GenerationChance":[10,10,1,1,5,5,20,0,3,6],
+"GenerationChance":[10,10,1,1,5,5,15,0,6,0],
 "InfluencesString":"292 340 ",
 "Kind":5,
 "Level":1,
@@ -90078,7 +90116,7 @@
 "ConditionTableString":"221 101 ",
 "DisplayCol":1,
 "DisplayRow":5,
-"GenerationChance":[8,9,1,1,4,4,20,0,2,4],
+"GenerationChance":[8,9,1,1,4,4,15,0,4,0],
 "InfluencesString":"292 341 ",
 "Kind":5,
 "Level":2,
@@ -90094,7 +90132,7 @@
 "ConditionTableString":"222 102 ",
 "DisplayCol":2,
 "DisplayRow":5,
-"GenerationChance":[6,7,1,1,3,3,20,0,1,2],
+"GenerationChance":[6,7,1,1,3,3,12,0,2,0],
 "InfluencesString":"292 342 ",
 "Kind":5,
 "Level":3,
@@ -90110,7 +90148,7 @@
 "ConditionTableString":"221 111 ",
 "DisplayCol":4,
 "DisplayRow":5,
-"GenerationChance":[8,8,2,1,6,3,20,0,2,4],
+"GenerationChance":[8,8,2,1,6,3,15,0,4,0],
 "InfluencesString":"292 551 ",
 "Kind":5,
 "Level":2,
@@ -90126,7 +90164,7 @@
 "ConditionTableString":"222 102",
 "DisplayCol":5,
 "DisplayRow":5,
-"GenerationChance":[4,6,1,1,3,2,20,0,1,2],
+"GenerationChance":[4,6,1,1,3,2,12,0,2,0],
 "InfluencesString":"281 292 413 ",
 "Kind":5,
 "Level":3,
@@ -90142,7 +90180,7 @@
 "ConditionTableString":"222 112",
 "DisplayCol":6,
 "DisplayRow":5,
-"GenerationChance":[6,5,1,1,3,2,20,0,1,2],
+"GenerationChance":[6,5,1,1,3,2,12,0,2,0],
 "InfluencesString":"281 292 7081 ",
 "Kind":5,
 "Level":3,
@@ -90158,7 +90196,7 @@
 "ConditionTableString":"223 103 113",
 "DisplayCol":3,
 "DisplayRow":5,
-"GenerationChance":[3,4,1,1,1,1,20,0,0,1],
+"GenerationChance":[3,4,1,1,1,1,10,0,1,0],
 "InfluencesString":"281 292 343 ",
 "Kind":5,
 "Level":4,
@@ -90174,7 +90212,7 @@
 "ConditionTableString":"230 110",
 "DisplayCol":0,
 "DisplayRow":6,
-"GenerationChance":[15,8,5,1,8,10,20,0,3,6],
+"GenerationChance":[15,8,5,1,8,10,15,0,6,0],
 "InfluencesString":"281 293 8591",
 "Kind":6,
 "Level":1,
@@ -90190,7 +90228,7 @@
 "ConditionTableString":"231 111",
 "DisplayCol":1,
 "DisplayRow":6,
-"GenerationChance":[10,6,2,1,8,4,20,0,3,6],
+"GenerationChance":[10,6,2,1,8,4,15,0,6,0],
 "InfluencesString":"281 293 8592",
 "Kind":6,
 "Level":1,
@@ -90206,7 +90244,7 @@
 "ConditionTableString":"231 112",
 "DisplayCol":2,
 "DisplayRow":6,
-"GenerationChance":[8,5,1,1,6,4,20,0,2,4],
+"GenerationChance":[8,5,1,1,6,4,15,0,4,0],
 "InfluencesString":"281 293 8544",
 "Kind":6,
 "Level":2,
@@ -90222,7 +90260,7 @@
 "ConditionTableString":"232 112 ",
 "DisplayCol":3,
 "DisplayRow":6,
-"GenerationChance":[5,8,1,1,4,3,20,0,2,4],
+"GenerationChance":[5,8,1,1,4,3,15,0,4,0],
 "InfluencesString":"281 293 8551",
 "Kind":6,
 "Level":2,
@@ -90238,7 +90276,7 @@
 "ConditionTableString":"233 103 ",
 "DisplayCol":4,
 "DisplayRow":6,
-"GenerationChance":[4,6,1,1,3,2,20,0,1,2],
+"GenerationChance":[4,6,1,1,3,2,12,0,2,0],
 "InfluencesString":"281 293 413 ",
 "Kind":6,
 "Level":3,
@@ -90254,7 +90292,7 @@
 "ConditionTableString":"233 113 ",
 "DisplayCol":5,
 "DisplayRow":6,
-"GenerationChance":[6,5,1,1,3,2,20,0,1,2],
+"GenerationChance":[6,5,1,1,3,2,12,0,2,0],
 "InfluencesString":"281 293 423 ",
 "Kind":6,
 "Level":3,
@@ -90270,7 +90308,7 @@
 "ConditionTableString":"234 104 114 ",
 "DisplayCol":6,
 "DisplayRow":6,
-"GenerationChance":[3,3,1,1,1,1,20,0,0,1],
+"GenerationChance":[3,3,1,1,1,1,10,0,1,0],
 "InfluencesString":"281 293 354 551",
 "Kind":6,
 "Level":4,
@@ -90286,7 +90324,7 @@
 "ConditionTableString":"240 110 ",
 "DisplayCol":0,
 "DisplayRow":7,
-"GenerationChance":[6,6,4,3,8,6,20,0,2,4],
+"GenerationChance":[6,6,4,3,8,6,15,0,4,0],
 "InfluencesString":"304 8587",
 "Kind":7,
 "Level":2,
@@ -90302,7 +90340,7 @@
 "ConditionTableString":"241 111 ",
 "DisplayCol":1,
 "DisplayRow":7,
-"GenerationChance":[6,6,4,3,8,6,20,0,2,4],
+"GenerationChance":[6,6,4,3,8,6,15,0,4,0],
 "InfluencesString":"305 8588",
 "Kind":7,
 "Level":2,
@@ -90318,7 +90356,7 @@
 "ConditionTableString":"242 112 ",
 "DisplayCol":2,
 "DisplayRow":7,
-"GenerationChance":[6,6,4,3,8,6,20,0,2,4],
+"GenerationChance":[6,6,4,3,8,6,15,0,4,0],
 "InfluencesString":"306 8589",
 "Kind":7,
 "Level":2,
@@ -90334,7 +90372,7 @@
 "ConditionTableString":"243 113",
 "DisplayCol":3,
 "DisplayRow":7,
-"GenerationChance":[6,6,4,3,8,6,20,0,2,4],
+"GenerationChance":[6,6,4,3,8,6,15,0,4,0],
 "InfluencesString":"306 8590",
 "Kind":7,
 "Level":2,
@@ -90350,7 +90388,7 @@
 "ConditionTableString":"241 101 ",
 "DisplayCol":4,
 "DisplayRow":7,
-"GenerationChance":[6,6,4,3,8,6,20,0,2,4],
+"GenerationChance":[6,6,4,3,8,6,15,0,4,0],
 "InfluencesString":"281 294 374",
 "Kind":7,
 "Level":2,
@@ -90366,7 +90404,7 @@
 "ConditionTableString":"242 112",
 "DisplayCol":5,
 "DisplayRow":7,
-"GenerationChance":[6,6,4,3,8,6,20,0,2,4],
+"GenerationChance":[6,6,4,3,8,6,15,0,4,0],
 "InfluencesString":"281 294 424",
 "Kind":7,
 "Level":2,
@@ -90382,7 +90420,7 @@
 "ConditionTableString":"243 113 ",
 "DisplayCol":6,
 "DisplayRow":7,
-"GenerationChance":[7,4,5,3,9,4,20,0,2,4],
+"GenerationChance":[7,4,5,3,9,4,15,0,4,0],
 "InfluencesString":"281 294 364",
 "Kind":7,
 "Level":2,
@@ -90398,7 +90436,7 @@
 "ConditionTableString":"203 309",
 "DisplayCol":0,
 "DisplayRow":8,
-"GenerationChance":[5,3,1,1,3,5,20,0,1,2],
+"GenerationChance":[5,3,1,1,3,5,12,0,2,0],
 "InfluencesString":"281 290 430 ",
 "Kind":8,
 "Level":3,
@@ -90414,7 +90452,7 @@
 "ConditionTableString":"213 309",
 "DisplayCol":1,
 "DisplayRow":8,
-"GenerationChance":[5,2,2,1,4,5,20,0,1,2],
+"GenerationChance":[5,2,2,1,4,5,12,0,2,0],
 "InfluencesString":"281 291 430 ",
 "Kind":8,
 "Level":3,
@@ -90430,7 +90468,7 @@
 "ConditionTableString":"223 309",
 "DisplayCol":2,
 "DisplayRow":8,
-"GenerationChance":[5,4,1,1,3,5,20,0,1,2],
+"GenerationChance":[5,4,1,1,3,5,12,0,2,0],
 "InfluencesString":"281 292 430 ",
 "Kind":8,
 "Level":3,
@@ -90446,7 +90484,7 @@
 "ConditionTableString":"233 309",
 "DisplayCol":3,
 "DisplayRow":8,
-"GenerationChance":[5,3,1,1,3,5,20,0,1,2],
+"GenerationChance":[5,3,1,1,3,5,12,0,2,0],
 "InfluencesString":"281 293 430 ",
 "Kind":8,
 "Level":3,
@@ -90462,7 +90500,7 @@
 "ConditionTableString":"243 309",
 "DisplayCol":4,
 "DisplayRow":8,
-"GenerationChance":[5,2,2,1,5,5,20,0,1,2],
+"GenerationChance":[5,2,2,1,5,5,12,0,2,0],
 "InfluencesString":"281 294 430 ",
 "Kind":8,
 "Level":3,
@@ -90478,7 +90516,7 @@
 "ConditionTableString":"103 113 ",
 "DisplayCol":5,
 "DisplayRow":8,
-"GenerationChance":[8,2,1,1,5,6,20,0,2,4],
+"GenerationChance":[8,2,1,1,5,6,15,0,4,0],
 "InfluencesString":"440 ",
 "Kind":8,
 "Level":2,
@@ -90494,7 +90532,7 @@
 "ConditionTableString":"113 143 ",
 "DisplayCol":6,
 "DisplayRow":8,
-"GenerationChance":[6,2,2,1,7,8,20,0,2,4],
+"GenerationChance":[6,2,2,1,7,8,15,0,4,0],
 "InfluencesString":"281 431 ",
 "Kind":8,
 "Level":2,
@@ -90510,7 +90548,7 @@
 "ConditionTableString":"401 142 ",
 "DisplayCol":0,
 "DisplayRow":9,
-"GenerationChance":[3,1,12,10,9,10,20,4,2,0],
+"GenerationChance":[3,1,12,10,9,10,15,4,0,2],
 "InfluencesString":"450 ",
 "Kind":9,
 "Level":2,
@@ -90526,7 +90564,7 @@
 "ConditionTableString":"402 122 ",
 "DisplayCol":1,
 "DisplayRow":9,
-"GenerationChance":[1,1,15,8,10,6,20,4,2,0],
+"GenerationChance":[1,1,15,8,10,6,15,4,0,1],
 "InfluencesString":"451 ",
 "Kind":9,
 "Level":2,
@@ -90542,7 +90580,7 @@
 "ConditionTableString":"400 200 210 220 ",
 "DisplayCol":2,
 "DisplayRow":9,
-"GenerationChance":[6,1,15,10,11,6,20,6,3,0],
+"GenerationChance":[6,1,15,10,11,6,15,6,0,1],
 "InfluencesString":"452 ",
 "Kind":9,
 "Level":1,
@@ -90558,7 +90596,7 @@
 "ConditionTableString":"400 201 211 221 ",
 "DisplayCol":3,
 "DisplayRow":9,
-"GenerationChance":[7,1,11,6,9,4,20,4,2,0],
+"GenerationChance":[7,1,11,6,9,4,15,4,0,1],
 "InfluencesString":"453 ",
 "Kind":9,
 "Level":2,
@@ -90574,7 +90612,7 @@
 "ConditionTableString":"401 ",
 "DisplayCol":4,
 "DisplayRow":9,
-"GenerationChance":[2,1,10,8,8,3,20,4,2,0],
+"GenerationChance":[2,1,10,8,8,3,15,4,0,1],
 "InfluencesString":"454 ",
 "Kind":9,
 "Level":2,
@@ -90590,7 +90628,7 @@
 "ConditionTableString":"404 ",
 "DisplayCol":5,
 "DisplayRow":9,
-"GenerationChance":[1,1,8,6,5,2,20,2,1,0],
+"GenerationChance":[1,1,8,6,5,2,15,2,0,1],
 "InfluencesString":"455 ",
 "Kind":9,
 "Level":3,
@@ -90606,7 +90644,7 @@
 "ConditionTableString":"401 111 141 ",
 "DisplayCol":6,
 "DisplayRow":9,
-"GenerationChance":[7,1,9,6,8,11,20,4,2,0],
+"GenerationChance":[7,1,9,6,8,11,15,4,0,4],
 "InfluencesString":"456 ",
 "Kind":9,
 "Level":2,
@@ -90622,7 +90660,7 @@
 "ConditionTableString":"412 ",
 "DisplayCol":0,
 "DisplayRow":10,
-"GenerationChance":[5,1,15,10,12,6,20,4,2,0],
+"GenerationChance":[5,1,15,10,12,6,15,4,0,2],
 "InfluencesString":"460 ",
 "Kind":10,
 "Level":2,
@@ -90638,7 +90676,7 @@
 "ConditionTableString":"410 100 120 ",
 "DisplayCol":1,
 "DisplayRow":10,
-"GenerationChance":[2,1,12,10,9,4,20,0,2,4],
+"GenerationChance":[2,1,12,10,9,4,15,3,3,3],
 "InfluencesString":"461 ",
 "Kind":10,
 "Level":2,
@@ -90654,7 +90692,7 @@
 "ConditionTableString":"410 101 ",
 "DisplayCol":2,
 "DisplayRow":10,
-"GenerationChance":[4,10,8,2,10,2,20,4,2,0],
+"GenerationChance":[4,10,8,2,10,2,15,2,4,2],
 "InfluencesString":"462 ",
 "Kind":10,
 "Level":2,
@@ -90670,7 +90708,7 @@
 "ConditionTableString":"410 121 ",
 "DisplayCol":3,
 "DisplayRow":10,
-"GenerationChance":[4,1,10,8,8,10,20,4,2,0],
+"GenerationChance":[4,1,10,8,8,10,15,4,2,4],
 "InfluencesString":"463 ",
 "Kind":10,
 "Level":2,
@@ -90686,7 +90724,7 @@
 "ConditionTableString":"410 141 ",
 "DisplayCol":4,
 "DisplayRow":10,
-"GenerationChance":[1,1,13,10,7,8,20,4,2,0],
+"GenerationChance":[1,1,13,10,7,8,15,4,2,4],
 "InfluencesString":"464 ",
 "Kind":10,
 "Level":2,
@@ -90702,7 +90740,7 @@
 "ConditionTableString":"410 131 ",
 "DisplayCol":5,
 "DisplayRow":10,
-"GenerationChance":[1,1,10,10,6,12,20,4,2,0],
+"GenerationChance":[1,1,10,10,6,12,15,4,2,4],
 "InfluencesString":"465 ",
 "Kind":10,
 "Level":2,
@@ -90718,7 +90756,7 @@
 "ConditionTableString":"143 ",
 "DisplayCol":6,
 "DisplayRow":10,
-"GenerationChance":[1,1,10,12,7,12,20,4,2,0],
+"GenerationChance":[1,1,10,12,7,12,15,4,2,6],
 "InfluencesString":"466 ",
 "Kind":10,
 "Level":2,
@@ -90734,7 +90772,7 @@
 "ConditionTableString":"122 132 140 404",
 "DisplayCol":0,
 "DisplayRow":11,
-"GenerationChance":[1,4,4,2,2,4,20,1,0,0],
+"GenerationChance":[1,4,4,2,2,4,12,1,0,1],
 "InfluencesString":"860 ",
 "Kind":11,
 "Level":4,
@@ -90750,7 +90788,7 @@
 "ConditionTableString":"553 570 610 612",
 "DisplayCol":1,
 "DisplayRow":11,
-"GenerationChance":[6,3,1,1,2,3,20,0,1,2],
+"GenerationChance":[6,3,1,1,2,3,12,0,1,0],
 "InfluencesString":"262",
 "Kind":11,
 "Level":4,
@@ -91226,7 +91264,7 @@
 "CastConditionsString":"1016 1026 1400",
 "Combativity":30,
 "GenerateConditionsString":"",
-"GenerationChance":[2,4,1,1,1,1,20,8,1,8],
+"GenerationChance":[2,4,1,1,1,1,20,8,1,1],
 "InfluencesString":"504 514",
 "LearnConditionsString":"612 613 614 615 400 151 373 552",
 "Period":2,
@@ -117116,7 +117154,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 307 411 421 401 700 345",
 "InheritChance":20,
 "Kind":{
@@ -117149,7 +117187,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 308 411 421 401 700 346",
 "InheritChance":20,
 "Kind":{
@@ -117182,7 +117220,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 309 411 421 406 700 347",
 "InheritChance":20,
 "Kind":{
@@ -117215,7 +117253,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 310 411 421 401 700 349",
 "InheritChance":20,
 "Kind":{
@@ -117248,7 +117286,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 311 411 421 400 405 700 8000",
 "InheritChance":20,
 "Kind":{
@@ -117281,7 +117319,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 312 411 421 401 700 8571",
 "InheritChance":20,
 "Kind":{
@@ -117314,7 +117352,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 10300 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117347,7 +117385,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 10301 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117380,7 +117418,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 10302 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117413,7 +117451,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 10303 411 421 401 700 344",
 "InheritChance":20,
 "Kind":{
@@ -117446,7 +117484,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 10304 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117479,7 +117517,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 10305 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117512,7 +117550,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 10306 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117545,7 +117583,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 10310 411 421 401 700 344",
 "InheritChance":20,
 "Kind":{
@@ -117578,7 +117616,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31060 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117611,7 +117649,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31070 31061 31078 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117644,7 +117682,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31062 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117677,7 +117715,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31063 31064 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117710,7 +117748,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31065 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117743,7 +117781,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31066 31067 31080 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117776,7 +117814,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31068 31069 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117809,7 +117847,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31071 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117842,7 +117880,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31072 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117875,7 +117913,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31074 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117908,7 +117946,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31075 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117941,7 +117979,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31079 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -117974,7 +118012,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31081 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -118007,7 +118045,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
-"GenerationChance":[2500,1250,0,0,1250,500,5000,1250,0,1250],
+"GenerationChance":[2500,1250,0,0,1250,500,5000,0,1250,0],
 "InfluencesString":"281 31082 411 421 401 700",
 "InheritChance":20,
 "Kind":{
@@ -118040,7 +118078,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003 6012",
-"GenerationChance":[200,600,0,0,200,0,2000,0,0,200],
+"GenerationChance":[200,600,0,0,200,0,2000,0,200,0],
 "InfluencesString":"404 521 551",
 "InheritChance":7,
 "Kind":{
@@ -118106,7 +118144,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6027 6047 970",
-"GenerationChance":[0,0,234,156,78,234,1250,31,0,0],
+"GenerationChance":[0,0,234,156,78,234,1250,31,0,31],
 "InfluencesString":"416 426 6301 570 571 572 573 605",
 "InheritChance":4,
 "Kind":{
@@ -118139,7 +118177,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6044 970",
-"GenerationChance":[0,0,0,0,0,417,1667,111,0,0],
+"GenerationChance":[0,0,0,0,0,417,1667,111,0,222],
 "InfluencesString":"6303 6312 6361",
 "InheritChance":6,
 "Kind":{
@@ -118172,7 +118210,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[600,200,0,0,400,400,2000,0,0,200],
+"GenerationChance":[600,200,0,0,400,400,2000,0,200,0],
 "InfluencesString":"281 388 421 530 604",
 "InheritChance":7,
 "Kind":{
@@ -118205,7 +118243,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6022 6041",
-"GenerationChance":[0,0,313,938,313,625,2500,375,0,0],
+"GenerationChance":[0,0,313,938,313,625,2500,375,0,375],
 "InfluencesString":"616 621 6300",
 "InheritChance":9,
 "Kind":{
@@ -118238,7 +118276,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6005",
-"GenerationChance":[139,417,0,0,139,139,1667,0,0,111],
+"GenerationChance":[139,417,0,0,139,139,1667,0,111,0],
 "InfluencesString":"281 388 363 404 554",
 "InheritChance":6,
 "Kind":{
@@ -118271,7 +118309,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[938,313,313,313,625,625,2500,0,0,375],
+"GenerationChance":[938,313,313,313,625,625,2500,0,375,0],
 "InfluencesString":"281 423 531 607",
 "InheritChance":9,
 "Kind":{
@@ -118304,7 +118342,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[417,139,0,0,278,417,1667,0,0,111],
+"GenerationChance":[417,139,0,0,278,417,1667,0,111,0],
 "InfluencesString":"281 403 406 543 604 680 690",
 "InheritChance":6,
 "Kind":{
@@ -118370,7 +118408,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015 6044",
-"GenerationChance":[306,204,0,0,204,306,1429,0,0,61],
+"GenerationChance":[306,204,0,0,204,306,1429,0,61,0],
 "InfluencesString":"281 522 532 542 622 660 665",
 "InheritChance":5,
 "Kind":{
@@ -118403,7 +118441,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[313,938,0,0,313,313,2500,0,0,375],
+"GenerationChance":[313,938,0,0,313,313,2500,0,375,0],
 "InfluencesString":"281 400 405 520 530 621",
 "InheritChance":9,
 "Kind":{
@@ -118436,7 +118474,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6019 6029 6048 970",
-"GenerationChance":[0,0,150,50,50,150,1000,10,0,0],
+"GenerationChance":[0,0,150,50,50,150,1000,10,0,10],
 "InfluencesString":"6302 281 663 681 691 6997",
 "InheritChance":3,
 "Kind":{
@@ -118469,7 +118507,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6036",
-"GenerationChance":[0,0,102,306,0,204,1429,61,0,0],
+"GenerationChance":[0,0,102,306,0,204,1429,61,0,61],
 "InfluencesString":"53 6073 103",
 "InheritChance":5,
 "Kind":{
@@ -118502,7 +118540,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6018 6027",
-"GenerationChance":[0,0,234,156,78,156,1250,31,0,0],
+"GenerationChance":[0,0,234,156,78,156,1250,31,0,31],
 "InfluencesString":"260 262 281 570 571 671 676 6992",
 "InheritChance":4,
 "Kind":{
@@ -118535,7 +118573,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016 6045",
-"GenerationChance":[306,102,0,0,204,204,1429,0,0,61],
+"GenerationChance":[306,102,0,0,204,204,1429,0,61,0],
 "InfluencesString":"281 590 591 430 431 440 610 623",
 "InheritChance":4,
 "Kind":{
@@ -118568,7 +118606,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[306,102,0,0,204,204,1429,0,0,61],
+"GenerationChance":[306,102,0,0,204,204,1429,0,61,0],
 "InfluencesString":"281 643 601 409 4051",
 "InheritChance":5,
 "Kind":{
@@ -118601,7 +118639,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6006 6015",
-"GenerationChance":[234,156,0,0,156,156,1250,0,0,31],
+"GenerationChance":[234,156,0,0,156,156,1250,0,31,0],
 "InfluencesString":"281 404 409 613 633 643",
 "InheritChance":4,
 "Kind":{
@@ -118667,7 +118705,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6005 6014",
-"GenerationChance":[204,204,0,0,204,306,1429,0,0,61],
+"GenerationChance":[204,204,0,0,204,306,1429,0,61,0],
 "InfluencesString":"281 404 406 523 604 630 656",
 "InheritChance":5,
 "Kind":{
@@ -118700,7 +118738,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6004 6013",
-"GenerationChance":[278,278,139,139,278,278,1667,0,0,111],
+"GenerationChance":[278,278,139,139,278,278,1667,0,111,0],
 "InfluencesString":"281 374 404 4023 6516",
 "InheritChance":6,
 "Kind":{
@@ -118733,7 +118771,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6024 6043",
-"GenerationChance":[0,0,400,600,0,600,2000,200,0,0],
+"GenerationChance":[0,0,400,600,0,600,2000,200,0,200],
 "InfluencesString":"120 121 122 123 124 6140",
 "InheritChance":6,
 "Kind":{
@@ -118766,7 +118804,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6047 970",
-"GenerationChance":[0,0,156,78,78,234,1250,31,0,0],
+"GenerationChance":[0,0,156,78,78,234,1250,31,0,62],
 "InfluencesString":"6302 281 418 428 688 698 6565",
 "InheritChance":4,
 "Kind":{
@@ -118799,7 +118837,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[600,200,400,0,600,400,2000,0,0,160],
+"GenerationChance":[600,200,400,0,600,400,2000,0,160,0],
 "InfluencesString":"281 251 5010 601",
 "InheritChance":7,
 "Kind":{
@@ -118832,7 +118870,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6005 6014",
-"GenerationChance":[278,278,0,0,278,278,1667,0,0,111],
+"GenerationChance":[278,278,0,0,278,278,1667,0,111,0],
 "InfluencesString":"281 403 408 610 611 613 623",
 "InheritChance":5,
 "Kind":{
@@ -118865,7 +118903,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[400,400,200,200,400,400,2000,0,0,200],
+"GenerationChance":[400,400,200,200,400,400,2000,0,200,0],
 "InfluencesString":"621 4022 6516",
 "InheritChance":7,
 "Kind":{
@@ -118898,7 +118936,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6024",
-"GenerationChance":[0,0,938,625,625,625,2500,0,0,375],
+"GenerationChance":[0,0,938,625,625,625,2500,0,375,0],
 "InfluencesString":"262 281 389 455 594",
 "InheritChance":7,
 "Kind":{
@@ -118931,7 +118969,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6026",
-"GenerationChance":[0,0,417,278,278,278,1667,111,0,0],
+"GenerationChance":[0,0,417,278,278,278,1667,111,0,111],
 "InfluencesString":"572 503 563",
 "InheritChance":5,
 "Kind":{
@@ -118964,7 +119002,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6007 6016",
-"GenerationChance":[156,78,0,0,234,234,1250,0,0,31],
+"GenerationChance":[156,78,0,0,234,234,1250,0,31,0],
 "InfluencesString":"260 262 101 6053 281 6103 660 680 690 6560",
 "InheritChance":4,
 "Kind":{
@@ -118997,7 +119035,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6026",
-"GenerationChance":[0,0,600,400,400,400,2000,200,0,0],
+"GenerationChance":[0,0,600,400,400,400,2000,200,0,200],
 "InfluencesString":"272 573 503",
 "InheritChance":5,
 "Kind":{
@@ -119030,7 +119068,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[417,139,0,0,278,278,1667,0,0,111],
+"GenerationChance":[417,139,0,0,278,278,1667,0,111,0],
 "InfluencesString":"260 262 281 533 4051 601",
 "InheritChance":5,
 "Kind":{
@@ -119063,7 +119101,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6026",
-"GenerationChance":[0,0,417,139,278,278,1667,111,0,0],
+"GenerationChance":[0,0,417,139,278,278,1667,111,0,111],
 "InfluencesString":"501 563 6918 6903 6936",
 "InheritChance":5,
 "Kind":{
@@ -119096,7 +119134,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6033",
-"GenerationChance":[0,0,556,1667,0,1667,3333,667,0,0],
+"GenerationChance":[0,0,556,1667,0,1667,3333,667,0,667],
 "InfluencesString":"122 123 6420 6421 6422 6423 6424 6425",
 "InheritChance":9,
 "Kind":{
@@ -119129,7 +119167,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003 6012",
-"GenerationChance":[400,600,0,0,400,400,2000,0,0,200],
+"GenerationChance":[400,600,0,0,400,400,2000,0,200,0],
 "InfluencesString":"281 411 551 521 604",
 "InheritChance":7,
 "Kind":{
@@ -119162,7 +119200,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6034",
-"GenerationChance":[0,0,400,600,200,400,2000,200,0,0],
+"GenerationChance":[0,0,400,600,200,400,2000,200,0,200],
 "InfluencesString":"612 80 20 60",
 "InheritChance":7,
 "Kind":{
@@ -119195,7 +119233,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6034",
-"GenerationChance":[0,0,400,600,200,400,2000,200,0,0],
+"GenerationChance":[0,0,400,600,200,400,2000,200,0,200],
 "InfluencesString":"473 474 81 21 61",
 "InheritChance":7,
 "Kind":{
@@ -119228,7 +119266,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6023 6032",
-"GenerationChance":[0,0,400,600,200,400,2000,200,0,0],
+"GenerationChance":[0,0,400,600,200,400,2000,200,0,200],
 "InfluencesString":"82 22 62 606 610",
 "InheritChance":7,
 "Kind":{
@@ -119294,7 +119332,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6023 6042",
-"GenerationChance":[0,0,625,938,0,938,2500,313,0,0],
+"GenerationChance":[0,0,625,938,0,938,2500,313,0,313],
 "InfluencesString":"590 84 24 64",
 "InheritChance":7,
 "Kind":{
@@ -119327,7 +119365,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6034",
-"GenerationChance":[200,0,400,600,0,400,2000,200,0,0],
+"GenerationChance":[200,0,400,600,0,400,2000,200,0,200],
 "InfluencesString":"607 6471 6440 15 25 65",
 "InheritChance":7,
 "Kind":{
@@ -119360,7 +119398,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6009 6019 6029",
-"GenerationChance":[0,0,0,0,0,0,1000,0,0,0],
+"GenerationChance":[0,0,0,0,0,0,0,0,0,0],
 "InfluencesString":"260 262 6053 6303 6361 6113 280 386 601 613 5056 6103 6513 6243 6998",
 "InheritChance":1,
 "Kind":{
@@ -119393,7 +119431,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031",
-"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,0],
+"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,2000],
 "InfluencesString":"20 60",
 "InheritChance":18,
 "Kind":{
@@ -119426,7 +119464,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031",
-"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,0],
+"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,2000],
 "InfluencesString":"21 61",
 "InheritChance":18,
 "Kind":{
@@ -119459,7 +119497,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020 6030",
-"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,0],
+"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,2000],
 "InfluencesString":"22 62",
 "InheritChance":18,
 "Kind":{
@@ -119492,7 +119530,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6040",
-"GenerationChance":[2500,2500,1250,1250,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,2500,1250,1250,2500,2500,5000,0,2000,0],
 "InfluencesString":"23 63",
 "InheritChance":18,
 "Kind":{
@@ -119525,7 +119563,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020 6040",
-"GenerationChance":[0,0,2500,2500,1250,3750,5000,2000,250,0],
+"GenerationChance":[0,0,2500,2500,1250,3750,5000,2000,250,2000],
 "InfluencesString":"24 64",
 "InheritChance":18,
 "Kind":{
@@ -119558,7 +119596,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031",
-"GenerationChance":[1250,0,2500,3750,0,2500,5000,2000,250,0],
+"GenerationChance":[1250,0,2500,3750,0,2500,5000,2000,250,2000],
 "InfluencesString":"25 65",
 "InheritChance":18,
 "Kind":{
@@ -119591,7 +119629,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020 6030 6040",
-"GenerationChance":[0,0,2500,3750,0,3750,5000,2000,250,0],
+"GenerationChance":[0,0,2500,3750,0,3750,5000,2000,250,2000],
 "InfluencesString":"30",
 "InheritChance":35,
 "Kind":{
@@ -119624,7 +119662,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020 6030",
-"GenerationChance":[0,0,1111,1667,0,1111,3333,778,0,0],
+"GenerationChance":[0,0,1111,1667,0,1111,3333,778,0,778],
 "InfluencesString":"40",
 "InheritChance":18,
 "Kind":{
@@ -119657,7 +119695,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020 6030",
-"GenerationChance":[0,0,1667,1111,0,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,1111,0,1111,3333,778,0,778],
 "InfluencesString":"41",
 "InheritChance":18,
 "Kind":{
@@ -119690,7 +119728,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[1667,556,556,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1667,556,556,0,1111,1111,3333,0,778,0],
 "InfluencesString":"42",
 "InheritChance":18,
 "Kind":{
@@ -119723,7 +119761,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6020",
-"GenerationChance":[0,0,1667,556,556,1111,3333,0,0,778],
+"GenerationChance":[0,0,1667,556,556,1111,3333,778,0,778],
 "InfluencesString":"43",
 "InheritChance":18,
 "Kind":{
@@ -119756,7 +119794,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031",
-"GenerationChance":[0,0,2500,3750,0,3750,5000,2000,250,0],
+"GenerationChance":[0,0,2500,3750,0,3750,5000,2000,250,2000],
 "InfluencesString":"51",
 "InheritChance":18,
 "Kind":{
@@ -119789,7 +119827,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6032",
-"GenerationChance":[0,0,1111,1667,0,1667,3333,778,0,0],
+"GenerationChance":[0,0,1111,1667,0,1667,3333,778,0,778],
 "InfluencesString":"53",
 "InheritChance":12,
 "Kind":{
@@ -119822,7 +119860,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6030 6040",
-"GenerationChance":[0,0,0,2500,0,3750,5000,2000,250,0],
+"GenerationChance":[0,0,0,2500,0,3750,5000,2000,250,2000],
 "InfluencesString":"100 160",
 "InheritChance":35,
 "Kind":{
@@ -119855,7 +119893,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031 6040",
-"GenerationChance":[0,0,0,1111,0,1667,3333,778,0,0],
+"GenerationChance":[0,0,0,1111,0,1667,3333,778,0,778],
 "InfluencesString":"101 161",
 "InheritChance":12,
 "Kind":{
@@ -119888,7 +119926,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6032 6041",
-"GenerationChance":[0,0,0,625,0,938,2500,375,0,0],
+"GenerationChance":[0,0,0,625,0,938,2500,375,0,375],
 "InfluencesString":"102 162",
 "InheritChance":9,
 "Kind":{
@@ -119921,7 +119959,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6033 6042",
-"GenerationChance":[0,0,0,400,0,600,2000,200,0,0],
+"GenerationChance":[0,0,0,400,0,600,2000,200,0,200],
 "InfluencesString":"103 163",
 "InheritChance":7,
 "Kind":{
@@ -119954,7 +119992,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6030 6040",
-"GenerationChance":[0,0,0,2500,0,3750,5000,2000,250,0],
+"GenerationChance":[0,0,0,2500,0,3750,5000,2000,250,2000],
 "InfluencesString":"120",
 "InheritChance":35,
 "Kind":{
@@ -119987,7 +120025,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031 6040",
-"GenerationChance":[0,0,0,2500,0,3750,5000,2000,250,0],
+"GenerationChance":[0,0,0,2500,0,3750,5000,2000,250,2000],
 "InfluencesString":"121",
 "InheritChance":12,
 "Kind":{
@@ -120020,7 +120058,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6030 6040",
-"GenerationChance":[0,0,0,2500,0,3750,5000,2000,250,0],
+"GenerationChance":[0,0,0,2500,0,3750,5000,2000,250,2000],
 "InfluencesString":"122",
 "InheritChance":35,
 "Kind":{
@@ -120053,7 +120091,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031 6040",
-"GenerationChance":[0,0,0,2500,0,3750,5000,2000,250,0],
+"GenerationChance":[0,0,0,2500,0,3750,5000,2000,250,2000],
 "InfluencesString":"123",
 "InheritChance":12,
 "Kind":{
@@ -120086,7 +120124,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6030 6040",
-"GenerationChance":[0,0,0,2500,0,3750,5000,2000,250,0],
+"GenerationChance":[0,0,0,2500,0,3750,5000,2000,250,2000],
 "InfluencesString":"124",
 "InheritChance":35,
 "Kind":{
@@ -120119,7 +120157,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[1667,556,556,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1667,556,556,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 200 220",
 "InheritChance":12,
 "Kind":{
@@ -120152,7 +120190,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[1667,556,556,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1667,556,556,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 201 221",
 "InheritChance":12,
 "Kind":{
@@ -120185,7 +120223,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[3750,1250,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[3750,1250,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 202 222",
 "InheritChance":35,
 "Kind":{
@@ -120218,7 +120256,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[3750,1250,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[3750,1250,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 204 224",
 "InheritChance":35,
 "Kind":{
@@ -120251,7 +120289,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[3750,1250,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[3750,1250,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 205 225",
 "InheritChance":18,
 "Kind":{
@@ -120284,7 +120322,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[15000,5000,5000,0,10000,10000,10000,0,2000,9000],
+"GenerationChance":[15000,5000,5000,0,10000,10000,10000,0,9000,0],
 "InfluencesString":"281 207 227",
 "InheritChance":35,
 "Kind":{
@@ -120317,7 +120355,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[15000,5000,5000,0,10000,10000,10000,0,2000,9000],
+"GenerationChance":[15000,5000,5000,0,10000,10000,10000,0,9000,0],
 "InfluencesString":"281 208 228",
 "InheritChance":35,
 "Kind":{
@@ -120350,7 +120388,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[3750,1250,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[3750,1250,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 251",
 "InheritChance":12,
 "Kind":{
@@ -120383,7 +120421,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[938,313,313,0,625,625,2500,0,0,375],
+"GenerationChance":[938,313,313,0,625,625,2500,0,375,0],
 "InfluencesString":"281 252",
 "InheritChance":6,
 "Kind":{
@@ -120416,7 +120454,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002",
-"GenerationChance":[1111,1111,0,0,1111,1667,3333,0,0,778],
+"GenerationChance":[1111,1111,0,0,1111,1667,3333,0,778,0],
 "InfluencesString":"260 262",
 "InheritChance":12,
 "Kind":{
@@ -120449,7 +120487,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003",
-"GenerationChance":[625,938,0,0,313,625,2500,0,0,375],
+"GenerationChance":[625,938,0,0,313,625,2500,0,375,0],
 "InfluencesString":"261 263",
 "InheritChance":9,
 "Kind":{
@@ -120482,7 +120520,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011 6020",
-"GenerationChance":[3750,1250,2500,0,3750,2500,5000,2000,250,0],
+"GenerationChance":[3750,1250,2500,0,3750,2500,5000,2000,250,2000],
 "InfluencesString":"270",
 "InheritChance":12,
 "Kind":{
@@ -120515,7 +120553,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6010",
-"GenerationChance":[3750,1250,2500,0,3750,2500,5000,0,250,2000],
+"GenerationChance":[3750,1250,2500,0,3750,2500,5000,0,2000,0],
 "InfluencesString":"271",
 "InheritChance":12,
 "Kind":{
@@ -120548,7 +120586,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6023",
-"GenerationChance":[0,0,3750,2500,3750,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,2500,3750,2500,5000,2000,250,2000],
 "InfluencesString":"272",
 "InheritChance":9,
 "Kind":{
@@ -120581,7 +120619,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[1667,1111,0,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1667,1111,0,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 290 401 406 411 421 609",
 "InheritChance":12,
 "Kind":{
@@ -120614,7 +120652,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[1667,1111,0,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1667,1111,0,0,1111,1111,3333,0,778,0],
 "InfluencesString":"610 281 291 401 406 411 421",
 "InheritChance":9,
 "Kind":{
@@ -120647,7 +120685,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[1667,1111,0,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1667,1111,0,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 292 401 406 411 421 388",
 "InheritChance":12,
 "Kind":{
@@ -120680,7 +120718,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[1667,1111,0,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1667,1111,0,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 293 401 406 411 421 354",
 "InheritChance":12,
 "Kind":{
@@ -120713,7 +120751,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[1667,1111,0,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1667,1111,0,0,1111,1111,3333,0,778,0],
 "InfluencesString":"606 281 294 401 406 411 421",
 "InheritChance":12,
 "Kind":{
@@ -120746,7 +120784,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[600,400,0,0,400,400,2000,0,0,200],
+"GenerationChance":[600,400,0,0,400,400,2000,0,200,0],
 "InfluencesString":"281 290 403 408 413 423 609 320 321 322 323",
 "InheritChance":7,
 "Kind":{
@@ -120779,7 +120817,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[600,400,0,0,400,400,2000,0,0,200],
+"GenerationChance":[600,400,0,0,400,400,2000,0,200,0],
 "InfluencesString":"610 281 291 403 408 413 423 330 331 332 333",
 "InheritChance":6,
 "Kind":{
@@ -120812,7 +120850,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[600,400,0,0,400,400,2000,0,0,200],
+"GenerationChance":[600,400,0,0,400,400,2000,0,200,0],
 "InfluencesString":"281 292 403 408 413 423 388 340 341 342 343",
 "InheritChance":7,
 "Kind":{
@@ -120845,7 +120883,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[600,400,0,0,400,400,2000,0,0,200],
+"GenerationChance":[600,400,0,0,400,400,2000,0,200,0],
 "InfluencesString":"281 293 403 408 413 423 354 330 340 343 606",
 "InheritChance":7,
 "Kind":{
@@ -120878,7 +120916,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[600,400,0,0,400,400,2000,0,0,200],
+"GenerationChance":[600,400,0,0,400,400,2000,0,200,0],
 "InfluencesString":"606 281 294 404 409 414 424 374 6515",
 "InheritChance":6,
 "Kind":{
@@ -120911,7 +120949,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002",
-"GenerationChance":[1111,1667,556,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,1667,556,0,1111,1111,3333,0,778,0],
 "InfluencesString":"388",
 "InheritChance":12,
 "Kind":{
@@ -120944,7 +120982,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011 6020",
-"GenerationChance":[0,0,1667,1111,1111,1111,3333,0,0,778],
+"GenerationChance":[0,0,1667,1111,1111,1111,3333,0,778,0],
 "InfluencesString":"389",
 "InheritChance":12,
 "Kind":{
@@ -120977,7 +121015,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 400 405",
 "InheritChance":35,
 "Kind":{
@@ -121010,7 +121048,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[1111,1667,0,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,1667,0,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 401 406",
 "InheritChance":18,
 "Kind":{
@@ -121043,7 +121081,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[625,938,0,0,625,625,2500,0,0,375],
+"GenerationChance":[625,938,0,0,625,625,2500,0,375,0],
 "InfluencesString":"281 403 408",
 "InheritChance":9,
 "Kind":{
@@ -121076,7 +121114,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010 6020",
-"GenerationChance":[1111,1111,1111,0,1667,1111,3333,778,0,778],
+"GenerationChance":[1111,1111,1111,0,1667,1111,3333,778,778,0],
 "InfluencesString":"281 400 405 500 510",
 "InheritChance":18,
 "Kind":{
@@ -121109,7 +121147,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6011 6020",
-"GenerationChance":[625,625,625,0,938,625,2500,375,0,375],
+"GenerationChance":[625,625,625,0,938,625,2500,375,375,0],
 "InfluencesString":"281 401 406 501 511",
 "InheritChance":9,
 "Kind":{
@@ -121142,7 +121180,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003 6013 6022",
-"GenerationChance":[400,400,400,0,600,400,2000,200,0,200],
+"GenerationChance":[400,400,400,0,600,400,2000,200,200,0],
 "InfluencesString":"281 403 408 503 513",
 "InheritChance":6,
 "Kind":{
@@ -121175,7 +121213,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000",
-"GenerationChance":[10000,15000,0,0,10000,10000,10000,0,2000,9000],
+"GenerationChance":[10000,15000,0,0,10000,10000,10000,0,9000,0],
 "InfluencesString":"281 400",
 "InheritChance":35,
 "Kind":{
@@ -121208,7 +121246,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000",
-"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 401",
 "InheritChance":35,
 "Kind":{
@@ -121241,7 +121279,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001",
-"GenerationChance":[1111,1667,0,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,1667,0,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 403",
 "InheritChance":18,
 "Kind":{
@@ -121274,7 +121312,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[15000,10000,0,0,10000,10000,10000,0,2000,9000],
+"GenerationChance":[15000,10000,0,0,10000,10000,10000,0,9000,0],
 "InfluencesString":"281 405",
 "InheritChance":35,
 "Kind":{
@@ -121307,7 +121345,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[3750,2500,0,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[3750,2500,0,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 406",
 "InheritChance":35,
 "Kind":{
@@ -121340,7 +121378,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[1667,1111,0,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1667,1111,0,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 408",
 "InheritChance":18,
 "Kind":{
@@ -121373,7 +121411,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6026",
-"GenerationChance":[0,0,600,400,400,400,2000,200,0,0],
+"GenerationChance":[0,0,600,400,400,400,2000,200,0,200],
 "InfluencesString":"389 454 455 584 594",
 "InheritChance":5,
 "Kind":{
@@ -121406,7 +121444,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001",
-"GenerationChance":[556,1667,556,0,1111,1111,3333,778,0,0],
+"GenerationChance":[556,1667,556,0,1111,1111,3333,778,0,778],
 "InfluencesString":"471",
 "InheritChance":18,
 "Kind":{
@@ -121439,7 +121477,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001",
-"GenerationChance":[556,1667,556,0,1111,1111,3333,778,0,0],
+"GenerationChance":[556,1667,556,0,1111,1111,3333,778,0,778],
 "InfluencesString":"472",
 "InheritChance":18,
 "Kind":{
@@ -121472,7 +121510,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020 6040",
-"GenerationChance":[0,0,1111,1667,556,1667,3333,778,0,0],
+"GenerationChance":[0,0,1111,1667,556,1667,3333,778,0,778],
 "InfluencesString":"473",
 "InheritChance":18,
 "Kind":{
@@ -121505,7 +121543,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020 6040",
-"GenerationChance":[0,0,1111,1667,556,1667,3333,778,0,0],
+"GenerationChance":[0,0,1111,1667,556,1667,3333,778,0,778],
 "InfluencesString":"474",
 "InheritChance":18,
 "Kind":{
@@ -121538,7 +121576,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6040",
-"GenerationChance":[0,0,1111,1667,556,1667,3333,778,0,0],
+"GenerationChance":[0,0,1111,1667,556,1667,3333,778,0,778],
 "InfluencesString":"475",
 "InheritChance":35,
 "Kind":{
@@ -121571,7 +121609,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6004 6024 6043",
-"GenerationChance":[139,139,278,417,278,278,1667,139,0,0],
+"GenerationChance":[139,139,278,417,278,278,1667,139,0,139],
 "InfluencesString":"260 471 472 473 474 475",
 "InheritChance":5,
 "Kind":{
@@ -121604,7 +121642,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,3750,1250,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,1250,2500,2500,5000,2000,250,2000],
 "InfluencesString":"500 510",
 "InheritChance":35,
 "Kind":{
@@ -121637,7 +121675,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6022",
-"GenerationChance":[0,0,1667,556,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,556,1111,1111,3333,778,0,778],
 "InfluencesString":"501 511",
 "InheritChance":12,
 "Kind":{
@@ -121670,7 +121708,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6023",
-"GenerationChance":[0,0,938,313,625,625,2500,375,0,0],
+"GenerationChance":[0,0,938,313,625,625,2500,375,0,375],
 "InfluencesString":"503 513",
 "InheritChance":9,
 "Kind":{
@@ -121703,7 +121741,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,15000,5000,10000,10000,10000,9000,2000,0],
+"GenerationChance":[0,0,15000,5000,10000,10000,10000,9000,2000,9000],
 "InfluencesString":"500",
 "InheritChance":35,
 "Kind":{
@@ -121736,7 +121774,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,3750,1250,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,1250,2500,2500,5000,2000,250,2000],
 "InfluencesString":"501",
 "InheritChance":35,
 "Kind":{
@@ -121769,7 +121807,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6022",
-"GenerationChance":[0,0,1667,556,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,556,1111,1111,3333,778,0,778],
 "InfluencesString":"503",
 "InheritChance":12,
 "Kind":{
@@ -121802,7 +121840,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,15000,5000,10000,10000,10000,9000,2000,0],
+"GenerationChance":[0,0,15000,5000,10000,10000,10000,9000,2000,9000],
 "InfluencesString":"510",
 "InheritChance":35,
 "Kind":{
@@ -121835,7 +121873,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,3750,1250,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,1250,2500,2500,5000,2000,250,2000],
 "InfluencesString":"511",
 "InheritChance":35,
 "Kind":{
@@ -121868,7 +121906,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6022",
-"GenerationChance":[0,0,1667,556,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,556,1111,1111,3333,778,0,778],
 "InfluencesString":"513",
 "InheritChance":12,
 "Kind":{
@@ -121901,7 +121939,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[2500,3750,0,0,3750,2500,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,3750,2500,5000,0,2000,0],
 "InfluencesString":"281 520",
 "InheritChance":35,
 "Kind":{
@@ -121934,7 +121972,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[15000,10000,0,0,15000,10000,10000,0,2000,9000],
+"GenerationChance":[15000,10000,0,0,15000,10000,10000,0,9000,0],
 "InfluencesString":"281 530",
 "InheritChance":35,
 "Kind":{
@@ -121967,7 +122005,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[10000,10000,0,0,10000,10000,10000,0,2000,9000],
+"GenerationChance":[10000,10000,0,0,10000,10000,10000,0,9000,0],
 "InfluencesString":"540",
 "InheritChance":35,
 "Kind":{
@@ -122000,7 +122038,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[2500,2500,0,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,2500,0,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"542",
 "InheritChance":18,
 "Kind":{
@@ -122033,7 +122071,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000",
-"GenerationChance":[10000,15000,0,0,10000,10000,10000,0,2000,9000],
+"GenerationChance":[10000,15000,0,0,10000,10000,10000,0,9000,0],
 "InfluencesString":"550",
 "InheritChance":35,
 "Kind":{
@@ -122066,7 +122104,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000",
-"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"551",
 "InheritChance":35,
 "Kind":{
@@ -122099,7 +122137,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001",
-"GenerationChance":[1111,1667,0,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,1667,0,0,1111,1111,3333,0,778,0],
 "InfluencesString":"553",
 "InheritChance":18,
 "Kind":{
@@ -122132,7 +122170,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,15000,5000,10000,10000,10000,9000,2000,0],
+"GenerationChance":[0,0,15000,5000,10000,10000,10000,9000,2000,9000],
 "InfluencesString":"560",
 "InheritChance":35,
 "Kind":{
@@ -122165,7 +122203,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6021",
-"GenerationChance":[0,0,3750,1250,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,1250,2500,2500,5000,2000,250,2000],
 "InfluencesString":"561",
 "InheritChance":18,
 "Kind":{
@@ -122198,7 +122236,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6023",
-"GenerationChance":[0,0,1667,556,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,556,1111,1111,3333,778,0,778],
 "InfluencesString":"563",
 "InheritChance":9,
 "Kind":{
@@ -122231,7 +122269,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6025",
-"GenerationChance":[0,0,600,200,400,400,2000,200,0,0],
+"GenerationChance":[0,0,600,200,400,400,2000,200,0,200],
 "InfluencesString":"570 501",
 "InheritChance":6,
 "Kind":{
@@ -122264,7 +122302,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6022",
-"GenerationChance":[0,0,1667,556,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,556,1111,1111,3333,778,0,778],
 "InfluencesString":"571",
 "InheritChance":12,
 "Kind":{
@@ -122297,7 +122335,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6024",
-"GenerationChance":[0,0,938,313,625,625,2500,375,0,0],
+"GenerationChance":[0,0,938,313,625,625,2500,375,0,375],
 "InfluencesString":"572",
 "InheritChance":7,
 "Kind":{
@@ -122330,7 +122368,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6023",
-"GenerationChance":[0,0,3750,1250,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,1250,2500,2500,5000,2000,250,2000],
 "InfluencesString":"573",
 "InheritChance":9,
 "Kind":{
@@ -122363,7 +122401,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6024",
-"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,778],
 "InfluencesString":"580",
 "InheritChance":7,
 "Kind":{
@@ -122396,7 +122434,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6024",
-"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,778],
 "InfluencesString":"581",
 "InheritChance":7,
 "Kind":{
@@ -122429,7 +122467,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6022",
-"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,2000],
 "InfluencesString":"582",
 "InheritChance":12,
 "Kind":{
@@ -122462,7 +122500,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,778],
 "InfluencesString":"583",
 "InheritChance":35,
 "Kind":{
@@ -122495,7 +122533,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6023",
-"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,778],
 "InfluencesString":"584",
 "InheritChance":9,
 "Kind":{
@@ -122528,7 +122566,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011 6020",
-"GenerationChance":[2500,0,3750,2500,2500,2500,5000,2000,250,0],
+"GenerationChance":[2500,0,3750,2500,2500,2500,5000,2000,250,2000],
 "InfluencesString":"590",
 "InheritChance":12,
 "Kind":{
@@ -122561,7 +122599,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012 6021",
-"GenerationChance":[2500,0,3750,2500,2500,2500,5000,2000,250,0],
+"GenerationChance":[2500,0,3750,2500,2500,2500,5000,2000,250,2000],
 "InfluencesString":"591",
 "InheritChance":9,
 "Kind":{
@@ -122594,7 +122632,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010 6020",
-"GenerationChance":[10000,0,15000,10000,10000,10000,10000,9000,2000,0],
+"GenerationChance":[10000,0,15000,10000,10000,10000,10000,9000,2000,9000],
 "InfluencesString":"592",
 "InheritChance":35,
 "Kind":{
@@ -122627,7 +122665,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010 6020",
-"GenerationChance":[2500,0,3750,2500,2500,2500,5000,2000,250,0],
+"GenerationChance":[2500,0,3750,2500,2500,2500,5000,2000,250,2000],
 "InfluencesString":"593",
 "InheritChance":35,
 "Kind":{
@@ -122660,7 +122698,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010 6020",
-"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,2000],
 "InfluencesString":"594",
 "InheritChance":35,
 "Kind":{
@@ -122726,7 +122764,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[1111,1667,1111,556,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,1667,1111,556,1111,1111,3333,0,778,0],
 "InfluencesString":"281 601",
 "InheritChance":12,
 "Kind":{
@@ -122759,7 +122797,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[2500,3750,0,0,2500,3750,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,3750,5000,0,2000,0],
 "InfluencesString":"281 602",
 "InheritChance":35,
 "Kind":{
@@ -122792,7 +122830,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[2500,3750,0,0,2500,3750,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,3750,5000,0,2000,0],
 "InfluencesString":"281 603",
 "InheritChance":35,
 "Kind":{
@@ -122825,7 +122863,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[3750,2500,0,0,3750,2500,5000,0,250,2000],
+"GenerationChance":[3750,2500,0,0,3750,2500,5000,0,2000,0],
 "InfluencesString":"604",
 "InheritChance":18,
 "Kind":{
@@ -122858,7 +122896,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6021",
-"GenerationChance":[0,0,3750,1250,3750,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,1250,3750,2500,5000,2000,250,2000],
 "InfluencesString":"605",
 "InheritChance":18,
 "Kind":{
@@ -122891,7 +122929,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,2500,2500,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,2500,2500,2500,2500,5000,2000,250,2000],
 "InfluencesString":"606",
 "InheritChance":35,
 "Kind":{
@@ -122924,7 +122962,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[2500,1250,2500,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,1250,2500,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 607",
 "InheritChance":18,
 "Kind":{
@@ -122957,7 +122995,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[2500,2500,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,2500,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 608",
 "InheritChance":35,
 "Kind":{
@@ -122990,7 +123028,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[1111,1111,556,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,1111,556,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 609",
 "InheritChance":18,
 "Kind":{
@@ -123023,7 +123061,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[1111,556,556,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,556,556,0,1111,1111,3333,0,778,0],
 "InfluencesString":"611",
 "InheritChance":18,
 "Kind":{
@@ -123056,7 +123094,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6023",
-"GenerationChance":[313,0,625,938,625,625,2500,0,0,375],
+"GenerationChance":[313,0,625,938,625,625,2500,0,375,0],
 "InfluencesString":"612",
 "InheritChance":9,
 "Kind":{
@@ -123089,7 +123127,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001",
-"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 613",
 "InheritChance":18,
 "Kind":{
@@ -123122,7 +123160,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[10000,15000,0,0,10000,10000,10000,0,2000,9000],
+"GenerationChance":[10000,15000,0,0,10000,10000,10000,0,9000,0],
 "InfluencesString":"281 620",
 "InheritChance":35,
 "Kind":{
@@ -123155,7 +123193,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 621",
 "InheritChance":35,
 "Kind":{
@@ -123188,7 +123226,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6042",
-"GenerationChance":[0,0,556,1667,556,1667,3333,778,0,0],
+"GenerationChance":[0,0,556,1667,556,1667,3333,778,0,1667],
 "InfluencesString":"621 6300",
 "InheritChance":12,
 "Kind":{
@@ -123221,7 +123259,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[1111,1667,0,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,1667,0,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 623",
 "InheritChance":12,
 "Kind":{
@@ -123254,7 +123292,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[938,313,0,0,625,625,2500,0,0,375],
+"GenerationChance":[938,313,0,0,625,625,2500,0,375,0],
 "InfluencesString":"281 630 640",
 "InheritChance":18,
 "Kind":{
@@ -123287,7 +123325,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[600,200,0,0,400,400,2000,0,0,200],
+"GenerationChance":[600,200,0,0,400,400,2000,0,200,0],
 "InfluencesString":"281 631 641",
 "InheritChance":9,
 "Kind":{
@@ -123320,7 +123358,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[417,139,0,0,278,278,1667,0,0,111],
+"GenerationChance":[417,139,0,0,278,278,1667,0,111,0],
 "InfluencesString":"281 632 642",
 "InheritChance":7,
 "Kind":{
@@ -123353,7 +123391,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[306,102,0,0,204,204,1429,0,0,61],
+"GenerationChance":[306,102,0,0,204,204,1429,0,61,0],
 "InfluencesString":"281 633 643",
 "InheritChance":6,
 "Kind":{
@@ -123386,7 +123424,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[2500,1250,0,0,2500,3750,5000,0,250,2000],
+"GenerationChance":[2500,1250,0,0,2500,3750,5000,0,2000,0],
 "InfluencesString":"281 650",
 "InheritChance":35,
 "Kind":{
@@ -123419,7 +123457,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[1111,556,0,0,1111,1667,3333,0,0,778],
+"GenerationChance":[1111,556,0,0,1111,1667,3333,0,778,0],
 "InfluencesString":"281 651",
 "InheritChance":18,
 "Kind":{
@@ -123452,7 +123490,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[625,313,0,0,625,938,2500,0,0,375],
+"GenerationChance":[625,313,0,0,625,938,2500,0,375,0],
 "InfluencesString":"281 652",
 "InheritChance":12,
 "Kind":{
@@ -123485,7 +123523,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,0,0,200],
+"GenerationChance":[400,200,0,0,400,600,2000,0,200,0],
 "InfluencesString":"281 653",
 "InheritChance":9,
 "Kind":{
@@ -123518,7 +123556,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[2500,1250,0,0,2500,3750,5000,0,250,2000],
+"GenerationChance":[2500,1250,0,0,2500,3750,5000,0,2000,0],
 "InfluencesString":"281 655",
 "InheritChance":35,
 "Kind":{
@@ -123551,7 +123589,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[1111,556,0,0,1111,1667,3333,0,0,778],
+"GenerationChance":[1111,556,0,0,1111,1667,3333,0,778,0],
 "InfluencesString":"281 656",
 "InheritChance":18,
 "Kind":{
@@ -123584,7 +123622,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[625,313,0,0,625,938,2500,0,0,375],
+"GenerationChance":[625,313,0,0,625,938,2500,0,375,0],
 "InfluencesString":"281 657",
 "InheritChance":12,
 "Kind":{
@@ -123617,7 +123655,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,0,0,200],
+"GenerationChance":[400,200,0,0,400,600,2000,0,200,0],
 "InfluencesString":"281 658",
 "InheritChance":9,
 "Kind":{
@@ -123650,7 +123688,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[1111,556,0,0,1111,1667,3333,0,0,778],
+"GenerationChance":[1111,556,0,0,1111,1667,3333,0,778,0],
 "InfluencesString":"281 660",
 "InheritChance":35,
 "Kind":{
@@ -123683,7 +123721,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[625,313,0,0,625,938,2500,0,0,375],
+"GenerationChance":[625,313,0,0,625,938,2500,0,375,0],
 "InfluencesString":"281 661",
 "InheritChance":12,
 "Kind":{
@@ -123716,7 +123754,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,0,0,200],
+"GenerationChance":[400,200,0,0,400,600,2000,0,200,0],
 "InfluencesString":"281 662",
 "InheritChance":9,
 "Kind":{
@@ -123749,7 +123787,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,0,0,160],
+"GenerationChance":[400,200,0,0,400,600,2000,0,160,0],
 "InfluencesString":"281 663",
 "InheritChance":9,
 "Kind":{
@@ -123782,7 +123820,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[1111,556,0,0,1111,1667,3333,0,0,778],
+"GenerationChance":[1111,556,0,0,1111,1667,3333,0,778,0],
 "InfluencesString":"281 665",
 "InheritChance":35,
 "Kind":{
@@ -123815,7 +123853,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[625,313,0,0,625,938,2500,0,0,375],
+"GenerationChance":[625,313,0,0,625,938,2500,0,375,0],
 "InfluencesString":"281 666",
 "InheritChance":12,
 "Kind":{
@@ -123848,7 +123886,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,0,0,200],
+"GenerationChance":[400,200,0,0,400,600,2000,0,200,0],
 "InfluencesString":"281 667",
 "InheritChance":9,
 "Kind":{
@@ -123881,7 +123919,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,0,0,160],
+"GenerationChance":[400,200,0,0,400,600,2000,0,160,0],
 "InfluencesString":"281 668",
 "InheritChance":9,
 "Kind":{
@@ -123914,7 +123952,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[0,0,2500,0,3750,3750,5000,2000,250,0],
+"GenerationChance":[0,0,2500,0,3750,3750,5000,2000,250,2000],
 "InfluencesString":"281 670",
 "InheritChance":35,
 "Kind":{
@@ -123947,7 +123985,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[0,0,1111,0,1667,1667,3333,778,0,0],
+"GenerationChance":[0,0,1111,0,1667,1667,3333,778,0,778],
 "InfluencesString":"281 671",
 "InheritChance":18,
 "Kind":{
@@ -123980,7 +124018,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[0,0,625,0,938,938,2500,375,0,0],
+"GenerationChance":[0,0,625,0,938,938,2500,375,0,375],
 "InfluencesString":"281 672",
 "InheritChance":12,
 "Kind":{
@@ -124013,7 +124051,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[0,0,625,0,938,938,2500,313,0,0],
+"GenerationChance":[0,0,625,0,938,938,2500,313,0,313],
 "InfluencesString":"281 673",
 "InheritChance":9,
 "Kind":{
@@ -124046,7 +124084,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[0,0,2500,0,3750,3750,5000,2000,250,0],
+"GenerationChance":[0,0,2500,0,3750,3750,5000,2000,250,2000],
 "InfluencesString":"281 675",
 "InheritChance":35,
 "Kind":{
@@ -124079,7 +124117,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[0,0,1111,0,1667,1667,3333,778,0,0],
+"GenerationChance":[0,0,1111,0,1667,1667,3333,778,0,778],
 "InfluencesString":"281 676",
 "InheritChance":18,
 "Kind":{
@@ -124112,7 +124150,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[0,0,625,0,938,938,2500,375,0,0],
+"GenerationChance":[0,0,625,0,938,938,2500,375,0,375],
 "InfluencesString":"281 677",
 "InheritChance":12,
 "Kind":{
@@ -124145,7 +124183,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[0,0,625,0,938,938,2500,313,0,0],
+"GenerationChance":[0,0,625,0,938,938,2500,313,0,313],
 "InfluencesString":"281 678",
 "InheritChance":9,
 "Kind":{
@@ -124178,7 +124216,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[1111,556,0,0,1111,1667,3333,0,0,778],
+"GenerationChance":[1111,556,0,0,1111,1667,3333,0,778,0],
 "InfluencesString":"281 680",
 "InheritChance":35,
 "Kind":{
@@ -124211,7 +124249,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[625,313,0,0,625,938,2500,0,0,375],
+"GenerationChance":[625,313,0,0,625,938,2500,0,375,0],
 "InfluencesString":"281 681",
 "InheritChance":12,
 "Kind":{
@@ -124244,7 +124282,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,0,0,200],
+"GenerationChance":[400,200,0,0,400,600,2000,0,200,0],
 "InfluencesString":"281 682",
 "InheritChance":9,
 "Kind":{
@@ -124277,7 +124315,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,0,0,160],
+"GenerationChance":[400,200,0,0,400,600,2000,0,160,0],
 "InfluencesString":"281 683",
 "InheritChance":9,
 "Kind":{
@@ -124310,7 +124348,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[1111,556,0,0,1111,1667,3333,0,0,778],
+"GenerationChance":[1111,556,0,0,1111,1667,3333,0,778,0],
 "InfluencesString":"281 685",
 "InheritChance":35,
 "Kind":{
@@ -124343,7 +124381,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[625,313,0,0,625,938,2500,0,0,375],
+"GenerationChance":[625,313,0,0,625,938,2500,0,375,0],
 "InfluencesString":"281 686",
 "InheritChance":12,
 "Kind":{
@@ -124376,7 +124414,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,0,0,200],
+"GenerationChance":[400,200,0,0,400,600,2000,0,200,0],
 "InfluencesString":"281 687",
 "InheritChance":9,
 "Kind":{
@@ -124409,7 +124447,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,0,0,160],
+"GenerationChance":[400,200,0,0,400,600,2000,0,160,0],
 "InfluencesString":"281 688",
 "InheritChance":9,
 "Kind":{
@@ -124442,7 +124480,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[1111,556,0,0,1111,1667,3333,0,0,778],
+"GenerationChance":[1111,556,0,0,1111,1667,3333,0,778,0],
 "InfluencesString":"281 690",
 "InheritChance":35,
 "Kind":{
@@ -124475,7 +124513,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[625,313,0,0,625,938,2500,375,0,0],
+"GenerationChance":[625,313,0,0,625,938,2500,375,0,375],
 "InfluencesString":"281 691",
 "InheritChance":12,
 "Kind":{
@@ -124508,7 +124546,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,200,0,0],
+"GenerationChance":[400,200,0,0,400,600,2000,0,200,0],
 "InfluencesString":"281 692",
 "InheritChance":9,
 "Kind":{
@@ -124541,7 +124579,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,0,0,160],
+"GenerationChance":[400,200,0,0,400,600,2000,0,160,0],
 "InfluencesString":"281 693",
 "InheritChance":9,
 "Kind":{
@@ -124574,7 +124612,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[1111,556,0,0,1111,1667,3333,0,0,778],
+"GenerationChance":[1111,556,0,0,1111,1667,3333,0,778,0],
 "InfluencesString":"281 695",
 "InheritChance":35,
 "Kind":{
@@ -124607,7 +124645,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[625,313,0,0,625,938,2500,0,0,375],
+"GenerationChance":[625,313,0,0,625,938,2500,0,375,0],
 "InfluencesString":"281 696",
 "InheritChance":12,
 "Kind":{
@@ -124640,7 +124678,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,0,0,200],
+"GenerationChance":[400,200,0,0,400,600,2000,0,200,0],
 "InfluencesString":"281 697",
 "InheritChance":9,
 "Kind":{
@@ -124673,7 +124711,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,0,0,400,600,2000,160,0,0],
+"GenerationChance":[400,200,0,0,400,600,2000,0,160,0],
 "InfluencesString":"281 698",
 "InheritChance":9,
 "Kind":{
@@ -124706,7 +124744,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[15000,10000,5000,0,10000,10000,10000,0,2000,9000],
+"GenerationChance":[15000,10000,5000,0,10000,10000,10000,0,9000,0],
 "InfluencesString":"700",
 "InheritChance":35,
 "Kind":{
@@ -124739,7 +124777,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[3750,2500,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[3750,2500,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"701",
 "InheritChance":35,
 "Kind":{
@@ -124772,7 +124810,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[1667,1111,556,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1667,1111,556,0,1111,1111,3333,0,778,0],
 "InfluencesString":"703",
 "InheritChance":18,
 "Kind":{
@@ -124805,7 +124843,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[10000,0,10000,0,10000,10000,10000,0,2000,9000],
+"GenerationChance":[10000,0,10000,0,10000,10000,10000,0,9000,0],
 "InfluencesString":"710",
 "InheritChance":35,
 "Kind":{
@@ -124838,7 +124876,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[2500,0,2500,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,0,2500,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"711",
 "InheritChance":35,
 "Kind":{
@@ -124871,7 +124909,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[1111,0,1111,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,0,1111,0,1111,1111,3333,0,778,0],
 "InfluencesString":"713",
 "InheritChance":18,
 "Kind":{
@@ -124904,7 +124942,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6025",
-"GenerationChance":[0,0,938,625,625,625,2500,375,0,0],
+"GenerationChance":[0,0,938,625,625,625,2500,375,0,375],
 "InfluencesString":"580 590",
 "InheritChance":6,
 "Kind":{
@@ -124937,7 +124975,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6026",
-"GenerationChance":[0,0,938,625,625,625,2500,375,0,0],
+"GenerationChance":[0,0,938,625,625,625,2500,375,0,375],
 "InfluencesString":"581 591",
 "InheritChance":5,
 "Kind":{
@@ -124970,7 +125008,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6023",
-"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,778],
 "InfluencesString":"582 592",
 "InheritChance":9,
 "Kind":{
@@ -125003,7 +125041,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6021",
-"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,778],
 "InfluencesString":"583 593",
 "InheritChance":18,
 "Kind":{
@@ -125036,7 +125074,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6023",
-"GenerationChance":[0,0,938,625,625,625,2500,375,0,0],
+"GenerationChance":[0,0,938,625,625,625,2500,375,0,375],
 "InfluencesString":"584 594",
 "InheritChance":9,
 "Kind":{
@@ -125069,7 +125107,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6025",
-"GenerationChance":[0,0,938,625,625,625,2500,313,0,0],
+"GenerationChance":[0,0,938,625,625,625,2500,313,0,313],
 "InfluencesString":"590 591 592 593 594 595 596",
 "InheritChance":6,
 "Kind":{
@@ -125102,7 +125140,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[2500,2500,2500,1250,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,2500,2500,1250,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 4021",
 "InheritChance":18,
 "Kind":{
@@ -125135,7 +125173,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6010",
-"GenerationChance":[1111,1111,1111,556,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,1111,1111,556,1111,1111,3333,0,778,0],
 "InfluencesString":"281 4022",
 "InheritChance":12,
 "Kind":{
@@ -125168,7 +125206,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003 6012",
-"GenerationChance":[625,625,625,313,625,625,2500,0,0,375],
+"GenerationChance":[625,625,625,313,625,625,2500,0,375,0],
 "InfluencesString":"281 4024",
 "InheritChance":7,
 "Kind":{
@@ -125201,7 +125239,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[1111,1111,1111,0,1111,1111,3333,778,0,0],
+"GenerationChance":[1111,1111,1111,0,1111,1111,3333,778,0,778],
 "InfluencesString":"281 4050",
 "InheritChance":18,
 "Kind":{
@@ -125234,7 +125272,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[1111,1111,1111,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,1111,1111,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 4051",
 "InheritChance":12,
 "Kind":{
@@ -125267,7 +125305,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[625,938,0,0,625,625,2500,0,0,375],
+"GenerationChance":[625,938,0,0,625,625,2500,0,375,0],
 "InfluencesString":"281 5004",
 "InheritChance":9,
 "Kind":{
@@ -125300,7 +125338,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[2500,2500,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,2500,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 5010",
 "InheritChance":18,
 "Kind":{
@@ -125333,7 +125371,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[2500,2500,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,2500,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 5020",
 "InheritChance":18,
 "Kind":{
@@ -125366,7 +125404,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[2500,3750,1250,0,2500,2500,5000,2000,250,0],
+"GenerationChance":[2500,3750,1250,0,2500,2500,5000,2000,250,2000],
 "InfluencesString":"281 5030",
 "InheritChance":35,
 "Kind":{
@@ -125399,7 +125437,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 5040",
 "InheritChance":18,
 "Kind":{
@@ -125432,7 +125470,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 5050",
 "InheritChance":35,
 "Kind":{
@@ -125465,7 +125503,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 5060",
 "InheritChance":35,
 "Kind":{
@@ -125498,7 +125536,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[10000,15000,10000,0,10000,15000,10000,9000,2000,0],
+"GenerationChance":[10000,15000,10000,0,10000,15000,10000,9000,2000,9000],
 "InfluencesString":"281 5070",
 "InheritChance":35,
 "Kind":{
@@ -125531,7 +125569,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[938,625,313,0,625,625,2500,0,0,375],
+"GenerationChance":[938,625,313,0,625,625,2500,0,375,0],
 "InfluencesString":"281 5081",
 "InheritChance":12,
 "Kind":{
@@ -125564,7 +125602,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[3750,2500,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[3750,2500,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 5091",
 "InheritChance":18,
 "Kind":{
@@ -125597,7 +125635,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[3750,2500,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[3750,2500,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 5101",
 "InheritChance":18,
 "Kind":{
@@ -125630,7 +125668,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6030",
-"GenerationChance":[10000,10000,10000,10000,10000,10000,10000,9000,2000,0],
+"GenerationChance":[10000,10000,10000,10000,10000,10000,10000,9000,9000,9000],
 "InfluencesString":"6050",
 "InheritChance":35,
 "Kind":{
@@ -125663,7 +125701,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6030",
-"GenerationChance":[10000,10000,10000,10000,10000,10000,10000,8000,1000,0],
+"GenerationChance":[10000,10000,10000,10000,10000,10000,10000,8000,8000,8000],
 "InfluencesString":"6051",
 "InheritChance":35,
 "Kind":{
@@ -125696,7 +125734,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6021 6030",
-"GenerationChance":[2500,2500,2500,2500,2500,2500,5000,1750,0,0],
+"GenerationChance":[2500,2500,2500,2500,2500,2500,5000,1750,1750,1750],
 "InfluencesString":"6053",
 "InheritChance":12,
 "Kind":{
@@ -125729,7 +125767,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[15000,5000,5000,5000,15000,15000,10000,0,1000,8000],
+"GenerationChance":[15000,5000,5000,5000,15000,15000,10000,0,1000,0],
 "InfluencesString":"6060",
 "InheritChance":35,
 "Kind":{
@@ -125762,7 +125800,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010 6020",
-"GenerationChance":[3750,1250,1250,1250,3750,3750,5000,0,0,1750],
+"GenerationChance":[3750,1250,1250,1250,3750,3750,5000,0,1750,0],
 "InfluencesString":"6061",
 "InheritChance":18,
 "Kind":{
@@ -125795,7 +125833,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010 6020",
-"GenerationChance":[1667,556,556,556,1667,1667,3333,0,0,667],
+"GenerationChance":[1667,556,556,556,1667,1667,3333,0,667,0],
 "InfluencesString":"6063",
 "InheritChance":12,
 "Kind":{
@@ -125828,7 +125866,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020 6030",
-"GenerationChance":[1250,1250,1250,2500,1250,3750,5000,1750,0,0],
+"GenerationChance":[1250,1250,1250,2500,1250,3750,5000,1750,0,1750],
 "InfluencesString":"6070",
 "InheritChance":18,
 "Kind":{
@@ -125861,7 +125899,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6021 6030",
-"GenerationChance":[556,556,556,1111,556,1667,3333,667,0,0],
+"GenerationChance":[556,556,556,1111,556,1667,3333,667,0,667],
 "InfluencesString":"6071",
 "InheritChance":12,
 "Kind":{
@@ -125894,7 +125932,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6023 6032",
-"GenerationChance":[200,200,200,400,200,600,2000,200,0,0],
+"GenerationChance":[200,200,200,400,200,600,2000,200,0,200],
 "InfluencesString":"6073",
 "InheritChance":7,
 "Kind":{
@@ -125927,7 +125965,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,2000,0],
 "InfluencesString":"281 6100",
 "InheritChance":35,
 "Kind":{
@@ -125960,7 +125998,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,0,1750],
+"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,1750,0],
 "InfluencesString":"281 6101",
 "InheritChance":18,
 "Kind":{
@@ -125993,7 +126031,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[625,938,0,0,625,313,2500,0,0,375],
+"GenerationChance":[625,938,0,0,625,313,2500,0,375,0],
 "InfluencesString":"281 6103",
 "InheritChance":9,
 "Kind":{
@@ -126026,7 +126064,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000",
-"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,500,2250],
+"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,2250,0],
 "InfluencesString":"6110",
 "InheritChance":35,
 "Kind":{
@@ -126059,7 +126097,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001",
-"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,2000,0],
 "InfluencesString":"6111",
 "InheritChance":18,
 "Kind":{
@@ -126092,7 +126130,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002",
-"GenerationChance":[1111,1667,0,0,1111,556,3333,0,0,778],
+"GenerationChance":[1111,1667,0,0,1111,556,3333,0,778,0],
 "InfluencesString":"6113",
 "InheritChance":12,
 "Kind":{
@@ -126125,7 +126163,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000",
-"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,500,2250],
+"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,2250,0],
 "InfluencesString":"6120",
 "InheritChance":35,
 "Kind":{
@@ -126158,7 +126196,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001",
-"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,2000,0],
 "InfluencesString":"6121",
 "InheritChance":18,
 "Kind":{
@@ -126191,7 +126229,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003",
-"GenerationChance":[1111,1667,0,0,1111,556,3333,0,0,778],
+"GenerationChance":[1111,1667,0,0,1111,556,3333,0,778,0],
 "InfluencesString":"6123",
 "InheritChance":9,
 "Kind":{
@@ -126224,7 +126262,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000",
-"GenerationChance":[10000,15000,0,0,10000,5000,10000,0,2000,9000],
+"GenerationChance":[10000,15000,0,0,10000,5000,10000,0,9000,0],
 "InfluencesString":"6130",
 "InheritChance":35,
 "Kind":{
@@ -126257,7 +126295,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000",
-"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,250,2000],
+"GenerationChance":[2500,3750,0,0,2500,1250,5000,0,2000,0],
 "InfluencesString":"6131",
 "InheritChance":35,
 "Kind":{
@@ -126290,7 +126328,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002",
-"GenerationChance":[1111,1667,0,0,1111,556,3333,0,0,778],
+"GenerationChance":[1111,1667,0,0,1111,556,3333,0,778,0],
 "InfluencesString":"6133",
 "InheritChance":12,
 "Kind":{
@@ -126323,7 +126361,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031 6040",
-"GenerationChance":[0,0,313,938,625,938,2500,375,0,0],
+"GenerationChance":[0,0,313,938,625,938,2500,375,0,375],
 "InfluencesString":"6141",
 "InheritChance":12,
 "Kind":{
@@ -126356,7 +126394,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6032 6041",
-"GenerationChance":[0,0,200,600,400,600,2000,200,0,0],
+"GenerationChance":[0,0,200,600,400,600,2000,200,0,200],
 "InfluencesString":"6143",
 "InheritChance":9,
 "Kind":{
@@ -126389,7 +126427,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6033 6042",
-"GenerationChance":[0,0,139,417,278,417,1667,111,0,0],
+"GenerationChance":[0,0,139,417,278,417,1667,111,0,111],
 "InfluencesString":"6144",
 "InheritChance":7,
 "Kind":{
@@ -126422,7 +126460,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020 6040",
-"GenerationChance":[0,0,0,1250,0,5000,5000,2000,250,0],
+"GenerationChance":[0,0,0,1250,0,5000,5000,2000,250,2000],
 "InfluencesString":"6310",
 "InheritChance":35,
 "Kind":{
@@ -126455,7 +126493,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020 6040",
-"GenerationChance":[0,0,0,1250,0,5000,5000,1750,0,0],
+"GenerationChance":[0,0,0,1250,0,5000,5000,1750,0,3500],
 "InfluencesString":"6311",
 "InheritChance":35,
 "Kind":{
@@ -126488,7 +126526,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6021 6040",
-"GenerationChance":[0,0,0,313,0,1250,2500,313,0,0],
+"GenerationChance":[0,0,0,313,0,1250,2500,313,0,626],
 "InfluencesString":"6312",
 "InheritChance":12,
 "Kind":{
@@ -126521,7 +126559,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020 6040",
-"GenerationChance":[0,0,0,1250,0,5000,5000,2000,250,0],
+"GenerationChance":[0,0,0,1250,0,5000,5000,2000,250,4000],
 "InfluencesString":"6320 6330",
 "InheritChance":18,
 "Kind":{
@@ -126554,7 +126592,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6021 6040",
-"GenerationChance":[0,0,0,556,0,2222,3333,778,0,0],
+"GenerationChance":[0,0,0,556,0,2222,3333,778,0,1666],
 "InfluencesString":"6321 6331",
 "InheritChance":12,
 "Kind":{
@@ -126587,7 +126625,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6023 6042",
-"GenerationChance":[0,0,0,200,0,800,2000,200,0,0],
+"GenerationChance":[0,0,0,200,0,800,2000,200,0,400],
 "InfluencesString":"6322 6332 6340",
 "InheritChance":7,
 "Kind":{
@@ -126620,7 +126658,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6024 6043",
-"GenerationChance":[0,0,0,139,0,556,1667,111,0,0],
+"GenerationChance":[0,0,0,139,0,556,1667,111,0,222],
 "InfluencesString":"6323 6333 6341",
 "InheritChance":6,
 "Kind":{
@@ -126653,7 +126691,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6041",
-"GenerationChance":[0,0,0,1250,0,5000,5000,2000,250,0],
+"GenerationChance":[0,0,0,1250,0,5000,5000,2000,250,4000],
 "InfluencesString":"6351",
 "InheritChance":18,
 "Kind":{
@@ -126686,7 +126724,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6041",
-"GenerationChance":[0,0,0,556,0,2222,3333,778,0,0],
+"GenerationChance":[0,0,0,556,0,2222,3333,778,0,1666],
 "InfluencesString":"6361",
 "InheritChance":18,
 "Kind":{
@@ -126719,7 +126757,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6032",
-"GenerationChance":[0,0,1111,1667,0,1111,3333,778,0,0],
+"GenerationChance":[0,0,1111,1667,0,1111,3333,778,0,778],
 "InfluencesString":"6400",
 "InheritChance":12,
 "Kind":{
@@ -126752,7 +126790,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6030",
-"GenerationChance":[0,0,2500,3750,0,2500,5000,2250,500,0],
+"GenerationChance":[0,0,2500,3750,0,2500,5000,2250,500,2250],
 "InfluencesString":"6410",
 "InheritChance":35,
 "Kind":{
@@ -126785,7 +126823,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031",
-"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,0],
+"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,2000],
 "InfluencesString":"6411",
 "InheritChance":18,
 "Kind":{
@@ -126818,7 +126856,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6032",
-"GenerationChance":[0,0,1111,1667,0,1111,3333,778,0,0],
+"GenerationChance":[0,0,1111,1667,0,1111,3333,778,0,778],
 "InfluencesString":"6413",
 "InheritChance":12,
 "Kind":{
@@ -126851,7 +126889,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031",
-"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,0],
+"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,2000],
 "InfluencesString":"6420 6421 6422 6423 6424 6425 6430 6431 6432 6433 6434 6435",
 "InheritChance":18,
 "Kind":{
@@ -126884,7 +126922,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6030",
-"GenerationChance":[0,0,2500,3750,0,2500,5000,2250,500,0],
+"GenerationChance":[0,0,2500,3750,0,2500,5000,2250,500,2250],
 "InfluencesString":"6440",
 "InheritChance":35,
 "Kind":{
@@ -126917,7 +126955,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031",
-"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,0],
+"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,2000],
 "InfluencesString":"6441",
 "InheritChance":18,
 "Kind":{
@@ -126950,7 +126988,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6033",
-"GenerationChance":[0,0,1111,1667,0,1111,3333,778,0,0],
+"GenerationChance":[0,0,1111,1667,0,1111,3333,778,0,778],
 "InfluencesString":"6443",
 "InheritChance":9,
 "Kind":{
@@ -126983,7 +127021,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6030",
-"GenerationChance":[0,0,10000,15000,0,10000,10000,9000,2000,0],
+"GenerationChance":[0,0,10000,15000,0,10000,10000,9000,2000,9000],
 "InfluencesString":"6470",
 "InheritChance":35,
 "Kind":{
@@ -127016,7 +127054,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031",
-"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,0],
+"GenerationChance":[0,0,2500,3750,0,2500,5000,2000,250,2000],
 "InfluencesString":"6472",
 "InheritChance":18,
 "Kind":{
@@ -127049,7 +127087,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6032",
-"GenerationChance":[0,0,1111,1667,0,1111,3333,778,0,0],
+"GenerationChance":[0,0,1111,1667,0,1111,3333,778,0,778],
 "InfluencesString":"6474",
 "InheritChance":12,
 "Kind":{
@@ -127082,7 +127120,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001",
-"GenerationChance":[1250,3750,0,0,2500,1250,5000,0,250,2000],
+"GenerationChance":[1250,3750,0,0,2500,1250,5000,0,2000,0],
 "InfluencesString":"6503",
 "InheritChance":18,
 "Kind":{
@@ -127115,7 +127153,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000",
-"GenerationChance":[5000,15000,5000,0,10000,10000,10000,0,2000,9000],
+"GenerationChance":[5000,15000,5000,0,10000,10000,10000,0,9000,0],
 "InfluencesString":"6510",
 "InheritChance":35,
 "Kind":{
@@ -127148,7 +127186,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001",
-"GenerationChance":[1250,3750,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[1250,3750,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"6511",
 "InheritChance":18,
 "Kind":{
@@ -127181,7 +127219,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002",
-"GenerationChance":[556,1667,556,0,1111,1111,3333,0,0,778],
+"GenerationChance":[556,1667,556,0,1111,1111,3333,0,778,0],
 "InfluencesString":"6513",
 "InheritChance":12,
 "Kind":{
@@ -127214,7 +127252,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[2500,2500,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,2500,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6515",
 "InheritChance":35,
 "Kind":{
@@ -127247,7 +127285,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[2500,2500,1250,0,2500,2500,5000,0,0,1750],
+"GenerationChance":[2500,2500,1250,0,2500,2500,5000,0,1750,0],
 "InfluencesString":"281 6516",
 "InheritChance":18,
 "Kind":{
@@ -127280,7 +127318,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[625,625,313,0,625,625,2500,0,0,375],
+"GenerationChance":[625,625,313,0,625,625,2500,0,375,0],
 "InfluencesString":"281 6518",
 "InheritChance":12,
 "Kind":{
@@ -127313,7 +127351,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[15000,10000,5000,0,10000,10000,10000,0,2000,9000],
+"GenerationChance":[15000,10000,5000,0,10000,10000,10000,0,9000,0],
 "InfluencesString":"281 6530",
 "InheritChance":18,
 "Kind":{
@@ -127346,7 +127384,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[3750,2500,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[3750,2500,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6531",
 "InheritChance":18,
 "Kind":{
@@ -127379,7 +127417,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6010",
-"GenerationChance":[1667,1111,556,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1667,1111,556,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 6533",
 "InheritChance":12,
 "Kind":{
@@ -127412,7 +127450,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[2500,2500,2500,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,2500,2500,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6580",
 "InheritChance":18,
 "Kind":{
@@ -127445,7 +127483,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[1111,1111,1111,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,1111,1111,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 6581",
 "InheritChance":9,
 "Kind":{
@@ -127478,7 +127516,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6005 6014",
-"GenerationChance":[625,625,625,0,625,625,2500,0,0,375],
+"GenerationChance":[625,625,625,0,625,625,2500,0,375,0],
 "InfluencesString":"281 6582",
 "InheritChance":5,
 "Kind":{
@@ -127511,7 +127549,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[2500,2500,2500,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,2500,2500,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6598",
 "InheritChance":35,
 "Kind":{
@@ -127544,7 +127582,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,15000,10000,10000,10000,10000,9000,2000,0],
+"GenerationChance":[0,0,15000,10000,10000,10000,10000,9000,2000,9000],
 "InfluencesString":"6900",
 "InheritChance":35,
 "Kind":{
@@ -127577,7 +127615,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6021",
-"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,2000],
 "InfluencesString":"6901",
 "InheritChance":18,
 "Kind":{
@@ -127610,7 +127648,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6022",
-"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,778],
 "InfluencesString":"6903",
 "InheritChance":12,
 "Kind":{
@@ -127643,7 +127681,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,15000,10000,10000,10000,10000,9000,2000,0],
+"GenerationChance":[0,0,15000,10000,10000,10000,10000,9000,2000,9000],
 "InfluencesString":"6915",
 "InheritChance":35,
 "Kind":{
@@ -127676,7 +127714,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,2000],
 "InfluencesString":"6916",
 "InheritChance":35,
 "Kind":{
@@ -127709,7 +127747,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6022",
-"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,778],
 "InfluencesString":"6918",
 "InheritChance":12,
 "Kind":{
@@ -127742,7 +127780,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,3750,2500,2500,2500,5000,2250,500,0],
+"GenerationChance":[0,0,3750,2500,2500,2500,5000,2250,500,2250],
 "InfluencesString":"6920",
 "InheritChance":35,
 "Kind":{
@@ -127775,7 +127813,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6021",
-"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,2000],
 "InfluencesString":"6921",
 "InheritChance":18,
 "Kind":{
@@ -127808,7 +127846,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6022",
-"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,778],
 "InfluencesString":"6922",
 "InheritChance":12,
 "Kind":{
@@ -127841,7 +127879,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,2000],
 "InfluencesString":"6935",
 "InheritChance":35,
 "Kind":{
@@ -127874,7 +127912,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6021",
-"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1667,1111,1111,1111,3333,778,0,778],
 "InfluencesString":"6936",
 "InheritChance":18,
 "Kind":{
@@ -127907,7 +127945,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6022",
-"GenerationChance":[0,0,938,625,625,625,2500,375,0,0],
+"GenerationChance":[0,0,938,625,625,625,2500,375,0,375],
 "InfluencesString":"6938",
 "InheritChance":12,
 "Kind":{
@@ -127940,7 +127978,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,3750,2500,2500,2500,5000,2000,250,2000],
 "InfluencesString":"6948",
 "InheritChance":35,
 "Kind":{
@@ -127973,7 +128011,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[2500,1250,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,1250,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"6150",
 "InheritChance":35,
 "Kind":{
@@ -128006,7 +128044,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[1111,556,556,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,556,556,0,1111,1111,3333,0,778,0],
 "InfluencesString":"6151",
 "InheritChance":18,
 "Kind":{
@@ -128039,7 +128077,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[400,200,200,0,400,400,2000,0,0,200],
+"GenerationChance":[400,200,200,0,400,400,2000,0,200,0],
 "InfluencesString":"6152",
 "InheritChance":9,
 "Kind":{
@@ -128072,7 +128110,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000",
-"GenerationChance":[2500,2500,0,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,2500,0,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"6155",
 "InheritChance":35,
 "Kind":{
@@ -128105,7 +128143,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001",
-"GenerationChance":[1111,1111,0,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,1111,0,0,1111,1111,3333,0,778,0],
 "InfluencesString":"6156",
 "InheritChance":18,
 "Kind":{
@@ -128138,7 +128176,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003",
-"GenerationChance":[400,400,0,0,400,400,2000,0,0,200],
+"GenerationChance":[400,400,0,0,400,400,2000,0,200,0],
 "InfluencesString":"6157",
 "InheritChance":9,
 "Kind":{
@@ -128171,7 +128209,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,2500,2500,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,2500,2500,2500,2500,5000,2000,250,2000],
 "InfluencesString":"6160",
 "InheritChance":35,
 "Kind":{
@@ -128204,7 +128242,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6021",
-"GenerationChance":[0,0,1111,1111,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1111,1111,1111,1111,3333,778,0,778],
 "InfluencesString":"6161",
 "InheritChance":18,
 "Kind":{
@@ -128270,7 +128308,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6030",
-"GenerationChance":[0,0,2500,5000,0,2500,5000,2000,250,0],
+"GenerationChance":[0,0,2500,5000,0,2500,5000,2000,250,2000],
 "InfluencesString":"6165",
 "InheritChance":35,
 "Kind":{
@@ -128303,7 +128341,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031",
-"GenerationChance":[0,0,1111,2222,0,1111,3333,778,0,0],
+"GenerationChance":[0,0,1111,2222,0,1111,3333,778,0,778],
 "InfluencesString":"6166",
 "InheritChance":18,
 "Kind":{
@@ -128369,7 +128407,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6040",
-"GenerationChance":[2500,0,2500,2500,0,2500,5000,2000,250,0],
+"GenerationChance":[2500,0,2500,2500,0,2500,5000,2000,250,2000],
 "InfluencesString":"6170",
 "InheritChance":35,
 "Kind":{
@@ -128402,7 +128440,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6041",
-"GenerationChance":[1111,0,1111,1111,0,1111,3333,778,0,0],
+"GenerationChance":[1111,0,1111,1111,0,1111,3333,778,0,778],
 "InfluencesString":"6171",
 "InheritChance":18,
 "Kind":{
@@ -128435,7 +128473,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6043",
-"GenerationChance":[400,0,400,400,0,400,2000,200,0,0],
+"GenerationChance":[400,0,400,400,0,400,2000,200,0,200],
 "InfluencesString":"6172",
 "InheritChance":9,
 "Kind":{
@@ -128468,7 +128506,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6040",
-"GenerationChance":[0,0,0,10000,0,20000,10000,9000,2000,0],
+"GenerationChance":[0,0,0,10000,0,20000,10000,9000,2000,9000],
 "InfluencesString":"6176",
 "InheritChance":35,
 "Kind":{
@@ -128501,7 +128539,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6040",
-"GenerationChance":[0,0,0,2500,0,5000,5000,2000,250,0],
+"GenerationChance":[0,0,0,2500,0,5000,5000,2000,250,2000],
 "InfluencesString":"6177",
 "InheritChance":35,
 "Kind":{
@@ -128534,7 +128572,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6042",
-"GenerationChance":[0,0,0,1111,0,2222,3333,778,0,0],
+"GenerationChance":[0,0,0,1111,0,2222,3333,778,0,778],
 "InfluencesString":"6178",
 "InheritChance":12,
 "Kind":{
@@ -128567,7 +128605,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[556,0,1111,0,1667,1111,3333,0,0,778],
+"GenerationChance":[556,0,1111,0,1667,1111,3333,0,778,0],
 "InfluencesString":"281 6520",
 "InheritChance":35,
 "Kind":{
@@ -128600,7 +128638,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[313,0,625,0,938,625,2500,0,0,375],
+"GenerationChance":[313,0,625,0,938,625,2500,0,375,0],
 "InfluencesString":"281 6521",
 "InheritChance":12,
 "Kind":{
@@ -128633,7 +128671,7 @@
 "FactionConditionsString":"",
 "FactionLimit":1,
 "GenerateConditionsString":"6014",
-"GenerationChance":[102,0,204,0,306,204,1429,0,0,61],
+"GenerationChance":[102,0,204,0,306,204,1429,0,61,0],
 "InfluencesString":"281 6522",
 "InheritChance":7,
 "Kind":{
@@ -128666,7 +128704,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[0,0,1667,0,1667,0,3333,0,0,778],
+"GenerationChance":[0,0,1667,0,1667,0,3333,0,778,0],
 "InfluencesString":"281 6525",
 "InheritChance":35,
 "Kind":{
@@ -128699,7 +128737,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[0,0,938,0,938,0,2500,0,0,375],
+"GenerationChance":[0,0,938,0,938,0,2500,0,375,0],
 "InfluencesString":"281 6526",
 "InheritChance":12,
 "Kind":{
@@ -128732,7 +128770,7 @@
 "FactionConditionsString":"",
 "FactionLimit":1,
 "GenerateConditionsString":"6014",
-"GenerationChance":[0,0,306,0,306,0,1429,0,0,61],
+"GenerationChance":[0,0,306,0,306,0,1429,0,61,0],
 "InfluencesString":"281 6527",
 "InheritChance":7,
 "Kind":{
@@ -129425,7 +129463,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[3750,0,2500,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[3750,0,2500,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6701",
 "InheritChance":35,
 "Kind":{
@@ -129458,7 +129496,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[3750,0,2500,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[3750,0,2500,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6706",
 "InheritChance":35,
 "Kind":{
@@ -129491,7 +129529,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000",
-"GenerationChance":[2500,2500,2500,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,2500,2500,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6711",
 "InheritChance":35,
 "Kind":{
@@ -129524,7 +129562,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000",
-"GenerationChance":[2500,2500,2500,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,2500,2500,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6716",
 "InheritChance":35,
 "Kind":{
@@ -129557,7 +129595,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[2500,0,3750,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,0,3750,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6721",
 "InheritChance":35,
 "Kind":{
@@ -129590,7 +129628,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[2500,0,3750,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,0,3750,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6726",
 "InheritChance":35,
 "Kind":{
@@ -129623,7 +129661,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6030",
-"GenerationChance":[2500,0,2500,1250,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,0,2500,1250,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6731",
 "InheritChance":35,
 "Kind":{
@@ -129656,7 +129694,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6030",
-"GenerationChance":[2500,0,2500,1250,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,0,2500,1250,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6736",
 "InheritChance":35,
 "Kind":{
@@ -129689,7 +129727,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6040",
-"GenerationChance":[2500,0,2500,0,2500,3750,5000,0,250,2000],
+"GenerationChance":[2500,0,2500,0,2500,3750,5000,0,2000,0],
 "InfluencesString":"281 6741",
 "InheritChance":35,
 "Kind":{
@@ -129722,7 +129760,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6040",
-"GenerationChance":[2500,0,2500,0,2500,3750,5000,0,250,2000],
+"GenerationChance":[2500,0,2500,0,2500,3750,5000,0,2000,0],
 "InfluencesString":"281 6746",
 "InheritChance":35,
 "Kind":{
@@ -129755,7 +129793,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[625,313,625,313,938,625,2500,0,0,375],
+"GenerationChance":[625,313,625,313,938,625,2500,0,375,0],
 "InfluencesString":"281 6761",
 "InheritChance":35,
 "Kind":{
@@ -129788,7 +129826,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[10000,5000,5000,0,10000,10000,10000,0,2000,9000],
+"GenerationChance":[10000,5000,5000,0,10000,10000,10000,0,9000,0],
 "InfluencesString":"281 6771",
 "InheritChance":35,
 "Kind":{
@@ -129821,7 +129859,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[2500,1250,1250,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,1250,1250,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6772",
 "InheritChance":18,
 "Kind":{
@@ -129854,7 +129892,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[1111,556,556,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,556,556,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 6773",
 "InheritChance":12,
 "Kind":{
@@ -129887,7 +129925,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[10000,10000,0,0,10000,10000,10000,0,2000,9000],
+"GenerationChance":[10000,10000,0,0,10000,10000,10000,0,9000,0],
 "InfluencesString":"281 6776",
 "InheritChance":35,
 "Kind":{
@@ -129920,7 +129958,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6021",
-"GenerationChance":[2500,2500,0,0,2500,2500,5000,0,250,2000],
+"GenerationChance":[2500,2500,0,0,2500,2500,5000,0,2000,0],
 "InfluencesString":"281 6777",
 "InheritChance":18,
 "Kind":{
@@ -129953,7 +129991,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6022",
-"GenerationChance":[1111,1111,0,0,1111,1111,3333,0,0,778],
+"GenerationChance":[1111,1111,0,0,1111,1111,3333,0,778,0],
 "InfluencesString":"281 6778",
 "InheritChance":12,
 "Kind":{
@@ -129986,7 +130024,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6020",
-"GenerationChance":[0,0,10000,10000,10000,10000,10000,9000,2000,0],
+"GenerationChance":[0,0,10000,10000,10000,10000,10000,9000,2000,9000],
 "InfluencesString":"281 6781",
 "InheritChance":35,
 "Kind":{
@@ -130019,7 +130057,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6021",
-"GenerationChance":[0,0,2500,2500,2500,2500,5000,2000,250,0],
+"GenerationChance":[0,0,2500,2500,2500,2500,5000,2000,250,2000],
 "InfluencesString":"281 6782",
 "InheritChance":18,
 "Kind":{
@@ -130052,7 +130090,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6022",
-"GenerationChance":[0,0,1111,1111,1111,1111,3333,778,0,0],
+"GenerationChance":[0,0,1111,1111,1111,1111,3333,778,0,778],
 "InfluencesString":"281 6783",
 "InheritChance":12,
 "Kind":{
@@ -130085,7 +130123,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6030",
-"GenerationChance":[0,0,10000,20000,0,10000,10000,9000,2000,0],
+"GenerationChance":[0,0,10000,20000,0,10000,10000,9000,2000,9000],
 "InfluencesString":"281 6786",
 "InheritChance":35,
 "Kind":{
@@ -130118,7 +130156,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6031",
-"GenerationChance":[0,0,2500,5000,0,2500,5000,2000,250,0],
+"GenerationChance":[0,0,2500,5000,0,2500,5000,2000,250,2000],
 "InfluencesString":"281 6787",
 "InheritChance":18,
 "Kind":{
@@ -130151,7 +130189,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6032",
-"GenerationChance":[0,0,1111,2222,0,1111,3333,778,0,0],
+"GenerationChance":[0,0,1111,2222,0,1111,3333,778,0,778],
 "InfluencesString":"281 6788",
 "InheritChance":12,
 "Kind":{
@@ -130184,7 +130222,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6040",
-"GenerationChance":[10000,0,10000,10000,0,10000,10000,9000,2000,0],
+"GenerationChance":[10000,0,10000,10000,0,10000,10000,9000,2000,9000],
 "InfluencesString":"281 6791",
 "InheritChance":35,
 "Kind":{
@@ -130217,7 +130255,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6041",
-"GenerationChance":[2500,0,2500,2500,0,2500,5000,2000,250,0],
+"GenerationChance":[2500,0,2500,2500,0,2500,5000,2000,250,2000],
 "InfluencesString":"281 6792",
 "InheritChance":18,
 "Kind":{
@@ -130250,7 +130288,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6042",
-"GenerationChance":[1111,0,1111,1111,0,1111,3333,778,0,0],
+"GenerationChance":[1111,0,1111,1111,0,1111,3333,778,0,778],
 "InfluencesString":"281 6793",
 "InheritChance":12,
 "Kind":{
@@ -130283,7 +130321,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6022",
-"GenerationChance":[0,0,0,0,0,0,5000,2000,250,0],
+"GenerationChance":[0,0,0,0,0,0,5000,2000,250,2000],
 "InfluencesString":"281 6991",
 "InheritChance":12,
 "Kind":{
@@ -130316,7 +130354,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6024",
-"GenerationChance":[0,0,0,0,0,0,3333,778,0,0],
+"GenerationChance":[0,0,0,0,0,0,3333,778,0,778],
 "InfluencesString":"281 6992",
 "InheritChance":7,
 "Kind":{
@@ -130349,7 +130387,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6025",
-"GenerationChance":[0,0,0,0,0,0,2500,375,0,0],
+"GenerationChance":[0,0,0,0,0,0,2500,375,0,375],
 "InfluencesString":"281 6993",
 "InheritChance":6,
 "Kind":{
@@ -130382,7 +130420,7 @@
 "FactionConditionsString":"",
 "FactionLimit":2,
 "GenerateConditionsString":"6026",
-"GenerationChance":[0,0,400,0,400,0,2000,200,0,0],
+"GenerationChance":[0,0,400,0,400,0,2000,200,0,200],
 "InfluencesString":"281 6996",
 "InheritChance":5,
 "Kind":{
@@ -130415,7 +130453,7 @@
 "FactionConditionsString":"",
 "FactionLimit":1,
 "GenerateConditionsString":"6028",
-"GenerationChance":[0,0,278,0,278,0,1667,111,0,0],
+"GenerationChance":[0,0,278,0,278,0,1667,111,0,111],
 "InfluencesString":"281 6997",
 "InheritChance":4,
 "Kind":{
@@ -130448,7 +130486,7 @@
 "FactionConditionsString":"",
 "FactionLimit":1,
 "GenerateConditionsString":"6029",
-"GenerationChance":[0,0,156,0,156,0,1250,31,0,0],
+"GenerationChance":[0,0,156,0,156,0,1250,31,0,31],
 "InfluencesString":"281 6998",
 "InheritChance":3,
 "Kind":{
@@ -131405,7 +131443,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6040",
-"GenerationChance":[10,15,0,0,0,10,10,0,0,7],
+"GenerationChance":[10,15,0,0,0,10,10,0,7,0],
 "InfluencesString":"7503",
 "InheritChance":12,
 "Kind":{
@@ -131669,7 +131707,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6010",
-"GenerationChance":[15,5,5,0,10,10,10,0,0,7],
+"GenerationChance":[15,5,5,0,10,10,10,0,7,0],
 "InfluencesString":"7508",
 "InheritChance":12,
 "Kind":{
@@ -131702,7 +131740,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6020",
-"GenerationChance":[0,0,15,5,5,10,10,0,0,7],
+"GenerationChance":[0,0,15,5,5,10,10,0,7,0],
 "InfluencesString":"7509",
 "InheritChance":12,
 "Kind":{
@@ -131801,7 +131839,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010 6040",
-"GenerationChance":[10,5,0,0,0,10,10,0,1,8],
+"GenerationChance":[10,5,0,0,0,10,10,0,8,0],
 "InfluencesString":"90 91",
 "InheritChance":18,
 "Kind":{
@@ -131834,7 +131872,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013 6042",
-"GenerationChance":[10,5,0,0,0,10,10,0,0,6],
+"GenerationChance":[10,5,0,0,0,10,10,0,6,0],
 "InfluencesString":"7510 7511",
 "InheritChance":7,
 "Kind":{
@@ -132395,7 +132433,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[15,5,5,0,10,10,10,0,0,6],
+"GenerationChance":[15,5,5,0,10,10,10,0,6,0],
 "InfluencesString":"281 7512 7522",
 "InheritChance":7,
 "Kind":{
@@ -132428,7 +132466,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[15,5,5,0,10,10,10,0,0,6],
+"GenerationChance":[15,5,5,0,10,10,10,0,6,0],
 "InfluencesString":"281 7513 7523",
 "InheritChance":7,
 "Kind":{
@@ -132461,7 +132499,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[15,5,5,0,10,10,10,0,0,6],
+"GenerationChance":[15,5,5,0,10,10,10,0,6,0],
 "InfluencesString":"281 7514 7524",
 "InheritChance":7,
 "Kind":{
@@ -132494,7 +132532,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,5,5,0,10,10,10,0,0,7],
+"GenerationChance":[15,5,5,0,10,10,10,0,7,0],
 "InfluencesString":"281 7516 7526",
 "InheritChance":12,
 "Kind":{
@@ -132527,7 +132565,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,5,5,0,10,10,10,0,0,6],
+"GenerationChance":[15,5,5,0,10,10,10,0,6,0],
 "InfluencesString":"281 7517 7527",
 "InheritChance":9,
 "Kind":{
@@ -132560,7 +132598,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,5,5,0,10,10,10,0,1,8],
+"GenerationChance":[15,5,5,0,10,10,10,0,8,0],
 "InfluencesString":"281 7519 7529",
 "InheritChance":18,
 "Kind":{
@@ -132593,7 +132631,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,5,5,0,10,10,10,0,1,8],
+"GenerationChance":[15,5,5,0,10,10,10,0,8,0],
 "InfluencesString":"281 7520 7530",
 "InheritChance":18,
 "Kind":{
@@ -132626,7 +132664,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,5,5,0,10,10,10,0,1,8],
+"GenerationChance":[15,5,5,0,10,10,10,0,8,0],
 "InfluencesString":"281 7521 7531",
 "InheritChance":18,
 "Kind":{
@@ -132659,7 +132697,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,5,5,0,10,10,10,0,0,6],
+"GenerationChance":[15,5,5,0,10,10,10,0,6,0],
 "InfluencesString":"281 200 201 220 221",
 "InheritChance":9,
 "Kind":{
@@ -132692,7 +132730,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,5,5,0,10,10,10,0,0,7],
+"GenerationChance":[15,5,5,0,10,10,10,0,7,0],
 "InfluencesString":"281 202 204 222 224",
 "InheritChance":12,
 "Kind":{
@@ -132725,7 +132763,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,5,5,0,10,10,10,0,1,8],
+"GenerationChance":[15,5,5,0,10,10,10,0,8,0],
 "InfluencesString":"281 207 208 209 227 228 229",
 "InheritChance":18,
 "Kind":{
@@ -132758,7 +132796,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6017",
-"GenerationChance":[15,5,5,0,10,10,10,0,0,4],
+"GenerationChance":[15,5,5,0,10,10,10,0,4,0],
 "InfluencesString":"281 7512 7513 7522 7523",
 "InheritChance":4,
 "Kind":{
@@ -132791,7 +132829,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[15,5,5,0,10,10,10,0,0,5],
+"GenerationChance":[15,5,5,0,10,10,10,0,5,0],
 "InfluencesString":"281 7514 7516 7524 7526",
 "InheritChance":6,
 "Kind":{
@@ -132824,7 +132862,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,5,5,0,10,10,10,0,0,6],
+"GenerationChance":[15,5,5,0,10,10,10,0,6,0],
 "InfluencesString":"281 7519 7520 7521 7529 7530 7531",
 "InheritChance":9,
 "Kind":{
@@ -132857,7 +132895,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[15,5,5,0,10,10,10,0,0,5],
+"GenerationChance":[15,5,5,0,10,10,10,0,5,0],
 "InfluencesString":"281 252 261 263",
 "InheritChance":5,
 "Kind":{
@@ -132890,7 +132928,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6004 6014 6023",
-"GenerationChance":[10,0,10,10,15,10,10,0,0,6],
+"GenerationChance":[10,0,10,10,15,10,10,0,6,0],
 "InfluencesString":"270 271 272",
 "InheritChance":5,
 "Kind":{
@@ -132923,7 +132961,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013 6022",
-"GenerationChance":[15,5,10,0,15,10,10,0,0,6],
+"GenerationChance":[15,5,10,0,15,10,10,0,6,0],
 "InfluencesString":"251 270",
 "InheritChance":7,
 "Kind":{
@@ -132956,7 +132994,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,5,5,0,15,10,10,0,0,7],
+"GenerationChance":[15,5,5,0,15,10,10,0,7,0],
 "InfluencesString":"281 7523",
 "InheritChance":18,
 "Kind":{
@@ -132989,7 +133027,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[15,5,5,0,15,10,10,0,0,5],
+"GenerationChance":[15,5,5,0,15,10,10,0,5,0],
 "InfluencesString":"281 290 291 252 7514 7524 7516 7526",
 "InheritChance":6,
 "Kind":{
@@ -133022,7 +133060,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[15,5,5,0,15,10,10,0,0,5],
+"GenerationChance":[15,5,5,0,15,10,10,0,5,0],
 "InfluencesString":"281 292 252 7512 7513 7522 7523",
 "InheritChance":6,
 "Kind":{
@@ -133055,7 +133093,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013 6022",
-"GenerationChance":[15,5,5,0,15,10,10,0,0,7],
+"GenerationChance":[15,5,5,0,15,10,10,0,7,0],
 "InfluencesString":"294 252 270",
 "InheritChance":7,
 "Kind":{
@@ -133088,7 +133126,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6010",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,7],
+"GenerationChance":[10,15,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 364 374",
 "InheritChance":12,
 "Kind":{
@@ -133121,7 +133159,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,6],
+"GenerationChance":[10,15,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 7533 7534",
 "InheritChance":9,
 "Kind":{
@@ -133154,7 +133192,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[15,10,5,0,10,10,10,0,0,3],
+"GenerationChance":[15,10,5,0,10,10,10,0,3,0],
 "InfluencesString":"281 381",
 "InheritChance":6,
 "Kind":{
@@ -133187,7 +133225,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,10,5,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,5,0,10,10,10,0,7,0],
 "InfluencesString":"281 7535",
 "InheritChance":12,
 "Kind":{
@@ -133220,7 +133258,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6010",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 383",
 "InheritChance":12,
 "Kind":{
@@ -133253,7 +133291,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003 6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 384",
 "InheritChance":7,
 "Kind":{
@@ -133286,7 +133324,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6005 6014",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 385",
 "InheritChance":5,
 "Kind":{
@@ -133319,7 +133357,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6009 6019",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,2],
+"GenerationChance":[15,10,0,0,10,10,10,0,2,0],
 "InfluencesString":"281 386",
 "InheritChance":3,
 "Kind":{
@@ -133352,7 +133390,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6009 6019",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,1],
+"GenerationChance":[15,10,0,0,10,10,10,0,1,0],
 "InfluencesString":"281 387",
 "InheritChance":3,
 "Kind":{
@@ -133385,7 +133423,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6007 6016",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,3],
+"GenerationChance":[15,10,0,0,10,10,10,0,3,0],
 "InfluencesString":"281 7536",
 "InheritChance":4,
 "Kind":{
@@ -133418,7 +133456,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6009 6018",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,3],
+"GenerationChance":[15,10,0,0,10,10,10,0,3,0],
 "InfluencesString":"281 7537",
 "InheritChance":3,
 "Kind":{
@@ -133484,7 +133522,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015 6024",
-"GenerationChance":[10,0,10,0,15,10,10,0,0,4],
+"GenerationChance":[10,0,10,0,15,10,10,0,4,0],
 "InfluencesString":"281 384 7538",
 "InheritChance":5,
 "Kind":{
@@ -133517,7 +133555,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6006 6015",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,4],
+"GenerationChance":[15,10,0,0,10,10,10,0,4,0],
 "InfluencesString":"281 384 385",
 "InheritChance":4,
 "Kind":{
@@ -133550,7 +133588,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,9],
+"GenerationChance":[10,15,0,0,10,10,10,0,9,0],
 "InfluencesString":"281 410",
 "InheritChance":35,
 "Kind":{
@@ -133583,7 +133621,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,8],
+"GenerationChance":[10,15,0,0,10,10,10,0,8,0],
 "InfluencesString":"281 411",
 "InheritChance":35,
 "Kind":{
@@ -133616,7 +133654,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6010",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,7],
+"GenerationChance":[10,15,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 413",
 "InheritChance":12,
 "Kind":{
@@ -133649,7 +133687,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,9],
+"GenerationChance":[10,10,10,0,15,10,10,0,9,0],
 "InfluencesString":"281 420",
 "InheritChance":35,
 "Kind":{
@@ -133682,7 +133720,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,8],
+"GenerationChance":[10,10,10,0,15,10,10,0,8,0],
 "InfluencesString":"281 421",
 "InheritChance":35,
 "Kind":{
@@ -133715,7 +133753,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,7],
+"GenerationChance":[10,10,10,0,15,10,10,0,7,0],
 "InfluencesString":"281 423",
 "InheritChance":12,
 "Kind":{
@@ -133748,7 +133786,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,8],
+"GenerationChance":[10,10,10,0,15,10,10,0,8,0],
 "InfluencesString":"281 410 420",
 "InheritChance":35,
 "Kind":{
@@ -133781,7 +133819,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,7],
+"GenerationChance":[10,10,10,0,15,10,10,0,7,0],
 "InfluencesString":"281 411 421",
 "InheritChance":12,
 "Kind":{
@@ -133814,7 +133852,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,6],
+"GenerationChance":[10,10,10,0,15,10,10,0,6,0],
 "InfluencesString":"281 413 423",
 "InheritChance":9,
 "Kind":{
@@ -133847,7 +133885,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,5],
+"GenerationChance":[10,10,10,0,15,10,10,0,5,0],
 "InfluencesString":"281 404 409",
 "InheritChance":7,
 "Kind":{
@@ -133880,7 +133918,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,5],
+"GenerationChance":[10,10,10,0,15,10,10,0,5,0],
 "InfluencesString":"281 414 424",
 "InheritChance":6,
 "Kind":{
@@ -133913,7 +133951,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,5],
+"GenerationChance":[10,15,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 404 414",
 "InheritChance":7,
 "Kind":{
@@ -133946,7 +133984,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 409 424",
 "InheritChance":7,
 "Kind":{
@@ -133979,7 +134017,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6004 6013",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,5],
+"GenerationChance":[10,15,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 404 7533 7534",
 "InheritChance":6,
 "Kind":{
@@ -134012,7 +134050,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,6],
+"GenerationChance":[10,15,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 403 364 374",
 "InheritChance":9,
 "Kind":{
@@ -134045,7 +134083,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[10,0,10,0,15,10,10,0,0,5],
+"GenerationChance":[10,0,10,0,15,10,10,0,5,0],
 "InfluencesString":"281 252 389",
 "InheritChance":5,
 "Kind":{
@@ -134078,7 +134116,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,5],
+"GenerationChance":[10,10,10,0,15,10,10,0,5,0],
 "InfluencesString":"281 252 388",
 "InheritChance":5,
 "Kind":{
@@ -134111,7 +134149,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6004 6013",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,5],
+"GenerationChance":[10,15,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 383 404 413",
 "InheritChance":6,
 "Kind":{
@@ -134144,7 +134182,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 400 405 410 420",
 "InheritChance":18,
 "Kind":{
@@ -134177,7 +134215,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 401 406 411 421",
 "InheritChance":9,
 "Kind":{
@@ -134210,7 +134248,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6004 6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,4],
+"GenerationChance":[15,10,0,0,10,10,10,0,4,0],
 "InfluencesString":"281 403 408 413 423",
 "InheritChance":6,
 "Kind":{
@@ -134243,7 +134281,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013 6042",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,6],
+"GenerationChance":[10,10,10,0,15,10,10,0,6,0],
 "InfluencesString":"281 430 431 440",
 "InheritChance":7,
 "Kind":{
@@ -134276,7 +134314,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011 6040",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,7],
+"GenerationChance":[10,10,10,0,15,10,10,0,7,0],
 "InfluencesString":"281 7539",
 "InheritChance":12,
 "Kind":{
@@ -134309,7 +134347,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011 6040",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,7],
+"GenerationChance":[10,10,10,0,15,10,10,0,7,0],
 "InfluencesString":"281 7540",
 "InheritChance":12,
 "Kind":{
@@ -134342,7 +134380,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012 6041",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,7],
+"GenerationChance":[10,10,10,0,15,10,10,0,7,0],
 "InfluencesString":"281 7541",
 "InheritChance":9,
 "Kind":{
@@ -134375,7 +134413,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015 6044",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,5],
+"GenerationChance":[10,10,10,0,15,10,10,0,5,0],
 "InfluencesString":"281 7539 7540 7541",
 "InheritChance":5,
 "Kind":{
@@ -134408,7 +134446,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013 6042",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,5],
+"GenerationChance":[10,10,10,0,15,10,10,0,5,0],
 "InfluencesString":"281 430 431 411 421",
 "InheritChance":7,
 "Kind":{
@@ -134441,7 +134479,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,8],
+"GenerationChance":[10,10,10,0,15,10,10,0,8,0],
 "InfluencesString":"281 353",
 "InheritChance":18,
 "Kind":{
@@ -134474,7 +134512,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 350 406 420",
 "InheritChance":12,
 "Kind":{
@@ -134507,7 +134545,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 350 408 421",
 "InheritChance":9,
 "Kind":{
@@ -134540,7 +134578,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 350 409 424",
 "InheritChance":6,
 "Kind":{
@@ -134573,7 +134611,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,7],
+"GenerationChance":[10,10,10,0,15,10,10,0,7,0],
 "InfluencesString":"281 401 353 374",
 "InheritChance":9,
 "Kind":{
@@ -134606,7 +134644,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003 6012",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,6],
+"GenerationChance":[10,10,10,0,15,10,10,0,6,0],
 "InfluencesString":"281 403 7542 7534",
 "InheritChance":7,
 "Kind":{
@@ -134639,7 +134677,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6006 6015",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,5],
+"GenerationChance":[10,10,10,0,15,10,10,0,5,0],
 "InfluencesString":"281 252 403 7542",
 "InheritChance":4,
 "Kind":{
@@ -134672,7 +134710,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,6],
+"GenerationChance":[10,15,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 404 351",
 "InheritChance":9,
 "Kind":{
@@ -134705,7 +134743,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6012 6041",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"263 281 406 350 421 440",
 "InheritChance":7,
 "Kind":{
@@ -134738,7 +134776,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6004 6014 6043",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"263 281 408 350 421 7541",
 "InheritChance":5,
 "Kind":{
@@ -134771,7 +134809,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6004 6014 6043",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"261 263 281 430 431 440",
 "InheritChance":5,
 "Kind":{
@@ -134804,7 +134842,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003 6012",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,5],
+"GenerationChance":[10,15,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 404 388 551",
 "InheritChance":7,
 "Kind":{
@@ -134837,7 +134875,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014 6023",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,5],
+"GenerationChance":[10,10,10,0,15,10,10,0,5,0],
 "InfluencesString":"281 404 388 389 364",
 "InheritChance":6,
 "Kind":{
@@ -134870,7 +134908,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003 6012",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,6],
+"GenerationChance":[10,15,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 350 351 353 364 374 551",
 "InheritChance":7,
 "Kind":{
@@ -135893,7 +135931,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,7],
+"GenerationChance":[10,15,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 401 551",
 "InheritChance":18,
 "Kind":{
@@ -135926,7 +135964,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6010",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,6],
+"GenerationChance":[10,15,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 403 553",
 "InheritChance":12,
 "Kind":{
@@ -135959,7 +135997,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003 6012",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,5],
+"GenerationChance":[10,15,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 404 554",
 "InheritChance":7,
 "Kind":{
@@ -136091,7 +136129,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 410 420 520 530",
 "InheritChance":12,
 "Kind":{
@@ -136124,7 +136162,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 411 421 521 531",
 "InheritChance":7,
 "Kind":{
@@ -136157,7 +136195,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,4],
+"GenerationChance":[15,10,0,0,10,10,10,0,4,0],
 "InfluencesString":"281 413 423 523 533",
 "InheritChance":5,
 "Kind":{
@@ -136190,7 +136228,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6010",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,7],
+"GenerationChance":[10,15,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 401 521",
 "InheritChance":12,
 "Kind":{
@@ -136223,7 +136261,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,6],
+"GenerationChance":[10,15,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 403 522",
 "InheritChance":9,
 "Kind":{
@@ -136256,7 +136294,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003 6012",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,5],
+"GenerationChance":[10,15,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 404 523",
 "InheritChance":7,
 "Kind":{
@@ -136289,7 +136327,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 406 531",
 "InheritChance":18,
 "Kind":{
@@ -136322,7 +136360,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 408 532",
 "InheritChance":12,
 "Kind":{
@@ -136355,7 +136393,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 409 533",
 "InheritChance":9,
 "Kind":{
@@ -136586,7 +136624,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012 6041",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 430 431 541",
 "InheritChance":9,
 "Kind":{
@@ -136619,7 +136657,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 440 531 350",
 "InheritChance":9,
 "Kind":{
@@ -137246,7 +137284,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013 6022",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 590 601 704",
 "InheritChance":7,
 "Kind":{
@@ -137279,7 +137317,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014 6023",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 590 601 406 531 704",
 "InheritChance":6,
 "Kind":{
@@ -137378,7 +137416,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 602 603",
 "InheritChance":18,
 "Kind":{
@@ -137411,7 +137449,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 607 601 408",
 "InheritChance":7,
 "Kind":{
@@ -137444,7 +137482,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 607 523 621",
 "InheritChance":7,
 "Kind":{
@@ -137477,7 +137515,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,6],
+"GenerationChance":[10,15,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 403 608 609",
 "InheritChance":9,
 "Kind":{
@@ -137510,7 +137548,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 610 611",
 "InheritChance":12,
 "Kind":{
@@ -137543,7 +137581,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003 6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 403 413 613",
 "InheritChance":7,
 "Kind":{
@@ -137609,7 +137647,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6023",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"604 605 620",
 "InheritChance":9,
 "Kind":{
@@ -137642,7 +137680,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6026",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"7557 7558 621",
 "InheritChance":5,
 "Kind":{
@@ -137675,7 +137713,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,6],
+"GenerationChance":[10,15,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 608 623",
 "InheritChance":12,
 "Kind":{
@@ -137708,7 +137746,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,6],
+"GenerationChance":[10,15,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 613 623",
 "InheritChance":9,
 "Kind":{
@@ -137741,7 +137779,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6004 6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 251 403 554",
 "InheritChance":6,
 "Kind":{
@@ -137774,7 +137812,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 543 613",
 "InheritChance":9,
 "Kind":{
@@ -137807,7 +137845,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6017",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 252 523",
 "InheritChance":4,
 "Kind":{
@@ -137840,7 +137878,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 252 543 411",
 "InheritChance":5,
 "Kind":{
@@ -138071,7 +138109,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 607 608 612 621",
 "InheritChance":7,
 "Kind":{
@@ -138137,7 +138175,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 353 374 607",
 "InheritChance":9,
 "Kind":{
@@ -138170,7 +138208,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 251 612 623",
 "InheritChance":6,
 "Kind":{
@@ -138203,7 +138241,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 252 601 606",
 "InheritChance":5,
 "Kind":{
@@ -138236,7 +138274,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6004 6013",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,5],
+"GenerationChance":[10,15,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 404 553 604 621",
 "InheritChance":6,
 "Kind":{
@@ -138269,7 +138307,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6004 6013",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,5],
+"GenerationChance":[10,15,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 404 7557 613 621",
 "InheritChance":6,
 "Kind":{
@@ -138302,7 +138340,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6004 6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"261 263 281 601 608 703",
 "InheritChance":6,
 "Kind":{
@@ -138401,7 +138439,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 610 404",
 "InheritChance":9,
 "Kind":{
@@ -138467,7 +138505,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6010",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,6],
+"GenerationChance":[10,15,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 630 401 620 520",
 "InheritChance":12,
 "Kind":{
@@ -138500,7 +138538,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003 6012",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,5],
+"GenerationChance":[10,15,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 631 403 621 521",
 "InheritChance":7,
 "Kind":{
@@ -138533,7 +138571,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6006 6015",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,3],
+"GenerationChance":[10,15,0,0,10,10,10,0,3,0],
 "InfluencesString":"281 633 404 623 523",
 "InheritChance":4,
 "Kind":{
@@ -138566,7 +138604,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6010",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,6],
+"GenerationChance":[10,15,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 630 401 551 620",
 "InheritChance":12,
 "Kind":{
@@ -138599,7 +138637,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6003 6012",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,4],
+"GenerationChance":[10,15,0,0,10,10,10,0,4,0],
 "InfluencesString":"281 631 403 553 621",
 "InheritChance":7,
 "Kind":{
@@ -138632,7 +138670,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6005 6014",
-"GenerationChance":[10,15,0,0,10,10,10,0,0,2],
+"GenerationChance":[10,15,0,0,10,10,10,0,2,0],
 "InfluencesString":"281 633 404 554 623",
 "InheritChance":5,
 "Kind":{
@@ -138665,7 +138703,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 640 406 511 530",
 "InheritChance":12,
 "Kind":{
@@ -138698,7 +138736,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 641 408 513 531",
 "InheritChance":7,
 "Kind":{
@@ -138731,7 +138769,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,3],
+"GenerationChance":[15,10,0,0,10,10,10,0,3,0],
 "InfluencesString":"281 643 409 514 533",
 "InheritChance":5,
 "Kind":{
@@ -138863,7 +138901,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 650 655",
 "InheritChance":18,
 "Kind":{
@@ -138896,7 +138934,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 651 656",
 "InheritChance":9,
 "Kind":{
@@ -138929,7 +138967,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,3],
+"GenerationChance":[15,10,0,0,10,10,10,0,3,0],
 "InfluencesString":"281 653 658",
 "InheritChance":6,
 "Kind":{
@@ -138962,7 +139000,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 660 665",
 "InheritChance":12,
 "Kind":{
@@ -138995,7 +139033,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 661 666",
 "InheritChance":9,
 "Kind":{
@@ -139028,7 +139066,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,3],
+"GenerationChance":[15,10,0,0,10,10,10,0,3,0],
 "InfluencesString":"281 663 668",
 "InheritChance":5,
 "Kind":{
@@ -139160,7 +139198,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 680 685",
 "InheritChance":12,
 "Kind":{
@@ -139193,7 +139231,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 681 686",
 "InheritChance":9,
 "Kind":{
@@ -139226,7 +139264,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,3],
+"GenerationChance":[15,10,0,0,10,10,10,0,3,0],
 "InfluencesString":"281 683 688",
 "InheritChance":5,
 "Kind":{
@@ -139259,7 +139297,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 690 695",
 "InheritChance":12,
 "Kind":{
@@ -139292,7 +139330,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 691 696",
 "InheritChance":9,
 "Kind":{
@@ -139325,7 +139363,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,3],
+"GenerationChance":[15,10,0,0,10,10,10,0,3,0],
 "InfluencesString":"281 693 698",
 "InheritChance":5,
 "Kind":{
@@ -139358,7 +139396,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 650 680",
 "InheritChance":18,
 "Kind":{
@@ -139391,7 +139429,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 651 681",
 "InheritChance":9,
 "Kind":{
@@ -139424,7 +139462,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,3],
+"GenerationChance":[15,10,0,0,10,10,10,0,3,0],
 "InfluencesString":"281 653 683",
 "InheritChance":6,
 "Kind":{
@@ -139457,7 +139495,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 655 690",
 "InheritChance":18,
 "Kind":{
@@ -139490,7 +139528,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 656 691",
 "InheritChance":9,
 "Kind":{
@@ -139523,7 +139561,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,3],
+"GenerationChance":[15,10,0,0,10,10,10,0,3,0],
 "InfluencesString":"281 658 693",
 "InheritChance":6,
 "Kind":{
@@ -139556,7 +139594,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 680 690",
 "InheritChance":12,
 "Kind":{
@@ -139589,7 +139627,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 681 691",
 "InheritChance":9,
 "Kind":{
@@ -139622,7 +139660,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,3],
+"GenerationChance":[15,10,0,0,10,10,10,0,3,0],
 "InfluencesString":"281 683 693",
 "InheritChance":5,
 "Kind":{
@@ -139655,7 +139693,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 685 695",
 "InheritChance":12,
 "Kind":{
@@ -139688,7 +139726,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 686 696",
 "InheritChance":9,
 "Kind":{
@@ -139721,7 +139759,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,3],
+"GenerationChance":[15,10,0,0,10,10,10,0,3,0],
 "InfluencesString":"281 688 698",
 "InheritChance":5,
 "Kind":{
@@ -139754,7 +139792,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,7],
+"GenerationChance":[10,10,10,0,15,10,10,0,7,0],
 "InfluencesString":"281 660 670",
 "InheritChance":18,
 "Kind":{
@@ -139787,7 +139825,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,5],
+"GenerationChance":[10,10,10,0,15,10,10,0,5,0],
 "InfluencesString":"281 661 671",
 "InheritChance":9,
 "Kind":{
@@ -139820,7 +139858,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,3],
+"GenerationChance":[10,10,10,0,15,10,10,0,3,0],
 "InfluencesString":"281 663 673",
 "InheritChance":6,
 "Kind":{
@@ -139853,7 +139891,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,7],
+"GenerationChance":[10,10,10,0,15,10,10,0,7,0],
 "InfluencesString":"281 665 675",
 "InheritChance":18,
 "Kind":{
@@ -139886,7 +139924,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,5],
+"GenerationChance":[10,10,10,0,15,10,10,0,5,0],
 "InfluencesString":"281 666 676",
 "InheritChance":9,
 "Kind":{
@@ -139919,7 +139957,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[10,10,10,0,15,10,10,0,0,3],
+"GenerationChance":[10,10,10,0,15,10,10,0,3,0],
 "InfluencesString":"281 668 678",
 "InheritChance":6,
 "Kind":{
@@ -139952,7 +139990,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,1,8],
+"GenerationChance":[15,10,0,0,10,10,10,0,8,0],
 "InfluencesString":"281 405 420 700",
 "InheritChance":18,
 "Kind":{
@@ -139985,7 +140023,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 406 421 702",
 "InheritChance":12,
 "Kind":{
@@ -140018,7 +140056,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 408 423 704",
 "InheritChance":7,
 "Kind":{
@@ -140051,7 +140089,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,1,8],
+"GenerationChance":[15,10,0,0,10,10,10,0,8,0],
 "InfluencesString":"281 700 510 530",
 "InheritChance":18,
 "Kind":{
@@ -140084,7 +140122,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6012",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 702 511 531",
 "InheritChance":12,
 "Kind":{
@@ -140117,7 +140155,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6014",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 704 513 533",
 "InheritChance":7,
 "Kind":{
@@ -140282,7 +140320,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 405 420 620 700",
 "InheritChance":18,
 "Kind":{
@@ -140315,7 +140353,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 406 421 621 702",
 "InheritChance":9,
 "Kind":{
@@ -140348,7 +140386,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,4],
+"GenerationChance":[15,10,0,0,10,10,10,0,4,0],
 "InfluencesString":"281 408 423 623 704",
 "InheritChance":6,
 "Kind":{
@@ -140381,7 +140419,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6004 6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"261 263 281 251 704",
 "InheritChance":6,
 "Kind":{
@@ -140414,7 +140452,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6005 6014",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,4],
+"GenerationChance":[15,10,0,0,10,10,10,0,4,0],
 "InfluencesString":"261 263 281 251 601 704",
 "InheritChance":5,
 "Kind":{
@@ -140447,7 +140485,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011 6020",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"405 420 510 700",
 "InheritChance":12,
 "Kind":{
@@ -140480,7 +140518,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013 6022",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"406 421 511 702",
 "InheritChance":7,
 "Kind":{
@@ -140513,7 +140551,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6015 6024",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,4],
+"GenerationChance":[15,10,0,0,10,10,10,0,4,0],
 "InfluencesString":"408 423 513 704",
 "InheritChance":5,
 "Kind":{
@@ -140645,7 +140683,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 251 711",
 "InheritChance":9,
 "Kind":{
@@ -140678,7 +140716,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6016",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 252 714",
 "InheritChance":5,
 "Kind":{
@@ -140711,7 +140749,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6010",
-"GenerationChance":[15,10,0,0,10,10,10,0,1,8],
+"GenerationChance":[15,10,0,0,10,10,10,0,8,0],
 "InfluencesString":"281 700 710",
 "InheritChance":35,
 "Kind":{
@@ -140744,7 +140782,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 702 712",
 "InheritChance":18,
 "Kind":{
@@ -140777,7 +140815,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6013",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,6],
+"GenerationChance":[15,10,0,0,10,10,10,0,6,0],
 "InfluencesString":"281 704 714",
 "InheritChance":9,
 "Kind":{
@@ -140810,7 +140848,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6000 6010",
-"GenerationChance":[15,10,0,0,10,10,10,0,1,8],
+"GenerationChance":[15,10,0,0,10,10,10,0,8,0],
 "InfluencesString":"281 400 550 710",
 "InheritChance":35,
 "Kind":{
@@ -140843,7 +140881,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6001 6010",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,7],
+"GenerationChance":[15,10,0,0,10,10,10,0,7,0],
 "InfluencesString":"281 401 551 711",
 "InheritChance":12,
 "Kind":{
@@ -140876,7 +140914,7 @@
 "FactionConditionsString":"",
 "FactionLimit":9999,
 "GenerateConditionsString":"6002 6011",
-"GenerationChance":[15,10,0,0,10,10,10,0,0,5],
+"GenerationChance":[15,10,0,0,10,10,10,0,5,0],
 "InfluencesString":"281 403 553 713",
 "InheritChance":9,
 "Kind":{

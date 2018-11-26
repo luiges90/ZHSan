@@ -53,6 +53,8 @@ namespace GameObjects.PersonDetail
         [DataMember]
         public int titleChance;
         [DataMember]
+        public int genderFix;
+        [DataMember]
         public int CostFund { get; set; }
         [DataMember]
         public int TypeCount { get; set; }
