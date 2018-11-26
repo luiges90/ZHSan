@@ -9434,11 +9434,24 @@ namespace GameObjects
         private static void HandlePersonGeneratorType(bool inGame, PersonGeneratorType preferredType, Person r, PersonGeneratorSetting options, out int officerType, out int titleChance)
         {
             officerType = preferredType.ID;
-
-
+       
             titleChance = 0;
 
             PersonGeneratorType typeParam = (PersonGeneratorType)Session.Current.Scenario.GameCommonData.AllPersonGeneratorTypes.GetGameObject(officerType);
+
+            if (typeParam.genderFix == -1)
+            {
+                r.Sex = false;
+            }
+            else if (typeParam.genderFix == 1)
+            {
+                r.Sex = true;
+            }
+            else
+            {
+                r.Sex = GameObject.Chance(options.femaleChance) ? true : false;
+            }
+            
             r.BaseCommand = GameObject.RandomGaussianRange(typeParam.commandLo, typeParam.commandHi);
             r.BaseStrength = GameObject.RandomGaussianRange(typeParam.strengthLo, typeParam.strengthHi);
             r.BaseIntelligence = GameObject.RandomGaussianRange(typeParam.intelligenceLo, typeParam.intelligenceHi);
@@ -9465,19 +9478,6 @@ namespace GameObjects
             if (r.BaseGlamour < 1) r.Glamour = 1;
 
             setNewOfficerFace(r);
-
-            if (typeParam.genderFix == -1)
-            {
-                r.Sex = false;
-            }
-            else if (typeParam.genderFix == 1)
-            {
-                r.Sex = true;
-            }
-            else
-            {
-                r.Sex = GameObject.Chance(options.femaleChance) ? true : false;
-            }
 
             r.YearBorn = Session.Current.Scenario.Date.Year + GameObject.Random(options.bornLo, options.bornHi);
             r.YearAvailable = Session.Current.Scenario.Date.Year + (inGame ? 0 : GameObject.Random(options.debutLo, options.debutHi));
