@@ -3012,7 +3012,51 @@ namespace GameObjects
                 foreach (Person person3 in Session.Current.Scenario.Persons)
                 {
                     if ((person3.Mother != null) && (person3.Sex == this.Leader.Sex) && ((this.Leader.Mother == person3.Mother) || (person3.Mother == this.Leader))
-                        && person3 != this.Leader && person3.BelongedFaction == this && person3.BelongedFaction == this && person3.Alive && (person3.ID < 7000 || person3.ID >= 8000))
+                        && person3 != this.Leader && person3.BelongedFaction == this && person3.Alive && (person3.ID < 7000 || person3.ID >= 8000))
+                    {
+                        list.Add(person3);
+                    }
+                }
+                if (list.Count > 0)
+                {
+                    if (list.Count > 1)
+                    {
+                        list.PropertyName = "YearBorn";
+                        list.IsNumber = true;
+                        list.SmallToBig = true;
+                        list.ReSort();
+                    }
+                    person2 = list[0] as Person;
+                }
+            }
+            if (person2 == null)
+            {
+                foreach (Person person3 in Session.Current.Scenario.Persons)
+                {
+                    if (person3.Father != null && (person3.Sex == this.Leader.Sex) && ((person3.Father.Father != null && person3.Father.Father == this.Leader) || (person3.Father.Mother != null && person3.Father.Mother == this.Leader))
+                        && person3 != this.Leader && person3.BelongedFaction == this && person3.Alive && (person3.ID < 7000 || person3.ID >= 8000))
+                    {
+                        list.Add(person3);
+                    }
+                }
+                if (list.Count > 0)
+                {
+                    if (list.Count > 1)
+                    {
+                        list.PropertyName = "YearBorn";
+                        list.IsNumber = true;
+                        list.SmallToBig = true;
+                        list.ReSort();
+                    }
+                    person2 = list[0] as Person;
+                }
+            }
+            if (person2 == null)
+            {
+                foreach (Person person3 in Session.Current.Scenario.Persons)
+                {
+                    if (person3.Mother != null && (person3.Sex == this.Leader.Sex) && ((person3.Mother.Father != null && person3.Mother.Father == this.Leader) || (person3.Mother.Mother != null && person3.Mother.Mother == this.Leader))
+                        && person3 != this.Leader && person3.BelongedFaction == this && person3.Alive && (person3.ID < 7000 || person3.ID >= 8000))
                     {
                         list.Add(person3);
                     }
