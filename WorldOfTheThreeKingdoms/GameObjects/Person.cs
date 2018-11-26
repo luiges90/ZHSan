@@ -9349,13 +9349,13 @@ namespace GameObjects
             Person r = HandleID();
 
             PersonGeneratorSetting options = HandlePersonRelation(foundLocation, ref finder, r);
-
-            HandleName(r);
-
+       
             int officerType;
             int titleChance;
 
             HandlePersonGeneratorType(inGame, preferredType, r, options, out officerType, out titleChance);
+
+            HandleName(r);
 
             HandleIdeal(foundLocation, r);
 
