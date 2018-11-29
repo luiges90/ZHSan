@@ -34,12 +34,25 @@ namespace WorldOfTheThreeKingdomsEditor
                 "Description",
                 "Combativity",
                 "InfluencesString",
-                "AttackDefault",
-                "AttackTarget",
                 "ArchitectureTarget",
                 "CastConditionsString",
                 "ViewingHostile",
                 "AnimationKind"
+            };
+        }
+
+        protected override Dictionary<String, String> GetHelpText()
+        {
+            return new Dictionary<string, string>()
+            {
+                { "Name","名称" },
+                { "Description","描述" },
+                { "Combativity","所需战意" },
+                { "InfluencesString","影响列表" },
+                { "ArchitectureTarget","目标可能为建筑" },
+                { "CastConditionsString","使用条件" },
+                { "ViewingHostile","视野内敌军越多越有可能使用" },
+                { "AnimationKind","动画" }
             };
         }
 

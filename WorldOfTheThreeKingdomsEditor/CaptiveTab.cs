@@ -35,6 +35,15 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
+        protected override Dictionary<String, String> GetHelpText()
+        {
+            return new Dictionary<string, string>()
+            {
+                { "CaptivePerson", "俘虏人物" },
+                { "CaptiveFaction",  "俘虏势力" }
+            };
+        }
+
         public CaptiveTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
             init(scen, dg, helpTextBlock);

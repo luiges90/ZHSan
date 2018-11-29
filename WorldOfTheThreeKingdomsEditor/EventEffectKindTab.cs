@@ -35,6 +35,13 @@ namespace WorldOfTheThreeKingdomsEditor
                 "Name"
             };
         }
+        protected override Dictionary<String, String> GetHelpText()
+        {
+            return new Dictionary<string, string>()
+            {
+                { "Name",  "名称" }
+            };
+        }
 
         public EventEffectKindTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
