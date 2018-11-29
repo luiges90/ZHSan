@@ -2801,8 +2801,10 @@ namespace GameObjects
             {
                 extraRate += 1.6f;
             }
-            extraRate += q.GetRelation(this) * 0.0001f * Math.Max(1, (float) Session.Parameters.MaxRelation / (Session.Parameters.MaxRelation + Session.Parameters.VeryCloseThreshold - q.GetRelation(this)));
-            extraRate += this.GetRelation(q) * 0.0001f * Math.Max(1, (float) Session.Parameters.MaxRelation / (Session.Parameters.MaxRelation + Session.Parameters.VeryCloseThreshold - this.GetRelation(q)));
+            extraRate += Math.Max(Session.Parameters.HateThreshold, q.GetRelation(this)) * 0.0001f * Math.Max(1, 
+                (float) Session.Parameters.MaxRelation / (Session.Parameters.MaxRelation + Session.Parameters.VeryCloseThreshold - Math.Max(0, q.GetRelation(this))));
+            extraRate += Math.Max(Session.Parameters.HateThreshold, this.GetRelation(q)) * 0.0001f * Math.Max(1, 
+                (float) Session.Parameters.MaxRelation / (Session.Parameters.MaxRelation + Session.Parameters.VeryCloseThreshold - Math.Max(0, this.GetRelation(q))));
 
             if (this.Age > 40 && this.Sex)
             {

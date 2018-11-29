@@ -947,6 +947,51 @@ namespace GameObjects
             return spousePerson;
         }
 
+        private void AIActuallyMakeMarriage(Person p, Person q)
+        {
+            if (p.LocationArchitecture == q.LocationArchitecture && p.LocationArchitecture != null &&
+                                p.LocationArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
+            {
+                if (p.WaitForFeiZi != null)
+                {
+                    p.WaitForFeiZi.WaitForFeiZi = null;
+                }
+                if (q.WaitForFeiZi != null)
+                {
+                    q.WaitForFeiZi.WaitForFeiZi = null;
+                }
+                p.Marry(q, this.Leader);
+                p.WaitForFeiZi = null;
+                q.WaitForFeiZi = null;
+            }
+            else
+            {
+                if (p.WaitForFeiZi != null)
+                {
+                    p.WaitForFeiZi.WaitForFeiZi = null;
+                }
+                if (q.WaitForFeiZi != null)
+                {
+                    q.WaitForFeiZi.WaitForFeiZi = null;
+                }
+                p.WaitForFeiZi = q;
+                q.WaitForFeiZi = p;
+                if (p.LocationArchitecture != q.LocationArchitecture)
+                {
+                    if (q.Status == PersonStatus.Normal && q.LocationArchitecture != null && q.LocationTroop == null &&
+                        p.BelongedArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
+                    {
+                        q.MoveToArchitecture(p.BelongedArchitecture);
+                    }
+                    else if (p.Status == PersonStatus.Normal && p.LocationArchitecture != null && p.LocationTroop == null &&
+                        q.BelongedArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
+                    {
+                        p.MoveToArchitecture(q.BelongedArchitecture);
+                    }
+                }
+            }
+        }
+
         private void AIMakeMarriage()
         {
             if (Session.Current.Scenario.IsPlayer(this)) return;
@@ -993,6 +1038,35 @@ namespace GameObjects
 
             if (GameObject.Random(10) == 0)
             {
+                if (leader.Spouse != null && leader.WaitForFeiZi != null && leader.Age < 40)
+                {
+                    PersonList leaderMarryable = this.Leader.MakeMarryableInFaction();
+                    if (leaderMarryable.Count > 0)
+                    {
+                        Person q = this.Leader;
+                        leaderMarryable.PropertyName = "UntiredMerit";
+                        leaderMarryable.IsNumber = true;
+                        leaderMarryable.SmallToBig = false;
+                        leaderMarryable.ReSort();
+                        foreach (Person p in leaderMarryable)
+                        {
+                            if (p.WaitForFeiZi == null)
+                            {
+                                GameObjectList simulatSuoshu = p.suoshurenwuList.GetList();
+                                simulatSuoshu.Add(p);
+                                simulatSuoshu.AddRange(q.suoshurenwuList.GetList());
+                                simulatSuoshu.Add(q);
+
+                                Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, true);
+                                if (hater != null && hater != p && hater != q) continue;
+
+                                AIActuallyMakeMarriage(p, q);
+                                break;
+                            }
+                        }
+                    }
+                }
+
                 GameObjectList pl = this.Persons.GetList();
                 pl.PropertyName = "UntiredMerit";
                 pl.IsNumber = true;
@@ -1019,57 +1093,17 @@ namespace GameObjects
                             if (this.hougongValid)
                             {
                                 if ((IsPersonForHouGong(p) || IsPersonForHouGong(q)) && !(this.Leader == p || this.Leader == q)) continue;
-                                
-                                GameObjectList simulatSuoshu = p.suoshurenwuList.GetList();
-                                simulatSuoshu.Add(p);
-                                simulatSuoshu.AddRange(q.suoshurenwuList.GetList());
-                                simulatSuoshu.Add(q);
-
-                                Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, true);
-                                if (hater != null && hater != p && hater != q) continue;
                             }
 
-                            if (p.LocationArchitecture == q.LocationArchitecture && p.LocationArchitecture != null &&
-                                p.LocationArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
-                            {
-                                if (p.WaitForFeiZi != null)
-                                {
-                                    p.WaitForFeiZi.WaitForFeiZi = null;
-                                }
-                                if (q.WaitForFeiZi != null)
-                                {
-                                    q.WaitForFeiZi.WaitForFeiZi = null;
-                                }
-                                p.Marry(q, this.Leader);
-                                p.WaitForFeiZi = null;
-                                q.WaitForFeiZi = null;
-                            }
-                            else
-                            {
-                                if (p.WaitForFeiZi != null)
-                                {
-                                    p.WaitForFeiZi.WaitForFeiZi = null;
-                                }
-                                if (q.WaitForFeiZi != null)
-                                {
-                                    q.WaitForFeiZi.WaitForFeiZi = null;
-                                }
-                                p.WaitForFeiZi = q;
-                                q.WaitForFeiZi = p;
-                                if (p.LocationArchitecture != q.LocationArchitecture)
-                                {
-                                    if (q.Status == PersonStatus.Normal && q.LocationArchitecture != null && q.LocationTroop == null &&
-                                        p.BelongedArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
-                                    {
-                                        q.MoveToArchitecture(p.BelongedArchitecture);
-                                    }
-                                    else if (p.Status == PersonStatus.Normal && p.LocationArchitecture != null && p.LocationTroop == null &&
-                                        q.BelongedArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
-                                    {
-                                        p.MoveToArchitecture(q.BelongedArchitecture);
-                                    }
-                                }
-                            }
+                            GameObjectList simulatSuoshu = p.suoshurenwuList.GetList();
+                            simulatSuoshu.Add(p);
+                            simulatSuoshu.AddRange(q.suoshurenwuList.GetList());
+                            simulatSuoshu.Add(q);
+
+                            Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, true);
+                            if (hater != null && hater != p && hater != q) continue;
+
+                            AIActuallyMakeMarriage(p, q);
                             break;
                         }
                     }
