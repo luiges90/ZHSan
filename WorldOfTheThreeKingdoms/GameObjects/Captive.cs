@@ -435,7 +435,7 @@ namespace GameObjects
                 {
                     if (this.CaptivePerson.ArrivingDays > 0)
                     {
-                        return (this.CaptivePerson.ArrivingDays * Session.Parameters.DayInTurn + "天");
+                        return (this.CaptivePerson.ArrivingDays + "天");
                     }
                     
                 }
