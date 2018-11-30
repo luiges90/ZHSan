@@ -3616,7 +3616,7 @@ namespace GameObjects
             
             foreach (Architecture a in this.Architectures)
             {
-                while (a.CanZhaoXian() && !a.HasEnoughPeople && a.IsFundAbundant)
+                while (a.CanZhaoXian() && !a.HasEnoughPeople && (a.IsFundAbundant || (PersonCount <= 1) || (PersonCount <= 3 && a.IsFundEnough)))
                 {
                     PersonGeneratorTypeList list = a.AvailGeneratorTypeList();
                     Dictionary<PersonGeneratorType, float> weights = new Dictionary<PersonGeneratorType, float>();
