@@ -987,7 +987,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstRenKou = new NumericSetTextureF(0.000001f, 0.0001f, 0.0001f, null, new Vector2(left1 + 200, heightBase + height * 3.5f), true)
+            nstRenKou = new NumericSetTextureF(0.000001f, 0.001f, 0.001f, null, new Vector2(left1 + 200, heightBase + height * 3.5f), true)
             {
                 FloatNum = 5,
                 DisNumber = false,
