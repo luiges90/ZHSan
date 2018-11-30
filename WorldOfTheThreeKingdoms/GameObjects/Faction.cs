@@ -3619,24 +3619,20 @@ namespace GameObjects
                 while (a.CanZhaoXian() && !a.HasEnoughPeople)
                 {
                     PersonGeneratorTypeList list = a.AvailGeneratorTypeList();
-                    int max = 0;
+                    Dictionary<PersonGeneratorType, float> weights = new Dictionary<PersonGeneratorType, float>();
                     
                     foreach (PersonGeneratorType t in list)
                     {
-                        if (t.CostFund > max && t.CostFund < a.Fund)
+                        if (t.CostFund + a.EnoughFund < a.Fund)
                         {
-                            max = t.CostFund;
+                            weights[t] = t.CostFund * t.generationChance;
                         }
                     }
-
-                    if (list.Count > 0)
+                    
+                    if (weights.Count > 0)
                     {
-                        PersonGeneratorType type = list.GetRandomObject() as PersonGeneratorType;
-
-                        if (type.CostFund > max / 2)
-                        {
-                            a.DoZhaoXian(type);
-                        }
+                        PersonGeneratorType type = GameObject.WeightedRandom(weights);
+                        a.DoZhaoXian(type);
                     }
 
                 }
