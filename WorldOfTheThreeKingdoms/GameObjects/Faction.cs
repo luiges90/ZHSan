@@ -3622,6 +3622,14 @@ namespace GameObjects
                     Dictionary<PersonGeneratorType, float> weights = new Dictionary<PersonGeneratorType, float>();
 
                     int eFund = a.AbundantFund;
+                    if (PersonCount <= 1)
+                    {
+                        eFund = 0;
+                    }
+                    else if (PersonCount <= 3)
+                    {
+                        eFund = a.EnoughFund;
+                    }
                     foreach (PersonGeneratorType t in list)
                     {
                         if (t.CostFund + eFund < a.Fund)
