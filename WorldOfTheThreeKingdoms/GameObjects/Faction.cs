@@ -3616,14 +3616,15 @@ namespace GameObjects
             
             foreach (Architecture a in this.Architectures)
             {
-                while (a.CanZhaoXian() && !a.HasEnoughPeople)
+                while (a.CanZhaoXian() && !a.HasEnoughPeople && a.IsFundEnough)
                 {
                     PersonGeneratorTypeList list = a.AvailGeneratorTypeList();
                     Dictionary<PersonGeneratorType, float> weights = new Dictionary<PersonGeneratorType, float>();
-                    
+
+                    int eFund = a.EnoughFund;
                     foreach (PersonGeneratorType t in list)
                     {
-                        if (t.CostFund + a.EnoughFund < a.Fund)
+                        if (t.CostFund + eFund < a.Fund)
                         {
                             weights[t] = t.CostFund * t.generationChance;
                         }
@@ -3633,6 +3634,10 @@ namespace GameObjects
                     {
                         PersonGeneratorType type = GameObject.WeightedRandom(weights);
                         a.DoZhaoXian(type);
+                    }
+                    else
+                    {
+                        break;
                     }
 
                 }
