@@ -4708,8 +4708,8 @@ namespace GameObjects
                 return false ;
             }
 
-            float result = GameObject.Random((int)(10000 * Math.Pow(factionPersonCount, Session.Parameters.SearchPersonArchitectureCountPower))) * preferredType.generationChance / 100;
-            float target = Session.GlobalVariables.ZhaoXianSuccessRate * 100 * coef;
+            float result = GameObject.Random((int)(10000 * Math.Pow(factionPersonCount, Session.Parameters.SearchPersonArchitectureCountPower)));
+            float target = Session.GlobalVariables.ZhaoXianSuccessRate * coef * preferredType.generationChance;
             return result < target;
         }
 

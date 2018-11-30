@@ -2697,6 +2697,11 @@ namespace GameObjects
                                         haizifuqin.AdjustRelation(this, 3f, 0);
                                     }
                                 }
+                                else if (this.LocationArchitecture == haizifuqin.LocationArchitecture)
+                                {
+                                    this.AdjustRelation(haizifuqin, 3f, 0);
+                                    haizifuqin.AdjustRelation(this, 3f, 0);
+                                }
 
                                 if (this.Father != null)
                                 {
