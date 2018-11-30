@@ -741,7 +741,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstZhaoXian = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 4.0f), true)
+            nstZhaoXian = new NumericSetTextureF(0, 300, 300, null, new Vector2(left2 + 300, heightBase + height * 4.0f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -749,7 +749,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstSearchGen = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 4.5f), true)
+            nstSearchGen = new NumericSetTextureF(0, 300, 300, null, new Vector2(left2 + 300, heightBase + height * 4.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -979,7 +979,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstJianZhu = new NumericSetTextureF(1, 10, 10, null, new Vector2(left1 + 200, heightBase + height * 3f), true)
+            nstJianZhu = new NumericSetTextureF(0, 10, 10, null, new Vector2(left1 + 200, heightBase + height * 3f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
@@ -987,7 +987,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 0.1f
             };
 
-            nstRenKou = new NumericSetTextureF(0, 0.01f, 0.01f, null, new Vector2(left1 + 200, heightBase + height * 3.5f), true)
+            nstRenKou = new NumericSetTextureF(0.000001f, 0.0001f, 0.0001f, null, new Vector2(left1 + 200, heightBase + height * 3.5f), true)
             {
                 FloatNum = 5,
                 DisNumber = false,
@@ -1045,7 +1045,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 10
             };
 
-            nstJiqiaoDian = new NumericSetTextureF(1, 3, 3, null, new Vector2(left2 + 200, heightBase + height * 2f), true)
+            nstJiqiaoDian = new NumericSetTextureF(0, 3, 3, null, new Vector2(left2 + 200, heightBase + height * 2f), true)
             {
                 FloatNum = 1,
                 DisNumber = false,
