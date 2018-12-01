@@ -2386,6 +2386,8 @@ namespace GameObjects
         private PersonList makeMarryableInFactionCache = null;
         public PersonList MakeMarryableInFaction()
         {
+            if (this.BelongedFaction == null || this.BelongedFaction.Leader.Status == PersonStatus.Captive) new PersonList();
+
             if (makeMarryableInFactionCache != null) return makeMarryableInFactionCache;
 
             PersonList result = new PersonList();

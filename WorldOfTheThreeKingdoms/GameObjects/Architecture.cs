@@ -4673,7 +4673,7 @@ namespace GameObjects
         public bool CanZhaoXian()
         {
             if (this.BelongedFaction != null && Session.GlobalVariables.ZhaoXianSuccessRate > 0 && Session.Current.Scenario.Date.Month == 3
-              && this.BelongedFaction.ZhaoxianFailureCount < 1)
+              && this.BelongedFaction.ZhaoxianFailureCount < 1 && this.BelongedFaction != null && this.BelongedFaction.Leader.Status != PersonStatus.Captive)
                 
             {
                 if (this.AvailGeneratorTypeList().Count > 0 )

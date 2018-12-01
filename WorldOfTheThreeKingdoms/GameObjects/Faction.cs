@@ -996,6 +996,8 @@ namespace GameObjects
         {
             if (Session.Current.Scenario.IsPlayer(this)) return;
 
+            if (this.Leader.Status == PersonStatus.Captive) return;
+
             foreach (Person p in this.Persons)
             {
                 if (p.WaitForFeiZi != null)
