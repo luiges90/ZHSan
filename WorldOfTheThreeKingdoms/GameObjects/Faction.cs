@@ -3616,19 +3616,19 @@ namespace GameObjects
             
             foreach (Architecture a in this.Architectures)
             {
-                while (a.CanZhaoXian() && !a.HasEnoughPeople && (a.IsFundAbundant || (PersonCount <= 1) || (PersonCount <= 3 && a.IsFundEnough)))
+                while (a.CanZhaoXian() && !a.HasEnoughPeople && (PersonCount <= 1 || a.IsFundEnough))
                 {
                     PersonGeneratorTypeList list = a.AvailGeneratorTypeList();
                     Dictionary<PersonGeneratorType, float> weights = new Dictionary<PersonGeneratorType, float>();
 
-                    int eFund = a.AbundantFund;
+                    int eFund;
                     if (PersonCount <= 1)
                     {
                         eFund = 0;
                     }
-                    else if (PersonCount <= 3)
+                    else
                     {
-                        eFund = a.EnoughFund;
+                        eFund = Math.Min(a.EnoughFund * PersonCount / 2, a.AbundantFund);
                     }
                     foreach (PersonGeneratorType t in list)
                     {
