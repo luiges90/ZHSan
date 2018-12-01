@@ -4528,7 +4528,7 @@ namespace GameObjects
 
         public bool ChangeCapitalAvail()
         {
-            return ((((this.BelongedFaction != null) && (this.BelongedFaction.ArchitectureCount > 1)) && this.IsCapital) && (this.Fund >= this.ChangeCapitalCost));
+            return this.BelongedFaction != null && this.BelongedFaction.ArchitectureCount > 1 && this.IsCapital && this.Fund >= this.ChangeCapitalCost && this.BelongedFaction.Leader.Status != PersonStatus.Captive;
         }
 
         public bool AppointMayorAvail() //任命县令
