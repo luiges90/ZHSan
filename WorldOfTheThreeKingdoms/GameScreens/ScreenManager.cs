@@ -231,6 +231,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 foreach (DiplomaticRelationDisplay display in selectedList)
                 {
                     Session.MainGame.mainGameScreen.xianshishijiantupian(Session.Current.Scenario.NeutralPerson, this.CurrentArchitecture.BelongedFaction.Leader.Name, "ResetDiplomaticRelation", "ResetDiplomaticRelation.jpg", "ResetDiplomaticRelation", display.FactionName, true);
+                    this.CurrentArchitecture.BelongedFaction.Leader.DecreaseKarma(10);
                     display.Relation = 0;
                 }
             }
