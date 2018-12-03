@@ -4703,7 +4703,7 @@ namespace GameObjects
             v += (-Person.GetIdealOffset(target, src) * 0.6f + src.IdealTendency.Offset * 0.2f + target.IdealTendency.Offset * 0.2f) * idealFactor;
             v += target.GetRelation(src) / 100.0f;
             v += target.Glamour / 10.0f - 5.0f;
-            v += Math.Abs(target.Karma - src.Karma) / 5.0f;
+            v -= Math.Abs(target.Karma - src.Karma) / 5.0f;
             v += (float) (Math.Sign(target.Karma) * Math.Sqrt(Math.Abs(0.4 * target.Karma)));
 
             if (Session.Current.Scenario.huangdisuozaijianzhu() != null)
@@ -5302,8 +5302,8 @@ namespace GameObjects
                 killer.LoseReputationBy(0.02f * this.PersonalLoyalty);
             }
 
-            killer.DecreaseKarma(40 + Math.Max(0, this.Karma / 5));
-            killer.BelongedFaction.Leader.DecreaseKarma(20 + Math.Max(0, this.Karma / 10));
+            killer.DecreaseKarma(5 + Math.Max(0, this.Karma / 5));
+            killer.BelongedFaction.Leader.DecreaseKarma(5 + Math.Max(0, this.Karma / 5));
         }
 
         public void execute(Faction executingFaction)
@@ -10291,7 +10291,7 @@ namespace GameObjects
                 nvren.SetBelongedCaptive(null, PersonStatus.Normal);
                 nvren.ChangeFaction(this.BelongedFaction);
                 addHate = true;
-                this.DecreaseKarma(10);
+                this.DecreaseKarma(10 + Math.Max(0, this.Karma / 5));
             }
             else if (nvren.Status == PersonStatus.NoFaction)
             {
@@ -10301,7 +10301,7 @@ namespace GameObjects
             if (addHate)
             {
                 nvren.AdjustRelation(leader, 0, -200 * nvren.PersonalLoyalty * nvren.PersonalLoyalty);
-                this.DecreaseKarma(20);
+                this.DecreaseKarma(10 + Math.Max(0, this.Karma / 5));
 
                 foreach (Person p in Session.Current.Scenario.Persons)
                 {
@@ -10347,7 +10347,7 @@ namespace GameObjects
                         tookSpouse = p;
                         this.LoseReputationBy(0.05f);
 
-                        this.DecreaseKarma(20);
+                        this.DecreaseKarma(10 + Math.Max(0, this.Karma / 5));
 
                         p.AddHated(this.BelongedFaction.Leader, -200 * p.PersonalLoyalty * p.PersonalLoyalty);
                     }

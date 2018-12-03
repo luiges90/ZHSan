@@ -1179,7 +1179,7 @@ namespace GameObjects
                 leader.AdjustRelation(oldFaction.Leader, -20f, -10);
             }
 
-            leader.DecreaseKarma(Math.Max(50, 100 + oldFaction.Leader.Karma / 2));
+            leader.DecreaseKarma(Math.Max(25, 50 + oldFaction.Leader.Karma / 4));
 
             foreach (Person p in this.AvailablePersons)
             {
