@@ -3111,20 +3111,34 @@ namespace GameObjects
             }
             if (person2 == null && Session.GlobalVariables.PermitFactionMerge && !this.IsAlien)
             {
-                Faction maxFriendlyDiplomaticRelation = this.MaxFriendlyDiplomaticRelation;
-                if (maxFriendlyDiplomaticRelation != null)
+                float num = 0;
+                Faction diplomaticFaction = null;
+                foreach (DiplomaticRelation relation in Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelationListByFactionID(base.ID))
                 {
-                    Session.Current.Scenario.YearTable.addChangeFactionEntry(Session.Current.Scenario.Date, this, maxFriendlyDiplomaticRelation);
+                    if (relation.RelationFaction1 == null || relation.RelationFaction2 == null) continue;
+                    float attr = Person.GetIdealAttraction(relation.RelationFaction1.Leader, relation.RelationFaction2.Leader);
+                    if ((relation.Relation >= Session.GlobalVariables.FriendlyDiplomacyThreshold) && 
+                        (num < attr) &&
+                        !relation.RelationFaction1.IsAlien && !relation.RelationFaction2.IsAlien)
+                    {
+                        num = attr;
+                        diplomaticFaction = relation.GetDiplomaticFaction(base.ID);
+                    }
+                }
+
+                if (diplomaticFaction != null)
+                {
+                    Session.Current.Scenario.YearTable.addChangeFactionEntry(Session.Current.Scenario.Date, this, diplomaticFaction);
                     GameObjectList rebelCandidates = this.Persons.GetList();
-                    this.ChangeFaction(maxFriendlyDiplomaticRelation);
+                    this.ChangeFaction(diplomaticFaction);
                     foreach (Treasure treasure in leader.Treasures.GetList())
                     {
                         treasure.HidePlace = locationArchitecture;
                         leader.LoseTreasure(treasure);
                         treasure.Available = false;
                     }
-                    this.AfterChangeLeader(maxFriendlyDiplomaticRelation, rebelCandidates, leader, maxFriendlyDiplomaticRelation.Leader);
-                    return maxFriendlyDiplomaticRelation;
+                    this.AfterChangeLeader(diplomaticFaction, rebelCandidates, leader, diplomaticFaction.Leader);
+                    return diplomaticFaction;
                 }
             }
             if (person2 == null)
@@ -6698,27 +6712,6 @@ namespace GameObjects
                 return this.Legions.Count;
             }
         }
-
-        public Faction MaxFriendlyDiplomaticRelation
-        {
-            get
-            {
-                int num = 0;
-                Faction diplomaticFaction = null;
-                foreach (DiplomaticRelation relation in Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelationListByFactionID(base.ID))
-                {
-                    if (relation.RelationFaction1 == null || relation.RelationFaction2 == null) continue;
-                    if ((relation.Relation >= Session.GlobalVariables.FriendlyDiplomacyThreshold) && (num < relation.Relation) &&
-                        !relation.RelationFaction1.IsAlien && !relation.RelationFaction2.IsAlien)
-                    {
-                        num = relation.Relation;
-                        diplomaticFaction = relation.GetDiplomaticFaction(base.ID);
-                    }
-                }
-                return diplomaticFaction;
-            }
-        }
-
         [DataMember]
         public string MilitariesString { get; set; }
 
