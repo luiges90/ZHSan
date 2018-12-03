@@ -3111,7 +3111,7 @@ namespace GameObjects
             }
             if (person2 == null && Session.GlobalVariables.PermitFactionMerge && !this.IsAlien)
             {
-                float num = 0;
+                float num = -75;
                 Faction diplomaticFaction = null;
                 foreach (DiplomaticRelation relation in Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelationListByFactionID(base.ID))
                 {

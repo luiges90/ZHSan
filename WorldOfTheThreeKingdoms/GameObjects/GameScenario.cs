@@ -1302,7 +1302,6 @@ namespace GameObjects
 
             //clearupRepeatedOfficers();
 
-
             this.Troops.FinalizeQueue();
             this.Factions.BuildQueue(false);
 

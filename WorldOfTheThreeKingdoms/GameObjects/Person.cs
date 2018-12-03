@@ -1744,7 +1744,12 @@ namespace GameObjects
                 if (this.IsGeneratedChildren)
                 {
                     this.PersonBiography.Brief += Person.GenerateBiography(this);
+                    Person father = this.Father;
+                    Person mother = this.Mother;
+                    this.Reputation = (int)(Math.Min(200000, father.Reputation + mother.Reputation) * (GameObject.Random(100) / 100.0 * 0.05 + 0.025)) + father.childrenReputationIncrease + mother.childrenReputationIncrease;
+                    this.Karma = (int)(Math.Max(-2000, Math.Min(500, father.Karma + mother.Karma)) * (GameObject.Random(100) / 100.0 * 0.2 + 0.1));
                 }
+
                 this.IsGeneratedChildren = false;
                 ExtensionInterface.call("PersonBecomeAvailable", new Object[] { Session.Current.Scenario, this });
                 Session.Current.Scenario.PreparedAvailablePersons.Add(this);
@@ -4703,8 +4708,8 @@ namespace GameObjects
             v += (-Person.GetIdealOffset(target, src) * 0.6f + src.IdealTendency.Offset * 0.2f + target.IdealTendency.Offset * 0.2f) * idealFactor;
             v += target.GetRelation(src) / 100.0f;
             v += target.Glamour / 10.0f - 5.0f;
-            v -= Math.Abs(target.Karma - src.Karma) / 5.0f;
-            v += (float) (Math.Sign(target.Karma) * Math.Sqrt(Math.Abs(0.4 * target.Karma)));
+            v -= Math.Min(50.0f, Math.Abs(target.Karma - src.Karma) / 5.0f);
+            v += (float) (Math.Sign(target.Karma) * Math.Sqrt(Math.Abs(target.Karma)));
 
             if (Session.Current.Scenario.huangdisuozaijianzhu() != null)
             {
@@ -10022,7 +10027,8 @@ namespace GameObjects
             r.Ideal = GameObject.Chance(50) ? father.Ideal + GameObject.Random(10) - 5 : mother.Ideal + GameObject.Random(10) - 5;
             r.Ideal = (r.Ideal + 150) % 150;
 
-            //r.Reputation = (int)((father.Reputation + mother.Reputation) * (GameObject.Random(100) / 100.0 * 0.1 + 0.05)) + father.childrenReputationIncrease + mother.childrenReputationIncrease;
+            r.Reputation = (int)(Math.Min(200000, father.Reputation + mother.Reputation) * (GameObject.Random(100) / 100.0 * 0.05 + 0.025)) + father.childrenReputationIncrease + mother.childrenReputationIncrease;
+            r.Karma = (int)(Math.Max(-2000, Math.Min(500, father.Karma + mother.Karma)) * (GameObject.Random(100) / 100.0 * 0.2 + 0.1));
 
             r.PersonalLoyalty = (GameObject.Chance(50) ? father.PersonalLoyalty : mother.PersonalLoyalty) + GameObject.Random(3) - 1;
             if (r.PersonalLoyalty < 0) r.PersonalLoyalty = 0;
