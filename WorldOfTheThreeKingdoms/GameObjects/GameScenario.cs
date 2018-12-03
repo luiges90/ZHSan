@@ -5971,7 +5971,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
+                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 10));
                                                 }
                                             }
                                         }
@@ -6015,7 +6015,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
+                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 10));
                                                 }
                                             }
                                         }
@@ -6058,7 +6058,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
+                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 10));
                                                 }
                                             }
                                         }
@@ -6102,7 +6102,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
+                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 10));
                                                 }
                                             }
                                         }
@@ -6146,7 +6146,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
+                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 10));
                                                 }
                                             }
                                         }
@@ -6220,7 +6220,7 @@ namespace GameObjects
                                                 {
                                                     if (GameObject.Chance(100 / rels.Count))
                                                     {
-                                                        p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
+                                                        p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 10));
                                                     }
                                                 }
                                             }
@@ -6296,7 +6296,7 @@ namespace GameObjects
                                                 {
                                                     if (GameObject.Chance(100 / rels.Count))
                                                     {
-                                                        p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
+                                                        p.AdjustRelation(rel.Key, 0, Math.Min(10, rel.Value / 10));
                                                     }
                                                 }
                                             }
@@ -6393,7 +6393,7 @@ namespace GameObjects
                                                     {
                                                         if (GameObject.Chance(100 / rels.Count))
                                                         {
-                                                            p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 250));
+                                                            p.AdjustRelation(rel.Key, 0, Math.Min(5 * t.Level, rel.Value / 10));
                                                         }
                                                     }
                                                 }
