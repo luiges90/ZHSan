@@ -3695,9 +3695,9 @@ namespace GameObjects
                     Session.MainGame.mainGameScreen.xianshishijiantupian(this, this.BelongedFaction.Leader.Name, TextMessageKind.CreateAlly, "AllyDiplomaticRelation", "AllyDiplomaticRelation.jpg", "AllyDiplomaticRelation", this.TargetArchitecture.BelongedFaction.Name, true);
                     this.TargetArchitecture = this.LocationArchitecture;
                     this.AddPoliticsExperience(50);
-                    this.IncreaseKarma(20);
-                    this.BelongedFaction.Leader.IncreaseKarma(20);
-                    this.TargetArchitecture.BelongedFaction.Leader.IncreaseKarma(20);
+                    this.IncreaseKarma(10);
+                    this.BelongedFaction.Leader.IncreaseKarma(10);
+                    this.TargetArchitecture.BelongedFaction.Leader.IncreaseKarma(10);
                     this.IncreaseReputation(1000);
                     this.BelongedFaction.Leader.IncreaseReputation(1000);
                     this.TargetArchitecture.BelongedFaction.Leader.IncreaseReputation(1000);
