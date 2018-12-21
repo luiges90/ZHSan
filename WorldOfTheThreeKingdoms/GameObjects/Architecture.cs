@@ -2223,6 +2223,7 @@ namespace GameObjects
                         }
                     }
                     needRecruit = needRecruit && (GameObject.Chance(this.Persons.Count * 25) || (!need[0] && !need[1] && !need[2])); // 太少武将在城内时就不要补充了，先搞好内政更重要
+                    needRecruit = needRecruit && (this.Population > this.PopulationCeiling / 5);
                     if (needRecruit)
                     {
                         AutoRecruit();
