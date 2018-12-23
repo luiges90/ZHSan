@@ -165,7 +165,7 @@ namespace WorldOfTheThreeKingdomsEditor
                     string s2 = Newtonsoft.Json.JsonConvert.SerializeObject(scesList, Newtonsoft.Json.Formatting.Indented);
                     File.WriteAllText(scenariosPath, s2);
 
-                    MessageBox.Show("劇本已儲存為" + filename);
+                    MessageBox.Show("劇本已儲存為" + filename + "。CommonData已儲存為" + commonPath);
                 }
             }
             else
