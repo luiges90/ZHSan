@@ -114,6 +114,11 @@
                     <DataGrid x:Name="dgTreasure" />
                 </Grid>
             </TabItem>
+            <TabItem Header="列傳">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgBiography" />
+                </Grid>
+            </TabItem>
             <!-- common -->
             <TabItem Header="稱號">
                 <Grid Background="#FFE5E5E5">

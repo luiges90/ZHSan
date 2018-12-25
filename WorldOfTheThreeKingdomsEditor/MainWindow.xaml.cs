@@ -68,6 +68,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 new TroopEventTab(scen, dgTroopEvent, lblColumnHelp).setup();
                 new TreasureTab(scen, dgTreasure, lblColumnHelp).setup();
                 new FacilityTab(scen, dgFacility, lblColumnHelp).setup();
+                new BiographyTab(scen, dgBiography, lblColumnHelp).setup();
             }
 
             // Common
