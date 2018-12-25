@@ -66,6 +66,7 @@ namespace WorldOfTheThreeKingdomsEditor
             typeof(ConditionKind),
             typeof(InfluenceKind),
             typeof(TitleKind),
+            typeof(List<int>),
             typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind),
             typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind)
         };
@@ -292,6 +293,12 @@ namespace WorldOfTheThreeKingdomsEditor
                     DataColumn col = new DataColumn(name, 1.GetType());
                     col.DefaultValue = 0;
                     dt.Columns.Add(col);
+                } 
+                else if (type == typeof(List<int>))
+                {
+                    DataColumn col = new DataColumn(name, "".GetType());
+                    col.DefaultValue = "";
+                    dt.Columns.Add(col);
                 }
                 else
                 {
@@ -331,6 +338,10 @@ namespace WorldOfTheThreeKingdomsEditor
                     {
                         row[i.Name] = ((GameObjects.TroopDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
                     }
+                    else if (i.FieldType == typeof(List<int>))
+                    {
+                        row[i.Name] = ((List<int>)i.GetValue(p)).Aggregate<int, string>("", (s, x) => s += x.ToString() + " ");
+                    }
                     else
                     {
                         row[i.Name] = i.GetValue(p);
@@ -363,6 +374,10 @@ namespace WorldOfTheThreeKingdomsEditor
                         else if (i.PropertyType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
                         {
                             row[i.Name] = ((GameObjects.TroopDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
+                        }
+                        else if (i.PropertyType == typeof(List<int>))
+                        {
+                            row[i.Name] = ((List<int>)i.GetValue(p)).Aggregate<int, string>("", (s, x) => s += x.ToString() + " ");
                         }
                         else
                         {
@@ -463,6 +478,10 @@ namespace WorldOfTheThreeKingdomsEditor
                     {
                         i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)e.Row[i.Name]));
                     }
+                    else if (i.FieldType == typeof(List<int>))
+                    {
+                        i.SetValue(p, e.Row[i.Name].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select((x) => int.Parse(x)).ToList());
+                    }
                     else
                     {
                         if (e.Row[i.Name] != DBNull.Value)
@@ -496,6 +515,10 @@ namespace WorldOfTheThreeKingdomsEditor
                     else if (i.PropertyType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
                     {
                         i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)e.Row[i.Name]));
+                    }
+                    else if (i.PropertyType == typeof(List<int>))
+                    {
+                        i.SetValue(p, e.Row[i.Name].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select((x) => int.Parse(x)).ToList());
                     }
                     else
                     {
@@ -574,6 +597,10 @@ namespace WorldOfTheThreeKingdomsEditor
                     {
                         i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)item[i.Name]));
                     }
+                    else if (i.FieldType == typeof(List<int>))
+                    {
+                        i.SetValue(p, item[i.Name].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select((x) => int.Parse(x)).ToList());
+                    }
                     else
                     {
                         if (item[i.Name] != DBNull.Value)
@@ -607,6 +634,10 @@ namespace WorldOfTheThreeKingdomsEditor
                     else if (i.PropertyType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
                     {
                         i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)item[i.Name]));
+                    }
+                    else if (i.PropertyType == typeof(List<int>))
+                    {
+                        i.SetValue(p, item[i.Name].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select((x) => int.Parse(x)).ToList());
                     }
                     else
                     {
