@@ -29,6 +29,9 @@ namespace GameObjects
         public List<PersonDialog> Dialogs = new List<PersonDialog>();
 
         [DataMember]
+        public string dialogString { get; set; }
+
+        [DataMember]
         public string EffectAreasString { get; set; }
 
         public List<TroopEffectArea> EffectAreas = new List<TroopEffectArea>();
@@ -327,6 +330,7 @@ namespace GameObjects
 
         public void LoadDialogFromString(Dictionary<int, Person> persons, string data)
         {
+            if (data == null) return;
             char[] separator = new char[] { ' ', '\n', '\r', '\t' };
             string[] strArray = data.Split(separator, StringSplitOptions.RemoveEmptyEntries);
             this.Dialogs.Clear();

@@ -3638,6 +3638,8 @@ namespace GameObjects
 
                 //te.EffectAreasString = reader["EffectAreas"].ToString();
                 te.LoadEffectAreaFromString(this.GameCommonData.AllTroopEventEffects, te.EffectAreasString);
+
+                te.LoadDialogFromString(this.AllPersons, te.dialogString);
                 
                 this.TroopEvents.AddTroopEventWithEvent(te, false);
             }
@@ -4715,6 +4717,7 @@ namespace GameObjects
                     event2.SelfEffectsString = event2.SaveSelfEffectToString();
                     event2.EffectPersonsString = event2.SaveEffectPersonToString();
                     event2.EffectAreasString = event2.SaveEffectAreaToString();
+                    event2.dialogString = event2.SaveDialogToString();
                 }
             }
 

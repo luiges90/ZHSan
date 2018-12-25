@@ -35,6 +35,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 "Repeatable",
                 "AfterEventHappened",
                 "LaunchPersonString",
+                "dialogString",
                 "ConditionsString",
                 "HappenChance",
                 "TargetPersonsString",
