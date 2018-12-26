@@ -32,9 +32,20 @@ namespace WorldOfTheThreeKingdomsEditor
                 "ID",
                 "Kind",
                 "Name",
-                "Description",
                 "Parameter",
                 "Parameter2",
+            };
+        }
+
+        protected override Dictionary<String, String> GetHelpText()
+        {
+            return new Dictionary<string, string>()
+            {
+                {"Kind","对应种类" },
+                {"Name","名称" },
+                {"Combat","战斗" },
+                {"Parameter","参数" },
+                {"Parameter2","参数2" }
             };
         }
 

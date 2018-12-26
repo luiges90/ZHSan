@@ -44,16 +44,45 @@ namespace WorldOfTheThreeKingdomsEditor
                 "InformationsString",
                 "TroopsString",
                 "RoutewaysString",
-                "LegionsString",
                 "chaotinggongxiandu",
                 "guanjue",
                 "UpgradingTechnique",
                 "UpgradingDaysLeft",
                 "AvailableTechniquesString",
                 "PreferredTechniqueKinds",
-                "PlanTechnique",
                 "IsAlien",
                 "NotPlayerSelectable"
+            };
+        }
+
+         protected override Dictionary<String, String> GetHelpText()
+        {
+            return new Dictionary<string, string>()
+            {
+               {"Name","势力名"},
+               {"LeaderID","君主ID"},
+               {"PrinceID","储君ID"},
+               {"ColorIndex","颜色编号"},
+               {"FName","势力名"},
+               {"CapitalID","都城ID"},
+               {"Reputation","声望"},
+               {"ArchitecturesString","建筑列表"},
+               {"BaseMilitaryKindsString","基本兵种列表"},
+               {"TechniquePoint","技巧点数"},
+               {"TechniquePointForTechnique","为升级技巧所保留的技巧点数"},
+               {"TechniquePointForFacility","为建造设施所保留的技巧点数"},
+               {"SectionsString","军区列表"},
+               {"InformationsString","情报列表"},
+               {"TroopsString","部队列表"},
+               {"RoutewaysString","粮道列表"},
+               {"chaotinggongxiandu","朝廷贡献度"},
+               {"guanjue","官爵"},
+               {"UpgradingTechnique","正在升级中的技巧"},
+               {"UpgradingDaysLeft","正在升级中的技巧剩余时间"},
+               {"AvailableTechniquesString","已有技巧"},
+               {"PreferredTechniqueKinds","偏好技巧类别"},
+               {"IsAlien","异族"},
+               {"NotPlayerSelectable","玩家不可选" }
             };
         }
 

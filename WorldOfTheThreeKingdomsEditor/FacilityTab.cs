@@ -32,6 +32,15 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
+        protected override Dictionary<String, String> GetHelpText()
+        {
+            return new Dictionary<string, string>()
+            {
+                { "KindID","種類ID" },
+                {"Endurance","耐久" }
+            };
+        }
+
         public FacilityTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
             init(scen, dg, helpTextBlock);
