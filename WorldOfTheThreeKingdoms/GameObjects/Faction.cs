@@ -1716,7 +1716,7 @@ namespace GameObjects
 
         public void PersonRegroupTransfer(ArchitectureList archs)
         {
-            if (GameObject.Random(90) == 0)
+            if (GameObject.Random(30 / Session.Current.Scenario.Parameters.DayInTurn) == 0)
             {
                 foreach (Architecture a in archs)
                 {
