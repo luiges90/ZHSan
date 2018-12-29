@@ -1774,7 +1774,13 @@ namespace GameObjects
             int totalFrontline = 0;
             foreach (Architecture a in srcArch)
             {
-                totalPerson += a.PersonCount;
+                foreach (Person p in a.Persons)
+                {
+                    if (p.Command > 50)
+                    {
+                        totalPerson++;
+                    }
+                }
                 if (a.FrontLine)
                 {
                     totalFrontline++;

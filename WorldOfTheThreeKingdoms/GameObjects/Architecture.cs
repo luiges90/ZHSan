@@ -1783,7 +1783,7 @@ namespace GameObjects
             {
                 list.IsNumber = true;
                 list.SmallToBig = false;
-                list.PropertyName = "Merit";
+                list.PropertyName = this.FrontLine ? "FightingForce" : "Merit";
                 list.ReSort();
             }
             if (src != null)
