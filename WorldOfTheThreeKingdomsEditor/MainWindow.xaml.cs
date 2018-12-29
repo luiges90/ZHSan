@@ -409,6 +409,23 @@ namespace WorldOfTheThreeKingdomsEditor
                 personTab.setup();
             }
         }
+
+        private void btnRandomizeAvailableLocation_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("把所有武將的登場地點隨機化，是否確認？", "隨機化武將登場地點", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                foreach (Person p in scen.Persons)
+                {
+                    if (!p.Available)
+                    {
+                        p.AvailableLocation = scen.Architectures.GetRandomObject().ID;
+                    }
+                }
+                personTab.setup();
+            }
+        }
+
         private void btnRedoArchitectureLinks_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("重新計算並更新所有建築的連接。可能要花上數分鐘的時間，是否確認？", "重新設置城池連接", MessageBoxButton.OKCancel);
@@ -428,6 +445,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 architectureTab.setup();
             }
         }
+
 
         private void btnNewPerson_Click(object sender, RoutedEventArgs e)
         {
