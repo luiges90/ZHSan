@@ -2337,7 +2337,7 @@ namespace GameObjects
             */
         }
 
-        private void InitializeArchitectureMapTile()
+        public void InitializeArchitectureMapTile()
         {
             foreach (Architecture architecture in this.Architectures)
             {

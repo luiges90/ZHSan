@@ -370,6 +370,8 @@ namespace WorldOfTheThreeKingdomsEditor
             MessageBoxResult result = MessageBox.Show("重新計算並更新所有建築的連接。可能要花上數分鐘的時間，是否確認？", "重新設置城池連接", MessageBoxButton.OKCancel);
             if (result == MessageBoxResult.OK)
             {
+                scen.InitializeMapData();
+                scen.InitializeArchitectureMapTile();
                 foreach (Architecture architecture2 in scen.Architectures)
                 {
                     architecture2.AILandLinks.Clear();
