@@ -279,8 +279,6 @@ namespace GameGlobal
         public bool AutoMultipleMarriage = false;
         [DataMember]
         public bool BornHistoricalChildren = false;
-        [DataMember]
-        public bool PreloadAllMapTiles = true;
 
         public const string cryptKey = "A3g0c3%2";
 
@@ -309,7 +307,6 @@ namespace GameGlobal
             s.Add("FastBattleSpeed");
             s.Add("AutoSaveFrequency");
             s.Add("StopToControlOnAttack");
-            s.Add("PreloadAllMapTiles");
 
             return s;
         }
@@ -1122,15 +1119,6 @@ namespace GameGlobal
                 exception = exception24;
                 throw new Exception("hougongAlienOnly:\n" + exception.ToString());
             }
-            try
-            {
-                PreloadAllMapTiles = bool.Parse(nextSibling.Attributes.GetNamedItem("PreloadAllMapTiles").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("PreloadAllMapTiles:\n" + exception.ToString());
-            }
             return true;
         }
 
@@ -1231,7 +1219,6 @@ namespace GameGlobal
             element.SetAttribute("AutoMultipleMarriage", AutoMultipleMarriage.ToString());
             element.SetAttribute("BornHistoricalChildren", BornHistoricalChildren.ToString());
             element.SetAttribute("hougongAlienOnly", hougongAlienOnly.ToString());
-            element.SetAttribute("PreloadAllMapTiles", PreloadAllMapTiles.ToString());
 
             document.AppendChild(element);
         
