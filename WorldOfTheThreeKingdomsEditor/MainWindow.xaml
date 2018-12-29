@@ -33,7 +33,8 @@
                 <MenuItem Header="新增勢力" Click="btnNewFaction_Click"/>
                 <MenuItem Header="新增隨機武將" Click="btnNewPerson_Click" IsEnabled="False"/>
                 <Separator/>
-                <MenuItem Header="隨機化相性" Click="btnRandomizeIdeal_Click"/>
+                <MenuItem Header="隨機化武將相性" Click="btnRandomizeIdeal_Click"/>
+                <MenuItem Header="隨機化武將性格" Click="btnRandomizePersonality_Click"/>
                 <Separator/>
                 <MenuItem Header="重新設置城池連接" Click="btnRedoArchitectureLinks_Click"/>
             </MenuItem>

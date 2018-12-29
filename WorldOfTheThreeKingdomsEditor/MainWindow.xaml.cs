@@ -353,13 +353,35 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void btnRandomizeIdeal_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("把所有武將的相性及相性考慮隨機化，是否確認？", "隨機化相性", MessageBoxButton.OKCancel);
+            MessageBoxResult result = MessageBox.Show("把所有武將的相性及相性考慮隨機化，是否確認？", "隨機化武將相性", MessageBoxButton.OKCancel);
             if (result == MessageBoxResult.OK)
             {
                 foreach (Person p in scen.Persons)
                 {
                     p.Ideal = GameObject.Random(0, 149);
                     p.IdealTendencyIDString = scen.GameCommonData.AllIdealTendencyKinds.GetRandomObject().ID;
+                }
+                personTab.setup();
+            }
+        }
+
+        private void btnRandomizePersonality_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("把所有武將的各項性格隨機化，是否確認？", "隨機化武將性格", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                foreach (Person p in scen.Persons)
+                {
+                    List<GameObjects.PersonDetail.CharacterKind> ck = scen.GameCommonData.AllCharacterKinds;
+                    p.Character = ck[GameObject.Random(ck.Count)];
+
+                    p.PersonalLoyalty = GameObject.Random(5);
+                    p.Ambition = GameObject.Random(5);
+                    p.Qualification = (PersonQualification)GameObject.Random(Enum.GetNames(typeof(PersonQualification)).Length);
+                    p.Braveness = GameObject.Random(11);
+                    p.Calmness = GameObject.Random(11);
+                    p.ValuationOnGovernment = (PersonValuationOnGovernment)GameObject.Random(Enum.GetNames(typeof(PersonValuationOnGovernment)).Length);
+                    p.StrategyTendency = (PersonStrategyTendency)GameObject.Random(Enum.GetNames(typeof(PersonStrategyTendency)).Length);
                 }
                 personTab.setup();
             }
