@@ -19,6 +19,7 @@ using System.Data;
 using System.IO;
 using Tools;
 using GameGlobal;
+using GameObjects.FactionDetail;
 
 namespace WorldOfTheThreeKingdomsEditor
 {
@@ -446,6 +447,17 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
+        private void btnDeleteAllDiplomacy_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("刪除所有勢力外交關係，是否確認？", "刪除所有勢力外交關係", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                foreach (DiplomaticRelation relation in scen.DiplomaticRelations.DiplomaticRelations.Values)
+                {
+                    relation.Relation = 0;
+                }
+            }
+        }
 
         private void btnNewPerson_Click(object sender, RoutedEventArgs e)
         {
