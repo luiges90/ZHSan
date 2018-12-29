@@ -32,7 +32,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 "ID",
                 "CaptionID",
                 "Name",
-                "KindID",
+                "KindId",
                 "IsStrategicCenter",
                 "StateID",
                 "CharacteristicsString",
