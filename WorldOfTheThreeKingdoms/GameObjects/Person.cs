@@ -4751,11 +4751,11 @@ namespace GameObjects
             }
             if (src.Spouse == target)
             {
-                v += 15;
+                v += 10;
             }
             if (src.Brothers.GameObjects.Contains(target))
             {
-                v += 15;
+                v += 20;
             }
             if (src.Hates(target))
             {
