@@ -35,7 +35,7 @@
                 <Separator/>
                 <MenuItem Header="隨機化相性" Click="btnRandomizeIdeal_Click"/>
                 <Separator/>
-                <MenuItem Header="重新設置城池連接" Click="btnRedoArchitectureLinks_Click" IsEnabled="False"/>
+                <MenuItem Header="重新設置城池連接" Click="btnRedoArchitectureLinks_Click"/>
             </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
