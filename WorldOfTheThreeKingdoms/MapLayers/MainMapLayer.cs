@@ -436,7 +436,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
 
         public void freeTilesMemory(bool gc = true, bool clearAll = false)
         {
-            if (this.MapTiles != null)
+            if (this.MapTiles != null && !Session.GlobalVariables.PreloadAllMapTiles)
             {
                 var nums = GetCurrentViewMapTileNumsAll();
 
@@ -941,6 +941,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                     this.MapTiles[i, j] = new MapTile();
                     this.MapTiles[i, j].Position = new Point(i, j);
                     this.MapTiles[i, j].number = (i + j * Session.Current.Scenario.ScenarioMap.NumberOfTiles).ToString();
+                    if (Session.GlobalVariables.PreloadAllMapTiles)
+                    {
+                        CheckMapTileTexture(this.MapTiles[i, j]);
+                    }
                     /*TerrainDetail terrainDetailByPositionNoCheck = Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(this.Tiles[i, j].Position);
                     
                     if (terrainDetailByPositionNoCheck != null)
