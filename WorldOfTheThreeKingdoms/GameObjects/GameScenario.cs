@@ -5860,7 +5860,7 @@ namespace GameObjects
             foreach (Person p in this.Persons)
             {
                 //if (p.Trainable && GameObject.Random(30) == 0)
-                if (p.Trainable && GameObject.Random(20 / Session.Parameters.DayInTurn) == 0)
+                if (p.Trainable && GameObject.Random((int)(20 / Session.Current.Scenario.Parameters.AIExtraPerson / Session.Parameters.DayInTurn)) == 0)
                 {
                     if (p.TrainPolicy == null)
                     {
