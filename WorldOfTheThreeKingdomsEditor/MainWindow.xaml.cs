@@ -365,6 +365,24 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
+        private void btnRedoArchitectureLinks_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("重新計算並更新所有建築的連接。可能要花上數分鐘的時間，是否確認？", "重新設置城池連接", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                foreach (Architecture architecture2 in scen.Architectures)
+                {
+                    architecture2.AILandLinks.Clear();
+                    architecture2.AIWaterLinks.Clear();
+                }
+                foreach (Architecture architecture2 in scen.Architectures)
+                {
+                    architecture2.FindLinks(scen.Architectures);
+                }
+                architectureTab.setup();
+            }
+        }
+
         private void btnNewPerson_Click(object sender, RoutedEventArgs e)
         {
             NewPersonWindow newPersonWindow = new NewPersonWindow(scen);

@@ -34,6 +34,8 @@
                 <MenuItem Header="新增隨機武將" Click="btnNewPerson_Click" IsEnabled="False"/>
                 <Separator/>
                 <MenuItem Header="隨機化相性" Click="btnRandomizeIdeal_Click"/>
+                <Separator/>
+                <MenuItem Header="重新設置城池連接" Click="btnRedoArchitectureLinks_Click" IsEnabled="False"/>
             </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
