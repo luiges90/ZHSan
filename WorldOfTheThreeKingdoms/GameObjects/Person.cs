@@ -2028,8 +2028,8 @@ namespace GameObjects
                 }
                 yearDead += this.LongetivityIncreaseByInfluence;
 
-                if (Session.Current.Scenario.Date.Year < this.YearDead &&
-                    GameObject.Random(60) == 0 && GameObject.Chance((6 - (yearDead - Session.Current.Scenario.Date.Year)) * 18))
+                if (Session.Current.Scenario.Date.Year < this.YearDead && 
+                    GameObject.Random((this.YearDead - Session.Current.Scenario.Date.Year) * (100 + this.Strength) / Session.Parameters.DayInTurn) == 0)
                 {
                     this.InjureRate -= 0.1f;
                     Session.MainGame.mainGameScreen.OnOfficerSick(this);
