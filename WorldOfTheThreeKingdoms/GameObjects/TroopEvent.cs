@@ -342,6 +342,11 @@ namespace GameObjects
                 if (num2 >= 0)
                 {
                     item.SpeakingPerson = persons[num2];
+                    item.SpeakingPersonID = num2;
+                } else
+                {
+                    item.SpeakingPerson = null;
+                    item.SpeakingPersonID = -1;
                 }
                 item.Text = strArray[i + 1];
                 this.Dialogs.Add(item);
