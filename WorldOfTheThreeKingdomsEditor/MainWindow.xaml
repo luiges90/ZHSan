@@ -35,6 +35,7 @@
                 <Separator/>
                 <MenuItem Header="隨機化武將相性" Click="btnRandomizeIdeal_Click"/>
                 <MenuItem Header="隨機化武將性格" Click="btnRandomizePersonality_Click"/>
+                <MenuItem Header="隨機化武將壽命" Click="btnRandomizeDeadYear_Click"/>
                 <Separator/>
                 <MenuItem Header="重新設置城池連接" Click="btnRedoArchitectureLinks_Click"/>
             </MenuItem>

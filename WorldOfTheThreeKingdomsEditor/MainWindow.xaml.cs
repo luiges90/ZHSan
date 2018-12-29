@@ -387,6 +387,28 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
+        private void btnRandomizeDeadYear_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("把所有武將的壽命隨機化，是否確認？", "隨機化武將壽命", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                foreach (Person p in scen.Persons)
+                {
+                    if (p.Alive)
+                    {
+                        if (p.Available)
+                        {
+                            p.YearDead = Math.Max(p.YearAvailable + GameObject.RandomGaussianRange(1, 90 - (p.YearAvailable - p.YearBorn)), p.YearAvailable + GameObject.RandomGaussianRange(1, 10));
+                        }
+                        else
+                        {
+                            p.YearDead = p.YearBorn + GameObject.RandomGaussianRange(30, 90);
+                        }
+                    }
+                }
+                personTab.setup();
+            }
+        }
         private void btnRedoArchitectureLinks_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("重新計算並更新所有建築的連接。可能要花上數分鐘的時間，是否確認？", "重新設置城池連接", MessageBoxButton.OKCancel);
