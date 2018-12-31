@@ -376,7 +376,14 @@ namespace WorldOfTheThreeKingdomsEditor
                     List<GameObjects.PersonDetail.CharacterKind> ck = scen.GameCommonData.AllCharacterKinds;
                     p.Character = ck[GameObject.Random(ck.Count)];
 
-                    p.PersonalLoyalty = GameObject.Random(5);
+                    if (p.BelongedFaction != null && p.BelongedFaction.IsAlien)
+                    {
+                        p.PersonalLoyalty = GameObject.Random(2);
+                    }
+                    else
+                    {
+                        p.PersonalLoyalty = GameObject.Random(5);
+                    }
                     p.Ambition = GameObject.Random(5);
                     p.Qualification = (PersonQualification)GameObject.Random(Enum.GetNames(typeof(PersonQualification)).Length);
                     p.Braveness = GameObject.Random(11);
