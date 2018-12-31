@@ -2531,11 +2531,11 @@ namespace GameObjects
                                         i.Key.Spouse = this;
                                     }
 
-                                    if (!this.Spouse.suoshurenwuList.HasGameObject(i.Key))
+                                    if (this.Spouse != null && !this.Spouse.suoshurenwuList.HasGameObject(i.Key))
                                     {
                                         this.Spouse.suoshurenwuList.Add(i.Key);
                                     }
-                                    if (!i.Key.suoshurenwuList.HasGameObject(this.Spouse))
+                                    if (this.Spouse != null && !i.Key.suoshurenwuList.HasGameObject(this.Spouse))
                                     {
                                         i.Key.suoshurenwuList.Add(this.Spouse);
                                     }
@@ -2675,7 +2675,7 @@ namespace GameObjects
                                 {
                                     haizi.AvailableLocation = this.BelongedTroop.StartingArchitecture.ID;
                                 }
-                                else
+                                else if (this.BelongedArchitecture != null)
                                 {
                                     haizi.AvailableLocation = this.BelongedArchitecture.ID;
                                 }
