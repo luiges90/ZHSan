@@ -33,7 +33,14 @@
                 <MenuItem Header="新增勢力" Click="btnNewFaction_Click"/>
                 <MenuItem Header="新增隨機武將" Click="btnNewPerson_Click" IsEnabled="False"/>
                 <Separator/>
-                <MenuItem Header="隨機化相性" Click="btnRandomizeIdeal_Click"/>
+                <MenuItem Header="隨機化武將相性" Click="btnRandomizeIdeal_Click"/>
+                <MenuItem Header="隨機化武將性格" Click="btnRandomizePersonality_Click"/>
+                <MenuItem Header="隨機化武將壽命" Click="btnRandomizeDeadYear_Click"/>
+                <MenuItem Header="隨機化武將登場地點" Click="btnRandomizeAvailableLocation_Click"/>
+                <Separator/>
+                <MenuItem Header="刪除所有勢力外交關係" Click="btnDeleteAllDiplomacy_Click"/>
+                <Separator/>
+                <MenuItem Header="重新設置城池連接" Click="btnRedoArchitectureLinks_Click"/>
             </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">

@@ -19,6 +19,7 @@ using System.Data;
 using System.IO;
 using Tools;
 using GameGlobal;
+using GameObjects.FactionDetail;
 
 namespace WorldOfTheThreeKingdomsEditor
 {
@@ -353,7 +354,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void btnRandomizeIdeal_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("把所有武將的相性及相性考慮隨機化，是否確認？", "隨機化相性", MessageBoxButton.OKCancel);
+            MessageBoxResult result = MessageBox.Show("把所有武將的相性及相性考慮隨機化，是否確認？", "隨機化武將相性", MessageBoxButton.OKCancel);
             if (result == MessageBoxResult.OK)
             {
                 foreach (Person p in scen.Persons)
@@ -362,6 +363,106 @@ namespace WorldOfTheThreeKingdomsEditor
                     p.IdealTendencyIDString = scen.GameCommonData.AllIdealTendencyKinds.GetRandomObject().ID;
                 }
                 personTab.setup();
+            }
+        }
+
+        private void btnRandomizePersonality_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("把所有武將的各項性格隨機化，是否確認？", "隨機化武將性格", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                foreach (Person p in scen.Persons)
+                {
+                    List<GameObjects.PersonDetail.CharacterKind> ck = scen.GameCommonData.AllCharacterKinds;
+                    p.Character = ck[GameObject.Random(ck.Count)];
+
+                    if (p.BelongedFaction != null && p.BelongedFaction.IsAlien)
+                    {
+                        p.PersonalLoyalty = GameObject.Random(2);
+                    }
+                    else
+                    {
+                        p.PersonalLoyalty = GameObject.Random(5);
+                    }
+                    p.Ambition = GameObject.Random(5);
+                    p.Qualification = (PersonQualification)GameObject.Random(Enum.GetNames(typeof(PersonQualification)).Length);
+                    p.Braveness = GameObject.Random(11);
+                    p.Calmness = GameObject.Random(11);
+                    p.ValuationOnGovernment = (PersonValuationOnGovernment)GameObject.Random(Enum.GetNames(typeof(PersonValuationOnGovernment)).Length);
+                    p.StrategyTendency = (PersonStrategyTendency)GameObject.Random(Enum.GetNames(typeof(PersonStrategyTendency)).Length);
+                }
+                personTab.setup();
+            }
+        }
+
+        private void btnRandomizeDeadYear_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("把所有武將的壽命隨機化，是否確認？", "隨機化武將壽命", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                foreach (Person p in scen.Persons)
+                {
+                    if (p.Alive)
+                    {
+                        if (p.Available)
+                        {
+                            p.YearDead = Math.Max(p.YearAvailable + GameObject.RandomGaussianRange(1, 90 - (p.YearAvailable - p.YearBorn)), p.YearAvailable + GameObject.RandomGaussianRange(1, 10));
+                        }
+                        else
+                        {
+                            p.YearDead = p.YearBorn + GameObject.RandomGaussianRange(30, 90);
+                        }
+                    }
+                }
+                personTab.setup();
+            }
+        }
+
+        private void btnRandomizeAvailableLocation_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("把所有武將的登場地點隨機化，是否確認？", "隨機化武將登場地點", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                foreach (Person p in scen.Persons)
+                {
+                    if (!p.Available)
+                    {
+                        p.AvailableLocation = scen.Architectures.GetRandomObject().ID;
+                    }
+                }
+                personTab.setup();
+            }
+        }
+
+        private void btnRedoArchitectureLinks_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("重新計算並更新所有建築的連接。可能要花上數分鐘的時間，是否確認？", "重新設置城池連接", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                scen.InitializeMapData();
+                scen.InitializeArchitectureMapTile();
+                foreach (Architecture architecture2 in scen.Architectures)
+                {
+                    architecture2.AILandLinks.Clear();
+                    architecture2.AIWaterLinks.Clear();
+                }
+                foreach (Architecture architecture2 in scen.Architectures)
+                {
+                    architecture2.FindLinks(scen.Architectures);
+                }
+                architectureTab.setup();
+            }
+        }
+
+        private void btnDeleteAllDiplomacy_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("刪除所有勢力外交關係，是否確認？", "刪除所有勢力外交關係", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                foreach (DiplomaticRelation relation in scen.DiplomaticRelations.DiplomaticRelations.Values)
+                {
+                    relation.Relation = 0;
+                }
             }
         }
 

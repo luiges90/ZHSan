@@ -2332,8 +2332,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 case Difficulty.veryhard:
 
-                    this.nstDianNaoZiJing1.NowNumber = 6.0f;
-                    this.nstDianNaoLiangCao1.NowNumber = 6.0f;
+                    this.nstDianNaoZiJing1.NowNumber = 3.0f;
+                    this.nstDianNaoLiangCao1.NowNumber = 3.0f;
                     this.nstDianNaoShangHai1.NowNumber = 1.5f;
                     this.nstDianNaoBuDuiGongJi1.NowNumber = 1.2f;
                     this.nstDianNaoFangYu1.NowNumber = 1.5f;
@@ -2343,8 +2343,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.nstDianNaoBuDuiJingYan1.NowNumber = 4.0f;
                     this.nstDianNaoKangJi1.NowNumber = 0f;
                     this.nstDianNaoKangWei1.NowNumber = 0f;
-                    this.nstDianNaoZiJing2.NowNumber = 0.2f;
-                    this.nstDianNaoLiangCao2.NowNumber = 0.2f;
+                    this.nstDianNaoZiJing2.NowNumber = 0.05f;
+                    this.nstDianNaoLiangCao2.NowNumber = 0.05f;
                     this.nstDianNaoShangHai2.NowNumber = 0.02f;
                     this.nstDianNaoBuDuiGongJi2.NowNumber = 0.0f;
                     this.nstDianNaoFangYu2.NowNumber = 0.05f;
