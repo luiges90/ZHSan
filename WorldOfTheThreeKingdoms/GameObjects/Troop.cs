@@ -4133,7 +4133,7 @@ namespace GameObjects
             {
                 this.StartingArchitecture.AddMilitaryPopulationPack(
                     (int)(Session.Current.Scenario.GetDistance(this.Position, this.StartingArchitecture.ArchitectureArea) / 2.0) * Session.Parameters.DayInTurn,
-                    (int)(decrement * (1 - this.InjuryChance) * this.InjuryChance * Math.Max(0.1f, Math.Min(1, (100 - this.Morale) / 100.0f)))
+                    (int)(decrement * (1 - this.InjuryChance / 100.0f) * (this.InjuryChance / 100.0f) * Math.Max(0.1f, Math.Min(1, (100 - this.Morale) / 100.0f)))
                     );
             }
         }

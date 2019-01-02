@@ -11511,8 +11511,27 @@ namespace GameObjects
             {
                 if (this.BelongedFaction != null)
                 {
-                    this.Domination = (int)(((long)this.Domination * population) / this.Population);
-                    this.Morale = (int)(((long)this.Morale * population) / this.Population);
+                    float decrease = this.Domination - ((float) this.Domination * population) / this.Population;
+                    if (decrease > 1)
+                    {
+                        this.Domination -= (int) decrease;
+                        decrease -= (int)decrease;
+                    }
+                    if (GameObject.Chance((int) (decrease * 100)))
+                    {
+                        this.Domination--;
+                    }
+
+                    decrease = this.Morale - ((float)this.Morale * population) / this.Population;
+                    if (decrease > 1)
+                    {
+                        this.Morale -= (int)decrease;
+                        decrease -= (int)decrease;
+                    }
+                    if (GameObject.Chance((int)(decrease * 100)))
+                    {
+                        this.Morale--;
+                    }
                 }
                 if (this.OnPopulationEnter != null)
                 {
