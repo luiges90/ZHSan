@@ -11524,7 +11524,7 @@ namespace GameObjects
 
         private void ReceiveMilitaryPopulation(int quantity)
         {
-            int population = this.MilitaryPopulation;
+            this.ReceivePopulation(quantity);
             this.IncreaseMilitaryPopulation(quantity);
         }
 
