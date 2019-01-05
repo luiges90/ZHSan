@@ -6260,7 +6260,7 @@ namespace GameObjects
 
         private bool isPersonAllowedIntoTroop(Person person, Military military, bool offensive)
         {
-            bool r = person.LocationArchitecture == this && !person.TooTiredToBattle && GameObject.Random(person.Tiredness) == 0 && (person.Command >= military.Kind.MinCommand);
+            bool r = person.LocationArchitecture == this && !person.TooTiredToBattle && GameObject.Random(person.Tiredness / 5) == 0 && (person.Command >= military.Kind.MinCommand);
             foreach (KeyValuePair<Condition, float> c in military.Kind.AILeaderConditionWeight)
             {
                 if (c.Key.CheckCondition(person) && c.Value <= 0)
@@ -6300,7 +6300,7 @@ namespace GameObjects
                 pl.ReSort();
                 foreach (Person person in pl)
                 {
-                    if (!person.Selected && isPersonAllowedIntoTroop(person, military, offensive))
+                    if (!person.Selected && (!offensive || isPersonAllowedIntoTroop(person, military, offensive)))
                     {
                         if (person.HasMilitaryKindTitle(military.Kind))
                         {
