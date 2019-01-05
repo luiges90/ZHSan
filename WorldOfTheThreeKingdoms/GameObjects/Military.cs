@@ -1179,10 +1179,11 @@ namespace GameObjects
             get
             {
                 if (this.BelongedFaction == null) return 0;
-                int result = (int)(this.Kind.CreateCost + this.Experience * 5 + (this.FollowedLeader != null ? 1000 : this.LeaderExperience) / 1000.0 * 5000);
-                if (!this.IsShell && !this.BelongedFaction.AvailableMilitaryKinds.GetMilitaryKindList().GameObjects.Contains(this.RealMilitaryKind) || this.RealMilitaryKind.RecruitLimit == 1)
+                
+                int result = (int)(this.RealMilitaryKind.CreateCost + this.Experience * 5 + (this.FollowedLeader != null ? 1000 : this.LeaderExperience) / 1000.0 * 5000);
+                if (!this.BelongedFaction.AvailableMilitaryKinds.GetMilitaryKindList().GameObjects.Contains(this.RealMilitaryKind) || this.RealMilitaryKind.RecruitLimit == 1)
                 {
-                    result += 100000;
+                    result *= 2;
                 }
                 return result;
             }
@@ -1193,7 +1194,7 @@ namespace GameObjects
             get
             {
                 double retreatScaleRatio = Math.Min(0.5, this.RecoverCost / 50000.0);
-                return this.Kind.MaxScale / this.Kind.MinScale * retreatScaleRatio;
+                return this.RealMilitaryKind.MaxScale / this.RealMilitaryKind.MinScale * retreatScaleRatio;
             }
         }
 
@@ -1203,7 +1204,14 @@ namespace GameObjects
             {
                 if (this.BelongedFaction == null) return false;
                 if (this.IsTransport) return false;
-                return this.Scales < this.RetreatScale;
+                if (this.IsShell)
+                {
+                    return this.Quantity / this.RealMilitaryKind.MinScale < this.RetreatScale;
+                }
+                else
+                {
+                    return this.Scales < this.RetreatScale;
+                }
             }
         }
 
