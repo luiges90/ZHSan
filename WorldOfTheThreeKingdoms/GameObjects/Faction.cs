@@ -1149,10 +1149,8 @@ namespace GameObjects
                     int maxPop = 0;
                     foreach (Architecture b in this.Architectures)
                     {
-                        if (a == b) continue;
                         if (!b.withoutTruceFrontline && !b.JustAttacked && !b.HasHostileTroopsInView() &&
-                            (b.Meinvkongjian > b.Feiziliebiao.Count || b.BelongedFaction.IsAlien) && 
-                            (a.withoutTruceFrontline || b.Meinvkongjian > a.Meinvkongjian))
+                            (b.Meinvkongjian > b.Feiziliebiao.Count || b.BelongedFaction.IsAlien))
                         {
                             if (b.Endurance > maxPop)
                             {
@@ -1165,10 +1163,8 @@ namespace GameObjects
                     {
                         foreach (Architecture b in this.Architectures)
                         {
-                            if (a == b) continue;
                             if (b.RecentlyAttacked <= 0 && b.RecentlyBreaked <= 0 &&
-                                (b.Meinvkongjian > b.Feiziliebiao.Count || b.BelongedFaction.IsAlien) &&
-                                (a.withoutTruceFrontline || b.Meinvkongjian > a.Meinvkongjian))
+                                (b.Meinvkongjian > b.Feiziliebiao.Count || b.BelongedFaction.IsAlien))
                             {
                                 if (b.Endurance > maxPop)
                                 {
@@ -1189,9 +1185,12 @@ namespace GameObjects
                         int moved = 0;
                         foreach (Person p in list)
                         {
-                            p.MoveToArchitecture(dest);
-                            moved++;
-                            if (moved >= cnt) break;
+                            if (p.ArrivingDays <= 0 && p.LocationArchitecture != a)
+                            {
+                                p.MoveToArchitecture(dest);
+                                moved++;
+                                if (moved >= cnt) break;
+                            }
                         }
                     }
                 }
