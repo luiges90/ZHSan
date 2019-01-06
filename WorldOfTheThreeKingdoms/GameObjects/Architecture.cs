@@ -12853,7 +12853,12 @@ namespace GameObjects
                         num += legion.FoodCostPerDay * 80;
                     }
                 }
-                int num2 = (((int)(Math.Sqrt((double)this.Population) * 400.0)) + (this.FoodCostPerDayOfAllMilitaries * 80)) + num;
+                int factor = 80;
+                if (HasHostileTroopsInView())
+                {
+                    factor = 180;
+                }
+                int num2 = (((int)(Math.Sqrt((double)this.Population) * 400.0)) + (this.FoodCostPerDayOfAllMilitaries * factor)) + num;
                 if (!this.HostileLine)
                 {
                     num2 /= 2;
@@ -13390,7 +13395,14 @@ namespace GameObjects
                         num += legion.FoodCostPerDay * 30;
                     }
                 }
-                int num2 = this.FoodCostPerDayOfAllMilitaries * 30 + num;
+                int factor = 30;
+                if (HasHostileTroopsInView())
+                {
+                    factor = 180;
+                }
+
+                int num2 = this.FoodCostPerDayOfAllMilitaries * factor + num;
+                
                 return num2;
             }
         }
