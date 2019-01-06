@@ -1144,6 +1144,11 @@ namespace GameObjects
                 newFaction.AvailableTechniques.AddTechnique(tech);
             }
 
+            if (oldFaction.IsAlien && leader.PersonalLoyalty < 2)
+            {
+                newFaction.IsAlien = true;
+            }
+
             newFaction.Capital = newFactionCapital;
 
             if (leader.BelongedFaction == null)
