@@ -406,7 +406,7 @@ namespace WorldOfTheThreeKingdomsEditor
                     {
                         if (p.Available)
                         {
-                            p.YearDead = Math.Max(p.YearAvailable + GameObject.RandomGaussianRange(1, 90 - (p.YearAvailable - p.YearBorn)), p.YearAvailable + GameObject.RandomGaussianRange(1, 10));
+                            p.YearDead = Math.Max(p.YearBorn + GameObject.RandomGaussianRange(30, 90), p.YearAvailable + GameObject.RandomGaussianRange(1, 10));
                         }
                         else
                         {
