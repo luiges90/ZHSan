@@ -9825,7 +9825,7 @@ namespace GameObjects
             String[] order = new String[] { "长", "次", "三", "四", "五", "六", "七", "八" };
             biography += r.Father.Name + "之" + (fatherChildCount > 7 ? "" : order[fatherChildCount]) + (r.Sex ? "女" : "子") + "，" +
                 r.Mother.Name + "之" + (motherChildCount > 7 ? "" : order[motherChildCount]) + (r.Sex ? "女" : "子") + "。" +
-                "在" + Session.Current.Scenario.Date.Year + "年" + Session.Current.Scenario.Date.Month + "月于" + bornArch.Name + "出生。";
+                "在" + Session.Current.Scenario.Date.Year + "年" + Session.Current.Scenario.Date.Month + "月于" + (bornArch == null ? "" : bornArch.Name) + "出生。";
 
             Person root = father;
             while (root.Father != null)
