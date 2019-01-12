@@ -2598,16 +2598,14 @@ namespace GameObjects
                         }
 
                         Person p = Session.Current.Scenario.Persons.GetGameObject(this.suoshurenwu) as Person;
-                        if (!this.Hates(p) && !p.Hates(this))
-                        {
-                            this.AdjustRelation(p, 2f, -5);
-                            p.AdjustRelation(this, 2f, -5);
 
-                            if (this.LocationArchitecture == p.LocationArchitecture)
-                            {
-                                this.AdjustRelation(p, 2f, 0);
-                                p.AdjustRelation(this, 2f, 0);
-                            }
+                        this.AdjustRelation(p, 2f, -5);
+                        p.AdjustRelation(this, 2f, -5);
+
+                        if (this.LocationArchitecture == p.LocationArchitecture)
+                        {
+                            this.AdjustRelation(p, 2f, 0);
+                            p.AdjustRelation(this, 2f, 0);
                         }
                     }
                     else if (GameObject.Chance((this.huaiyuntianshu - 290) * 5))
@@ -2693,18 +2691,10 @@ namespace GameObjects
                                     Session.Current.Scenario.haizichusheng(haizi, haizifuqin, this, origChildren.Count > 0);
                                 }
 
-                                if (!this.Hates(haizifuqin) && !haizifuqin.Hates(this))
-                                {
-                                    this.AdjustRelation(haizifuqin, 3f, -5);
-                                    haizifuqin.AdjustRelation(this, 3f, -5);
+                                this.AdjustRelation(haizifuqin, 3f, -5);
+                                haizifuqin.AdjustRelation(this, 3f, -5);
 
-                                    if (this.LocationArchitecture == haizifuqin.LocationArchitecture)
-                                    {
-                                        this.AdjustRelation(haizifuqin, 3f, 0);
-                                        haizifuqin.AdjustRelation(this, 3f, 0);
-                                    }
-                                }
-                                else if (this.LocationArchitecture == haizifuqin.LocationArchitecture)
+                                if (this.LocationArchitecture == haizifuqin.LocationArchitecture)
                                 {
                                     this.AdjustRelation(haizifuqin, 3f, 0);
                                     haizifuqin.AdjustRelation(this, 3f, 0);
@@ -10520,11 +10510,6 @@ namespace GameObjects
                 }
 
                 makeHateCausedByAffair(this, nvren, this);
-
-                if (nvren.Hates(this) && GameObject.Chance(20))
-                {
-                    this.DecreaseKarma(1);
-                }
 
                 if (GameObject.Chance(20) && nvren.GetRelation(this) >= Session.Parameters.VeryCloseThreshold && nvren.Spouse == null && 
                     this.isLegalFeiZi(nvren, true) && nvren.isLegalFeiZi(this, true) && !this.Hates(nvren))
