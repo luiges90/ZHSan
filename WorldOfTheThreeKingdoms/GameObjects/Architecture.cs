@@ -3322,7 +3322,7 @@ namespace GameObjects
 
         private void AITrade()
         {
-            if ((Session.Current.Scenario.Date.Day % Session.Parameters.AITradePeriod) == 1)
+            if ((Session.Current.Scenario.Date.Day % Session.Parameters.AITradePeriod) <= Session.Current.Scenario.Parameters.DayInTurn)
             {
                 int num;
                 if (this.BuyFoodAvail())

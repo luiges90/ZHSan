@@ -270,7 +270,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 this.SwichMusic(season);
             }
-            if (!Session.Current.Scenario.Threading&&Session.Current.Scenario.Date.Day==1)
+            if (!Session.Current.Scenario.Threading&&Session.Current.Scenario.Date.Day <= Session.Current.Scenario.Parameters.DayInTurn)
             {
                 Session.Current.Scenario.SeasonChangeEvent();
                 

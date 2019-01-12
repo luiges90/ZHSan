@@ -4197,7 +4197,7 @@ namespace GameObjects
             if (!scenarioJustLoaded)
             {
                 ExtensionInterface.call("SeasonEvent", new Object[] { this });
-                if ((this.Date.Month == 3 || this.Date.Month == 6 || this.Date.Month == 9 || this.Date.Month == 12) && this.Date.Day == 1)
+                if ((this.Date.Month == 3 || this.Date.Month == 6 || this.Date.Month == 9 || this.Date.Month == 12) && this.Date.Day <= Session.Current.Scenario.Parameters.DayInTurn)
                 {
                     foreach (Faction faction in this.Factions.GetRandomList())
                     {

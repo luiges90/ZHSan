@@ -188,7 +188,7 @@ namespace GameObjects
             {
                 return false;
             }
-            if (this.Day == 1)
+            if (this.Day <= Session.Current.Scenario.Parameters.DayInTurn)
             {
                 if ((this.OnMonthStarting != null) && !this.OnMonthStarting())
                 {
