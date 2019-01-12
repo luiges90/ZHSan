@@ -1174,6 +1174,21 @@ namespace GameObjects
                             }
                         }
                     }
+                    if (dest == null)
+                    {
+                        foreach (Architecture b in this.Architectures)
+                        {
+                            if (b.Endurance > 30 &&
+                                (b.Meinvkongjian > b.Feiziliebiao.Count || b.BelongedFaction.IsAlien))
+                            {
+                                if (b.Endurance > maxPop)
+                                {
+                                    maxPop = b.Endurance;
+                                    dest = b;
+                                }
+                            }
+                        }
+                    }
                     if (dest != null)
                     {
                         int cnt = dest.BelongedFaction.IsAlien ? 9999 : dest.Meinvkongjian - dest.Feiziliebiao.Count;
@@ -1185,7 +1200,7 @@ namespace GameObjects
                         int moved = 0;
                         foreach (Person p in list)
                         {
-                            if (p.ArrivingDays <= 0 && p.LocationArchitecture != a)
+                            if (p.ArrivingDays <= 0 && p.LocationArchitecture != dest)
                             {
                                 p.MoveToArchitecture(dest);
                                 moved++;
@@ -1615,8 +1630,8 @@ namespace GameObjects
             this.AIZhaoXian();
             this.AIAppointMayor();
             this.AIHouGong();
-            this.AITransfer();
             this.AIArchitectures();
+            this.AITransfer();
             this.AILegions();
             this.AITrainChildren();
             this.AIFinished = true;
@@ -2496,7 +2511,7 @@ namespace GameObjects
 
         private void AIPrepare()
         {
-            if ((Session.Current.Scenario.Date.Day == 1) && ((Session.Current.Scenario.Date.Month % 3) == 1))
+            if ((Session.Current.Scenario.Date.Day <= Session.Current.Scenario.Parameters.DayInTurn) && ((Session.Current.Scenario.Date.Month % 3) == 1))
             {
                 foreach (Architecture architecture in this.Architectures)
                 {
@@ -3634,7 +3649,8 @@ namespace GameObjects
             if (Session.GlobalVariables.ZhaoXianSuccessRate <= 0) return;
 
             if (Session.Current.Scenario.IsPlayer(this)) return;
-            
+
+            int feiziCount = this.feiziCount();
             foreach (Architecture a in this.Architectures)
             {
                 while (a.CanZhaoXian() && !a.HasEnoughPeople && (PersonCount <= 1 || a.IsFundEnough))
@@ -3656,6 +3672,13 @@ namespace GameObjects
                         if (t.CostFund + eFund < a.Fund)
                         {
                             weights[t] = t.CostFund * t.generationChance;
+                            if (Session.Current.Scenario.GlobalVariables.hougongGetChildrenRate > 0)
+                            {
+                                if (this.IsAlien && feiziCount <= 0 && t.genderFix == 1)
+                                {
+                                    weights[t] *= 10;
+                                }
+                            }
                         }
                     }
                     
@@ -5371,7 +5394,7 @@ namespace GameObjects
 
         private void RefrehCreatePersonTimes()
         {
-            if (Session.Current.Scenario.Date.Day == 1)
+            if (Session.Current.Scenario.Date.Day <= Session.Current.Scenario.Parameters.DayInTurn)
             {
                 this.ZhaoxianFailureCount = 0;
             }
@@ -6315,6 +6338,10 @@ namespace GameObjects
                 foreach (Architecture architecture in this.Architectures)
                 {
                     num += architecture.ArmyQuantity;
+                }
+                foreach (Military m in this.TransferingMilitaries)
+                {
+                    num += m.Quantity;
                 }
                 foreach (Troop troop in this.Troops)
                 {
