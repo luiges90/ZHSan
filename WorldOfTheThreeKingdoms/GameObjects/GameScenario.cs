@@ -5966,7 +5966,7 @@ namespace GameObjects
                                 {
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
-                                    if (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q)) continue;
+                                    if (GameObject.Chance(85 - q.Ambition * 15) && (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q))) continue;
                                     if (GameObject.Chance((int)((q.Strength - p.Strength + 50 + q.childrenAbilityIncrease) * ((float)p.StrengthPotential / p.Strength))))
                                     {
                                         p.Strength += GameObject.Random(Math.Max((p.StrengthPotential * 6 / 5 - p.Strength) / 10, 1) + 1);
@@ -6011,7 +6011,7 @@ namespace GameObjects
                                 {
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
-                                    if (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q)) continue;
+                                    if (GameObject.Chance(85 - q.Ambition * 15) && (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q))) continue;
                                     if (GameObject.Chance((int)((q.Command - p.Command + 50 + q.childrenAbilityIncrease) * ((float)p.CommandPotential / p.Command))))
                                     {
                                         p.Command += GameObject.Random(Math.Max((p.CommandPotential * 6 / 5 - p.Command) / 10, 1) + 1);
@@ -6055,7 +6055,7 @@ namespace GameObjects
                                 {
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
-                                    if (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q)) continue;
+                                    if (GameObject.Chance(85 - q.Ambition * 15) && (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q))) continue;
                                     if (GameObject.Chance((int)((q.Intelligence - p.Intelligence + 50 + q.childrenAbilityIncrease) * ((float)p.IntelligencePotential / p.Intelligence))))
                                     {
                                         p.Intelligence += GameObject.Random(Math.Max((p.IntelligencePotential * 6 / 5 - p.Intelligence) / 10, 1) + 1);
@@ -6100,7 +6100,7 @@ namespace GameObjects
                                 {
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
-                                    if (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q)) continue;
+                                    if (GameObject.Chance(85 - q.Ambition * 15) && (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q))) continue;
                                     if (GameObject.Chance((int)((q.Politics - p.Politics + 50 + q.childrenAbilityIncrease) * ((float)p.PoliticsPotential / p.Politics))))
                                     {
                                         p.Politics += GameObject.Random(Math.Max((p.PoliticsPotential * 6 / 5 - p.Politics) / 10, 1) + 1);
@@ -6145,7 +6145,7 @@ namespace GameObjects
                                 {
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
-                                    if (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q)) continue;
+                                    if (GameObject.Chance(85 - q.Ambition * 15) && (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q))) continue;
                                     if (GameObject.Chance((int)((q.Glamour - p.Glamour + 50 + q.childrenAbilityIncrease) * ((float)p.GlamourPotential / p.Glamour))))
                                     {
                                         p.Glamour += GameObject.Random(Math.Max((p.GlamourPotential * 6 / 5 - p.Glamour) / 10, 1) + 1);
@@ -6190,7 +6190,7 @@ namespace GameObjects
                                 {
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
-                                    if (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q)) continue;
+                                    if (GameObject.Chance(85 - q.Ambition * 15) && (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q))) continue;
                                     if (q.Skills.Count <= 0) continue;
                                     List<Skill> skillToTeach = new List<Skill>();
                                     foreach (Skill s in q.Skills.Skills.Values)
@@ -6267,7 +6267,7 @@ namespace GameObjects
                                 {
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
-                                    if (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q)) continue;
+                                    if (GameObject.Chance(85 - q.Ambition * 15) && (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q))) continue;
                                     List<Stunt> stuntToTeach = new List<Stunt>();
                                     foreach (Stunt s in q.Stunts.Stunts.Values)
                                     {
@@ -6344,7 +6344,7 @@ namespace GameObjects
                                 {
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
-                                    if (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q)) continue;
+                                    if (GameObject.Chance(85 - q.Ambition * 15) && (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q))) continue;
                                     List<Title> toTeach = q.Titles;
                                     int maxLevel = 1;
                                     foreach (Title t in toTeach)
