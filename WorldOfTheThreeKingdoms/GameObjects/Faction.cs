@@ -2702,13 +2702,17 @@ namespace GameObjects
                             this.Architectures.IsNumber = true;
                             this.Architectures.ReSort();
                         }
-                        this.PlanTechniqueArchitecture = this.Architectures[0] as Architecture;
-                        if (this.PlanTechniqueArchitecture.Fund >= this.getTechniqueActualFundCost(this.PlanTechnique))
+                        Architecture a = this.Architectures[0] as Architecture;
+                        if (a.IsFundEnough)
                         {
-                            this.DepositTechniquePointForTechnique(this.TechniquePointForTechnique);
-                            this.UpgradeTechnique(this.PlanTechnique, this.PlanTechniqueArchitecture);
-                            this.PlanTechniqueArchitecture = null;
-                            this.PlanTechnique = null;
+                            this.PlanTechniqueArchitecture = this.Architectures[0] as Architecture;
+                            if (this.PlanTechniqueArchitecture.Fund >= this.getTechniqueActualFundCost(this.PlanTechnique))
+                            {
+                                this.DepositTechniquePointForTechnique(this.TechniquePointForTechnique);
+                                this.UpgradeTechnique(this.PlanTechnique, this.PlanTechniqueArchitecture);
+                                this.PlanTechniqueArchitecture = null;
+                                this.PlanTechnique = null;
+                            }
                         }
                     }
                     else if ((this.Reputation >= this.getTechniqueActualReputation(this.PlanTechnique)) && GameObject.Chance(0x21))
