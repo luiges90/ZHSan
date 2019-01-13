@@ -2599,13 +2599,16 @@ namespace GameObjects
 
                         Person p = Session.Current.Scenario.Persons.GetGameObject(this.suoshurenwu) as Person;
 
-                        this.AdjustRelation(p, 2f, -5);
-                        p.AdjustRelation(this, 2f, -5);
-
-                        if (this.LocationArchitecture == p.LocationArchitecture)
+                        if (this.Status != PersonStatus.Princess || !this.WillHateIfChongxing)
                         {
-                            this.AdjustRelation(p, 2f, 0);
-                            p.AdjustRelation(this, 2f, 0);
+                            this.AdjustRelation(p, 2f, -5);
+                            p.AdjustRelation(this, 2f, -5);
+
+                            if (this.LocationArchitecture == p.LocationArchitecture)
+                            {
+                                this.AdjustRelation(p, 2f, 0);
+                                p.AdjustRelation(this, 2f, 0);
+                            }
                         }
                     }
                     else if (GameObject.Chance((this.huaiyuntianshu - 290) * 5))
@@ -2691,13 +2694,16 @@ namespace GameObjects
                                     Session.Current.Scenario.haizichusheng(haizi, haizifuqin, this, origChildren.Count > 0);
                                 }
 
-                                this.AdjustRelation(haizifuqin, 3f, -5);
-                                haizifuqin.AdjustRelation(this, 3f, -5);
-
-                                if (this.LocationArchitecture == haizifuqin.LocationArchitecture)
+                                if (this.Status != PersonStatus.Princess || !this.WillHateIfChongxing)
                                 {
-                                    this.AdjustRelation(haizifuqin, 3f, 0);
-                                    haizifuqin.AdjustRelation(this, 3f, 0);
+                                    this.AdjustRelation(haizifuqin, 3f, -5);
+                                    haizifuqin.AdjustRelation(this, 3f, -5);
+
+                                    if (this.LocationArchitecture == haizifuqin.LocationArchitecture)
+                                    {
+                                        this.AdjustRelation(haizifuqin, 3f, 0);
+                                        haizifuqin.AdjustRelation(this, 3f, 0);
+                                    }
                                 }
 
                                 if (this.Father != null)
@@ -5362,45 +5368,64 @@ namespace GameObjects
         {
             if (GameObject.Chance(20) && this.LocationArchitecture != null && this.Status == PersonStatus.Normal && this.BelongedFaction != null && this.BelongedFaction.Leader != this && !this.IsCaptive)
             {
-                if ((this.Loyalty < 50) && (GameObject.Random(this.Loyalty * (1 + (int)this.PersonalLoyalty)) <= GameObject.Random(5)))
+                bool stay = false;
+                if (this.Spouse != null && this.Spouse.SameLocationAs(this))
                 {
-                    this.LeaveToNoFaction();
-                    ExtensionInterface.call("LeaveFaction", new Object[] { Session.Current.Scenario, this });
+                    stay = true;
                 }
-                /*else if (((Session.GlobalVariables.IdealTendencyValid && (this.IdealTendency != null)) && (this.IdealTendency.Offset <= 1)) && (this.BelongedFaction.Leader != null))
+                else
                 {
-                    int idealOffset = GetIdealOffset(this, this.BelongedFaction.Leader);
-                    if (idealOffset > this.IdealTendency.Offset + (double) this.BelongedFaction.Reputation / this.BelongedFaction.MaxPossibleReputation * 75)
+                    foreach (Person p in this.Brothers)
                     {
-                        GameObjectList list = new GameObjectList();
-                        foreach (GameObjects.Faction faction in Session.Current.Scenario.Factions)
+                        if (p.SameLocationAs(this))
                         {
-                            if (((faction != this.BelongedFaction) && (faction.Leader != null)) && (GetIdealOffset(this, faction.Leader) <= this.IdealTendency.Offset)
-                                && !this.HatedPersons.Contains(faction.LeaderID))
-                            {
-                                list.Add(faction);
-                            }
-                        }
-                        if (list.Count > 0)
-                        {
-                            GameObjects.Faction faction2 = list[GameObject.Random(list.Count)] as GameObjects.Faction;
-                            if ((faction2.Capital != null) && ((((this.PersonalLoyalty < (int) PersonLoyalty.很高) || ((this.Father >= 0) && (this.Father == faction2.Leader.ID))) || ((this.Brother >= 0) && (this.Brother == faction2.Leader.Brother))) || (idealOffset > 10)))
-                            {
-                                this.LeaveToNoFaction();
-                                this.MoveToArchitecture(faction2.Capital);
-								ExtensionInterface.call("LeaveFaction", new Object[] { Session.Current.Scenario, this });
-                                //this.LocationArchitecture.RemoveNoFactionPerson(this);
-                                //Session.Current.Scenario.detectDuplication();
-                            }
+                            stay = true;
                         }
                     }
-                }*/
-                if ((this.BelongedFaction != null) && (this.BelongedFaction.Leader != null) && this.Hates(this.BelongedFaction.Leader) && (GameObject.Random(this.Loyalty * (1 + (int)this.PersonalLoyalty)) <= GameObject.Random(5)))
+                }
+
+                if (!stay)
                 {
-                    this.LeaveToNoFaction();
-                    ArchitectureList allArch = Session.Current.Scenario.Architectures;
-                    this.MoveToArchitecture(allArch[GameObject.Random(allArch.Count)] as Architecture);
-                    ExtensionInterface.call("LeaveFaction", new Object[] { Session.Current.Scenario, this });
+                    if ((this.Loyalty < 50) && (GameObject.Random(this.Loyalty * (1 + (int)this.PersonalLoyalty)) <= GameObject.Random(5)))
+                    {
+                        this.LeaveToNoFaction();
+                        ExtensionInterface.call("LeaveFaction", new Object[] { Session.Current.Scenario, this });
+                    }
+                    /*else if (((Session.GlobalVariables.IdealTendencyValid && (this.IdealTendency != null)) && (this.IdealTendency.Offset <= 1)) && (this.BelongedFaction.Leader != null))
+                    {
+                        int idealOffset = GetIdealOffset(this, this.BelongedFaction.Leader);
+                        if (idealOffset > this.IdealTendency.Offset + (double) this.BelongedFaction.Reputation / this.BelongedFaction.MaxPossibleReputation * 75)
+                        {
+                            GameObjectList list = new GameObjectList();
+                            foreach (GameObjects.Faction faction in Session.Current.Scenario.Factions)
+                            {
+                                if (((faction != this.BelongedFaction) && (faction.Leader != null)) && (GetIdealOffset(this, faction.Leader) <= this.IdealTendency.Offset)
+                                    && !this.HatedPersons.Contains(faction.LeaderID))
+                                {
+                                    list.Add(faction);
+                                }
+                            }
+                            if (list.Count > 0)
+                            {
+                                GameObjects.Faction faction2 = list[GameObject.Random(list.Count)] as GameObjects.Faction;
+                                if ((faction2.Capital != null) && ((((this.PersonalLoyalty < (int) PersonLoyalty.很高) || ((this.Father >= 0) && (this.Father == faction2.Leader.ID))) || ((this.Brother >= 0) && (this.Brother == faction2.Leader.Brother))) || (idealOffset > 10)))
+                                {
+                                    this.LeaveToNoFaction();
+                                    this.MoveToArchitecture(faction2.Capital);
+                                    ExtensionInterface.call("LeaveFaction", new Object[] { Session.Current.Scenario, this });
+                                    //this.LocationArchitecture.RemoveNoFactionPerson(this);
+                                    //Session.Current.Scenario.detectDuplication();
+                                }
+                            }
+                        }
+                    }*/
+                    if ((this.BelongedFaction != null) && (this.BelongedFaction.Leader != null) && this.Hates(this.BelongedFaction.Leader) && (GameObject.Random(this.Loyalty * (1 + (int)this.PersonalLoyalty)) <= GameObject.Random(5)))
+                    {
+                        this.LeaveToNoFaction();
+                        ArchitectureList allArch = Session.Current.Scenario.Architectures;
+                        this.MoveToArchitecture(allArch[GameObject.Random(allArch.Count)] as Architecture);
+                        ExtensionInterface.call("LeaveFaction", new Object[] { Session.Current.Scenario, this });
+                    }
                 }
             }
         }
@@ -7790,11 +7815,11 @@ namespace GameObjects
                         }
                     }
                    
-                    if (this.Father != null && this.Father.BelongedFaction == this.BelongedFaction)
+                    if (this.Father != null && this.Father.BelongedFactionWithPrincess == this.BelongedFactionWithPrincess)
                     {
                         v += this.Father.childrenLoyalty;
                     }
-                    if (this.Mother != null && this.Mother.BelongedFaction == this.BelongedFaction)
+                    if (this.Mother != null && this.Mother.BelongedFactionWithPrincess == this.BelongedFactionWithPrincess)
                     {
                         v += this.Mother.childrenLoyalty;
                     }
@@ -10403,8 +10428,11 @@ namespace GameObjects
 
                     if (GameObject.Chance(this.Glamour / 2))
                     {
-                        this.AdjustRelation(q, houGongDays / 30.0f, 0);
-                        q.AdjustRelation(this, houGongDays / 30.0f, 0);
+                        if (!q.WillHateIfChongxing)
+                        {
+                            this.AdjustRelation(q, houGongDays / 30.0f, 0);
+                            q.AdjustRelation(this, houGongDays / 30.0f, 0);
+                        }
                     }
 
                     if (!q.Hates(this) && !this.Hates(q))
