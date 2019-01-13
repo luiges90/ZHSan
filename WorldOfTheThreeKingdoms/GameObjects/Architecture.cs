@@ -13589,7 +13589,7 @@ namespace GameObjects
                     num += facility.MaintenanceCost;
                 }
 
-                if (this.Feiziliebiao.Count > 0)
+                if (this.Feiziliebiao.Count > 0 && (this.BelongedFaction == null || !this.BelongedFaction.IsAlien))
                 {
                     num += this.Feiziliebiao.Count * Session.Parameters.PrincessMaintainenceCost;
                 }
