@@ -4704,7 +4704,7 @@ namespace GameObjects
             v += (-Person.GetIdealOffset(target, src) * 0.6f + src.IdealTendency.Offset * 0.2f + target.IdealTendency.Offset * 0.2f) * idealFactor;
             v += target.GetRelation(src) / 100.0f;
             v += target.Glamour / 10.0f - 5.0f;
-            v -= Math.Min(50.0f, Math.Abs(target.Karma - src.Karma) / 5.0f);
+            v -= Math.Max(-50.0f, Math.Min(50.0f, Math.Abs(target.Karma - src.Karma) / 5.0f));
             v += (float) (Math.Sign(target.Karma) * Math.Sqrt(Math.Abs(target.Karma)));
 
             if (Session.Current.Scenario.huangdisuozaijianzhu() != null)
@@ -10426,13 +10426,10 @@ namespace GameObjects
                         }
                     }
 
-                    if (GameObject.Chance(this.Glamour / 2))
+                    if (!q.WillHateIfChongxing)
                     {
-                        if (!q.WillHateIfChongxing)
-                        {
-                            this.AdjustRelation(q, houGongDays / 30.0f, 0);
-                            q.AdjustRelation(this, houGongDays / 30.0f, 0);
-                        }
+                        this.AdjustRelation(q, houGongDays / 5.0f * (this.Glamour / 100.0f), 0);
+                        q.AdjustRelation(this, houGongDays / 5.0f * (this.Glamour / 100.0f), 0);
                     }
 
                     if (!q.Hates(this) && !this.Hates(q))
@@ -10506,27 +10503,6 @@ namespace GameObjects
                 }
 
                 foreach (Person p in this.BelongedFaction.GetFeiziList())
-                {
-                    if (p == nvren) continue;
-                    if (p.faxianhuaiyun || this.faxianhuaiyun) continue;
-                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age >= 50) ||
-                        (p.WillHateIfChongxing || p.Spouse == p.BelongedFactionWithPrincess.Leader)) && !p.Hates(this)) continue;
-
-                    p.AdjustRelation(this, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
-                    p.AdjustRelation(nvren, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
-                }
-
-                factor = Session.Current.Scenario.Parameters.HougongRelationHateFactor;
-                foreach (Person p in nvren.LocationArchitecture.Feiziliebiao)
-                {
-                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age >= 50) ||
-                        (p.WillHateIfChongxing || p.Spouse == p.BelongedFactionWithPrincess.Leader)) && !p.Hates(this))
-                    {
-                        factor *= 0.9f + (100 - p.Glamour) * 0.001f;
-                    }
-                }
-
-                foreach (Person p in nvren.LocationArchitecture.Feiziliebiao)
                 {
                     if (p == nvren) continue;
                     if (p.faxianhuaiyun || this.faxianhuaiyun) continue;
