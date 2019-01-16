@@ -2714,6 +2714,11 @@ namespace GameObjects
                                 this.PlanTechnique = null;
                             }
                         }
+                        else
+                        {
+                            this.PlanTechniqueArchitecture = null;
+                            this.PlanTechnique = null;
+                        }
                     }
                     else if ((this.Reputation >= this.getTechniqueActualReputation(this.PlanTechnique)) && GameObject.Chance(0x21))
                     {
