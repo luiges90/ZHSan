@@ -279,10 +279,10 @@ namespace GameObjects
             if (this.BelongedFaction !=null && this.CaptiveFaction != null)
             {
                 Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedFaction.ID, this.CaptiveFaction.ID, this.ReleaseRelation / 400);
-                if (GameObject.Chance(this.CaptivePerson.Karma + this.CaptivePerson.PersonalLoyalty * 10))
-                {
-                    this.BelongedFaction.Leader.IncreaseKarma(1);
-                }
+            }
+            if (GameObject.Chance(this.CaptivePerson.Karma + this.CaptivePerson.PersonalLoyalty * 10))
+            {
+                this.BelongedFaction.Leader.IncreaseKarma(1);
             }
             this.DoReturn();
             this.DoRelease();
