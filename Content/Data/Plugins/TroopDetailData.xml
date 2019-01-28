@@ -150,7 +150,7 @@
                 FontColor="4278255424"
                 Align="Middle">
     </Text>
-    <Label X="115" Y="145" Width="80" Height="25" Label ="部队武勇"
+    <Label X="115" Y="145" Width="80" Height="25" Label ="部队武学"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
@@ -164,7 +164,7 @@
                 FontColor="4293322495"
                 Align="Middle">
     </Text>
-    <Label X="215" Y="145" Width="80" Height="25" Label ="部队统率"
+    <Label X="215" Y="145" Width="80" Height="25" Label ="部队将略"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
@@ -178,7 +178,7 @@
                 FontColor="4293322495"
                 Align="Middle">
     </Text>
-    <Label X="315" Y="145" Width="80" Height="25" Label ="部队智谋"
+    <Label X="315" Y="145" Width="80" Height="25" Label ="部队谋略"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"

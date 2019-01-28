@@ -88,35 +88,35 @@
                 FontColor="4294375158"
                 Align="Middle">
         </Column>
-        <Column ID="10" Name="NormalStrength" IsNumber="true" DisplayName="武勇" MinWidth="50" DetailLevel="2"
+        <Column ID="10" Name="NormalStrength" IsNumber="true" DisplayName="武学" MinWidth="50" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="11" Name="NormalCommand" IsNumber="true" DisplayName="统率" MinWidth="50" DetailLevel="2"
+        <Column ID="11" Name="NormalCommand" IsNumber="true" DisplayName="将略" MinWidth="50" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="12" Name="NormalIntelligence" IsNumber="true" DisplayName="智谋" MinWidth="50" DetailLevel="2"
+        <Column ID="12" Name="NormalIntelligence" IsNumber="true" DisplayName="谋略" MinWidth="50" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="13" Name="NormalPolitics" IsNumber="true" DisplayName="政治" MinWidth="50" DetailLevel="2"
+        <Column ID="13" Name="NormalPolitics" IsNumber="true" DisplayName="政理" MinWidth="50" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="14" Name="NormalGlamour" IsNumber="true" DisplayName="魅力" MinWidth="50" DetailLevel="2"
+        <Column ID="14" Name="NormalGlamour" IsNumber="true" DisplayName="风度" MinWidth="50" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -179,14 +179,14 @@
                 FontColor="4294375158"
                 Align="Middle">
         </Column>
-        <Column ID="24" Name="Ideal" IsNumber="true" DisplayName="相性" MinWidth="50" DetailLevel="9"
+        <Column ID="24" Name="Ideal" IsNumber="true" DisplayName="志向" MinWidth="50" DetailLevel="9"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="25" Name="IdealTendencyString" IsNumber="false" DisplayName="出仕相性考虑" MinWidth="120" DetailLevel="9"
+        <Column ID="25" Name="IdealTendencyString" IsNumber="false" DisplayName="出仕志向考虑" MinWidth="120" DetailLevel="9"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
@@ -445,35 +445,35 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="100" Name="StrengthExperience" IsNumber="true" DisplayName="武勇经验" MinWidth="80" DetailLevel="4"
+        <Column ID="100" Name="StrengthExperience" IsNumber="true" DisplayName="武学经验" MinWidth="80" DetailLevel="4"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="101" Name="CommandExperience" IsNumber="true" DisplayName="统率经验" MinWidth="80" DetailLevel="4"
+        <Column ID="101" Name="CommandExperience" IsNumber="true" DisplayName="将略经验" MinWidth="80" DetailLevel="4"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="102" Name="IntelligenceExperience" IsNumber="true" DisplayName="智谋经验" MinWidth="80" DetailLevel="4"
+        <Column ID="102" Name="IntelligenceExperience" IsNumber="true" DisplayName="谋略经验" MinWidth="80" DetailLevel="4"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="103" Name="PoliticsExperience" IsNumber="true" DisplayName="政治经验" MinWidth="80" DetailLevel="4"
+        <Column ID="103" Name="PoliticsExperience" IsNumber="true" DisplayName="政理经验" MinWidth="80" DetailLevel="4"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="104" Name="GlamourExperience" IsNumber="true" DisplayName="魅力经验" MinWidth="80" DetailLevel="4"
+        <Column ID="104" Name="GlamourExperience" IsNumber="true" DisplayName="风度经验" MinWidth="80" DetailLevel="4"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -1172,7 +1172,7 @@
 				FontColor="4294375158"
 				Align="Middle">
         </Column>
-		<Column ID="500" Name="InfluenceKindValueByTreasure" IsNumber="true" DisplayName="统率" MinWidth="40" ItemID="6000" DetailLevel="6"
+		<Column ID="500" Name="InfluenceKindValueByTreasure" IsNumber="true" DisplayName="将略" MinWidth="40" ItemID="6000" DetailLevel="6"
 				FontName="方正隶变_GBK"
 				FontSize="14"
 				FontStyle="Regular"
@@ -1193,14 +1193,14 @@
 				FontColor="4294375158"
 				Align="Middle">
         </Column>
-		<Column ID="503" Name="InfluenceKindValueByTreasure" IsNumber="true" DisplayName="政治" MinWidth="40" ItemID="6030" DetailLevel="6"
+		<Column ID="503" Name="InfluenceKindValueByTreasure" IsNumber="true" DisplayName="政理" MinWidth="40" ItemID="6030" DetailLevel="6"
 				FontName="方正隶变_GBK"
 				FontSize="14"
 				FontStyle="Regular"
 				FontColor="4294375158"
 				Align="Middle">
         </Column>
-		<Column ID="504" Name="InfluenceKindValueByTreasure" IsNumber="true" DisplayName="魅力" MinWidth="40" ItemID="6040" DetailLevel="6"
+		<Column ID="504" Name="InfluenceKindValueByTreasure" IsNumber="true" DisplayName="风度" MinWidth="40" ItemID="6040" DetailLevel="6"
 				FontName="方正隶变_GBK"
 				FontSize="14"
 				FontStyle="Regular"
@@ -1976,21 +1976,21 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="4" Name="TroopStrength" IsNumber="true" DisplayName="部队武勇" MinWidth="80" DetailLevel="3"
+        <Column ID="4" Name="TroopStrength" IsNumber="true" DisplayName="部队武学" MinWidth="80" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="5" Name="TroopCommand" IsNumber="true" DisplayName="部队统率" MinWidth="80" DetailLevel="3"
+        <Column ID="5" Name="TroopCommand" IsNumber="true" DisplayName="部队将略" MinWidth="80" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="6" Name="TroopIntelligence" IsNumber="true" DisplayName="部队智谋" MinWidth="80" DetailLevel="3"
+        <Column ID="6" Name="TroopIntelligence" IsNumber="true" DisplayName="部队谋略" MinWidth="80" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"

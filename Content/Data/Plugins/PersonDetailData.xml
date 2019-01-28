@@ -94,7 +94,7 @@
                 FontColor="4290822336"
                 Align="Middle">
     </Text>
-    <Label X="0" Y="0" Width="0" Height="0" Label ="相性"
+    <Label X="0" Y="0" Width="0" Height="0" Label ="志向"
                 FontName="Microsoft YaHei UI"
                 FontSize="1"
                 FontStyle="Regular"
@@ -108,7 +108,7 @@
                 FontColor="4290822336"
                 Align="Middle">
     </Text>
-    <Label X="0" Y="0" Width="0" Height="0" Label ="出仕相性考虑"
+    <Label X="0" Y="0" Width="0" Height="0" Label ="出仕志向考虑"
                 FontName="Microsoft YaHei UI"
                 FontSize="1"
                 FontStyle="Regular"
@@ -220,7 +220,7 @@
                 FontColor="4294967295"
                 Align="Middle">
     </Text>
-    <Label X="0" Y="0" Width="0" Height="0" Label ="武勇"
+    <Label X="0" Y="0" Width="0" Height="0" Label ="武学"
                 FontName="Microsoft YaHei UI"
                 FontSize="1"
                 FontStyle="Regular"
@@ -234,7 +234,7 @@
                 FontColor="4294235551"
                 Align="Right">
     </Text>
-    <Label X="0" Y="0" Width="0" Height="0" Label ="武勇经验"
+    <Label X="0" Y="0" Width="0" Height="0" Label ="武学经验"
             FontName="Microsoft YaHei UI"
             FontSize="1"
             FontStyle="Regular"
@@ -248,7 +248,7 @@
                 FontColor="4294500785"
                 Align="Right">
     </Text>
-    <Label X="0" Y="0" Width="0" Height="0" Label ="统率"
+    <Label X="0" Y="0" Width="0" Height="0" Label ="将略"
                 FontName="Microsoft YaHei UI"
                 FontSize="1"
                 FontStyle="Bold"
@@ -262,7 +262,7 @@
                 FontColor="4294235551"
                 Align="Right">
     </Text>
-    <Label X="0" Y="0" Width="0" Height="0" Label ="统率经验"
+    <Label X="0" Y="0" Width="0" Height="0" Label ="将略经验"
             FontName="Microsoft YaHei UI"
             FontSize="1"
             FontStyle="Regular"
@@ -276,7 +276,7 @@
                 FontColor="4294500785"
                 Align="Right">
     </Text>
-    <Label X="0" Y="0" Width="0" Height="0" Label ="智谋"
+    <Label X="0" Y="0" Width="0" Height="0" Label ="谋略"
                 FontName="Microsoft YaHei UI"
                 FontSize="1"
                 FontStyle="Bold"
@@ -290,7 +290,7 @@
                 FontColor="4294235551"
                 Align="Right">
     </Text>
-    <Label X="0" Y="0" Width="0" Height="0" Label ="智谋经验"
+    <Label X="0" Y="0" Width="0" Height="0" Label ="谋略经验"
             FontName="Microsoft YaHei UI"
             FontSize="1"
             FontStyle="Regular"
@@ -304,7 +304,7 @@
                 FontColor="4294500785"
                 Align="Right">
     </Text>
-    <Label X="0" Y="0" Width="0" Height="0" Label ="政治"
+    <Label X="0" Y="0" Width="0" Height="0" Label ="政理"
                 FontName="Microsoft YaHei UI"
                 FontSize="1"
                 FontStyle="Bold"
@@ -318,7 +318,7 @@
                 FontColor="4294235551"
                 Align="Right">
     </Text>
-    <Label X="0" Y="0" Width="0" Height="0" Label ="政治经验"
+    <Label X="0" Y="0" Width="0" Height="0" Label ="政理经验"
              FontName="Microsoft YaHei UI"
              FontSize="1"
              FontStyle="Regular"
@@ -332,7 +332,7 @@
                 FontColor="4294500785"
                 Align="Right">
     </Text>
-    <Label X="0" Y="0" Width="0" Height="0" Label ="魅力"
+    <Label X="0" Y="0" Width="0" Height="0" Label ="风度"
                 FontName="Microsoft YaHei UI"
                 FontSize="1"
                 FontStyle="Regular"
@@ -346,7 +346,7 @@
                 FontColor="4294235551"
                 Align="Right">
     </Text>
-    <Label X="0" Y="0" Width="0" Height="0" Label ="魅力经验"
+    <Label X="0" Y="0" Width="0" Height="0" Label ="风度经验"
             FontName="Microsoft YaHei UI"
             FontSize="1"
             FontStyle="Regular"
