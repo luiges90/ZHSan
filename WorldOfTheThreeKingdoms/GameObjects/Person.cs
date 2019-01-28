@@ -10330,11 +10330,11 @@ namespace GameObjects
                     if (p == leader) continue;
                     if (p.IsVeryCloseTo(nvren))
                     {
-                        p.AdjustRelation(leader, 0, -50 * nvren.PersonalLoyalty * nvren.PersonalLoyalty);
+                        p.AdjustRelation(leader, 0, -50 * p.PersonalLoyalty * p.PersonalLoyalty);
                     }
                     if (p.HasCloseStrainTo(nvren))
                     {
-                        p.AdjustRelation(leader, 0, -50 * nvren.PersonalLoyalty * nvren.PersonalLoyalty);
+                        p.AdjustRelation(leader, 0, -50 * p.PersonalLoyalty * p.PersonalLoyalty);
                     }
                 }
             }

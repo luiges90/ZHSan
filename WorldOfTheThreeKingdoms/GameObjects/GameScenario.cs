@@ -1139,14 +1139,17 @@ namespace GameObjects
             Architecture newFactionCapital = leader.LocationArchitecture;
             Faction oldFaction = newFactionCapital.BelongedFaction;
 
-            foreach (Technique tech in oldFaction.AvailableTechniques.GetTechniqueList())
+            if (oldFaction != null)
             {
-                newFaction.AvailableTechniques.AddTechnique(tech);
-            }
+                foreach (Technique tech in oldFaction.AvailableTechniques.GetTechniqueList())
+                {
+                    newFaction.AvailableTechniques.AddTechnique(tech);
+                }
 
-            if (oldFaction.IsAlien && leader.PersonalLoyalty < 2)
-            {
-                newFaction.IsAlien = true;
+                if (oldFaction.IsAlien && leader.PersonalLoyalty < 2)
+                {
+                    newFaction.IsAlien = true;
+                }
             }
 
             newFaction.Capital = newFactionCapital;
@@ -1184,7 +1187,10 @@ namespace GameObjects
                 leader.AdjustRelation(oldFaction.Leader, -20f, -10);
             }
 
-            leader.DecreaseKarma(Math.Max(25, 50 + oldFaction.Leader.Karma / 4));
+            if (oldFaction != null)
+            {
+                leader.DecreaseKarma(Math.Max(25, 50 + oldFaction.Leader.Karma / 4));
+            }
 
             foreach (Person p in this.AvailablePersons)
             {
