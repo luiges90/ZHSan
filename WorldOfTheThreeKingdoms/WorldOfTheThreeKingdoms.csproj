@@ -41824,10 +41824,6 @@
       <Link>Content\Textures\GameComponents\PersonPortrait\Images\Default\9999.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\PersonPortrait\Images\Default\9999f.jpg">
-      <Link>Content\Textures\GameComponents\PersonPortrait\Images\Default\9999f.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Textures\GameComponents\PersonPortrait\Images\Default\9999s.jpg">
       <Link>Content\Textures\GameComponents\PersonPortrait\Images\Default\9999s.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
