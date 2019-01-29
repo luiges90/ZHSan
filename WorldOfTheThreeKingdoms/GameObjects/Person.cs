@@ -2818,18 +2818,18 @@ namespace GameObjects
             {
                 extraRate *= 1 - (this.Age - 40) / 10.0f;
             }
-            else if (!this.Sex && this.Age > 50)
+            /*else if (!this.Sex && this.Age > 50)
             {
                 extraRate *= 1.0f / ((this.Age - 50) / 5.0f + 1);
-            }
+            }*/
             if (q.Age > 40 && q.Sex)
             {
                 extraRate *= 1 - (q.Age - 40) / 10.0f;
             }
-            else if (!q.Sex && q.Age > 50)
+            /*else if (!q.Sex && q.Age > 50)
             {
                 extraRate *= 1.0f / ((q.Age - 50) / 5.0f + 1);
-            }
+            }*/
             if (this.Age < 16)
             {
                 extraRate *= 0.25f * (this.Age - 12);
@@ -10996,6 +10996,15 @@ namespace GameObjects
                 pl.Add(p);
             }
             return pl;
+        }
+
+        public int RelationToLeader
+        {
+            get
+            {
+                if (this.BelongedFactionWithPrincess == null) return 0;
+                return GetRelation(this.BelongedFactionWithPrincess.Leader);
+            }
         }
 
         public Dictionary<Person, int> GetRelations()
