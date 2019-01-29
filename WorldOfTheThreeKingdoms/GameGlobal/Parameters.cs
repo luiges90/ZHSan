@@ -536,6 +536,9 @@ namespace GameGlobal
 
             TroopMoraleChange = float.Parse(nextSibling.Attributes.GetNamedItem("TroopMoraleChange").Value);
             RecruitPopualationDecreaseRate = float.Parse(nextSibling.Attributes.GetNamedItem("RecruitPopualationDecreaseRate").Value);
+
+            MakeMarriageCost = int.Parse(nextSibling.Attributes.GetNamedItem("MakeMarriageCost").Value);
+            NafeiCost = int.Parse(nextSibling.Attributes.GetNamedItem("NafeiCost").Value);
         }
 
         public void InitBaseRates()
@@ -730,6 +733,8 @@ namespace GameGlobal
             element.SetAttribute("MaxReputationForRecruit", MaxReputationForRecruit.ToString());
             element.SetAttribute("TroopMoraleChange", TroopMoraleChange.ToString());
             element.SetAttribute("RecruitPopualationDecreaseRate", RecruitPopualationDecreaseRate.ToString());
+            element.SetAttribute("MakeMarriageCost", MakeMarriageCost.ToString());
+            element.SetAttribute("NafeiCost", NafeiCost.ToString());
 
             document.AppendChild(element);
 
