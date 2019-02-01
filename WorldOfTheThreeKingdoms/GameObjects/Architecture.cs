@@ -13541,7 +13541,7 @@ namespace GameObjects
             {
                 int num;
                 num = this.Population / 10 * this.Morale / 1000;
-                num = (int)(num * Session.Parameters.MilitaryPopulationReloadQuantity);
+                num = (int)(num * this.militaryPopulationRateIncrease * Session.Parameters.MilitaryPopulationReloadQuantity);
                      
                 return num;
             }
