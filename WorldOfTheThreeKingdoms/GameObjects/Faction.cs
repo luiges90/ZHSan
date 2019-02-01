@@ -1513,16 +1513,16 @@ namespace GameObjects
                             if (p.huaiyun) continue;
                             if (IsPersonForHouGong(p, true))
                             {
-                                if (p.GetRelation(this.leader) < Session.Parameters.HateThreshold + 100 && !p.Hates(this.Leader))
+                                if (p.GetRelation(this.leader) < Session.Parameters.HateThreshold / 2 && !p.Hates(this.Leader))
                                 {
                                     target = p;
                                     location = a;
                                     break;
                                 }
-                                if (p.PregnancyRate(this.Leader) > 0)
+                                if (p.PregnancyRate(this.Leader) > 0 && !p.Hates(this.Leader))
                                 {
-                                    int pval = p.NumberOfChildren > 0 ? p.Merit / p.NumberOfChildren : int.MaxValue;
-                                    int tval = target == null ? 0 : (target.NumberOfChildren > 0 ? target.UntiredMerit / target.NumberOfChildren : int.MaxValue);
+                                    int pval = p.UntiredMerit;
+                                    int tval = target == null ? 0 : target.UntiredMerit;
                                     if (target == null || pval > tval)
                                     {
                                         target = p;
