@@ -1506,6 +1506,7 @@ namespace GameObjects
                 {
                     Person target = null;
                     Architecture location = null;
+                    float max = 0;
                     foreach (Architecture a in this.Architectures)
                     {
                         foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
@@ -1513,21 +1514,24 @@ namespace GameObjects
                             if (p.huaiyun) continue;
                             if (IsPersonForHouGong(p, true))
                             {
-                                if (p.GetRelation(this.leader) < Session.Parameters.HateThreshold / 2 && !p.Hates(this.Leader))
+                                float v = p.UntiredMerit * p.PregnancyRate(this.Leader);
+                                if (p.Hates(this.Leader))
+                                {
+                                    v /= 100;
+                                }
+                                if (p.Spouse != null)
+                                {
+                                    v /= 2;
+                                }
+                                if (p.GetRelation(this.Leader) < 0)
+                                {
+                                    v *= Math.Abs(p.GetRelation(this.Leader)) / 50;
+                                }
+                                if (v > max)
                                 {
                                     target = p;
                                     location = a;
-                                    break;
-                                }
-                                if (p.PregnancyRate(this.Leader) > 0 && !p.Hates(this.Leader))
-                                {
-                                    int pval = p.UntiredMerit;
-                                    int tval = target == null ? 0 : target.UntiredMerit;
-                                    if (target == null || pval > tval)
-                                    {
-                                        target = p;
-                                        location = a;
-                                    }
+                                    max = v;
                                 }
                             }
                         }
