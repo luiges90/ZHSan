@@ -99,6 +99,12 @@ namespace Tools
                     }
                     var array = stream.ToArray();
                     string result = Encoding.UTF8.GetString(array, 0, array.Length);
+                    result = result.Replace("{\"", "{\r\n\"");
+                    result = result.Replace("[{", "[\r\n{");
+                    result = result.Replace(",\"", ",\r\n\"");
+                    result = result.Replace("}", "\r\n}");
+                    result = result.Replace("},{", "},\r\n{");
+                    result = result.Replace("}]", "}\r\n]");
                     if (zip)
                     {
                         result = result.GZipCompressString();
@@ -175,18 +181,10 @@ namespace Tools
 
         public static T DeserializeJsonFile<T>(string file, bool isUserFile, bool zip = false, bool Net = false)
         {
-#if DEBUG
-            string content = isUserFile ? Platform.Current.GetUserText(file) : Platform.Current.LoadText(file);
-            content = content.NullToString().Trim();
-
-            //string str = WordTools.ConvertJsonString(content);
-
-            return DeserializeJson<T>(content, zip, Net);
-#else
             try
             {
                 string content = isUserFile ? Platform.Current.GetUserText(file) : Platform.Current.LoadText(file);
-                content = content.NullToString().Trim();
+                content = content.NullToString().Trim().Replace("\n", "").Replace("\r", "");
 
                 //string str = WordTools.ConvertJsonString(content);
 
@@ -197,7 +195,6 @@ namespace Tools
                 WebTools.TakeWarnMsg("读取用户对象失败:" + file, "DeserializeJsonFile:" + file + " " + isUserFile, ex);
                 return default(T);
             }
-#endif
         }
 
 #endregion
