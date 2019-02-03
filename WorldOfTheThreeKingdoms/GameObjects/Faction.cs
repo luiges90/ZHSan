@@ -2496,12 +2496,12 @@ namespace GameObjects
                             }
                             if (csiMax > 60)
                             {
-                                stunt = (csiMax - 60) * (100 / 60.0f) * tp.Stunt / tp.WeightSum + 1;
+                                stunt = (csiMax - 60) * (100 / 40.0f) * tp.Stunt / tp.WeightSum + 1;
                                 stunt *= unfinishedStuntFactor;
                             }
-                            if (abyMax > 70)
+                            if (abyMax > 70 && p.Age >= 8)
                             {
-                                title = (abyMax - 70) * (100 / 70.0f) * tp.Title / tp.WeightSum + 1;
+                                title = (abyMax - 70) * (100 / 30.0f) * tp.Title / tp.WeightSum + 1;
                                 title *= unfinishedTitleFactor;
                             }
 
