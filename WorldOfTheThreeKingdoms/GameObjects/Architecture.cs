@@ -10672,7 +10672,7 @@ namespace GameObjects
             int targetPersonCount = wayToTarget.A.PersonCount;
             if (wayToTarget.A.BelongedFaction != null)
             {
-                targetPersonCount = Math.Min(wayToTarget.A.BelongedFaction.PersonCount, targetPersonCount + wayToTarget.A.Endurance / Session.Current.Scenario.Parameters.ArchitectureDamageRate * 25);
+                targetPersonCount = Math.Min(wayToTarget.A.BelongedFaction.PersonCount, (int) (targetPersonCount + wayToTarget.A.Endurance / Session.Current.Scenario.Parameters.ArchitectureDamageRate * 25));
                 int count = 0;
                 foreach (Military m in wayToTarget.A.Militaries)
                 {
