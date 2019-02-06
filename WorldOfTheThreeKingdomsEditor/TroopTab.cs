@@ -32,6 +32,18 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
+        protected override Dictionary<String, String> GetHelpText()
+        {
+            return new Dictionary<string, string>()
+            {
+                { "LeaderIDString", "队长ID" },
+                { "PersonsString", "所属人物" },
+                { "Food", "粮草" },
+                { "MilitaryID", "编队ID" },
+                { "CaptivesString", "俘虏列表" },
+            };
+        }
+
         protected override string[] GetRawItemOrder()
         {
             return new String[]

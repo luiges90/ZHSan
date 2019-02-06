@@ -64,6 +64,44 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
+        protected override Dictionary<String, String> GetHelpText()
+        {
+            return new Dictionary<string, string>()
+            {
+                { "Kind", "类别" },
+                { "Level", "等级" },
+                { "Name", "名称" },
+                { "Combat", "战斗" },
+                { "ManualAward", "手动授予" },
+                { "InfluencesString", "影响列表" },
+                { "ConditionsString", "条件列表" },
+                { "Prerequisite", "条件" },
+                { "Description", "描述" },
+                { "GenerateConditionsString", "生成武將条件" },
+                { "ArchitectureConditionsString", "建筑条件" },
+                { "FactionConditionsString", "势力条件" },
+                { "LostConditionsString", "失去条件" },
+                { "AutoLearn", "自动习得机率：每天有1/此数的机率自动习得这个称号。0为不会自动习得" },
+                { "AutoLearnText", "习得对话" },
+                { "AutoLearnTextByCourier", "习得传令官对话" },
+                { "MapLimit", "全地图数目上限" },
+                { "FactionLimit", "势力数目上限" },
+                { "InheritChance", "继承机率" },
+                { "General", "将军型武将(如夏侯惇、关羽、孙策等)能取得此技能的机率参数" },
+                { "Brave", "勇猛型武将(如典韦、胡车儿等)能取得此技能的机率参数" },
+                { "Advisor", "军师型武将(如诸葛亮、司马懿、陆逊等)能取得此技能的机率参数" },
+                { "Politician", "识者型武将(如陈群、董允等)能取得此技能的机率参数" },
+                { "IntelGeneral", "智将型武将(如姜维、甘宁等)能取得此技能的机率参数" },
+                { "Emperor", "君主型武将(如刘备、孙权等)能取得此技能的机率参数" },
+                { "AllRounder", "全能型武将能取得此技能的机率参数" },
+                { "Normal", "平凡文官型武将能取得此技能的机率参数" },
+                { "Normal2", "平凡武官型武将能取得此技能的机率参数" },
+                { "Cheap", "平凡女官型武将能取得此技能的机率参数" },
+                { "Ability", "此技能的相关能力、0-4为武统智政魅" },
+            };
+        }
+
+
         public TitleTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
             init(scen, dg, helpTextBlock);

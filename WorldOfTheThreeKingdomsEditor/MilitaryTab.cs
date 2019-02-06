@@ -38,7 +38,7 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 "ID",
                 "Name",
-                "kindID",
+                "KindID",
                 "Quantity",
                 "Morale",
                 "Combativity",
@@ -48,7 +48,30 @@ namespace WorldOfTheThreeKingdomsEditor
                 "LeaderID",
                 "LeaderExperience",
                 "Tiredness",
-                "ArrivingDays"
+                "ArrivingDays",
+                "StartingArchitectureID",
+                "TargetArchitectureID"
+            };
+        }
+
+        protected override Dictionary<String, String> GetHelpText()
+        {
+            return new Dictionary<string, string>()
+            {
+                { "Name", "队名" },
+                { "KindID", "种类ID" },
+                { "Quantity", "人数" },
+                { "Morale", "士气" },
+                { "Combativity", "战意" },
+                { "Experience", "经验" },
+                { "InjuryQuantity", "伤兵" },
+                { "FollowedLeaderID", "追随将领ID" },
+                { "LeaderID", "队长ID" },
+                { "LeaderExperience", "队长经验" },
+                { "Tiredness", "疲累度" },
+                { "ArrivingDays", "到达时间" },
+                { "StartingArchitectureID", "出发建筑" },
+                { "TargetArchitectureID", "目标建筑" }
             };
         }
 

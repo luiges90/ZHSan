@@ -28,6 +28,27 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
+        protected override Dictionary<String, String> GetHelpText()
+        {
+            return new Dictionary<string, string>()
+            {
+                { "Kind", "种类" },
+                { "Name", "名称" },
+                { "Description", "描述" },
+                { "Days", "升级时间" },
+                { "FundCost", "资金消耗" },
+                { "PointCost", "技巧点数消耗" },
+                { "Reputation", "需要声望" },
+                { "InfluencesString", "影响列表" },
+                { "PreID", "" },
+                { "PostID", "" },
+                { "DisplayCol", "显示列" },
+                { "DisplayRow", "显示行" },
+                { "AIConditionWeightString", "AI条件列表" },
+                { "ConditionTableString", "条件列表" },
+            };
+        }
+
         protected override string[] GetRawItemOrder()
         {
             return new String[]

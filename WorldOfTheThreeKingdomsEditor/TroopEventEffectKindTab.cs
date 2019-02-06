@@ -27,6 +27,15 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
+        protected override Dictionary<String, String> GetHelpText()
+        {
+            return new Dictionary<string, string>()
+            {
+                { "Name",  "名称" }
+            };
+        }
+
+
         protected override string[] GetRawItemOrder()
         {
             return new String[]

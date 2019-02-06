@@ -39,6 +39,17 @@ namespace WorldOfTheThreeKingdomsEditor
             };
         }
 
+        protected override Dictionary<String, String> GetHelpText()
+        {
+            return new Dictionary<string, string>()
+            {
+                { "Kind", "对应种类" },
+                { "Name",  "名称" },
+                {"Parameter", "参数" },
+                {"Parameter2","参数2" }
+            };
+        }
+
         public TroopEventEffectTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
             init(scen, dg, helpTextBlock);
