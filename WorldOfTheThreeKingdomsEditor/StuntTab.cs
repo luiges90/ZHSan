@@ -77,9 +77,8 @@ namespace WorldOfTheThreeKingdomsEditor
                 { "Cheap", "平凡女官型武将能取得此技能的机率参数" },
                 { "Ability", "此技能的相关能力、0-4为武统智政魅" },
             };
-        };
-        
         }
+       
 
         public StuntTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
