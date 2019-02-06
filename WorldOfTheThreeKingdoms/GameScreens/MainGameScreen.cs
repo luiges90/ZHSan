@@ -1593,32 +1593,38 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             Session.Current.Scenario.EnableLoadAndSave = false;
 
-            this.mainMapLayer.freeTilesMemory();
-
-            if (!Platform.Current.UserDirectoryExist("Save"))
+            try
             {
-                Platform.Current.UserDirectoryCreate("Save");
+                this.mainMapLayer.freeTilesMemory();
+
+                if (!Platform.Current.UserDirectoryExist("Save"))
+                {
+                    Platform.Current.UserDirectoryCreate("Save");
+                }
+
+                bool saveMap;
+
+                if (Session.Current.Scenario.UsingOwnCommonData)
+                {
+                    saveMap = false;
+                }
+                else
+                {
+                    saveMap = false;
+                }
+
+                Session.Current.Scenario.ScenarioMap.JumpPosition = this.mainMapLayer.GetCurrentScreenCenter(base.viewportSize);
+                saveMap = saveMap || this.mapEdited;
+
+                Session.Current.Scenario.SaveGameScenario(LoadedFileName, saveMap, saveMap, true);
+
+                this.mainMapLayer.freeTilesMemory();
             }
-
-            bool saveMap;
-
-            if (Session.Current.Scenario.UsingOwnCommonData)
+            finally
             {
-                saveMap = false;
+
+                Session.Current.Scenario.EnableLoadAndSave = true;
             }
-            else
-            {
-                saveMap = false;
-            }
-
-            Session.Current.Scenario.ScenarioMap.JumpPosition = this.mainMapLayer.GetCurrentScreenCenter(base.viewportSize);
-            saveMap = saveMap || this.mapEdited;
-            
-            Session.Current.Scenario.SaveGameScenario(LoadedFileName, saveMap, saveMap, true);
-
-            this.mainMapLayer.freeTilesMemory();
-
-            Session.Current.Scenario.EnableLoadAndSave = true;
         }
 
         public void SaveGameAutoPosition()

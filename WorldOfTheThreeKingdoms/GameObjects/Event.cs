@@ -204,7 +204,7 @@ namespace GameObjects
             }
             if (nextScenario.Length > 0)
             {
-                Session.Current.Scenario.EnableLoadAndSave = false;
+                // Session.Current.Scenario.EnableLoadAndSave = false;
 
                 List<int> factionIds = new List<int>();
                 foreach (Faction f in Session.Current.Scenario.PlayerFactions) 
