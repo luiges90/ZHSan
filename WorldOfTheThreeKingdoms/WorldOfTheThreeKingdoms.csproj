@@ -42032,10 +42032,6 @@
       <Link>Content\Textures\GameComponents\TabList\Data\TabButtonSelected.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\ToolBar\Data\Background.jpg">
-      <Link>Content\Textures\GameComponents\ToolBar\Data\Background.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Textures\GameComponents\ToolBar\Data\Spliter.png">
       <Link>Content\Textures\GameComponents\ToolBar\Data\Spliter.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -55272,6 +55268,7 @@
       <Link>Content\Textures\Resources\Troop\999\Move.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Textures\GameComponents\ToolBar\Data\Background.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
