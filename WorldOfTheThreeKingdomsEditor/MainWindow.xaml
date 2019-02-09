@@ -42,6 +42,10 @@
                 <Separator/>
                 <MenuItem Header="重新設置城池連接" Click="btnRedoArchitectureLinks_Click"/>
             </MenuItem>
+			<MenuItem Header="语言">
+                <!--<MenuItem IsCheckable="true" Header="包含標題" IsChecked="true" Checked="MenuItem_IncludeTitle_Checked" Unchecked="MenuItem_IncludeTitle_Unchecked"/>-->
+                <MenuItem IsCheckable="false" Header="简体中文" IsChecked="true"/>
+            </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
@@ -51,7 +55,38 @@
         <TabControl x:Name="tabControl" Margin="10,10,10,10">
             <TabItem Header="武將">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgPerson"/>
+                    <DataGrid x:Name="dgPerson" AlternationCount="2">
+						<DataGrid.ColumnHeaderStyle>
+							<Style TargetType="{x:Type DataGridColumnHeader}">
+								<Setter Property="FontWeight"  Value="Bold" />
+								<Setter Property="HorizontalAlignment" Value="Center" />
+								<Setter Property="HorizontalContentAlignment" Value="Center" />
+							</Style>
+						</DataGrid.ColumnHeaderStyle>
+						<DataGrid.Resources>
+							<!--设置行样式-->
+							<!--背景色必须先设置cellstyle因为cellstyle会覆盖rowstyle样式-->
+							<Style TargetType="DataGridRow">
+								<Setter Property="Background" Value="White"/>
+								<Setter Property="Foreground" Value="Black"/>
+								<Style.Triggers>
+								<!--隔行显示-->
+									<Trigger Property="AlternationIndex" Value="0">
+										<Setter Property="Background" Value="#e7e7e7"/>
+									</Trigger>
+									<Trigger Property="AlternationIndex" Value="1">
+										<Setter Property="Background" Value="White"/>
+									</Trigger>
+									<Trigger Property="IsMouseOver" Value="True">
+										<Setter Property="Background" Value="AntiqueWhite"/>
+									</Trigger>
+									<Trigger Property="IsSelected" Value="True">
+										<Setter Property="Background" Value=" #ff5733"></Setter>
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</DataGrid.Resources>
+					</DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="父親">

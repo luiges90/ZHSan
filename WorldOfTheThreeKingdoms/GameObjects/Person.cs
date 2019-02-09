@@ -38,25 +38,25 @@ namespace GameObjects
         private int maxExperience = Session.GlobalVariables.maxExperience;
 
         [DataMember]
-        public bool huaiyun = false;
+        public bool IsPregnant = false;
         [DataMember]
         public bool shoudongsousuo = false;
         [DataMember]
-        public int huaiyuntianshu = -1;
+        public int PregnancyDayCount = -1;
         [DataMember]
         public bool ManualStudy = false;
 
         private int numberOfChildren ;
 
         [DataMember]
-        public bool faxianhuaiyun = false;
+        public bool PregnancyDiscovered = false;
         [DataMember]
         public int suoshurenwu = -1;
 
         [DataMember]
         public int princessTakerID = -1;
         
-        public PersonList suoshurenwuList = new PersonList();
+        public PersonList PartnersList = new PersonList();
 
         private bool alive;
         private int ambition;
@@ -73,7 +73,7 @@ namespace GameObjects
 
         public void Init()
         {
-            suoshurenwuList = new PersonList();
+            PartnersList = new PersonList();
 
             brothers = new PersonList();
 
@@ -190,7 +190,7 @@ namespace GameObjects
         public bool DayLocationLoyaltyNoChange;
         public float DayRateIncrementOfpublic = 0f;
 
-        private PersonDeadReason deadReason;
+        private PersonDeathReason deadReason;
         private Person father = null;
        // private PersonForm form;//已无用
         private int generation;
@@ -352,7 +352,7 @@ namespace GameObjects
         public string StuntsString { get; set; }
 
         [DataMember]
-        public int StudyingStuntString { get; set; }        
+        public int LearningStuntString { get; set; }        
 
         public StuntTable Stunts = new StuntTable();
         private string surName;
@@ -380,7 +380,7 @@ namespace GameObjects
         public int CombatTitleString { get; set; }
 
         [DataMember]
-        public int StudyingTitleString { get; set; }
+        public int LearningTitleString { get; set; }
 
         public List<Title> RealTitles = new List<Title>();
 
@@ -391,7 +391,7 @@ namespace GameObjects
         // public TitleTable Guanzhis = new TitleTable();
 
         [DataMember]
-        public string UniqueMilitaryKindsString { get; set; }
+        public string UniqueTroopTypesString { get; set; }
 
         [DataMember]
         public string UniqueTitlesString { get; set; }
@@ -440,7 +440,7 @@ namespace GameObjects
         [DataMember]
         public int TrainPolicyIDString { get; set; }
 
-        public TrainPolicy TrainPolicy { get; set; }
+        public EducationPolicy EducationPolicy { get; set; }
 
         [DataMember]
         public String Tags {get; set;}
@@ -2011,7 +2011,7 @@ namespace GameObjects
             if (!this.Immortal && Session.GlobalVariables.PersonNaturalDeath == true && this.LocationArchitecture != null && this.Alive)
             {
                 int yearDead;
-                if (this.DeadReason == PersonDeadReason.自然死亡)
+                if (this.DeathReason == PersonDeathReason.自然死亡)
                 {
                     yearDead = this.YearDead;
                 }
@@ -2036,26 +2036,26 @@ namespace GameObjects
                 }
                 else if (Session.Current.Scenario.Date.Year >= yearDead)
                 {
-                    //if (this.DeadReason == PersonDeadReason.被杀死 && GameObject.Random(30) == 0)
-                    if (this.DeadReason == PersonDeadReason.被杀死 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
+                    //if (this.DeathReason == PersonDeathReason.被杀死 && GameObject.Random(30) == 0)
+                    if (this.DeathReason == PersonDeathReason.被杀死 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
-                    //else if (this.DeadReason == PersonDeadReason.郁郁而终 && GameObject.Random(30) == 0 &&
-                    else if (this.DeadReason == PersonDeadReason.郁郁而终 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0 &&
+                    //else if (this.DeathReason == PersonDeathReason.郁郁而终 && GameObject.Random(30) == 0 &&
+                    else if (this.DeathReason == PersonDeathReason.郁郁而终 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0 &&
                         (this.BelongedFaction == null || this.Status == PersonStatus.Captive || this.BelongedFaction.ArchitectureTotalSize <= 8))
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
-                    //else if (this.DeadReason == PersonDeadReason.操劳过度 && GameObject.Random(30) == 0 &&
-                    else if (this.DeadReason == PersonDeadReason.操劳过度 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0 &&
+                    //else if (this.DeathReason == PersonDeathReason.操劳过度 && GameObject.Random(30) == 0 &&
+                    else if (this.DeathReason == PersonDeathReason.操劳过度 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0 &&
                         this.InternalExperience + this.StratagemExperience + this.TacticsExperience
                         + this.BubingExperience + this.QibingExperience + this.NubingExperience + this.ShuijunExperience + this.QixieExperience >= 30000)
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
-                    //else if (this.DeadReason == PersonDeadReason.自然死亡 && GameObject.Random(20) == 0)
-                    else if (this.DeadReason == PersonDeadReason.自然死亡 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
+                    //else if (this.DeathReason == PersonDeathReason.自然死亡 && GameObject.Random(20) == 0)
+                    else if (this.DeathReason == PersonDeathReason.自然死亡 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
@@ -2531,13 +2531,13 @@ namespace GameObjects
                                         i.Key.Spouse = this;
                                     }
 
-                                    if (this.Spouse != null && !this.Spouse.suoshurenwuList.HasGameObject(i.Key))
+                                    if (this.Spouse != null && !this.Spouse.PartnersList.HasGameObject(i.Key))
                                     {
-                                        this.Spouse.suoshurenwuList.Add(i.Key);
+                                        this.Spouse.PartnersList.Add(i.Key);
                                     }
-                                    if (this.Spouse != null && !i.Key.suoshurenwuList.HasGameObject(this.Spouse))
+                                    if (this.Spouse != null && !i.Key.PartnersList.HasGameObject(this.Spouse))
                                     {
-                                        i.Key.suoshurenwuList.Add(this.Spouse);
+                                        i.Key.PartnersList.Add(this.Spouse);
                                     }
 
 
@@ -2556,22 +2556,22 @@ namespace GameObjects
 
         private void huaiyunshijian()
         {
-            if (this.huaiyuntianshu < -1)
+            if (this.PregnancyDayCount < -1)
             {
-                //this.huaiyuntianshu++;
-                this.huaiyuntianshu += Session.Parameters.DayInTurn;
+                //this.PregnancyDayCount++;
+                this.PregnancyDayCount += Session.Parameters.DayInTurn;
             }
             else
             {
-                if (this.huaiyun)
+                if (this.IsPregnant)
                 {
-                    //this.huaiyuntianshu++;
-                    this.huaiyuntianshu += Session.Parameters.DayInTurn;
-                    //if (this.huaiyuntianshu == 30)
-                    if (GameObject.Chance((this.huaiyuntianshu - 20) * 5) && !this.faxianhuaiyun)
+                    //this.PregnancyDayCount++;
+                    this.PregnancyDayCount += Session.Parameters.DayInTurn;
+                    //if (this.PregnancyDayCount == 30)
+                    if (GameObject.Chance((this.PregnancyDayCount - 20) * 5) && !this.PregnancyDiscovered)
                     {
                         ExtensionInterface.call("FoundPregnant", new Object[] { Session.Current.Scenario, this });
-                        this.faxianhuaiyun = true;
+                        this.PregnancyDiscovered = true;
                         if (this.BelongedFaction != null && this == this.BelongedFaction.Leader)  //女君主自己怀孕
                         {
                             Session.MainGame.mainGameScreen.selfFoundPregnant(this);
@@ -2580,7 +2580,7 @@ namespace GameObjects
                         {
                             if (this.Status == PersonStatus.Princess && (this.BelongedFactionWithPrincess != null && !this.Hates(this.BelongedFactionWithPrincess.Leader)))
                             {
-                                Session.MainGame.mainGameScreen.faxianhuaiyun(this);
+                                Session.MainGame.mainGameScreen.PregnancyDiscovered(this);
                             }
                             else
                             {
@@ -2611,13 +2611,13 @@ namespace GameObjects
                             }
                         }
                     }
-                    else if (GameObject.Chance((this.huaiyuntianshu - 290) * 5))
+                    else if (GameObject.Chance((this.PregnancyDayCount - 290) * 5))
                     {
                         Person haizifuqin = new Person();
                         Person haizi = new Person();
-                        this.huaiyun = false;
-                        this.faxianhuaiyun = false;
-                        this.huaiyuntianshu = -GameObject.Random(20) - 50;
+                        this.IsPregnant = false;
+                        this.PregnancyDiscovered = false;
+                        this.PregnancyDayCount = -GameObject.Random(20) - 50;
 
                         if (this.suoshurenwu == -1)
                         {
@@ -2725,7 +2725,7 @@ namespace GameObjects
 
                     }
                 }
-                else if (this.Spouse != null && !this.huaiyun && !this.Spouse.huaiyun && Session.GlobalVariables.getChildrenRate > 0 &&
+                else if (this.Spouse != null && !this.IsPregnant && !this.Spouse.IsPregnant && Session.GlobalVariables.getChildrenRate > 0 &&
                     this.SameLocationAs(this.Spouse) && 
                     (this.Status == PersonStatus.Normal || this.OutsideTask == OutsideTaskKind.后宮) && 
                     (this.Spouse.Status == PersonStatus.Normal || this.Spouse.OutsideTask == OutsideTaskKind.后宮) &&
@@ -2746,24 +2746,24 @@ namespace GameObjects
                         this.Spouse.suoshurenwu = this.ID;
                         if (this.Sex)
                         {
-                            this.huaiyun = true;
-                            this.huaiyuntianshu = 0;
+                            this.IsPregnant = true;
+                            this.PregnancyDayCount = 0;
                         }
                         else
                         {
-                            this.Spouse.huaiyun = true;
-                            this.Spouse.huaiyuntianshu = 0;
+                            this.Spouse.IsPregnant = true;
+                            this.Spouse.PregnancyDayCount = 0;
                         }
                     }
                 } 
                 else if (this.Status == PersonStatus.Princess && this.BelongedFactionWithPrincess.Leader.LocationArchitecture == this.BelongedArchitecture
-                    && !this.huaiyun && !this.BelongedFactionWithPrincess.Leader.huaiyun && Session.GlobalVariables.getChildrenRate > 0 &&
+                    && !this.IsPregnant && !this.BelongedFactionWithPrincess.Leader.IsPregnant && Session.GlobalVariables.getChildrenRate > 0 &&
                     this.isLegalFeiZiExcludeAge(this.BelongedFactionWithPrincess.Leader) && this.BelongedFactionWithPrincess.Leader.isLegalFeiZiExcludeAge(this) &&
                     this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit &&
                     this.BelongedFactionWithPrincess.Leader.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
                 {
-                    if (this.suoshurenwuList.HasGameObject(this.BelongedFactionWithPrincess.Leader) &&
-                        this.BelongedFactionWithPrincess.Leader.suoshurenwuList.HasGameObject(this))
+                    if (this.PartnersList.HasGameObject(this.BelongedFactionWithPrincess.Leader) &&
+                        this.BelongedFactionWithPrincess.Leader.PartnersList.HasGameObject(this))
                     {
                         float relationFactor = this.PregnancyRate(this.BelongedFactionWithPrincess.Leader) * 4;
 
@@ -2774,13 +2774,13 @@ namespace GameObjects
                             this.BelongedFactionWithPrincess.Leader.suoshurenwu = this.ID;
                             if (this.Sex)
                             {
-                                this.huaiyun = true;
-                                this.huaiyuntianshu = 0;
+                                this.IsPregnant = true;
+                                this.PregnancyDayCount = 0;
                             }
                             else
                             {
-                                this.BelongedFactionWithPrincess.Leader.huaiyun = true;
-                                this.BelongedFactionWithPrincess.Leader.huaiyuntianshu = 0;
+                                this.BelongedFactionWithPrincess.Leader.IsPregnant = true;
+                                this.BelongedFactionWithPrincess.Leader.PregnancyDayCount = 0;
                             }
                         }
                     }
@@ -6500,13 +6500,13 @@ namespace GameObjects
         {
             get
             {
-                if (this.huaiyun)
+                if (this.IsPregnant)
                 {
-                    return Math.Min(1, (360 - this.huaiyuntianshu) / 90.0f);
+                    return Math.Min(1, (360 - this.PregnancyDayCount) / 90.0f);
                 }
-                if (this.huaiyuntianshu < -1)
+                if (this.PregnancyDayCount < -1)
                 {
-                    return Math.Min(1, 1 + this.huaiyuntianshu / 180.0f);
+                    return Math.Min(1, 1 + this.PregnancyDayCount / 180.0f);
                 }
 
                 return 1;
@@ -6517,13 +6517,13 @@ namespace GameObjects
         {
             get
             {
-                if (this.huaiyun)
+                if (this.IsPregnant)
                 {
-                    return Math.Min(1, (360 - this.huaiyuntianshu) / 180.0f);
+                    return Math.Min(1, (360 - this.PregnancyDayCount) / 180.0f);
                 }
-                if (this.huaiyuntianshu < -1)
+                if (this.PregnancyDayCount < -1)
                 {
-                    return Math.Min(1, 1 + this.huaiyuntianshu / 90.0f);
+                    return Math.Min(1, 1 + this.PregnancyDayCount / 90.0f);
                 }
 
                 return 1;
@@ -6713,7 +6713,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public PersonBornRegion BornRegion
+        public PersonBornRegion BirthRegion
         {
             get
             {
@@ -7061,7 +7061,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public PersonDeadReason DeadReason
+        public PersonDeathReason DeathReason
         {
             get
             {
@@ -7271,7 +7271,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public string GivenName
+        public string FirstName
         {
             get
             {
@@ -8202,7 +8202,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public int PictureIndex
+        public int AvatarIndex
         {
             get
             {
@@ -8259,15 +8259,15 @@ namespace GameObjects
         //{
         //    get
         //    {
-        //        Texture2D result = Session.Current.Scenario.GetPortrait(this.PictureIndex);
+        //        Texture2D result = Session.Current.Scenario.GetPortrait(this.AvatarIndex);
         //        if (this.Age >= 50)
         //        {
-        //            result = Session.Current.Scenario.GetPortrait(this.PictureIndex + 0.5f);
+        //            result = Session.Current.Scenario.GetPortrait(this.AvatarIndex + 0.5f);
         //        }
 
         //        if (this.Age <= 20)
         //        {
-        //            result = Session.Current.Scenario.GetPortrait(this.PictureIndex + 0.2f);
+        //            result = Session.Current.Scenario.GetPortrait(this.AvatarIndex + 0.2f);
         //        }
         //        return result == null ? Session.Current.Scenario.GetPortrait(9999) : result;
         //    }
@@ -8549,14 +8549,14 @@ namespace GameObjects
         //{
         //    get
         //    {
-        //        Texture2D result = Session.Current.Scenario.GetSmallPortrait(this.PictureIndex);
+        //        Texture2D result = Session.Current.Scenario.GetSmallPortrait(this.AvatarIndex);
         //        if (this.Age >= 50)
         //        {
-        //            result = Session.Current.Scenario.GetSmallPortrait(this.PictureIndex + 0.5f);
+        //            result = Session.Current.Scenario.GetSmallPortrait(this.AvatarIndex + 0.5f);
         //        }
         //        if (this.Age <= 20)
         //        {
-        //            result = Session.Current.Scenario.GetSmallPortrait(this.PictureIndex + 0.2f);
+        //            result = Session.Current.Scenario.GetSmallPortrait(this.AvatarIndex + 0.2f);
         //        }
         //        return result == null ? Session.Current.Scenario.GetSmallPortrait(9999) : result;
         //    }
@@ -8566,14 +8566,14 @@ namespace GameObjects
         //{
         //    get
         //    {
-        //        Texture2D result = Session.Current.Scenario.GetTroopPortrait(this.PictureIndex);
+        //        Texture2D result = Session.Current.Scenario.GetTroopPortrait(this.AvatarIndex);
         //        if (this.Age >= 50)
         //        {
-        //            result = Session.Current.Scenario.GetTroopPortrait(this.PictureIndex + 0.5f);
+        //            result = Session.Current.Scenario.GetTroopPortrait(this.AvatarIndex + 0.5f);
         //        }
         //        if (this.Age <= 20)
         //        {
-        //            result = Session.Current.Scenario.GetTroopPortrait(this.PictureIndex + 0.2f);
+        //            result = Session.Current.Scenario.GetTroopPortrait(this.AvatarIndex + 0.2f);
         //        }
         //        return result == null ? Session.Current.Scenario.GetTroopPortrait(9999) : result;
         //    }
@@ -8583,14 +8583,14 @@ namespace GameObjects
         //{
         //    get
         //    {
-        //        Texture2D result = Session.Current.Scenario.GetFullPortrait(this.PictureIndex);
+        //        Texture2D result = Session.Current.Scenario.GetFullPortrait(this.AvatarIndex);
         //        if (this.Age >= 50)
         //        {
-        //            result = Session.Current.Scenario.GetFullPortrait(this.PictureIndex + 0.5f);
+        //            result = Session.Current.Scenario.GetFullPortrait(this.AvatarIndex + 0.5f);
         //        }
         //        if (this.Age <= 20)
         //        {
-        //            result = Session.Current.Scenario.GetFullPortrait(this.PictureIndex + 0.2f);
+        //            result = Session.Current.Scenario.GetFullPortrait(this.AvatarIndex + 0.2f);
         //        }
         //        return result == null ? Session.Current.Scenario.GetFullPortrait(9999) : result;
         //    }
@@ -8712,7 +8712,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public string SurName
+        public string LastName
         {
             get
             {
@@ -9254,7 +9254,7 @@ namespace GameObjects
                     pictureList = Person.readNumberList("Content/Data/maleFaceA.txt");
                 }
             }
-            r.PictureIndex = pictureList[GameObject.Random(pictureList.Count)];
+            r.AvatarIndex = pictureList[GameObject.Random(pictureList.Count)];
         }
 
         private static String GenerateBiography(Person r)
@@ -9405,7 +9405,7 @@ namespace GameObjects
 
         private static void HandlePersonCharacter(Person r, int officerType)
         {
-            r.BornRegion = (PersonBornRegion)GameObject.Random(Enum.GetNames(typeof(PersonBornRegion)).Length);
+            r.BirthRegion = (PersonBornRegion)GameObject.Random(Enum.GetNames(typeof(PersonBornRegion)).Length);
 
             {
                 Dictionary<CharacterKind, int> chances = new Dictionary<CharacterKind, int>();
@@ -9523,10 +9523,10 @@ namespace GameObjects
         private static void HandleName(Person r)
         {
             List<String> surnameList = Person.readTextList("Content/Data/surname.txt");
-            r.SurName = surnameList[GameObject.Random(surnameList.Count)];
+            r.LastName = surnameList[GameObject.Random(surnameList.Count)];
             List<String> givenNameList = r.Sex ? Person.readTextList("Content/Data/femalegivenname.txt") : Person.readTextList("Content/Data/malegivenname.txt");
-            r.GivenName = givenNameList[GameObject.Random(givenNameList.Count)];
-            if (r.GivenName.Length <= 1 && GameObject.Chance(r.Sex ? 90 : 10))
+            r.FirstName = givenNameList[GameObject.Random(givenNameList.Count)];
+            if (r.FirstName.Length <= 1 && GameObject.Chance(r.Sex ? 90 : 10))
             {
                 String s;
                 int tries = 0;
@@ -9535,7 +9535,7 @@ namespace GameObjects
                     s = givenNameList[GameObject.Random(givenNameList.Count)];
                     tries++;
                 } while (s.Length > 1 && tries < 100);
-                r.GivenName += s;
+                r.FirstName += s;
             }
             r.CalledName = "";
         }
@@ -9717,7 +9717,7 @@ namespace GameObjects
                 HandleChildrenFaction(father, mother, r);
 
                 r.IsGeneratedChildren = true;
-                r.TrainPolicy = (TrainPolicy) Session.Current.Scenario.GameCommonData.AllTrainPolicies.GetGameObject(1);
+                r.EducationPolicy = (EducationPolicy) Session.Current.Scenario.GameCommonData.AllTrainPolicies.GetGameObject(1);
             }
             else
             {
@@ -10007,11 +10007,11 @@ namespace GameObjects
 
             try //best-effort approach for getting PersonBornRegion
             {
-                r.BornRegion = (PersonBornRegion)Enum.Parse(typeof(PersonBornRegion), bornArch.LocationState.Name); //mother has no locationarch...
+                r.BirthRegion = (PersonBornRegion)Enum.Parse(typeof(PersonBornRegion), bornArch.LocationState.Name); //mother has no locationarch...
             }
             catch (Exception)
             {
-                r.BornRegion = (PersonBornRegion)GameObject.Random(Enum.GetNames(typeof(PersonBornRegion)).Length);
+                r.BirthRegion = (PersonBornRegion)GameObject.Random(Enum.GetNames(typeof(PersonBornRegion)).Length);
             }
             return bornArch;
         }
@@ -10119,10 +10119,10 @@ namespace GameObjects
 
         private static void HandleChildrenName(Person father, Person r)
         {
-            r.SurName = father.SurName;
+            r.LastName = father.LastName;
             List<String> givenNameList = r.Sex ? Person.readTextList("Content/Data/femalegivenname.txt") : Person.readTextList("Content/Data/malegivenname.txt");
-            r.GivenName = givenNameList[GameObject.Random(givenNameList.Count)];
-            if (r.GivenName.Length <= 1 && GameObject.Chance(r.Sex ? 90 : 10))
+            r.FirstName = givenNameList[GameObject.Random(givenNameList.Count)];
+            if (r.FirstName.Length <= 1 && GameObject.Chance(r.Sex ? 90 : 10))
             {
                 String s;
                 int tries = 0;
@@ -10131,7 +10131,7 @@ namespace GameObjects
                     s = givenNameList[GameObject.Random(givenNameList.Count)];
                     tries++;
                 } while (s.Length > 1 && tries < 100);
-                r.GivenName += s;
+                r.FirstName += s;
             }
             r.CalledName = "";
         }
@@ -10399,7 +10399,7 @@ namespace GameObjects
                 foreach (Person q in all)
                 {
                     if (this.BelongedFaction.hougongValid &&
-                        ((q.Sex && q.huaiyuntianshu >= -1) || (this.Sex && this.huaiyuntianshu >= -1)) &&
+                        ((q.Sex && q.PregnancyDayCount >= -1) || (this.Sex && this.PregnancyDayCount >= -1)) &&
                         this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit && q.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
                     {
                         float extraRate = q.PregnancyRate(this);
@@ -10408,20 +10408,20 @@ namespace GameObjects
                         pregnantChance *= houGongDays * 2 * extraRate;
 
                         if (GameObject.Chance(Math.Max((int)pregnantChance, Session.Parameters.MinPregnantProb))
-                            && !q.huaiyun && !this.huaiyun && this.isLegalFeiZiExcludeAge(q) &&
+                            && !q.IsPregnant && !this.IsPregnant && this.isLegalFeiZiExcludeAge(q) &&
                             (this.LocationArchitecture.BelongedFaction.Leader.meichushengdehaiziliebiao().Count - this.LocationArchitecture.yihuaiyundefeiziliebiao().Count > 0 || Session.GlobalVariables.createChildren))
                         {
                             q.suoshurenwu = this.ID;
                             this.suoshurenwu = q.ID;
                             if (q.Sex)
                             {
-                                q.huaiyun = true;
-                                q.huaiyuntianshu = -GameObject.Random(houGongDays);
+                                q.IsPregnant = true;
+                                q.PregnancyDayCount = -GameObject.Random(houGongDays);
                             }
                             else
                             {
-                                this.huaiyun = true;
-                                this.huaiyuntianshu = -GameObject.Random(houGongDays);
+                                this.IsPregnant = true;
+                                this.PregnancyDayCount = -GameObject.Random(houGongDays);
                             }
                         }
                     }
@@ -10489,7 +10489,7 @@ namespace GameObjects
                         q.IncreaseReputation(houGongDays * 2);
                     }
 
-                    if (this.huaiyun) break;
+                    if (this.IsPregnant) break;
                 }
 
                 float factor = Session.Current.Scenario.Parameters.HougongRelationHateFactor;
@@ -10505,7 +10505,7 @@ namespace GameObjects
                 foreach (Person p in this.BelongedFaction.GetFeiziList())
                 {
                     if (p == nvren) continue;
-                    if (p.faxianhuaiyun || this.faxianhuaiyun) continue;
+                    if (p.PregnancyDiscovered || this.PregnancyDiscovered) continue;
                     if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age >= 50) ||
                         (p.WillHateIfChongxing || p.Spouse == p.BelongedFactionWithPrincess.Leader)) && !p.Hates(this)) continue;
 
@@ -10544,10 +10544,10 @@ namespace GameObjects
             }
         }
 
-        public static Dictionary<Person, PersonList> willHateCausedByAffair(Person p, Person q, Person causer, GameObjectList suoshurenwuList, bool simulateMarry)
+        public static Dictionary<Person, PersonList> willHateCausedByAffair(Person p, Person q, Person causer, GameObjectList PartnersList, bool simulateMarry)
         {
             Dictionary<Person, PersonList> result = new Dictionary<Person, PersonList>();
-            foreach (Person i in suoshurenwuList)
+            foreach (Person i in PartnersList)
             {
                 PersonList t = new PersonList();
                 if (i.Status != PersonStatus.Princess)
@@ -10662,8 +10662,8 @@ namespace GameObjects
 
         public void makeHateCausedByAffair(Person p, Person q, Person causer)
         {
-            GameObjectList list = p.suoshurenwuList.GetList();
-            list.AddRange(q.suoshurenwuList);
+            GameObjectList list = p.PartnersList.GetList();
+            list.AddRange(q.PartnersList);
             Dictionary<Person, PersonList> t = Person.willHateCausedByAffair(p, q, causer, list, false);
             foreach (KeyValuePair<Person, PersonList> i in t)
             {
@@ -10673,13 +10673,13 @@ namespace GameObjects
                 }
             }
 
-            if (!p.suoshurenwuList.HasGameObject(q))
+            if (!p.PartnersList.HasGameObject(q))
             {
-                p.suoshurenwuList.Add(q);
+                p.PartnersList.Add(q);
             }
-            if (!q.suoshurenwuList.HasGameObject(p))
+            if (!q.PartnersList.HasGameObject(p))
             {
-                q.suoshurenwuList.Add(p);
+                q.PartnersList.Add(p);
             }
         }
 
@@ -10707,7 +10707,7 @@ namespace GameObjects
         {
             get
             {
-                return faxianhuaiyun ? "○" : "×";
+                return PregnancyDiscovered ? "○" : "×";
             }
         }
 
@@ -10727,7 +10727,7 @@ namespace GameObjects
         {
             get
             {
-                return faxianhuaiyun ? (huaiyuntianshu < 30 ? 1 : huaiyuntianshu / 30) : 0;
+                return PregnancyDiscovered ? (PregnancyDayCount < 30 ? 1 : PregnancyDayCount / 30) : 0;
             }
         }
 
@@ -11410,7 +11410,7 @@ namespace GameObjects
             }
         }
 
-        public TrainPolicyList TrainPolicies()
+        public EducationPolicyList TrainPolicies()
         {
             return Session.Current.Scenario.GameCommonData.AllTrainPolicies;
         }
@@ -11419,7 +11419,7 @@ namespace GameObjects
         {
             get
             {
-                return !this.Trainable || this.TrainPolicy == null ? "----" : this.TrainPolicy.Name;
+                return !this.Trainable || this.EducationPolicy == null ? "----" : this.EducationPolicy.Name;
             }
         }
 

@@ -12,7 +12,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
 
         public override bool CheckConditionKind(Person person)
         {
-            return person.SurName == target;
+            return person.LastName == target;
         }
 
         public override void InitializeParameter(string parameter)

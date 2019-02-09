@@ -375,13 +375,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
-        public override void faxianhuaiyun(Person person)
+        public override void PregnancyDiscovered(Person person)
         {
             if (((Session.Current.Scenario.CurrentPlayer != null) && person.BelongedArchitecture != null && 
                     Session.Current.Scenario.IsCurrentPlayer(person.BelongedArchitecture.BelongedFaction)) || Session.GlobalVariables.SkyEye)
             {
                 //person.TextResultString = t.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.FoundPregnant, "faxianhuaiyun");
+                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.FoundPregnant, "PregnancyDiscovered");
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
                 this.Plugins.tupianwenziPlugin.IsShowing = true;
 

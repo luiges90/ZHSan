@@ -11,7 +11,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
 
         public override void ApplyEffectKind(Person person, Event e)
         {
-            person.PictureIndex = increment;
+            person.AvatarIndex = increment;
         }
 
         public override void InitializeParameter(string parameter)

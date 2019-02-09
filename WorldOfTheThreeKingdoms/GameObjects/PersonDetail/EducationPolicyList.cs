@@ -9,7 +9,7 @@ using System.Text;
 namespace GameObjects.PersonDetail
 {
     [DataContract]
-    public class TrainPolicyList : GameObjectList
+    public class EducationPolicyList : GameObjectList
 	{
 	}
 }

@@ -140,9 +140,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     /*
                     foreach (Person wujiang in Session.Current.Scenario.Persons)
                     {
-                        wujiang.huaiyun = false;
-                        wujiang.faxianhuaiyun = false;
-                        wujiang.huaiyuntianshu = -1;
+                        wujiang.IsPregnant = false;
+                        wujiang.PregnancyDiscovered = false;
+                        wujiang.PregnancyDayCount = -1;
                         wujiang.suoshurenwu = -1;
                     }*/
 

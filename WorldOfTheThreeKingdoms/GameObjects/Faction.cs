@@ -903,7 +903,7 @@ namespace GameObjects
                                         (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (p.Age >= 16 && (p.Age <= Session.Parameters.AINafeiMaxAgeThresholdAdd + (int)leader.Ambition * Session.Parameters.AINafeiMaxAgeThresholdMultiply || !hasSon))) &&
                                         p.marriageGranter != this.Leader && !p.Hates(this.Leader);
    
-            Person hater = WillHateLeaderDueToAffair(p, this.Leader, p.suoshurenwuList.GetList(), false);
+            Person hater = WillHateLeaderDueToAffair(p, this.Leader, p.PartnersList.GetList(), false);
 
             if (this.IsAlien && (hater == null ||  hater.PersonalLoyalty >= 2))
             {
@@ -1054,9 +1054,9 @@ namespace GameObjects
                         {
                             if (p.WaitForFeiZi == null)
                             {
-                                GameObjectList simulatSuoshu = p.suoshurenwuList.GetList();
+                                GameObjectList simulatSuoshu = p.PartnersList.GetList();
                                 simulatSuoshu.Add(p);
-                                simulatSuoshu.AddRange(q.suoshurenwuList.GetList());
+                                simulatSuoshu.AddRange(q.PartnersList.GetList());
                                 simulatSuoshu.Add(q);
 
                                 Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, true);
@@ -1097,9 +1097,9 @@ namespace GameObjects
                                 if ((IsPersonForHouGong(p) || IsPersonForHouGong(q)) && !(this.Leader == p || this.Leader == q)) continue;
                             }
 
-                            GameObjectList simulatSuoshu = p.suoshurenwuList.GetList();
+                            GameObjectList simulatSuoshu = p.PartnersList.GetList();
                             simulatSuoshu.Add(p);
-                            simulatSuoshu.AddRange(q.suoshurenwuList.GetList());
+                            simulatSuoshu.AddRange(q.PartnersList.GetList());
                             simulatSuoshu.Add(q);
 
                             Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, true);
@@ -1220,7 +1220,7 @@ namespace GameObjects
                     {
                         if (!IsPersonForHouGong(p, true))
                         {
-                            if (!this.Leader.suoshurenwuList.HasGameObject(p) && !p.Hates(this.Leader) && p.RecruitableBy(this, 0))
+                            if (!this.Leader.PartnersList.HasGameObject(p) && !p.Hates(this.Leader) && p.RecruitableBy(this, 0))
                             {
                                 p.feiziRelease();
                             }
@@ -1496,7 +1496,7 @@ namespace GameObjects
 
             //chongxing
             if (this.Leader.Status == PersonStatus.Normal && this.Leader.LocationArchitecture != null && this.Leader.LocationTroop == null &&
-                !this.Leader.huaiyun && this.Leader.WaitForFeiZi == null)
+                !this.Leader.IsPregnant && this.Leader.WaitForFeiZi == null)
             {
                 if ((
                 GameObject.Chance((int)((int)this.Leader.Ambition * Session.Parameters.AIChongxingChanceMultiply + Session.Parameters.AIChongxingChanceAdd))
@@ -1511,7 +1511,7 @@ namespace GameObjects
                     {
                         foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
                         {
-                            if (p.huaiyun) continue;
+                            if (p.IsPregnant) continue;
                             if (IsPersonForHouGong(p, true))
                             {
                                 float v = p.UntiredMerit * p.PregnancyRate(this.Leader);
@@ -2366,8 +2366,8 @@ namespace GameObjects
 
                     if (p.Age >= 5 && p.Age < 8)
                     {
-                        Dictionary<TrainPolicy, float> candidates = new Dictionary<TrainPolicy, float>();
-                        foreach (TrainPolicy tp in Session.Current.Scenario.GameCommonData.AllTrainPolicies)
+                        Dictionary<EducationPolicy, float> candidates = new Dictionary<EducationPolicy, float>();
+                        foreach (EducationPolicy tp in Session.Current.Scenario.GameCommonData.AllTrainPolicies)
                         {
                             float c = (p.CommandPotential - p.Command) * tp.Command / tp.WeightSum + 1;
                             float s = (p.StrengthPotential - p.Strength) * tp.Strength / tp.WeightSum + 1;
@@ -2376,7 +2376,7 @@ namespace GameObjects
                             float g = (p.GlamourPotential - p.Glamour) * tp.Glamour / tp.WeightSum + 1;
                             candidates.Add(tp, c + s + i + o + g);
                         }
-                        p.TrainPolicy = candidates.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+                        p.EducationPolicy = candidates.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
                     }
                     else if (p.Age >= 8) 
                     {
@@ -2475,8 +2475,8 @@ namespace GameObjects
                             unfinishedTitleFactor = 0;
                         }
 
-                        Dictionary<TrainPolicy, float> candidates = new Dictionary<TrainPolicy, float>();
-                        foreach (TrainPolicy tp in Session.Current.Scenario.GameCommonData.AllTrainPolicies)
+                        Dictionary<EducationPolicy, float> candidates = new Dictionary<EducationPolicy, float>();
+                        foreach (EducationPolicy tp in Session.Current.Scenario.GameCommonData.AllTrainPolicies)
                         {
                             float c = (p.CommandPotential - p.Command) * tp.Command / tp.WeightSum + 1;
                             float s = (p.StrengthPotential - p.Strength) * tp.Strength / tp.WeightSum + 1;
@@ -2507,7 +2507,7 @@ namespace GameObjects
 
                             candidates.Add(tp, c + s + i + o + g + skill + stunt + title);
                         }
-                        p.TrainPolicy = candidates.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+                        p.EducationPolicy = candidates.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
                     }
                 }
             }

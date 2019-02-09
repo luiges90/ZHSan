@@ -11,7 +11,7 @@
     <AssemblyName>WorldOfTheThreeKingdoms.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17763.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -3457,8 +3457,8 @@
     <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonBornRegion.cs">
       <Link>GameObjects\PersonBornRegion.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonDeadReason.cs">
-      <Link>GameObjects\PersonDeadReason.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonDeathReason.cs">
+      <Link>GameObjects\PersonDeathReason.cs</Link>
     </Compile>
     <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonDetail\Biography.cs">
       <Link>GameObjects\PersonDetail\Biography.cs</Link>
@@ -3544,11 +3544,11 @@
     <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonDetail\TitleTable.cs">
       <Link>GameObjects\PersonDetail\TitleTable.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonDetail\TrainPolicy.cs">
-      <Link>GameObjects\PersonDetail\TrainPolicy.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonDetail\EducationPolicy.cs">
+      <Link>GameObjects\PersonDetail\EducationPolicy.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonDetail\TrainPolicyList.cs">
-      <Link>GameObjects\PersonDetail\TrainPolicyList.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonDetail\EducationPolicyList.cs">
+      <Link>GameObjects\PersonDetail\EducationPolicyList.cs</Link>
     </Compile>
     <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonDialog.cs">
       <Link>GameObjects\PersonDialog.cs</Link>

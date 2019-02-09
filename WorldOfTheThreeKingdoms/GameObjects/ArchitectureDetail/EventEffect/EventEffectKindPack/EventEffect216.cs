@@ -9,8 +9,8 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
     {
         public override void ApplyEffectKind(Person person, Event e)
         {
-            person.huaiyun = false;
-            person.huaiyuntianshu = 0;
+            person.IsPregnant = false;
+            person.PregnancyDayCount = 0;
         }
 
     }

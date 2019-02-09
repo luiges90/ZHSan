@@ -36649,26 +36649,14 @@
     <AndroidAsset Include="..\Content\TexturesAlpha\Resources\Treasure\1112.png">
       <Link>Assets\Content\Textures\Resources\Treasure\1112.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\Resources\Treasure\1113.jpg">
-      <Link>Assets\Content\Textures\Resources\Treasure\1113.jpg</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\Content\TexturesAlpha\Resources\Treasure\1113.png">
       <Link>Assets\Content\Textures\Resources\Treasure\1113.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\Resources\Treasure\1114.jpg">
-      <Link>Assets\Content\Textures\Resources\Treasure\1114.jpg</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\Content\TexturesAlpha\Resources\Treasure\1114.png">
       <Link>Assets\Content\Textures\Resources\Treasure\1114.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\Resources\Treasure\1115.jpg">
-      <Link>Assets\Content\Textures\Resources\Treasure\1115.jpg</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\Content\TexturesAlpha\Resources\Treasure\1115.png">
       <Link>Assets\Content\Textures\Resources\Treasure\1115.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\Resources\Treasure\1116.jpg">
-      <Link>Assets\Content\Textures\Resources\Treasure\1116.jpg</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\Content\TexturesAlpha\Resources\Treasure\1116.png">
       <Link>Assets\Content\Textures\Resources\Treasure\1116.png</Link>

@@ -7,7 +7,7 @@ using System.Text;
 namespace GameObjects.PersonDetail
 {
     [DataContract]
-	public class TrainPolicy : GameObject
+	public class EducationPolicy : GameObject
 	{
         [DataMember]
         public String Description { get; set; }

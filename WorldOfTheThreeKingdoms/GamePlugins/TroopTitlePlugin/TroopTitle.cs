@@ -214,7 +214,7 @@ namespace TroopTitlePlugin
                     white = troop.BelongedFaction.FactionColor;
                 }
                 TheTroopKind = troop.TheMilitaryType;
-                PersonID = troop.Leader.PictureIndex;
+                PersonID = troop.Leader.AvatarIndex;
                 //FactionID = troop.BelongedFaction.ID;
                 UIKind = "Old";
                 if (Switch1 == "1")
@@ -396,17 +396,17 @@ namespace TroopTitlePlugin
                     }
                     if (FactionName1Kind == "1")
                     {
-                        this.FactionName1Text.Text = troop.Leader.SurName;
+                        this.FactionName1Text.Text = troop.Leader.LastName;
                     }
                     else if (FactionName1Kind == "2")
                     {
-                        this.FactionName1Text.Text = troop.Leader.BelongedFaction.Leader.SurName;
+                        this.FactionName1Text.Text = troop.Leader.BelongedFaction.Leader.LastName;
                     }
                     else if (FactionName1Kind == "3")
                     {
                         if (troop.Leader.BelongedFaction.Leader.Name == troop.Leader.BelongedFaction.Name)
                         {
-                            this.FactionName1Text.Text = troop.Leader.BelongedFaction.Leader.SurName;
+                            this.FactionName1Text.Text = troop.Leader.BelongedFaction.Leader.LastName;
                         }
                         this.FactionName1Text.Text = troop.Leader.BelongedFaction.Name;
                     }
@@ -525,17 +525,17 @@ namespace TroopTitlePlugin
                     }
                     if (FactionName2Kind == "1")
                     {
-                        this.FactionName2Text.Text = troop.Leader.SurName;
+                        this.FactionName2Text.Text = troop.Leader.LastName;
                     }
                     else if (FactionName2Kind == "2")
                     {
-                        this.FactionName2Text.Text = troop.Leader.BelongedFaction.Leader.SurName;
+                        this.FactionName2Text.Text = troop.Leader.BelongedFaction.Leader.LastName;
                     }
                     else if (FactionName2Kind == "3")
                     {
                         if(troop.Leader.BelongedFaction.Leader.Name==troop.Leader.BelongedFaction.Name)
                         {
-                            this.FactionName2Text.Text = troop.Leader.BelongedFaction.Leader.SurName;
+                            this.FactionName2Text.Text = troop.Leader.BelongedFaction.Leader.LastName;
                         }
                         this.FactionName2Text.Text = troop.Leader.BelongedFaction.Name;
                     }

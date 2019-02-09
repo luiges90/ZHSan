@@ -97,7 +97,7 @@ namespace GameObjects
 
 
             string para;
-            para = person.ID.ToString() + "," + person.SurName + "," + person.GivenName + "," + (person.CalledName == "" ? "无" : person.CalledName) + "," + (person.Sex ? "0" : "1") + "," + person.PictureIndex.ToString() + ","+person.Identity().ToString()+",";
+            para = person.ID.ToString() + "," + person.LastName + "," + person.FirstName + "," + (person.CalledName == "" ? "无" : person.CalledName) + "," + (person.Sex ? "0" : "1") + "," + person.AvatarIndex.ToString() + ","+person.Identity().ToString()+",";
             para += person.ChallengeStrength.ToString() + "," + person.ChallengeStrength.ToString() + "," + person.ChallengeStrength.ToString() + "," + person.ChallengeStrength.ToString() + ",";
             para += person.ChallengeStrength.ToString() + "," + person.Command.ToString() + "," + person.Intelligence.ToString() + "," + person.Politics.ToString() + "," + person.Glamour.ToString() + ",";
             para += person.Ideal.ToString() + "," + person.Braveness.ToString() + "," + person.Calmness.ToString() + "," + person.PersonalLoyalty.ToString() + "," + person.Ambition.ToString() + "," + person.Reputation.ToString() + ",";
