@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldOfTheThreeKingdomsEditor"
         mc:Ignorable="d"
-        Title="中華三國志劇本編輯器" Height="600" Width="960">
+        Title="中華三國志劇本編輯器" Height="720" Width="1280">
     <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="OpenCommandBinding_Executed"/>
         <CommandBinding Command="Save" Executed="SaveCommandBinding_Executed"/>
@@ -55,7 +55,7 @@
         <TabControl x:Name="tabControl" Margin="10,10,10,10">
             <TabItem Header="武將">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgPerson" AlternationCount="2" AutoGeneratingColumn="CharDisplayName">
+                    <DataGrid x:Name="dgPerson" AlternationCount="2" AutoGeneratingColumn="CharTabHeaderDisplay">
 						<DataGrid.ContextMenu>
 							<ContextMenu>
 								<MenuItem Header="编辑"/>

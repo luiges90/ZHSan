@@ -35,7 +35,7 @@ namespace WorldOfTheThreeKingdomsEditor
         private FactionTab factionTab;
         private PersonTab personTab;
 		
-		private void CharDisplayName(object sender, DataGridAutoGeneratingColumnEventArgs e)
+		private void CharTabHeaderDisplay(object sender, DataGridAutoGeneratingColumnEventArgs e)
 		{
 			switch (e.PropertyName)
 			{

@@ -85,6 +85,7 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             return new Dictionary<string, string>()
             {
+				{ "ID", "武将编号" },
                 { "Available", "登场。勾选后，角色在剧本起始时登场。" },
                 { "Alive", "活著。勾选后，角色在剧本起始时存活。" },
                 { "LastName", "姓氏" },
