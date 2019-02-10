@@ -41988,18 +41988,6 @@
       <Link>Content\Textures\GameComponents\TabList\Data\CheckBoxSelected.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\ColumnHeader.jpg">
-      <Link>Content\Textures\GameComponents\TabList\Data\ColumnHeader.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\ColumnSpliter.jpg">
-      <Link>Content\Textures\GameComponents\TabList\Data\ColumnSpliter.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\FocusTrack.jpg">
-      <Link>Content\Textures\GameComponents\TabList\Data\FocusTrack.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Textures\GameComponents\TabList\Data\LeftArrow.png">
       <Link>Content\Textures\GameComponents\TabList\Data\LeftArrow.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -42014,14 +42002,6 @@
     </Content>
     <Content Include="..\Content\Textures\GameComponents\TabList\Data\RoundCheckBoxSelected.png">
       <Link>Content\Textures\GameComponents\TabList\Data\RoundCheckBoxSelected.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\ScrollButton.jpg">
-      <Link>Content\Textures\GameComponents\TabList\Data\ScrollButton.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\ScrollTrack.jpg">
-      <Link>Content\Textures\GameComponents\TabList\Data\ScrollTrack.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Textures\GameComponents\TabList\Data\TabButton.png">
@@ -55268,6 +55248,11 @@
       <Link>Content\Textures\Resources\Troop\999\Move.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Textures\GameComponents\TabList\Data\ColumnHeader.png" />
+    <Content Include="Content\Textures\GameComponents\TabList\Data\ColumnSpliter.png" />
+    <Content Include="Content\Textures\GameComponents\TabList\Data\FocusTrack.png" />
+    <Content Include="Content\Textures\GameComponents\TabList\Data\ScrollButton.png" />
+    <Content Include="Content\Textures\GameComponents\TabList\Data\ScrollTrack.png" />
     <Content Include="Content\Textures\GameComponents\ToolBar\Data\Background.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
