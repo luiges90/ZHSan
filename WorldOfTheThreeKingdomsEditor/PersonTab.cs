@@ -172,8 +172,5 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             init(scen, dg, helpTextBlock);
         }
-
-
-
     }
 }

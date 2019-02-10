@@ -229,7 +229,7 @@ namespace json_and_excel
                      string 条件类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[条件类型] from ConditionKind";
                      string 外交关系 = "selectFaction1ID as 势力一ID ,Faction2ID as 势力二ID ,Truce as 外交关系 ,Relation as 停战时间  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[外交关系] from DiplomaticRelation";
                      string 灾难类型 = "select ID as ID ,名称 as 名称 ,时间下限 as 时间下限 ,时间上限 as 时间上限 ,人口伤害 as 人口伤害 ,军队伤害 as 军队伤害 ,统治伤害 as 统治伤害 ,耐久伤害 as 耐久伤害 ,资金伤害 as 资金伤害 ,军粮伤害 as 军粮伤害 ,农业伤害 as 农业伤害 ,商业伤害 as 商业伤害 ,技术伤害 as 技术伤害 ,民心伤害 as 民心伤害 ,武将伤害 as 武将伤害  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[灾难类型] from DisasterKind";
-                     string 事件 = "select ID as ID ,Name as 名称 ,Happened as 已发生过 ,Repeatable as 可以重复 ,AfterEventHappened as 某事件发生之后 ,Chance as 发动几率 ,GloballyDisplayed as 全势力可见 ,StartYear as 开始年 ,StartMonth as 开始月 ,EndYear as 结束年 ,EndMonth as 结束月 ,PersonId as 武将编号 ,PersonCond as 武将条件 ,ArchitectureID as 建筑编号 ,ArchitectureCond as 建筑条件 ,FactionID as 势力编号 ,FactionCond as 势力条件 ,Dialog as 对话 ,Effect as 效果 ,ArchitectureEffect as 建筑效果 ,FactionEffect as 势力效果 ,ShowImage as 图片 ,ShowSound as 音效 ,ScenBiography as 武将列传 ,YesEffect as 選是的效果 ,NoEffect as 選否的效果 ,YesArchitectureEffect as YesArchitectureEffect ,NoArchitectureEffect as NoArchitectureEffect  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[事件] from Event";
+                     string 事件 = "select ID as ID ,Name as 名称 ,Happened as 已发生过 ,Repeatable as 可以重复 ,PredecessorEventID as 某事件发生之后 ,Chance as 发动几率 ,GloballyDisplayed as 全势力可见 ,StartYear as 开始年 ,StartMonth as 开始月 ,EndYear as 结束年 ,EndMonth as 结束月 ,PersonId as 武将编号 ,PersonCond as 武将条件 ,ArchitectureID as 建筑编号 ,ArchitectureCond as 建筑条件 ,FactionID as 势力编号 ,FactionCond as 势力条件 ,Dialog as 对话 ,Effect as 效果 ,ArchitectureEffect as 建筑效果 ,FactionEffect as 势力效果 ,ShowImage as 图片 ,ShowSound as 音效 ,ScenBiography as 武将列传 ,YesEffect as 選是的效果 ,NoEffect as 選否的效果 ,YesArchitectureEffect as YesArchitectureEffect ,NoArchitectureEffect as NoArchitectureEffect  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[事件] from Event";
                      string 事件效果 = "select ID as ID ,Name as 名称 ,Parameter as 参数 ,Parameter2 as 参数2 ,Kind as Kind  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[事件效果] from EventEffect";
                      string 事件效果类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[事件效果类型] from EventEffectKind";
                      string 设施 = "select ID as ID ,KindID as KindID ,Endurance as 耐久  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[设施] from Facility";
@@ -272,7 +272,7 @@ namespace json_and_excel
                      string 宝物 = "select ID as ID ,Name as 名称 ,Pic as 图像 ,Worth as 价值 ,Available as 已出现 ,HidePlace as 隐藏于建筑 ,TreasureGroup as 宝物种类 ,AppearYear as 出现年 ,BelongedPerson as 属于人物 ,Influences as 影响列表 ,Description as 介绍  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[宝物] from Treasure";
                      string 部队 = "select ID as ID ,LeaderID as 队长ID ,Controllable as 可控 ,Status as 状态 ,Direction as 方向 ,Auto as 委任 ,Operated as 操作完成 ,Food as 粮草 ,StartingArchitecture as 出发地 ,Persons as 所属人物 ,PositionX as 位置X ,PositionY as 位置Y ,DestinationX as 目标X ,DestinationY as 目标Y ,RealDestinationX as 真实目标X ,RealDestinationY as 真实目标Y ,FirstTierPath as 第一层路径 ,SecondTierPath as 第二层路径 ,ThirdTierPath as 第三层路径 ,FirstIndex as FirstIndex ,SecondIndex as SecondIndex ,ThirdIndex as ThirdIndex ,MilitaryID as 编队ID ,AttackDefaultKind as 攻击默认种类 ,AttackTargetKind as 攻击目标种类 ,CastDefaultKind as 施展默认种类 ,CastTargetKind as 施展目标种类 ,跟随部队ID as 目标部队 ,TargetTroopID as 目标建筑 ,TargetArchitectureID as 意愿部队 ,WillTroopID as 意愿建筑 ,WillArchitectureID as 当前战法 ,CurrentCombatMethodID as 当前计略 ,CurrentStratagemID as 自施展位置X ,SelfCastPositionX as 自施展位置Y  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队] from Troop";
                      string 部队动画 = "select ID as ID ,Name as 名称 ,FrameCount as 帧数 ,StayCount as 停留帧数  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队动画] from TroopAnimation";
-                     string 部队事件 = "select ID as ID ,Name as 名称 ,Happened as 已发生过 ,Repeatable as 可以重复 ,AfterEventHappened as 某事件发生之后 ,LaunchPerson as 发动人物 ,Conditions as 发动条件 ,Chance as 发动几率 ,CheckAreaKind as 搜索范围 ,TargetPersons as 目标人物列表 ,Dialogs as 人物对话 ,EffectSelf as 自身效果 ,EffectPersons as 特定人物效果 ,EffectAreas as 特定范围效果 ,ShowImage as 图片 ,ShowSound as 音效  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队事件] from TroopEvent";
+                     string 部队事件 = "select ID as ID ,Name as 名称 ,Happened as 已发生过 ,Repeatable as 可以重复 ,PredecessorEventID as 某事件发生之后 ,LaunchPerson as 发动人物 ,Conditions as 发动条件 ,Chance as 发动几率 ,CheckAreaKind as 搜索范围 ,TargetPersons as 目标人物列表 ,Dialogs as 人物对话 ,EffectSelf as 自身效果 ,EffectPersons as 特定人物效果 ,EffectAreas as 特定范围效果 ,ShowImage as 图片 ,ShowSound as 音效  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队事件] from TroopEvent";
                      string 部队事件效果 = "select ID as ID ,Kind as 种类 ,Name as 名称 ,Parameter as 参数  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队事件效果] from TroopEventEffect";
                      string 部队事件效果类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队事件效果类型] from TroopEventEffectKind";
                      string 年表 = "select ID as ID ,GYear as 年 ,GMonth as 月 ,GDay as 日 ,Faction as 势力 ,Content as 内容 ,IsGloballyKnown as 是否全地图看到  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[年表] from YearTable";
@@ -8433,17 +8433,17 @@ namespace json_and_excel
                 DataRow dr = dt.NewRow();
                 dr["ID"] = a.ID;
                 dr["Name"] = a.Name;
-                dr["happened"] = a.happened;
-                dr["repeatable"] = a.repeatable;
-                dr["AfterEventHappened"] = a.AfterEventHappened;
-                dr["happenChance"] = a.happenChance;
+                dr["HasHappened"] = a.HasHappened;
+                dr["IsRepeatable"] = a.IsRepeatable;
+                dr["PredecessorEventID"] = a.PredecessorEventID;
+                dr["ProbabilityBase"] = a.ProbabilityBase;
                 dr["GloballyDisplayed"] = a.GloballyDisplayed;
                 dr["StartYear"] = a.StartYear;
                 dr["StartMonth"] = a.StartMonth;
                 dr["EndYear"] = a.EndYear;
                 dr["EndMonth"] = a.EndMonth;
-                dr["personString"] = a.personString;
-                dr["PersonCondString"] = a.PersonCondString;
+                dr["TriggeringCharString"] = a.TriggeringCharString;
+                dr["CharConditionString"] = a.CharConditionString;
                 dr["architectureString"] = a.architectureString;
                 dr["architectureCondString"] = a.architectureCondString;
                 dr["factionString"] = a.factionString;
@@ -10023,7 +10023,7 @@ namespace json_and_excel
                                 dt.Columns.Add(new DataColumn(pi.Name, colType));
                             }
                         }
-                        if (s == "AfterEventHappened" || s == "CheckArea" || s == "Dialogs" || s == "Image" || s == "Sound")
+                        if (s == "PredecessorEventID" || s == "CheckArea" || s == "Dialogs" || s == "Image" || s == "Sound")
                         {
                             dt.Columns.Add(s);
                         }
@@ -10038,7 +10038,7 @@ namespace json_and_excel
                         DBNull.Value : pi.GetValue(a, null);
                     }
                 }
-                dr["AfterEventHappened"] = a.AfterEventHappened;
+                dr["PredecessorEventID"] = a.PredecessorEventID;
                 dr["CheckArea"] = (int)a.CheckArea;
                 string str = "";
                 foreach (PersonDialog dialog in a.Dialogs)
@@ -10504,17 +10504,17 @@ namespace json_and_excel
             {
                 "ID",
                 "Name",
-                "happened",
-                "repeatable",
-                "AfterEventHappened",
-                "happenChance",
+                "HasHappened",
+                "IsRepeatable",
+                "PredecessorEventID",
+                "ProbabilityBase",
                 "GloballyDisplayed",
                 "StartYear",
                 "StartMonth",
                 "EndYear",
                 "EndMonth",
-                "personString",
-                "PersonCondString",
+                "TriggeringCharString",
+                "CharConditionString",
                 "architectureString",
                 "architectureCondString",
                 "factionString",
@@ -11454,7 +11454,7 @@ namespace json_and_excel
                 "Name",
                 "Happened",
                 "Repeatable",
-                "AfterEventHappened",
+                "PredecessorEventID",
                 "LaunchPersonString",
                 "ConditionsString",
                 "HappenChance",

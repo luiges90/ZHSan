@@ -897,7 +897,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.YesEventsToApply)
             {
                 i.Key.DoYesApplyEvent(i.Value);
-                i.Key.happened = true;
+                i.Key.HasHappened = true;
             }
             this.YesEventsToApply.Clear();
             this.NoEventsToApply.Clear();
@@ -908,7 +908,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.NoEventsToApply)
             {
                 i.Key.DoNoApplyEvent(i.Value);
-                i.Key.happened = true;
+                i.Key.HasHappened = true;
             }
             this.YesEventsToApply.Clear();
             this.NoEventsToApply.Clear();
@@ -916,7 +916,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.NoArchiEventsToApply)
             {
                 i.Key.DoNoApplyEvent(i.Value);
-                i.Key.happened = true;
+                i.Key.HasHappened = true;
             }
             this.NoArchiEventsToApply.Clear();
              */
@@ -927,7 +927,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.YesArchiEventsToApply)
             {
                 i.Key.DoYesArchiApplyEvent(i.Value);
-                i.Key.happened = true;
+                i.Key.HasHappened = true;
             }
             this.YesArchiEventsToApply.Clear();
         }
@@ -937,7 +937,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.NoArchiEventsToApply)
             {
                 i.Key.DoNoArchiApplyEvent(i.Value);
-                i.Key.happened = true;
+                i.Key.HasHappened = true;
             }
             this.NoArchiEventsToApply.Clear();
         }*/
@@ -948,7 +948,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.EventsToApply)
             {
                 i.Key.DoApplyEvent(i.Value);
-                i.Key.happened = true;
+                i.Key.HasHappened = true;
             }
 
             this.EventsToApply.Clear();
@@ -2577,9 +2577,9 @@ namespace GameObjects
             }
             foreach (TroopEvent event2 in this.TroopEvents)
             {
-                if (event2.AfterEventHappened >= 0)
+                if (event2.PredecessorEventID >= 0)
                 {
-                    event2.AfterHappenedEvent = this.TroopEvents.GetGameObject(event2.AfterEventHappened) as TroopEvent;
+                    event2.AfterHappenedEvent = this.TroopEvents.GetGameObject(event2.PredecessorEventID) as TroopEvent;
                 }
             }
         }
@@ -3659,11 +3659,11 @@ namespace GameObjects
             {
                 e.Init();
 
-                //e.personString = reader["PersonId"].ToString();
-                e.LoadPersonIdFromString(this.Persons, e.personString);
+                //e.TriggeringCharString = reader["PersonId"].ToString();
+                e.LoadPersonIdFromString(this.Persons, e.TriggeringCharString);
 
-                //e.PersonCondString = reader["PersonCond"].ToString();
-                e.LoadPersonCondFromString(this.GameCommonData.AllConditions, e.PersonCondString);
+                //e.CharConditionString = reader["PersonCond"].ToString();
+                e.LoadPersonCondFromString(this.GameCommonData.AllConditions, e.CharConditionString);
 
                 //e.architectureString = reader["ArchitectureID"].ToString();
                 e.LoadArchitectureFromString(this.Architectures, e.architectureString);
@@ -4721,7 +4721,7 @@ namespace GameObjects
             {
                 foreach (TroopEvent event2 in this.TroopEvents)
                 {
-                    event2.AfterEventHappened = (event2.AfterHappenedEvent != null) ? event2.AfterHappenedEvent.ID : -1;
+                    event2.PredecessorEventID = (event2.AfterHappenedEvent != null) ? event2.AfterHappenedEvent.ID : -1;
                     event2.LaunchPersonString = (event2.LaunchPerson != null) ? event2.LaunchPerson.ID : -1;
                     event2.ConditionsString = event2.Conditions.SaveToString();
                     event2.TargetPersonsString = event2.SaveTargetPersonToString();
@@ -4961,8 +4961,8 @@ namespace GameObjects
             {
                 foreach (Event e in this.AllEvents)
                 {
-                    e.personString = e.SavePersonIdToString();
-                    e.PersonCondString = e.SavePersonCondToString();
+                    e.TriggeringCharString = e.SavePersonIdToString();
+                    e.CharConditionString = e.SavePersonCondToString();
                     e.architectureString = e.architecture.SaveToString();
                     e.architectureCondString = e.SaveArchitecureCondToString();
                     e.factionString = e.faction.SaveToString();

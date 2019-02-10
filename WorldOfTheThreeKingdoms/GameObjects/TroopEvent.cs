@@ -13,7 +13,7 @@ namespace GameObjects
     public class TroopEvent : GameObject
     {
         [DataMember]
-        public int AfterEventHappened = -1;
+        public int PredecessorEventID = -1;
 
         public TroopEvent AfterHappenedEvent;
 
@@ -41,13 +41,13 @@ namespace GameObjects
 
         public List<TroopEffectPerson> EffectPersons = new List<TroopEffectPerson>();
 
-        private int happenChance;
-        private bool happened;
+        private int ProbabilityBase;
+        private bool HasHappened;
 
         [DataMember]
         public int LaunchPersonString { get; set; }
         public Person LaunchPerson;
-        private bool repeatable;
+        private bool IsRepeatable;
 
         [DataMember]
         public string SelfEffectsString { get; set; }
@@ -480,11 +480,11 @@ namespace GameObjects
         {
             get
             {
-                return this.happenChance;
+                return this.ProbabilityBase;
             }
             set
             {
-                this.happenChance = value;
+                this.ProbabilityBase = value;
             }
         }
         [DataMember]
@@ -492,11 +492,11 @@ namespace GameObjects
         {
             get
             {
-                return this.happened;
+                return this.HasHappened;
             }
             set
             {
-                this.happened = value;
+                this.HasHappened = value;
             }
         }
         [DataMember]
@@ -504,11 +504,11 @@ namespace GameObjects
         {
             get
             {
-                return this.repeatable;
+                return this.IsRepeatable;
             }
             set
             {
-                this.repeatable = value;
+                this.IsRepeatable = value;
             }
         }
 
