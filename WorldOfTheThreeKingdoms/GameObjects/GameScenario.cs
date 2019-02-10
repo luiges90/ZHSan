@@ -2913,8 +2913,8 @@ namespace GameObjects
                        
             //if (Platform.PlatFormType == PlatFormType.Android || Platform.PlatFormType == PlatFormType.iOS || Platform.PlatFormType == PlatFormType.Win)
             //{
-                ScenarioMap.TileWidth = 50;
-                ScenarioMap.TileHeight = 50;
+//                ScenarioMap.TileWidth = 50;
+                //ScenarioMap.TileHeight = 50;
             //}
 
             foreach (State state in this.States)
