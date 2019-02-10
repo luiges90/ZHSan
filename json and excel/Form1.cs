@@ -217,7 +217,7 @@ namespace json_and_excel
                      string 城池类型 = "select ID as ID ,Name as 名称 ,AgricultureBase as 农业基础 ,AgricultureUnit as 农业单位 ,CommerceBase as 商业基础 ,CommerceUnit as 商业单位 ,TechnologyBase as 技术基础 ,TechnologyUnit as 技术单位 ,DominationBase as 统治基础 ,DominationUnit as 统治单位 ,MoraleBase as 民心基础 ,MoraleUnit as 民心单位 ,EnduranceBase as 耐久基础 ,EnduranceUnit as 耐久单位 ,PopulationBase as 人口基础 ,PopulationUnit as 人口单位 ,PopulationBoundary as 征兵人口界限 ,ViewDistance as 基本视野范围 ,VDIncrementDivisor as 视野范围增量除数 ,HasObliqueView as 斜向视角 ,HasLongView as 长视距 ,HasPopulation as 人口 ,HasAgriculture as 农业 ,HasCommerce as 商业 ,HasTechnology as 技术 ,HasDomination as 统治 ,HasMorale as 民心 ,HasEndurance as 耐久 ,HasHarbor as 可编组运兵船 ,FacilityPositionUnit as 设施单位空间 ,FundMaxUnit as 最大资金单位 ,FoodMaxUnit as 最大粮草单位 ,CountToMerit as 官职所包括 ,Expandable as 可扩建 ,ShipCanEnter as 船只可进入  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[城池类型] from ArchitectureKind";
                      string 默认攻击类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[默认攻击类型] from AttackDefaultKind";
                      string 指向攻击类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[指向攻击类型] from AttackTargetKind";
-                     string 人物简历 = "select ID as ID ,SurName as 姓 ,GivenName as 名 ,Brief as 简要 ,Romance as 演义 ,History as 历史 ,InGame as 剧本 ,FactionColor as 势力颜色 ,MilitaryKinds as 兵种列表  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[人物简历] from Biography";
+                     string 人物简历 = "select ID as ID ,LastName as 姓 ,FirstName as 名 ,Brief as 简要 ,Romance as 演义 ,History as 历史 ,InGame as 剧本 ,FactionColor as 势力颜色 ,MilitaryKinds as 兵种列表  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[人物简历] from Biography";
                      string 简历类型 = "select ID as ID ,Strength as 武力最少 ,Command as 统率最少 ,Intelligence as 智力最少 ,Politics as 政治最少 ,Glamour as 魅力最少 ,Braveness as 勇猛度最少 ,Calmness as 冷静度最少 ,Male as 只限男性 ,Female as 只限女性 ,PersonalLoyalty as 义理最少 ,Ambition as 野心最少 ,BioText as 文字 ,SuffixText as 称号文字  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[简历类型] from BiographyAdjectives";
                      string 俘虏 = "select ID as ID ,CaptivePerson as 俘虏人物 ,CaptiveFaction as 俘虏势力 ,RansomArchitecture as 赎金目标建筑 ,RansomFund as 赎金量 ,RansomArriveDays as 赎金到达时间  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[俘虏] from Captive";
                      string 默认施法类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[默认施法类型] from CastDefaultKind";
@@ -229,7 +229,7 @@ namespace json_and_excel
                      string 条件类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[条件类型] from ConditionKind";
                      string 外交关系 = "selectFaction1ID as 势力一ID ,Faction2ID as 势力二ID ,Truce as 外交关系 ,Relation as 停战时间  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[外交关系] from DiplomaticRelation";
                      string 灾难类型 = "select ID as ID ,名称 as 名称 ,时间下限 as 时间下限 ,时间上限 as 时间上限 ,人口伤害 as 人口伤害 ,军队伤害 as 军队伤害 ,统治伤害 as 统治伤害 ,耐久伤害 as 耐久伤害 ,资金伤害 as 资金伤害 ,军粮伤害 as 军粮伤害 ,农业伤害 as 农业伤害 ,商业伤害 as 商业伤害 ,技术伤害 as 技术伤害 ,民心伤害 as 民心伤害 ,武将伤害 as 武将伤害  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[灾难类型] from DisasterKind";
-                     string 事件 = "select ID as ID ,Name as 名称 ,Happened as 已发生过 ,Repeatable as 可以重复 ,AfterEventHappened as 某事件发生之后 ,Chance as 发动几率 ,GloballyDisplayed as 全势力可见 ,StartYear as 开始年 ,StartMonth as 开始月 ,EndYear as 结束年 ,EndMonth as 结束月 ,PersonId as 武将编号 ,PersonCond as 武将条件 ,ArchitectureID as 建筑编号 ,ArchitectureCond as 建筑条件 ,FactionID as 势力编号 ,FactionCond as 势力条件 ,Dialog as 对话 ,Effect as 效果 ,ArchitectureEffect as 建筑效果 ,FactionEffect as 势力效果 ,ShowImage as 图片 ,ShowSound as 音效 ,ScenBiography as 武将列传 ,YesEffect as 選是的效果 ,NoEffect as 選否的效果 ,YesArchitectureEffect as YesArchitectureEffect ,NoArchitectureEffect as NoArchitectureEffect  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[事件] from Event";
+                     string 事件 = "select ID as ID ,Name as 名称 ,Happened as 已发生过 ,Repeatable as 可以重复 ,PredecessorEventID as 某事件发生之后 ,Chance as 发动几率 ,GloballyDisplayed as 全势力可见 ,StartYear as 开始年 ,StartMonth as 开始月 ,EndYear as 结束年 ,EndMonth as 结束月 ,PersonId as 武将编号 ,PersonCond as 武将条件 ,ArchitectureID as 建筑编号 ,ArchitectureCond as 建筑条件 ,FactionID as 势力编号 ,FactionCond as 势力条件 ,Dialog as 对话 ,Effect as 效果 ,ArchitectureEffect as 建筑效果 ,FactionEffect as 势力效果 ,ShowImage as 图片 ,ShowSound as 音效 ,ScenBiography as 武将列传 ,YesEffect as 選是的效果 ,NoEffect as 選否的效果 ,YesArchitectureEffect as YesArchitectureEffect ,NoArchitectureEffect as NoArchitectureEffect  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[事件] from Event";
                      string 事件效果 = "select ID as ID ,Name as 名称 ,Parameter as 参数 ,Parameter2 as 参数2 ,Kind as Kind  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[事件效果] from EventEffect";
                      string 事件效果类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[事件效果类型] from EventEffectKind";
                      string 设施 = "select ID as ID ,KindID as KindID ,Endurance as 耐久  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[设施] from Facility";
@@ -249,7 +249,7 @@ namespace json_and_excel
                      string 地图 = "select ID as ID ,Name as 名称 ,TileWidth as 格宽 ,DimensionX as DimensionX ,DimensionY as DimensionY ,MapData as 地图数据 ,FileName as 文件名 ,kuaishu as 地图张数 ,meikuaidexiaokuaishu as 每张图含方格数 ,useSimpleArchImages as 使用一格式城池圖像  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[地图] from Map";
                      string 编队 = "select ID as ID ,Name as 队名 ,KindID as 种类ID ,Quantity as 人数 ,Morale as 士气 ,Combativity as 战意 ,Experience as 经验 ,InjuryQuantity as 伤兵 ,FollowedLeaderID as 追随将领ID ,LeaderID as 队长ID ,LeaderExperience as 队长经验 ,TrainingPersonID as 训练人ID ,RecruitmentPersonID as 补充人ID ,ShelledMilitary as 被包裹编队 ,Tiredness as 疲累度 ,ArrivingDays as 到达时间 ,StartingArchitectureID as 出发地 ,TargetArchitectureID as 目标建筑  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[编队] from Military";
                      string 编队类型 = "select ID as ID ,Type as 类别 ,Name as 名称 ,Description as 描述 ,Merit as 强度（AI） ,Successor as 较强兵种ID ,Speed as 行动速率 ,ObtainProb as 获得机率 ,TitleInfluence as 出兵称号影响 ,CreateCost as 新建资金 ,CreateTechnology as 新建所需技术 ,IsShell as 是否外壳 ,CreateBesideWater as 水边新建 ,Offence as 攻击 ,Defence as 防御 ,OffenceRadius as 攻击半径 ,CounterOffence as 能否反击 ,BeCountered as 能否被反击 ,ObliqueOffence as 斜向攻击 ,ArrowOffence as 箭矢攻击 ,AirOffence as 凌空攻击 ,ContactOffence as 近身攻击 ,OffenceOnlyBeforeMove as 只能在移动前攻击 ,ArchitectureDamageRate as 建筑伤害系数 ,ArchitectureCounterDamageRate as 建筑反击承受率 ,StratagemRadius as 计略范围 ,ObliqueStratagem as 斜向计略 ,ViewRadius as 视野半径 ,ObliqueView as 斜向视野 ,InjuryRate as 伤兵概率 ,Movability as 行动力 ,OneAdaptabilityKind as 单一适性种类 ,PlainAdaptability as 平原适性 ,GrasslandAdaptability as 草地适性 ,ForrestAdaptability as 森林适性  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[编队类型] from MilitaryKind";
-                     string 人物 = "select ID as ID ,Available as 已出场 ,Alive as 是否活着 ,SurName as 姓氏 ,GivenName as 名字 ,CalledName as 字 ,Sex as 性别 ,Pic as 头像序号 ,Ideal as 相性 ,IdealTendency as 出仕相性考虑 ,LeaderPossibility as 新建势力可能性 ,PCharacter as 性格 ,YearAvailable as 出场年份 ,YearBorn as 出生年份 ,YearDead as 死亡年份 ,DeadReason as 死亡原因 ,Strength as 武勇 ,Command as 统率 ,Intelligence as 智谋 ,Politics as 政治 ,Glamour as 魅力 ,Reputation as 名声 ,UniqueTitles as 独有称号 ,UniqueMilitaryKinds as 独有兵种 ,StrengthExperience as 武勇经验 ,CommandExperience as 统率经验 ,IntelligenceExperience as 智谋经验 ,PoliticsExperience as 政治经验 ,GlamourExperience as 魅力经验 ,InternalExperience as 内政经验 ,TacticsExperience as 策略经验 ,BubingExperience as 步兵经验 ,NubingExperience as 弩兵经验 ,QibingExperience as 骑兵经验 ,ShuijunExperience as 水军经验  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[人物] from Person";
+                     string 人物 = "select ID as ID ,Available as 已出场 ,Alive as 是否活着 ,LastName as 姓氏 ,FirstName as 名字 ,CalledName as 字 ,Sex as 性别 ,Pic as 头像序号 ,Ideal as 相性 ,IdealTendency as 出仕相性考虑 ,LeaderPossibility as 新建势力可能性 ,PCharacter as 性格 ,YearAvailable as 出场年份 ,YearBorn as 出生年份 ,YearDead as 死亡年份 ,DeathReason as 死亡原因 ,Strength as 武勇 ,Command as 统率 ,Intelligence as 智谋 ,Politics as 政治 ,Glamour as 魅力 ,Reputation as 名声 ,UniqueTitles as 独有称号 ,UniqueMilitaryKinds as 独有兵种 ,StrengthExperience as 武勇经验 ,CommandExperience as 统率经验 ,IntelligenceExperience as 智谋经验 ,PoliticsExperience as 政治经验 ,GlamourExperience as 魅力经验 ,InternalExperience as 内政经验 ,TacticsExperience as 策略经验 ,BubingExperience as 步兵经验 ,NubingExperience as 弩兵经验 ,QibingExperience as 骑兵经验 ,ShuijunExperience as 水军经验  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[人物] from Person";
                      string 人物创建 = "select ID as ID ,BornLo as 出生年最小 ,BornHi as 出生年最大 ,DebutLo as 登場年最小 ,DebutHi as 登場年最大 ,DieLo as 壽命最小 ,DieHi as 壽命最大 ,FemaleChance as 女武将机率 ,DebutAtLeast as 登场年数最少  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[人物创建] from PersonGenerator";
                      string 人物创建类型 = "select ID as ID ,TypeName as 类型 ,GenerationChance as 生成机率比重 ,CommandLo as 统率最低 ,CommandHi as 统率最高 ,StrengthLo as 武力最低 ,StrengthHi as 武力最高 ,IntelligenceLo as 智力最低 ,IntelligenceHi as 智力最高 ,PoliticsLo as 政治最低 ,PoliticsHi as 政治最高 ,GlamourLo as 魅力最低 ,GlamourHi as 魅力最高 ,BraveLo as 勇猛度最低 ,BraveHi as 勇猛度最高 ,CalmnessLo as 冷静度最低 ,CalmnessHi as 冷静度最高 ,PersonalLoyaltyLo as 义理最低 ,PersonalLoyaltyHi as 义理最高 ,AmbitionLo as 野心最低 ,AmbitionHi as 野心最高 ,TitleChance as 有称号机率 ,AffectedByRateParameter as 是否受武将能力乘数设置影响 ,TypeCount as TypeCount ,FactionLimit as 势力上限 ,CostFund as 资金  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[人物创建类型] from PersonGeneratorType";
                      string 人物关系 = "selectPerson1 as 人物1 ,Person2 as 人物2 ,Relation as 關係  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[人物关系] from PersonRelation";
@@ -263,7 +263,7 @@ namespace json_and_excel
                      string 特技 = "select ID as ID ,Name as 名称 ,Combativity as 消耗战意 ,Period as 延续天数 ,Animation as 动画 ,Influences as 影响列表 ,CastConditions as 使用条件列表 ,LearnConditions as 修习条件列表 ,AIConditions as AI触发条件 ,General as 将军 ,Brave as 勇将 ,Advisor as 军师 ,Politician as 识者 ,IntelGeneral as 智将 ,Emperor as 君主 ,AllRounder as 全能 ,Normal as 平凡文 ,Normal2 as 平凡武 ,Cheap as 庸才 ,Ability as 相关能力  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[特技] from Stunt";
                      string 科技 = "select ID as ID ,Kind as 种类 ,DisplayRow as 显示行 ,DisplayCol as 显示列 ,Name as 名称 ,Description as 描述 ,PreID as PreID ,PostID as PostID ,Reputation as 需要声望 ,FundCost as 资金消耗 ,PointCost as 技巧点数消耗 ,Days as 升级时间 ,Influences as 影响列表 ,Conditions as 条件列表  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[科技] from Technique";
                      string 地形 = "select ID as 地形编号 ,Name as 地形名称 ,GraphicLayer as 图形层次 ,ViewThrough as 视线可穿透 ,RoutewayBuildFundCost as 粮道开通资金消耗 ,RoutewayActiveFundCost as 粮道维持资金消耗 ,RoutewayBuildWorkCost as 粮道开通工作量 ,RoutewayConsumptionRate as 粮草消耗率 ,FoodDeposit as 粮草蕴藏量 ,FoodRegainDays as 粮草恢复天数 ,FoodSpringRate as 春粮系数 ,FoodSummerRate as 夏粮系数 ,FoodAutumnRate as 秋粮系数 ,FoodWinterRate as 冬粮系数 ,FireDamageRate as 火焰伤害率  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[地形] from TerrainDetail";
-                     string 个性语言 = "select ID as  ,SurName as  ,GivenName as  ,CriticalStrike as  ,CriticalStrikeOnArchitecture as  ,ReceiveCriticalStrike as  ,Surround as  ,Rout as  ,DualInitiativeWin as  ,DualPassiveWin as  ,ControversyInitiativeWin as  ,ControversyPassiveWin as  ,Chaos as  ,DeepChaos as  ,CastDeepChaos as  ,RecoverFromChaos as  ,TrappedByStratagem as  ,HelpedByStratagem as  ,ResistHarmfulStratagem as  ,ResistHelpfulStratagem as  ,AntiAttack as  ,BreakWall as  ,OutburstAngry as  ,OutburstQuiet as   into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[个性语言] from TextMessage";
+                     string 个性语言 = "select ID as  ,LastName as  ,FirstName as  ,CriticalStrike as  ,CriticalStrikeOnArchitecture as  ,ReceiveCriticalStrike as  ,Surround as  ,Rout as  ,DualInitiativeWin as  ,DualPassiveWin as  ,ControversyInitiativeWin as  ,ControversyPassiveWin as  ,Chaos as  ,DeepChaos as  ,CastDeepChaos as  ,RecoverFromChaos as  ,TrappedByStratagem as  ,HelpedByStratagem as  ,ResistHarmfulStratagem as  ,ResistHelpfulStratagem as  ,AntiAttack as  ,BreakWall as  ,OutburstAngry as  ,OutburstQuiet as   into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[个性语言] from TextMessage";
                      string 个性语言类型 = "select ID as ID ,Description as 說明  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[个性语言类型] from TextMessageKind";
                      string 个性语言全图 = "select ID as ID ,Person as 武将编号 ,Kind as 种类 ,Messages as 信息文字  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[个性语言全图] from TextMessageMap";
                      string 动画 = "select ID as ID ,Name as 名称 ,FrameCount as 帧数 ,StayCount as 停留帧数 ,Back as 显示在深层  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[动画] from TileAnimation";
@@ -272,7 +272,7 @@ namespace json_and_excel
                      string 宝物 = "select ID as ID ,Name as 名称 ,Pic as 图像 ,Worth as 价值 ,Available as 已出现 ,HidePlace as 隐藏于建筑 ,TreasureGroup as 宝物种类 ,AppearYear as 出现年 ,BelongedPerson as 属于人物 ,Influences as 影响列表 ,Description as 介绍  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[宝物] from Treasure";
                      string 部队 = "select ID as ID ,LeaderID as 队长ID ,Controllable as 可控 ,Status as 状态 ,Direction as 方向 ,Auto as 委任 ,Operated as 操作完成 ,Food as 粮草 ,StartingArchitecture as 出发地 ,Persons as 所属人物 ,PositionX as 位置X ,PositionY as 位置Y ,DestinationX as 目标X ,DestinationY as 目标Y ,RealDestinationX as 真实目标X ,RealDestinationY as 真实目标Y ,FirstTierPath as 第一层路径 ,SecondTierPath as 第二层路径 ,ThirdTierPath as 第三层路径 ,FirstIndex as FirstIndex ,SecondIndex as SecondIndex ,ThirdIndex as ThirdIndex ,MilitaryID as 编队ID ,AttackDefaultKind as 攻击默认种类 ,AttackTargetKind as 攻击目标种类 ,CastDefaultKind as 施展默认种类 ,CastTargetKind as 施展目标种类 ,跟随部队ID as 目标部队 ,TargetTroopID as 目标建筑 ,TargetArchitectureID as 意愿部队 ,WillTroopID as 意愿建筑 ,WillArchitectureID as 当前战法 ,CurrentCombatMethodID as 当前计略 ,CurrentStratagemID as 自施展位置X ,SelfCastPositionX as 自施展位置Y  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队] from Troop";
                      string 部队动画 = "select ID as ID ,Name as 名称 ,FrameCount as 帧数 ,StayCount as 停留帧数  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队动画] from TroopAnimation";
-                     string 部队事件 = "select ID as ID ,Name as 名称 ,Happened as 已发生过 ,Repeatable as 可以重复 ,AfterEventHappened as 某事件发生之后 ,LaunchPerson as 发动人物 ,Conditions as 发动条件 ,Chance as 发动几率 ,CheckAreaKind as 搜索范围 ,TargetPersons as 目标人物列表 ,Dialogs as 人物对话 ,EffectSelf as 自身效果 ,EffectPersons as 特定人物效果 ,EffectAreas as 特定范围效果 ,ShowImage as 图片 ,ShowSound as 音效  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队事件] from TroopEvent";
+                     string 部队事件 = "select ID as ID ,Name as 名称 ,Happened as 已发生过 ,Repeatable as 可以重复 ,PredecessorEventID as 某事件发生之后 ,LaunchPerson as 发动人物 ,Conditions as 发动条件 ,Chance as 发动几率 ,CheckAreaKind as 搜索范围 ,TargetPersons as 目标人物列表 ,Dialogs as 人物对话 ,EffectSelf as 自身效果 ,EffectPersons as 特定人物效果 ,EffectAreas as 特定范围效果 ,ShowImage as 图片 ,ShowSound as 音效  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队事件] from TroopEvent";
                      string 部队事件效果 = "select ID as ID ,Kind as 种类 ,Name as 名称 ,Parameter as 参数  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队事件效果] from TroopEventEffect";
                      string 部队事件效果类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队事件效果类型] from TroopEventEffectKind";
                      string 年表 = "select ID as ID ,GYear as 年 ,GMonth as 月 ,GDay as 日 ,Faction as 势力 ,Content as 内容 ,IsGloballyKnown as 是否全地图看到  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[年表] from YearTable";
@@ -1148,8 +1148,8 @@ namespace json_and_excel
             数据连接.Fill(ds, "Title");
             数据连接 = new OleDbDataAdapter("select  * from [TitleKind$]", 连接符);
             数据连接.Fill(ds, "TitleKind");
-            数据连接 = new OleDbDataAdapter("select  * from [TrainPolicy$]", 连接符);
-            数据连接.Fill(ds, "TrainPolicy");
+            数据连接 = new OleDbDataAdapter("select  * from [EducationPolicy$]", 连接符);
+            数据连接.Fill(ds, "EducationPolicy");
             数据连接 = new OleDbDataAdapter("select  * from [Treasure$]", 连接符);
             数据连接.Fill(ds, "Treasure");
             数据连接 = new OleDbDataAdapter("select  * from [Troop$]", 连接符);
@@ -4736,12 +4736,12 @@ namespace json_and_excel
                 scenario.GameCommonData.AllTitles.AddTitle(a);
             }
 
-            非getset字段表 = typeof(TrainPolicy).GetFields((System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance));
+            非getset字段表 = typeof(EducationPolicy).GetFields((System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance));
             取值字段 = 培育方针取值字段();
-            dt = ds.Tables["TrainPolicy"];
+            dt = ds.Tables["EducationPolicy"];
             for (i = 0; i < dt.Rows.Count; i++)
             {
-                TrainPolicy a = new TrainPolicy();
+                EducationPolicy a = new EducationPolicy();
                 if (i == 0)
                 {
                     getset字段表 = ((Type)a.GetType()).GetProperties();
@@ -5652,7 +5652,7 @@ namespace json_and_excel
                         }
                     }
                 }
-                a.DeadReason = (PersonDeadReason)Enum.Parse(typeof(PersonDeadReason), dt.Rows[i]["DeadReason"].ToString());
+                a.DeathReason = (PersonDeathReason)Enum.Parse(typeof(PersonDeathReason), dt.Rows[i]["DeathReason"].ToString());
                 a.Qualification = (PersonQualification)Enum.Parse(typeof(PersonQualification), dt.Rows[i]["Qualification"].ToString());
                 a.ValuationOnGovernment = (PersonValuationOnGovernment)Enum.Parse(typeof(PersonValuationOnGovernment), dt.Rows[i]["ValuationOnGovernment"].ToString());
                 a.StrategyTendency = (PersonStrategyTendency)Enum.Parse(typeof(PersonStrategyTendency), dt.Rows[i]["StrategyTendency"].ToString());
@@ -5661,7 +5661,7 @@ namespace json_and_excel
                 a.firstPreferred = (ArchitectureWorkKind)Enum.Parse(typeof(ArchitectureWorkKind), dt.Rows[i]["firstPreferred"].ToString());
                 a.OutsideTask = (OutsideTaskKind)Enum.Parse(typeof(OutsideTaskKind), dt.Rows[i]["OutsideTask"].ToString());
                 a.LastOutsideTask = (OutsideTaskKind)Enum.Parse(typeof(OutsideTaskKind), dt.Rows[i]["LastOutsideTask"].ToString());
-                a.BornRegion = (PersonBornRegion)Enum.Parse(typeof(PersonBornRegion), dt.Rows[i]["BornRegion"].ToString());
+                a.BirthRegion = (PersonBornRegion)Enum.Parse(typeof(PersonBornRegion), dt.Rows[i]["BirthRegion"].ToString());
                 Microsoft.Xna.Framework.Point p = new Microsoft.Xna.Framework.Point();
                 if (dt.Rows[i]["OutsideDestination"].ToString() != "")
                 {
@@ -5681,7 +5681,7 @@ namespace json_and_excel
                 scenario.CloseIds.Add(a.ID, aaa);
                 aaa = LoadFromString(aaa, dt.Rows[i]["HatedPersons"].ToString());
                 scenario.HatedIds.Add(a.ID, aaa);
-                aaa = LoadFromString(aaa, dt.Rows[i]["suoshurenwuList"].ToString());
+                aaa = LoadFromString(aaa, dt.Rows[i]["PartnersList"].ToString());
                 scenario.SuoshuIds.Add(a.ID, aaa);
                 if (dt.Rows[i]["relations"].ToString() != "")
                 {
@@ -8433,17 +8433,17 @@ namespace json_and_excel
                 DataRow dr = dt.NewRow();
                 dr["ID"] = a.ID;
                 dr["Name"] = a.Name;
-                dr["happened"] = a.happened;
-                dr["repeatable"] = a.repeatable;
-                dr["AfterEventHappened"] = a.AfterEventHappened;
-                dr["happenChance"] = a.happenChance;
+                dr["HasHappened"] = a.HasHappened;
+                dr["IsRepeatable"] = a.IsRepeatable;
+                dr["PredecessorEventID"] = a.PredecessorEventID;
+                dr["ProbabilityBase"] = a.ProbabilityBase;
                 dr["GloballyDisplayed"] = a.GloballyDisplayed;
                 dr["StartYear"] = a.StartYear;
                 dr["StartMonth"] = a.StartMonth;
                 dr["EndYear"] = a.EndYear;
                 dr["EndMonth"] = a.EndMonth;
-                dr["personString"] = a.personString;
-                dr["PersonCondString"] = a.PersonCondString;
+                dr["TriggeringCharString"] = a.TriggeringCharString;
+                dr["CharConditionString"] = a.CharConditionString;
                 dr["architectureString"] = a.architectureString;
                 dr["architectureCondString"] = a.architectureCondString;
                 dr["factionString"] = a.factionString;
@@ -9189,7 +9189,7 @@ namespace json_and_excel
                 dr["brothers"] = 人物列表(a.Brothers);
                 dr["ClosePersons"] = 人物列表(a.ClosePersons);
                 dr["HatedPersons"] = 人物列表(a.HatedPersons);
-                dr["suoshurenwuList"] = 人物列表(a.suoshurenwuList);
+                dr["PartnersList"] = 人物列表(a.PartnersList);
                 dr["JoinFactionID"] = GameGlobal.StaticMethods.SaveToString(a.JoinFactionID);
                 dr["ProhibitedFactionID"] = GameGlobal.StaticMethods.SaveToString(a.ProhibitedFactionID);
                 dr["marriageGranter"] = a.marriageGranter == null ? -1 : a.marriageGranter.ID;
@@ -9826,7 +9826,7 @@ namespace json_and_excel
             oProps = null;
             取值字段 = 培育方针取值字段();
             m += 1;
-            foreach (GameObjects.PersonDetail.TrainPolicy a in CommonData.Current.AllTrainPolicies)
+            foreach (GameObjects.PersonDetail.EducationPolicy a in CommonData.Current.AllTrainPolicies)
             {
                 if (oProps == null)
                 {
@@ -10023,7 +10023,7 @@ namespace json_and_excel
                                 dt.Columns.Add(new DataColumn(pi.Name, colType));
                             }
                         }
-                        if (s == "AfterEventHappened" || s == "CheckArea" || s == "Dialogs" || s == "Image" || s == "Sound")
+                        if (s == "PredecessorEventID" || s == "CheckArea" || s == "Dialogs" || s == "Image" || s == "Sound")
                         {
                             dt.Columns.Add(s);
                         }
@@ -10038,7 +10038,7 @@ namespace json_and_excel
                         DBNull.Value : pi.GetValue(a, null);
                     }
                 }
-                dr["AfterEventHappened"] = a.AfterEventHappened;
+                dr["PredecessorEventID"] = a.PredecessorEventID;
                 dr["CheckArea"] = (int)a.CheckArea;
                 string str = "";
                 foreach (PersonDialog dialog in a.Dialogs)
@@ -10504,17 +10504,17 @@ namespace json_and_excel
             {
                 "ID",
                 "Name",
-                "happened",
-                "repeatable",
-                "AfterEventHappened",
-                "happenChance",
+                "HasHappened",
+                "IsRepeatable",
+                "PredecessorEventID",
+                "ProbabilityBase",
                 "GloballyDisplayed",
                 "StartYear",
                 "StartMonth",
                 "EndYear",
                 "EndMonth",
-                "personString",
-                "PersonCondString",
+                "TriggeringCharString",
+                "CharConditionString",
                 "architectureString",
                 "architectureCondString",
                 "factionString",
@@ -10890,11 +10890,11 @@ namespace json_and_excel
                 "ID",
                 "Available",
                 "Alive",
-                "SurName",
-                "GivenName",
+                "LastName",
+                "FirstName",
                 "CalledName",
                 "Sex",
-                "PictureIndex",
+                "AvatarIndex",
                 "Ideal",
                 "IdealTendencyIDString",
                 "LeaderPossibility",
@@ -10902,7 +10902,7 @@ namespace json_and_excel
                 "YearAvailable",
                 "YearBorn",
                 "YearDead",
-                "DeadReason",
+                "DeathReason",
                 "BaseStrength",
                 "BaseCommand",
                 "BaseIntelligence",
@@ -10910,7 +10910,7 @@ namespace json_and_excel
                 "BaseGlamour",
                 "Reputation",
                 "UniqueTitlesString",
-                "UniqueMilitaryKindsString",
+                "UniqueTroopTypesString",
                 "StrengthExperience",
                 "CommandExperience",
                 "IntelligenceExperience",
@@ -10929,7 +10929,7 @@ namespace json_and_excel
                 "BaseBraveness",
                 "BaseCalmness",
                 "Loyalty",
-                "BornRegion",
+                "BirthRegion",
                 "AvailableLocation",
                 "Strain",
                 "relations",
@@ -10939,7 +10939,7 @@ namespace json_and_excel
                 "brothers",
                 "ClosePersons",
                 "HatedPersons",
-                "suoshurenwuList",
+                "PartnersList",
                 "JoinFactionID",
                 "ProhibitedFactionID",
                 "Generation",
@@ -10958,12 +10958,12 @@ namespace json_and_excel
                 "InformationKindID",
                 "SkillsString",
                 "RealTitlesString",
-                "StudyingTitleString",
+                "LearningTitleString",
                 "StuntsString",
-                "StudyingStuntString",
-                "huaiyun",
-                "faxianhuaiyun",
-                "huaiyuntianshu",
+                "LearningStuntString",
+                "IsPregnant",
+                "PregnancyDiscovered",
+                "PregnancyDayCount",
                 "suoshurenwu",
                 "waitForFeiziId",
                 "waitForFeiZiPeriod",
@@ -11454,7 +11454,7 @@ namespace json_and_excel
                 "Name",
                 "Happened",
                 "Repeatable",
-                "AfterEventHappened",
+                "PredecessorEventID",
                 "LaunchPersonString",
                 "ConditionsString",
                 "HappenChance",

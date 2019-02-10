@@ -1302,7 +1302,7 @@
     <Compile Include="GameObjects\Person.cs" />
     <Compile Include="GameObjects\PersonAmbition.cs" />
     <Compile Include="GameObjects\PersonBornRegion.cs" />
-    <Compile Include="GameObjects\PersonDeadReason.cs" />
+    <Compile Include="GameObjects\PersonDeathReason.cs" />
     <Compile Include="GameObjects\PersonDetail\Biography.cs" />
     <Compile Include="GameObjects\PersonDetail\BiographyAdjectives.cs" />
     <Compile Include="GameObjects\PersonDetail\BiographyTable.cs" />
@@ -1331,8 +1331,8 @@
     <Compile Include="GameObjects\PersonDetail\TitleKind.cs" />
     <Compile Include="GameObjects\PersonDetail\TitleKindTable.cs" />
     <Compile Include="GameObjects\PersonDetail\TitleTable.cs" />
-    <Compile Include="GameObjects\PersonDetail\TrainPolicy.cs" />
-    <Compile Include="GameObjects\PersonDetail\TrainPolicyList.cs" />
+    <Compile Include="GameObjects\PersonDetail\EducationPolicy.cs" />
+    <Compile Include="GameObjects\PersonDetail\EducationPolicyList.cs" />
     <Compile Include="GameObjects\PersonDialog.cs" />
     <Compile Include="GameObjects\PersonForm.cs" />
     <Compile Include="GameObjects\PersonList.cs" />
@@ -50760,28 +50760,12 @@
       <Link>Content\Textures\Resources\Treasure\1113.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\Resources\Treasure\1113.jpg">
-      <Link>Content\Textures\Resources\Treasure\1113.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\Treasure\1114.jpg">
-      <Link>Content\Textures\Resources\Treasure\1114.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Textures\Resources\Treasure\1114.jpg">
       <Link>Content\Textures\Resources\Treasure\1114.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Textures\Resources\Treasure\1115.jpg">
       <Link>Content\Textures\Resources\Treasure\1115.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\Treasure\1115.jpg">
-      <Link>Content\Textures\Resources\Treasure\1115.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\Treasure\1116.jpg">
-      <Link>Content\Textures\Resources\Treasure\1116.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Textures\Resources\Treasure\1116.jpg">

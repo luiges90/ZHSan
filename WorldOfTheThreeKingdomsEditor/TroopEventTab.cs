@@ -19,7 +19,7 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             return new Dictionary<string, string>()
             {
-                {"AfterEventHappened", "-1"},
+                {"PredecessorEventID", "-1"},
                 {"Chance", "100" },
                 {"LaunchPerson", "-1" }
             };
@@ -32,7 +32,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 { "Name", "名称" },
                 { "Happened", "已发生过" },
                 { "Repeatable", "可以重复" },
-                { "AfterEventHappened", "某事件发生之后：需要在某事件发生过之后才能触发" },
+                { "PredecessorEventID", "某事件发生之后：需要在某事件发生过之后才能触发" },
                 { "LaunchPersonString", "发动人物：发动事件的人物，所有效果将以本人物所在部队为中心。如果为-1，则每个部队都可以触发此事件。" },
                 { "dialogString", "人物对话：每个人物ID后跟随其要说的话。以空格分隔。留空则无对话。" },
                 { "ConditionsString", "发动条件：发动事件的部队所需要满足的条件，留空则为满足。" },
@@ -54,7 +54,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 "Name",
                 "Happened",
                 "Repeatable",
-                "AfterEventHappened",
+                "PredecessorEventID",
                 "LaunchPersonString",
                 "dialogString",
                 "ConditionsString",

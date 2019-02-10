@@ -953,7 +953,7 @@ namespace GameObjects
         {
         }
 
-        public virtual void faxianhuaiyun(Person person)
+        public virtual void PregnancyDiscovered(Person person)
         {
         }
 

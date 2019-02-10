@@ -24,26 +24,26 @@ namespace GameObjects
     public class Event : GameObject
     {
         [DataMember]
-        public int AfterEventHappened = -1;
+        public int PredecessorEventID = -1;
         public TroopEvent AfterHappenedEvent;
         [DataMember]
-        public int happenChance;
+        public int ProbabilityBase;
 
         [DataMember]
-        public bool happened;
+        public bool HasHappened;
         [DataMember]
-        public bool repeatable;
+        public bool IsRepeatable;
 
         [DataMember]
         public String nextScenario;
 
         [DataMember]
-        public string personString { get; set; }
+        public string TriggeringCharString { get; set; }
 
         public Dictionary<int, List<Person>> person;
 
         [DataMember]
-        public string PersonCondString { get; set; }
+        public string CharConditionString { get; set; }
 
         public Dictionary<int, List<Condition>> personCond;
 
@@ -143,7 +143,7 @@ namespace GameObjects
         public int EndMonth = 12;
 
         [DataMember]
-        public bool Minor = false;
+        public bool IsMinor = false;
 
         private bool involveLeader = false;
         public bool InvolveLeader
@@ -515,15 +515,15 @@ namespace GameObjects
 
         public bool checkConditions(Architecture a)
         {
-            if (this.happened && !this.repeatable) return false;
-            if (GameObject.Random(this.happenChance) != 0)
+            if (this.HasHappened && !this.IsRepeatable) return false;
+            if (GameObject.Random(this.ProbabilityBase) != 0)
             {
                 return false;
             }
 
-            if (this.AfterEventHappened >= 0)
+            if (this.PredecessorEventID >= 0)
             {
-                if (!(Session.Current.Scenario.AllEvents.GetGameObject(this.AfterEventHappened) as Event).happened)
+                if (!(Session.Current.Scenario.AllEvents.GetGameObject(this.PredecessorEventID) as Event).HasHappened)
                 {
                     return false;
                 }

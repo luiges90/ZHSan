@@ -469,7 +469,7 @@ namespace GameManager
             {
                 return;
             }
-            float pictureID = Convert.ToSingle(person.PictureIndex);
+            float pictureID = Convert.ToSingle(person.AvatarIndex);
             //if (person.Age >= 50)
             //{
             //    pictureID += 0.5f;

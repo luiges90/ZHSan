@@ -4691,7 +4691,7 @@
 		</Tab>
       </Tabs>
     </ListKind>
-	<ListKind ID="34" Name="TrainPolicy" DisplayName="培育方针" ShowPortrait ="false">
+	<ListKind ID="34" Name="EducationPolicy" DisplayName="培育方针" ShowPortrait ="false">
 	  <Columns>
 		<Column ID="1" Name="Name" CountToDisplay="False" IsNumber="false" DisplayName="名称" MinWidth="80" DetailLevel="1"
                 FontName="方正隶变_GBK"

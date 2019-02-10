@@ -533,7 +533,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((selectedList != null) && (selectedList.Count == 1))
             {
                 this.CurrentPerson = selectedList[0] as Person;
-                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.TrainPolicy, FrameFunction.SelectTrainPolicy, false, true, true, false, this.CurrentPerson.TrainPolicies(), null, "选择培育方针", "");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.EducationPolicy, FrameFunction.SelectTrainPolicy, false, true, true, false, this.CurrentPerson.TrainPolicies(), null, "选择培育方针", "");
             }
             this.CurrentArchitecture.Persons.ClearSelected();
         }
@@ -543,7 +543,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             GameObjectList selectedList = Session.Current.Scenario.GameCommonData.AllTrainPolicies.GetSelectedList();
             if ((selectedList != null) && (selectedList.Count == 1))
             {
-                this.CurrentPerson.TrainPolicy = (TrainPolicy) selectedList[0];
+                this.CurrentPerson.EducationPolicy = (EducationPolicy) selectedList[0];
             }
             this.CurrentArchitecture.Persons.ClearSelected();
         }

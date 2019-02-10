@@ -2230,7 +2230,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
 
             if ((Session.Current.Scenario.CurrentPlayer == null || Session.Current.Scenario.CurrentPlayer.IsArchitectureKnown(a) || Session.GlobalVariables.SkyEye || e.GloballyDisplayed) 
-                && (e.matchedDialog != null && e.matchedDialog.Count > 0 && (!e.Minor || e.InvolveLeader)))
+                && (e.matchedDialog != null && e.matchedDialog.Count > 0 && (!e.IsMinor || e.InvolveLeader)))
             {
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, screen);
                 

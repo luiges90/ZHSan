@@ -34,7 +34,43 @@ namespace WorldOfTheThreeKingdomsEditor
         private ArchitectureTab architectureTab;
         private FactionTab factionTab;
         private PersonTab personTab;
+		
+		private void CharDisplayName(object sender, DataGridAutoGeneratingColumnEventArgs e)
+		{
+			switch (e.PropertyName)
+			{
+				case "ID":
+					e.Column.Header = "ID";
+					break;
 
+				case "Available":
+					e.Column.Header = "登场";
+					break;
+				
+				case "Alive":
+					e.Column.Header = "活著";
+					break;
+					
+				case "LastName":
+					e.Column.Header = "姓氏";
+					break;
+					
+				case "FirstName":
+					e.Column.Header = "名称";
+					break;
+					
+				case "CalledName":
+					e.Column.Header = "表字";
+					break;
+					
+				case "Sex":
+					e.Column.Header = "性别";
+					break;
+
+				default:
+					break;
+			}
+		}
         public bool CopyIncludeTitle = true;
 
         public MainWindow()

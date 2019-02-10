@@ -4,7 +4,7 @@
 namespace GameObjects
 {
 
-    public enum PersonDeadReason
+    public enum PersonDeathReason
     {
         自然死亡,
         被杀死,

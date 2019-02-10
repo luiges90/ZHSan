@@ -458,8 +458,8 @@
             this.AllSkillTexts.ResetAllAlignedPositions();
 
             this.ShowingPerson = person;
-            this.SurNameText.Text = person.SurName;
-            this.GivenNameText.Text = person.GivenName;
+            this.SurNameText.Text = person.LastName;
+            this.GivenNameText.Text = person.FirstName;
             this.CalledNameText.Text = person.CalledName;
             foreach (LabelText text in this.LabelTexts)
             {

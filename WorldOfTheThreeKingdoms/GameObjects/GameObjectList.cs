@@ -21,7 +21,7 @@ namespace GameObjects
     [KnownType(typeof(CastTargetKindList))]
     [KnownType(typeof(InformationKindList))]
     [KnownType(typeof(PersonGeneratorTypeList))]
-    [KnownType(typeof(TrainPolicyList))]
+    [KnownType(typeof(EducationPolicyList))]
 
     public class GameObjectList : IEnumerable
     {

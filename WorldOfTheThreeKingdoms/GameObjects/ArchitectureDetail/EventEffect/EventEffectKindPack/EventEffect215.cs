@@ -9,20 +9,20 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
     {
         public override void ApplyEffectKind(Person person, Event e)
         {
-            person.huaiyun = true;
-            person.huaiyuntianshu = 0;
+            person.IsPregnant = true;
+            person.PregnancyDayCount = 0;
             if (person.BelongedFactionWithPrincess != null)
             {
                 person.suoshurenwu = person.BelongedFactionWithPrincess.LeaderID;
                 person.BelongedFactionWithPrincess.Leader.suoshurenwu = person.ID;
 
-                if (!person.suoshurenwuList.GameObjects.Contains(person.BelongedFactionWithPrincess.Leader))
+                if (!person.PartnersList.GameObjects.Contains(person.BelongedFactionWithPrincess.Leader))
                 {
-                    person.suoshurenwuList.Add(person.BelongedFactionWithPrincess.Leader);
+                    person.PartnersList.Add(person.BelongedFactionWithPrincess.Leader);
                 }
-                if (!person.BelongedFactionWithPrincess.Leader.suoshurenwuList.GameObjects.Contains(person))
+                if (!person.BelongedFactionWithPrincess.Leader.PartnersList.GameObjects.Contains(person))
                 {
-                    person.BelongedFactionWithPrincess.Leader.suoshurenwuList.Add(person);
+                    person.BelongedFactionWithPrincess.Leader.PartnersList.Add(person);
                 }
 
             }

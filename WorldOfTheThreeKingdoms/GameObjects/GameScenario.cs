@@ -897,7 +897,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.YesEventsToApply)
             {
                 i.Key.DoYesApplyEvent(i.Value);
-                i.Key.happened = true;
+                i.Key.HasHappened = true;
             }
             this.YesEventsToApply.Clear();
             this.NoEventsToApply.Clear();
@@ -908,7 +908,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.NoEventsToApply)
             {
                 i.Key.DoNoApplyEvent(i.Value);
-                i.Key.happened = true;
+                i.Key.HasHappened = true;
             }
             this.YesEventsToApply.Clear();
             this.NoEventsToApply.Clear();
@@ -916,7 +916,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.NoArchiEventsToApply)
             {
                 i.Key.DoNoApplyEvent(i.Value);
-                i.Key.happened = true;
+                i.Key.HasHappened = true;
             }
             this.NoArchiEventsToApply.Clear();
              */
@@ -927,7 +927,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.YesArchiEventsToApply)
             {
                 i.Key.DoYesArchiApplyEvent(i.Value);
-                i.Key.happened = true;
+                i.Key.HasHappened = true;
             }
             this.YesArchiEventsToApply.Clear();
         }
@@ -937,7 +937,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.NoArchiEventsToApply)
             {
                 i.Key.DoNoArchiApplyEvent(i.Value);
-                i.Key.happened = true;
+                i.Key.HasHappened = true;
             }
             this.NoArchiEventsToApply.Clear();
         }*/
@@ -948,7 +948,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.EventsToApply)
             {
                 i.Key.DoApplyEvent(i.Value);
-                i.Key.happened = true;
+                i.Key.HasHappened = true;
             }
 
             this.EventsToApply.Clear();
@@ -2333,7 +2333,7 @@ namespace GameObjects
                 {
                     if (!p.Available && p.Spouse != null && !p.Spouse.Available)
                     {
-                        p.suoshurenwuList.Remove(p.Spouse);
+                        p.PartnersList.Remove(p.Spouse);
                         p.Spouse = null;
                     }
                 }
@@ -2577,9 +2577,9 @@ namespace GameObjects
             }
             foreach (TroopEvent event2 in this.TroopEvents)
             {
-                if (event2.AfterEventHappened >= 0)
+                if (event2.PredecessorEventID >= 0)
                 {
-                    event2.AfterHappenedEvent = this.TroopEvents.GetGameObject(event2.AfterEventHappened) as TroopEvent;
+                    event2.AfterHappenedEvent = this.TroopEvents.GetGameObject(event2.PredecessorEventID) as TroopEvent;
                 }
             }
         }
@@ -2941,12 +2941,12 @@ namespace GameObjects
 
                 person.Character = this.GameCommonData.AllCharacterKinds[person.PCharacter];
 
-                //person.UniqueMilitaryKindsString = reader["UniqueMilitaryKinds"].ToString();
+                //person.UniqueTroopTypesString = reader["UniqueMilitaryKinds"].ToString();
                 //person.UniqueTitlesString = reader["UniqueTitles"].ToString();
 
                 try
                 {
-                    errors.AddRange(person.UniqueMilitaryKinds.LoadFromString(this.GameCommonData.AllMilitaryKinds, person.UniqueMilitaryKindsString));
+                    errors.AddRange(person.UniqueMilitaryKinds.LoadFromString(this.GameCommonData.AllMilitaryKinds, person.UniqueTroopTypesString));
                     errors.AddRange(person.UniqueTitles.LoadFromString(this.GameCommonData.AllTitles, person.UniqueTitlesString));
                     //errors.AddRange(person.Guanzhis.LoadFromString(this.GameCommonData.AllTitles, reader["Guanzhis"].ToString()));
                 }
@@ -2957,8 +2957,8 @@ namespace GameObjects
                 //person.SkillsString = reader["Skills"].ToString();
                 person.Skills.LoadFromString(this.GameCommonData.AllSkills, person.SkillsString);
 
-                //person.StudyingTitleString = (short)reader["StudyingTitle"];
-                person.StudyingTitle = this.GameCommonData.AllTitles.GetTitle(person.StudyingTitleString);
+                //person.LearningTitleString = (short)reader["StudyingTitle"];
+                person.StudyingTitle = this.GameCommonData.AllTitles.GetTitle(person.LearningTitleString);
 
                 try
                 {
@@ -2979,19 +2979,19 @@ namespace GameObjects
                 }
 
                 //person.StuntsString = reader["Stunts"].ToString();
-                //person.StudyingStuntString = (short)reader["StudyingStunt"];
+                //person.LearningStuntString = (short)reader["StudyingStunt"];
 
                 try
                 {
                     person.Stunts.LoadFromString(this.GameCommonData.AllStunts, person.StuntsString);
-                    person.StudyingStunt = this.GameCommonData.AllStunts.GetStunt(person.StudyingStuntString);
+                    person.StudyingStunt = this.GameCommonData.AllStunts.GetStunt(person.LearningStuntString);
                 }
                 catch
                 {
                 }
 
-                //person.TrainPolicyIDString = (short)reader["TrainPolicy"];
-                person.TrainPolicy = (TrainPolicy)this.GameCommonData.AllTrainPolicies.GetGameObject(person.TrainPolicyIDString);
+                //person.TrainPolicyIDString = (short)reader["EducationPolicy"];
+                person.EducationPolicy = (EducationPolicy)this.GameCommonData.AllTrainPolicies.GetGameObject(person.TrainPolicyIDString);
 
                 //person.preferredTroopPersonsString = reader["PreferredTroopPersons"].ToString();
 
@@ -3130,7 +3130,7 @@ namespace GameObjects
                     Person q = this.Persons.GetGameObject(j) as Person;
                     if (q != null)
                     {
-                        p.suoshurenwuList.Add(q);
+                        p.PartnersList.Add(q);
                     }
                     else
                     {
@@ -3146,10 +3146,10 @@ namespace GameObjects
 
             foreach (Person p in this.Persons)
             {
-                if (p.Spouse != null && !p.suoshurenwuList.HasGameObject(p.Spouse))
+                if (p.Spouse != null && !p.PartnersList.HasGameObject(p.Spouse))
                 {
-                    p.suoshurenwuList.Add(p.Spouse);
-                    p.Spouse.suoshurenwuList.Add(p);
+                    p.PartnersList.Add(p.Spouse);
+                    p.Spouse.PartnersList.Add(p);
                 }
             }
 
@@ -3659,11 +3659,11 @@ namespace GameObjects
             {
                 e.Init();
 
-                //e.personString = reader["PersonId"].ToString();
-                e.LoadPersonIdFromString(this.Persons, e.personString);
+                //e.TriggeringCharString = reader["PersonId"].ToString();
+                e.LoadPersonIdFromString(this.Persons, e.TriggeringCharString);
 
-                //e.PersonCondString = reader["PersonCond"].ToString();
-                e.LoadPersonCondFromString(this.GameCommonData.AllConditions, e.PersonCondString);
+                //e.CharConditionString = reader["PersonCond"].ToString();
+                e.LoadPersonCondFromString(this.GameCommonData.AllConditions, e.CharConditionString);
 
                 //e.architectureString = reader["ArchitectureID"].ToString();
                 e.LoadArchitectureFromString(this.Architectures, e.architectureString);
@@ -4721,7 +4721,7 @@ namespace GameObjects
             {
                 foreach (TroopEvent event2 in this.TroopEvents)
                 {
-                    event2.AfterEventHappened = (event2.AfterHappenedEvent != null) ? event2.AfterHappenedEvent.ID : -1;
+                    event2.PredecessorEventID = (event2.AfterHappenedEvent != null) ? event2.AfterHappenedEvent.ID : -1;
                     event2.LaunchPersonString = (event2.LaunchPerson != null) ? event2.LaunchPerson.ID : -1;
                     event2.ConditionsString = event2.Conditions.SaveToString();
                     event2.TargetPersonsString = event2.SaveTargetPersonToString();
@@ -4772,14 +4772,14 @@ namespace GameObjects
                 foreach (Person person in this.Persons)
                 {
                     person.UniqueTitlesString = person.UniqueTitles.SaveToString();
-                    person.UniqueMilitaryKindsString = person.UniqueMilitaryKinds.SaveToString();
+                    person.UniqueTroopTypesString = person.UniqueMilitaryKinds.SaveToString();
                     person.IdealTendencyIDString = (person.IdealTendency != null) ? person.IdealTendency.ID : -1;
                     if (person.Character != null)
                     {
                         person.PCharacter = person.Character.ID;
                     }
                     person.UniqueTitlesString = person.UniqueTitles.SaveToString();
-                    person.UniqueMilitaryKindsString = person.UniqueMilitaryKinds.SaveToString();
+                    person.UniqueTroopTypesString = person.UniqueMilitaryKinds.SaveToString();
 
                     //row["Braveness"] = person.BaseBraveness;                    
                     //row["Calmness"] = person.BaseCalmness;
@@ -4816,7 +4816,7 @@ namespace GameObjects
                     }
 
                     String suoshuStr = "";
-                    foreach (Person p in person.suoshurenwuList)
+                    foreach (Person p in person.PartnersList)
                     {
                         suoshuStr += p.ID + " ";
                     }
@@ -4891,15 +4891,15 @@ namespace GameObjects
 
                     person.SkillsString = person.Skills.SaveToString();
                     person.RealTitlesString = person.SaveTitleToString();
-                    person.StudyingTitleString = (person.StudyingTitle != null) ? person.StudyingTitle.ID : -1;
+                    person.LearningTitleString = (person.StudyingTitle != null) ? person.StudyingTitle.ID : -1;
 
                     person.StuntsString = person.Stunts.SaveToString();
-                    person.StudyingStuntString = (person.StudyingStunt != null) ? person.StudyingStunt.ID : -1;
+                    person.LearningStuntString = (person.StudyingStunt != null) ? person.StudyingStunt.ID : -1;
 
                     person.waitForFeiziId = (person.WaitForFeiZi != null) ? person.WaitForFeiZi.ID : -1;
                     person.preferredTroopPersonsString = person.preferredTroopPersons.SaveToString();
 
-                    person.TrainPolicyIDString = person.TrainPolicy == null ? -1 : person.TrainPolicy.ID;
+                    person.TrainPolicyIDString = person.EducationPolicy == null ? -1 : person.EducationPolicy.ID;
                 }
             }
 
@@ -4961,8 +4961,8 @@ namespace GameObjects
             {
                 foreach (Event e in this.AllEvents)
                 {
-                    e.personString = e.SavePersonIdToString();
-                    e.PersonCondString = e.SavePersonCondToString();
+                    e.TriggeringCharString = e.SavePersonIdToString();
+                    e.CharConditionString = e.SavePersonCondToString();
                     e.architectureString = e.architecture.SaveToString();
                     e.architectureCondString = e.SaveArchitecureCondToString();
                     e.factionString = e.faction.SaveToString();
@@ -5873,11 +5873,11 @@ namespace GameObjects
                 //if (p.Trainable && GameObject.Random(30) == 0)
                 if (p.Trainable && GameObject.Random((int)(20 / (IsPlayer(p.Father.BelongedFaction) ? 1 : Session.Current.Scenario.Parameters.AIExtraPerson) / Session.Parameters.DayInTurn)) == 0)
                 {
-                    if (p.TrainPolicy == null)
+                    if (p.EducationPolicy == null)
                     {
-                        p.TrainPolicy = (TrainPolicy)this.GameCommonData.AllTrainPolicies.GetGameObject(1);
+                        p.EducationPolicy = (EducationPolicy)this.GameCommonData.AllTrainPolicies.GetGameObject(1);
                     }
-                    Dictionary<int, float> weighting = p.TrainPolicy.Weighting;
+                    Dictionary<int, float> weighting = p.EducationPolicy.Weighting;
                     if (p.Age < 8) // No attempt to learn title until age 8
                     {
                         weighting.Remove(8);

@@ -10,7 +10,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
     {
         public override bool CheckConditionKind(Person person)
         {
-            return person.Sex && !person.huaiyun;
+            return person.Sex && !person.IsPregnant;
         }
     }
 }

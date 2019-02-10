@@ -143117,7 +143117,7 @@
 "AllTrainPolicies":{
 "GameObjects":[
 {
-"__type":"TrainPolicy:#GameObjects.PersonDetail",
+"__type":"EducationPolicy:#GameObjects.PersonDetail",
 "ID":1,
 "Name":"均衡",
 "Command":1,
@@ -143131,7 +143131,7 @@
 "Title":1
 },
 {
-"__type":"TrainPolicy:#GameObjects.PersonDetail",
+"__type":"EducationPolicy:#GameObjects.PersonDetail",
 "ID":2,
 "Name":"将军",
 "Command":3,
@@ -143145,7 +143145,7 @@
 "Title":1
 },
 {
-"__type":"TrainPolicy:#GameObjects.PersonDetail",
+"__type":"EducationPolicy:#GameObjects.PersonDetail",
 "ID":3,
 "Name":"军师",
 "Command":2,
@@ -143159,7 +143159,7 @@
 "Title":1
 },
 {
-"__type":"TrainPolicy:#GameObjects.PersonDetail",
+"__type":"EducationPolicy:#GameObjects.PersonDetail",
 "ID":4,
 "Name":"武者",
 "Command":1,
@@ -143173,7 +143173,7 @@
 "Title":1
 },
 {
-"__type":"TrainPolicy:#GameObjects.PersonDetail",
+"__type":"EducationPolicy:#GameObjects.PersonDetail",
 "ID":5,
 "Name":"识者",
 "Command":1,
@@ -143187,7 +143187,7 @@
 "Title":1
 },
 {
-"__type":"TrainPolicy:#GameObjects.PersonDetail",
+"__type":"EducationPolicy:#GameObjects.PersonDetail",
 "ID":6,
 "Name":"智将",
 "Command":2,
@@ -143201,7 +143201,7 @@
 "Title":1
 },
 {
-"__type":"TrainPolicy:#GameObjects.PersonDetail",
+"__type":"EducationPolicy:#GameObjects.PersonDetail",
 "ID":7,
 "Name":"魅力",
 "Command":1,
@@ -143215,7 +143215,7 @@
 "Title":1
 },
 {
-"__type":"TrainPolicy:#GameObjects.PersonDetail",
+"__type":"EducationPolicy:#GameObjects.PersonDetail",
 "ID":8,
 "Name":"技能培育",
 "Command":1,
@@ -143229,7 +143229,7 @@
 "Title":1
 },
 {
-"__type":"TrainPolicy:#GameObjects.PersonDetail",
+"__type":"EducationPolicy:#GameObjects.PersonDetail",
 "ID":9,
 "Name":"称号培育",
 "Command":1,

@@ -22,7 +22,7 @@ namespace GameObjects
     [KnownType(typeof(IdealTendencyKind))]
     [KnownType(typeof(InformationKind))]
     [KnownType(typeof(PersonGeneratorType))]
-    [KnownType(typeof(TrainPolicy))]
+    [KnownType(typeof(EducationPolicy))]
     [KnownType(typeof(Event))]
     [KnownType(typeof(Person))]
     [KnownType(typeof(Architecture))]

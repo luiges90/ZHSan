@@ -38,7 +38,7 @@ namespace GameGlobal
         Information,
         Guanjue,
         PersonGeneratorType,
-        TrainPolicy
+        EducationPolicy
     }
 }
 

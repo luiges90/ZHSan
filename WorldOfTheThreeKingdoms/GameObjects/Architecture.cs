@@ -7673,7 +7673,7 @@ namespace GameObjects
                 PersonList list = new PersonList();
                 foreach (Person p in this.Feiziliebiao)
                 {
-                    if (!this.BelongedFaction.Leader.suoshurenwuList.HasGameObject(p))
+                    if (!this.BelongedFaction.Leader.PartnersList.HasGameObject(p))
                     {
                         list.Add(p);
                     }
@@ -14856,7 +14856,7 @@ namespace GameObjects
 
         public bool kejinhougong()
         {
-            if (this.meifaxianhuaiyundefeiziliebiao().Count != 0 && this.Persons.GameObjects.Contains(this.BelongedFaction.Leader) && !this.BelongedFaction.Leader.huaiyun)
+            if (this.meifaxianhuaiyundefeiziliebiao().Count != 0 && this.Persons.GameObjects.Contains(this.BelongedFaction.Leader) && !this.BelongedFaction.Leader.IsPregnant)
             {
 
                 return true;
@@ -15003,7 +15003,7 @@ namespace GameObjects
             PersonList meihuailiebiao = new PersonList();
             foreach (Person person in this.Feiziliebiao)
             {
-                if (!person.faxianhuaiyun && this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person) && person.ArrivingDays <= 0)
+                if (!person.PregnancyDiscovered && this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person) && person.ArrivingDays <= 0)
                     meihuailiebiao.Add(person);
             }
             return meihuailiebiao;
@@ -15171,7 +15171,7 @@ namespace GameObjects
             PersonList feiziliebiao = new PersonList();
             foreach (Person feizi in this.Feiziliebiao)
             {
-                if (feizi.huaiyun)
+                if (feizi.IsPregnant)
                 {
                     feiziliebiao.Add(feizi);
                 }

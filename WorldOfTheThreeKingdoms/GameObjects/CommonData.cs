@@ -122,7 +122,7 @@ namespace GameObjects
         [DataMember]
         public PersonGeneratorTypeList AllPersonGeneratorTypes = new PersonGeneratorTypeList();
         [DataMember]
-        public TrainPolicyList AllTrainPolicies = new TrainPolicyList();
+        public EducationPolicyList AllTrainPolicies = new EducationPolicyList();
 
         public CombatNumberGenerator NumberGenerator = new CombatNumberGenerator();
 
