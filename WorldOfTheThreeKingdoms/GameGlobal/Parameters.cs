@@ -348,6 +348,10 @@ namespace GameGlobal
         public float TroopMoraleChange = 1.0f;
         [DataMember]
         public float RecruitPopualationDecreaseRate = 0.25f;
+        [DataMember]
+        public int ZoomMax = 100;
+        [DataMember]
+        public int ZoomMin = 30;
 
         public Parameters Clone()
         {
@@ -539,6 +543,9 @@ namespace GameGlobal
 
             MakeMarriageCost = int.Parse(nextSibling.Attributes.GetNamedItem("MakeMarriageCost").Value);
             NafeiCost = int.Parse(nextSibling.Attributes.GetNamedItem("NafeiCost").Value);
+
+            ZoomMax = int.Parse(nextSibling.Attributes.GetNamedItem("ZoomMax").Value);
+            ZoomMin = int.Parse(nextSibling.Attributes.GetNamedItem("ZoomMin").Value);
         }
 
         public void InitBaseRates()
@@ -735,6 +742,8 @@ namespace GameGlobal
             element.SetAttribute("RecruitPopualationDecreaseRate", RecruitPopualationDecreaseRate.ToString());
             element.SetAttribute("MakeMarriageCost", MakeMarriageCost.ToString());
             element.SetAttribute("NafeiCost", NafeiCost.ToString());
+            element.SetAttribute("ZoomMax", ZoomMax.ToString());
+            element.SetAttribute("ZoomMin", ZoomMin.ToString());
 
             document.AppendChild(element);
 
