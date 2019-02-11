@@ -397,7 +397,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if (num > 0f)
                 {
                     num = 0.1f;
-                    if (Session.MainGame.mainGameScreen.mainMapLayer.TileWidth >= Session.Current.Scenario.Parameters.ZoomMax)
+                    if (Session.MainGame.mainGameScreen.mainMapLayer.TileWidth == this.mainMapLayer.tileWidthMax)
                     {
                         return;
                     }
@@ -405,7 +405,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if (num < 0f)
                 {
                     num = -0.1f;
-                    if (Session.MainGame.mainGameScreen.mainMapLayer.TileWidth <= Session.Current.Scenario.Parameters.ZoomMin)
+                    if (Session.MainGame.mainGameScreen.mainMapLayer.TileWidth == this.mainMapLayer.tileWidthMin)
                     {
                         return;
                     }
@@ -427,13 +427,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         private void ProcessScrollWheel(float num)
         {
             int tileWidthMax = (int)((1f + num) * this.mainMapLayer.TileWidth);
-            if (tileWidthMax > Session.Current.Scenario.Parameters.ZoomMax)
+            if (tileWidthMax > this.mainMapLayer.tileWidthMax)
             {
-                tileWidthMax = Session.Current.Scenario.Parameters.ZoomMax;
+                tileWidthMax = this.mainMapLayer.tileWidthMax;
             }
-            else if (tileWidthMax < Session.Current.Scenario.Parameters.ZoomMin)
+            else if (tileWidthMax < this.mainMapLayer.tileWidthMin)
             {
-                tileWidthMax = Session.Current.Scenario.Parameters.ZoomMin;
+                tileWidthMax = this.mainMapLayer.tileWidthMin;
             }
 
             int tileWidth = this.mainMapLayer.TileWidth;
