@@ -903,7 +903,7 @@ namespace GameObjects
                                         (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (p.Age >= 16 && (p.Age <= Session.Parameters.AINafeiMaxAgeThresholdAdd + (int)leader.Ambition * Session.Parameters.AINafeiMaxAgeThresholdMultiply || !hasSon))) &&
                                         p.marriageGranter != this.Leader && !p.Hates(this.Leader);
    
-            Person hater = WillHateLeaderDueToAffair(p, this.Leader, p.PartnersList.GetList(), false);
+            Person hater = WillHateLeaderDueToAffair(p, this.Leader, p.DefinedPartnersList.GetList(), false);
 
             if (this.IsAlien && (hater == null ||  hater.PersonalLoyalty >= 2))
             {
@@ -1054,9 +1054,9 @@ namespace GameObjects
                         {
                             if (p.WaitForFeiZi == null)
                             {
-                                GameObjectList simulatSuoshu = p.PartnersList.GetList();
+                                GameObjectList simulatSuoshu = p.DefinedPartnersList.GetList();
                                 simulatSuoshu.Add(p);
-                                simulatSuoshu.AddRange(q.PartnersList.GetList());
+                                simulatSuoshu.AddRange(q.DefinedPartnersList.GetList());
                                 simulatSuoshu.Add(q);
 
                                 Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, true);
@@ -1097,9 +1097,9 @@ namespace GameObjects
                                 if ((IsPersonForHouGong(p) || IsPersonForHouGong(q)) && !(this.Leader == p || this.Leader == q)) continue;
                             }
 
-                            GameObjectList simulatSuoshu = p.PartnersList.GetList();
+                            GameObjectList simulatSuoshu = p.DefinedPartnersList.GetList();
                             simulatSuoshu.Add(p);
-                            simulatSuoshu.AddRange(q.PartnersList.GetList());
+                            simulatSuoshu.AddRange(q.DefinedPartnersList.GetList());
                             simulatSuoshu.Add(q);
 
                             Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, true);
@@ -1220,7 +1220,7 @@ namespace GameObjects
                     {
                         if (!IsPersonForHouGong(p, true))
                         {
-                            if (!this.Leader.PartnersList.HasGameObject(p) && !p.Hates(this.Leader) && p.RecruitableBy(this, 0))
+                            if (!this.Leader.DefinedPartnersList.HasGameObject(p) && !p.Hates(this.Leader) && p.RecruitableBy(this, 0))
                             {
                                 p.feiziRelease();
                             }
@@ -3166,7 +3166,7 @@ namespace GameObjects
                     this.ChangeFaction(diplomaticFaction);
                     foreach (Treasure treasure in leader.Treasures.GetList())
                     {
-                        treasure.HidePlace = locationArchitecture;
+                        treasure.HiddenPlace = locationArchitecture;
                         leader.LoseTreasure(treasure);
                         treasure.Available = false;
                     }
@@ -3266,7 +3266,7 @@ namespace GameObjects
             }
             foreach (Treasure treasure in leader.Treasures.GetList())
             {
-                treasure.HidePlace = locationArchitecture;
+                treasure.HiddenPlace = locationArchitecture;
                 leader.LoseTreasure(treasure);
                 treasure.Available = false;
             }

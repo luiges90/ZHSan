@@ -13,11 +13,11 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
         public override void ApplyEffectKind(Person person, Event e)
         {
             Treasure t = Session.Current.Scenario.Treasures.GetGameObject(type) as Treasure;
-            if (t.BelongedPerson != null && t.BelongedPerson == person)
+            if (t.Ownership != null && t.Ownership == person)
             {
                 person.LoseTreasure(t);
                 t.Available = false;
-                t.HidePlace = Session.Current.Scenario.Architectures.GameObjects[GameObject.Random(Session.Current.Scenario.Architectures.GameObjects.Count)] as Architecture;
+                t.HiddenPlace = Session.Current.Scenario.Architectures.GameObjects[GameObject.Random(Session.Current.Scenario.Architectures.GameObjects.Count)] as Architecture;
             }
         }
 

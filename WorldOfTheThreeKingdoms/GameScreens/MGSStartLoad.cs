@@ -143,7 +143,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         wujiang.IsPregnant = false;
                         wujiang.PregnancyDiscovered = false;
                         wujiang.PregnancyDayCount = -1;
-                        wujiang.suoshurenwu = -1;
+                        wujiang.DefinedPartner = -1;
                     }*/
 
                     Session.Current.Scenario.CurrentPlayer = Session.Current.Scenario.PlayerFactions[0] as Faction;
