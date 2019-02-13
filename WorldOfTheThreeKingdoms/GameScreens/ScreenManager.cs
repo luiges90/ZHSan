@@ -46,7 +46,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (this.CurrentGameObject != null)
             {
                 Treasure currentGameObject = this.CurrentGameObject as Treasure;
-                if (currentGameObject.Ownership != null)
+                if (currentGameObject.BelongedPerson != null)
                 {
                     Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetAwardTreasurePerson, false, true, true, false, this.CurrentArchitecture.BelongedFaction.PersonsInArchitecturesExceptLeader, null, "", "");
                 }
@@ -59,7 +59,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (this.CurrentPerson != null)
             {
                 Treasure currentGameObject = this.CurrentGameObject as Treasure;
-                if (currentGameObject.Ownership != null)
+                if (currentGameObject.BelongedPerson != null)
                 {
                     this.CurrentArchitecture.BelongedFaction.Leader.LoseTreasure(currentGameObject);
                     this.CurrentPerson.AwardedTreasure(currentGameObject);
@@ -160,9 +160,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (this.CurrentGameObject != null)
             {
                 Treasure currentGameObject = this.CurrentGameObject as Treasure;
-                if (currentGameObject.Ownership != null)
+                if (currentGameObject.BelongedPerson != null)
                 {
-                    currentGameObject.Ownership.ConfiscatedTreasure(currentGameObject);
+                    currentGameObject.BelongedPerson.ConfiscatedTreasure(currentGameObject);
                     this.CurrentArchitecture.BelongedFaction.Leader.ReceiveTreasure(currentGameObject);
                 }
             }

@@ -3442,11 +3442,11 @@
     <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonAmbition.cs">
       <Link>GameObjects\PersonAmbition.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\CharacterBirthRegion.cs">
-      <Link>GameObjects\CharacterBirthRegion.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonBornRegion.cs">
+      <Link>GameObjects\PersonBornRegion.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\CharacterDeathReason.cs">
-      <Link>GameObjects\CharacterDeathReason.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonDeathReason.cs">
+      <Link>GameObjects\PersonDeathReason.cs</Link>
     </Compile>
     <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonDetail\Biography.cs">
       <Link>GameObjects\PersonDetail\Biography.cs</Link>

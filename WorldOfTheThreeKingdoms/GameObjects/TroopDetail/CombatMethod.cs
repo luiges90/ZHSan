@@ -38,7 +38,7 @@ namespace GameObjects.TroopDetail
         }
 
         [DataMember]
-        public string EffectsString
+        public string InfluencesString
         {
             get;
             set;

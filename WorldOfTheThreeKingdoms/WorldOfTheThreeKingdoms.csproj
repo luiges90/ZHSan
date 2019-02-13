@@ -1301,8 +1301,8 @@
     <Compile Include="GameObjects\PathCacheKey.cs" />
     <Compile Include="GameObjects\Person.cs" />
     <Compile Include="GameObjects\PersonAmbition.cs" />
-    <Compile Include="GameObjects\CharacterBirthRegion.cs" />
-    <Compile Include="GameObjects\CharacterDeathReason.cs" />
+    <Compile Include="GameObjects\PersonBornRegion.cs" />
+    <Compile Include="GameObjects\PersonDeathReason.cs" />
     <Compile Include="GameObjects\PersonDetail\Biography.cs" />
     <Compile Include="GameObjects\PersonDetail\BiographyAdjectives.cs" />
     <Compile Include="GameObjects\PersonDetail\BiographyTable.cs" />

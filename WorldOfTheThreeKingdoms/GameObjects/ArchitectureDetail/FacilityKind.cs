@@ -37,7 +37,7 @@ namespace GameObjects.ArchitectureDetail
         }
 
         [DataMember]
-        public string EffectsString
+        public string InfluencesString
         {
             get;
             set;

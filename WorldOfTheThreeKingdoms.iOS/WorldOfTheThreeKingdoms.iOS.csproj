@@ -3485,11 +3485,11 @@
     <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonAmbition.cs">
       <Link>GameObjects\PersonAmbition.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\CharacterBirthRegion.cs">
-      <Link>GameObjects\CharacterBirthRegion.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonBornRegion.cs">
+      <Link>GameObjects\PersonBornRegion.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\CharacterDeathReason.cs">
-      <Link>GameObjects\CharacterDeathReason.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonDeathReason.cs">
+      <Link>GameObjects\PersonDeathReason.cs</Link>
     </Compile>
     <Compile Include="..\WorldOfTheThreeKingdoms\GameObjects\PersonDetail\Biography.cs">
       <Link>GameObjects\PersonDetail\Biography.cs</Link>
@@ -47129,82 +47129,82 @@
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-80.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-120.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-180.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-58.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-152.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-167.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-40.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-29.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Splash-1242-2208.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Splash-750-1334.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Splash-2208-1242.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Splash-2048-2732.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Splash-640-1136.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Splash-768-1024.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Splash-1536-2048.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Splash-1024-768.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Splash-2048-1536.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\Contents.json">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\Icon-60%402x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\Icon-76.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\Icon-76%402x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\Icon-Small-40%402x.png">
-      <InProject>false</InProject>
+      <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>

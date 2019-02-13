@@ -14,7 +14,7 @@ namespace GameObjects.PersonDetail
         private bool combat;
 
         [DataMember]
-        public string EffectsString
+        public string InfluencesString
         {
             get;
             set;

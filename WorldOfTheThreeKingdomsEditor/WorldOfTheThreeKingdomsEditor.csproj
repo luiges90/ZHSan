@@ -54,19 +54,14 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Win\MonoGame.Framework.dll</HintPath>
-    </Reference>
+    <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -93,12 +88,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CityTypeTab.cs" />
+    <Compile Include="ArchitectureKindTab.cs" />
     <Compile Include="BiographyTab.cs" />
-    <Compile Include="SkillTypeTab.cs" />
-    <Compile Include="TechniqueTypeTab.cs" />
-    <Compile Include="TitleTypeTab.cs" />
-    <Compile Include="TroopTypeTab.cs" />
+    <Compile Include="MilitaryKindTab.cs" />
     <Compile Include="NewFactionWindow.xaml.cs">
       <DependentUpon>NewFactionWindow.xaml</DependentUpon>
     </Compile>
@@ -106,13 +98,13 @@
       <DependentUpon>NewPersonWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="TechniqueTab.cs" />
-    <Compile Include="TroopEventEffectTypeTab.cs" />
-    <Compile Include="EventEffectTypeTab.cs" />
+    <Compile Include="TroopEventEffectKindTab.cs" />
+    <Compile Include="EventEffectKindTab.cs" />
     <Compile Include="TroopEventEffectTab.cs" />
     <Compile Include="EventEffectTab.cs" />
-    <Compile Include="FacilityTypeTab.cs" />
-    <Compile Include="ConditionTypeTab.cs" />
-    <Compile Include="InfluenceTypeTab.cs" />
+    <Compile Include="FacilityKindTab.cs" />
+    <Compile Include="ConditionKindTab.cs" />
+    <Compile Include="InfluenceKindTab.cs" />
     <Compile Include="ConditionTab.cs" />
     <Compile Include="InfluenceTab.cs" />
     <Compile Include="CombatMethodTab.cs" />
@@ -125,9 +117,9 @@
     <Compile Include="EventTab.cs" />
     <Compile Include="CaptiveTab.cs" />
     <Compile Include="TroopTab.cs" />
-    <Compile Include="TroopArrangementTab.cs" />
+    <Compile Include="MilitaryTab.cs" />
     <Compile Include="FactionTab.cs" />
-    <Compile Include="CityTab.cs" />
+    <Compile Include="ArchitectureTab.cs" />
     <Compile Include="BaseTab.cs" />
     <Compile Include="DictionaryTab.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -144,7 +136,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CharacterTab.cs" />
+    <Compile Include="PersonTab.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

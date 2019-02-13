@@ -13,7 +13,7 @@ namespace GameObjects.PersonDetail
     public class Stunt : GameObject
     {
         [DataMember]
-        public string EffectsString
+        public string InfluencesString
         {
             get;
             set;

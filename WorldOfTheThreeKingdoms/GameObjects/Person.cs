@@ -51,12 +51,12 @@ namespace GameObjects
         [DataMember]
         public bool PregnancyDiscovered = false;
         [DataMember]
-        public int DefinedPartner = -1;
+        public int suoshurenwu = -1;
 
         [DataMember]
         public int princessTakerID = -1;
         
-        public PersonList DefinedPartnersList = new PersonList();
+        public PersonList PartnersList = new PersonList();
 
         private bool alive;
         private int ambition;
@@ -64,7 +64,7 @@ namespace GameObjects
         private bool available;
         private int availableLocation;
         //private float baseImpactRate;//已经没用了
-        private CharacterBirthRegion bornRegion;
+        private PersonBornRegion bornRegion;
         private int braveness;
         private PersonList brothers = new PersonList();
         private float bubingExperience;
@@ -73,7 +73,7 @@ namespace GameObjects
 
         public void Init()
         {
-            DefinedPartnersList = new PersonList();
+            PartnersList = new PersonList();
 
             brothers = new PersonList();
 
@@ -190,7 +190,7 @@ namespace GameObjects
         public bool DayLocationLoyaltyNoChange;
         public float DayRateIncrementOfpublic = 0f;
 
-        private CharacterDeathReason deathReason;
+        private PersonDeathReason deadReason;
         private Person father = null;
        // private PersonForm form;//已无用
         private int generation;
@@ -425,7 +425,7 @@ namespace GameObjects
         public int BattleSelfDamage { get; set; }
 
         [DataMember]
-        public bool IsGeneratedChild { get; set; }
+        public bool IsGeneratedChildren { get; set; }
         [DataMember]
         public int StrengthPotential { get; set; }
         [DataMember]
@@ -952,7 +952,7 @@ namespace GameObjects
             if (t == null) return true;
 	        if (this.Trainable) return true;
 	        if (this.Age >= Session.GlobalVariables.ChildrenAvailableAge) return true;
-            if (this.IsGeneratedChild) return true;
+            if (this.IsGeneratedChildren) return true;
 	    
             return (this.ID * 953
                     + (this.Name.Length > 0 ? this.Name[0] : 753) * 866
@@ -1741,16 +1741,16 @@ namespace GameObjects
             }
             if (gameObject != null)
             {
-                if (this.IsGeneratedChild)
+                if (this.IsGeneratedChildren)
                 {
-                    this.PersonBiography.BriefIntro += Person.GenerateBiography(this);
+                    this.PersonBiography.Brief += Person.GenerateBiography(this);
                     Person father = this.Father;
                     Person mother = this.Mother;
                     this.Reputation = (int)(Math.Min(200000, father.Reputation + mother.Reputation) * (GameObject.Random(100) / 100.0 * 0.05 + 0.025)) + father.childrenReputationIncrease + mother.childrenReputationIncrease;
                     this.Karma = (int)(Math.Max(-2000, Math.Min(500, father.Karma + mother.Karma)) * (GameObject.Random(100) / 100.0 * 0.2 + 0.1));
                 }
 
-                this.IsGeneratedChild = false;
+                this.IsGeneratedChildren = false;
                 ExtensionInterface.call("PersonBecomeAvailable", new Object[] { Session.Current.Scenario, this });
                 Session.Current.Scenario.PreparedAvailablePersons.Add(this);
                 return true;
@@ -1991,7 +1991,7 @@ namespace GameObjects
                     baowu = (Treasure)this.Treasures[0];
                     this.LoseTreasure(baowu);
                     baowu.Available = false;
-                    baowu.HiddenPlace = locationArchitecture;
+                    baowu.HidePlace = locationArchitecture;
                 }
             }
 
@@ -2011,7 +2011,7 @@ namespace GameObjects
             if (!this.Immortal && Session.GlobalVariables.PersonNaturalDeath == true && this.LocationArchitecture != null && this.Alive)
             {
                 int yearDead;
-                if (this.DeathReason == CharacterDeathReason.自然死亡)
+                if (this.DeathReason == PersonDeathReason.自然死亡)
                 {
                     yearDead = this.YearDead;
                 }
@@ -2036,26 +2036,26 @@ namespace GameObjects
                 }
                 else if (Session.Current.Scenario.Date.Year >= yearDead)
                 {
-                    //if (this.DeathReason == CharacterDeathReason.被杀死 && GameObject.Random(30) == 0)
-                    if (this.DeathReason == CharacterDeathReason.被杀死 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
+                    //if (this.DeathReason == PersonDeathReason.被杀死 && GameObject.Random(30) == 0)
+                    if (this.DeathReason == PersonDeathReason.被杀死 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
-                    //else if (this.DeathReason == CharacterDeathReason.郁郁而终 && GameObject.Random(30) == 0 &&
-                    else if (this.DeathReason == CharacterDeathReason.郁郁而终 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0 &&
+                    //else if (this.DeathReason == PersonDeathReason.郁郁而终 && GameObject.Random(30) == 0 &&
+                    else if (this.DeathReason == PersonDeathReason.郁郁而终 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0 &&
                         (this.BelongedFaction == null || this.Status == PersonStatus.Captive || this.BelongedFaction.ArchitectureTotalSize <= 8))
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
-                    //else if (this.DeathReason == CharacterDeathReason.操劳过度 && GameObject.Random(30) == 0 &&
-                    else if (this.DeathReason == CharacterDeathReason.操劳过度 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0 &&
+                    //else if (this.DeathReason == PersonDeathReason.操劳过度 && GameObject.Random(30) == 0 &&
+                    else if (this.DeathReason == PersonDeathReason.操劳过度 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0 &&
                         this.InternalExperience + this.StratagemExperience + this.TacticsExperience
                         + this.BubingExperience + this.QibingExperience + this.NubingExperience + this.ShuijunExperience + this.QixieExperience >= 30000)
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
-                    //else if (this.DeathReason == CharacterDeathReason.自然死亡 && GameObject.Random(20) == 0)
-                    else if (this.DeathReason == CharacterDeathReason.自然死亡 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
+                    //else if (this.DeathReason == PersonDeathReason.自然死亡 && GameObject.Random(20) == 0)
+                    else if (this.DeathReason == PersonDeathReason.自然死亡 && GameObject.Random(30 / Session.Parameters.DayInTurn) == 0)
                     {
                         this.InjureRate -= (Session.Current.Scenario.Date.Year - yearDead + 1) * 0.1f;
                     }
@@ -2531,13 +2531,13 @@ namespace GameObjects
                                         i.Key.Spouse = this;
                                     }
 
-                                    if (this.Spouse != null && !this.Spouse.DefinedPartnersList.HasGameObject(i.Key))
+                                    if (this.Spouse != null && !this.Spouse.PartnersList.HasGameObject(i.Key))
                                     {
-                                        this.Spouse.DefinedPartnersList.Add(i.Key);
+                                        this.Spouse.PartnersList.Add(i.Key);
                                     }
-                                    if (this.Spouse != null && !i.Key.DefinedPartnersList.HasGameObject(this.Spouse))
+                                    if (this.Spouse != null && !i.Key.PartnersList.HasGameObject(this.Spouse))
                                     {
-                                        i.Key.DefinedPartnersList.Add(this.Spouse);
+                                        i.Key.PartnersList.Add(this.Spouse);
                                     }
 
 
@@ -2597,7 +2597,7 @@ namespace GameObjects
                             }
                         }
 
-                        Person p = Session.Current.Scenario.Persons.GetGameObject(this.DefinedPartner) as Person;
+                        Person p = Session.Current.Scenario.Persons.GetGameObject(this.suoshurenwu) as Person;
 
                         if (this.Status != PersonStatus.Princess || !this.WillHateIfChongxing)
                         {
@@ -2619,18 +2619,18 @@ namespace GameObjects
                         this.PregnancyDiscovered = false;
                         this.PregnancyDayCount = -GameObject.Random(20) - 50;
 
-                        if (this.DefinedPartner == -1)
+                        if (this.suoshurenwu == -1)
                         {
                             if (this.BelongedFaction != null)
                             {
-                                this.DefinedPartner = this.BelongedFaction.LeaderID;
+                                this.suoshurenwu = this.BelongedFaction.LeaderID;
                             }
                             else
                             {
                                 return;
                             }
                         }
-                        haizifuqin = Session.Current.Scenario.Persons.GetGameObject(this.DefinedPartner) as Person;
+                        haizifuqin = Session.Current.Scenario.Persons.GetGameObject(this.suoshurenwu) as Person;
 
                         if (haizifuqin != null)
                         {
@@ -2654,7 +2654,7 @@ namespace GameObjects
                                 }
                                 else
                                 {
-                                    haizi = Person.createChildren(Session.Current.Scenario.Persons.GetGameObject(this.DefinedPartner) as Person, this);
+                                    haizi = Person.createChildren(Session.Current.Scenario.Persons.GetGameObject(this.suoshurenwu) as Person, this);
                                 }
 
                                 if (haizi.BaseCommand < 1) haizi.BaseCommand = 1;
@@ -2718,10 +2718,10 @@ namespace GameObjects
                                 count++;
                             } while ((GameObject.Chance(haizifuqin.multipleChildrenRate) || GameObject.Chance(this.multipleChildrenRate)) && count < Math.Max(haizifuqin.maxChildren, this.maxChildren));
 
-                            haizifuqin.DefinedPartner = -1;
+                            haizifuqin.suoshurenwu = -1;
                         }
 
-                        this.DefinedPartner = -1;
+                        this.suoshurenwu = -1;
 
                     }
                 }
@@ -2742,8 +2742,8 @@ namespace GameObjects
                     if (relationFactor > 0 && GameObject.Random((int)
                         (30000.0f / Session.GlobalVariables.getChildrenRate * 20 / Session.Parameters.DayInTurn / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
                     {
-                        this.DefinedPartner = this.Spouse.ID;
-                        this.Spouse.DefinedPartner = this.ID;
+                        this.suoshurenwu = this.Spouse.ID;
+                        this.Spouse.suoshurenwu = this.ID;
                         if (this.Sex)
                         {
                             this.IsPregnant = true;
@@ -2762,16 +2762,16 @@ namespace GameObjects
                     this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit &&
                     this.BelongedFactionWithPrincess.Leader.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
                 {
-                    if (this.DefinedPartnersList.HasGameObject(this.BelongedFactionWithPrincess.Leader) &&
-                        this.BelongedFactionWithPrincess.Leader.DefinedPartnersList.HasGameObject(this))
+                    if (this.PartnersList.HasGameObject(this.BelongedFactionWithPrincess.Leader) &&
+                        this.BelongedFactionWithPrincess.Leader.PartnersList.HasGameObject(this))
                     {
                         float relationFactor = this.PregnancyRate(this.BelongedFactionWithPrincess.Leader) * 4;
 
                         if (relationFactor > 0 && GameObject.Random((int)
                             (30000.0f / Session.GlobalVariables.getChildrenRate * 20 / Session.Parameters.DayInTurn / relationFactor / (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson))) == 0)
                         {
-                            this.DefinedPartner = this.BelongedFactionWithPrincess.Leader.ID;
-                            this.BelongedFactionWithPrincess.Leader.DefinedPartner = this.ID;
+                            this.suoshurenwu = this.BelongedFactionWithPrincess.Leader.ID;
+                            this.BelongedFactionWithPrincess.Leader.suoshurenwu = this.ID;
                             if (this.Sex)
                             {
                                 this.IsPregnant = true;
@@ -4286,7 +4286,7 @@ namespace GameObjects
             {
                 foreach (Treasure treasure in Session.Current.Scenario.Treasures.GetRandomList())
                 {
-                    if (((!treasure.Available && (treasure.Ownership == null)) && (treasure.HiddenPlace == this.TargetArchitecture || treasure.HiddenPlace == null)) && (treasure.AppearYear <= Session.Current.Scenario.Date.Year))
+                    if (((!treasure.Available && (treasure.BelongedPerson == null)) && (treasure.HidePlace == this.TargetArchitecture || treasure.HidePlace == null)) && (treasure.AppearYear <= Session.Current.Scenario.Date.Year))
                     {
                         if (GameObject.Random(treasure.Worth) <= GameObject.Random(Session.Parameters.FindTreasureChance))
                         {
@@ -5495,7 +5495,7 @@ namespace GameObjects
         {
             this.Treasures.Remove(t);
             this.PurifyTreasure(t, false);
-            t.Ownership = null;
+            t.BelongedPerson = null;
         }
 
         public void LoseTreasureList(TreasureList list)
@@ -5504,7 +5504,7 @@ namespace GameObjects
             {
                 this.Treasures.Remove(treasure);
                 this.PurifyTreasure(treasure, false);
-                treasure.Ownership = null;
+                treasure.BelongedPerson = null;
             }
         }
 
@@ -6264,7 +6264,7 @@ namespace GameObjects
         public void ReceiveTreasure(Treasure t)
         {
             this.Treasures.Add(t);
-            t.Ownership = this;
+            t.BelongedPerson = this;
             ApplyTreasure(t, false);
         }
 
@@ -6273,7 +6273,7 @@ namespace GameObjects
             foreach (Treasure treasure in list)
             {
                 this.Treasures.Add(treasure);
-                treasure.Ownership = this;
+                treasure.BelongedPerson = this;
                 ApplyTreasure(treasure, false);
             }
         }
@@ -6476,14 +6476,14 @@ namespace GameObjects
                 if (!Session.GlobalVariables.EnableAgeAbilityFactor) return 1;
                 if (!this.Alive) return 1;
 		        if (this.Trainable) return 1;
-                if (this.IsGeneratedChild) return 1;
+                if (this.IsGeneratedChildren) return 1;
 
                 float factor = 1;
-                if (this.Age < 0 && !this.IsGeneratedChild)
+                if (this.Age < 0 && !this.IsGeneratedChildren)
                 {
                     factor = AGE_FACTORS[0];
                 }
-                else if (this.Age < Session.GlobalVariables.ChildrenAvailableAge && this.Age < 15 && !this.IsGeneratedChild)
+                else if (this.Age < Session.GlobalVariables.ChildrenAvailableAge && this.Age < 15 && !this.IsGeneratedChildren)
                 {
                     factor = AGE_FACTORS[this.Age];
                 }
@@ -6542,7 +6542,7 @@ namespace GameObjects
         {
             get
             {
-                return this.IsGeneratedChild ? this.CommandPotential : this.command;
+                return this.IsGeneratedChildren ? this.CommandPotential : this.command;
             }
         }
 
@@ -6550,7 +6550,7 @@ namespace GameObjects
         {
             get
             {
-                return this.IsGeneratedChild ? this.StrengthPotential : this.strength;
+                return this.IsGeneratedChildren ? this.StrengthPotential : this.strength;
             }
         }
 
@@ -6558,7 +6558,7 @@ namespace GameObjects
         {
             get
             {
-                return this.IsGeneratedChild ? this.IntelligencePotential : this.intelligence;
+                return this.IsGeneratedChildren ? this.IntelligencePotential : this.intelligence;
             }
         }
 
@@ -6566,7 +6566,7 @@ namespace GameObjects
         {
             get
             {
-                return this.IsGeneratedChild ? this.PoliticsPotential : this.politics;
+                return this.IsGeneratedChildren ? this.PoliticsPotential : this.politics;
             }
         }
 
@@ -6574,7 +6574,7 @@ namespace GameObjects
         {
             get
             {
-                return this.IsGeneratedChild ? this.GlamourPotential : this.glamour;
+                return this.IsGeneratedChildren ? this.GlamourPotential : this.glamour;
             }
         }
 
@@ -6713,7 +6713,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public CharacterBirthRegion BirthRegion
+        public PersonBornRegion BirthRegion
         {
             get
             {
@@ -7061,15 +7061,15 @@ namespace GameObjects
         }
 
         [DataMember]
-        public CharacterDeathReason DeathReason
+        public PersonDeathReason DeathReason
         {
             get
             {
-                return this.deathReason;
+                return this.deadReason;
             }
             set
             {
-                this.deathReason = value;
+                this.deadReason = value;
             }
         }
 
@@ -9405,7 +9405,7 @@ namespace GameObjects
 
         private static void HandlePersonCharacter(Person r, int officerType)
         {
-            r.BirthRegion = (CharacterBirthRegion)GameObject.Random(Enum.GetNames(typeof(CharacterBirthRegion)).Length);
+            r.BirthRegion = (PersonBornRegion)GameObject.Random(Enum.GetNames(typeof(PersonBornRegion)).Length);
 
             {
                 Dictionary<CharacterKind, int> chances = new Dictionary<CharacterKind, int>();
@@ -9614,7 +9614,7 @@ namespace GameObjects
             biography += Person.GenerateBiography(r);
 
             Biography bio = new Biography();
-            bio.BriefIntro = biography;
+            bio.Brief = biography;
             bio.ID = r.ID;
             bio.FactionColor = 52;
             bio.MilitaryKinds.AddBasicMilitaryKinds();
@@ -9710,13 +9710,13 @@ namespace GameObjects
 
                 HandleChildrenCharacter(father, mother, r);
                
-                Architecture birthCity = HandleChildrenRegion(father, mother, r);
+                Architecture bornArch = HandleChildrenRegion(father, mother, r);
 
-                HandleChildrenBiography(father, mother, r, birthCity, false);
+                HandleChildrenBiography(father, mother, r, bornArch, false);
 
                 HandleChildrenFaction(father, mother, r);
 
-                r.IsGeneratedChild = true;
+                r.IsGeneratedChildren = true;
                 r.EducationPolicy = (EducationPolicy) Session.Current.Scenario.GameCommonData.AllTrainPolicies.GetGameObject(1);
             }
             else
@@ -9733,7 +9733,7 @@ namespace GameObjects
 
                 AdjustChildrenIdeal(father, mother, r);
 
-                Architecture birthCity = HandleChildrenRegion(father, mother, r);
+                Architecture bornArch = HandleChildrenRegion(father, mother, r);
 
                 HandleChildrenCharacter(father, mother, r);
 
@@ -9743,7 +9743,7 @@ namespace GameObjects
 
                 HandleChildrenTitle(father, mother, r);
 
-                HandleChildrenBiography(father, mother, r, birthCity);
+                HandleChildrenBiography(father, mother, r, bornArch);
 
                 /*r.LocationArchitecture = father.BelongedArchitecture; //mother has no location arch!
                 r.BelongedFaction = r.BelongedArchitecture.BelongedFaction;
@@ -9832,7 +9832,7 @@ namespace GameObjects
             
         }
 
-        private static void HandleChildrenBiography(Person father, Person mother, Person r, Architecture birthCity, bool generateAbilityBiography = true)
+        private static void HandleChildrenBiography(Person father, Person mother, Person r, Architecture bornArch, bool generateAbilityBiography = true)
         {
             String biography = "";
             int fatherChildCount = father.NumberOfChildren;
@@ -9840,7 +9840,7 @@ namespace GameObjects
             String[] order = new String[] { "长", "次", "三", "四", "五", "六", "七", "八" };
             biography += r.Father.Name + "之" + (fatherChildCount > 7 ? "" : order[fatherChildCount]) + (r.Sex ? "女" : "子") + "，" +
                 r.Mother.Name + "之" + (motherChildCount > 7 ? "" : order[motherChildCount]) + (r.Sex ? "女" : "子") + "。" +
-                "在" + Session.Current.Scenario.Date.Year + "年" + Session.Current.Scenario.Date.Month + "月于" + (birthCity == null ? "" : birthCity.Name) + "出生。";
+                "在" + Session.Current.Scenario.Date.Year + "年" + Session.Current.Scenario.Date.Month + "月于" + (bornArch == null ? "" : bornArch.Name) + "出生。";
 
             Person root = father;
             while (root.Father != null)
@@ -9858,7 +9858,7 @@ namespace GameObjects
             }
 
             Biography bio = new Biography();
-            bio.BriefIntro = biography;
+            bio.Brief = biography;
             bio.ID = r.ID;
             Biography fatherBio = Session.Current.Scenario.AllBiographies.GetBiography(father.ID);
             if (fatherBio != null)
@@ -10003,17 +10003,17 @@ namespace GameObjects
 
         private static Architecture HandleChildrenRegion(Person father, Person mother, Person r)
         {
-            Architecture birthCity = mother.BelongedArchitecture != null ? mother.BelongedArchitecture : father.BelongedArchitecture;
+            Architecture bornArch = mother.BelongedArchitecture != null ? mother.BelongedArchitecture : father.BelongedArchitecture;
 
-            try //best-effort approach for getting CharacterBirthRegion
+            try //best-effort approach for getting PersonBornRegion
             {
-                r.BirthRegion = (CharacterBirthRegion)Enum.Parse(typeof(CharacterBirthRegion), birthCity.LocationState.Name); //mother has no locationarch...
+                r.BirthRegion = (PersonBornRegion)Enum.Parse(typeof(PersonBornRegion), bornArch.LocationState.Name); //mother has no locationarch...
             }
             catch (Exception)
             {
-                r.BirthRegion = (CharacterBirthRegion)GameObject.Random(Enum.GetNames(typeof(CharacterBirthRegion)).Length);
+                r.BirthRegion = (PersonBornRegion)GameObject.Random(Enum.GetNames(typeof(PersonBornRegion)).Length);
             }
-            return birthCity;
+            return bornArch;
         }
 
         private static void AdjustChildrenIdeal(Person father, Person mother, Person r)
@@ -10411,8 +10411,8 @@ namespace GameObjects
                             && !q.IsPregnant && !this.IsPregnant && this.isLegalFeiZiExcludeAge(q) &&
                             (this.LocationArchitecture.BelongedFaction.Leader.meichushengdehaiziliebiao().Count - this.LocationArchitecture.yihuaiyundefeiziliebiao().Count > 0 || Session.GlobalVariables.createChildren))
                         {
-                            q.DefinedPartner = this.ID;
-                            this.DefinedPartner = q.ID;
+                            q.suoshurenwu = this.ID;
+                            this.suoshurenwu = q.ID;
                             if (q.Sex)
                             {
                                 q.IsPregnant = true;
@@ -10544,10 +10544,10 @@ namespace GameObjects
             }
         }
 
-        public static Dictionary<Person, PersonList> willHateCausedByAffair(Person p, Person q, Person causer, GameObjectList DefinedPartnersList, bool simulateMarry)
+        public static Dictionary<Person, PersonList> willHateCausedByAffair(Person p, Person q, Person causer, GameObjectList PartnersList, bool simulateMarry)
         {
             Dictionary<Person, PersonList> result = new Dictionary<Person, PersonList>();
-            foreach (Person i in DefinedPartnersList)
+            foreach (Person i in PartnersList)
             {
                 PersonList t = new PersonList();
                 if (i.Status != PersonStatus.Princess)
@@ -10662,8 +10662,8 @@ namespace GameObjects
 
         public void makeHateCausedByAffair(Person p, Person q, Person causer)
         {
-            GameObjectList list = p.DefinedPartnersList.GetList();
-            list.AddRange(q.DefinedPartnersList);
+            GameObjectList list = p.PartnersList.GetList();
+            list.AddRange(q.PartnersList);
             Dictionary<Person, PersonList> t = Person.willHateCausedByAffair(p, q, causer, list, false);
             foreach (KeyValuePair<Person, PersonList> i in t)
             {
@@ -10673,13 +10673,13 @@ namespace GameObjects
                 }
             }
 
-            if (!p.DefinedPartnersList.HasGameObject(q))
+            if (!p.PartnersList.HasGameObject(q))
             {
-                p.DefinedPartnersList.Add(q);
+                p.PartnersList.Add(q);
             }
-            if (!q.DefinedPartnersList.HasGameObject(p))
+            if (!q.PartnersList.HasGameObject(p))
             {
-                q.DefinedPartnersList.Add(p);
+                q.PartnersList.Add(p);
             }
         }
 
@@ -11390,7 +11390,7 @@ namespace GameObjects
         {
             get
             {
-                return this.IsGeneratedChild && this.Alive && this.Age >= 4 && !(this.Available && this.Age >= 12);
+                return this.IsGeneratedChildren && this.Alive && this.Age >= 4 && !(this.Available && this.Age >= 12);
             }
         }
 
