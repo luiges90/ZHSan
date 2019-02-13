@@ -17,18 +17,18 @@ namespace GameObjects
         private bool available;
 
         [DataMember]
-        public int OwnershipIDString { get; set; }
+        public int BelongedPersonIDString { get; set; }
 
-        public Person Ownership;
+        public Person BelongedPerson;
         private string description;
 
         [DataMember]
-        public int HiddenPlaceIDString { get; set; }
+        public int HidePlaceIDString { get; set; }
 
-        public Architecture HiddenPlace;
+        public Architecture HidePlace;
 
         [DataMember]
-        public string EffectsString { get; set; }
+        public string InfluencesString { get; set; }
 
         public InfluenceTable Influences = new InfluenceTable();
         private int pic;
@@ -77,7 +77,7 @@ namespace GameObjects
         {
             get
             {
-                return ((this.Ownership != null) ? this.Ownership.Name : "----");
+                return ((this.BelongedPerson != null) ? this.BelongedPerson.Name : "----");
             }
         }
 
@@ -98,7 +98,7 @@ namespace GameObjects
         {
             get
             {
-                return ((this.HiddenPlace != null) ? this.HiddenPlace.Name : "----");
+                return ((this.HidePlace != null) ? this.HidePlace.Name : "----");
             }
         }
 
@@ -116,7 +116,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public int TreasureImage
+        public int Pic
         {
             get
             {
@@ -145,7 +145,7 @@ namespace GameObjects
                 {
                     //try
                     //{
-                        this.picture = CacheManager.GetTempTexture("Content/Textures/Resources/Treasure/" + this.TreasureImage.ToString() + ".jpg");
+                        this.picture = CacheManager.GetTempTexture("Content/Textures/Resources/Treasure/" + this.Pic.ToString() + ".jpg");
                     //}
                     //catch
                     //{

@@ -13,7 +13,7 @@ namespace GameObjects.PersonDetail
         private string history = "";
 
         [DataMember]
-        public string AllowedTroopTypesString { get; set; }
+        public string MilitaryKindsString { get; set; }
 
         public MilitaryKindTable MilitaryKinds = new MilitaryKindTable();
         private string romance = "";
@@ -25,7 +25,7 @@ namespace GameObjects.PersonDetail
         }
 
         [DataMember]
-        public string BriefIntro
+        public string Brief
         {
             get
             {
@@ -49,7 +49,7 @@ namespace GameObjects.PersonDetail
             }
         }
         [DataMember]
-        public string HistoricalIntro
+        public string History
         {
             get
             {
@@ -61,7 +61,7 @@ namespace GameObjects.PersonDetail
             }
         }
         [DataMember]
-        public string RomancingIntro
+        public string Romance
         {
             get
             {

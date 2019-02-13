@@ -44,7 +44,7 @@ namespace GameObjects.TroopDetail
         private float grasslandRate;
 
         [DataMember]
-        public string EffectsString
+        public string InfluencesString
         {
             get;
             set;

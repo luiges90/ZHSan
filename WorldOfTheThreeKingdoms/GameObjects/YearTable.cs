@@ -60,9 +60,9 @@ namespace GameObjects
                 p.PersonBiography = new PersonDetail.Biography();
                 p.PersonBiography.FactionColor = 52;
                 p.PersonBiography.MilitaryKinds.AddBasicMilitaryKinds();
-                p.PersonBiography.BriefIntro = "";
-                p.PersonBiography.HistoricalIntro = "";
-                p.PersonBiography.RomancingIntro = "";
+                p.PersonBiography.Brief = "";
+                p.PersonBiography.History = "";
+                p.PersonBiography.Romance = "";
                 p.PersonBiography.InGame = "";
                 p.PersonBiography.ID = p.ID;
                 Session.Current.Scenario.AllBiographies.AddBiography(p.PersonBiography);

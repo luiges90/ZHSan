@@ -13,9 +13,9 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
         public override void ApplyEffectKind(Person person, Event e)
         {
             Treasure t = Session.Current.Scenario.Treasures.GetGameObject(type) as Treasure;
-            if (t.Ownership != null)
+            if (t.BelongedPerson != null)
             {
-                t.Ownership.LoseTreasure(t);
+                t.BelongedPerson.LoseTreasure(t);
             }
             person.ReceiveTreasure(t);
         }

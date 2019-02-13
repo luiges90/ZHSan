@@ -13,22 +13,22 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
             person.PregnancyDayCount = 0;
             if (person.BelongedFactionWithPrincess != null)
             {
-                person.DefinedPartner = person.BelongedFactionWithPrincess.LeaderID;
-                person.BelongedFactionWithPrincess.Leader.DefinedPartner = person.ID;
+                person.suoshurenwu = person.BelongedFactionWithPrincess.LeaderID;
+                person.BelongedFactionWithPrincess.Leader.suoshurenwu = person.ID;
 
-                if (!person.DefinedPartnersList.GameObjects.Contains(person.BelongedFactionWithPrincess.Leader))
+                if (!person.PartnersList.GameObjects.Contains(person.BelongedFactionWithPrincess.Leader))
                 {
-                    person.DefinedPartnersList.Add(person.BelongedFactionWithPrincess.Leader);
+                    person.PartnersList.Add(person.BelongedFactionWithPrincess.Leader);
                 }
-                if (!person.BelongedFactionWithPrincess.Leader.DefinedPartnersList.GameObjects.Contains(person))
+                if (!person.BelongedFactionWithPrincess.Leader.PartnersList.GameObjects.Contains(person))
                 {
-                    person.BelongedFactionWithPrincess.Leader.DefinedPartnersList.Add(person);
+                    person.BelongedFactionWithPrincess.Leader.PartnersList.Add(person);
                 }
 
             }
             else
             {
-                person.DefinedPartner = person.ID;
+                person.suoshurenwu = person.ID;
             }
         }
 

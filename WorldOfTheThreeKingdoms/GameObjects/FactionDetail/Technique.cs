@@ -17,7 +17,7 @@ namespace GameObjects.FactionDetail
         private int fundCost;
 
         [DataMember]
-        public string EffectsString
+        public string InfluencesString
         {
             get;
             set;
