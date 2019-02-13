@@ -897,7 +897,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.YesEventsToApply)
             {
                 i.Key.DoYesApplyEvent(i.Value);
-                i.Key.HasHappened = true;
+                i.Key.happened = true;
             }
             this.YesEventsToApply.Clear();
             this.NoEventsToApply.Clear();
@@ -908,7 +908,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.NoEventsToApply)
             {
                 i.Key.DoNoApplyEvent(i.Value);
-                i.Key.HasHappened = true;
+                i.Key.happened = true;
             }
             this.YesEventsToApply.Clear();
             this.NoEventsToApply.Clear();
@@ -916,7 +916,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.NoArchiEventsToApply)
             {
                 i.Key.DoNoApplyEvent(i.Value);
-                i.Key.HasHappened = true;
+                i.Key.happened = true;
             }
             this.NoArchiEventsToApply.Clear();
              */
@@ -927,7 +927,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.YesArchiEventsToApply)
             {
                 i.Key.DoYesArchiApplyEvent(i.Value);
-                i.Key.HasHappened = true;
+                i.Key.happened = true;
             }
             this.YesArchiEventsToApply.Clear();
         }
@@ -937,7 +937,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.NoArchiEventsToApply)
             {
                 i.Key.DoNoArchiApplyEvent(i.Value);
-                i.Key.HasHappened = true;
+                i.Key.happened = true;
             }
             this.NoArchiEventsToApply.Clear();
         }*/
@@ -948,7 +948,7 @@ namespace GameObjects
             foreach (KeyValuePair<Event, Architecture> i in this.EventsToApply)
             {
                 i.Key.DoApplyEvent(i.Value);
-                i.Key.HasHappened = true;
+                i.Key.happened = true;
             }
 
             this.EventsToApply.Clear();
@@ -2333,7 +2333,7 @@ namespace GameObjects
                 {
                     if (!p.Available && p.Spouse != null && !p.Spouse.Available)
                     {
-                        p.PartnersList.Remove(p.Spouse);
+                        p.DefinedPartnersList.Remove(p.Spouse);
                         p.Spouse = null;
                     }
                 }
@@ -2791,7 +2791,7 @@ namespace GameObjects
                 {
                     facilityKind.Value.Init();
 
-                    facilityKind.Value.Influences.LoadFromString(commonData.AllInfluences, facilityKind.Value.InfluencesString);
+                    facilityKind.Value.Influences.LoadFromString(commonData.AllInfluences, facilityKind.Value.EffectsString);
 
                     facilityKind.Value.Conditions.LoadFromString(commonData.AllConditions, facilityKind.Value.ConditionTableString);
 
@@ -2804,7 +2804,7 @@ namespace GameObjects
                 foreach (var technique in commonData.AllTechniques.Techniques)
                 {
                     technique.Value.Init();
-                    technique.Value.Influences.LoadFromString(commonData.AllInfluences, technique.Value.InfluencesString);
+                    technique.Value.Influences.LoadFromString(commonData.AllInfluences, technique.Value.EffectsString);
                     technique.Value.Conditions.LoadFromString(commonData.AllConditions, technique.Value.ConditionTableString);
                     Condition.LoadConditionWeightFromString(commonData.AllConditions, technique.Value.AIConditionWeightString, out technique.Value.AIConditionWeight);
                 }
@@ -2815,7 +2815,7 @@ namespace GameObjects
                 foreach (var skill in commonData.AllSkills.Skills)
                 {
                     skill.Value.Init();
-                    skill.Value.Influences.LoadFromString(commonData.AllInfluences, skill.Value.InfluencesString);
+                    skill.Value.Influences.LoadFromString(commonData.AllInfluences, skill.Value.EffectsString);
                     skill.Value.Conditions.LoadFromString(commonData.AllConditions, skill.Value.ConditionTableString);
                 }
             }
@@ -2825,7 +2825,7 @@ namespace GameObjects
                 foreach (var title in commonData.AllTitles.Titles)
                 {
                     title.Value.Init();
-                    title.Value.Influences.LoadFromString(commonData.AllInfluences, title.Value.InfluencesString);
+                    title.Value.Influences.LoadFromString(commonData.AllInfluences, title.Value.EffectsString);
                     title.Value.Conditions.LoadFromString(commonData.AllConditions, title.Value.ConditionTableString);
                     title.Value.ArchitectureConditions.LoadFromString(commonData.AllConditions, title.Value.ArchitectureConditionsString);
                     title.Value.FactionConditions.LoadFromString(commonData.AllConditions, title.Value.FactionConditionsString);
@@ -2840,7 +2840,7 @@ namespace GameObjects
                 {
                     militaryKind.Value.Init();
 
-                    militaryKind.Value.Influences.LoadFromString(commonData.AllInfluences, militaryKind.Value.InfluencesString);
+                    militaryKind.Value.Influences.LoadFromString(commonData.AllInfluences, militaryKind.Value.EffectsString);
 
                     militaryKind.Value.CreateConditions.LoadFromString(commonData.AllConditions, militaryKind.Value.CreateConditionsString);
 
@@ -2860,7 +2860,7 @@ namespace GameObjects
                 {
                     combatMethod.Value.Init();
 
-                    combatMethod.Value.Influences.LoadFromString(commonData.AllInfluences, combatMethod.Value.InfluencesString);
+                    combatMethod.Value.Influences.LoadFromString(commonData.AllInfluences, combatMethod.Value.EffectsString);
 
                     combatMethod.Value.AttackDefault = commonData.AllAttackDefaultKinds.GetGameObject(combatMethod.Value.AttackDefaultString) as AttackDefaultKind;
                     combatMethod.Value.AttackTarget = commonData.AllAttackTargetKinds.GetGameObject(combatMethod.Value.AttackTargetString) as AttackTargetKind;
@@ -2877,7 +2877,7 @@ namespace GameObjects
                 foreach (var stunt in commonData.AllStunts.Stunts)
                 {
                     stunt.Value.Init();
-                    stunt.Value.Influences.LoadFromString(commonData.AllInfluences, stunt.Value.InfluencesString);
+                    stunt.Value.Influences.LoadFromString(commonData.AllInfluences, stunt.Value.EffectsString);
                     stunt.Value.CastConditions.LoadFromString(commonData.AllConditions, stunt.Value.CastConditionsString);
                     stunt.Value.LearnConditions.LoadFromString(commonData.AllConditions, stunt.Value.LearnConditionsString);
                     stunt.Value.AIConditions.LoadFromString(commonData.AllConditions, stunt.Value.AIConditionsString);
@@ -2889,7 +2889,7 @@ namespace GameObjects
                 foreach (var stratagem in commonData.AllStratagems.Stratagems)
                 {
                     stratagem.Value.Init();
-                    stratagem.Value.Influences.LoadFromString(commonData.AllInfluences, stratagem.Value.InfluencesString);
+                    stratagem.Value.Influences.LoadFromString(commonData.AllInfluences, stratagem.Value.EffectsString);
                     stratagem.Value.CastConditions.LoadFromString(commonData.AllConditions, stratagem.Value.CastConditionsString);
                     stratagem.Value.CastDefault = commonData.AllCastDefaultKinds.GetGameObject(stratagem.Value.CastDefaultString) as CastDefaultKind;
                     stratagem.Value.CastTarget = commonData.AllCastTargetKinds.GetGameObject(stratagem.Value.CastTargetString) as CastTargetKind;
@@ -2910,7 +2910,6 @@ namespace GameObjects
             scenarioJustLoaded = true;
                         
             ScenarioMap.LoadMapData(ScenarioMap.MapDataString, ScenarioMap.MapDimensions.X, ScenarioMap.MapDimensions.Y);
-            ScenarioMap.Init();
                        
             //if (Platform.PlatFormType == PlatFormType.Android || Platform.PlatFormType == PlatFormType.iOS || Platform.PlatFormType == PlatFormType.Win)
             //{
@@ -3131,7 +3130,7 @@ namespace GameObjects
                     Person q = this.Persons.GetGameObject(j) as Person;
                     if (q != null)
                     {
-                        p.PartnersList.Add(q);
+                        p.DefinedPartnersList.Add(q);
                     }
                     else
                     {
@@ -3147,10 +3146,10 @@ namespace GameObjects
 
             foreach (Person p in this.Persons)
             {
-                if (p.Spouse != null && !p.PartnersList.HasGameObject(p.Spouse))
+                if (p.Spouse != null && !p.DefinedPartnersList.HasGameObject(p.Spouse))
                 {
-                    p.PartnersList.Add(p.Spouse);
-                    p.Spouse.PartnersList.Add(p);
+                    p.DefinedPartnersList.Add(p.Spouse);
+                    p.Spouse.DefinedPartnersList.Add(p);
                 }
             }
 
@@ -3162,9 +3161,9 @@ namespace GameObjects
                 {
                     List<string> e = new List<string>();
 
-                    if (!String.IsNullOrEmpty(biography.Value.MilitaryKindsString))
+                    if (!String.IsNullOrEmpty(biography.Value.AllowedTroopTypesString))
                     {
-                        e = biography.Value.MilitaryKinds.LoadFromString(this.GameCommonData.AllMilitaryKinds, biography.Value.MilitaryKindsString);
+                        e = biography.Value.MilitaryKinds.LoadFromString(this.GameCommonData.AllMilitaryKinds, biography.Value.AllowedTroopTypesString);
                     }
 
                     if (e.Count > 0)
@@ -3187,9 +3186,9 @@ namespace GameObjects
                     p.PersonBiography = new Biography();
                     p.PersonBiography.FactionColor = 52;
                     p.PersonBiography.MilitaryKinds.AddBasicMilitaryKinds();
-                    p.PersonBiography.Brief = "";
-                    p.PersonBiography.History = "";
-                    p.PersonBiography.Romance = "";
+                    p.PersonBiography.BriefIntro = "";
+                    p.PersonBiography.HistoricalIntro = "";
+                    p.PersonBiography.RomancingIntro = "";
                     p.PersonBiography.InGame = "";
                     p.PersonBiography.ID = p.ID;
                     this.AllBiographies.AddBiography(p.PersonBiography);
@@ -3607,19 +3606,19 @@ namespace GameObjects
             {
                 treasure.Init();
 
-                //treasure.HidePlaceIDString = (short)reader["HidePlace"];
-                treasure.HidePlace = this.AllArchitectures.ContainsKey(treasure.HidePlaceIDString) ? this.AllArchitectures[treasure.HidePlaceIDString] : null;
+                //treasure.HiddenPlaceIDString = (short)reader["HiddenPlace"];
+                treasure.HiddenPlace = this.AllArchitectures.ContainsKey(treasure.HiddenPlaceIDString) ? this.AllArchitectures[treasure.HiddenPlaceIDString] : null;
 
-                //treasure.BelongedPersonIDString = (short)reader["BelongedPerson"];
-                treasure.BelongedPerson = this.AllPersons.ContainsKey(treasure.BelongedPersonIDString) ? this.AllPersons[treasure.BelongedPersonIDString] : null;
+                //treasure.OwnershipIDString = (short)reader["Ownership"];
+                treasure.Ownership = this.AllPersons.ContainsKey(treasure.OwnershipIDString) ? this.AllPersons[treasure.OwnershipIDString] : null;
                 
-                if (treasure.BelongedPerson != null)
+                if (treasure.Ownership != null)
                 {
-                    treasure.BelongedPerson.Treasures.Add(treasure);
+                    treasure.Ownership.Treasures.Add(treasure);
                 }
 
-                //treasure.InfluencesString = reader["Influences"].ToString();
-                treasure.Influences.LoadFromString(this.GameCommonData.AllInfluences, treasure.InfluencesString);
+                //treasure.EffectsString = reader["Influences"].ToString();
+                treasure.Influences.LoadFromString(this.GameCommonData.AllInfluences, treasure.EffectsString);
 
                 //this.Treasures.AddTreasure(treasure);
             }
@@ -3639,19 +3638,19 @@ namespace GameObjects
                 //te.ConditionsString = reader["Conditions"].ToString();
                 te.Conditions.LoadFromString(this.GameCommonData.AllConditions, te.ConditionsString);
 
-                //te.TargetPersonsString = reader["TargetPersons"].ToString();
-                te.LoadTargetPersonFromString(this.AllPersons, te.TargetPersonsString);
+                //te.CharRelationsString = reader["TargetPersons"].ToString();
+                te.LoadTargetPersonFromString(this.AllPersons, te.CharRelationsString);
 
                 //te.SelfEffectsString = reader["EffectSelf"].ToString();
                 te.LoadSelfEffectFromString(this.GameCommonData.AllTroopEventEffects, te.SelfEffectsString);
 
-                //te.EffectPersonsString = reader["EffectPersons"].ToString();
-                te.LoadEffectPersonFromString(this.AllPersons, this.GameCommonData.AllTroopEventEffects, te.EffectPersonsString);
+                //te.CharEffectsString = reader["EffectPersons"].ToString();
+                te.LoadEffectPersonFromString(this.AllPersons, this.GameCommonData.AllTroopEventEffects, te.CharEffectsString);
 
                 //te.EffectAreasString = reader["EffectAreas"].ToString();
                 te.LoadEffectAreaFromString(this.GameCommonData.AllTroopEventEffects, te.EffectAreasString);
 
-                te.LoadDialogFromString(this.AllPersons, te.dialogString);
+                te.LoadDialogFromString(this.AllPersons, te.EventDialogString);
                 
                 this.TroopEvents.AddTroopEventWithEvent(te, false);
             }
@@ -3660,11 +3659,11 @@ namespace GameObjects
             {
                 e.Init();
 
-                //e.TriggeringCharString = reader["PersonId"].ToString();
-                e.LoadPersonIdFromString(this.Persons, e.TriggeringCharString);
+                //e.personString = reader["PersonId"].ToString();
+                e.LoadPersonIdFromString(this.Persons, e.personString);
 
-                //e.CharConditionString = reader["PersonCond"].ToString();
-                e.LoadPersonCondFromString(this.GameCommonData.AllConditions, e.CharConditionString);
+                //e.PersonCondString = reader["PersonCond"].ToString();
+                e.LoadPersonCondFromString(this.GameCommonData.AllConditions, e.PersonCondString);
 
                 //e.architectureString = reader["ArchitectureID"].ToString();
                 e.LoadArchitectureFromString(this.Architectures, e.architectureString);
@@ -3687,9 +3686,9 @@ namespace GameObjects
                 //e.factionEffectIDString = reader["FactionEffect"].ToString();
                 e.LoadFactionEffectFromString(this.GameCommonData.AllEventEffects, e.factionEffectIDString);
 
-                if (e.dialogString != null)
+                if (e.EventDialogString != null)
                 {
-                    e.LoadDialogFromString(e.dialogString);
+                    e.LoadDialogFromString(e.EventDialogString);
                 }
 
                 //e.yesEffectString = reader["YesEffect"].ToString();
@@ -4725,11 +4724,11 @@ namespace GameObjects
                     event2.PredecessorEventID = (event2.AfterHappenedEvent != null) ? event2.AfterHappenedEvent.ID : -1;
                     event2.LaunchPersonString = (event2.LaunchPerson != null) ? event2.LaunchPerson.ID : -1;
                     event2.ConditionsString = event2.Conditions.SaveToString();
-                    event2.TargetPersonsString = event2.SaveTargetPersonToString();
+                    event2.CharRelationsString = event2.SaveTargetPersonToString();
                     event2.SelfEffectsString = event2.SaveSelfEffectToString();
-                    event2.EffectPersonsString = event2.SaveEffectPersonToString();
+                    event2.CharEffectsString = event2.SaveEffectPersonToString();
                     event2.EffectAreasString = event2.SaveEffectAreaToString();
-                    event2.dialogString = event2.SaveDialogToString();
+                    event2.EventDialogString = event2.SaveDialogToString();
                 }
             }
 
@@ -4817,7 +4816,7 @@ namespace GameObjects
                     }
 
                     String suoshuStr = "";
-                    foreach (Person p in person.PartnersList)
+                    foreach (Person p in person.DefinedPartnersList)
                     {
                         suoshuStr += p.ID + " ";
                     }
@@ -4940,9 +4939,9 @@ namespace GameObjects
 
             foreach (Treasure treasure in this.Treasures)
             {
-                treasure.BelongedPersonIDString = (treasure.BelongedPerson != null) ? treasure.BelongedPerson.ID : -1;
-                treasure.HidePlaceIDString = (treasure.HidePlace != null) ? treasure.HidePlace.ID : -1;
-                treasure.InfluencesString = treasure.Influences.SaveToString();
+                treasure.OwnershipIDString = (treasure.Ownership != null) ? treasure.Ownership.ID : -1;
+                treasure.HiddenPlaceIDString = (treasure.HiddenPlace != null) ? treasure.HiddenPlace.ID : -1;
+                treasure.EffectsString = treasure.Influences.SaveToString();
             }
 
             foreach (YearTableEntry yt in this.YearTable)
@@ -4962,13 +4961,13 @@ namespace GameObjects
             {
                 foreach (Event e in this.AllEvents)
                 {
-                    e.TriggeringCharString = e.SavePersonIdToString();
-                    e.CharConditionString = e.SavePersonCondToString();
+                    e.personString = e.SavePersonIdToString();
+                    e.PersonCondString = e.SavePersonCondToString();
                     e.architectureString = e.architecture.SaveToString();
                     e.architectureCondString = e.SaveArchitecureCondToString();
                     e.factionString = e.faction.SaveToString();
                     e.factionCondString = e.SaveFactionCondToString();
-                    e.dialogString = e.SaveDialogToString();
+                    e.EventDialogString = e.SaveDialogToString();
                     e.effectString = e.SaveEventEffectToString();
                     e.architectureEffectString = e.SaveArchitectureEffectToString();
                     e.factionEffectIDString = e.SaveFactionEffectToString();
@@ -4997,7 +4996,7 @@ namespace GameObjects
 
             foreach (Biography i in this.AllBiographies.Biographys.Values)
             {
-                i.MilitaryKindsString = i.MilitaryKinds.SaveToString();
+                i.AllowedTroopTypesString = i.MilitaryKinds.SaveToString();
             }
 
             var scenarioClone = this.Clone();            
@@ -5568,9 +5567,9 @@ namespace GameObjects
             }
             foreach (Person p in this.Persons)
             {
-                if (p.Available && p.IsGeneratedChildren && p.Age >= Session.GlobalVariables.ChildrenAvailableAge)
+                if (p.Available && p.IsGeneratedChild && p.Age >= Session.GlobalVariables.ChildrenAvailableAge)
                 {
-                    p.IsGeneratedChildren = false;
+                    p.IsGeneratedChild = false;
                 }
             }
         }

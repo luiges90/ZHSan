@@ -21,11 +21,6 @@ namespace GameObjects
         private bool useSimpleArchImages = false;
 
         [DataMember]
-        public int TileWidthMin = 30;
-        [DataMember]
-        public int TileWidthMax = 100;
-
-        [DataMember]
         public string MapName
         {
             get
@@ -49,18 +44,6 @@ namespace GameObjects
                 {
                     dituwenjian = value;
                 }
-            }
-        }
-
-        public void Init()
-        {
-            if (TileWidthMin == 0)
-            {
-                TileWidthMin = 30;
-            }
-            if (TileWidthMax == 0)
-            {
-                TileWidthMax = 100;
             }
         }
 

@@ -27,23 +27,23 @@ namespace GameObjects
         public int PredecessorEventID = -1;
         public TroopEvent AfterHappenedEvent;
         [DataMember]
-        public int ProbabilityBase;
+        public int happenChance;
 
         [DataMember]
-        public bool HasHappened;
+        public bool happened;
         [DataMember]
-        public bool IsRepeatable;
+        public bool repeatable;
 
         [DataMember]
         public String nextScenario;
 
         [DataMember]
-        public string TriggeringCharString { get; set; }
+        public string personString { get; set; }
 
         public Dictionary<int, List<Person>> person;
 
         [DataMember]
-        public string CharConditionString { get; set; }
+        public string PersonCondString { get; set; }
 
         public Dictionary<int, List<Condition>> personCond;
 
@@ -69,7 +69,7 @@ namespace GameObjects
         public List<PersonIdDialog> dialog;
 
         [DataMember]
-        public string dialogString { get; set; }
+        public string EventDialogString { get; set; }
 
         [DataMember]
         public string effectString { get; set; }
@@ -143,7 +143,7 @@ namespace GameObjects
         public int EndMonth = 12;
 
         [DataMember]
-        public bool IsMinor = false;
+        public bool Minor = false;
 
         private bool involveLeader = false;
         public bool InvolveLeader
@@ -515,15 +515,15 @@ namespace GameObjects
 
         public bool checkConditions(Architecture a)
         {
-            if (this.HasHappened && !this.IsRepeatable) return false;
-            if (GameObject.Random(this.ProbabilityBase) != 0)
+            if (this.happened && !this.repeatable) return false;
+            if (GameObject.Random(this.happenChance) != 0)
             {
                 return false;
             }
 
             if (this.PredecessorEventID >= 0)
             {
-                if (!(Session.Current.Scenario.AllEvents.GetGameObject(this.PredecessorEventID) as Event).HasHappened)
+                if (!(Session.Current.Scenario.AllEvents.GetGameObject(this.PredecessorEventID) as Event).happened)
                 {
                     return false;
                 }

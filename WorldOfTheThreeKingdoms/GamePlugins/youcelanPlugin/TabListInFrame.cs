@@ -716,9 +716,9 @@ namespace youcelanPlugin
                                         this.iTreasureDetail.SetTreasure(gameObjectByPosition);
                                         this.iTreasureDetail.IsShowing = true;
                                     }
-                                    if ((gameObjectByPosition as Treasure).BelongedPerson != null)
+                                    if ((gameObjectByPosition as Treasure).Ownership != null)
                                     {
-                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Treasure).BelongedPerson.Position);
+                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Treasure).Ownership.Position);
                                     }
                                 }
                                 if (gameObjectByPosition != null)
@@ -804,9 +804,9 @@ namespace youcelanPlugin
                                         this.iTreasureDetail.SetTreasure(gameObjectByPosition);
                                         this.iTreasureDetail.IsShowing = true;
                                     }
-                                    if ((gameObjectByPosition as Treasure).BelongedPerson != null)
+                                    if ((gameObjectByPosition as Treasure).Ownership != null)
                                     {
-                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Treasure).BelongedPerson.Position);
+                                        Session.MainGame.mainGameScreen.JumpTo((gameObjectByPosition as Treasure).Ownership.Position);
                                     }
                                 }
                                 if (gameObjectByPosition != null)

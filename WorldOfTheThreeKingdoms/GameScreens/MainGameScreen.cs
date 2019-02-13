@@ -1517,11 +1517,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 if (this.mainMapLayer.TotalTileWidth < this.viewportSize.X)
                 {
-                    this.mainMapLayer.TileWidth = (this.viewportSize.X / Session.Current.Scenario.ScenarioMap.MapDimensions.X) + (Session.Current.Scenario.ScenarioMap.TileWidthMin / 5);
+                    this.mainMapLayer.TileWidth = (this.viewportSize.X / Session.Current.Scenario.ScenarioMap.MapDimensions.X) + (this.mainMapLayer.tileWidthMin / 5);
                 }
                 if (this.mainMapLayer.TotalTileHeight < this.viewportSize.Y)
                 {
-                    this.mainMapLayer.TileWidth = (this.viewportSize.Y / Session.Current.Scenario.ScenarioMap.MapDimensions.Y) + (Session.Current.Scenario.ScenarioMap.TileWidthMin / 5);
+                    this.mainMapLayer.TileWidth = (this.viewportSize.Y / Session.Current.Scenario.ScenarioMap.MapDimensions.Y) + (this.mainMapLayer.tileWidthMin / 5);
                 }
             }
         }
@@ -2230,7 +2230,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
 
             if ((Session.Current.Scenario.CurrentPlayer == null || Session.Current.Scenario.CurrentPlayer.IsArchitectureKnown(a) || Session.GlobalVariables.SkyEye || e.GloballyDisplayed) 
-                && (e.matchedDialog != null && e.matchedDialog.Count > 0 && (!e.IsMinor || e.InvolveLeader)))
+                && (e.matchedDialog != null && e.matchedDialog.Count > 0 && (!e.Minor || e.InvolveLeader)))
             {
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, screen);
                 
