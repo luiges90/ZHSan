@@ -29,7 +29,7 @@ namespace GameObjects
         public List<PersonDialog> Dialogs = new List<PersonDialog>();
 
         [DataMember]
-        public string dialogString { get; set; }
+        public string EventDialogString { get; set; }
 
         [DataMember]
         public string EffectAreasString { get; set; }
@@ -37,17 +37,17 @@ namespace GameObjects
         public List<TroopEffectArea> EffectAreas = new List<TroopEffectArea>();
 
         [DataMember]
-        public string EffectPersonsString { get; set; }
+        public string CharEffectsString { get; set; }
 
         public List<TroopEffectPerson> EffectPersons = new List<TroopEffectPerson>();
 
-        private int ProbabilityBase;
-        private bool HasHappened;
+        private int happenChance;
+        private bool happened;
 
         [DataMember]
         public int LaunchPersonString { get; set; }
         public Person LaunchPerson;
-        private bool IsRepeatable;
+        private bool repeatable;
 
         [DataMember]
         public string SelfEffectsString { get; set; }
@@ -55,7 +55,7 @@ namespace GameObjects
         public List<GameObjects.TroopDetail.EventEffect.EventEffect> SelfEffects = new List<GameObjects.TroopDetail.EventEffect.EventEffect>();
 
         [DataMember]
-        public string TargetPersonsString { get; set; }
+        public string CharRelationsString { get; set; }
 
         public List<PersonRelation> TargetPersons = new List<PersonRelation>();
 
@@ -480,11 +480,11 @@ namespace GameObjects
         {
             get
             {
-                return this.ProbabilityBase;
+                return this.happenChance;
             }
             set
             {
-                this.ProbabilityBase = value;
+                this.happenChance = value;
             }
         }
         [DataMember]
@@ -492,11 +492,11 @@ namespace GameObjects
         {
             get
             {
-                return this.HasHappened;
+                return this.happened;
             }
             set
             {
-                this.HasHappened = value;
+                this.happened = value;
             }
         }
         [DataMember]
@@ -504,11 +504,11 @@ namespace GameObjects
         {
             get
             {
-                return this.IsRepeatable;
+                return this.repeatable;
             }
             set
             {
-                this.IsRepeatable = value;
+                this.repeatable = value;
             }
         }
 

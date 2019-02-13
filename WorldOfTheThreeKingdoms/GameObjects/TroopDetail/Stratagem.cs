@@ -23,7 +23,7 @@ namespace GameObjects.TroopDetail
         private bool friendly;
 
         [DataMember]
-        public string InfluencesString
+        public string EffectsString
         {
             get;
             set;
