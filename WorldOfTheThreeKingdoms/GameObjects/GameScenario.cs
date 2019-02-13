@@ -2910,6 +2910,7 @@ namespace GameObjects
             scenarioJustLoaded = true;
                         
             ScenarioMap.LoadMapData(ScenarioMap.MapDataString, ScenarioMap.MapDimensions.X, ScenarioMap.MapDimensions.Y);
+            ScenarioMap.Init();
                        
             //if (Platform.PlatFormType == PlatFormType.Android || Platform.PlatFormType == PlatFormType.iOS || Platform.PlatFormType == PlatFormType.Win)
             //{
