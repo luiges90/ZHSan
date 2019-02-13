@@ -1062,13 +1062,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
             set
             {
                 Session.Current.Scenario.ScenarioMap.TileWidth = value;
-                if (Session.Current.Scenario.ScenarioMap.TileWidth < Session.Current.Scenario.ScenarioMap.TileWidthMin)
+                if (Session.Current.Scenario.ScenarioMap.TileWidth < this.tileWidthMin)
                 {
-                    Session.Current.Scenario.ScenarioMap.TileWidth = Session.Current.Scenario.ScenarioMap.TileWidthMin;
+                    Session.Current.Scenario.ScenarioMap.TileWidth = this.tileWidthMin;
                 }
-                else if (Session.Current.Scenario.ScenarioMap.TileWidth > Session.Current.Scenario.ScenarioMap.TileWidthMax)
+                else if (Session.Current.Scenario.ScenarioMap.TileWidth > this.tileWidthMax)
                 {
-                    Session.Current.Scenario.ScenarioMap.TileWidth = Session.Current.Scenario.ScenarioMap.TileWidthMax;
+                    Session.Current.Scenario.ScenarioMap.TileWidth = this.tileWidthMax;
                 }
 
             }
