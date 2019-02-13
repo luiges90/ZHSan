@@ -2910,11 +2910,12 @@ namespace GameObjects
             scenarioJustLoaded = true;
                         
             ScenarioMap.LoadMapData(ScenarioMap.MapDataString, ScenarioMap.MapDimensions.X, ScenarioMap.MapDimensions.Y);
+            ScenarioMap.Init();
                        
             //if (Platform.PlatFormType == PlatFormType.Android || Platform.PlatFormType == PlatFormType.iOS || Platform.PlatFormType == PlatFormType.Win)
             //{
-                ScenarioMap.TileWidth = 50;
-                ScenarioMap.TileHeight = 50;
+//                ScenarioMap.TileWidth = 50;
+                //ScenarioMap.TileHeight = 50;
             //}
 
             foreach (State state in this.States)

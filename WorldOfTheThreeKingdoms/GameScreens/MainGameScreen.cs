@@ -1517,11 +1517,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 if (this.mainMapLayer.TotalTileWidth < this.viewportSize.X)
                 {
-                    this.mainMapLayer.TileWidth = (this.viewportSize.X / Session.Current.Scenario.ScenarioMap.MapDimensions.X) + (this.mainMapLayer.tileWidthMin / 5);
+                    this.mainMapLayer.TileWidth = (this.viewportSize.X / Session.Current.Scenario.ScenarioMap.MapDimensions.X) + (Session.Current.Scenario.ScenarioMap.TileWidthMin / 5);
                 }
                 if (this.mainMapLayer.TotalTileHeight < this.viewportSize.Y)
                 {
-                    this.mainMapLayer.TileWidth = (this.viewportSize.Y / Session.Current.Scenario.ScenarioMap.MapDimensions.Y) + (this.mainMapLayer.tileWidthMin / 5);
+                    this.mainMapLayer.TileWidth = (this.viewportSize.Y / Session.Current.Scenario.ScenarioMap.MapDimensions.Y) + (Session.Current.Scenario.ScenarioMap.TileWidthMin / 5);
                 }
             }
         }
