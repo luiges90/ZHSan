@@ -57,9 +57,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 if (Session.MainGame.mainGameScreen != null)
                 {
-                    this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(reporter, architecture, TextMessageKind.ArchitectureUnderAttack, "ArchitectureBeginRecentlyAttacked", "zaoshougongji.jpg", "");
-                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                    this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(reporter, architecture, TextMessageKind.ArchitectureUnderAttack, "ArchitectureBeginRecentlyAttacked", "zaoshougongji.jpg", "");
+                    this.Plugins.EventDisplayPlugin.IsShowing = true;
                     /*architecture.BelongedFaction.Leader.TextResultString = architecture.Name;
                     architecture.BelongedFaction.TextResultString = architecture.Name;
                     this.xianshishijiantupian(architecture.BelongedFaction.Leader, architecture.BelongedFaction.Leader.TextResultString, "ArchitectureBeginRecentlyAttacked", "zaoshougongji.jpg", "", false);
@@ -89,8 +89,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     if (!((facility.PositionOccupied <= 1) && Setting.Current.GlobalVariables.NoHintOnSmallFacility))
                     {
-                        string sheshitupian = "sheshi\\sheshi" + facility.KindID.ToString() + ".jpg";
-                        this.xianshishijiantupian(architecture.BelongedFaction.Leader,architecture.Name, TextMessageKind.FacilityCompleted, "ArchitectureFacilityCompleted", sheshitupian, "sheshiwancheng",facility.Kind.Name,false );
+                        string sheshitupian = "FacilityPictures\\FacilityPictures" + facility.KindID.ToString() + ".jpg";
+                        this.xianshishijiantupian(architecture.BelongedFaction.Leader,architecture.Name, TextMessageKind.FacilityCompleted, "ArchitectureFacilityCompleted", sheshitupian, "FacilityConstructed",facility.Kind.Name,false );
                         this.Plugins.GameRecordPlugin.AddBranch(architecture, "FacilityCompleted", architecture.Position);
                     }
                 }
@@ -111,9 +111,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.xianshishijiantupian(architecture.BelongedFaction.Leader, architecture.Name, TextMessageKind.DisasterHappened, "fashengzainan", "zainan" + zainanID.ToString() + ".jpg", "zainan" + zainanID.ToString(), zainanming, false);
                     /*
                     architecture.TextDestinationString = zainanming;
-                    this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(architecture.BelongedFaction.Leader, architecture, "fashengzainan");
-                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                    this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom);
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(architecture.BelongedFaction.Leader, architecture, "fashengzainan");
+                    this.Plugins.EventDisplayPlugin.IsShowing = true;
                     */
                 }
                 architecture.TextDestinationString = zainanming;
@@ -134,9 +134,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     person2.TextResultString = person2.LocationArchitecture.Name;
                     person2.TextDestinationString = person2.BelongedFaction.Name;
 
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person2, person2, TextMessageKind.HiredPerson, "ArchitectureHirePerson");
-                    this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person2, person2, TextMessageKind.HiredPerson, "ArchitectureHirePerson");
+                    this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                    this.Plugins.EventDisplayPlugin.IsShowing = true;
 
                     //this.Plugins.PersonBubblePlugin.AddPerson(person2, person2.Position, "HirePerson");
                     //person2.TextDestinationString = person2.BelongedFaction.Name;
@@ -187,10 +187,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             if ((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.IsPlayer(from))
             {
-                this.Plugins.tupianwenziPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(captive.ReleaseCaptive), new GameDelegates.VoidFunction(captive.ReturnRansom));
+                this.Plugins.EventDisplayPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(captive.ReleaseCaptive), new GameDelegates.VoidFunction(captive.ReturnRansom));
                 this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(from.Leader, captive, TextMessageKind.ReleaseCaptive, "ReleaseCaptive");
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(from.Leader, captive, TextMessageKind.ReleaseCaptive, "ReleaseCaptive");
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
         }
 
@@ -218,10 +218,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             if (Session.Current.Scenario.IsPlayer(faction))
             {
-                this.Plugins.tupianwenziPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(leader.PlayerKillLeader), null);
+                this.Plugins.EventDisplayPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(leader.PlayerKillLeader), null);
                 this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(leader, leader, TextMessageKind.AsLeaderCaught, "FactionAfterCatchLeader");
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(leader, leader, TextMessageKind.AsLeaderCaught, "FactionAfterCatchLeader");
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
         }
 
@@ -248,9 +248,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.xianshishijiantupian(neutralPerson, faction.Name, "FactionDestroy", "shilimiewang.jpg", "shilimiewang",true );
             /*
             neutralPerson.TextDestinationString = faction.Name;
-            this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
-            this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, neutralPerson, "FactionDestroy");
-            this.Plugins.tupianwenziPlugin.IsShowing = true;
+            this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom);
+            this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, neutralPerson, "FactionDestroy");
+            this.Plugins.EventDisplayPlugin.IsShowing = true;
              */
         }
 
@@ -292,9 +292,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.IsCurrentPlayer(faction)) || Session.GlobalVariables.SkyEye)
             {
                 faction.Leader.TextDestinationString = technique.Name;
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(faction.Leader, faction.Leader, TextMessageKind.FactionTechniqueFinished, "FactionTechniqueFinished");
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(faction.Leader, faction.Leader, TextMessageKind.FactionTechniqueFinished, "FactionTechniqueFinished");
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
         }
 
@@ -324,9 +324,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             faction.TextResultString = Session.Current.Scenario.Date.ToDateString();
             this.Plugins.GameRecordPlugin.AddBranch(faction, "GameEndWithUnite", faction.Capital.Position);
-            this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-            this.Plugins.tupianwenziPlugin.SetGameObjectBranch(faction.Leader, faction.Leader, TextMessageKind.EndWithUnite, "GameEndWithUnite");
-            this.Plugins.tupianwenziPlugin.IsShowing = true;
+            this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+            this.Plugins.EventDisplayPlugin.SetGameObjectBranch(faction.Leader, faction.Leader, TextMessageKind.EndWithUnite, "GameEndWithUnite");
+            this.Plugins.EventDisplayPlugin.IsShowing = true;
             Session.Current.Scenario.YearTable.addGameEndWithUniteEntry(Session.Current.Scenario.Date, faction);
         }
 
@@ -336,9 +336,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.IsCurrentPlayer(person.BelongedFaction)) || Session.GlobalVariables.SkyEye)
             {
                 person.TextResultString = t.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.BeAwardedTreasure, "PersonBeAwardedTreasure");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.BeAwardedTreasure, "PersonBeAwardedTreasure");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
 
 
             }*/
@@ -350,9 +350,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Session.Current.Scenario.IsCurrentPlayer(person.BelongedArchitecture.BelongedFaction)) || Session.GlobalVariables.SkyEye)
             {
                 //person.TextResultString = t.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.SelfFoundPregnant, "selfFoundPregnant");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.SelfFoundPregnant, "selfFoundPregnant");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
 
 
             }
@@ -365,9 +365,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 //person.TextResultString = t.Name;
                 //reporter.TextResultString = person.Name;
-                //this.Plugins.tupianwenziPlugin.SetGameObjectBranch(reporter, reporter, TextMessageKind.CoupleFoundPregnant, "coupleFoundPregnant");
-                //this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
-                //this.Plugins.tupianwenziPlugin.IsShowing = true;
+                //this.Plugins.EventDisplayPlugin.SetGameObjectBranch(reporter, reporter, TextMessageKind.CoupleFoundPregnant, "coupleFoundPregnant");
+                //this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom);
+                //this.Plugins.EventDisplayPlugin.IsShowing = true;
                 if (person.BelongedArchitecture != null)
                 {
                     this.Plugins.GameRecordPlugin.AddBranch(person, "OfficerPregnant", person.Position);
@@ -381,9 +381,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Session.Current.Scenario.IsCurrentPlayer(person.BelongedArchitecture.BelongedFaction)) || Session.GlobalVariables.SkyEye)
             {
                 //person.TextResultString = t.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.FoundPregnant, "PregnancyDiscovered");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.FoundPregnant, "PregnancyDiscovered");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
 
 
             }
@@ -397,9 +397,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if (father.BelongedFaction != null && father.BelongedFaction.Leader == father && mother.Status == PersonStatus.Princess)
                 {
                     person.TextResultString = person.Name;
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(father, father, TextMessageKind.ChildrenBorn, "xiaohaichusheng");
-                    this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(father, father, TextMessageKind.ChildrenBorn, "xiaohaichusheng");
+                    this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                    this.Plugins.EventDisplayPlugin.IsShowing = true;
                 }
 
                 if (father.BelongedArchitecture != null)
@@ -426,9 +426,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 //person.TextResultString = t.Name;
                 if (showChildTalk)
                 {
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.BeChildrenBorn, "haizizhangdachengren");
-                    this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.BeChildrenBorn, "haizizhangdachengren");
+                    this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                    this.Plugins.EventDisplayPlugin.IsShowing = true;
                 }
 
                 if (person.BelongedArchitecture != null && person.BelongedArchitecture.BelongedFaction != null)
@@ -457,9 +457,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 p.TextResultString = TextResultString;
                 //p.TextDestinationString = architecture.BelongedFaction.LeaderName;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, msgKind, shijian, tupian, shengyin);
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(p, p, msgKind, shijian, tupian, shengyin);
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 this.PauseMusic();
                 this.tufashijianzantingyinyue = true;
             }
@@ -479,9 +479,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 p.TextResultString = TextResultString;
                 p.TextDestinationString = TextDestinationString;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, msgKind, shijian, tupian, shengyin);
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(p, p, msgKind, shijian, tupian, shengyin);
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 this.PauseMusic();
                 this.tufashijianzantingyinyue = true;
             }
@@ -504,9 +504,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 p.TextResultString = TextResultString;
                 //p.TextDestinationString = architecture.BelongedFaction.LeaderName;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, shijian, tupian, shengyin);
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(p, p, shijian, tupian, shengyin);
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 this.PauseMusic();
                 this.tufashijianzantingyinyue = true;
             }
@@ -529,9 +529,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 p.TextResultString = TextResultString;
                 p.TextDestinationString = TextDestinationString;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, shijian, tupian, shengyin);
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(p, p, shijian, tupian, shengyin);
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 this.PauseMusic();
                 this.tufashijianzantingyinyue = true;
 
@@ -540,9 +540,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void xianshishijiantupian(object person, object gameObject, string branchName, bool zongshixianshi)
         {
-            this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, gameObject, branchName);
-            this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-            this.Plugins.tupianwenziPlugin.IsShowing = true;
+            this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, gameObject, branchName);
+            this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+            this.Plugins.EventDisplayPlugin.IsShowing = true;
         }
 
         public override void PersonBeConfiscatedTreasure(Person person, Treasure t)
@@ -551,9 +551,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.IsCurrentPlayer(person.BelongedFaction)) || Session.GlobalVariables.SkyEye)
             {
                 person.TextResultString = t.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.BeConfiscatedTreasure, "PersonBeConfiscatedTreasure");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.BeConfiscatedTreasure, "PersonBeConfiscatedTreasure");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
             */
 
@@ -564,9 +564,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.IsCurrentPlayer(t)) || Session.GlobalVariables.SkyEye)
             {
                 person.TextResultString = t.LeaderName;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.BeTakenSpouse, "wujiangbeiduoqi");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.BeTakenSpouse, "wujiangbeiduoqi");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
 
 
@@ -593,9 +593,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     neutralPerson = (Session.Current.Scenario.Factions[0] as Faction).Leader;
                 }
             }
-            this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-            this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, location, "PersonBeKilled");
-            this.Plugins.tupianwenziPlugin.IsShowing = true;
+            this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+            this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, location, "PersonBeKilled");
+            this.Plugins.EventDisplayPlugin.IsShowing = true;
         }
 
         public override void PersonChangeLeader(Faction faction, Person leader, bool changeName, string oldName)
@@ -603,17 +603,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (!changeName)
             {
                 leader.TextDestinationString = oldName;
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(leader, leader, TextMessageKind.ChangeLeaderKeepName, "FactionChangeLeaderKeepName");
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(leader, leader, TextMessageKind.ChangeLeaderKeepName, "FactionChangeLeaderKeepName");
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
             else
             {
                 leader.TextDestinationString = oldName;
                 leader.TextResultString = faction.Name;
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(leader, leader, TextMessageKind.ChangeLeaderChangeName, "FactionChangeLeaderChangeName");
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(leader, leader, TextMessageKind.ChangeLeaderChangeName, "FactionChangeLeaderChangeName");
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
         }
 
@@ -647,8 +647,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
 
                 source.TextDestinationString = destination.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, source, "PersonConvinceSuccess");
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, source, "PersonConvinceSuccess");
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 this.Plugins.GameRecordPlugin.AddBranch(source, "PersonConvinceSuccess", source.Position);
 
             }
@@ -673,23 +673,23 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     neutralPerson = P1;
                 }
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
 
                 switch (win)
                 {
                     case 1: //P1武将胜利
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeSourceWin");
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(P1, sourceTroop, TextMessageKind.DualActiveWin, "TroopPersonChallengeAfterSourceWin");
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeSourceWin");
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(P1, sourceTroop, TextMessageKind.DualActiveWin, "TroopPersonChallengeAfterSourceWin");
 
-                        this.Plugins.tupianwenziPlugin.IsShowing = true;
+                        this.Plugins.EventDisplayPlugin.IsShowing = true;
 
                         this.Plugins.GameRecordPlugin.AddBranch(sourceTroop, "TroopPersonChallengeSourceWin", sourceTroop.Position);
                         break;
                     case 2: //2：P2武将胜利
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeSourceLose");
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(P2, sourceTroop, TextMessageKind.DualPassiveWin, "TroopPersonChallengeAfterSourceLose");
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeSourceLose");
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(P2, sourceTroop, TextMessageKind.DualPassiveWin, "TroopPersonChallengeAfterSourceLose");
  
-                        this.Plugins.tupianwenziPlugin.IsShowing = true;
+                        this.Plugins.EventDisplayPlugin.IsShowing = true;
 
                         this.Plugins.GameRecordPlugin.AddBranch(sourceTroop, "TroopPersonChallengeSourceLose", sourceTroop.Position);
                         break;
@@ -702,23 +702,23 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                         break;
                     case 5: //5：P1武将逃跑
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeEscape");
-                        this.Plugins.tupianwenziPlugin.IsShowing = true;
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeEscape");
+                        this.Plugins.EventDisplayPlugin.IsShowing = true;
                         this.Plugins.GameRecordPlugin.AddBranch(sourceTroop, "TroopPersonChallengeEscape", sourceTroop.Position);
                         break;
                     case 6: //6：P2武将逃跑
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, destinationTroop, "TroopPersonChallengeEscape");
-                        this.Plugins.tupianwenziPlugin.IsShowing = true;
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, destinationTroop, "TroopPersonChallengeEscape");
+                        this.Plugins.EventDisplayPlugin.IsShowing = true;
                         this.Plugins.GameRecordPlugin.AddBranch(destinationTroop, "TroopPersonChallengeEscape", destinationTroop.Position);
                         break;
                     case 7: //7、P1武将被俘虏
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeSourceBeCaptured");
-                        this.Plugins.tupianwenziPlugin.IsShowing = true;
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeSourceBeCaptured");
+                        this.Plugins.EventDisplayPlugin.IsShowing = true;
                         this.Plugins.GameRecordPlugin.AddBranch(sourceTroop, "TroopPersonChallengeSourceBeCaptured", sourceTroop.Position);
                         break;
                     case 8: //8、P2武将被俘虏
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, destinationTroop, "TroopPersonChallengeDestinationBeCaptured");
-                        this.Plugins.tupianwenziPlugin.IsShowing = true;
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, destinationTroop, "TroopPersonChallengeDestinationBeCaptured");
+                        this.Plugins.EventDisplayPlugin.IsShowing = true;
                         this.Plugins.GameRecordPlugin.AddBranch(destinationTroop, "TroopPersonChallengeDestinationBeCaptured", destinationTroop.Position);
                         break;
                     case 9: //9、P1武将被拉拢
@@ -728,25 +728,25 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         //直接使用在建筑里说服的话语
                         break;
                     case -1: //-1：平局
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeDraw");
-                        this.Plugins.tupianwenziPlugin.IsShowing = true;
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeDraw");
+                        this.Plugins.EventDisplayPlugin.IsShowing = true;
 
                         this.Plugins.GameRecordPlugin.AddBranch(sourceTroop, "TroopPersonChallengeDraw", sourceTroop.Position);
                         break;
                     case -2: //-2：平局：P1武将被杀
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeDraw");
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeDraw");
                         this.PersonDeathInChallenge(P1, sourceTroop);
 
                         //this.Plugins.GameRecordPlugin.AddBranch(sourceTroop, "TroopPersonChallengeDraw", sourceTroop.Position);
                         break;
                     case -3: //-3：平局：P2武将被杀
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeDraw");
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeDraw");
                         this.PersonDeathInChallenge(P2, destinationTroop);
 
                         //this.Plugins.GameRecordPlugin.AddBranch(sourceTroop, "TroopPersonChallengeDraw", sourceTroop.Position);
                         break;
                     case -4: //-4：平局：双方武将被杀
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeDraw");
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonChallengeDraw");
 
                         this.Plugins.GameRecordPlugin.AddBranch(sourceTroop, "TroopPersonChallengeDraw", sourceTroop.Position);
                         this.PersonDeathInChallenge(P1, sourceTroop);
@@ -771,21 +771,21 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     neutralPerson = source;
                 }
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
 #pragma warning disable CS0168 // The variable 'msg' is declared but never used
                 List<string> msg;
 #pragma warning restore CS0168 // The variable 'msg' is declared but never used
                 if (win)
                 {
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonControversySourceWin");
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(source, sourceTroop, TextMessageKind.ControversyActiveWin, "TroopPersonControversyAfterSourceWin");
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonControversySourceWin");
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(source, sourceTroop, TextMessageKind.ControversyActiveWin, "TroopPersonControversyAfterSourceWin");
                 }
                 else
                 {
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonControversySourceLose");
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(destination, sourceTroop, TextMessageKind.ControversyPassiveWin, "TroopPersonControversyAfterSourceLose");
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(neutralPerson, sourceTroop, "TroopPersonControversySourceLose");
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(destination, sourceTroop, TextMessageKind.ControversyPassiveWin, "TroopPersonControversyAfterSourceLose");
                 }
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 if (win)
                 {
                     this.Plugins.GameRecordPlugin.AddBranch(sourceTroop, "TroopPersonControversySourceWin", sourceTroop.Position);
@@ -883,9 +883,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.xianshishijiantupian(leader, dead.RespectfulName, TextMessageKind.DiedChangeFaction, "FactionLeaderDeathChangeFaction", "", "", oldName,true );
             /*
             leader.BelongedFaction.TextResultString = dead.RespectfulName;
-            this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
-            this.Plugins.tupianwenziPlugin.SetGameObjectBranch(leader, leader.BelongedFaction, "FactionLeaderDeathChangeFaction");
-            this.Plugins.tupianwenziPlugin.IsShowing = true;
+            this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom);
+            this.Plugins.EventDisplayPlugin.SetGameObjectBranch(leader, leader.BelongedFaction, "FactionLeaderDeathChangeFaction");
+            this.Plugins.EventDisplayPlugin.IsShowing = true;
              */
  
         }
@@ -991,9 +991,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 location.TextDestinationString = person.Name;
                 this.Plugins.GameRecordPlugin.AddBranch(location, "PersonLeave", location.Position);
                 person.TextDestinationString = location.BelongedFaction.Name;
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.LeaveFaction, "PersonLeave");
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.LeaveFaction, "PersonLeave");
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
         }
 
@@ -1099,33 +1099,33 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 switch (gameObject.Kind)
                 {
                     case SpyMessageKind.NewMilitary:
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, gameObject, "SpyMessageNewMilitary");
-                        this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
-                        this.Plugins.tupianwenziPlugin.IsShowing = true;
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, gameObject, "SpyMessageNewMilitary");
+                        this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom);
+                        this.Plugins.EventDisplayPlugin.IsShowing = true;
                         break;
 
                     case SpyMessageKind.MilitaryScale:
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, gameObject, "SpyMessageMilitaryScale");
-                        this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
-                        this.Plugins.tupianwenziPlugin.IsShowing = true;
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, gameObject, "SpyMessageMilitaryScale");
+                        this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom);
+                        this.Plugins.EventDisplayPlugin.IsShowing = true;
                         break;
 
                     case SpyMessageKind.NewFacility:
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, gameObject, "SpyMessageNewFacility");
-                        this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
-                        this.Plugins.tupianwenziPlugin.IsShowing = true;
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, gameObject, "SpyMessageNewFacility");
+                        this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom);
+                        this.Plugins.EventDisplayPlugin.IsShowing = true;
                         break;
 
                     case SpyMessageKind.NewTroop:
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, gameObject, "SpyMessageNewTroop");
-                        this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
-                        this.Plugins.tupianwenziPlugin.IsShowing = true;
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, gameObject, "SpyMessageNewTroop");
+                        this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom);
+                        this.Plugins.EventDisplayPlugin.IsShowing = true;
                         break;
 
                     case SpyMessageKind.HireNewPerson:
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, gameObject, "SpyMessageHireNewPerson");
-                        this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
-                        this.Plugins.tupianwenziPlugin.IsShowing = true;
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, gameObject, "SpyMessageHireNewPerson");
+                        this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom);
+                        this.Plugins.EventDisplayPlugin.IsShowing = true;
                         break;
                 }
             }
@@ -1145,9 +1145,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.IsCurrentPlayer(spy.BelongedFaction))
             {
                 spy.TextDestinationString = person.TargetArchitecture.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(spy, spy, "PersonSpyFound");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(spy, spy, "PersonSpyFound");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
         }
 
@@ -1166,17 +1166,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             if ((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.IsCurrentPlayer(person.BelongedFaction))
             {
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
                 if (success)
                 {
                     person.TextDestinationString = skillString;
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.StudySkillSuccess, "PersonStudySkillSuccess");
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.StudySkillSuccess, "PersonStudySkillSuccess");
                 }
                 else
                 {
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.StudySkillFailure, "PersonStudySkillFailed");
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.StudySkillFailure, "PersonStudySkillFailed");
                 }
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
         }
 
@@ -1185,16 +1185,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.IsCurrentPlayer(person.BelongedFaction)) || Session.GlobalVariables.SkyEye)
             {
                 person.TextDestinationString = stunt.Name;
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
                 if (success)
                 {
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.StudyStuntSuccess, "PersonStudyStuntSuccess");
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.StudyStuntSuccess, "PersonStudyStuntSuccess");
                 }
                 else
                 {
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.StudyStuntFailure, "PersonStudyStuntFailed");
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.StudyStuntFailure, "PersonStudyStuntFailed");
                 }
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
         }
 
@@ -1203,16 +1203,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.IsCurrentPlayer(person.BelongedFaction)) || Session.GlobalVariables.SkyEye)
             {
                 person.TextDestinationString = title.Name;
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
                 if (success)
                 {
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.StudyTitleSuccess, "PersonStudyTitleSuccess");
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.StudyTitleSuccess, "PersonStudyTitleSuccess");
                 }
                 else
                 {
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.StudyTitleFailure, "PersonStudyTitleFailed");
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.StudyTitleFailure, "PersonStudyTitleFailed");
                 }
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
         }
 
@@ -1222,9 +1222,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 person.TextDestinationString = person.TargetArchitecture.Name;
                 person.TextResultString = treasure.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(person, person, TextMessageKind.TreasureFound, "PersonTreasureFound");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(person, person, TextMessageKind.TreasureFound, "PersonTreasureFound");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 this.Plugins.GameRecordPlugin.AddBranch(person, "SearchTreasureFound", person.Position);
             }
         }
@@ -1244,7 +1244,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (Session.Current.Scenario.IsCurrentPlayer(person.BelongedFaction) || Session.Current.Scenario.IsCurrentPlayer(captive.BelongedFaction))
             {
                 person.TextDestinationString = captive.LocationArchitecture.Name;
-                person.TextResultString = captive.CaptivePerson.Name;
+                person.TextResultString = captive.CaptiveCharacter.Name;
                 this.Plugins.GameRecordPlugin.AddBranch(person, "PersonJailBreak", person.Position);
             }
         }
@@ -1305,7 +1305,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void SelfCaptiveRelease(Captive captive)
         {
-            if ((((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.IsCurrentPlayer(captive.BelongedFaction)) || Session.Current.Scenario.IsCurrentPlayer(captive.CaptiveFaction)) || Session.GlobalVariables.SkyEye)
+            if ((((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.IsCurrentPlayer(captive.BelongedFaction)) || Session.Current.Scenario.IsCurrentPlayer(captive.CaptiveCharFaction)) || Session.GlobalVariables.SkyEye)
             {
                 this.Plugins.GameRecordPlugin.AddBranch(captive, "SelfCaptiveRelease", captive.BelongedFaction.Capital.Position);
             }
@@ -1331,13 +1331,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 transport.BelongedFaction == transport.StartingArchitecture.BelongedFaction && !transport.StartingArchitecture.BelongedSection.AIDetail.AutoRun))
             {
                 transport.transportReturningTo = destination;
-                this.Plugins.tupianwenziPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(transport.TransportReturn), new GameDelegates.VoidFunction(transport.TransportEnter));
+                this.Plugins.EventDisplayPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(transport.TransportReturn), new GameDelegates.VoidFunction(transport.TransportEnter));
                 this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
 
                 transport.TextDestinationString = destination.Name;
                 transport.TextResultString = transport.StartingArchitecture.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(transport.Leader, transport, TextMessageKind.TransportReturn, "TransportReturn");
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(transport.Leader, transport, TextMessageKind.TransportReturn, "TransportReturn");
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
         }
 
@@ -1347,9 +1347,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 p.TextResultString = q.Name;
                 q.TextResultString = q.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, q, TextMessageKind.CreateBrother, "CreateBrother", "CreateBrother.jpg", "");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(p, q, TextMessageKind.CreateBrother, "CreateBrother", "CreateBrother.jpg", "");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 this.Plugins.GameRecordPlugin.AddBranch(p, "CreateBrother", p.Position);
             }
         }
@@ -1360,9 +1360,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 p.TextResultString = q.Name;
                 q.TextResultString = q.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, q, TextMessageKind.CreateSister, "CreateSister", "CreateSister.jpg", "");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(p, q, TextMessageKind.CreateSister, "CreateSister", "CreateSister.jpg", "");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 this.Plugins.GameRecordPlugin.AddBranch(p, "CreateSister", p.Position);
             }
         }
@@ -1373,9 +1373,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 p.TextResultString = q.Name;
                 q.TextResultString = q.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, q, TextMessageKind.CreateSpouse, "CreateSpouse", "CreateSpouse.jpg", "");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(p, q, TextMessageKind.CreateSpouse, "CreateSpouse", "CreateSpouse.jpg", "");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 this.Plugins.GameRecordPlugin.AddBranch(p, "CreateSpouse", p.Position);
             }
         }
@@ -1386,9 +1386,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 p.TextResultString = q.Name;
                 p.TextDestinationString = p.BelongedFaction.Leader.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p.BelongedFaction.Leader, p, TextMessageKind.MakeMarriage, "MakeMarriage", "CreateSpouse.jpg", "");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(p.BelongedFaction.Leader, p, TextMessageKind.MakeMarriage, "MakeMarriage", "CreateSpouse.jpg", "");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 this.Plugins.GameRecordPlugin.AddBranch(p, "CreateSpouse", p.Position);
             }
         }
@@ -1400,9 +1400,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 p.TextResultString = q.Name;
                 q.TextResultString = p.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, TextMessageKind.SelectPrince, "SelectPrince", "SelectPrince.jpg", "");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(p, p, TextMessageKind.SelectPrince, "SelectPrince", "SelectPrince.jpg", "");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 this.Plugins.GameRecordPlugin.AddBranch(p, "SelectPrince", p.Position);
             }
         }
@@ -1416,9 +1416,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 p.TextResultString = q.Name;
                 q.TextResultString = p.Name;
                 p.TextDestinationString = q.LocationArchitecture.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, TextMessageKind.AppointMayor, "AppointMayor", "AppointMayor.jpg", "");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(p, p, TextMessageKind.AppointMayor, "AppointMayor", "AppointMayor.jpg", "");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 this.Plugins.GameRecordPlugin.AddBranch(p, "AppointMayor", p.Position);
             }
         }
@@ -1430,9 +1430,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 p.TextResultString = q.Name;
                 q.TextResultString = p.Name;
                 //p.TextDestinationString = q.LocationArchitecture.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, TextMessageKind.ZhaoXian, "ZhaoXian", "ZhaoXian.jpg", "");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(p, p, TextMessageKind.ZhaoXian, "ZhaoXian", "ZhaoXian.jpg", "");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
                 this.Plugins.GameRecordPlugin.AddBranch(p, "ZhaoXian", p.Position);
             }
         }
@@ -1525,9 +1525,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             merger.TextResultString = merged.Name;
             merger.TextDestinationString = strongestPlayer.Name;
 
-            this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
-            this.Plugins.tupianwenziPlugin.SetGameObjectBranch(merger.Leader, merger, TextMessageKind.AIMergeAgainstPlayer, "AIMergeAgainstPlayer", "AIMergeAgainstPlayer.jpg", "");
-            this.Plugins.tupianwenziPlugin.IsShowing = true;
+            this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
+            this.Plugins.EventDisplayPlugin.SetGameObjectBranch(merger.Leader, merger, TextMessageKind.AIMergeAgainstPlayer, "AIMergeAgainstPlayer", "AIMergeAgainstPlayer.jpg", "");
+            this.Plugins.EventDisplayPlugin.IsShowing = true;
         }
     }
 }

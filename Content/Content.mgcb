@@ -3116,11 +3116,11 @@
 /processorParam:Quality=Best
 /build:Sound/Yinxiao/ResetDiplomaticRelation.wav
 
-#begin Sound/Yinxiao/sheshiwancheng.wav
+#begin Sound/Yinxiao/FacilityConstructed.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Sound/Yinxiao/sheshiwancheng.wav
+/build:Sound/Yinxiao/FacilityConstructed.wav
 
 #begin Sound/Yinxiao/shilimiewang.wma
 /importer:WmaImporter

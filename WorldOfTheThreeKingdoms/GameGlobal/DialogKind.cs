@@ -16,7 +16,7 @@ namespace GameGlobal
         FactionTechniques,
         TreasureDetail,
         CreateTroop,
-        tupianwenzi,
+        EventDisplay,
         liangdaobianji
     }
 }

@@ -213,13 +213,13 @@ namespace json_and_excel
                     mdbtoexcel(表名,mdb文件, i);
  
                     /* //以下自用
-                     string 城池 = "select ID as ID , MayorID as 县令ID , CaptionID as 名称编号 , Name as 名称 , Kind as 种类 , IsStrategicCenter as 战略要冲 , StateID as 州域ID , Characteristics as 特色 , Area as 区域 , Persons as 所属人物 , MovingPersons as 移动中人物 , NoFactionPersons as 在野人物 , NoFactionMovingPersons as 移动中在野人物 , Population as 人口 , Fund as 资金 , Food as 粮草 , Agriculture as 农业 , Commerce as 商业 , Technology as 技术 , Domination as 统治 , Morale as 民心 , Endurance as 耐久 , AutoHiring as 委任录用 , AutoRewarding as 委任褒奖 , AutoWorking as 委任工作 , AutoSearching as 委任搜索 , AutoRecruiting as 委任补充 , HireFinished as 录用已完成 , FacilityEnabled as 设施有效 , AgricultureWorkingPersons as 农业人物列表 , CommerceWorkingPersons as 商业人物列表 , TechnologyWorkingPersons as 技术人物列表 , DominationWorkingPersons as 统治人物列表 , MoraleWorkingPersons as 民心人物列表 , EnduranceWorkingPersons as 耐久人物列表 , zhenzaiWorkingPersons as 赈灾人物列表 , TrainingWorkingPersons as 训练人物列表 , Militaries as 拥有的编队 , Facilities as 设施列表 , BuildingFacility as 建设中设施 , BuildingDaysLeft as 建设剩余天数 , PlanFacilityKind as 计划设施 , FundPacks as 资金包 , FoodPacks as 粮草包 , TodayNewMilitarySpyMessage as 今日新建编队对应的间谍消息 , TodayNewTroopSpyMessage as 今日部队出征对应的间谍消息 , PopulationPacks as 人口包 , PlanArchitecture as 计划建筑 , TransferFundArchitecture as 转移资金目标 , TransferFoodArchitecture as 转移粮草目标 , DefensiveLegion as 防御军团 , Captives as 俘虏列表 , RobberTroop as 盗贼部队 , RecentlyAttacked as 最近被攻击过 , RecentlyBreaked as 最近被攻破过 , Informations as 情报列表 , AILandLinks as 陆上连接建筑 , AIWaterLinks as 水上连接建筑 , youzainan as 灾难 , zainanleixing as 灾难类型 , zainanshengyutianshu as 灾难剩余天数 , feiziliebiao as 妃子列表 , Emperor as 皇帝 , MilitaryPopulation as 兵役人口 , SuspendTransfer as 暂停运输 , SuspendTroopTransfer as 暂停士兵运输 , Battle as Battle , OldFactionName as 旧势力   into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[城池] from Architecture";
+                     string 城池 = "select ID as ID , MayorID as 县令ID , CaptionID as 名称编号 , Name as 名称 , Kind as 种类 , IsStrategicCenter as 战略要冲 , StateID as 州域ID , Characteristics as 特色 , Area as 区域 , Persons as 所属人物 , MovingPersons as 移动中人物 , NoFactionPersons as 在野人物 , NoFactionMovingPersons as 移动中在野人物 , Population as 人口 , Fund as 资金 , Food as 粮草 , Agriculture as 农业 , Commerce as 商业 , Technology as 技术 , Domination as 统治 , Morale as 民心 , Endurance as 耐久 , AutoHiring as 委任录用 , AutoRewarding as 委任褒奖 , AutoWorking as 委任工作 , AutoSearching as 委任搜索 , AutoRecruiting as 委任补充 , HireFinished as 录用已完成 , FacilityEnabled as 设施有效 , AgricultureWorkingPersons as 农业人物列表 , CommerceWorkingPersons as 商业人物列表 , TechnologyWorkingPersons as 技术人物列表 , DominationWorkingPersons as 统治人物列表 , MoraleWorkingPersons as 民心人物列表 , EnduranceWorkingPersons as 耐久人物列表 , zhenzaiWorkingPersons as 赈灾人物列表 , TrainingWorkingPersons as 训练人物列表 , Militaries as 拥有的编队 , Facilities as 设施列表 , BuildingFacility as 建设中设施 , BuildingDaysLeft as 建设剩余天数 , PlanFacilityKind as 计划设施 , FundPacks as 资金包 , FoodPacks as 粮草包 , TodayNewMilitarySpyMessage as 今日新建编队对应的间谍消息 , TodayNewTroopSpyMessage as 今日部队出征对应的间谍消息 , PopulationPacks as 人口包 , PlanArchitecture as 计划建筑 , TransferFundArchitecture as 转移资金目标 , TransferFoodArchitecture as 转移粮草目标 , DefensiveLegion as 防御军团 , Captives as 俘虏列表 , RobberTroop as 盗贼部队 , RecentlyAttacked as 最近被攻击过 , RecentlyBreaked as 最近被攻破过 , Informations as 情报列表 , AILandLinks as 陆上连接建筑 , AIWaterLinks as 水上连接建筑 , HasDisaster as 灾难 , zainanleixing as 灾难类型 , zainanshengyutianshu as 灾难剩余天数 , feiziliebiao as 妃子列表 , Emperor as 皇帝 , MilitaryPopulation as 兵役人口 , SuspendTransfer as 暂停运输 , SuspendTroopTransfer as 暂停士兵运输 , Battle as Battle , OldFactionName as 旧势力   into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[城池] from Architecture";
                      string 城池类型 = "select ID as ID ,Name as 名称 ,AgricultureBase as 农业基础 ,AgricultureUnit as 农业单位 ,CommerceBase as 商业基础 ,CommerceUnit as 商业单位 ,TechnologyBase as 技术基础 ,TechnologyUnit as 技术单位 ,DominationBase as 统治基础 ,DominationUnit as 统治单位 ,MoraleBase as 民心基础 ,MoraleUnit as 民心单位 ,EnduranceBase as 耐久基础 ,EnduranceUnit as 耐久单位 ,PopulationBase as 人口基础 ,PopulationUnit as 人口单位 ,PopulationBoundary as 征兵人口界限 ,ViewDistance as 基本视野范围 ,VDIncrementDivisor as 视野范围增量除数 ,HasObliqueView as 斜向视角 ,HasLongView as 长视距 ,HasPopulation as 人口 ,HasAgriculture as 农业 ,HasCommerce as 商业 ,HasTechnology as 技术 ,HasDomination as 统治 ,HasMorale as 民心 ,HasEndurance as 耐久 ,HasHarbor as 可编组运兵船 ,FacilityPositionUnit as 设施单位空间 ,FundMaxUnit as 最大资金单位 ,FoodMaxUnit as 最大粮草单位 ,CountToMerit as 官职所包括 ,Expandable as 可扩建 ,ShipCanEnter as 船只可进入  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[城池类型] from ArchitectureKind";
                      string 默认攻击类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[默认攻击类型] from AttackDefaultKind";
                      string 指向攻击类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[指向攻击类型] from AttackTargetKind";
                      string 人物简历 = "select ID as ID ,LastName as 姓 ,FirstName as 名 ,BriefIntro as 简要 ,RomancingIntro as 演义 ,HistoricalIntro as 历史 ,InGame as 剧本 ,FactionColor as 势力颜色 ,MilitaryKinds as 兵种列表  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[人物简历] from Biography";
                      string 简历类型 = "select ID as ID ,Strength as 武力最少 ,Command as 统率最少 ,Intelligence as 智力最少 ,Politics as 政治最少 ,Glamour as 魅力最少 ,Braveness as 勇猛度最少 ,Calmness as 冷静度最少 ,Male as 只限男性 ,Female as 只限女性 ,PersonalLoyalty as 义理最少 ,Ambition as 野心最少 ,BioText as 文字 ,SuffixText as 称号文字  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[简历类型] from BiographyAdjectives";
-                     string 俘虏 = "select ID as ID ,CaptivePerson as 俘虏人物 ,CaptiveFaction as 俘虏势力 ,RansomArchitecture as 赎金目标建筑 ,RansomFund as 赎金量 ,RansomArriveDays as 赎金到达时间  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[俘虏] from Captive";
+                     string 俘虏 = "select ID as ID ,CaptiveCharacter as 俘虏人物 ,CaptiveCharFaction as 俘虏势力 ,RansomReceivedCity as 赎金目标建筑 ,RansomAmount as 赎金量 ,RansomArrivalDays as 赎金到达时间  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[俘虏] from Captive";
                      string 默认施法类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[默认施法类型] from CastDefaultKind";
                      string 指向施法类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[指向施法类型] from CastTargetKind";
                      string 性格类型 = "select ID as ID ,Name as Name ,IntelligenceRate as 智从率 ,ChallengeChance as 单挑基本几率 ,ControversyChance as 论战基本几率 ,General as 将军 ,Brave as 勇将 ,Advisor as 军师 ,Politician as 识者 ,IntelGeneral as 智将 ,Emperor as 君主 ,AllRounder as 全能 ,Normal as 平凡文 ,Normal2 as 平凡武 ,Cheap as 庸才  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[性格类型] from CharacterKind";
@@ -5938,13 +5938,13 @@ namespace json_and_excel
                         }
                     }
                 }
-                a.CaptivePerson = (Person)scenario.Persons.GetGameObject(a.CaptivePersonID);
-                if (a.CaptivePerson != null)
+                a.CaptiveCharacter = (Person)scenario.Persons.GetGameObject(a.CaptiveCharacterID);
+                if (a.CaptiveCharacter != null)
                 {
-                    a.CaptivePerson.SetBelongedCaptive(a, PersonStatus.Captive);
+                    a.CaptiveCharacter.SetBelongedCaptive(a, PersonStatus.Captive);
                 }
-                a.CaptivePerson.Status = PersonStatus.Captive;
-                if (!scenario.isInCaptiveList(a.CaptivePersonID))
+                a.CaptiveCharacter.Status = PersonStatus.Captive;
+                if (!scenario.isInCaptiveList(a.CaptiveCharacterID))
                 {
                     scenario.Captives.AddCaptiveWithEvent(a);
                 }
@@ -6333,7 +6333,7 @@ namespace json_and_excel
                 a.LoadFromString(a.ArchitectureArea, a.ArchitectureAreaString);
                 a.ConvinceDestinationPersonList.LoadFromString(scenario.Persons, dt.Rows[i]["ConvinceDestinationPersonList"].ToString());
                 a.LoadMilitariesFromString(scenario.Militaries, a.MilitariesString);
-                if (a.youzainan)
+                if (a.HasDisaster)
                 {
                     string ss = dt.Rows[i]["zainan"].ToString();
                     string[] ssss = LoadFromString(ss);
@@ -7774,7 +7774,7 @@ namespace json_and_excel
                     ssss = ssss + "{" + var.Key + "  " + var.Value + "},";
                 }
                 dr["captiveLoyaltyFall"] = ssss;
-                if (a.youzainan)
+                if (a.HasDisaster)
                 {
                     dr["zainan"] = a.zainan.ID + "," + a.zainan.Name + "," + a.zainan.shengyutianshu + "," + a.zainan.zainanleixing;
                 }
@@ -8049,12 +8049,12 @@ namespace json_and_excel
                     }
                 }
                 DataRow dr = dt.NewRow();
-                dr["ID"] = (a.CaptivePerson != null) ? a.ID : -1;
-                dr["CaptivePersonID"] = (a.CaptivePerson != null) ? a.CaptivePerson.ID : -1;
-                dr["CaptiveFactionID"] = (a.CaptiveFaction != null) ? a.CaptiveFaction.ID : -1;
-                dr["RansomArchitectureID"] = (a.RansomArchitecture != null) ? a.RansomArchitecture.ID : -1;
-                dr["RansomFund"] = a.RansomFund;
-                dr["RansomArriveDays"] = a.RansomArriveDays;
+                dr["ID"] = (a.CaptiveCharacter != null) ? a.ID : -1;
+                dr["CaptiveCharacterID"] = (a.CaptiveCharacter != null) ? a.CaptiveCharacter.ID : -1;
+                dr["CaptiveCharFactionID"] = (a.CaptiveCharFaction != null) ? a.CaptiveCharFaction.ID : -1;
+                dr["RansomReceivedCityID"] = (a.RansomReceivedCity != null) ? a.RansomReceivedCity.ID : -1;
+                dr["RansomAmount"] = a.RansomAmount;
+                dr["RansomArrivalDays"] = a.RansomArrivalDays;
                 dt.Rows.Add(dr);
             }
             if (cap.Count > 0)
@@ -10311,12 +10311,12 @@ namespace json_and_excel
                 "TransferFundArchitectureID",
                 "TroopershipAvailable",
                 "feiziliebiaoString",
-                "huangdisuozai",
+                "EmperorResidesHere",
                 "jianzhuqizi",
                 "noFundToSustainFacility",
                 "ConvinceDestinationPersonList",
                 "captiveLoyaltyFall",
-                "youzainan",
+                "HasDisaster",
                 "zainan",
             };
         }
@@ -10407,11 +10407,11 @@ namespace json_and_excel
             return new string[]
             {
                 "ID",
-                "CaptivePersonID",
-                "CaptiveFactionID",
-                "RansomArchitectureID",
-                "RansomFund",
-                "RansomArriveDays",
+                "CaptiveCharacterID",
+                "CaptiveCharFactionID",
+                "RansomReceivedCityID",
+                "RansomAmount",
+                "RansomArrivalDays",
             };
         }
         private string[] 人物性格取值字段()

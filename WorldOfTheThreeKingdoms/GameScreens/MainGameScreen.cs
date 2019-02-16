@@ -226,8 +226,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.Plugins.HelpPlugin.Draw();
             this.Plugins.OptionDialogPlugin.Draw();
             this.Plugins.SimpleTextDialogPlugin.Draw();
-            this.Plugins.tupianwenziPlugin.Draw();
-            //this.Plugins.tupianwenziPlugin.Draw();
+            this.Plugins.EventDisplayPlugin.Draw();
+            //this.Plugins.EventDisplayPlugin.Draw();
             this.Plugins.ConfirmationDialogPlugin.Draw();
             this.Plugins.TransportDialogPlugin.Draw();
             this.Plugins.CreateTroopPlugin.Draw();
@@ -237,7 +237,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         public void Drawtupianwenzi()
         {
 
-            this.Plugins.tupianwenziPlugin.Draw();
+            this.Plugins.EventDisplayPlugin.Draw();
 
         }
 
@@ -316,7 +316,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.DrawDialog();
                     this.Plugins.ToolBarPlugin.DrawTools = false;
                     break;
-                case UndoneWorkKind.tupianwenzi:
+                case UndoneWorkKind.EventDisplay:
                     this.Drawtupianwenzi();
                     this.Plugins.ToolBarPlugin.DrawTools = false;
                     break;
@@ -1428,7 +1428,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case UndoneWorkKind.Dialog:
                     this.HandleDialogResult(item.SubKind);
                     break;
-                case UndoneWorkKind.tupianwenzi:
+                case UndoneWorkKind.EventDisplay:
                     break;
                 case UndoneWorkKind.liangdaobianji :
                     break;
@@ -1445,7 +1445,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
             }
-            if (this.tufashijianzantingyinyue && this.Plugins.tupianwenziPlugin.IsShowing == false)
+            if (this.tufashijianzantingyinyue && this.Plugins.EventDisplayPlugin.IsShowing == false)
             {
                 this.ResumeMusic();
                 this.tufashijianzantingyinyue = false;
@@ -1711,9 +1711,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 faction.Leader.TextDestinationString = faction.Capital.Name;
                 this.Plugins.GameRecordPlugin.AddBranch(faction.Leader, "NewFactionAppear", faction.Leader.Position);
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, this);
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(faction.Leader, faction.Leader, TextMessageKind.CreateNewFaction, "NewFactionAppear");
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, this);
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(faction.Leader, faction.Leader, TextMessageKind.CreateNewFaction, "NewFactionAppear");
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
         }
 
@@ -2151,23 +2151,23 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             if ((((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.CurrentPlayer.IsPositionKnown(troop.Position)) || Session.GlobalVariables.SkyEye) && (te.Dialogs.Count > 0))
             {
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, this);
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, this);
                 foreach (PersonDialog dialog in te.Dialogs)
                 {
                     dialog.SpeakingPerson = Session.Current.Scenario.Persons.GetGameObject(dialog.SpeakingPersonID) as Person;//修复部队事件未识别说话武将
                     if (dialog.SpeakingPerson !=null)
                     {
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(dialog.SpeakingPerson, null, dialog.Text, te.Image, te.Sound);
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(dialog.SpeakingPerson, null, dialog.Text, te.Image, te.Sound);
                     }
                     else
                     {
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(troop.Leader, null, dialog.Text, te.Image, te.Sound);
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(troop.Leader, null, dialog.Text, te.Image, te.Sound);
                     }
                 }
                 if (Setting.Current.GlobalVariables.DialogShowTime > 0)
                 {
-                    this.Plugins.tupianwenziPlugin.SetCloseFunction(new GameDelegates.VoidFunction(Session.Current.Scenario.ApplyTroopEvents));
-                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                    this.Plugins.EventDisplayPlugin.SetCloseFunction(new GameDelegates.VoidFunction(Session.Current.Scenario.ApplyTroopEvents));
+                    this.Plugins.EventDisplayPlugin.IsShowing = true;
                 }
                 else
                 {
@@ -2185,9 +2185,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (Session.Current.Scenario.CurrentPlayer == f || Session.GlobalVariables.SkyEye) 
             {
                 giver.TextResultString = m.Name;
-                this.Plugins.tupianwenziPlugin.SetGameObjectBranch(giver, null, "SpyMessageNewFacility");
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, this);
-                this.Plugins.tupianwenziPlugin.IsShowing = true;
+                this.Plugins.EventDisplayPlugin.SetGameObjectBranch(giver, null, "SpyMessageNewFacility");
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, this);
+                this.Plugins.EventDisplayPlugin.IsShowing = true;
             }
         }
         /*
@@ -2197,13 +2197,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 if (guanzhi.AutoLearnTextByCourier.Length > 0 && guanzhi.Level >= 6 )
                 {
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(courier, null, guanzhi.AutoLearnTextByCourier.Replace("%0", p.Name));
-                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(courier, null, guanzhi.AutoLearnTextByCourier.Replace("%0", p.Name));
+                    this.Plugins.EventDisplayPlugin.IsShowing = true;
                 }
                 if (guanzhi.AutoLearnText.Length > 0 && guanzhi.Level >= 6 )
                 {
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, null, guanzhi.AutoLearnText.Replace("%0", p.Name));
-                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(p, null, guanzhi.AutoLearnText.Replace("%0", p.Name));
+                    this.Plugins.EventDisplayPlugin.IsShowing = true;
                 }
             }
         }*/
@@ -2214,13 +2214,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 if (title.AutoLearnTextByCourier.Length > 0 && title.Level >= 6)
                 {
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(courier, null, title.AutoLearnTextByCourier.Replace("%0", p.Name));
-                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(courier, null, title.AutoLearnTextByCourier.Replace("%0", p.Name));
+                    this.Plugins.EventDisplayPlugin.IsShowing = true;
                 }
                 if (title.AutoLearnText.Length > 0 && title.Level >= 6)
                 {
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, null, title.AutoLearnText.Replace("%0", p.Name));
-                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(p, null, title.AutoLearnText.Replace("%0", p.Name));
+                    this.Plugins.EventDisplayPlugin.IsShowing = true;
                 }
             }
         }
@@ -2232,17 +2232,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((Session.Current.Scenario.CurrentPlayer == null || Session.Current.Scenario.CurrentPlayer.IsArchitectureKnown(a) || Session.GlobalVariables.SkyEye || e.GloballyDisplayed) 
                 && (e.matchedDialog != null && e.matchedDialog.Count > 0 && (!e.Minor || e.InvolveLeader)))
             {
-                this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, screen);
+                this.Plugins.EventDisplayPlugin.SetPosition(ShowPosition.Bottom, screen);
                 
                 foreach (PersonDialog dialog in e.matchedDialog)
                 {
                     if (dialog.SpeakingPerson != null)
                     {
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(dialog.SpeakingPerson, null, dialog.Text, e.Image, e.Sound);
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(dialog.SpeakingPerson, null, dialog.Text, e.Image, e.Sound);
                     }
                     else
                     {
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(a.BelongedFaction.Leader, null, dialog.Text, e.Image, e.Sound);
+                        this.Plugins.EventDisplayPlugin.SetGameObjectBranch(a.BelongedFaction.Leader, null, dialog.Text, e.Image, e.Sound);
                     }
                 }
 
@@ -2253,7 +2253,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                         if (!this.Plugins.ConfirmationDialogPlugin.IsShowing)
                         {
-                            //this.Plugins.tupianwenziPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(Session.Current.Scenario.ApplyEvents(true), new GameDelegates.VoidFunction(Session.Current.Scenario.ApplyEvents(false)));
+                            //this.Plugins.EventDisplayPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(Session.Current.Scenario.ApplyEvents(true), new GameDelegates.VoidFunction(Session.Current.Scenario.ApplyEvents(false)));
                             this.Plugins.ConfirmationDialogPlugin.ClearFunctions();
                             this.Plugins.ConfirmationDialogPlugin.AddYesFunction(new GameDelegates.VoidFunction(Session.Current.Scenario.ApplyYesEvents));
                             this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
@@ -2279,8 +2279,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 if (Setting.Current.GlobalVariables.DialogShowTime > 0)
                 {
-                    this.Plugins.tupianwenziPlugin.SetCloseFunction(new GameDelegates.VoidFunction(Session.Current.Scenario.ApplyEvents));
-                    (this.Plugins.tupianwenziPlugin as tupianwenziPlugin.tupianwenziPlugin).tupianwenzi.SetIsShowing(this, true);
+                    this.Plugins.EventDisplayPlugin.SetCloseFunction(new GameDelegates.VoidFunction(Session.Current.Scenario.ApplyEvents));
+                    (this.Plugins.EventDisplayPlugin as EventDisplayPlugin.EventDisplayPlugin).EventDisplay.SetIsShowing(this, true);
                 }
                 else
                 {
@@ -2632,7 +2632,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public void TryToDemolishRouteway()
         {
-            if (!this.Plugins.tupianwenziPlugin.IsShowing)
+            if (!this.Plugins.EventDisplayPlugin.IsShowing)
             {
                 this.Plugins.ConfirmationDialogPlugin.SetSimpleTextDialog(this.Plugins.SimpleTextDialogPlugin);
                 this.Plugins.ConfirmationDialogPlugin.ClearFunctions();
@@ -2663,7 +2663,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void TryToExit()
         {
-            if (!this.Plugins.tupianwenziPlugin.IsShowing)
+            if (!this.Plugins.EventDisplayPlugin.IsShowing)
             {
                 this.Plugins.ConfirmationDialogPlugin.SetSimpleTextDialog(this.Plugins.SimpleTextDialogPlugin);
                 this.Plugins.ConfirmationDialogPlugin.ClearFunctions();
@@ -2822,7 +2822,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         this.UpdateDialog(gameTime);
 
                         break;
-                    case UndoneWorkKind.tupianwenzi:
+                    case UndoneWorkKind.EventDisplay:
                         this.Updatetupianwenzi(gameTime);
 
                         break;
@@ -2919,9 +2919,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 this.Plugins.SimpleTextDialogPlugin.Update(gameTime);
             }
-            if (this.Plugins.tupianwenziPlugin != null)
+            if (this.Plugins.EventDisplayPlugin != null)
             {
-                this.Plugins.tupianwenziPlugin.Update(gameTime);
+                this.Plugins.EventDisplayPlugin.Update(gameTime);
             }
 
 
@@ -2931,9 +2931,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
 
 
-            if (this.Plugins.tupianwenziPlugin != null)
+            if (this.Plugins.EventDisplayPlugin != null)
             {
-                this.Plugins.tupianwenziPlugin.Update(gameTime);
+                this.Plugins.EventDisplayPlugin.Update(gameTime);
             }
 
 

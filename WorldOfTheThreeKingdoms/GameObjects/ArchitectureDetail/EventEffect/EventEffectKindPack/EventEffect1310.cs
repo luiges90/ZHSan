@@ -14,7 +14,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
             a.zainan.shengyutianshu += id;
             if (a.zainan.shengyutianshu <= 0)
             {
-                a.youzainan = false;
+                a.HasDisaster = false;
                 a.tingzhizhenzai();
             }
         }

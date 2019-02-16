@@ -592,7 +592,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 foreach (Captive captive in this.CurrentPersons)
                 {
-                    captive.CaptivePerson.MoveToArchitecture(architecture);
+                    captive.CaptiveCharacter.MoveToArchitecture(architecture);
                 }
                 Session.MainGame.mainGameScreen.PlayNormalSound("Content/Sound/Tactics/Outside");
             }
@@ -1506,8 +1506,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 Person leader = captive.BelongedFaction.Leader;
 
-                Session.MainGame.mainGameScreen.OnExecute(leader, captive.CaptivePerson);
-                captive.CaptivePerson.execute(captive.BelongedFaction);
+                Session.MainGame.mainGameScreen.OnExecute(leader, captive.CaptiveCharacter);
+                captive.CaptiveCharacter.execute(captive.BelongedFaction);
             }
         }
 

@@ -38,7 +38,7 @@ namespace WorldOfTheThreeKingdoms.GameLogic
         public IPersonDetail PersonDetailPlugin = null;
         public IPersonPortrait PersonPortraitPlugin = null;
 
-        public Itupianwenzi tupianwenziPlugin = null;
+        public Itupianwenzi EventDisplayPlugin = null;
 
         public IRoutewayEditor RoutewayEditorPlugin = null;
         public IScreenBlind ScreenBlindPlugin = null;
@@ -190,14 +190,14 @@ namespace WorldOfTheThreeKingdoms.GameLogic
                 screen.PluginList.Add(this.SimpleTextDialogPlugin.Instance as GameObject);
             }
 
-            plugin = new tupianwenziPlugin.tupianwenziPlugin();  // Plugin.Plugins.AvailablePlugins.Find("tupianwenziPlugin");
+            plugin = new EventDisplayPlugin.EventDisplayPlugin();  // Plugin.Plugins.AvailablePlugins.Find("EventDisplayPlugin");
             if ((plugin != null) && (plugin.Instance is Itupianwenzi))
             {
-                this.tupianwenziPlugin = plugin.Instance as Itupianwenzi;
-                this.tupianwenziPlugin.SetScreen(screen);
-                this.tupianwenziPlugin.SetGraphicsDevice();
-                this.tupianwenziPlugin.SetContextMenu(this.ContextMenuPlugin);
-                screen.PluginList.Add(this.tupianwenziPlugin.Instance as GameObject);
+                this.EventDisplayPlugin = plugin.Instance as Itupianwenzi;
+                this.EventDisplayPlugin.SetScreen(screen);
+                this.EventDisplayPlugin.SetGraphicsDevice();
+                this.EventDisplayPlugin.SetContextMenu(this.ContextMenuPlugin);
+                screen.PluginList.Add(this.EventDisplayPlugin.Instance as GameObject);
             }
 
             plugin = new ConfirmationDialogPlugin.ConfirmationDialogPlugin();  // Plugin.Plugins.AvailablePlugins.Find("ConfirmationDialogPlugin");

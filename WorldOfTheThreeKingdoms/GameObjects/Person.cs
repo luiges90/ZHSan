@@ -1184,7 +1184,7 @@ namespace GameObjects
                 }
                 else if (this.Status == PersonStatus.Captive)
                 {
-                    return this.BelongedCaptive.CaptiveFaction;
+                    return this.BelongedCaptive.CaptiveCharFaction;
                 }
                 return null;
             }
@@ -1204,7 +1204,7 @@ namespace GameObjects
                 }
                 else if (this.Status == PersonStatus.Captive)
                 {
-                    return this.BelongedCaptive.CaptiveFaction;
+                    return this.BelongedCaptive.CaptiveCharFaction;
                 }
                 return null;
             }
@@ -1793,9 +1793,9 @@ namespace GameObjects
             {
                 if (this.IsCaptive)
                 {
-                    if (this.BelongedCaptive.CaptiveFaction != null)
+                    if (this.BelongedCaptive.CaptiveCharFaction != null)
                     {
-                        return this.BelongedCaptive.CaptiveFaction.Capital;
+                        return this.BelongedCaptive.CaptiveCharFaction.Capital;
                     }
                     else
                     {
@@ -2917,7 +2917,7 @@ namespace GameObjects
                     bool attempted = false;
                     foreach (Captive i in architectureByPosition.Captives)
                     {
-                        if (i.CaptiveFaction == this.BelongedFaction)
+                        if (i.CaptiveCharFaction == this.BelongedFaction)
                         {
                             attempted = true;
                             candidates.Add(i);
@@ -2930,13 +2930,13 @@ namespace GameObjects
 
                         if ((this.InevitableSuccessOfJailBreak || (
                         (GameObject.Random((architectureByPosition.Domination * 10 + architectureByPosition.Morale) * 2) + 300 <=
-                                GameObject.Random(this.JailBreakAbility + c.CaptivePerson.CaptiveAbility))
+                                GameObject.Random(this.JailBreakAbility + c.CaptiveCharacter.CaptiveAbility))
                                 )))
                         {
-                            if (!GameObject.Chance(architectureByPosition.noEscapeChance) || GameObject.Chance(c.CaptivePerson.captiveEscapeChance))
+                            if (!GameObject.Chance(architectureByPosition.noEscapeChance) || GameObject.Chance(c.CaptiveCharacter.captiveEscapeChance))
                             {
-                                c.CaptivePerson.AdjustRelation(this, 3f, 0);
-                                c.CaptivePerson.AdjustRelation(this.BelongedFaction.Leader, 1f, 0);
+                                c.CaptiveCharacter.AdjustRelation(this, 3f, 0);
+                                c.CaptiveCharacter.AdjustRelation(this.BelongedFaction.Leader, 1f, 0);
                                 architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -2f, -2);
                                 architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -1f, -1);
 
@@ -5254,22 +5254,22 @@ namespace GameObjects
         {
             killer.ExecuteCount++;
 
-            if (this.BelongedCaptive != null && this.BelongedCaptive.CaptiveFaction != null && this.BelongedCaptive.CaptiveFaction != executingFaction) // 斩有势力的俘虏
+            if (this.BelongedCaptive != null && this.BelongedCaptive.CaptiveCharFaction != null && this.BelongedCaptive.CaptiveCharFaction != executingFaction) // 斩有势力的俘虏
             {
-                Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedCaptive.CaptiveFaction.ID, executingFaction.ID, -10);
+                Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedCaptive.CaptiveCharFaction.ID, executingFaction.ID, -10);
                 if (this.BelongedFaction.Leader.HasStrainTo(this))
                 {
-                    Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedCaptive.CaptiveFaction.ID, executingFaction.ID, -10);
+                    Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedCaptive.CaptiveCharFaction.ID, executingFaction.ID, -10);
                 }
                 if (this.BelongedFaction.Leader.HasCloseStrainTo(this))
                 {
-                    Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedCaptive.CaptiveFaction.ID, executingFaction.ID, -10);
-                    Session.Current.Scenario.SetDiplomaticRelationIfHigher(this.BelongedCaptive.CaptiveFaction.ID, executingFaction.ID, 0);
+                    Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedCaptive.CaptiveCharFaction.ID, executingFaction.ID, -10);
+                    Session.Current.Scenario.SetDiplomaticRelationIfHigher(this.BelongedCaptive.CaptiveCharFaction.ID, executingFaction.ID, 0);
                 }
                 if (this == this.BelongedFaction.Leader)
                 {
-                    Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedCaptive.CaptiveFaction.ID, executingFaction.ID, -1000);
-                    Session.Current.Scenario.SetDiplomaticRelationIfHigher(this.BelongedCaptive.CaptiveFaction.ID, executingFaction.ID, -1000);
+                    Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedCaptive.CaptiveCharFaction.ID, executingFaction.ID, -1000);
+                    Session.Current.Scenario.SetDiplomaticRelationIfHigher(this.BelongedCaptive.CaptiveCharFaction.ID, executingFaction.ID, -1000);
                 }
             }
 
@@ -5313,7 +5313,7 @@ namespace GameObjects
 
             if (this.BelongedCaptive != null)
             {
-                old = this.BelongedCaptive.CaptiveFaction;
+                old = this.BelongedCaptive.CaptiveCharFaction;
                 this.BelongedCaptive.Clear();
             }
 

@@ -99,7 +99,7 @@ namespace WorldOfTheThreeKingdomsEditor
             { 
                 dict.Add((K)e.Row["Key"], (V)e.Row["Value"]);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // MessageBox.Show("資料輸入錯誤。" + ex.Message);
             }

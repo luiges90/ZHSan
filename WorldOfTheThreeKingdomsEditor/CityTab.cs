@@ -32,7 +32,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 "ID",
                 "CaptionID",
                 "Name",
-                "KindID",
+                "KindId",
                 "IsStrategicCenter",
                 "StateID",
                 "CharacteristicsString",
@@ -59,8 +59,8 @@ namespace WorldOfTheThreeKingdomsEditor
                 "BuildingFacility",
                 "BuildingDaysLeft",
                 "InformationsString",
-                "huangdisuozai",
-                "youzainan",
+                "EmperorResidesHere",
+                "HasDisaster",
                 "zainanleixing",
                 "zainanshengyutianshu"
             };
@@ -72,7 +72,7 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 { "CaptionID", "名称编号" },
                 { "Name", "名称" },
-                { "KindID", "种类ID" },
+                { "KindId", "种类ID" },
                 { "IsStrategicCenter", "战略要冲" },
                 { "StateID", "州域ID" },
                 { "CharacteristicsString", "特色" },
@@ -99,8 +99,8 @@ namespace WorldOfTheThreeKingdomsEditor
                 { "BuildingFacility","建设中设施" },
                 { "BuildingDaysLeft","建设剩余天数" },
                 { "InformationsString","情报列表" },
-                { "huangdisuozai","皇帝" },
-                { "youzainan", "灾难" },
+                { "EmperorResidesHere","皇帝" },
+                { "HasDisaster", "灾难" },
                 { "zainanleixing", "灾难类型"},
                 { "zainanshengyutianshu", "灾难剩余天数" }
             };

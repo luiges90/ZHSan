@@ -607,7 +607,7 @@ namespace TabListPlugin
                                     if ((this.iPersonDetail != null) && (base.Function != FrameFunction.Jump))
                                     {
                                         this.iPersonDetail.SetPosition(ShowPosition.Center);
-                                        this.iPersonDetail.SetPerson((gameObjectByPosition as Captive).CaptivePerson);
+                                        this.iPersonDetail.SetPerson((gameObjectByPosition as Captive).CaptiveCharacter);
                                         this.iPersonDetail.IsShowing = true;
                                     }
                                 }
@@ -706,7 +706,7 @@ namespace TabListPlugin
                                     if ((this.iPersonDetail != null) && (base.Function != FrameFunction.Jump))
                                     {
                                         this.iPersonDetail.SetPosition(ShowPosition.Center);
-                                        this.iPersonDetail.SetPerson((gameObjectByPosition as Captive).CaptivePerson);
+                                        this.iPersonDetail.SetPerson((gameObjectByPosition as Captive).CaptiveCharacter);
                                         this.iPersonDetail.IsShowing = true;
                                     }
                                 }

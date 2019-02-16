@@ -37,9 +37,9 @@ namespace WorldOfTheThreeKingdomsEditor
 		public string TroopEventEffectAreaString_CHS = "影响范围";
 		public string TroopEventEffectAreaStringDesc_CHS = "0为视野中敌军，1为视野中友军，2为攻击范围中敌军，3为攻击范围中友军，4为周围八格中敌军，5为周围八格中友军。每个范围后跟随一个部队事件效果，以空格分隔各效果定义。";
 		public string TroopEventImage_CHS = "图片";
-		public string TroopEventImageDesc_CHS = "指定事件图片的档案名称，图片档案放在Content/Textures/GameComponents/tupianwenzi/Data/tupian里。";
+		public string TroopEventImageDesc_CHS = "指定事件图片的档案名称，图片档案放在Content/Textures/GameComponents/EventDisplay/Data/tupian里。";
 		public string TroopEventSound_CHS = "音效";
-		public string TroopEventSoundDesc_CHS = "指定事件音效的档案名称，音效档案放在Content/Textures/GameComponents/tupianwenzi/Data/yinxiao里。";
+		public string TroopEventSoundDesc_CHS = "指定事件音效的档案名称，音效档案放在Content/Textures/GameComponents/EventDisplay/Data/yinxiao里。";
 		
         protected override IItemList GetDataList(GameScenario scen)
         {

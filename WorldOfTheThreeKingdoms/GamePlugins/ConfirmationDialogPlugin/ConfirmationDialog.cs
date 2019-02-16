@@ -205,7 +205,7 @@ namespace ConfirmationDialogPlugin
                     else
                     {
                        // if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.Dialog)
-                        if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.tupianwenzi)
+                        if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.EventDisplay)
                         {
                           //  throw new Exception("The UndoneWork is not a Dialog.");
                         }

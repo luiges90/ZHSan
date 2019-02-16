@@ -704,7 +704,7 @@ namespace youcelanPlugin
                                     if ((this.iPersonDetail != null) && (this.Function != FrameFunction.Jump))
                                     {
                                         this.iPersonDetail.SetPosition(ShowPosition.Center);
-                                        this.iPersonDetail.SetPerson((gameObjectByPosition as Captive).CaptivePerson);
+                                        this.iPersonDetail.SetPerson((gameObjectByPosition as Captive).CaptiveCharacter);
                                         this.iPersonDetail.IsShowing = true;
                                     }
                                 }
@@ -792,7 +792,7 @@ namespace youcelanPlugin
                                     if ((this.iPersonDetail != null) && (this.Function != FrameFunction.Jump))
                                     {
                                         this.iPersonDetail.SetPosition(ShowPosition.Center);
-                                        this.iPersonDetail.SetPerson((gameObjectByPosition as Captive).CaptivePerson);
+                                        this.iPersonDetail.SetPerson((gameObjectByPosition as Captive).CaptiveCharacter);
                                         this.iPersonDetail.IsShowing = true;
                                     }
                                 }

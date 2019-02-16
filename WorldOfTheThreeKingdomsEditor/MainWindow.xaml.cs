@@ -37,6 +37,8 @@ namespace WorldOfTheThreeKingdomsEditor
 		private BiographyTab biographyTab;
 		private TreasureTab treasureTab;
 		private TroopEventTab tpeventTab;
+		private TitleKindTab ttlkindTab;
+		private CaptiveTab captiveTab;
 
         public bool CopyIncludeTitle = true;
 		
@@ -383,6 +385,46 @@ namespace WorldOfTheThreeKingdomsEditor
 		}
 		
 		/*
+		Column display for title kind tab
+		*/
+		private void TitleKindTabHeaderDisplay(object sender, DataGridAutoGeneratingColumnEventArgs e)
+		{
+			switch (e.PropertyName)
+			{
+				case "ID":
+					e.Column.Header = ttlkindTab.TitleTypeID_CHS;
+					break;
+
+				case "Name":
+					e.Column.Header = ttlkindTab.TitleTypeName_CHS;
+					break;
+				
+				case "Combat":
+					e.Column.Header = ttlkindTab.TitleTypeCombat_CHS;
+					break;
+					
+				case "RandomTeachable":
+					e.Column.Header = ttlkindTab.TitleTypeRandomTeachable_CHS;
+					break;
+					
+				case "Recallable":
+					e.Column.Header = ttlkindTab.TitleTypeRecallable_CHS;
+					break;
+					
+				case "StudyDay":
+					e.Column.Header = ttlkindTab.TitleTypeStudyDay_CHS;
+					break;
+					
+				case "SuccessRate":
+					e.Column.Header = ttlkindTab.TitleTypeSuccessRate_CHS;
+					break;
+
+				default:
+					break;
+			}
+		}
+		
+		/*
 		Column display for troop event tab
 		*/
 		private void TroopEventTabHeaderDisplay(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -453,6 +495,42 @@ namespace WorldOfTheThreeKingdomsEditor
 					break;
 			}
 		}
+		
+		/*
+		Column display for captive tab
+		*/
+		private void CaptiveTabHeaderDisplay(object sender, DataGridAutoGeneratingColumnEventArgs e)
+		{
+			switch (e.PropertyName)
+			{
+				case "ID":
+					e.Column.Header = captiveTab.CaptiveID_CHS;
+					break;
+
+				case "CaptiveCharacterID":
+					e.Column.Header = captiveTab.CaptiveCharacterID_CHS;
+					break;
+				
+				case "CaptiveCharFactionID":
+					e.Column.Header = captiveTab.CaptiveCharFactionID_CHS;
+					break;
+					
+				case "RansomReceivedCityID":
+					e.Column.Header = captiveTab.RansomReceivedCityID_CHS;
+					break;
+					
+				case "RansomArrivalDays":
+					e.Column.Header = captiveTab.RansomArrivalDays_CHS;
+					break;
+					
+				case "RansomAmount":
+					e.Column.Header = captiveTab.RansomAmount_CHS;
+					break;
+
+				default:
+					break;
+			}
+		}
 
         public MainWindow()
         {
@@ -483,7 +561,11 @@ namespace WorldOfTheThreeKingdomsEditor
                 factionTab.setup();
                 new TroopArrangementTab(scen, dgMilitary, lblColumnHelp).setup();
                 new TroopTab(scen, dgTroop, lblColumnHelp).setup();
+				captiveTab = new CaptiveTab(scen, dgCaptive, lblColumnHelp);
+				captiveTab.setup();
+				/* Modified
                 new CaptiveTab(scen, dgCaptive, lblColumnHelp).setup();
+				*/
                 new EventTab(scen, dgEvent, lblColumnHelp).setup();
 				tpeventTab = new TroopEventTab(scen, dgTroopEvent, lblColumnHelp);
 				tpeventTab.setup();
@@ -505,6 +587,11 @@ namespace WorldOfTheThreeKingdomsEditor
 
             // Common
             new TitleTab(scen, dgTitle, lblColumnHelp).setup();
+			/*
+			Added TitleKindTab
+			*/
+			ttlkindTab = new TitleKindTab(scen, dgTitleKind, lblColumnHelp);
+			ttlkindTab.setup();
             new SkillTab(scen, dgSkill, lblColumnHelp).setup();
             new StuntTab(scen, dgStunt, lblColumnHelp).setup();
             new CombatMethodTab(scen, dgCombatMethod, lblColumnHelp).setup();

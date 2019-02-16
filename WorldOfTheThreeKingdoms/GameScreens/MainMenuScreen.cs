@@ -4037,11 +4037,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 CacheManager.DrawAvatar(@"Content\Textures\Resources\MouseArrow\Normal.png", InputManager.Position, Color.White * alpha, 1f);
             }
 
-            //var str = @"Content/Textures/GameComponents/tupianwenzi/Data/tupian/TruceDiplomaticRelation.jpg";
+            //var str = @"Content/Textures/GameComponents/EventDisplay/Data/tupian/TruceDiplomaticRelation.jpg";
 
             //CacheManager.DrawAvatar(str, Vector2.Zero, Color.White, 1f);
 
-            //str = @"Content/Textures/GameComponents/tupianwenzi/Data/tupian/beiyue.jpg";
+            //str = @"Content/Textures/GameComponents/EventDisplay/Data/tupian/beiyue.jpg";
 
             //CacheManager.DrawAvatar(str, new Vector2(0, 300), Color.White, 1f);
 

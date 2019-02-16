@@ -130,7 +130,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
                     foreach (Architecture jianzhu in Session.Current.Scenario.Architectures)
                     {
-                        jianzhu.youzainan = false;
+                        jianzhu.HasDisaster = false;
                         if (Session.Current.Scenario.IsPlayer(jianzhu.BelongedFaction))
                         {
                             jianzhu.AutoHiring = true;

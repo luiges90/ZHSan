@@ -36,7 +36,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                 }
 
                 Color zainanyanse = new Color();
-                if (architecture.youzainan)
+                if (architecture.HasDisaster)
                 {
                     zainanyanse = Color.Red;
                 }
@@ -113,7 +113,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                                 //depth:  0.7999f
                                 CacheManager.DrawString(Session.Current.Font, architecture.BelongedFaction.ToString().Substring(0, 1), new Vector2(pos.X, pos.Y), color, 0f, Vector2.Zero, 0.5f * scale, SpriteEffects.None, 0.7999f);
 
-                                if (architecture.huangdisuozai)
+                                if (architecture.EmperorResidesHere)
                                 {
                                     CacheManager.Draw(Session.MainGame.mainGameScreen.Textures.huangditupian,
                                         Session.MainGame.mainGameScreen.mainMapLayer.GetDestination(new Point(architecture.jianzhuqizi.qizipoint.X + 1, architecture.jianzhuqizi.qizipoint.Y)),

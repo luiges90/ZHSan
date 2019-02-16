@@ -351,9 +351,9 @@ namespace GameObjects
                 }
                 foreach (Captive c in Session.Current.Scenario.Captives)
                 {
-                    if (c.CaptiveFaction == this)
+                    if (c.CaptiveCharFaction == this)
                     {
-                        result.Add(c.CaptivePerson);
+                        result.Add(c.CaptiveCharacter);
                     }
                 }
 
@@ -469,7 +469,7 @@ namespace GameObjects
                 CaptiveList result = new CaptiveList();
                 foreach (Captive i in Session.Current.Scenario.Captives)
                 {
-                    if (i.CaptiveFaction == this)
+                    if (i.CaptiveCharFaction == this)
                     {
                         result.Add(i);
                     }
@@ -1419,7 +1419,7 @@ namespace GameObjects
                         }
                         foreach (Captive c in this.Captives)
                         {
-                            Person p = c.CaptivePerson;
+                            Person p = c.CaptiveCharacter;
                             if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
                             Person spousePerson = p.Spouse == null ? null : p.Spouse;
                             if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null)
@@ -2532,17 +2532,17 @@ namespace GameObjects
                 {
                     if (captive.BelongedFaction == null)
                     {
-                        captive.CaptivePerson.SetBelongedCaptive(null, PersonStatus.Normal);
-                        if ((captive.CaptivePerson != null) && (captive.CaptiveFaction != null))
+                        captive.CaptiveCharacter.SetBelongedCaptive(null, PersonStatus.Normal);
+                        if ((captive.CaptiveCharacter != null) && (captive.CaptiveCharFaction != null))
                         {
-                            captive.CaptivePerson.MoveToArchitecture(captive.CaptiveFaction.Capital);
+                            captive.CaptiveCharacter.MoveToArchitecture(captive.CaptiveCharFaction.Capital);
                         }
                         
                         continue;
                     }
-                    if ((captive.BelongedFaction.Capital != null) && (captive.RansomArriveDays <= 0))
+                    if ((captive.BelongedFaction.Capital != null) && (captive.RansomArrivalDays <= 0))
                     {
-                        if (captive.CaptivePerson == this.Leader && this.Capital.Fund >= captive.Ransom)
+                        if (captive.CaptiveCharacter == this.Leader && this.Capital.Fund >= captive.Ransom)
                         {
                             captive.SendRansom(captive.BelongedFaction.Capital, this.Capital);
                             continue;
@@ -2602,11 +2602,11 @@ namespace GameObjects
             {
                 foreach (Captive captive in this.Captives.GetList())
                 {
-                    if (((captive.CaptiveFaction == null) || (captive.BelongedFaction == null)) || ((captive.BelongedFaction.Capital == null) || ((captive.LocationTroop != null) && (captive.LocationTroop.RecentlyFighting > 0))))
+                    if (((captive.CaptiveCharFaction == null) || (captive.BelongedFaction == null)) || ((captive.BelongedFaction.Capital == null) || ((captive.LocationTroop != null) && (captive.LocationTroop.RecentlyFighting > 0))))
                     {
                         continue;
                     }
-                    int diplomaticRelation = Session.Current.Scenario.GetDiplomaticRelation(captive.CaptiveFaction.ID, base.ID);
+                    int diplomaticRelation = Session.Current.Scenario.GetDiplomaticRelation(captive.CaptiveCharFaction.ID, base.ID);
                     if ((diplomaticRelation >= 0) && (GameObject.Random(diplomaticRelation + 50) >= GameObject.Random(50)))
                     {
                         captive.SelfReleaseCaptive();
@@ -5574,7 +5574,7 @@ namespace GameObjects
         {
             foreach (Architecture a in this.Architectures)
             {
-                if (a.huangdisuozai) return true;
+                if (a.EmperorResidesHere) return true;
             }
             return false;
         }
@@ -6871,7 +6871,7 @@ namespace GameObjects
                 }
                 foreach (Captive c in Session.Current.Scenario.Captives)
                 {
-                    if (c.CaptiveFaction == this)
+                    if (c.CaptiveCharFaction == this)
                     {
                         result++;
                     }

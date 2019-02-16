@@ -952,12 +952,12 @@ namespace GameObjects
 
         public void AddCaptive(Captive captive)
         {
-            captive.CaptivePerson.LocationTroop = this;
+            captive.CaptiveCharacter.LocationTroop = this;
             if (this.BelongedFaction != null)
             {
-                foreach (Treasure treasure in captive.CaptivePerson.Treasures.GetList())
+                foreach (Treasure treasure in captive.CaptiveCharacter.Treasures.GetList())
                 {
-                    captive.CaptivePerson.LoseTreasure(treasure);
+                    captive.CaptiveCharacter.LoseTreasure(treasure);
                     this.BelongedFaction.Leader.ReceiveTreasure(treasure);
                 }
             }
@@ -2889,10 +2889,10 @@ namespace GameObjects
                 faction.AddTroopKnownAreaData(this);
                 foreach (Captive captive in this.Captives.GetList())
                 {
-                    if (captive.CaptiveFaction == faction)
+                    if (captive.CaptiveCharFaction == faction)
                     {
-                        captive.CaptivePerson.MoveToArchitecture(captive.CaptiveFaction.Capital);
-                        captive.CaptivePerson.SetBelongedCaptive(null, PersonStatus.Normal);
+                        captive.CaptiveCharacter.MoveToArchitecture(captive.CaptiveCharFaction.Capital);
+                        captive.CaptiveCharacter.SetBelongedCaptive(null, PersonStatus.Normal);
                         Session.Current.Scenario.Captives.Remove(captive);
                     }
                 }
@@ -2982,7 +2982,7 @@ namespace GameObjects
             Captive captive = Captive.Create(person, this.BelongedFaction);
             if (captive != null)
             {
-                captive.CaptivePerson.AdjustRelation(this.Leader, -0.5f, -2);
+                captive.CaptiveCharacter.AdjustRelation(this.Leader, -0.5f, -2);
                 this.AddCaptive(captive);
             }
             person.LocationTroop = this;
@@ -3017,7 +3017,7 @@ namespace GameObjects
                         Captive captive = Captive.Create(person, this.BelongedFaction);
                         if (captive != null)
                         {
-                            captive.CaptivePerson.AdjustRelation(this.Leader, -0.5f, -2);
+                            captive.CaptiveCharacter.AdjustRelation(this.Leader, -0.5f, -2);
                             this.AddCaptive(captive);
                         }
                         person.LocationArchitecture = null;
@@ -8264,8 +8264,8 @@ namespace GameObjects
         {
             foreach (Captive captive in this.Captives.GetList())
             {
-                captive.CaptivePerson.LocationArchitecture = des;
-                captive.CaptivePerson.LocationTroop = null;
+                captive.CaptiveCharacter.LocationArchitecture = des;
+                captive.CaptiveCharacter.LocationTroop = null;
             }
         }
 
@@ -8506,8 +8506,8 @@ namespace GameObjects
                         Captive captive = Captive.Create(p, this.BelongedFaction);
                         if (captive != null)
                         {
-                            captive.CaptivePerson.LocationTroop = this;
-                            captive.CaptivePerson.LocationArchitecture = null;
+                            captive.CaptiveCharacter.LocationTroop = this;
+                            captive.CaptiveCharacter.LocationArchitecture = null;
                             this.AddCaptive(captive);
                         }
                     }
@@ -8560,7 +8560,7 @@ namespace GameObjects
                     Session.MainGame.mainGameScreen.xianshishijiantupian(this.BelongedFaction.Leader, currentArchitecture.Name, TextMessageKind.LeaderOccupy, "zhanling", "zhanling.jpg", "zhanling", false);
                     currentArchitecture.ResetFaction(this.BelongedFaction);
                     if (
-                            currentArchitecture.huangdisuozai &&
+                            currentArchitecture.EmperorResidesHere &&
                            (this.BelongedFaction.IsAlien || this.BelongedFaction.guanjue >= Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 1)
                         )  //已称帝的势力或异族占了献帝所在城池
                     {
@@ -9602,12 +9602,12 @@ namespace GameObjects
                 PersonList personlist = new PersonList();
                 foreach (Captive captive in this.Captives.GetList())
                 {
-                    if (captive.CaptivePerson != null && captive.CaptiveFaction != null && captive.CaptiveFaction.Capital != null)
+                    if (captive.CaptiveCharacter != null && captive.CaptiveCharFaction != null && captive.CaptiveCharFaction.Capital != null)
                     {
-                        personlist.Add(captive.CaptivePerson);
-                        captive.CaptivePerson.SetBelongedCaptive(null, PersonStatus.Normal);
-                        captive.CaptivePerson.LocationArchitecture = captive.CaptiveFaction.Capital;
-                        captive.CaptivePerson.MoveToArchitecture(captive.CaptiveFaction.Capital);
+                        personlist.Add(captive.CaptiveCharacter);
+                        captive.CaptiveCharacter.SetBelongedCaptive(null, PersonStatus.Normal);
+                        captive.CaptiveCharacter.LocationArchitecture = captive.CaptiveCharFaction.Capital;
+                        captive.CaptiveCharacter.MoveToArchitecture(captive.CaptiveCharFaction.Capital);
                         
                     }
                     ExtensionInterface.call("TroopReleaseCaptive", new Object[] { Session.Current.Scenario, this, captive });

@@ -35,7 +35,7 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 persons = tbPersons.Text.Split(' ').Select(x => scen.Persons.GetGameObject(int.Parse(x)) as Person).ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("武將ID錯誤或不存在，應為空格分隔的武將ID");
                 return;
@@ -46,7 +46,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 leader = scen.Persons.GetGameObject(int.Parse(tbFactionLeaderID.Text)) as Person;
                 if (leader == null) throw new NullReferenceException();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("君主ID錯誤或不存在");
                 return;
@@ -57,7 +57,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 architecture = scen.Architectures.GetGameObject(int.Parse(tbStartingArchitectureID.Text)) as Architecture;
                 if (architecture == null) throw new NullReferenceException();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("起始建築ID錯誤或不存在");
                 return;
@@ -72,7 +72,7 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 color = int.Parse(tbColorID.Text);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("顏色ID錯誤");
                 return;

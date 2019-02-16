@@ -224,6 +224,35 @@
 					</DataGrid>
                 </Grid>
             </TabItem>
+            <TabItem Header="城池类型">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgArchitectureKind" AlternationCount="2">
+						<DataGrid.ColumnHeaderStyle>
+							<Style TargetType="DataGridColumnHeader">
+								<Setter Property="FontWeight"  Value="Bold"/>
+								<Setter Property="HorizontalContentAlignment" Value="Center"/>
+							</Style>
+						</DataGrid.ColumnHeaderStyle>
+						<DataGrid.RowStyle>
+							<Style TargetType="DataGridRow">
+								<Setter Property="Background" Value="White"/>
+								<Setter Property="Foreground" Value="Black"/>
+								<Style.Triggers>
+									<Trigger Property="AlternationIndex" Value="0">
+										<Setter Property="Background" Value="#E7E7E7"/>
+									</Trigger>
+									<Trigger Property="AlternationIndex" Value="1">
+										<Setter Property="Background" Value="White"/>
+									</Trigger>
+									<Trigger Property="IsMouseOver" Value="True">
+										<Setter Property="Background" Value="AntiqueWhite"/>
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</DataGrid.RowStyle>
+					</DataGrid>
+                </Grid>
+            </TabItem>
             <TabItem Header="势力">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="dgFaction" AlternationCount="2">
@@ -342,7 +371,7 @@
             </TabItem>
             <TabItem Header="俘虏">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgCaptive" AlternationCount="2">
+                    <DataGrid x:Name="dgCaptive" AlternationCount="2" AutoGeneratingColumn="CaptiveTabHeaderDisplay">
 						<DataGrid.ColumnHeaderStyle>
 							<Style TargetType="DataGridColumnHeader">
 								<Setter Property="FontWeight"  Value="Bold"/>
@@ -489,6 +518,35 @@
             <TabItem Header="称号">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="dgTitle" AlternationCount="2">
+						<DataGrid.ColumnHeaderStyle>
+							<Style TargetType="DataGridColumnHeader">
+								<Setter Property="FontWeight"  Value="Bold"/>
+								<Setter Property="HorizontalContentAlignment" Value="Center"/>
+							</Style>
+						</DataGrid.ColumnHeaderStyle>
+						<DataGrid.RowStyle>
+							<Style TargetType="DataGridRow">
+								<Setter Property="Background" Value="White"/>
+								<Setter Property="Foreground" Value="Black"/>
+								<Style.Triggers>
+									<Trigger Property="AlternationIndex" Value="0">
+										<Setter Property="Background" Value="#E7E7E7"/>
+									</Trigger>
+									<Trigger Property="AlternationIndex" Value="1">
+										<Setter Property="Background" Value="White"/>
+									</Trigger>
+									<Trigger Property="IsMouseOver" Value="True">
+										<Setter Property="Background" Value="AntiqueWhite"/>
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</DataGrid.RowStyle>
+					</DataGrid>
+                </Grid>
+            </TabItem>
+			<TabItem Header="称号类型">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgTitleKind" AlternationCount="2" AutoGeneratingColumn="TitleKindTabHeaderDisplay">
 						<DataGrid.ColumnHeaderStyle>
 							<Style TargetType="DataGridColumnHeader">
 								<Setter Property="FontWeight"  Value="Bold"/>
@@ -837,35 +895,6 @@
             <TabItem Header="设施类型">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="dgFacilityKind" AlternationCount="2">
-						<DataGrid.ColumnHeaderStyle>
-							<Style TargetType="DataGridColumnHeader">
-								<Setter Property="FontWeight"  Value="Bold"/>
-								<Setter Property="HorizontalContentAlignment" Value="Center"/>
-							</Style>
-						</DataGrid.ColumnHeaderStyle>
-						<DataGrid.RowStyle>
-							<Style TargetType="DataGridRow">
-								<Setter Property="Background" Value="White"/>
-								<Setter Property="Foreground" Value="Black"/>
-								<Style.Triggers>
-									<Trigger Property="AlternationIndex" Value="0">
-										<Setter Property="Background" Value="#E7E7E7"/>
-									</Trigger>
-									<Trigger Property="AlternationIndex" Value="1">
-										<Setter Property="Background" Value="White"/>
-									</Trigger>
-									<Trigger Property="IsMouseOver" Value="True">
-										<Setter Property="Background" Value="AntiqueWhite"/>
-									</Trigger>
-								</Style.Triggers>
-							</Style>
-						</DataGrid.RowStyle>
-					</DataGrid>
-                </Grid>
-            </TabItem>
-            <TabItem Header="城池类型">
-                <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgArchitectureKind" AlternationCount="2">
 						<DataGrid.ColumnHeaderStyle>
 							<Style TargetType="DataGridColumnHeader">
 								<Setter Property="FontWeight"  Value="Bold"/>

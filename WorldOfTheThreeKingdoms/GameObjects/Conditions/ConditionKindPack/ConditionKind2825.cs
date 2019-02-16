@@ -14,7 +14,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
         {
             foreach (Captive p in a.Captives)
             {
-                if (p.CaptivePersonID == number)
+                if (p.CaptiveCharacterID == number)
                 {
                     return false;
                 }

@@ -1123,10 +1123,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 case ContextMenuResult.TroopCutRouteway:
                     this.CurrentTroop.Leader.TextDestinationString = this.CurrentTroop.CutRoutewayDaysNeeded.ToString();
-                    this.Plugins.tupianwenziPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(this.CurrentTroop.CutRouteway), null);
+                    this.Plugins.EventDisplayPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(this.CurrentTroop.CutRouteway), null);
                     this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
-                    this.Plugins.tupianwenziPlugin.SetGameObjectBranch(this.CurrentTroop.Leader, this.CurrentTroop.Leader, TextMessageKind.StartCutRouteway, "CutRouteway");
-                    this.Plugins.tupianwenziPlugin.IsShowing = true;
+                    this.Plugins.EventDisplayPlugin.SetGameObjectBranch(this.CurrentTroop.Leader, this.CurrentTroop.Leader, TextMessageKind.StartCutRouteway, "CutRouteway");
+                    this.Plugins.EventDisplayPlugin.IsShowing = true;
                     this.CurrentTroop.mingling = "——";
                     break;
 

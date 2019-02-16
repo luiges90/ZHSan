@@ -10,7 +10,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
     {
         public override bool CheckConditionKind(Architecture a)
         {
-            return a.youzainan;
+            return a.HasDisaster;
         }
 
     }

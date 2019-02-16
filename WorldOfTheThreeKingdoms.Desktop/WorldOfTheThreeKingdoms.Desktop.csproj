@@ -4143,14 +4143,14 @@
     <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\TroopTitlePlugin\TroopTitlePlugin.cs">
       <Link>GamePlugins\TroopTitlePlugin\TroopTitlePlugin.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\tupianwenziPlugin\GameObjectAndBranchName.cs">
-      <Link>GamePlugins\tupianwenziPlugin\GameObjectAndBranchName.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\EventDisplayPlugin\GameObjectAndBranchName.cs">
+      <Link>GamePlugins\EventDisplayPlugin\GameObjectAndBranchName.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\tupianwenziPlugin\tupianwenzi.cs">
-      <Link>GamePlugins\tupianwenziPlugin\tupianwenzi.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\EventDisplayPlugin\EventDisplay.cs">
+      <Link>GamePlugins\EventDisplayPlugin\EventDisplay.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\tupianwenziPlugin\tupianwenziPlugin.cs">
-      <Link>GamePlugins\tupianwenziPlugin\tupianwenziPlugin.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\EventDisplayPlugin\EventDisplayPlugin.cs">
+      <Link>GamePlugins\EventDisplayPlugin\EventDisplayPlugin.cs</Link>
     </Compile>
     <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\youcelanPlugin\Column.cs">
       <Link>GamePlugins\youcelanPlugin\Column.cs</Link>
@@ -6602,8 +6602,8 @@
       <Link>Content\Sound\Yinxiao\ResetDiplomaticRelation.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\sheshiwancheng.xnb">
-      <Link>Content\Sound\Yinxiao\sheshiwancheng.xnb</Link>
+    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\FacilityConstructed.xnb">
+      <Link>Content\Sound\Yinxiao\FacilityConstructed.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\shilimiewang.xnb">
@@ -47176,760 +47176,760 @@
       <Link>Content\Textures\GameComponents\TroopTitle\Data\TroopKind\Null.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\Background.png">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\Background.png</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\Background.png">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\Background.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\FirstPage.png">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\FirstPage.png</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FirstPage.png">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FirstPage.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\FirstPageDisabled.png">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\FirstPageDisabled.png</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FirstPageDisabled.png">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FirstPageDisabled.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\FirstPageSelected.png">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\FirstPageSelected.png</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FirstPageSelected.png">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FirstPageSelected.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B0.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B0.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B0.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B0.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B1.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B1.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B1.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B1.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B10.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B10.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B10.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B10.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B11.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B11.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B11.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B11.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B12.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B12.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B12.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B12.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B13.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B13.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B13.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B13.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B14.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B14.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B14.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B14.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B15.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B15.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B15.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B15.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B16.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B16.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B16.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B16.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B17.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B17.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B17.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B17.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B18.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B18.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B18.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B18.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B19.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B19.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B19.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B19.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B2.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B2.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B2.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B2.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B20.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B20.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B20.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B20.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B21.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B21.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B21.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B21.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B22.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B22.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B22.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B22.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B23.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B23.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B23.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B23.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B24.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B24.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B24.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B24.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B25.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B25.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B25.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B25.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B26.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B26.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B26.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B26.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B27.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B27.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B27.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B27.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B28.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B28.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B28.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B28.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B29.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B29.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B29.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B29.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B3.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B3.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B3.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B3.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B30.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B30.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B30.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B30.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B31.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B31.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B31.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B31.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B32.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B32.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B32.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B32.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B33.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B33.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B33.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B33.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B34.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B34.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B34.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B34.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B35.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B35.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B35.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B35.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B4.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B4.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B4.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B4.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B5.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B5.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B5.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B5.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B6.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B6.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B6.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B6.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B7.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B7.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B7.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B7.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B8.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B8.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B8.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B8.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\meinvtupian\B9.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B9.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\BeautyAvatars\B9.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\BeautyAvatars\B9.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi0.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi0.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi0.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi0.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi1.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi1.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi1.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi1.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi100.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi100.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi100.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi100.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi101.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi101.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi101.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi101.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi102.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi102.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi102.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi102.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi11.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi11.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi11.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi11.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi12.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi12.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi12.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi12.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi13.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi13.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi13.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi13.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi14.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi14.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi14.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi14.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi2.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi2.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi2.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi2.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi20.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi20.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi20.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi20.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi200.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi200.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi200.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi200.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi201.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi201.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi201.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi201.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi202.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi202.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi202.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi202.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi203.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi203.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi203.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi203.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi204.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi204.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi204.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi204.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi205.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi205.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi205.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi205.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi206.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi206.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi206.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi206.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi21.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi21.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi21.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi21.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi210.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi210.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi210.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi210.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi211.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi211.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi211.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi211.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi22.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi22.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi22.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi22.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi220.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi220.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi220.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi220.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi221.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi221.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi221.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi221.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi231.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi231.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi231.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi231.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi3.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi3.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi3.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi3.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi30.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi30.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi30.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi30.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi31.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi31.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi31.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi31.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi4.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi4.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi4.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi4.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi40.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi40.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi40.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi40.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi41.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi41.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi41.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi41.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi42.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi42.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi42.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi42.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi43.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi43.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi43.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi43.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi44.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi44.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi44.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi44.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi45.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi45.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi45.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi45.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi46.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi46.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi46.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi46.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi47.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi47.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi47.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi47.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi5.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi5.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi5.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi5.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi50.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi50.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi50.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi50.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi51.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi51.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi51.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi51.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi52.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi52.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi52.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi52.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi6.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi6.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi6.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi6.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi60.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi60.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi60.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi60.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi61.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi61.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi61.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi61.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi62.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi62.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi62.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi62.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi63.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi63.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi63.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi63.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi64.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi64.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi64.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi64.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi65.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi65.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi65.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi65.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi66.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi66.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi66.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi66.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi67.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi67.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi67.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi67.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi7.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi7.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi7.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi7.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi70.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi70.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi70.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi70.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi71.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi71.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi71.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi71.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi72.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi72.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi72.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi72.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi73.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi73.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi73.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi73.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi78.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi78.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi78.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi78.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi79.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi79.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi79.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi79.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\sheshi\sheshi80.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\sheshi\sheshi80.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\FacilityPictures\sheshi80.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\FacilityPictures\sheshi80.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\197-400.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\197-400.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\197-400.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\197-400.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\197-401.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\197-401.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\197-401.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\197-401.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\197-402.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\197-402.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\197-402.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\197-402.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\2-1.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\2-1.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\2-1.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\2-1.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\2-2.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\2-2.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\2-2.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\2-2.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\3-1.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\3-1.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\3-1.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\3-1.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\3-2.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\3-2.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\3-2.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\3-2.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\4-1.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\4-1.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\4-1.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\4-1.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\4-2.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\4-2.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\4-2.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\4-2.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\5-1.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\5-1.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\5-1.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\5-1.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\5-2.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\5-2.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\5-2.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\5-2.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\5-3.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\5-3.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\5-3.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\5-3.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\AIMergeAgainstPlayer.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\AIMergeAgainstPlayer.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\AIMergeAgainstPlayer.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\AIMergeAgainstPlayer.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\AllyDiplomaticRelation.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\AllyDiplomaticRelation.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\AllyDiplomaticRelation.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\AllyDiplomaticRelation.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\AppointMayor.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\AppointMayor.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\AppointMayor.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\AppointMayor.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\BecomeEmperor.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\BecomeEmperor.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\BecomeEmperor.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\BecomeEmperor.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\bianlun.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\bianlun.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\bianlun.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\bianlun.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\BreakDiplomaticRelation.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\BreakDiplomaticRelation.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\BreakDiplomaticRelation.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\BreakDiplomaticRelation.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\bubing.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\bubing.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\bubing.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\bubing.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\caocao.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\caocao.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\caocao.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\caocao.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\caolu.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\caolu.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\caolu.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\caolu.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\chushibiao.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\chushibiao.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\chushibiao.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\chushibiao.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\chuzhan.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\chuzhan.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\chuzhan.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\chuzhan.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\chuzheng.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\chuzheng.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\chuzheng.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\chuzheng.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\CreateBrother.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\CreateBrother.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\CreateBrother.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\CreateBrother.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\CreateSister.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\CreateSister.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\CreateSister.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\CreateSister.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\CreateSpouse.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\CreateSpouse.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\CreateSpouse.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\CreateSpouse.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\dahu.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\dahu.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\dahu.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\dahu.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\DengYong.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\DengYong.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\DengYong.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\DengYong.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\DenounceDiplomaticRelation.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\DenounceDiplomaticRelation.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\DenounceDiplomaticRelation.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\DenounceDiplomaticRelation.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\diaocha.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\diaocha.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\diaocha.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\diaocha.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\diaochan.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\diaochan.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\diaochan.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\diaochan.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\diaochan2.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\diaochan2.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\diaochan2.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\diaochan2.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\dongzhuo.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\dongzhuo.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\dongzhuo.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\dongzhuo.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\EnhaneceDiplomaticRelation.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\EnhaneceDiplomaticRelation.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\EnhaneceDiplomaticRelation.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\EnhaneceDiplomaticRelation.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\fandong.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\fandong.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\fandong.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\fandong.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\fengyiting.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\fengyiting.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\fengyiting.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\fengyiting.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\gongbing.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\gongbing.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\gongbing.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\gongbing.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\guandu.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\guandu.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\guandu.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\guandu.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\guanyu1.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\guanyu1.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\guanyu1.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\guanyu1.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\hengshan.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\hengshan.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\hengshan.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\hengshan.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\huashan.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\huashan.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\huashan.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\huashan.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\huogong.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\huogong.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\huogong.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\huogong.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\huoshaochibi.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\huoshaochibi.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\huoshaochibi.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\huoshaochibi.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\jiaoyi.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\jiaoyi.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\jiaoyi.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\jiaoyi.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\jishi.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\jishi.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\jishi.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\jishi.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\jisi.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\jisi.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\jisi.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\jisi.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\jiuguan.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\jiuguan.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\jiuguan.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\jiuguan.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\jushuiduanqiao.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\jushuiduanqiao.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\jushuiduanqiao.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\jushuiduanqiao.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\liubei1.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\liubei1.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\liubei1.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\liubei1.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\liubei2.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\liubei2.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\liubei2.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\liubei2.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\longzhongdui.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\longzhongdui.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\longzhongdui.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\longzhongdui.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\lvbu.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\lvbu.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\lvbu.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\lvbu.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\lvbudiaochan.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\lvbudiaochan.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\lvbudiaochan.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\lvbudiaochan.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\nafei.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\nafei.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\nafei.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\nafei.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\nongtian.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\nongtian.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\nongtian.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\nongtian.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\qibing.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\qibing.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\qibing.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\qibing.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\qingmeizhujiu.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\qingmeizhujiu.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\qingmeizhujiu.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\qingmeizhujiu.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\QuanXiangDiplomaticRelation.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\QuanXiangDiplomaticRelation.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\QuanXiangDiplomaticRelation.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\QuanXiangDiplomaticRelation.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\renwusiwang.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\renwusiwang.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\renwusiwang.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\renwusiwang.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\ResetDiplomaticRelation.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\ResetDiplomaticRelation.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\ResetDiplomaticRelation.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\ResetDiplomaticRelation.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\sangumaolu.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\sangumaolu.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\sangumaolu.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\sangumaolu.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\sanying.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\sanying.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\sanying.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\sanying.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\SelectPrince.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\SelectPrince.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\SelectPrince.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\SelectPrince.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\shan.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\shan.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\shan.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\shan.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\shanwei.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\shanwei.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\shanwei.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\shanwei.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\shengguan.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\shengguan.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\shengguan.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\shengguan.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\sheshi65.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\sheshi65.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\sheshi65.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\sheshi65.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\shilimiewang.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\shilimiewang.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\shilimiewang.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\shilimiewang.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\songshan.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\songshan.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\songshan.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\songshan.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\taishan.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\taishan.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\taishan.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\taishan.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\taoyuan.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\taoyuan.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\taoyuan.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\taoyuan.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\taoyuan1.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\taoyuan1.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\taoyuan1.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\taoyuan1.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\taoyuanjieyi.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\taoyuanjieyi.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\taoyuanjieyi.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\taoyuanjieyi.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\wenbang.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\wenbang.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\wenbang.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\wenbang.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\wuhujiang.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\wuhujiang.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\wuhujiang.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\wuhujiang.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\wuhushangjiang.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\wuhushangjiang.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\wuhushangjiang.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\wuhushangjiang.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\xiahoudun.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\xiahoudun.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\xiahoudun.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\xiahoudun.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\yuxi.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\yuxi.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\yuxi.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\yuxi.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\zainan0.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\zainan0.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\zainan0.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\zainan0.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\zainan1.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\zainan1.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\zainan1.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\zainan1.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\zainan2.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\zainan2.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\zainan2.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\zainan2.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\zainan3.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\zainan3.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\zainan3.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\zainan3.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\zainan4.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\zainan4.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\zainan4.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\zainan4.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\zainan5.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\zainan5.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\zainan5.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\zainan5.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\zaoshougongji.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\zaoshougongji.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\zaoshougongji.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\zaoshougongji.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\zhangfei1.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\zhangfei1.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\zhangfei1.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\zhangfei1.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\zhanling.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\zhanling.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\zhanling.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\zhanling.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\ZhaoXian.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\ZhaoXian.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\ZhaoXian.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\ZhaoXian.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\zhaoyun.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\zhaoyun.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\zhaoyun.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\zhaoyun.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\zhuge.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\zhuge.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\zhuge.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\zhuge.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\TexturesAlpha\GameComponents\youcelan\Data\BackGround.png">
@@ -60080,16 +60080,16 @@
       <Link>Content\Textures\Resources\Start\Setting.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\AwardTitle.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\AwardTitle.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\AwardTitle.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\AwardTitle.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\TruceDiplomaticRelation.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\TruceDiplomaticRelation.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\TruceDiplomaticRelation.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\TruceDiplomaticRelation.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\GameComponents\tupianwenzi\Data\tupian\beiyue.jpg">
-      <Link>Content\Textures\GameComponents\tupianwenzi\Data\tupian\beiyue.jpg</Link>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\EventDisplay\Data\tupian\beiyue.jpg">
+      <Link>Content\Textures\GameComponents\EventDisplay\Data\tupian\beiyue.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -60253,12 +60253,12 @@
       <Link>Content\Data\Plugins\TroopTitleData.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\Plugins\tupianwenziData.xml">
-      <Link>Content\Data\Plugins\tupianwenziData.xml</Link>
+    <Content Include="..\Content\Data\Plugins\EventDisplayData.xml">
+      <Link>Content\Data\Plugins\EventDisplayData.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\Plugins\tupianwenziTextTree.xml">
-      <Link>Content\Data\Plugins\tupianwenziTextTree.xml</Link>
+    <Content Include="..\Content\Data\Plugins\EventDisplayTextTree.xml">
+      <Link>Content\Data\Plugins\EventDisplayTextTree.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Data\Plugins\youcelanData.xml">

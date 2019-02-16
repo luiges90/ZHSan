@@ -15,7 +15,7 @@ namespace GameGlobal
         Inputer,
         Selector,
         MapViewSelector,
-        tupianwenzi,
+        EventDisplay,
         liangdaobianji
     }
 }

@@ -106,7 +106,7 @@ namespace TabListPlugin
                     }
                     else if (this.tabList.FocusedObject is Captive)
                     {
-                        person = (this.tabList.FocusedObject as Captive).CaptivePerson;
+                        person = (this.tabList.FocusedObject as Captive).CaptiveCharacter;
                     }
                     else if (this.tabList.FocusedObject is Faction)
                     {

@@ -106,7 +106,7 @@ namespace youcelanPlugin
                     else if (this.tabList.FocusedObject is Captive)
                     {
                         nullable = null;
-                        person = (this.tabList.FocusedObject as Captive).CaptivePerson;
+                        person = (this.tabList.FocusedObject as Captive).CaptiveCharacter;
                     }
                     else if (this.tabList.FocusedObject is Faction)
                     {

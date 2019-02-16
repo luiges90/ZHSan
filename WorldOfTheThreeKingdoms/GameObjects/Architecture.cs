@@ -538,9 +538,9 @@ namespace GameObjects
                 p.SetImmutable();
                 foreach (Captive c in p) //禁止俘虏自势力武将
                 {
-                    if (c.CaptiveFaction == c.BelongedFaction)
+                    if (c.CaptiveCharFaction == c.BelongedFaction)
                     {
-                        c.CaptivePerson.SetBelongedCaptive(null, GameObjects.PersonDetail.PersonStatus.Normal);
+                        c.CaptiveCharacter.SetBelongedCaptive(null, GameObjects.PersonDetail.PersonStatus.Normal);
                     }
                 }
                 return p;
@@ -595,7 +595,7 @@ namespace GameObjects
 
                 foreach (Captive q in this.Captives)
                 {
-                    result.Add(q.CaptivePerson);
+                    result.Add(q.CaptiveCharacter);
                 }
 
                 foreach (Person q in this.Feiziliebiao)
@@ -1219,26 +1219,26 @@ namespace GameObjects
             //int leaderExecutionRate = uncruelty * uncruelty * uncruelty * 4;
             foreach (Captive i in this.Captives)
             {
-                if ((!i.CaptivePerson.RecruitableBy(this.BelongedFaction, (int)((uncruelty - 2) * Session.Parameters.AIExecutePersonIdealToleranceMultiply)) || this.BelongedFaction.Leader.Hates(i.CaptivePerson) || i.CaptivePerson.Hates(this.BelongedFaction.Leader)) &&
-                    GameObject.Random((int)(uncruelty * uncruelty * (Session.GlobalVariables.AIExecuteBetterOfficer ? 100000.0 / i.CaptivePerson.Merit : i.CaptivePerson.Merit / 100000.0)
+                if ((!i.CaptiveCharacter.RecruitableBy(this.BelongedFaction, (int)((uncruelty - 2) * Session.Parameters.AIExecutePersonIdealToleranceMultiply)) || this.BelongedFaction.Leader.Hates(i.CaptiveCharacter) || i.CaptiveCharacter.Hates(this.BelongedFaction.Leader)) &&
+                    GameObject.Random((int)(uncruelty * uncruelty * (Session.GlobalVariables.AIExecuteBetterOfficer ? 100000.0 / i.CaptiveCharacter.Merit : i.CaptiveCharacter.Merit / 100000.0)
                         * (100.0 / Session.GlobalVariables.AIExecutionRate))) == 0)  //处斩几率修改系数就可以，可设为小数
                 {
-                    if (!this.BelongedFaction.Leader.HasStrainTo(i.CaptivePerson))
+                    if (!this.BelongedFaction.Leader.HasStrainTo(i.CaptiveCharacter))
                     {
-                        Session.MainGame.mainGameScreen.OnExecute(this.BelongedFaction.Leader, i.CaptivePerson);
-                        i.CaptivePerson.execute(this.BelongedFaction);
+                        Session.MainGame.mainGameScreen.OnExecute(this.BelongedFaction.Leader, i.CaptiveCharacter);
+                        i.CaptiveCharacter.execute(this.BelongedFaction);
                         
                         break;
                     }
                 }
                 if (this.BelongedFaction.IsAlien && 
-                    (i.CaptivePerson.PersonalLoyalty >= 2 || this.BelongedFaction.Leader.Hates(i.CaptivePerson) || i.CaptivePerson.Hates(this.BelongedFaction.Leader)) && 
+                    (i.CaptiveCharacter.PersonalLoyalty >= 2 || this.BelongedFaction.Leader.Hates(i.CaptiveCharacter) || i.CaptiveCharacter.Hates(this.BelongedFaction.Leader)) && 
                     GameObject.Chance(10))
                 {
-                    if (!this.BelongedFaction.Leader.HasStrainTo(i.CaptivePerson) && !this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(i.CaptivePerson))
+                    if (!this.BelongedFaction.Leader.HasStrainTo(i.CaptiveCharacter) && !this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(i.CaptiveCharacter))
                     {
-                        Session.MainGame.mainGameScreen.OnExecute(this.BelongedFaction.Leader, i.CaptivePerson);
-                        i.CaptivePerson.execute(this.BelongedFaction);
+                        Session.MainGame.mainGameScreen.OnExecute(this.BelongedFaction.Leader, i.CaptiveCharacter);
+                        i.CaptiveCharacter.execute(this.BelongedFaction);
                     }
 
                     break;
@@ -2394,10 +2394,10 @@ namespace GameObjects
             {
                 foreach (Person q in convincer)
                 {
-                    if (q.CanConvinceChance(p.CaptivePerson) > 20 && q.Status == PersonStatus.Normal)
+                    if (q.CanConvinceChance(p.CaptiveCharacter) > 20 && q.Status == PersonStatus.Normal)
                     {
                         q.OutsideDestination = this.ArchitectureArea.Centre;
-                        q.GoForConvince(p.CaptivePerson);
+                        q.GoForConvince(p.CaptiveCharacter);
                         break;
                     }
                 }
@@ -2574,7 +2574,7 @@ namespace GameObjects
                                 int totalCaptiveValue = 0;
                                 foreach (Captive c in target.Captives)
                                 {
-                                    if (c.CaptiveFaction == this.BelongedFaction)
+                                    if (c.CaptiveCharFaction == this.BelongedFaction)
                                     {
                                         totalCaptiveValue += c.AIWantsTheCaptive;
                                     }
@@ -4954,9 +4954,9 @@ namespace GameObjects
                 faction.AddArchitectureKnownData(this);
                 foreach (Captive captive in this.Captives.GetList())
                 {
-                    if (captive.CaptiveFaction == faction)
+                    if (captive.CaptiveCharFaction == faction)
                     {
-                        captive.CaptivePerson.SetBelongedCaptive(null, PersonStatus.Normal);
+                        captive.CaptiveCharacter.SetBelongedCaptive(null, PersonStatus.Normal);
                     }
                 }
                 foreach (Military military in this.Militaries)
@@ -5898,10 +5898,10 @@ namespace GameObjects
             }
             foreach (Captive c in this.Captives)
             {
-                if (c.CaptivePerson.Tiredness > 0)
+                if (c.CaptiveCharacter.Tiredness > 0)
                 {
-                    c.CaptivePerson.Tiredness -= Session.GlobalVariables.TirednessDecrease;
-                    if (c.CaptivePerson.Tiredness < 0) c.CaptivePerson.Tiredness = 0;
+                    c.CaptiveCharacter.Tiredness -= Session.GlobalVariables.TirednessDecrease;
+                    if (c.CaptiveCharacter.Tiredness < 0) c.CaptiveCharacter.Tiredness = 0;
                 }
             }
             foreach (Person p in this.Feiziliebiao)
@@ -5918,49 +5918,49 @@ namespace GameObjects
         {
             foreach (Captive p in this.Captives.GetRandomList())
             {
-                if (GameObject.Random(5) == 0 && !GameObject.Chance(p.CaptivePerson.PersonalLoyalty * 25))
+                if (GameObject.Random(5) == 0 && !GameObject.Chance(p.CaptiveCharacter.PersonalLoyalty * 25))
                 {
-                    if (p.CaptiveFaction != null)
+                    if (p.CaptiveCharFaction != null)
                     {
                         bool pass = true;
-                        if (p.CaptivePerson.HasStrainTo(p.CaptiveFaction.Leader) && GameObject.Chance(33))
+                        if (p.CaptiveCharacter.HasStrainTo(p.CaptiveCharFaction.Leader) && GameObject.Chance(33))
                         {
                             pass = false;
                         }
-                        if (p.CaptivePerson.HasCloseStrainTo(p.CaptiveFaction.Leader) && GameObject.Chance(67))
+                        if (p.CaptiveCharacter.HasCloseStrainTo(p.CaptiveCharFaction.Leader) && GameObject.Chance(67))
                         {
                             pass = false;
                         }
-                        if (p.CaptivePerson.IsCloseTo(p.CaptiveFaction.Leader) && GameObject.Chance(33))
+                        if (p.CaptiveCharacter.IsCloseTo(p.CaptiveCharFaction.Leader) && GameObject.Chance(33))
                         {
                             pass = false;
                         }
-                        if (p.CaptivePerson.IsVeryCloseTo(p.CaptiveFaction.Leader) && GameObject.Chance(67))
+                        if (p.CaptiveCharacter.IsVeryCloseTo(p.CaptiveCharFaction.Leader) && GameObject.Chance(67))
                         {
                             pass = false;
                         }
-                        if (p.CaptivePerson.Hates(p.CaptiveFaction.Leader))
+                        if (p.CaptiveCharacter.Hates(p.CaptiveCharFaction.Leader))
                         {
                             pass = true;
                         }
                         if (pass)
                         {
-                            p.CaptivePerson.TempLoyaltyChange--;
+                            p.CaptiveCharacter.TempLoyaltyChange--;
                         }
                     }
                     else
                     {
-                        p.CaptivePerson.TempLoyaltyChange--;
+                        p.CaptiveCharacter.TempLoyaltyChange--;
                     }
                 }
-                if (GameObject.Random((this.Domination * 10 + this.Morale) * 20) + 200 <= GameObject.Random(p.CaptivePerson.CaptiveAbility))
+                if (GameObject.Random((this.Domination * 10 + this.Morale) * 20) + 200 <= GameObject.Random(p.CaptiveCharacter.CaptiveAbility))
                 {
-                    if (!GameObject.Chance(noEscapeChance) || GameObject.Chance(p.CaptivePerson.captiveEscapeChance))
+                    if (!GameObject.Chance(noEscapeChance) || GameObject.Chance(p.CaptiveCharacter.captiveEscapeChance))
                     {
                         p.CaptiveEscape();
                     }
                 }
-                if (p.CaptivePerson.ArrivingDays > 0 && (GameObject.Chance(p.CaptivePerson.JailBreakAbility / 100) || GameObject.Chance(p.CaptivePerson.captiveEscapeChance)))
+                if (p.CaptiveCharacter.ArrivingDays > 0 && (GameObject.Chance(p.CaptiveCharacter.JailBreakAbility / 100) || GameObject.Chance(p.CaptiveCharacter.captiveEscapeChance)))
                 {
                     p.CaptiveEscape();
                 }
@@ -5978,7 +5978,7 @@ namespace GameObjects
         private void zainanshijian()
         {
             if (Session.Current.Scenario.DaySince < 720 * Session.Parameters.DayInTurn) return;
-            if (this.youzainan)
+            if (this.HasDisaster)
             {
                 //this.DecreaseFood(this.ZhenzaiWorkingPersons.Count * 3000);
                 this.DecreaseFund(this.ZhenzaiWorkingPersons.Count * this.InternalFundCost);
@@ -5992,7 +5992,7 @@ namespace GameObjects
 
                 if (this.zainan.shengyutianshu <= 0)
                 {
-                    this.youzainan = false;
+                    this.HasDisaster = false;
                     this.tingzhizhenzai();
                 }
 
@@ -6028,7 +6028,7 @@ namespace GameObjects
                     {
                         this.zainan.zainanzhonglei = Session.Current.Scenario.GameCommonData.suoyouzainanzhonglei.Getzainanzhonglei(kindID);
                         this.zainan.shengyutianshu = this.zainan.zainanzhonglei.shijianxiaxian + GameObject.Random(this.zainan.zainanzhonglei.shijianshangxian - this.zainan.zainanzhonglei.shijianxiaxian);
-                        this.youzainan = true;
+                        this.HasDisaster = true;
                         ExtensionInterface.call("DisasterHappened", new Object[] { Session.Current.Scenario, this, this.zainan });
                         foreach (Military military in this.Militaries)//发生灾难时不能补充
                         {
@@ -7605,7 +7605,7 @@ namespace GameObjects
             {
                 foreach (Captive captive in this.Captives)
                 {
-                    result.Add(captive.CaptivePerson);
+                    result.Add(captive.CaptiveCharacter);
                 }
             }
             else
@@ -7715,9 +7715,9 @@ namespace GameObjects
 
                 foreach (Captive captive in this.Captives)
                 {
-                    if (captive.CaptivePerson.ArrivingDays <= 0)
+                    if (captive.CaptiveCharacter.ArrivingDays <= 0)
                     {
-                        movableCaptives.Add(captive.CaptivePerson);
+                        movableCaptives.Add(captive.CaptiveCharacter);
                     }
 
                 }
@@ -7966,14 +7966,14 @@ namespace GameObjects
             {
                 foreach (Captive c in list)
                 {
-                    int idealOffset = Person.GetIdealOffset(c.CaptivePerson, this.BelongedFaction.Leader);
-                    if ((!Session.GlobalVariables.IdealTendencyValid || (idealOffset <= c.CaptivePerson.IdealTendency.Offset + (double)this.BelongedFaction.Reputation / Session.Current.Scenario.Parameters.MaxReputationForRecruit * 75))
-                        && (!c.CaptivePerson.Hates(this.BelongedFaction.Leader)) && (!this.BelongedFaction.IsAlien || c.CaptivePerson.PersonalLoyalty < 2))
+                    int idealOffset = Person.GetIdealOffset(c.CaptiveCharacter, this.BelongedFaction.Leader);
+                    if ((!Session.GlobalVariables.IdealTendencyValid || (idealOffset <= c.CaptiveCharacter.IdealTendency.Offset + (double)this.BelongedFaction.Reputation / Session.Current.Scenario.Parameters.MaxReputationForRecruit * 75))
+                        && (!c.CaptiveCharacter.Hates(this.BelongedFaction.Leader)) && (!this.BelongedFaction.IsAlien || c.CaptiveCharacter.PersonalLoyalty < 2))
                     {
-                        if (c.CaptivePerson.Loyalty < lowestLoyalty)
+                        if (c.CaptiveCharacter.Loyalty < lowestLoyalty)
                         {
                             target = c;
-                            lowestLoyalty = c.CaptivePerson.Loyalty;
+                            lowestLoyalty = c.CaptiveCharacter.Loyalty;
                         }
                     }
                 }
@@ -8593,7 +8593,7 @@ namespace GameObjects
             this.RedeemCaptiveList.Clear();
             foreach (Captive captive in this.BelongedFaction.SelfCaptives)
             {
-                if ((captive.RansomArriveDays == 0) && (captive.Ransom <= this.Fund) && captive.BelongedFaction != null)
+                if ((captive.RansomArrivalDays == 0) && (captive.Ransom <= this.Fund) && captive.BelongedFaction != null)
                 {
                     this.RedeemCaptiveList.Add(captive);
                 }
@@ -8976,7 +8976,7 @@ namespace GameObjects
         {
             foreach (Captive c in this.Captives)
             {
-                if (c.CaptiveFaction == f)
+                if (c.CaptiveCharFaction == f)
                 {
                     return true;
                 }
@@ -10282,9 +10282,9 @@ namespace GameObjects
                     Captive gameObject = captives.GetGameObject(int.Parse(str)) as Captive;
                     if (gameObject != null)
                     {
-                        gameObject.CaptivePerson.LocationArchitecture = this;
-                        gameObject.CaptivePerson.LocationTroop = null;
-                        gameObject.CaptivePerson.Status = PersonStatus.Captive;
+                        gameObject.CaptiveCharacter.LocationArchitecture = this;
+                        gameObject.CaptiveCharacter.LocationTroop = null;
+                        gameObject.CaptiveCharacter.Status = PersonStatus.Captive;
                     }
                     else
                     {
@@ -11555,7 +11555,7 @@ namespace GameObjects
         {
             if (this.HasPerson())
             {
-                if (this.youzainan)
+                if (this.HasDisaster)
                 {
                     return false;
                 }
@@ -11852,12 +11852,12 @@ namespace GameObjects
                 PersonList persons = new PersonList();
                 foreach (Captive captive in this.Captives.GetList())
                 {
-                    if (((captive.CaptivePerson != null) && (captive.CaptiveFaction != null)) && (captive.CaptiveFaction.Capital != null))
+                    if (((captive.CaptiveCharacter != null) && (captive.CaptiveCharFaction != null)) && (captive.CaptiveCharFaction.Capital != null))
                     {
-                        Architecture moveTo = captive.CaptiveFaction.Capital;
-                        persons.Add(captive.CaptivePerson);
-                        Person p = captive.CaptivePerson;
-                        captive.CaptivePerson.SetBelongedCaptive(null, PersonStatus.Normal);
+                        Architecture moveTo = captive.CaptiveCharFaction.Capital;
+                        persons.Add(captive.CaptiveCharacter);
+                        Person p = captive.CaptiveCharacter;
+                        captive.CaptiveCharacter.SetBelongedCaptive(null, PersonStatus.Normal);
                         p.MoveToArchitecture(moveTo);
                     }
                 }
@@ -14113,7 +14113,7 @@ namespace GameObjects
         {
             get
             {
-                return (((this.IsCapital || this.IsStrategicCenter) || this.IsStateAdmin) || this.IsRegionCore || this.huangdisuozai);
+                return (((this.IsCapital || this.IsStrategicCenter) || this.IsStateAdmin) || this.IsRegionCore || this.EmperorResidesHere);
             }
         }
 
@@ -14786,7 +14786,7 @@ namespace GameObjects
             set;
         }
         [DataMember]
-        public bool youzainan
+        public bool HasDisaster
         {
             get;
             set;
@@ -14796,7 +14796,7 @@ namespace GameObjects
         {
             get
             {
-                if (this.youzainan)
+                if (this.HasDisaster)
                 {
                     return this.zainan.zainanzhonglei.Name;
                 }
@@ -14811,7 +14811,7 @@ namespace GameObjects
         {
             get
             {
-                if (this.youzainan)
+                if (this.HasDisaster)
                 {
                     return (this.zainan.shengyutianshu * Session.Parameters.DayInTurn).ToString();
                 }
@@ -14825,7 +14825,7 @@ namespace GameObjects
         public bool kezhenzai()
         {
 
-            if (this.youzainan && this.Fund > 0 && this.Food > 0 && this.HasPerson())
+            if (this.HasDisaster && this.Fund > 0 && this.Food > 0 && this.HasPerson())
             {
                 return true;
             }
@@ -15058,7 +15058,7 @@ namespace GameObjects
                 }
                 foreach (Captive c in this.Captives)
                 {
-                    Person person = c.CaptivePerson;
+                    Person person = c.CaptiveCharacter;
                     if (this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person))
                     {
                         nvxingwujiangliebiao.Add(person);
@@ -15088,7 +15088,7 @@ namespace GameObjects
             foreach (Captive captive in this.Captives)
             {
 
-                personList.Add(captive.CaptivePerson);
+                personList.Add(captive.CaptiveCharacter);
 
             }
 
@@ -15180,7 +15180,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public bool huangdisuozai
+        public bool EmperorResidesHere
         {
             get;
             set;

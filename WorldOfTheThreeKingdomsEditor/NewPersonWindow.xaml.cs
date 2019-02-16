@@ -35,7 +35,7 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 count = int.Parse(tbCount.Text);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("請輸入有效數值");
                 return;

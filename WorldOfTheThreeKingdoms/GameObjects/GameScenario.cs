@@ -562,7 +562,7 @@ namespace GameObjects
             }
             foreach (Captive i in this.Captives)
             {
-                if (i.LocationArchitecture != null && i.CaptivePerson != null)
+                if (i.LocationArchitecture != null && i.CaptiveCharacter != null)
                 {
                     if (!this.CaptivePLCache.ContainsKey(i.LocationArchitecture))
                     {
@@ -2448,13 +2448,13 @@ namespace GameObjects
         {
             foreach (Captive captive in this.Captives)
             {
-                if (captive.CaptiveFactionID >= 0)
+                if (captive.CaptiveCharFactionID >= 0)
                 {
-                    captive.CaptiveFaction = this.Factions.GetGameObject(captive.CaptiveFactionID) as Faction;
+                    captive.CaptiveCharFaction = this.Factions.GetGameObject(captive.CaptiveCharFactionID) as Faction;
                 }
-                if (captive.RansomArchitectureID >= 0)
+                if (captive.RansomReceivedCityID >= 0)
                 {
-                    captive.RansomArchitecture = this.Architectures.GetGameObject(captive.RansomArchitectureID) as Architecture;
+                    captive.RansomReceivedCity = this.Architectures.GetGameObject(captive.RansomReceivedCityID) as Architecture;
                 }
             }
         }
@@ -2750,7 +2750,7 @@ namespace GameObjects
         {
             foreach (Captive i in this.Captives)
             {
-                if (i.CaptivePerson.ID == personId)
+                if (i.CaptiveCharacter.ID == personId)
                 {
                     return true;
                 }
@@ -3219,17 +3219,17 @@ namespace GameObjects
             {
                 foreach (Captive captive in this.captiveData)
                 {
-                    captive.CaptivePerson = this.Persons.GetGameObject(captive.CaptivePersonID) as Person;
-                    if (captive.CaptivePerson == null)
+                    captive.CaptiveCharacter = this.Persons.GetGameObject(captive.CaptiveCharacterID) as Person;
+                    if (captive.CaptiveCharacter == null)
                     {
-                        errorMsg.Add("俘虏ID" + captive.ID + "：武将ID" + captive.CaptivePersonID + "不存在");
+                        errorMsg.Add("俘虏ID" + captive.ID + "：武将ID" + captive.CaptiveCharacterID + "不存在");
                         continue;
                     }
                     else
                     {
-                        captive.CaptivePerson.SetBelongedCaptive(captive, PersonStatus.Captive);
+                        captive.CaptiveCharacter.SetBelongedCaptive(captive, PersonStatus.Captive);
 
-                        captive.CaptivePerson.Status = PersonStatus.Captive;
+                        captive.CaptiveCharacter.Status = PersonStatus.Captive;
                     }
 
                 }
@@ -3372,7 +3372,7 @@ namespace GameObjects
                 }
                 catch
                 {
-                    architecture.youzainan = false;
+                    architecture.HasDisaster = false;
                 }
 
                 try
@@ -4758,9 +4758,9 @@ namespace GameObjects
 
             foreach (Captive captive in this.Captives)
             {
-                captive.CaptivePersonID = (captive.CaptivePerson != null) ? captive.CaptivePerson.ID : -1;
-                captive.CaptiveFactionID = (captive.CaptiveFaction != null) ? captive.CaptiveFaction.ID : -1;
-                captive.RansomArchitectureID = (captive.RansomArchitecture != null) ? captive.RansomArchitecture.ID : -1;
+                captive.CaptiveCharacterID = (captive.CaptiveCharacter != null) ? captive.CaptiveCharacter.ID : -1;
+                captive.CaptiveCharFactionID = (captive.CaptiveCharFaction != null) ? captive.CaptiveCharFaction.ID : -1;
+                captive.RansomReceivedCityID = (captive.RansomReceivedCity != null) ? captive.RansomReceivedCity.ID : -1;
             }
 
             if (!editing)
@@ -5615,24 +5615,24 @@ namespace GameObjects
             }
         }
 
-        private Architecture huangdisuozai = null;
+        private Architecture EmperorResidesHere = null;
         public Architecture huangdisuozaijianzhu()
         {
-            if (huangdisuozai == null)
+            if (EmperorResidesHere == null)
             {
                 foreach (Architecture a in this.Architectures)
                 {
-                    if (a.huangdisuozai) huangdisuozai = a;
+                    if (a.EmperorResidesHere) EmperorResidesHere = a;
                 }
             }
-            return huangdisuozai;
+            return EmperorResidesHere;
         }
 
         public bool youhuangdi()
         {
             foreach (Architecture a in this.Architectures)
             {
-                if (a.huangdisuozai) return true;
+                if (a.EmperorResidesHere) return true;
             }
             return false;
         }
@@ -5647,10 +5647,10 @@ namespace GameObjects
         {
             foreach (Architecture a in this.Architectures)
             {
-                if (a.huangdisuozai)
+                if (a.EmperorResidesHere)
                 {
-                    a.huangdisuozai = false;
-                    this.huangdisuozai = null;
+                    a.EmperorResidesHere = false;
+                    this.EmperorResidesHere = null;
                 }
             }
 

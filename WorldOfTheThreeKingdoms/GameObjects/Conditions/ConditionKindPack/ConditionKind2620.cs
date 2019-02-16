@@ -12,7 +12,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
 
         public override bool CheckConditionKind(Architecture a)
         {
-            return !a.youzainan || a.zainan.zainanzhonglei.ID != val;
+            return !a.HasDisaster || a.zainan.zainanzhonglei.ID != val;
         }
 
         public override void InitializeParameter(string parameter)
