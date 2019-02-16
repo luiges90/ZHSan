@@ -16,6 +16,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
+	<IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -28,7 +29,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -42,6 +42,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -77,6 +78,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Contracts\Records.cs" />
@@ -42014,38 +42016,6 @@
       <Link>Content\Textures\GameComponents\SimpleTextDialog\Data\FirstPageSelected.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\CheckBox.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\CheckBox.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\CheckBoxSelected.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\CheckBoxSelected.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\LeftArrow.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\LeftArrow.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\RightArrow.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\RightArrow.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\RoundCheckBox.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\RoundCheckBox.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\RoundCheckBoxSelected.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\RoundCheckBoxSelected.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\TabButton.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\TabButton.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\TabButtonSelected.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\TabButtonSelected.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Textures\GameComponents\ToolBar\Data\Spliter.png">
       <Link>Content\Textures\GameComponents\ToolBar\Data\Spliter.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -55266,29 +55236,30 @@
       <Link>Content\Textures\Resources\Troop\999\Move.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Font\AllText.txt" />
+    <Content Include="Content\Font\Messages.txt" />
+    <Content Include="Content\Font\MessagesDenyT.txt" />
+    <Content Include="Content\Font\MessagesL.txt" />
+    <Content Include="Content\Textures\GameComponents\TabList\Data\CheckBox.png" />
+    <Content Include="Content\Textures\GameComponents\TabList\Data\CheckBoxSelected.png" />
     <Content Include="Content\Textures\GameComponents\TabList\Data\ColumnHeader.png" />
     <Content Include="Content\Textures\GameComponents\TabList\Data\ColumnSpliter.png" />
     <Content Include="Content\Textures\GameComponents\TabList\Data\FocusTrack.png" />
+    <Content Include="Content\Textures\GameComponents\TabList\Data\LeftArrow.png" />
+    <Content Include="Content\Textures\GameComponents\TabList\Data\RightArrow.png" />
+    <Content Include="Content\Textures\GameComponents\TabList\Data\RoundCheckBox.png" />
+    <Content Include="Content\Textures\GameComponents\TabList\Data\RoundCheckBoxSelected.png" />
     <Content Include="Content\Textures\GameComponents\TabList\Data\ScrollButton.png" />
     <Content Include="Content\Textures\GameComponents\TabList\Data\ScrollTrack.png" />
+    <Content Include="Content\Textures\GameComponents\TabList\Data\Select.wav" />
+    <Content Include="Content\Textures\GameComponents\TabList\Data\TabButton.png" />
+    <Content Include="Content\Textures\GameComponents\TabList\Data\TabButtonSelected.png" />
     <Content Include="Content\Textures\GameComponents\ToolBar\Data\Background.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Content\Data\Scenario\Scenarios.json">
       <Link>Content\Data\Scenario\Scenarios.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Win\Font\FontE.xnb">
-      <Link>Content\Font\FontE.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Win\Font\FontL.xnb">
-      <Link>Content\Font\FontL.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Win\Font\FontS.xnb">
-      <Link>Content\Font\FontS.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\bin\Win\Music\Attack\Attack.xnb">
@@ -57471,10 +57442,6 @@
       <Link>Content\Sound\Yinxiao\zhugeliang.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Win\Font\FontT.xnb">
-      <Link>Content\Font\FontT.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\bin\Win\Sound\Move.xnb">
       <Link>Content\Sound\Move.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -57564,18 +57531,18 @@
     <Content Include="Content\Font\FZLB_GBK.TTF">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Font\SIMHEI.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Font\HWZS.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Font\XINGSHU.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Font\GUYIN.TTF">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="Content\Font\FontE.spritefont" />
+    <None Include="Content\Font\FontE.xnb" />
+    <None Include="Content\Font\FontL.spritefont" />
+    <None Include="Content\Font\FontL.xnb" />
+    <None Include="Content\Font\FontS.spritefont" />
+    <None Include="Content\Font\FontS.xnb" />
+    <None Include="Content\Font\FontT.spritefont" />
+    <None Include="Content\Font\FontT.xnb" />
+    <None Include="Content\Font\GUYIN.TTF" />
+    <None Include="Content\Font\HWZS.ttf" />
+    <None Include="Content\Font\SIMHEI.ttf" />
+    <None Include="Content\Font\XINGSHU.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Sound\Troop\29\" />
