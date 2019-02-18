@@ -470,6 +470,7 @@ namespace GameManager
                 return;
             }
             float pictureID = Convert.ToSingle(person.AvatarIndex);
+			
             //if (person.Age >= 50)
             //{
             //    pictureID += 0.5f;
@@ -478,52 +479,35 @@ namespace GameManager
             //{
             //    pictureID += 0.2f;
             //}
-            DrawZhsanAvatar(pictureID, type, pos, color, depth);
+            DrawZhsanAvatar(pictureID, person.FallbackPictureIndex, type, pos, color, depth);
         }
 
-        public static void DrawZhsanAvatar(float pictureIndex, string type, Rectangle pos, Color color, float depth)
+        public static void DrawZhsanAvatar(float pictureIndex, int fallbackIndex, string type, Rectangle pos, Color color, float depth)
         {
             if (type == "f" || type == "t")
             {
                 type = "";
             }
 
-            string id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", pictureIndex, type);
+            string id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Player\{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
 
-            //if (Platform.Current.FileExists(id))
-            //{
-                
-            //}
-            //else
-            //{
-            //    id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", pictureIndex, type);
-            //    if (Platform.Current.FileExists(id))
-            //    {
-                    
-            //    }
-            //    else
-            //    {
-            //        id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Player\{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
+            if (Platform.Current.FileExists(id))
+            {
+				
+			}
+            else
+            {
+                id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
 
-            //        if (Platform.Current.FileExists(id))
-            //        {
-                        
-            //        }
-            //        else
-            //        {
-            //            id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
-
-            //            if (Platform.Current.FileExists(id))
-            //            {
-                            
-            //            }
-            //            else
-            //            {
-            //                id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", Convert.ToInt32(pictureIndex), "");
-            //            }
-            //        }
-            //    }
-            //}
+                if (Platform.Current.FileExists(id))
+                {
+					
+				}
+                else
+                {
+                    id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", fallbackIndex, "");
+                }
+            }
 
             DrawAvatar(id, pos, Color.White, false, true, TextureShape.None, null, depth);
         }
