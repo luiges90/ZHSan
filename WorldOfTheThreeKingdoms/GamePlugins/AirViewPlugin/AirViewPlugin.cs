@@ -166,7 +166,7 @@ namespace AirViewPlugin
 
             //try
             //{                
-                this.airView.MapTexture = CacheManager.GetTempTexture(@"Content\Textures\Resources\ditu\_" + dituwenjian);
+                this.airView.MapTexture = CacheManager.GetTempTexture(@"Content\Textures\Resources\GrandMap\_" + dituwenjian);
             //}
             //catch
             //{

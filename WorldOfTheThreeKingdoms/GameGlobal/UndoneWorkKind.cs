@@ -16,7 +16,7 @@ namespace GameGlobal
         Selector,
         MapViewSelector,
         EventDisplay,
-        liangdaobianji
+        SupplyRouteEdit
     }
 }
 

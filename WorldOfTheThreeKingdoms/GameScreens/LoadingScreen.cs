@@ -39,7 +39,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             background = "Content/Textures/Resources/ScenarioLoading/" + ranStr + ".jpg";
 
-            tishi = new TiShiText().getRandomText();
+            tishi = new LoadingScreenTooltip().getRandomText();
 
             var textLength = 22.4 * tishi.Trim().Length;
 

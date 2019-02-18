@@ -9232,26 +9232,26 @@ namespace GameObjects
             {
                 if (r.BaseCommand + r.BaseStrength > r.BaseIntelligence + r.BasePolitics)
                 {
-                    pictureList = Person.readNumberList("Content/Data/femalefaceM.txt");
+                    pictureList = Person.readNumberList("Content/Data/FemaleFaceCommander.txt");
                 }
                 else
                 {
-                    pictureList = Person.readNumberList("Content/Data/femalefaceA.txt");
+                    pictureList = Person.readNumberList("Content/Data/FemaleFaceOfficer.txt");
                 }
             }
             else
             {
                 if (r.BaseCommand < 50 && r.BaseStrength < 50 && r.BaseIntelligence < 50 && r.BasePolitics < 50 && r.BaseGlamour < 50)
                 {
-                    pictureList = Person.readNumberList("Content/Data/malefaceU.txt");
+                    pictureList = Person.readNumberList("Content/Data/MaleFaceFool.txt");
                 }
                 else if (r.BaseCommand + r.BaseStrength > r.BaseIntelligence + r.BasePolitics)
                 {
-                    pictureList = Person.readNumberList("Content/Data/malefaceM.txt");
+                    pictureList = Person.readNumberList("Content/Data/MaleFaceCommander.txt");
                 }
                 else
                 {
-                    pictureList = Person.readNumberList("Content/Data/maleFaceA.txt");
+                    pictureList = Person.readNumberList("Content/Data/MaleFaceOfficer.txt");
                 }
             }
             r.AvatarIndex = pictureList[GameObject.Random(pictureList.Count)];
@@ -9522,9 +9522,9 @@ namespace GameObjects
 
         private static void HandleName(Person r)
         {
-            List<String> surnameList = Person.readTextList("Content/Data/surname.txt");
+            List<String> surnameList = Person.readTextList("Content/Data/LastNamePreset.txt");
             r.LastName = surnameList[GameObject.Random(surnameList.Count)];
-            List<String> givenNameList = r.Sex ? Person.readTextList("Content/Data/femalegivenname.txt") : Person.readTextList("Content/Data/malegivenname.txt");
+            List<String> givenNameList = r.Sex ? Person.readTextList("Content/Data/FemaleFirstName.txt") : Person.readTextList("Content/Data/MaleFirstName.txt");
             r.FirstName = givenNameList[GameObject.Random(givenNameList.Count)];
             if (r.FirstName.Length <= 1 && GameObject.Chance(r.Sex ? 90 : 10))
             {
@@ -10120,7 +10120,7 @@ namespace GameObjects
         private static void HandleChildrenName(Person father, Person r)
         {
             r.LastName = father.LastName;
-            List<String> givenNameList = r.Sex ? Person.readTextList("Content/Data/femalegivenname.txt") : Person.readTextList("Content/Data/malegivenname.txt");
+            List<String> givenNameList = r.Sex ? Person.readTextList("Content/Data/FemaleFirstName.txt") : Person.readTextList("Content/Data/MaleFirstName.txt");
             r.FirstName = givenNameList[GameObject.Random(givenNameList.Count)];
             if (r.FirstName.Length <= 1 && GameObject.Chance(r.Sex ? 90 : 10))
             {

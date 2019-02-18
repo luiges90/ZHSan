@@ -810,7 +810,7 @@ namespace RoutewayEditorPlugin
                     if (value)
                     {
                         this.Show();
-                        Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.liangdaobianji , DialogKind.liangdaobianji ));
+                        Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.SupplyRouteEdit , DialogKind.SupplyRouteEdit ));
 
                         this.DefaultMouseArrowTexture = Session.MainGame.mainGameScreen.DefaultMouseArrowTexture;
                         Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
@@ -821,9 +821,9 @@ namespace RoutewayEditorPlugin
                     }
                     else
                     {
-                        if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.liangdaobianji )
+                        if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.SupplyRouteEdit )
                         {
-                            throw new Exception("The UndoneWork is not a liangdaobianji.");
+                            throw new Exception("The UndoneWork is not a SupplyRouteEdit.");
                         }
 
                         this.EditingRouteway.Selected = false;

@@ -216,7 +216,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.currentKey = Keys.E;
                     this.editMode = true;
                     this.mainMapLayer.xianshidituxiaokuai = true;
-                    this.Plugins.youcelanPlugin.IsShowing = false;
+                    this.Plugins.RightSidePanelPlugin.IsShowing = false;
                     this.mapEdited = true;
                 }
                 else if (InputManager.KeyBoardState.IsKeyDown(Keys.LeftAlt) && InputManager.KeyBoardState.IsKeyDown(Keys.Q) && Session.GlobalVariables.EnableCheat)
@@ -224,7 +224,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.currentKey = Keys.Q;
                     this.editMode = false;
                     this.mainMapLayer.xianshidituxiaokuai = false;
-                    this.Plugins.youcelanPlugin.IsShowing = true;
+                    this.Plugins.RightSidePanelPlugin.IsShowing = true;
                     this.mapEdited = true;
                 }
                 else if (InputManager.KeyBoardState.IsKeyDown(Keys.T))

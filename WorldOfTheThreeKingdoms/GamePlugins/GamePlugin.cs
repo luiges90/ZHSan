@@ -44,8 +44,8 @@ namespace WorldOfTheThreeKingdoms.GameLogic
         public IScreenBlind ScreenBlindPlugin = null;
         public ISimpleTextDialog SimpleTextDialogPlugin = null;
         public ITabList TabListPlugin = null;
-        public Iyoucelan youcelanPlugin = null;
-        public IBianduiLiebiao BianduiLiebiao = null;
+        public Iyoucelan RightSidePanelPlugin = null;
+        public IBianduiLiebiao TroopArrangement = null;
         public IToolBar ToolBarPlugin = null;
         public ITransportDialog TransportDialogPlugin = null;
         public ITreasureDetail TreasureDetailPlugin = null;
@@ -351,36 +351,36 @@ namespace WorldOfTheThreeKingdoms.GameLogic
                 screen.PluginList.Add(this.MarshalSectionDialogPlugin.Instance as GameObject);
             }
 
-            plugin = new youcelanPlugin.TabListPlugin();  // Plugin.Plugins.AvailablePlugins.Find("youcelanPlugin");
+            plugin = new RightSidePanelPlugin.TabListPlugin();  // Plugin.Plugins.AvailablePlugins.Find("RightSidePanelPlugin");
             if ((plugin != null) && (plugin.Instance is Iyoucelan))
             {
-                this.youcelanPlugin = plugin.Instance as Iyoucelan;
-                this.youcelanPlugin.SetScreen(screen);
-                this.youcelanPlugin.SetGraphicsDevice();
-                this.youcelanPlugin.SetPersonDetailDialog(this.PersonDetailPlugin);
-                this.youcelanPlugin.SetTroopDetailDialog(this.TroopDetailPlugin);
-                this.youcelanPlugin.SetArchitectureDetailDialog(this.ArchitectureDetailPlugin);
-                this.youcelanPlugin.SetFactionTechniquesDialog(this.FactionTechniquesPlugin);
-                this.youcelanPlugin.SetTreasureDetailDialog(this.TreasureDetailPlugin);
-                this.youcelanPlugin.SetGameFrame(this.GameFramePlugin);
-                this.youcelanPlugin.SetMapViewSelector(this.MapViewSelectorPlugin);
-                screen.PluginList.Add(this.youcelanPlugin.Instance as GameObject);
+                this.RightSidePanelPlugin = plugin.Instance as Iyoucelan;
+                this.RightSidePanelPlugin.SetScreen(screen);
+                this.RightSidePanelPlugin.SetGraphicsDevice();
+                this.RightSidePanelPlugin.SetPersonDetailDialog(this.PersonDetailPlugin);
+                this.RightSidePanelPlugin.SetTroopDetailDialog(this.TroopDetailPlugin);
+                this.RightSidePanelPlugin.SetArchitectureDetailDialog(this.ArchitectureDetailPlugin);
+                this.RightSidePanelPlugin.SetFactionTechniquesDialog(this.FactionTechniquesPlugin);
+                this.RightSidePanelPlugin.SetTreasureDetailDialog(this.TreasureDetailPlugin);
+                this.RightSidePanelPlugin.SetGameFrame(this.GameFramePlugin);
+                this.RightSidePanelPlugin.SetMapViewSelector(this.MapViewSelectorPlugin);
+                screen.PluginList.Add(this.RightSidePanelPlugin.Instance as GameObject);
             }
 
-            plugin = new BianduiLiebiaoChajian.TabListPlugin();  // Plugin.Plugins.AvailablePlugins.Find("BianduiLiebiaoChajian");
+            plugin = new TroopArrangementPlugin.TabListPlugin();  // Plugin.Plugins.AvailablePlugins.Find("TroopArrangementPlugin");
             if ((plugin != null) && (plugin.Instance is IBianduiLiebiao))
             {
-                this.BianduiLiebiao = plugin.Instance as IBianduiLiebiao;
-                this.BianduiLiebiao.SetScreen(screen);
-                this.BianduiLiebiao.SetGraphicsDevice();
-                this.BianduiLiebiao.SetPersonDetailDialog(this.PersonDetailPlugin);
-                this.BianduiLiebiao.SetTroopDetailDialog(this.TroopDetailPlugin);
-                this.BianduiLiebiao.SetArchitectureDetailDialog(this.ArchitectureDetailPlugin);
-                this.BianduiLiebiao.SetFactionTechniquesDialog(this.FactionTechniquesPlugin);
-                this.BianduiLiebiao.SetTreasureDetailDialog(this.TreasureDetailPlugin);
-                this.BianduiLiebiao.SetGameFrame(this.GameFramePlugin);
-                this.BianduiLiebiao.SetMapViewSelector(this.MapViewSelectorPlugin);
-                screen.PluginList.Add(this.BianduiLiebiao.Instance as GameObject);
+                this.TroopArrangement = plugin.Instance as IBianduiLiebiao;
+                this.TroopArrangement.SetScreen(screen);
+                this.TroopArrangement.SetGraphicsDevice();
+                this.TroopArrangement.SetPersonDetailDialog(this.PersonDetailPlugin);
+                this.TroopArrangement.SetTroopDetailDialog(this.TroopDetailPlugin);
+                this.TroopArrangement.SetArchitectureDetailDialog(this.ArchitectureDetailPlugin);
+                this.TroopArrangement.SetFactionTechniquesDialog(this.FactionTechniquesPlugin);
+                this.TroopArrangement.SetTreasureDetailDialog(this.TreasureDetailPlugin);
+                this.TroopArrangement.SetGameFrame(this.GameFramePlugin);
+                this.TroopArrangement.SetMapViewSelector(this.MapViewSelectorPlugin);
+                screen.PluginList.Add(this.TroopArrangement.Instance as GameObject);
             }
             
         }

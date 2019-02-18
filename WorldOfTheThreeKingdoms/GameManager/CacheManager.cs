@@ -65,15 +65,6 @@ namespace GameManager
 
         public static Vector2 Scale = Vector2.One;
 
-        public static FontPair FontPair = new FontPair()
-        {
-            Name = @"Content\Font\FZLB_GBK.TTF",
-            Size = 32,
-            Style = "",
-            Width = 33,
-            Height = 32
-        };
-
         public static void Clear(CacheType type)
         {
             lock (CacheLock)
@@ -583,23 +574,19 @@ namespace GameManager
 
         public static void DrawString(SpriteFont font, string text, Vector2 pos, Color color, bool checkTradition = false, bool upload = false)
         {
-            if (!String.IsNullOrEmpty(text))
+            if (font != null && !String.IsNullOrEmpty(text))
             {
                 text = CheckTextCache(font, text, checkTradition, upload);
-                //Session.Current.SpriteBatch.DrawString(font, text, pos, color);
-
-                TextManager.DrawTexts(text, FontPair, pos, color);
+                Session.Current.SpriteBatch.DrawString(font, text, pos, color);
             }
         }
 
         public static void DrawString(SpriteFont font, string text, Vector2 pos, Color color, float rotation, Vector2 origin, float scale, SpriteEffects effects, float layerDepth, bool checkTradition = false, bool upload = false)
         {
-            if (!String.IsNullOrEmpty(text))
+            if (font != null && !String.IsNullOrEmpty(text))
             {
                 text = CheckTextCache(font, text, checkTradition, upload);
-                //Session.Current.SpriteBatch.DrawString(font, text, pos * Scale, color, rotation, origin, scale * Scale, effects, layerDepth);
-
-                TextManager.DrawTexts(text, FontPair, pos, color, 0, scale, layerDepth);
+                Session.Current.SpriteBatch.DrawString(font, text, pos * Scale, color, rotation, origin, scale * Scale, effects, layerDepth);
             }
         }
 

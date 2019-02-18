@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfTheThreeKingdoms.UWP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfTheThreeKingdomsEditor", "WorldOfTheThreeKingdomsEditor\WorldOfTheThreeKingdomsEditor.csproj", "{A9E750FB-CAC9-4820-BDF2-0D432134960C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "剧本存档转换工具", "json and excel\剧本存档转换工具.csproj", "{1A91CB8F-7033-4C17-9150-DE5BD0944906}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfTheThreeKingdomsConverter", "WorldOfTheThreeKingdomsConverter\WorldOfTheThreeKingdomsConverter.csproj", "{1A91CB8F-7033-4C17-9150-DE5BD0944906}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

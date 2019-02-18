@@ -143,7 +143,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     if (this.CurrentArchitecture == null && this.CurrentTroop == null && this.CurrentRouteway == null)
                     {
-                        if (this.Plugins.youcelanPlugin.IsShowing && StaticMethods.PointInRectangle(this.MousePosition, this.Plugins.youcelanPlugin.FrameRectangle))
+                        if (this.Plugins.RightSidePanelPlugin.IsShowing && StaticMethods.PointInRectangle(this.MousePosition, this.Plugins.RightSidePanelPlugin.FrameRectangle))
                         {
                         }
                         else
@@ -210,7 +210,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             if (Session.Current.Scenario.CurrentPlayer == null||this.editMode) return;
 
-            if (this.Plugins.youcelanPlugin.IsShowing && StaticMethods.PointInRectangle(this.MousePosition, this.Plugins.youcelanPlugin.FrameRectangle))
+            if (this.Plugins.RightSidePanelPlugin.IsShowing && StaticMethods.PointInRectangle(this.MousePosition, this.Plugins.RightSidePanelPlugin.FrameRectangle))
             {
                 return;
             }

@@ -282,14 +282,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.DrawRoutewayEditor();
                     this.Plugins.ToolBarPlugin.DrawTools = true;
                     //    this.Showyoucelan(UndoneWorkKind.None, FrameKind.Architecture, FrameFunction.Jump, false, true, false, false, Session.Current.Scenario.CurrentPlayer.Architectures, null, "", "");
-                    //this.Plugins.youcelanPlugin.Draw(); 
+                    //this.Plugins.RightSidePanelPlugin.Draw(); 
 
-                    //if (!this.Plugins.youcelanPlugin.IsShowing)
+                    //if (!this.Plugins.RightSidePanelPlugin.IsShowing)
                     //{
                         //this.Showyoucelan(UndoneWorkKind.None, FrameKind.Architecture, FrameFunction.Jump, false, true, false, false, Session.Current.Scenario.CurrentPlayer.Architectures, null, "", "");
                     //}
 
-                    this.Plugins.youcelanPlugin.Draw(); 
+                    this.Plugins.RightSidePanelPlugin.Draw(); 
 
 
                     break;
@@ -298,7 +298,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.DrawContextMenu();
                     if (this.bianduiLiebiaoBiaoji  == "ArchitectureLeftClick")
                     {
-                        this.Plugins.BianduiLiebiao.Draw();
+                        this.Plugins.TroopArrangement.Draw();
                         if (StaticMethods.PointInViewport(base.MousePosition, base.viewportSize))
                         {
                             this.DrawArchitectureSurvey();
@@ -320,7 +320,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.Drawtupianwenzi();
                     this.Plugins.ToolBarPlugin.DrawTools = false;
                     break;
-                case UndoneWorkKind.liangdaobianji:
+                case UndoneWorkKind.SupplyRouteEdit:
                     if (StaticMethods.PointInViewport(base.MousePosition, base.viewportSize))
                     {
                         this.DrawCommentText();
@@ -340,7 +340,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.DrawCommentText();
                     this.selectingLayer.Draw(base.viewportSize);
                     this.Plugins.ToolBarPlugin.DrawTools = true;
-                    this.Plugins.youcelanPlugin.Draw(); 
+                    this.Plugins.RightSidePanelPlugin.Draw(); 
                     break;
 
                 case UndoneWorkKind.Inputer:
@@ -356,7 +356,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.DrawSelector();
 
                     this.Plugins.ToolBarPlugin.DrawTools = true;
-                    this.Plugins.youcelanPlugin.Draw(); 
+                    this.Plugins.RightSidePanelPlugin.Draw(); 
 
                     break;
 
@@ -1430,7 +1430,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
                 case UndoneWorkKind.EventDisplay:
                     break;
-                case UndoneWorkKind.liangdaobianji :
+                case UndoneWorkKind.SupplyRouteEdit :
                     break;
                 case UndoneWorkKind.SubDialog:
                     break;
@@ -2043,20 +2043,20 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             if ((gameObjectList != null) && (gameObjectList.Count != 0))
             {
-                this.Plugins.youcelanPlugin.Kind = kind;
-                this.Plugins.youcelanPlugin.Function = function;
-                this.Plugins.youcelanPlugin.InitialValues(gameObjectList, selectedObjectList, InputManager.NowMouse.ScrollWheelValue,title);
-                this.Plugins.youcelanPlugin.SetListKindByName(kind.ToString(), showCheckBox, multiselecting);
-                this.Plugins.youcelanPlugin.SetSelectedTab(tabName);
+                this.Plugins.RightSidePanelPlugin.Kind = kind;
+                this.Plugins.RightSidePanelPlugin.Function = function;
+                this.Plugins.RightSidePanelPlugin.InitialValues(gameObjectList, selectedObjectList, InputManager.NowMouse.ScrollWheelValue,title);
+                this.Plugins.RightSidePanelPlugin.SetListKindByName(kind.ToString(), showCheckBox, multiselecting);
+                this.Plugins.RightSidePanelPlugin.SetSelectedTab(tabName);
 
-                //this.Plugins.GameFramePlugin.SetFrameyoucelanContent(this.Plugins.youcelanPlugin.TabList, base.viewportSize);  //viewportSize  游戏内容窗口的大小
-                this.Plugins.youcelanPlugin.SetyoucelanContent(base.viewportSize);  //viewportSize  游戏内容窗口的大小
+                //this.Plugins.GameFramePlugin.SetFrameyoucelanContent(this.Plugins.RightSidePanelPlugin.TabList, base.viewportSize);  //viewportSize  游戏内容窗口的大小
+                this.Plugins.RightSidePanelPlugin.SetyoucelanContent(base.viewportSize);  //viewportSize  游戏内容窗口的大小
 
                 //this.Plugins.GameFramePlugin.shiyoucelan = true;
                 //this.Plugins.GameFramePlugin.OKButtonEnabled = OKEnabled;
                 //this.Plugins.GameFramePlugin.CancelButtonEnabled = CancelEnabled;
                 //this.Plugins.GameFramePlugin.IsShowing = true;
-                //this.Plugins.youcelanPlugin.IsShowing = true;
+                //this.Plugins.RightSidePanelPlugin.IsShowing = true;
 
             }
         }
@@ -2065,27 +2065,27 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             //if ((gameObjectList != null) && (gameObjectList.Count != 0))
             {
-                this.Plugins.BianduiLiebiao.Kind = kind;
-                this.Plugins.BianduiLiebiao.Function = function;
-                this.Plugins.BianduiLiebiao.ShezhiBingyi(bingyi);
-                this.Plugins.BianduiLiebiao.InitialValues(gameObjectList, selectedObjectList, InputManager.NowMouse.ScrollWheelValue, title);
-                this.Plugins.BianduiLiebiao.SetListKindByName(kind.ToString(), showCheckBox, multiselecting);
-                this.Plugins.BianduiLiebiao.SetSelectedTab(tabName);
+                this.Plugins.TroopArrangement.Kind = kind;
+                this.Plugins.TroopArrangement.Function = function;
+                this.Plugins.TroopArrangement.ShezhiBingyi(bingyi);
+                this.Plugins.TroopArrangement.InitialValues(gameObjectList, selectedObjectList, InputManager.NowMouse.ScrollWheelValue, title);
+                this.Plugins.TroopArrangement.SetListKindByName(kind.ToString(), showCheckBox, multiselecting);
+                this.Plugins.TroopArrangement.SetSelectedTab(tabName);
 
-                //this.Plugins.GameFramePlugin.SetFrameyoucelanContent(this.Plugins.youcelanPlugin.TabList, base.viewportSize);  //viewportSize  游戏内容窗口的大小
-                this.Plugins.BianduiLiebiao.SetyoucelanContent(base.viewportSize);  //viewportSize  游戏内容窗口的大小
+                //this.Plugins.GameFramePlugin.SetFrameyoucelanContent(this.Plugins.RightSidePanelPlugin.TabList, base.viewportSize);  //viewportSize  游戏内容窗口的大小
+                this.Plugins.TroopArrangement.SetyoucelanContent(base.viewportSize);  //viewportSize  游戏内容窗口的大小
                 
                 //this.Plugins.GameFramePlugin.shiyoucelan = true;
                 //this.Plugins.GameFramePlugin.OKButtonEnabled = OKEnabled;
                 //this.Plugins.GameFramePlugin.CancelButtonEnabled = CancelEnabled;
                 //this.Plugins.GameFramePlugin.IsShowing = true;
-                //this.Plugins.youcelanPlugin.IsShowing = true;
+                //this.Plugins.RightSidePanelPlugin.IsShowing = true;
 
 
-                this.Plugins.BianduiLiebiao.IsShowing = true;
-                this.Plugins.youcelanPlugin.IsShowing = false ;
+                this.Plugins.TroopArrangement.IsShowing = true;
+                this.Plugins.RightSidePanelPlugin.IsShowing = false ;
 
-                this.Plugins.ContextMenuPlugin.ShezhiBianduiLiebiaoXinxi(this.Plugins.BianduiLiebiao.IsShowing, this.Plugins.BianduiLiebiao.Weizhi);
+                this.Plugins.ContextMenuPlugin.ShezhiBianduiLiebiaoXinxi(this.Plugins.TroopArrangement.IsShowing, this.Plugins.TroopArrangement.Weizhi);
 
             }
         }
@@ -2776,8 +2776,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                         this.UpdateToolBar(gameTime);
                         this.UpdateScreenBlind(gameTime);
-                        //this.Plugins.youcelanPlugin.Update(gameTime);
-                        //this.Plugins.youcelanPlugin.IsShowing = false;
+                        //this.Plugins.RightSidePanelPlugin.Update(gameTime);
+                        //this.Plugins.RightSidePanelPlugin.IsShowing = false;
                         this.UpdateViewMove();
                         this.HandleLaterMouseEvent(gameTime);
                         this.ScrollTheMainMap(gameTime);
@@ -2812,7 +2812,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             this.DateGo(1);
                         }
 
-                        //if (!this.Plugins.youcelanPlugin.IsShowing)
+                        //if (!this.Plugins.RightSidePanelPlugin.IsShowing)
                         //{
                         //    this.Showyoucelan(UndoneWorkKind.None, FrameKind.Architecture, FrameFunction.Jump, false, true, false, false, Session.Current.Scenario.CurrentPlayer.Architectures, null, "", "");
                         //}
@@ -2827,7 +2827,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                         break;
 
-                    case UndoneWorkKind.liangdaobianji:
+                    case UndoneWorkKind.SupplyRouteEdit:
 
                         this.HandleLaterMouseEvent(gameTime);
                         this.ScrollTheMainMap(gameTime);
@@ -3004,7 +3004,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (this.Plugins.ArchitectureSurveyPlugin != null)
             {
                 Architecture architectureByPosition = Session.Current.Scenario.GetArchitectureByPosition(this.position);
-                if (this.Plugins.youcelanPlugin.IsShowing && StaticMethods.PointInRectangle(this.MousePosition, this.Plugins.youcelanPlugin.FrameRectangle))
+                if (this.Plugins.RightSidePanelPlugin.IsShowing && StaticMethods.PointInRectangle(this.MousePosition, this.Plugins.RightSidePanelPlugin.FrameRectangle))
                 {
                     architectureByPosition = null;
                 }
@@ -3055,7 +3055,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if (Session.GlobalVariables.SkyEye || ((Session.Current.Scenario.CurrentPlayer != null) && Session.Current.Scenario.CurrentPlayer.IsPositionKnown(this.position)))
                 {
                     Troop troopByPosition = Session.Current.Scenario.GetTroopByPosition(this.position);
-                    if (this.Plugins.youcelanPlugin.IsShowing && StaticMethods.PointInRectangle(this.MousePosition, this.Plugins.youcelanPlugin.FrameRectangle))
+                    if (this.Plugins.RightSidePanelPlugin.IsShowing && StaticMethods.PointInRectangle(this.MousePosition, this.Plugins.RightSidePanelPlugin.FrameRectangle))
                     {
                         troopByPosition = null;
                     }

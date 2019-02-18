@@ -23,7 +23,7 @@ using WorldOfTheThreeKingdoms.Resources;
 using Platforms;
 using GameManager;
 using System.Diagnostics;
-using youcelanPlugin;
+using RightSidePanelPlugin;
 
 //using GameObjects.PersonDetail.PersonMessages;
 
@@ -226,8 +226,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (Session.Current.Scenario.CurrentPlayer != null)
             {
                 this.Showyoucelan(UndoneWorkKind.None, FrameKind.Architecture, FrameFunction.Jump, false, true, false, false, Session.Current.Scenario.CurrentPlayer.FirstSection.Architectures, null, "", "");
-                //this.Plugins.youcelanPlugin.IsShowing = true;
-                ((this.Plugins.youcelanPlugin as youcelanPlugin.TabListPlugin).TabList as TabListInFrame).SetMouseEvent(this, true);
+                //this.Plugins.RightSidePanelPlugin.IsShowing = true;
+                ((this.Plugins.RightSidePanelPlugin as RightSidePanelPlugin.TabListPlugin).TabList as TabListInFrame).SetMouseEvent(this, true);
             }
 
             //this.thisGame.jiazaitishi.jiazaijindu.Value = 90;

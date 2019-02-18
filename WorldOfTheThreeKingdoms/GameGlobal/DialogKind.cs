@@ -17,7 +17,7 @@ namespace GameGlobal
         TreasureDetail,
         CreateTroop,
         EventDisplay,
-        liangdaobianji
+        SupplyRouteEdit
     }
 }
 

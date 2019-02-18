@@ -51,11 +51,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                 {
                     //try
                     //{
-                        maptile.TileTexture = Platform.Current.LoadTexture("Content/Textures/Resources/ditu/" + Session.Current.Scenario.ScenarioMap.MapName + "/" + maptile.number + ".jpg", false);
+                        maptile.TileTexture = Platform.Current.LoadTexture("Content/Textures/Resources/GrandMap/" + Session.Current.Scenario.ScenarioMap.MapName + "/" + maptile.number + ".jpg", false);
                     //}
                     //catch (FileNotFoundException)
                     //{
-                    //    maptile.TileTexture = CacheManager.GetTempTexture("Content/Textures/Resources/ditu/" + Session.Current.Scenario.ScenarioMap.MapName + "/" + maptile.number + ".png");
+                    //    maptile.TileTexture = CacheManager.GetTempTexture("Content/Textures/Resources/GrandMap/" + Session.Current.Scenario.ScenarioMap.MapName + "/" + maptile.number + ".png");
                     //}
                 }
                 catch (Exception)
@@ -66,11 +66,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                     //    this.freeTilesMemory(false);
                     //    try
                     //    {
-                    //        maptile.TileTexture = CacheManager.GetTempTexture("Content/Textures/Resources/ditu/" + Session.Current.Scenario.ScenarioMap.MapName + "/" + maptile.number + ".jpg");
+                    //        maptile.TileTexture = CacheManager.GetTempTexture("Content/Textures/Resources/GrandMap/" + Session.Current.Scenario.ScenarioMap.MapName + "/" + maptile.number + ".jpg");
                     //    }
                     //    catch (FileNotFoundException)
                     //    {
-                    //        maptile.TileTexture = CacheManager.GetTempTexture("Content/Textures/Resources/ditu/" + Session.Current.Scenario.ScenarioMap.MapName + "/" + maptile.number + ".png");
+                    //        maptile.TileTexture = CacheManager.GetTempTexture("Content/Textures/Resources/GrandMap/" + Session.Current.Scenario.ScenarioMap.MapName + "/" + maptile.number + ".png");
                     //    }
                     //}
                     //catch (Exception)
@@ -1141,7 +1141,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
             //s=this.beijingtupian.BitmapToMemoryStream(device, bm);
             //bm.Dispose();
             //this.BackgroundMap = this.beijingtupian.huoqupingmutuxing(-this.LeftEdge, -this.TopEdge, Session.MainGame.mainGameScreen.viewportSize.X, Session.MainGame.mainGameScreen.viewportSize.Y,device );
-            this.BackgroundMap = Texture2D.FromFile(device, "Content/Textures/Resources/ditu/" + Session.Current.Scenario.ScenarioMap.dituwenjian);
+            this.BackgroundMap = Texture2D.FromFile(device, "Content/Textures/Resources/GrandMap/" + Session.Current.Scenario.ScenarioMap.dituwenjian);
             */
         }
 
