@@ -8201,6 +8201,15 @@ namespace GameObjects
             }
         }
 
+        public int FallbackPictureIndex
+        {
+            get
+            {
+                if (this.Sex) return 9997;
+                if (this.BaseIntelligence + this.BasePolitics > this.BaseStrength + this.BaseCommand) return 9998; else return 9999;
+            }
+        }
+
         [DataMember]
         public int PictureIndex
         {
