@@ -1447,11 +1447,11 @@
     <Compile Include="GamePlugins\ArchitectureDetail\ArchitectureDetailPlugin.cs" />
     <Compile Include="GamePlugins\ArchitectureSurveyPlugin\ArchitectureSurvey.cs" />
     <Compile Include="GamePlugins\ArchitectureSurveyPlugin\ArchitectureSurveyPlugin.cs" />
-    <Compile Include="GamePlugins\TroopArrangementPlugin\Column.cs" />
-    <Compile Include="GamePlugins\TroopArrangementPlugin\ListKind.cs" />
-    <Compile Include="GamePlugins\TroopArrangementPlugin\Tab.cs" />
-    <Compile Include="GamePlugins\TroopArrangementPlugin\TabListInFrame.cs" />
-    <Compile Include="GamePlugins\TroopArrangementPlugin\TabListPlugin.cs" />
+    <Compile Include="GamePlugins\TroopFormationPlugin\Column.cs" />
+    <Compile Include="GamePlugins\TroopFormationPlugin\ListKind.cs" />
+    <Compile Include="GamePlugins\TroopFormationPlugin\Tab.cs" />
+    <Compile Include="GamePlugins\TroopFormationPlugin\TabListInFrame.cs" />
+    <Compile Include="GamePlugins\TroopFormationPlugin\TabListPlugin.cs" />
     <Compile Include="GamePlugins\CommentTextPlugin\CommentText.cs" />
     <Compile Include="GamePlugins\CommentTextPlugin\CommentTextPlugin.cs" />
     <Compile Include="GamePlugins\ConfirmationDialogPlugin\ConfirmationDialog.cs" />
@@ -1726,8 +1726,8 @@
       <Link>Content\Data\Plugins\ArchitectureSurveyData.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\Plugins\TroopArrangementPlugin.xml">
-      <Link>Content\Data\Plugins\TroopArrangementPlugin.xml</Link>
+    <Content Include="..\Content\Data\Plugins\TroopFormationPlugin.xml">
+      <Link>Content\Data\Plugins\TroopFormationPlugin.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Data\Plugins\CommentTextData.xml">
@@ -5472,108 +5472,108 @@
       <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\Bar\Yellow.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\BackGround.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\BackGround.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\BackGround.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\BackGround.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\BottomEdge.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\BottomEdge.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\BottomEdge.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\BottomEdge.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\BottomLeft.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\BottomLeft.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\BottomLeft.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\BottomLeft.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\BottomRight.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\BottomRight.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\BottomRight.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\BottomRight.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\CheckBox.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\CheckBox.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\CheckBox.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\CheckBox.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\CheckBoxSelected.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\CheckBoxSelected.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\CheckBoxSelected.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\CheckBoxSelected.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\ColumnHeader.jpg">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\ColumnHeader.jpg</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\ColumnHeader.jpg">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\ColumnHeader.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\ColumnHeader.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\ColumnHeader.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\ColumnHeader.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\ColumnHeader.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\ColumnSpliter.jpg">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\ColumnSpliter.jpg</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\ColumnSpliter.jpg">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\ColumnSpliter.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\FocusTrack.jpg">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\FocusTrack.jpg</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\FocusTrack.jpg">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\FocusTrack.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\jiahao.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\jiahao.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\jiahao.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\jiahao.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\jianhao.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\jianhao.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\jianhao.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\jianhao.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\LeftArrow.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\LeftArrow.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\LeftArrow.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\LeftArrow.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\LeftEdge.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\LeftEdge.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\LeftEdge.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\LeftEdge.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\RightArrow.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\RightArrow.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\RightArrow.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\RightArrow.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\RightEdge.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\RightEdge.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\RightEdge.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\RightEdge.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\RoundCheckBox.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\RoundCheckBox.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\RoundCheckBox.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\RoundCheckBox.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\RoundCheckBoxSelected.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\RoundCheckBoxSelected.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\RoundCheckBoxSelected.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\RoundCheckBoxSelected.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\ScrollButton.jpg">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\ScrollButton.jpg</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\ScrollButton.jpg">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\ScrollButton.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\ScrollButton.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\ScrollButton.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\ScrollButton.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\ScrollButton.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\ScrollTrack.jpg">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\ScrollTrack.jpg</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\ScrollTrack.jpg">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\ScrollTrack.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\TabButton.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\TabButton.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\TabButton.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\TabButton.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\TabButtonSelected.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\TabButtonSelected.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\TabButtonSelected.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\TabButtonSelected.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\TopEdge.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\TopEdge.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\TopEdge.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\TopEdge.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\TopLeft.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\TopLeft.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\TopLeft.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\TopLeft.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TroopArrangement\Data\TopRight.png">
-      <Link>Content\Textures\GameComponents\TroopArrangement\Data\TopRight.png</Link>
+    <Content Include="..\Content\Textures\GameComponents\TroopFormation\Data\TopRight.png">
+      <Link>Content\Textures\GameComponents\TroopFormation\Data\TopRight.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Textures\GameComponents\ConfirmationDialog\Data\Background.png">

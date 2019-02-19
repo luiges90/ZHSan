@@ -298,7 +298,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.DrawContextMenu();
                     if (this.bianduiLiebiaoBiaoji  == "ArchitectureLeftClick")
                     {
-                        this.Plugins.TroopArrangement.Draw();
+                        this.Plugins.TroopFormation.Draw();
                         if (StaticMethods.PointInViewport(base.MousePosition, base.viewportSize))
                         {
                             this.DrawArchitectureSurvey();
@@ -2065,15 +2065,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             //if ((gameObjectList != null) && (gameObjectList.Count != 0))
             {
-                this.Plugins.TroopArrangement.Kind = kind;
-                this.Plugins.TroopArrangement.Function = function;
-                this.Plugins.TroopArrangement.ShezhiBingyi(bingyi);
-                this.Plugins.TroopArrangement.InitialValues(gameObjectList, selectedObjectList, InputManager.NowMouse.ScrollWheelValue, title);
-                this.Plugins.TroopArrangement.SetListKindByName(kind.ToString(), showCheckBox, multiselecting);
-                this.Plugins.TroopArrangement.SetSelectedTab(tabName);
+                this.Plugins.TroopFormation.Kind = kind;
+                this.Plugins.TroopFormation.Function = function;
+                this.Plugins.TroopFormation.ShezhiBingyi(bingyi);
+                this.Plugins.TroopFormation.InitialValues(gameObjectList, selectedObjectList, InputManager.NowMouse.ScrollWheelValue, title);
+                this.Plugins.TroopFormation.SetListKindByName(kind.ToString(), showCheckBox, multiselecting);
+                this.Plugins.TroopFormation.SetSelectedTab(tabName);
 
                 //this.Plugins.GameFramePlugin.SetFrameyoucelanContent(this.Plugins.RightSidePanelPlugin.TabList, base.viewportSize);  //viewportSize  游戏内容窗口的大小
-                this.Plugins.TroopArrangement.SetyoucelanContent(base.viewportSize);  //viewportSize  游戏内容窗口的大小
+                this.Plugins.TroopFormation.SetyoucelanContent(base.viewportSize);  //viewportSize  游戏内容窗口的大小
                 
                 //this.Plugins.GameFramePlugin.shiyoucelan = true;
                 //this.Plugins.GameFramePlugin.OKButtonEnabled = OKEnabled;
@@ -2082,10 +2082,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 //this.Plugins.RightSidePanelPlugin.IsShowing = true;
 
 
-                this.Plugins.TroopArrangement.IsShowing = true;
+                this.Plugins.TroopFormation.IsShowing = true;
                 this.Plugins.RightSidePanelPlugin.IsShowing = false ;
 
-                this.Plugins.ContextMenuPlugin.ShezhiBianduiLiebiaoXinxi(this.Plugins.TroopArrangement.IsShowing, this.Plugins.TroopArrangement.Weizhi);
+                this.Plugins.ContextMenuPlugin.ShezhiBianduiLiebiaoXinxi(this.Plugins.TroopFormation.IsShowing, this.Plugins.TroopFormation.Weizhi);
 
             }
         }

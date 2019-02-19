@@ -13,7 +13,7 @@ namespace GameObjects
         private SectionAIDetail aiDetail;
 
         [DataMember]
-        public string ArchitecturesString { get; set; }
+        public string CitiesControlledString { get; set; }
 
         public ArchitectureList Architectures = new ArchitectureList();
         public Faction BelongedFaction;

@@ -3377,8 +3377,8 @@ namespace GameObjects
 
                 try
                 {
-                    //architecture.InformationsString = (string)reader["Informations"];
-                    e.AddRange(architecture.LoadInformationsFromString(this.Informations, architecture.InformationsString));
+                    //architecture.IntelsAcquiredString = (string)reader["Informations"];
+                    e.AddRange(architecture.LoadInformationsFromString(this.Informations, architecture.IntelsAcquiredString));
                 }
                 catch
                 {
@@ -3531,8 +3531,8 @@ namespace GameObjects
                     e.Add("军区委任类型" + section.AIDetailIDString + "不存在");
                 }
 
-                //section.ArchitecturesString = reader["Architectures"].ToString();
-                e.AddRange(section.LoadArchitecturesFromString(this.Architectures, section.ArchitecturesString));
+                //section.CitiesControlledString = reader["Architectures"].ToString();
+                e.AddRange(section.LoadArchitecturesFromString(this.Architectures, section.CitiesControlledString));
 
                 if (e.Count > 0)
                 {
@@ -3549,26 +3549,26 @@ namespace GameObjects
 
                 faction.Init();
 
-                //faction.ArchitecturesString = reader["Architectures"].ToString();
-                e.AddRange(faction.LoadArchitecturesFromString(this.Architectures, faction.ArchitecturesString));
+                //faction.CitiesControlledString = reader["Architectures"].ToString();
+                e.AddRange(faction.LoadArchitecturesFromString(this.Architectures, faction.CitiesControlledString));
 
-                //faction.SectionsString = reader["Sections"].ToString();
-                e.AddRange(faction.LoadSectionsFromString(this.Sections, faction.SectionsString));
+                //faction.MilitaryDistrictsString = reader["Sections"].ToString();
+                e.AddRange(faction.LoadSectionsFromString(this.Sections, faction.MilitaryDistrictsString));
 
                 //faction.TroopListString = reader["Troops"].ToString();
                 e.AddRange(faction.LoadTroopsFromString(this.Troops, faction.TroopListString));
 
-                //faction.InformationsString = reader["Informations"].ToString();
-                e.AddRange(faction.LoadInformationsFromString(this.Informations, faction.InformationsString));
+                //faction.IntelsAcquiredString = reader["Informations"].ToString();
+                e.AddRange(faction.LoadInformationsFromString(this.Informations, faction.IntelsAcquiredString));
 
-                //faction.RoutewaysString = reader["Routeways"].ToString();
-                e.AddRange(faction.LoadRoutewaysFromString(this.Routeways, faction.RoutewaysString));
+                //faction.SupplyRoutesString = reader["Routeways"].ToString();
+                e.AddRange(faction.LoadRoutewaysFromString(this.Routeways, faction.SupplyRoutesString));
 
                 //faction.LegionsString = reader["Legions"].ToString();
                 e.AddRange(faction.LoadLegionsFromString(this.Legions, faction.LegionsString));
 
-                //faction.BaseMilitaryKindsString = reader["BaseMilitaryKinds"].ToString();
-                faction.BaseMilitaryKinds.LoadFromString(this.GameCommonData.AllMilitaryKinds, faction.BaseMilitaryKindsString);
+                //faction.InitialTroopTypesAllowedString = reader["BaseMilitaryKinds"].ToString();
+                faction.BaseMilitaryKinds.LoadFromString(this.GameCommonData.AllMilitaryKinds, faction.InitialTroopTypesAllowedString);
 
                 //faction.AvailableTechniquesString = reader["AvailableTechniques"].ToString();
                 e.AddRange(faction.AvailableTechniques.LoadFromString(this.GameCommonData.AllTechniques, faction.AvailableTechniquesString));
@@ -4585,13 +4585,13 @@ namespace GameObjects
             {
                 foreach (Faction faction in this.Factions)
                 {
-                    faction.SectionsString = faction.Sections.SaveToString();
-                    faction.ArchitecturesString = faction.Architectures.SaveToString();
+                    faction.MilitaryDistrictsString = faction.Sections.SaveToString();
+                    faction.CitiesControlledString = faction.Architectures.SaveToString();
                     faction.TroopListString = faction.Troops.SaveToString(); ;
-                    faction.InformationsString = faction.Informations.SaveToString();
-                    faction.RoutewaysString = faction.Routeways.SaveToString();
+                    faction.IntelsAcquiredString = faction.Informations.SaveToString();
+                    faction.SupplyRoutesString = faction.Routeways.SaveToString();
                     faction.LegionsString = faction.Legions.SaveToString();
-                    faction.BaseMilitaryKindsString = faction.BaseMilitaryKinds.SaveToString();
+                    faction.InitialTroopTypesAllowedString = faction.BaseMilitaryKinds.SaveToString();
                     faction.AvailableTechniquesString = faction.AvailableTechniques.SaveToString();
                     faction.PlanTechniqueString = (faction.PlanTechnique != null) ? faction.PlanTechnique.ID : -1;
                     faction.GetGeneratorPersonCountString = faction.SaveGeneratorPersonCountToString();
@@ -4611,7 +4611,7 @@ namespace GameObjects
                     section.OrientationSectionID = (section.OrientationSection != null) ? section.OrientationSection.ID : -1;
                     section.OrientationStateID = (section.OrientationState != null) ? section.OrientationState.ID : -1;
                     section.OrientationArchitectureID = (section.OrientationArchitecture != null) ? section.OrientationArchitecture.ID : -1;
-                    section.ArchitecturesString = section.Architectures.SaveToString();
+                    section.CitiesControlledString = section.Architectures.SaveToString();
                 }
             }
 
@@ -4668,7 +4668,7 @@ namespace GameObjects
                     //row["zainanleixing"] = architecture.zainan.zainanzhonglei.ID;
                     //row["zainanshengyutianshu"] = architecture.zainan.shengyutianshu;
 
-                    architecture.InformationsString = architecture.Informations.SaveToString();
+                    architecture.IntelsAcquiredString = architecture.Informations.SaveToString();
 
                     //string s = "";
                     //foreach (Architecture i in architecture.AIBattlingArchitectures)
@@ -4745,7 +4745,7 @@ namespace GameObjects
 
             foreach (Military military in this.Militaries)
             {
-                military.FollowedLeaderID = (military.FollowedLeader != null) ? military.FollowedLeader.ID : -1;
+                military.FollowingCaptainID = (military.FollowedLeader != null) ? military.FollowedLeader.ID : -1;
                 military.LeaderID = (military.Leader != null) ? military.Leader.ID : -1;
 
                 //row["LeaderExperience"] = military.LeaderExperience;

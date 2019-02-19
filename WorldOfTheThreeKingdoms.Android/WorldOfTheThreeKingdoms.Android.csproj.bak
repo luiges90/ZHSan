@@ -3880,20 +3880,20 @@
     <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\ArchitectureSurveyPlugin\ArchitectureSurveyPlugin.cs">
       <Link>GamePlugins\ArchitectureSurveyPlugin\ArchitectureSurveyPlugin.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\TroopArrangementPlugin\Column.cs">
-      <Link>GamePlugins\TroopArrangementPlugin\Column.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\TroopFormationPlugin\Column.cs">
+      <Link>GamePlugins\TroopFormationPlugin\Column.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\TroopArrangementPlugin\ListKind.cs">
-      <Link>GamePlugins\TroopArrangementPlugin\ListKind.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\TroopFormationPlugin\ListKind.cs">
+      <Link>GamePlugins\TroopFormationPlugin\ListKind.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\TroopArrangementPlugin\Tab.cs">
-      <Link>GamePlugins\TroopArrangementPlugin\Tab.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\TroopFormationPlugin\Tab.cs">
+      <Link>GamePlugins\TroopFormationPlugin\Tab.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\TroopArrangementPlugin\TabListInFrame.cs">
-      <Link>GamePlugins\TroopArrangementPlugin\TabListInFrame.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\TroopFormationPlugin\TabListInFrame.cs">
+      <Link>GamePlugins\TroopFormationPlugin\TabListInFrame.cs</Link>
     </Compile>
-    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\TroopArrangementPlugin\TabListPlugin.cs">
-      <Link>GamePlugins\TroopArrangementPlugin\TabListPlugin.cs</Link>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\TroopFormationPlugin\TabListPlugin.cs">
+      <Link>GamePlugins\TroopFormationPlugin\TabListPlugin.cs</Link>
     </Compile>
     <Compile Include="..\WorldOfTheThreeKingdoms\GamePlugins\CommentTextPlugin\CommentText.cs">
       <Link>GamePlugins\CommentTextPlugin\CommentText.cs</Link>
@@ -6086,8 +6086,8 @@
     </AndroidAsset>
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="..\Content\Data\Plugins\TroopArrangementPlugin.xml">
-      <Link>Assets\Content\Data\Plugins\TroopArrangementPlugin.xml</Link>
+    <AndroidAsset Include="..\Content\Data\Plugins\TroopFormationPlugin.xml">
+      <Link>Assets\Content\Data\Plugins\TroopFormationPlugin.xml</Link>
     </AndroidAsset>
   </ItemGroup>
   <ItemGroup>
@@ -9056,83 +9056,83 @@
     <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\ArchitectureSurvey\Data\Backgrounds\Bar\Yellow.png">
       <Link>Assets\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\Bar\Yellow.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\BackGround.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\BackGround.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\BackGround.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\BackGround.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\BottomEdge.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\BottomEdge.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\BottomEdge.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\BottomEdge.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\BottomLeft.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\BottomLeft.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\BottomLeft.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\BottomLeft.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\BottomRight.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\BottomRight.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\BottomRight.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\BottomRight.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\CheckBox.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\CheckBox.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\CheckBox.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\CheckBox.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\CheckBoxSelected.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\CheckBoxSelected.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\CheckBoxSelected.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\CheckBoxSelected.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\ColumnHeader.jpg">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\ColumnHeader.jpg</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\ColumnHeader.jpg">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\ColumnHeader.jpg</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\ColumnHeader.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\ColumnHeader.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\ColumnHeader.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\ColumnHeader.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\ColumnSpliter.jpg">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\ColumnSpliter.jpg</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\ColumnSpliter.jpg">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\ColumnSpliter.jpg</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\FocusTrack.jpg">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\FocusTrack.jpg</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\FocusTrack.jpg">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\FocusTrack.jpg</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\jiahao.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\jiahao.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\jiahao.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\jiahao.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\jianhao.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\jianhao.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\jianhao.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\jianhao.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\LeftArrow.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\LeftArrow.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\LeftArrow.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\LeftArrow.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\LeftEdge.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\LeftEdge.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\LeftEdge.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\LeftEdge.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\RightArrow.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\RightArrow.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\RightArrow.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\RightArrow.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\RightEdge.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\RightEdge.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\RightEdge.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\RightEdge.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\RoundCheckBox.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\RoundCheckBox.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\RoundCheckBox.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\RoundCheckBox.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\RoundCheckBoxSelected.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\RoundCheckBoxSelected.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\RoundCheckBoxSelected.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\RoundCheckBoxSelected.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\ScrollButton.jpg">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\ScrollButton.jpg</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\ScrollButton.jpg">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\ScrollButton.jpg</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\ScrollButton.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\ScrollButton.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\ScrollButton.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\ScrollButton.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\ScrollTrack.jpg">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\ScrollTrack.jpg</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\ScrollTrack.jpg">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\ScrollTrack.jpg</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\TabButton.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\TabButton.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\TabButton.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\TabButton.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\TabButtonSelected.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\TabButtonSelected.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\TabButtonSelected.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\TabButtonSelected.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\TopEdge.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\TopEdge.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\TopEdge.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\TopEdge.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\TopLeft.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\TopLeft.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\TopLeft.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\TopLeft.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopArrangement\Data\TopRight.png">
-      <Link>Assets\Content\Textures\GameComponents\TroopArrangement\Data\TopRight.png</Link>
+    <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\TroopFormation\Data\TopRight.png">
+      <Link>Assets\Content\Textures\GameComponents\TroopFormation\Data\TopRight.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\Content\TexturesAlpha\GameComponents\ConfirmationDialog\Data\Background.png">
       <Link>Assets\Content\Textures\GameComponents\ConfirmationDialog\Data\Background.png</Link>

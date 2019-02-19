@@ -129,7 +129,7 @@
                 FontColor="4294967295"
                 Align="Middle">
     </Label>
-    <Text X="430" Y="165" Width="80" Height="25" PropertyName="InjuryQuantity"
+    <Text X="430" Y="165" Width="80" Height="25" PropertyName="InjuryAmount"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"

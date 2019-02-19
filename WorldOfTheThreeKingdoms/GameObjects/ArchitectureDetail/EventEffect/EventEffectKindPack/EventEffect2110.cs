@@ -11,7 +11,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
 
         public override void ApplyEffectKind(Faction f, Event e)
         {
-            f.guanjue += increment;
+            f.NobleRankID += increment;
         }
 
         public override void InitializeParameter(string parameter)

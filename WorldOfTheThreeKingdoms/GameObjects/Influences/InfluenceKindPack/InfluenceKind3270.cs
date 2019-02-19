@@ -15,7 +15,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
         {
             foreach (Military military in architecture.Militaries)
             {
-                if ((military.Kind.ID == this.kind) && (military.InjuryQuantity == 0))
+                if ((military.Kind.ID == this.kind) && (military.InjuryAmount == 0))
                 {
                     architecture.RecruitmentMilitary(military, this.rate);
                 }

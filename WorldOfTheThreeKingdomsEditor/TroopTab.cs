@@ -22,7 +22,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 {"StartingArchitecture", "-1"},
                 {"MilitaryID", "-1" },
                 {"TargetTroopID", "-1"},
-                {"TargetArchitectureID", "-1" },
+                {"DestinationCityID", "-1" },
                 {"WillTroopID", "-1" },
                 {"WillArchitectureID", "-1" },
                 {"CurrentCombatMethodID", "-1" },

@@ -123,7 +123,7 @@
     <Compile Include="EventTab.cs" />
     <Compile Include="CaptiveTab.cs" />
     <Compile Include="TroopTab.cs" />
-    <Compile Include="TroopArrangementTab.cs" />
+    <Compile Include="TroopFormationTab.cs" />
     <Compile Include="FactionTab.cs" />
     <Compile Include="CityTab.cs" />
     <Compile Include="BaseTab.cs" />

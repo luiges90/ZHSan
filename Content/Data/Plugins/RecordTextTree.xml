@@ -428,7 +428,7 @@
 
     <Leaf Property="TextResultString" Color="4293771363"></Leaf>
     <Leaf Text="。朝廷贡献度增长到了" Color="4292730333"></Leaf>
-    <Leaf Property="chaotinggongxiandu" Color="4293771363"></Leaf>
+    <Leaf Property="ContributionToEmperor" Color="4293771363"></Leaf>
     <Leaf Text="。" Color="4292730333"></Leaf>
 
     <Leaf Text="\n" Color="4292730333"></Leaf>

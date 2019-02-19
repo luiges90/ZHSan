@@ -12,7 +12,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
 
         public override bool CheckConditionKind(Troop troop)
         {
-            return ((troop.InjuryQuantity / troop.Army.Kind.MinScale) >= this.number);
+            return ((troop.InjuryAmount / troop.Army.Kind.MinScale) >= this.number);
         }
 
         public override void InitializeParameter(string parameter)

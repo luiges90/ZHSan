@@ -255,7 +255,7 @@
             </TabItem>
             <TabItem Header="势力">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgFaction" AlternationCount="2">
+                    <DataGrid x:Name="dgFaction" AlternationCount="2" AutoGeneratingColumn="FactionTabHeaderDisplay">
 						<DataGrid.ColumnHeaderStyle>
 							<Style TargetType="DataGridColumnHeader">
 								<Setter Property="FontWeight"  Value="Bold"/>
@@ -284,7 +284,7 @@
             </TabItem>
             <TabItem Header="编队">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgMilitary" AlternationCount="2">
+                    <DataGrid x:Name="dgMilitary" AlternationCount="2" AutoGeneratingColumn="TroopFormationTabHeaderDisplay">
 						<DataGrid.ColumnHeaderStyle>
 							<Style TargetType="DataGridColumnHeader">
 								<Setter Property="FontWeight"  Value="Bold"/>

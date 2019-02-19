@@ -234,7 +234,7 @@ namespace json_and_excel
                      string 事件效果类型 = "select ID as ID ,Name as 名称  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[事件效果类型] from EventEffectKind";
                      string 设施 = "select ID as ID ,KindID as KindID ,Endurance as 耐久  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[设施] from Facility";
                      string 设施类型 = "select ID as ID ,Name as 名称 ,Description as 描述 ,AILevel as AI強度 ,PositionOccupied as 占用位置 ,TechnologyNeeded as 新建技术 ,FundCost as 新建资金 ,MaintenanceCost as 维持费用 ,PointCost as 新建技巧 ,Days as 建造时间 ,Endurance as 耐久度 ,ArchitectureLimit as 建筑上限 ,FactionLimit as 势力上限 ,PopulationRelated as 人口相关 ,Influences as 影响 ,Conditions as 兴建条件 ,rongna as 容纳 ,bukechaichu as 不可拆除  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[设施类型] from FacilityKind";
-                     string 势力 = "select ID as ID ,Passed as 是否进行过了 ,PreUserControlFinished as 用户控制前的任务是否完成 ,Controlling as 拥有当前控制权 ,LeaderID as 君主ID ,ColorIndex as 颜色编号 ,FName as 势力名 ,CapitalID as 都城ID ,TechniquePoint as 技巧点数 ,TechniquePointForTechnique as 为升级技巧所保留的技巧点数 ,TechniquePointForFacility as 为建造设施所保留的技巧点数 ,Reputation as 声望 ,Sections as 军区 ,Informations as 情报列表 ,Architectures as 建筑列表 ,Troops as 部队列表 ,Routeways as 粮道列表 ,Legions as 军团列表 ,BaseMilitaryKinds as 基本兵种列表 ,UpgradingTechnique as 正在升级中的技巧 ,UpgradingDaysLeft as 剩余时间 ,AvailableTechniques as 已有技巧 ,PreferredTechniqueKinds as 偏好技巧类别 ,PlanTechnique as 计划技巧 ,AutoRefuse as 自动拒绝释放俘虏 ,chaotinggongxiandu as 朝廷贡献度 ,guanjue as 官爵 ,IsAlien as 异族 ,NotPlayerSelectable as 玩家可选 ,PrinceID as 储君ID ,CreatePersonTimes as CreatePersonTimes ,YearOfficialLimit as YearOfficialLimit ,MilitaryCount as 编队数量 ,TransferingMilitaryCount as 编队运输数量 ,GetGeneratorPersonCount as GetGeneratorPersonCount  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[势力] from Faction";
+                     string 势力 = "select ID as ID ,Passed as 是否进行过了 ,PreUserControlFinished as 用户控制前的任务是否完成 ,Controlling as 拥有当前控制权 ,LeaderID as 君主ID ,ColorIndex as 颜色编号 ,FName as 势力名 ,CapitalID as 都城ID ,TechniquePoint as 技巧点数 ,TechniquePointForTechnique as 为升级技巧所保留的技巧点数 ,TechniquePointForFacility as 为建造设施所保留的技巧点数 ,Reputation as 声望 ,Sections as 军区 ,Informations as 情报列表 ,Architectures as 建筑列表 ,Troops as 部队列表 ,Routeways as 粮道列表 ,Legions as 军团列表 ,BaseMilitaryKinds as 基本兵种列表 ,UpgradingTechnique as 正在升级中的技巧 ,UpgradingDaysLeft as 剩余时间 ,AvailableTechniques as 已有技巧 ,PreferredTechniqueKinds as 偏好技巧类别 ,PlanTechnique as 计划技巧 ,AutoRefuse as 自动拒绝释放俘虏 ,ContributionToEmperor as 朝廷贡献度 ,NobleRankID as 官爵 ,IsAlien as 异族 ,NotPlayerSelectable as 玩家可选 ,PrinceID as 储君ID ,CreatePersonTimes as CreatePersonTimes ,YearOfficialLimit as YearOfficialLimit ,MilitaryCount as 编队数量 ,TransferingMilitaryCount as 编队运输数量 ,GetGeneratorPersonCount as GetGeneratorPersonCount  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[势力] from Faction";
                      string GameData = "selectPlayerList as 玩家列表 ,CurrentPlayer as 当前玩家 ,FactionQueue as 势力队列 ,FireTable as 火焰列表 ,NoFoodTable as 无粮列表 ,DaySince as 劇本自今天數  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[GameData] from GameData";
                      string GameParameters = "selectName as AbilityExperienceRate ,Value as 1  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[GameParameters] from GameParameters";
                      string GameSurvey = "selectTitle as 标题 ,GYear as 年 ,GMonth as 月 ,GDay as 日 ,SaveTime as 保存时间 ,PlayerInfo as 存档信息 ,JumpPosition as 初始位置 ,Description as 描述 ,GameTime as 遊戲時間  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[GameSurvey] from GameSurvey";
@@ -247,7 +247,7 @@ namespace json_and_excel
                      string 情报类型 = "select ID as ID ,iLevel as 等级 ,Radius as 半径 ,Oblique as 斜向 ,CostFund as 所需资金  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[情报类型] from InformationKind";
                      string 军团 = "select ID as ID ,Kind as 类型 ,StartArchitecture as 起始建筑 ,WillArchitecture as 目标建筑 ,PreferredRouteway as 偏好粮道 ,InformationDestination as InformationDestination ,CoreTroop as 核心部队 ,Troops as 部队列表  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[军团] from Legion";
                      string 地图 = "select ID as ID ,Name as 名称 ,TileWidth as 格宽 ,DimensionX as DimensionX ,DimensionY as DimensionY ,MapData as 地图数据 ,FileName as 文件名 ,kuaishu as 地图张数 ,meikuaidexiaokuaishu as 每张图含方格数 ,useSimpleArchImages as 使用一格式城池圖像  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[地图] from Map";
-                     string 编队 = "select ID as ID ,Name as 队名 ,KindID as 种类ID ,Quantity as 人数 ,Morale as 士气 ,Combativity as 战意 ,Experience as 经验 ,InjuryQuantity as 伤兵 ,FollowedLeaderID as 追随将领ID ,LeaderID as 队长ID ,LeaderExperience as 队长经验 ,TrainingPersonID as 训练人ID ,RecruitmentPersonID as 补充人ID ,ShelledMilitary as 被包裹编队 ,Tiredness as 疲累度 ,ArrivingDays as 到达时间 ,StartingArchitectureID as 出发地 ,TargetArchitectureID as 目标建筑  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[编队] from Military";
+                     string 编队 = "select ID as ID ,Name as 队名 ,KindID as 种类ID ,Quantity as 人数 ,Morale as 士气 ,Combativity as 战意 ,Experience as 经验 ,InjuryAmount as 伤兵 ,FollowingCaptainID as 追随将领ID ,LeaderID as 队长ID ,LeaderExperience as 队长经验 ,TrainingPersonID as 训练人ID ,RecruitmentPersonID as 补充人ID ,ShelledMilitary as 被包裹编队 ,Tiredness as 疲累度 ,ArrivingDays as 到达时间 ,DepartureCityID as 出发地 ,DestinationCityID as 目标建筑  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[编队] from Military";
                      string 编队类型 = "select ID as ID ,Type as 类别 ,Name as 名称 ,Description as 描述 ,Merit as 强度（AI） ,Successor as 较强兵种ID ,Speed as 行动速率 ,ObtainProb as 获得机率 ,TitleInfluence as 出兵称号影响 ,CreateCost as 新建资金 ,CreateTechnology as 新建所需技术 ,IsShell as 是否外壳 ,CreateBesideWater as 水边新建 ,Offence as 攻击 ,Defence as 防御 ,OffenceRadius as 攻击半径 ,CounterOffence as 能否反击 ,BeCountered as 能否被反击 ,ObliqueOffence as 斜向攻击 ,ArrowOffence as 箭矢攻击 ,AirOffence as 凌空攻击 ,ContactOffence as 近身攻击 ,OffenceOnlyBeforeMove as 只能在移动前攻击 ,ArchitectureDamageRate as 建筑伤害系数 ,ArchitectureCounterDamageRate as 建筑反击承受率 ,StratagemRadius as 计略范围 ,ObliqueStratagem as 斜向计略 ,ViewRadius as 视野半径 ,ObliqueView as 斜向视野 ,InjuryRate as 伤兵概率 ,Movability as 行动力 ,OneAdaptabilityKind as 单一适性种类 ,PlainAdaptability as 平原适性 ,GrasslandAdaptability as 草地适性 ,ForrestAdaptability as 森林适性  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[编队类型] from MilitaryKind";
                      string 人物 = "select ID as ID ,Available as 已出场 ,Alive as 是否活着 ,LastName as 姓氏 ,FirstName as 名字 ,CalledName as 字 ,Sex as 性别 ,TreasureImage as 头像序号 ,Ideal as 相性 ,IdealTendency as 出仕相性考虑 ,LeaderPossibility as 新建势力可能性 ,PCharacter as 性格 ,YearAvailable as 出场年份 ,YearBorn as 出生年份 ,YearDead as 死亡年份 ,DeathReason as 死亡原因 ,Strength as 武勇 ,Command as 统率 ,Intelligence as 智谋 ,Politics as 政治 ,Glamour as 魅力 ,Reputation as 名声 ,UniqueTitles as 独有称号 ,UniqueMilitaryKinds as 独有兵种 ,StrengthExperience as 武勇经验 ,CommandExperience as 统率经验 ,IntelligenceExperience as 智谋经验 ,PoliticsExperience as 政治经验 ,GlamourExperience as 魅力经验 ,InternalExperience as 内政经验 ,TacticsExperience as 策略经验 ,BubingExperience as 步兵经验 ,NubingExperience as 弩兵经验 ,QibingExperience as 骑兵经验 ,ShuijunExperience as 水军经验  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[人物] from Person";
                      string 人物创建 = "select ID as ID ,BornLo as 出生年最小 ,BornHi as 出生年最大 ,DebutLo as 登場年最小 ,DebutHi as 登場年最大 ,DieLo as 壽命最小 ,DieHi as 壽命最大 ,FemaleChance as 女武将机率 ,DebutAtLeast as 登场年数最少  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[人物创建] from PersonGenerator";
@@ -270,7 +270,7 @@ namespace json_and_excel
                      string 称号 = "select ID as ID ,Kind as 类别 ,Level as 等级 ,Combat as 战斗 ,Name as 名称 ,Description as 描述 ,Prerequisite as 条件 ,Influences as 影响列表 ,Conditions as 条件列表 ,ArchitectureConditions as 建筑条件 ,FactionConditions as 势力条件 ,LoseConditions as 失去条件 ,AutoLearn as 自动习得机率 ,AutoLearnText as 习得对话 ,AutoLearnTextByCourier as 习得传令官对话 ,MapLimit as 全地图数目上限 ,FactionLimit as 势力数目上限 ,InheritChance as 继承机率 ,General as 将军 ,Brave as 勇将 ,Advisor as 军师 ,Politician as 识者 ,IntelGeneral as 智将 ,Emperor as 君主 ,AllRounder as 全能 ,Normal as 平凡文 ,Normal2 as 平凡武 ,Cheap as 庸才 ,Ability as 相关能力 ,ManualAward as 手动授予  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[称号] from Title";
                      string 称号类型 = "select ID as ID ,KName as 名称 ,Combat as 战斗 ,StudyDay as 習得日數 ,SuccessRate as 習得成功率  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[称号类型] from TitleKind";
                      string 宝物 = "select ID as ID ,Name as 名称 ,TreasureImage as 图像 ,Worth as 价值 ,Available as 已出现 ,HiddenPlace as 隐藏于建筑 ,TreasureGroup as 宝物种类 ,AppearYear as 出现年 ,Ownership as 属于人物 ,Influences as 影响列表 ,Description as 介绍  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[宝物] from Treasure";
-                     string 部队 = "select ID as ID ,LeaderID as 队长ID ,Controllable as 可控 ,Status as 状态 ,Direction as 方向 ,Auto as 委任 ,Operated as 操作完成 ,Food as 粮草 ,StartingArchitecture as 出发地 ,Persons as 所属人物 ,PositionX as 位置X ,PositionY as 位置Y ,DestinationX as 目标X ,DestinationY as 目标Y ,RealDestinationX as 真实目标X ,RealDestinationY as 真实目标Y ,FirstTierPath as 第一层路径 ,SecondTierPath as 第二层路径 ,ThirdTierPath as 第三层路径 ,FirstIndex as FirstIndex ,SecondIndex as SecondIndex ,ThirdIndex as ThirdIndex ,MilitaryID as 编队ID ,AttackDefaultKind as 攻击默认种类 ,AttackTargetKind as 攻击目标种类 ,CastDefaultKind as 施展默认种类 ,CastTargetKind as 施展目标种类 ,跟随部队ID as 目标部队 ,TargetTroopID as 目标建筑 ,TargetArchitectureID as 意愿部队 ,WillTroopID as 意愿建筑 ,WillArchitectureID as 当前战法 ,CurrentCombatMethodID as 当前计略 ,CurrentStratagemID as 自施展位置X ,SelfCastPositionX as 自施展位置Y  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队] from Troop";
+                     string 部队 = "select ID as ID ,LeaderID as 队长ID ,Controllable as 可控 ,Status as 状态 ,Direction as 方向 ,Auto as 委任 ,Operated as 操作完成 ,Food as 粮草 ,StartingArchitecture as 出发地 ,Persons as 所属人物 ,PositionX as 位置X ,PositionY as 位置Y ,DestinationX as 目标X ,DestinationY as 目标Y ,RealDestinationX as 真实目标X ,RealDestinationY as 真实目标Y ,FirstTierPath as 第一层路径 ,SecondTierPath as 第二层路径 ,ThirdTierPath as 第三层路径 ,FirstIndex as FirstIndex ,SecondIndex as SecondIndex ,ThirdIndex as ThirdIndex ,MilitaryID as 编队ID ,AttackDefaultKind as 攻击默认种类 ,AttackTargetKind as 攻击目标种类 ,CastDefaultKind as 施展默认种类 ,CastTargetKind as 施展目标种类 ,跟随部队ID as 目标部队 ,TargetTroopID as 目标建筑 ,DestinationCityID as 意愿部队 ,WillTroopID as 意愿建筑 ,WillArchitectureID as 当前战法 ,CurrentCombatMethodID as 当前计略 ,CurrentStratagemID as 自施展位置X ,SelfCastPositionX as 自施展位置Y  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队] from Troop";
                      string 部队动画 = "select ID as ID ,Name as 名称 ,FrameCount as 帧数 ,StayCount as 停留帧数  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队动画] from TroopAnimation";
                      string 部队事件 = "select ID as ID ,Name as 名称 ,Happened as 已发生过 ,Repeatable as 可以重复 ,PredecessorEventID as 某事件发生之后 ,LaunchPerson as 发动人物 ,Conditions as 发动条件 ,Chance as 发动几率 ,CheckAreaKind as 搜索范围 ,TargetPersons as 目标人物列表 ,Dialogs as 人物对话 ,EffectSelf as 自身效果 ,EffectPersons as 特定人物效果 ,EffectAreas as 特定范围效果 ,ShowImage as 图片 ,ShowSound as 音效  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队事件] from TroopEvent";
                      string 部队事件效果 = "select ID as ID ,Kind as 种类 ,Name as 名称 ,Parameter as 参数  into   [Excel 8.0;database=" + Path.GetFileNameWithoutExtension(已导入文件.Items[i].ToString()) + "].[部队事件效果] from TroopEventEffect";
@@ -9401,7 +9401,7 @@ namespace json_and_excel
                 dr["OrientationSectionID"] = a.OrientationSectionID;
                 dr["OrientationStateID"] = a.OrientationStateID;
                 dr["OrientationArchitectureID"] = a.OrientationArchitectureID;
-                dr["ArchitecturesString"] = a.ArchitecturesString;
+                dr["CitiesControlledString"] = a.CitiesControlledString;
                 dt.Rows.Add(dr);
             }
             if (scenario.Sections.Count > 0)
@@ -10283,7 +10283,7 @@ namespace json_and_excel
                 "FundPacksString",
                 "HasManualHire",
                 "HireFinished",
-                "InformationsString",
+                "IntelsAcquiredString",
                 "IsStrategicCenter",
                 "KindId",
                 "MayorID",
@@ -10581,21 +10581,21 @@ namespace json_and_excel
                 "TechniquePointForTechnique",
                 "TechniquePointForFacility",
                 "Reputation",
-                "SectionsString",
-                "InformationsString",
-                "ArchitecturesString",
+                "MilitaryDistrictsString",
+                "IntelsAcquiredString",
+                "CitiesControlledString",
                 "TroopListString",
-                "RoutewaysString",
+                "SupplyRoutesString",
                 "LegionsString",
-                "BaseMilitaryKindsString",
+                "InitialTroopTypesAllowedString",
                 "UpgradingTechnique",
                 "UpgradingDaysLeft",
                 "AvailableTechniquesString",
                 "PreferredTechniqueKinds",
                 "PlanTechniqueString",
                 "AutoRefuse",
-                "chaotinggongxiandu",
-                "guanjue",
+                "ContributionToEmperor",
+                "NobleRankID",
                 "IsAlien",
                 "NotPlayerSelectable",
                 "PrinceID",
@@ -10775,20 +10775,20 @@ namespace json_and_excel
                 "Morale",
                 "Combativity",
                 "Experience",
-                "InjuryQuantity",
-                "FollowedLeaderID",
+                "InjuryAmount",
+                "FollowingCaptainID",
                 "LeaderID",
                 "LeaderExperience",
                 "RecruitmentPersonID",
                 "Tiredness",
                 "ArrivingDays",
-                "StartingArchitectureID",
-                "TargetArchitectureID",
+                "DepartureCityID",
+                "DestinationCityID",
                 "RoutCount",
                 "YearCreated",
                 "TroopDamageDealt",
-                "TroopBeDamageDealt",
-                "ArchitectureDamageDealt",
+                "TroopDamageTaken",
+                "DamageDealtOnCities",
                 "StratagemSuccessCount",
                 "StratagemFailCount",
                 "StratagemBeSuccessCount",
@@ -10970,8 +10970,8 @@ namespace json_and_excel
                 "preferredTroopPersonsString",
                 "YearJoin",
                 "TroopDamageDealt",
-                "TroopBeDamageDealt",
-                "ArchitectureDamageDealt",
+                "TroopDamageTaken",
+                "DamageDealtOnCities",
                 "RebelCount",
                 "ExecuteCount",
                 "FleeCount",
@@ -11133,7 +11133,7 @@ namespace json_and_excel
                 "OrientationSectionID",
                 "OrientationStateID",
                 "OrientationArchitectureID",
-                "ArchitecturesString",
+                "CitiesControlledString",
             };
         }
         private string[] 技能取值字段()
@@ -11383,7 +11383,7 @@ namespace json_and_excel
                 "AttackDefaultKind",
                 "AttackTargetKind",
                 "TargetTroopID",
-                "TargetArchitectureID",
+                "DestinationCityID",
                 "WillTroopID",
                 "WillArchitectureID",
                 "CurrentCombatMethodID",

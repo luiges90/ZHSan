@@ -1036,9 +1036,9 @@ namespace GameObjects
         [DataMember]
         public int TroopDamageDealt { get; set; }
         [DataMember]
-        public int TroopBeDamageDealt { get; set; }
+        public int TroopDamageTaken { get; set; }
         [DataMember]
-        public int ArchitectureDamageDealt { get; set; }
+        public int DamageDealtOnCities { get; set; }
         [DataMember]
         public int RebelCount { get; set; }
         [DataMember]
@@ -7753,7 +7753,7 @@ namespace GameObjects
                     v += (this.PersonalLoyalty - 2) * 15;
                     v -= (this.Ambition - 2) * 5;
 
-                    v += Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.guanjuedezhongleizidian[this.BelongedFaction.guanjue].Loyalty;
+                    v += Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.guanjuedezhongleizidian[this.BelongedFaction.NobleRankID].Loyalty;
 
                     v += Math.Min(20, this.ServedYears / 2);
 

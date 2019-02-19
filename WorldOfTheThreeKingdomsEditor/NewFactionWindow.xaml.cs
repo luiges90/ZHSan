@@ -84,19 +84,19 @@ namespace WorldOfTheThreeKingdomsEditor
             f.LeaderID = leader.ID;
             f.Name = leader.Name;
             f.CapitalID = architecture.ID;
-            f.ArchitecturesString = architecture.ID.ToString();
-            f.BaseMilitaryKindsString = "0 1 3";
+            f.CitiesControlledString = architecture.ID.ToString();
+            f.InitialTroopTypesAllowedString = "0 1 3";
             f.UpgradingTechnique = -1;
             f.TransferingMilitaries = new MilitaryList();
             f.TransferingMilitariesString = "";
             f.TransferingMilitaryCount = 0;
             f.AvailableTechniquesString = "";
             f.GetGeneratorPersonCountString = "0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0";
-            f.InformationsString = "";
+            f.IntelsAcquiredString = "";
             f.LegionsString = "";
             f.MilitariesString = "";
-            f.RoutewaysString = "";
-            f.SectionsString = "";
+            f.SupplyRoutesString = "";
+            f.MilitaryDistrictsString = "";
             f.TroopListString = "";
 
             scen.Factions.Add(f);

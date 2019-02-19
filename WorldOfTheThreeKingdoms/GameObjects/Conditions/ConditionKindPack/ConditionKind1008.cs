@@ -10,7 +10,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
     {
         public override bool CheckConditionKind(Troop troop)
         {
-            return (troop.InjuryQuantity == 0);
+            return (troop.InjuryAmount == 0);
         }
     }
 }

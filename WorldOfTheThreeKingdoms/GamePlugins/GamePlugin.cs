@@ -45,7 +45,7 @@ namespace WorldOfTheThreeKingdoms.GameLogic
         public ISimpleTextDialog SimpleTextDialogPlugin = null;
         public ITabList TabListPlugin = null;
         public Iyoucelan RightSidePanelPlugin = null;
-        public IBianduiLiebiao TroopArrangement = null;
+        public IBianduiLiebiao TroopFormation = null;
         public IToolBar ToolBarPlugin = null;
         public ITransportDialog TransportDialogPlugin = null;
         public ITreasureDetail TreasureDetailPlugin = null;
@@ -367,20 +367,20 @@ namespace WorldOfTheThreeKingdoms.GameLogic
                 screen.PluginList.Add(this.RightSidePanelPlugin.Instance as GameObject);
             }
 
-            plugin = new TroopArrangementPlugin.TabListPlugin();  // Plugin.Plugins.AvailablePlugins.Find("TroopArrangementPlugin");
+            plugin = new TroopFormationPlugin.TabListPlugin();  // Plugin.Plugins.AvailablePlugins.Find("TroopFormationPlugin");
             if ((plugin != null) && (plugin.Instance is IBianduiLiebiao))
             {
-                this.TroopArrangement = plugin.Instance as IBianduiLiebiao;
-                this.TroopArrangement.SetScreen(screen);
-                this.TroopArrangement.SetGraphicsDevice();
-                this.TroopArrangement.SetPersonDetailDialog(this.PersonDetailPlugin);
-                this.TroopArrangement.SetTroopDetailDialog(this.TroopDetailPlugin);
-                this.TroopArrangement.SetArchitectureDetailDialog(this.ArchitectureDetailPlugin);
-                this.TroopArrangement.SetFactionTechniquesDialog(this.FactionTechniquesPlugin);
-                this.TroopArrangement.SetTreasureDetailDialog(this.TreasureDetailPlugin);
-                this.TroopArrangement.SetGameFrame(this.GameFramePlugin);
-                this.TroopArrangement.SetMapViewSelector(this.MapViewSelectorPlugin);
-                screen.PluginList.Add(this.TroopArrangement.Instance as GameObject);
+                this.TroopFormation = plugin.Instance as IBianduiLiebiao;
+                this.TroopFormation.SetScreen(screen);
+                this.TroopFormation.SetGraphicsDevice();
+                this.TroopFormation.SetPersonDetailDialog(this.PersonDetailPlugin);
+                this.TroopFormation.SetTroopDetailDialog(this.TroopDetailPlugin);
+                this.TroopFormation.SetArchitectureDetailDialog(this.ArchitectureDetailPlugin);
+                this.TroopFormation.SetFactionTechniquesDialog(this.FactionTechniquesPlugin);
+                this.TroopFormation.SetTreasureDetailDialog(this.TreasureDetailPlugin);
+                this.TroopFormation.SetGameFrame(this.GameFramePlugin);
+                this.TroopFormation.SetMapViewSelector(this.MapViewSelectorPlugin);
+                screen.PluginList.Add(this.TroopFormation.Instance as GameObject);
             }
             
         }

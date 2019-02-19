@@ -436,7 +436,7 @@ namespace TransportDialogPlugin
                         {
                             this.DestinationArchitecture.AddFundPack(this.Number, this.Days);
                         }
-                        this.SourceArchitecture.BelongedFaction.chaotinggongxiandu += this.Number;
+                        this.SourceArchitecture.BelongedFaction.ContributionToEmperor += this.Number;
 
                         faction.TextResultString = this.Number.ToString();
                         faction.TextDestinationString = "资金";
@@ -451,7 +451,7 @@ namespace TransportDialogPlugin
                         {
                             this.DestinationArchitecture.IncreaseFood(this.Number);
                         }
-                        this.SourceArchitecture.BelongedFaction.chaotinggongxiandu += this.Number / 200;
+                        this.SourceArchitecture.BelongedFaction.ContributionToEmperor += this.Number / 200;
 
                         faction.TextResultString = this.Number.ToString();
                         faction.TextDestinationString = "粮草";

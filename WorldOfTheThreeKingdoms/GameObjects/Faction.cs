@@ -135,7 +135,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public string ArchitecturesString { get; set; }
+        public string CitiesControlledString { get; set; }
 
         public ArchitectureList Architectures = new ArchitectureList();
         private int armyScale = 0;
@@ -149,7 +149,7 @@ namespace GameObjects
         public TechniqueTable AvailableTechniques = new TechniqueTable();
 
         [DataMember]
-        public string BaseMilitaryKindsString { get; set; }
+        public string InitialTroopTypesAllowedString { get; set; }
 
         public MilitaryKindTable BaseMilitaryKinds = new MilitaryKindTable();
 
@@ -189,7 +189,7 @@ namespace GameObjects
         public int IncrementOfViewRadius;
 
         [DataMember]
-        public string InformationsString { get; set; }
+        public string IntelsAcquiredString { get; set; }
 
         public InformationList Informations = new InformationList();
         private Dictionary<Point, InformationTile> knownAreaData;
@@ -250,7 +250,7 @@ namespace GameObjects
         public RoutewayPathFinder RoutewayPathBuilder = new RoutewayPathFinder();
 
         [DataMember]
-        public string RoutewaysString { get; set; }
+        public string SupplyRoutesString { get; set; }
 
         public RoutewayList Routeways = new RoutewayList();
         private Dictionary<ClosedPathEndpoints, List<Point>> SecondTierKnownPaths = new Dictionary<ClosedPathEndpoints, List<Point>>();
@@ -261,7 +261,7 @@ namespace GameObjects
         public int SecondTierYResidue = 0;
         
         [DataMember]
-        public string SectionsString { get; set; }
+        public string MilitaryDistrictsString { get; set; }
 
         public SectionList Sections = new SectionList();
         [DataMember]
@@ -3714,7 +3714,7 @@ namespace GameObjects
         private void AIchaotingshijian()
         {
             if (Session.Current.Scenario.youhuangdi() && !Session.Current.Scenario.IsPlayer(this) && !this.IsAlien
-                && (this.guanjue < Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 1))
+                && (this.NobleRankID < Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 1))
             {
                 if (Session.Current.Scenario.Date.Month == 3)
                 {
@@ -3732,7 +3732,7 @@ namespace GameObjects
                 {
                     if (g.xuyaochengchi <= this.ArchitectureCount)
                     {
-                        cashToGive = g.xuyaogongxiandu - this.chaotinggongxiandu;
+                        cashToGive = g.xuyaogongxiandu - this.ContributionToEmperor;
                     }
                 }
                 return cashToGive;
@@ -3770,7 +3770,7 @@ namespace GameObjects
                             {
                                 Session.Current.Scenario.huangdisuozaijianzhu().IncreaseFund(i.Value);
                             }
-                            this.chaotinggongxiandu += i.Value;
+                            this.ContributionToEmperor += i.Value;
                             Session.MainGame.mainGameScreen.shilijingong(this, i.Value, "资金");
                         }
                         break;
@@ -3807,7 +3807,7 @@ namespace GameObjects
                     Session.Current.Scenario.huangdisuozaijianzhu().IncreaseFood(jingongshue);
                 }
                 gongxianduzangzhang = jingongshue / 200;
-                this.chaotinggongxiandu += gongxianduzangzhang;
+                this.ContributionToEmperor += gongxianduzangzhang;
 
             }
             else
@@ -3822,7 +3822,7 @@ namespace GameObjects
 
                 }
                 gongxianduzangzhang = jingongshue;
-                this.chaotinggongxiandu += gongxianduzangzhang;
+                this.ContributionToEmperor += gongxianduzangzhang;
 
             }*/
             //Session.MainGame.mainGameScreen.shilijingong(this,jingongshue,jingongliangcao?"粮草":"资金");
@@ -5419,7 +5419,7 @@ namespace GameObjects
             {
                 return false;
             }
-            if (this.guanjue != Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 2)  //不是王
+            if (this.NobleRankID != Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 2)  //不是王
             {
                 return false;
             }
@@ -5428,8 +5428,8 @@ namespace GameObjects
                 return false;
             }
             guanjuezhongleilei shengjiguanjue = new guanjuezhongleilei();
-            shengjiguanjue = Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue + 1);
-            if (this.HasEmperor() && this.chaotinggongxiandu >= shengjiguanjue.xuyaogongxiandu && this.chengchigeshu() >= shengjiguanjue.xuyaochengchi)
+            shengjiguanjue = Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID + 1);
+            if (this.HasEmperor() && this.ContributionToEmperor >= shengjiguanjue.xuyaogongxiandu && this.chengchigeshu() >= shengjiguanjue.xuyaochengchi)
             {
                 return true;
             }
@@ -5439,7 +5439,7 @@ namespace GameObjects
 
         public bool SelfBecomeEmperorAvail()  //可以称帝
         {
-            if (this.guanjue != Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 2)  //不是王
+            if (this.NobleRankID != Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 2)  //不是王
             {
                 return false;
             }
@@ -5448,7 +5448,7 @@ namespace GameObjects
                 return false;
             }
             guanjuezhongleilei shengjiguanjue = new guanjuezhongleilei();
-            shengjiguanjue = Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue + 1);
+            shengjiguanjue = Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID + 1);
 
             if (this.IsAlien)
             {
@@ -5465,7 +5465,7 @@ namespace GameObjects
             {
                 if (Session.Current.Scenario.youhuangdi())
                 {
-                    if (!this.HasEmperor() && this.chaotinggongxiandu >= shengjiguanjue.xuyaogongxiandu && this.chengchigeshu() >= shengjiguanjue.xuyaochengchi)
+                    if (!this.HasEmperor() && this.ContributionToEmperor >= shengjiguanjue.xuyaogongxiandu && this.chengchigeshu() >= shengjiguanjue.xuyaochengchi)
                     {
                         return true;
                     }
@@ -5492,7 +5492,7 @@ namespace GameObjects
 
         private void AIBecomeEmperor()
         {
-            if (this.guanjue != Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 2)  //不是王
+            if (this.NobleRankID != Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 2)  //不是王
             {
                 return;
             }
@@ -5501,21 +5501,21 @@ namespace GameObjects
                 return;
             }
             guanjuezhongleilei shengjiguanjue = new guanjuezhongleilei();
-            shengjiguanjue = Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue + 1);
+            shengjiguanjue = Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID + 1);
             if (Session.Current.Scenario.youhuangdi())
             {
                 if (this.IsAlien && this.chengchigeshu() >= shengjiguanjue.xuyaochengchi)
                 {
                     this.SelfBecomeEmperor();
                 }
-                else if (!this.IsAlien && this.chaotinggongxiandu >= shengjiguanjue.xuyaogongxiandu && this.chengchigeshu() >= shengjiguanjue.xuyaochengchi)
+                else if (!this.IsAlien && this.ContributionToEmperor >= shengjiguanjue.xuyaogongxiandu && this.chengchigeshu() >= shengjiguanjue.xuyaochengchi)
                 {
                     if (this.HasEmperor())
                     {
                         foreach (Faction f in Session.Current.Scenario.Factions.GameObjects)
                         {
                             if (f == this) continue;
-                            if (f.guanjue == Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 1) continue;
+                            if (f.NobleRankID == Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 1) continue;
                             if (GameObject.Random((int)(((int)this.Leader.Ambition + 1) * 2 * (this.ArchitectureCount / (double)f.ArchitectureCount))) == 0)
                             {
                                 return;
@@ -5558,12 +5558,12 @@ namespace GameObjects
 
         public void BecomeEmperorLegally()
         {
-            this.guanjue++;
+            this.NobleRankID++;
             Session.Current.Scenario.YearTable.addBecomeEmperorLegallyEntry(Session.Current.Scenario.Date, Session.Current.Scenario.Persons.GetGameObject(7000) as Person, this);
             Session.MainGame.mainGameScreen.xianshishijiantupian(Session.Current.Scenario.Persons.GetGameObject(7000) as Person, this.LeaderName, TextMessageKind.BecomeEmperorLegally, "BecomeEmperorLegally", "shanwei.jpg", "",
-                Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue).Name, true);
+                Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID).Name, true);
             Session.MainGame.mainGameScreen.xiejinxingjilu("BecomeEmperorLegally", this.LeaderName,
-                Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue).Name, this.Leader.Position);
+                Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID).Name, this.Leader.Position);
             this.Capital.DecreaseFund(100000);
 
             ExtensionInterface.call("BecomeEmperorLegally", new Object[] { Session.Current.Scenario, this });
@@ -5583,19 +5583,19 @@ namespace GameObjects
 
         private void shizheshengguan()
         {
-            if (this.guanjue >= Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 2)  //已经是王或者皇帝
+            if (this.NobleRankID >= Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 2)  //已经是王或者皇帝
             {
                 return;
             }
             guanjuezhongleilei shengjiguanjue = new guanjuezhongleilei();
-            shengjiguanjue = Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue + 1);
+            shengjiguanjue = Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID + 1);
             if (Session.Current.Scenario.youhuangdi())
             {
                 if (this.IsAlien && this.chengchigeshu() >= shengjiguanjue.xuyaochengchi)
                 {
                     this.SelfAdvancement();
                 }
-                else if (!this.IsAlien && this.chaotinggongxiandu >= shengjiguanjue.xuyaogongxiandu && this.chengchigeshu() >= shengjiguanjue.xuyaochengchi)
+                else if (!this.IsAlien && this.ContributionToEmperor >= shengjiguanjue.xuyaogongxiandu && this.chengchigeshu() >= shengjiguanjue.xuyaochengchi)
                 {
                     this.Advancement();
                 }
@@ -5618,12 +5618,12 @@ namespace GameObjects
 
         public void SelfBecomeEmperor()
         {
-            this.guanjue++;
+            this.NobleRankID++;
             Session.Current.Scenario.YearTable.addSelfBecomeEmperorEntry(Session.Current.Scenario.Date, this);
             Session.MainGame.mainGameScreen.xianshishijiantupian(this.Leader, this.LeaderName, TextMessageKind.BecomeEmperorIllegally, "Zili", "BecomeEmperor.jpg", "",
-                Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue).Name, true);
+                Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID).Name, true);
             Session.MainGame.mainGameScreen.xiejinxingjilu("Zili", this.LeaderName,
-                Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue).Name, this.Leader.Position);
+                Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID).Name, this.Leader.Position);
             this.Capital.DecreaseFund(100000);
             if (!Session.Current.Scenario.youhuangdi() || this.IsAlien)
             {
@@ -5673,9 +5673,9 @@ namespace GameObjects
 
         private void Advancement()
         {
-            this.guanjue++;
+            this.NobleRankID++;
 
-            guanjuezhongleilei gj = Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue);
+            guanjuezhongleilei gj = Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID);
             if (Session.Current.Scenario.IsPlayer(this) || gj.ShowDialog)
             {
                 Session.MainGame.mainGameScreen.xianshishijiantupian(Session.Current.Scenario.Persons.GetGameObject(7000) as Person, this.LeaderName, TextMessageKind.RiseEmperorClass, "shengguan", "shengguan.jpg", "",
@@ -5684,23 +5684,23 @@ namespace GameObjects
                     gj.Name, this.Leader.Position);
             }
 
-            Session.Current.Scenario.YearTable.addAdvanceGuanjueEntry(Session.Current.Scenario.Date, this, Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue));
+            Session.Current.Scenario.YearTable.addAdvanceGuanjueEntry(Session.Current.Scenario.Date, this, Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID));
             ExtensionInterface.call("Advancement", new Object[] { Session.Current.Scenario, this });
         }
 
         private void SelfAdvancement()
         {
-            this.guanjue++;
+            this.NobleRankID++;
 
-            guanjuezhongleilei gj = Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue);
+            guanjuezhongleilei gj = Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID);
             if (Session.Current.Scenario.IsPlayer(this) || gj.ShowDialog)
             {
                 Session.MainGame.mainGameScreen.xianshishijiantupian(this.Leader, this.LeaderName, TextMessageKind.SelfRiseEmperorClass, "Zili", "", "",
-                    Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue).Name, true);
+                    Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID).Name, true);
                 Session.MainGame.mainGameScreen.xiejinxingjilu("Zili", this.LeaderName,
-                    Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue).Name, this.Leader.Position);
+                    Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID).Name, this.Leader.Position);
             }
-            Session.Current.Scenario.YearTable.addSelfAdvanceGuanjueEntry(Session.Current.Scenario.Date, this, Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue));
+            Session.Current.Scenario.YearTable.addSelfAdvanceGuanjueEntry(Session.Current.Scenario.Date, this, Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID));
             ExtensionInterface.call("SelfAdvancement", new Object[] { Session.Current.Scenario, this });
         }
 
@@ -5729,7 +5729,7 @@ namespace GameObjects
         {
             get
             {
-                return Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue).Name;
+                return Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID).Name;
             }
         }
 
@@ -5737,7 +5737,7 @@ namespace GameObjects
         {
             get
             {
-                return Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue).shengwangshangxian;
+                return Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID).shengwangshangxian;
             }
 
         }
@@ -5751,13 +5751,13 @@ namespace GameObjects
                 }
                 else
                 {
-                    if (this.guanjue >= Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 1)
+                    if (this.NobleRankID >= Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 1)
                     {
                         return 0;
                     }
                     else
                     {
-                        return Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue + 1).xuyaogongxiandu;
+                        return Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID + 1).xuyaogongxiandu;
 
                     }
                 }
@@ -5768,13 +5768,13 @@ namespace GameObjects
         {
             get
             {
-                if (this.guanjue >= Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 1)
+                if (this.NobleRankID >= Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 1)
                 {
                     return 0;
                 }
                 else
                 {
-                    return Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.guanjue + 1).xuyaochengchi;
+                    return Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhonglei(this.NobleRankID + 1).xuyaochengchi;
 
                 }
             }
@@ -7133,7 +7133,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public int chaotinggongxiandu
+        public int ContributionToEmperor
         {
             get
             {
@@ -7145,7 +7145,7 @@ namespace GameObjects
             }
         }
         [DataMember]
-        public int guanjue
+        public int NobleRankID
         {
             get
             {

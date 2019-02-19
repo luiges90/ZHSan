@@ -661,14 +661,14 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-		<Column ID="152" Name="TroopBeDamageDealt" IsNumber="true" DisplayName="总受士兵伤害" MinWidth="80" DetailLevel="7"
+		<Column ID="152" Name="TroopDamageTaken" IsNumber="true" DisplayName="总受士兵伤害" MinWidth="80" DetailLevel="7"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-		<Column ID="153" Name="ArchitectureDamageDealt" IsNumber="true" DisplayName="总建筑伤害" MinWidth="80" DetailLevel="7"
+		<Column ID="153" Name="DamageDealtOnCities" IsNumber="true" DisplayName="总建筑伤害" MinWidth="80" DetailLevel="7"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -1878,7 +1878,7 @@
                 FontColor="4294375158"
                 Align="Left">
         </Column>
-        <Column ID="31" Name="chaotinggongxiandu" IsNumber="true" DisplayName="朝廷贡献度" MinWidth="80" DetailLevel="3"
+        <Column ID="31" Name="ContributionToEmperor" IsNumber="true" DisplayName="朝廷贡献度" MinWidth="80" DetailLevel="3"
         FontName="方正隶变_GBK"
         FontSize="15"
         FontStyle="Regular"
@@ -2053,7 +2053,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="14" Name="InjuryQuantity" IsNumber="true" DisplayName="伤兵数量" MinWidth="80" DetailLevel="2"
+        <Column ID="14" Name="InjuryAmount" IsNumber="true" DisplayName="伤兵数量" MinWidth="80" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -3378,7 +3378,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="14" Name="InjuryQuantity" IsNumber="true" DisplayName="伤兵数量" MinWidth="80" DetailLevel="2"
+        <Column ID="14" Name="InjuryAmount" IsNumber="true" DisplayName="伤兵数量" MinWidth="80" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"

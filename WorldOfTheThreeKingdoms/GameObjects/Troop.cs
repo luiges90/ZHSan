@@ -1142,7 +1142,7 @@ namespace GameObjects
                     return false;
                 }
                 //retreat if morale < 45 or has more injured troop than working troops, with 80 + 2 x calmness chance
-                if (GameObject.Chance(80 + (this.Leader.Calmness * 2)) && ((this.InjuryQuantity > this.Quantity) || (this.Morale < 45)
+                if (GameObject.Chance(80 + (this.Leader.Calmness * 2)) && ((this.InjuryAmount > this.Quantity) || (this.Morale < 45)
                         || (this.Army.Scales <= 5 && !this.IsTransport && this.BelongedLegion != null && this.BelongedLegion.Kind == LegionKind.Offensive)))
                 {
                     this.GoBack();
@@ -3892,7 +3892,7 @@ namespace GameObjects
                     }
                 }
 
-                if ((this.InjuryRecoveryPerDayRate > 0f || this.InjuryRecoverByViewArea > 0) && (this.InjuryQuantity > 0))
+                if ((this.InjuryRecoveryPerDayRate > 0f || this.InjuryRecoverByViewArea > 0) && (this.InjuryAmount > 0))
                 {
                     int number = this.Army.Recovery(this.InjuryRecoveryPerDayRate + this.InjuryRecoverByViewArea);
                     if (number > 0)
@@ -5651,7 +5651,7 @@ namespace GameObjects
                     }
                     if (this.stratagemStealInjury > 0 && troop.BelongedFaction != this.BelongedFaction)
                     {
-                        int c = Math.Min(troop.InjuryQuantity, this.stratagemStealInjury);
+                        int c = Math.Min(troop.InjuryAmount, this.stratagemStealInjury);
                         troop.DecreaseInjuryQuantity(c);
                         this.IncreaseInjuryQuantity(c);
                     }
@@ -6876,7 +6876,7 @@ namespace GameObjects
                             {
                                 this.Enter();
                             }
-                            else if (this.Army.InjuryQuantity > this.Army.Kind.MinScale)
+                            else if (this.Army.InjuryAmount > this.Army.Kind.MinScale)
                             {
                                 this.Enter();
                             }
@@ -6926,8 +6926,8 @@ namespace GameObjects
                 num = damage.DestinationArchitecture.DecreaseEndurance(damage.Damage);
                 damage.DestinationArchitecture.DecrementNumberList.AddNumber(num, CombatNumberKind.人数, damage.Position);
 
-                damage.SourceTroop.Leader.ArchitectureDamageDealt += num;
-                damage.SourceTroop.Army.ArchitectureDamageDealt += num;
+                damage.SourceTroop.Leader.DamageDealtOnCities += num;
+                damage.SourceTroop.Army.DamageDealtOnCities += num;
 
                 if (damage.DestinationArchitecture.Endurance == 0)
                 {
@@ -6989,7 +6989,7 @@ namespace GameObjects
                 damage.SourceTroop.DecreaseQuantity(damage.CounterDamage);
                 damage.SourceTroop.IncreaseInjuryQuantity(damage.CounterInjury);
 
-                damage.SourceTroop.Leader.TroopBeDamageDealt += damage.Damage;
+                damage.SourceTroop.Leader.TroopDamageTaken += damage.Damage;
 
                 CheckTroopRout(damage.SourceTroop);
             }
@@ -7011,9 +7011,9 @@ namespace GameObjects
             damage.DestinationTroop.IncreaseBeAttackedExperience(num * 2);
 
             damage.SourceTroop.Leader.TroopDamageDealt += damage.Damage;
-            damage.DestinationTroop.Leader.TroopBeDamageDealt += damage.Damage;
+            damage.DestinationTroop.Leader.TroopDamageTaken += damage.Damage;
             damage.SourceTroop.Army.TroopDamageDealt += damage.Damage;
-            damage.DestinationTroop.Army.TroopBeDamageDealt += damage.Damage;
+            damage.DestinationTroop.Army.TroopDamageTaken += damage.Damage;
 
             if (damage.AntiAttack)
             {
@@ -7120,7 +7120,7 @@ namespace GameObjects
                     //////////////////////////////////////////////////////////////////////////////////
                     damage.SourceTroop.IncreaseQuantity(damage.StealTroop);
                     //damage.DestinationTroop.DecreaseQuantity(damage.StealTroop);
-                    damage.SourceTroop.InjuryQuantity += damage.StealInjured;
+                    damage.SourceTroop.InjuryAmount += damage.StealInjured;
                     //damage.DestinationTroop.DecreaseInjuryQuantity(damage.StealInjured);
                     ///////////////////////////////////////////////////////////////////////////////////
                     damage.DestinationTroop.Army.Tiredness += damage.TirednessIncrease;
@@ -8561,7 +8561,7 @@ namespace GameObjects
                     currentArchitecture.ResetFaction(this.BelongedFaction);
                     if (
                             currentArchitecture.EmperorResidesHere &&
-                           (this.BelongedFaction.IsAlien || this.BelongedFaction.guanjue >= Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 1)
+                           (this.BelongedFaction.IsAlien || this.BelongedFaction.NobleRankID >= Session.Current.Scenario.GameCommonData.suoyouguanjuezhonglei.Count - 1)
                         )  //已称帝的势力或异族占了献帝所在城池
                     {
                         Session.Current.Scenario.BecomeNoEmperor();
@@ -10142,7 +10142,7 @@ namespace GameObjects
             }
             damage.Damage = num4;
             damage.StealTroop = Math.Min(damage.DestinationTroop.Quantity, (int)(damage.Damage * this.StealTroop));
-            damage.StealInjured = Math.Min(damage.DestinationTroop.InjuryQuantity, (int)(damage.Damage * this.StealInjured));
+            damage.StealInjured = Math.Min(damage.DestinationTroop.InjuryAmount, (int)(damage.Damage * this.StealInjured));
             damage.OfficerInjury = 0;
             if ((damage.Critical || troop.Quantity <= damage.Damage) && damage.Damage > 0 && Session.GlobalVariables.OfficerDieInBattleRate > 0)
             {
@@ -12446,16 +12446,16 @@ namespace GameObjects
             }
         }
 
-        public int InjuryQuantity
+        public int InjuryAmount
         {
             get
             {
                 if (this.Army == null) return 0;
-                return this.Army.InjuryQuantity;
+                return this.Army.InjuryAmount;
             }
             set
             {
-                this.Army.InjuryQuantity = value;
+                this.Army.InjuryAmount = value;
             }
         }
 
@@ -13498,7 +13498,7 @@ namespace GameObjects
             }
         }
         [DataMember]
-        public int TargetArchitectureID
+        public int DestinationCityID
         {
             get
             {

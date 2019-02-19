@@ -48,7 +48,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 { TitleTypeRandomTeachable_CHS, TitleTypeRandomTeachableDesc_CHS },
                 { TitleTypeRecallable_CHS, TitleTypeRecallableDesc_CHS },
                 { TitleTypeStudyDay_CHS, TitleTypeStudyDayDesc_CHS },
-                { TitleTypeSuccessRate_CHS, TitleTypeSuccessRateDesc_CHS },
+                { TitleTypeSuccessRate_CHS, TitleTypeSuccessRateDesc_CHS }
             };
         }
 

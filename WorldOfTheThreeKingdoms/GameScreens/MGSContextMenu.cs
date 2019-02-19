@@ -108,9 +108,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             GameDelegates.VoidFunction function5 = null;
             GameDelegates.VoidFunction function6 = null;
             this.bianduiLiebiaoBiaoji = "";
-            this.Plugins.TroopArrangement.IsShowing = false;
+            this.Plugins.TroopFormation.IsShowing = false;
             this.Plugins.RightSidePanelPlugin.IsShowing = true;
-            this.Plugins.ContextMenuPlugin.ShezhiBianduiLiebiaoXinxi(this.Plugins.TroopArrangement.IsShowing, this.Plugins.TroopArrangement.Weizhi);
+            this.Plugins.ContextMenuPlugin.ShezhiBianduiLiebiaoXinxi(this.Plugins.TroopFormation.IsShowing, this.Plugins.TroopFormation.Weizhi);
 
 
 

@@ -146,7 +146,7 @@ namespace ScreenBlindPlugin
 
                     this.CapitalNameText.Text = string.Concat(new object[] { Session.Current.Scenario.CurrentFaction.CapitalName });
                     this.guanjuezifuchuanText.Text = string.Concat(new object[] { Session.Current.Scenario.CurrentFaction.guanjuezifuchuan, "（势力声望：", Session.Current.Scenario.CurrentFaction.Reputation, "）" });
-                    this.chaotinggongxianduText.Text = string.Concat(new object[] { Session.Current.Scenario.CurrentFaction.chaotinggongxiandu, " •升官所需", Session.Current.Scenario.CurrentFaction.shengguanxuyaogongxiandu });
+                    this.chaotinggongxianduText.Text = string.Concat(new object[] { Session.Current.Scenario.CurrentFaction.ContributionToEmperor, " •升官所需", Session.Current.Scenario.CurrentFaction.shengguanxuyaogongxiandu });
                     this.CityCountText.Text = string.Concat(new object[] { Session.Current.Scenario.CurrentFaction.CityCount, " •升官所需", Session.Current.Scenario.CurrentFaction.shengguanxuyaochengchi });
 
                     this.FactionText.Text = string.Concat(new object[] { Session.Current.Scenario.CurrentFaction.Name, " • ", Session.Current.Scenario.CurrentFaction.TotalTechniquePoint, });

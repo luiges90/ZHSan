@@ -54,9 +54,9 @@ namespace GameObjects
         [DataMember]
         public int TroopDamageDealt { get; set; }
         [DataMember]
-        public int TroopBeDamageDealt { get; set; }
+        public int TroopDamageTaken { get; set; }
         [DataMember]
-        public int ArchitectureDamageDealt { get; set; }
+        public int DamageDealtOnCities { get; set; }
         [DataMember]
         public int OfficerKillCount { get; set; }
         [DataMember]
@@ -71,17 +71,17 @@ namespace GameObjects
         public int StratagemBeFailCount { get; set; }
 
         [DataMember]
-        public int belongedArchitectureID;
+        public int BelongsToCityID;
 
         public Architecture BelongedArchitecture
         {
             get
             {
-                if (belongedArchitectureID == -1) return null;
+                if (BelongsToCityID == -1) return null;
 
                 if (belongedArchitecture == null)
                 {
-                    belongedArchitecture = (Architecture) Session.Current.Scenario.Architectures.GetGameObject(belongedArchitectureID);
+                    belongedArchitecture = (Architecture) Session.Current.Scenario.Architectures.GetGameObject(BelongsToCityID);
                 }
                 return belongedArchitecture;
             }
@@ -90,10 +90,10 @@ namespace GameObjects
                 belongedArchitecture = value;
                 if (value != null)
                 {
-                    belongedArchitectureID = value.ID;
+                    BelongsToCityID = value.ID;
                 } else
                 {
-                    belongedArchitectureID = -1;
+                    BelongsToCityID = -1;
                 }
             }
         }
@@ -115,7 +115,7 @@ namespace GameObjects
         {
             get
             {
-                return this.Kind.Merit * 2000 + this.Experience * 3 + (this.FollowedLeaderID >= 0 ? 1000 : this.LeaderExperience) * 3;
+                return this.Kind.Merit * 2000 + this.Experience * 3 + (this.FollowingCaptainID >= 0 ? 1000 : this.LeaderExperience) * 3;
             }
         }
 
@@ -176,10 +176,10 @@ namespace GameObjects
 
         public void DecreaseInjuryQuantity(int decrement)
         {
-            this.InjuryQuantity -= decrement;
-            if (this.InjuryQuantity < 0)
+            this.InjuryAmount -= decrement;
+            if (this.InjuryAmount < 0)
             {
-                this.InjuryQuantity = 0;
+                this.InjuryAmount = 0;
             }
         }
 
@@ -278,13 +278,13 @@ namespace GameObjects
         {
             if (increment > 0)
             {
-                this.InjuryQuantity += increment;
+                this.InjuryAmount += increment;
             }
         }
 
         public bool IncreaseLeaderExperience(int increment)
         {
-            if (this.LeaderID != this.FollowedLeaderID)
+            if (this.LeaderID != this.FollowingCaptainID)
             {
                 this.LeaderExperience += increment;
                 if (this.LeaderExperience >= 0x3e8)
@@ -332,7 +332,7 @@ namespace GameObjects
 
         public bool IsFollowedLeader(Person person)
         {
-            return (person.ID == this.FollowedLeaderID);
+            return (person.ID == this.FollowingCaptainID);
         }
 
         public void ModifyAreaByTerrainAdaptablity(GameArea area)
@@ -354,12 +354,12 @@ namespace GameObjects
 
         public void Recovery(int multiple)
         {
-            if (this.InjuryQuantity > 0)
+            if (this.InjuryAmount > 0)
             {
                 int decrement = (this.Kind.MinScale * multiple) / 2;
-                if (decrement > this.InjuryQuantity)
+                if (decrement > this.InjuryAmount)
                 {
-                    decrement = this.InjuryQuantity;
+                    decrement = this.InjuryAmount;
                 }
                 this.DecreaseInjuryQuantity(decrement);
                 this.IncreaseQuantity(decrement);
@@ -368,12 +368,12 @@ namespace GameObjects
 
         public int LoseInjuredTroop(float rate)
         {
-            if (this.InjuryQuantity > 0)
+            if (this.InjuryAmount > 0)
             {
                 int decrement = (int)(this.Kind.MinScale * rate);
-                if (decrement > this.InjuryQuantity)
+                if (decrement > this.InjuryAmount)
                 {
-                    decrement = this.InjuryQuantity;
+                    decrement = this.InjuryAmount;
                 }
                 this.DecreaseInjuryQuantity(decrement);
                 //this.IncreaseQuantity(decrement);
@@ -384,12 +384,12 @@ namespace GameObjects
 
         public int Recovery(float rate)
         {
-            if (this.InjuryQuantity > 0)
+            if (this.InjuryAmount > 0)
             {
                 int decrement = (int) (this.Kind.MinScale * rate);
-                if (decrement > this.InjuryQuantity)
+                if (decrement > this.InjuryAmount)
                 {
-                    decrement = this.InjuryQuantity;
+                    decrement = this.InjuryAmount;
                 }
                 this.DecreaseInjuryQuantity(decrement);
                 this.IncreaseQuantity(decrement);
@@ -585,7 +585,7 @@ namespace GameObjects
             }
         }
         [DataMember]
-        public int FollowedLeaderID
+        public int FollowingCaptainID
         {
             get
             {
@@ -638,7 +638,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public int InjuryQuantity
+        public int InjuryAmount
         {
             get
             {
@@ -646,7 +646,7 @@ namespace GameObjects
                 {
                     return this.injuryQuantity;
                 }
-                return this.ShelledMilitary.InjuryQuantity;
+                return this.ShelledMilitary.InjuryAmount;
             }
             set
             {
@@ -656,7 +656,7 @@ namespace GameObjects
                 }
                 else
                 {
-                    this.ShelledMilitary.InjuryQuantity = value;
+                    this.ShelledMilitary.InjuryAmount = value;
                 }
                 if (this.injuryQuantity < 0)
                 {
@@ -1097,7 +1097,7 @@ namespace GameObjects
         {
             get
             {
-                return (this.Quantity + this.InjuryQuantity);
+                return (this.Quantity + this.InjuryAmount);
             }
         }
 
@@ -1851,7 +1851,7 @@ namespace GameObjects
             }
         }
         [DataMember]
-        public int TargetArchitectureID
+        public int DestinationCityID
         {
             get
             {
@@ -1903,7 +1903,7 @@ namespace GameObjects
             }
         }
         [DataMember]
-        public int StartingArchitectureID
+        public int DepartureCityID
         {
             get
             {

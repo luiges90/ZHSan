@@ -11,7 +11,7 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
 
         public override void ApplyEffectKind(Faction f, Event e)
         {
-            f.chaotinggongxiandu += increment;
+            f.ContributionToEmperor += increment;
         }
 
         public override void InitializeParameter(string parameter)

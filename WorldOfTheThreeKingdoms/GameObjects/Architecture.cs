@@ -302,7 +302,7 @@ namespace GameObjects
         public int IncrementOfFoodCeiling = 0;
 
         [DataMember]
-        public string InformationsString { get; set; }
+        public string IntelsAcquiredString { get; set; }
 
 
         private bool isStrategicCenter;
@@ -3006,7 +3006,7 @@ namespace GameObjects
         {
             if (this.MilitaryCount == 0) return ;
             MilitaryList list = new MilitaryList();
-            if ((military.Scales > 5) && (military.Morale >= 80) && (military.Combativity >= 80) && (military.InjuryQuantity < military.Kind.MinScale)
+            if ((military.Scales > 5) && (military.Morale >= 80) && (military.Combativity >= 80) && (military.InjuryAmount < military.Kind.MinScale)
                 && !military.IsFewScaleNeedRetreat && military.Kind.Movable && military.Kind.Type != MilitaryType.水军)
             {
                 list.Add(military);
@@ -3071,7 +3071,7 @@ namespace GameObjects
             if (this.Persons.Count == 0) return null;
             TroopList list = new TroopList();
             this.Persons.ClearSelected();
-            if ((military.Scales > 5) && (military.Morale >= 80) && (military.Combativity >= 80) && (military.InjuryQuantity < military.Kind.MinScale) 
+            if ((military.Scales > 5) && (military.Morale >= 80) && (military.Combativity >= 80) && (military.InjuryAmount < military.Kind.MinScale) 
                 && !military.IsFewScaleNeedRetreat && military.Kind.Movable)
             {
                 PersonList list2;
@@ -4230,7 +4230,7 @@ namespace GameObjects
                             continue;
                         }
                 }
-                if ((((military.Scales > 5) && (military.Morale >= 80)) && (military.Combativity >= 80)) && (military.InjuryQuantity < military.Kind.MinScale)
+                if ((((military.Scales > 5) && (military.Morale >= 80)) && (military.Combativity >= 80)) && (military.InjuryAmount < military.Kind.MinScale)
                     && (!offensive ||
                     (military.Merit > 0)
                     )) //do not use transport teams to attack
@@ -4384,7 +4384,7 @@ namespace GameObjects
                         int troopCnt = 0;
                         foreach (Military m in cropConsumptionOrderedList)
                         {
-                            if ((((m.Scales >= 3) && (m.Morale >= 80)) && (m.Combativity >= 80)) && (m.InjuryQuantity < m.Kind.MinScale) && m.Kind.Type != MilitaryType.水军)
+                            if ((((m.Scales >= 3) && (m.Morale >= 80)) && (m.Combativity >= 80)) && (m.InjuryAmount < m.Kind.MinScale) && m.Kind.Type != MilitaryType.水军)
                             {
                                 crop += m.FoodCostPerDay;
                                 troopCnt++;
@@ -4400,7 +4400,7 @@ namespace GameObjects
                         int troopCnt = 0;
                         foreach (Military m in cropConsumptionOrderedList)
                         {
-                            if ((((m.Scales >= 3) && (m.Morale >= 80)) && (m.Combativity >= 80)) && (m.InjuryQuantity < m.Kind.MinScale) && m.Kind.Type == MilitaryType.水军)
+                            if ((((m.Scales >= 3) && (m.Morale >= 80)) && (m.Combativity >= 80)) && (m.InjuryAmount < m.Kind.MinScale) && m.Kind.Type == MilitaryType.水军)
                             {
                                 crop += m.FoodCostPerDay;
                                 troopCnt++;
@@ -4416,7 +4416,7 @@ namespace GameObjects
                         int troopCnt = 0;
                         foreach (Military m in cropConsumptionOrderedList)
                         {
-                            if ((((m.Scales >= 3) && (m.Morale >= 80)) && (m.Combativity >= 80)) && (m.InjuryQuantity < m.Kind.MinScale))
+                            if ((((m.Scales >= 3) && (m.Morale >= 80)) && (m.Combativity >= 80)) && (m.InjuryAmount < m.Kind.MinScale))
                             {
                                 crop += m.FoodCostPerDay;
                                 troopCnt++;
@@ -6374,7 +6374,7 @@ namespace GameObjects
                         foreach (Military military in this.Militaries.GetRandomList())
                         {
                             if (military.IsFewScaleNeedRetreat && this.Endurance >= 30) continue;
-                            if ((isBesideWater || (military.Kind.Type != MilitaryType.水军)) && (((((this.Endurance < 30) || military.Kind.AirOffence) || (military.Scales >= 2)) && (military.Morale > 0x2d)) && ((this.Endurance < 30) || (military.InjuryQuantity < military.Kind.MinScale))))
+                            if ((isBesideWater || (military.Kind.Type != MilitaryType.水军)) && (((((this.Endurance < 30) || military.Kind.AirOffence) || (military.Scales >= 2)) && (military.Morale > 0x2d)) && ((this.Endurance < 30) || (military.InjuryAmount < military.Kind.MinScale))))
                             {
                                 TroopList candidates = this.AISelectPersonIntoTroop(this, military, false);
                                 foreach (Troop t in candidates)
@@ -6500,7 +6500,7 @@ namespace GameObjects
                         {
                             if (military.IsFewScaleNeedRetreat) continue;
                             if (military.IsTransport) continue;
-                            if (this.isArmyNavigableTo(i, military) && (military.Morale > 90) && (military.InjuryQuantity < military.Kind.MinScale))
+                            if (this.isArmyNavigableTo(i, military) && (military.Morale > 90) && (military.InjuryAmount < military.Kind.MinScale))
                             {
                                 TroopList candidates = this.AISelectPersonIntoTroop(this, military, true);
                                 foreach (Troop t in candidates)
@@ -8367,7 +8367,7 @@ namespace GameObjects
                     }
                 }
 
-                if (((military.InjuryQuantity == 0) && military.Kind != null && military.Kind.CanLevelUp) && (military.Experience >= military.Kind.LevelUpExperience)
+                if (((military.InjuryAmount == 0) && military.Kind != null && military.Kind.CanLevelUp) && (military.Experience >= military.Kind.LevelUpExperience)
                     && hasLevelupable)
                 {
                     military.BelongedFaction = this.BelongedFaction;
@@ -8383,11 +8383,11 @@ namespace GameObjects
             for (int i = 0; i < this.Militaries.Count; i++)
             {
                 Military t = this.Militaries[i] as Military;
-                if ((t.Quantity != t.Kind.MaxScale) && (t.InjuryQuantity <= 0))
+                if ((t.Quantity != t.Kind.MaxScale) && (t.InjuryAmount <= 0))
                 {
                     foreach (Military military2 in this.Militaries)
                     {
-                        if (((t != military2) && (t.Kind.Equals(military2.Kind))) && ((military2.Quantity < military2.Kind.MaxScale) && (military2.InjuryQuantity == 0)))
+                        if (((t != military2) && (t.Kind.Equals(military2.Kind))) && ((military2.Quantity < military2.Kind.MaxScale) && (military2.InjuryAmount == 0)))
                         {
                             this.MergeMilitaryList.Add(t);
                             break;
@@ -8578,7 +8578,7 @@ namespace GameObjects
             this.RecruitmentMilitaryList.Clear();
             foreach (Military military in this.Militaries)
             {
-                if ((military.Quantity < military.Kind.MaxScale) && (military.InjuryQuantity == 0))
+                if ((military.Quantity < military.Kind.MaxScale) && (military.InjuryAmount == 0))
                 {
                     this.RecruitmentMilitaryList.AddMilitary(military);
                 }
@@ -8959,7 +8959,7 @@ namespace GameObjects
         {
             foreach (Military military in this.Militaries)
             {
-                if (((military.Quantity > 0) && (military.Morale > 0)) && (military.InjuryQuantity < military.Kind.MinScale))
+                if (((military.Quantity > 0) && (military.Morale > 0)) && (military.InjuryAmount < military.Kind.MinScale))
                 {
                     return true;
                 }
@@ -9901,7 +9901,7 @@ namespace GameObjects
 
         public bool IsOffensiveMilitary(Military m)
         {
-            return ((((m.Scales >= 3) && (m.Morale >= 80)) && (m.Combativity >= 80)) && (m.InjuryQuantity <= m.Kind.MinScale) && (m.Scales >= m.RetreatScale * 1.5));
+            return ((((m.Scales >= 3) && (m.Morale >= 80)) && (m.Combativity >= 80)) && (m.InjuryAmount <= m.Kind.MinScale) && (m.Scales >= m.RetreatScale * 1.5));
         }
 
         public int OffensiveMilitaryCount()
@@ -10542,11 +10542,11 @@ namespace GameObjects
             for (int i = 0; i < this.Militaries.Count; i++)
             {
                 Military military = this.Militaries[i] as Military;
-                if ((military.Quantity != military.Kind.MaxScale) && (military.InjuryQuantity <= 0))
+                if ((military.Quantity != military.Kind.MaxScale) && (military.InjuryAmount <= 0))
                 {
                     foreach (Military military2 in this.Militaries)
                     {
-                        if (((military != military2) && (military.Kind.Equals(military2.Kind))) && ((military2.Quantity < military2.Kind.MaxScale) && (military2.InjuryQuantity == 0)))
+                        if (((military != military2) && (military.Kind.Equals(military2.Kind))) && ((military2.Quantity < military2.Kind.MaxScale) && (military2.InjuryAmount == 0)))
                         {
                             return true;
                         }
@@ -11585,7 +11585,7 @@ namespace GameObjects
                 }
                 foreach (Military military in this.Militaries)
                 {
-                    if ((military.Quantity < military.Kind.MaxScale) && (military.InjuryQuantity == 0))
+                    if ((military.Quantity < military.Kind.MaxScale) && (military.InjuryAmount == 0))
                     {
                         return true;
                     }
@@ -12681,7 +12681,7 @@ namespace GameObjects
                 {
                     if (military.Morale < military.MoraleCeiling)
                     {
-                        int randomValue = StaticMethods.GetRandomValue((int)((pingjunXunlianNengli * this.MultipleOfTraining) * Session.Parameters.TrainingRate), 200 + (10 * (military.Scales + military.InjuryQuantity / military.Kind.MinScale)));
+                        int randomValue = StaticMethods.GetRandomValue((int)((pingjunXunlianNengli * this.MultipleOfTraining) * Session.Parameters.TrainingRate), 200 + (10 * (military.Scales + military.InjuryAmount / military.Kind.MinScale)));
                         if (randomValue > 0)
                         {
                             if (!Session.Current.Scenario.IsPlayer(this.BelongedFaction))
@@ -12715,7 +12715,7 @@ namespace GameObjects
                     }
                     if (military != null && military.Combativity < military.CombativityCeiling && this.TrainingWorkingPersons.Count > 0)
                     {
-                        int increment = StaticMethods.GetRandomValue((int)((pingjunXunlianNengli * this.MultipleOfTraining) * Session.Parameters.TrainingRate), 50 + (5 * (military.Scales + military.InjuryQuantity / military.Kind.MinScale)));
+                        int increment = StaticMethods.GetRandomValue((int)((pingjunXunlianNengli * this.MultipleOfTraining) * Session.Parameters.TrainingRate), 50 + (5 * (military.Scales + military.InjuryAmount / military.Kind.MinScale)));
                         if (increment > 0)
                         {
                             if (!Session.Current.Scenario.IsPlayer(this.BelongedFaction))

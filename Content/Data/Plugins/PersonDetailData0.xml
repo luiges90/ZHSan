@@ -1926,7 +1926,7 @@
                 FontColor="4294967295"
                 Align="Middle">
     </Label>
-    <Text X="807" Y="254" Width="50" Height="20" PropertyName="TroopBeDamageDealt"
+    <Text X="807" Y="254" Width="50" Height="20" PropertyName="TroopDamageTaken"
                 FontName="Microsoft YaHei UI"
                 FontSize="13"
                 FontStyle="Regular"
@@ -1940,7 +1940,7 @@
                 FontColor="4294967295"
                 Align="Middle">
     </Label>
-    <Text X="807" Y="279" Width="50" Height="20" PropertyName="ArchitectureDamageDealt"
+    <Text X="807" Y="279" Width="50" Height="20" PropertyName="DamageDealtOnCities"
                 FontName="Microsoft YaHei UI"
                 FontSize="13"
                 FontStyle="Regular"

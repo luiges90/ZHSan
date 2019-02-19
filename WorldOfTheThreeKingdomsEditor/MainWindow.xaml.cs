@@ -39,6 +39,7 @@ namespace WorldOfTheThreeKingdomsEditor
 		private TroopEventTab tpeventTab;
 		private TitleKindTab ttlkindTab;
 		private CaptiveTab captiveTab;
+		private TroopFormationTab troopformationTab;
 
         public bool CopyIncludeTitle = true;
 		
@@ -497,6 +498,205 @@ namespace WorldOfTheThreeKingdomsEditor
 		}
 		
 		/*
+		Column display for faction tab
+		*/
+		private void FactionTabHeaderDisplay(object sender, DataGridAutoGeneratingColumnEventArgs e)
+		{
+			switch (e.PropertyName)
+			{
+				case "ID":
+					e.Column.Header = factionTab.Lang_FactionID_CHS;
+					break;
+
+				case "Name":
+					e.Column.Header = factionTab.Lang_FactionName_CHS;
+					break;
+				
+				case "LeaderID":
+					e.Column.Header = factionTab.Lang_FactionLeaderID_CHS;
+					break;
+					
+				case "PrinceID":
+					e.Column.Header = factionTab.Lang_FactionPrinceID_CHS;
+					break;
+					
+				case "ColorIndex":
+					e.Column.Header = factionTab.Lang_FactionColorIndex_CHS;
+					break;
+					
+				case "CapitalID":
+					e.Column.Header = factionTab.Lang_FactionCapitalID_CHS;
+					break;
+				case "Reputation":
+					e.Column.Header = factionTab.Lang_FactionReputation_CHS;
+					break;
+
+				case "CitiesControlledString":
+					e.Column.Header = factionTab.Lang_FactionCitiesControlledString_CHS;
+					break;
+				
+				case "InitialTroopTypesAllowedString":
+					e.Column.Header = factionTab.Lang_FactionInitialTroopTypesAllowedString_CHS;
+					break;
+					
+				case "TechniquePoint":
+					e.Column.Header = factionTab.Lang_FactionTechniquePoint_CHS;
+					break;
+					
+				case "TechniquePointForTechnique":
+					e.Column.Header = factionTab.Lang_FactionTechniquePointForTechnique_CHS;
+					break;
+					
+				case "TechniquePointForFacility":
+					e.Column.Header = factionTab.Lang_FactionTechniquePointForFacility_CHS;
+					break;
+
+				case "MilitaryDistrictsString":
+					e.Column.Header = factionTab.Lang_FactionMilitaryDistrictsString_CHS;
+					break;
+				
+				case "IntelsAcquiredString":
+					e.Column.Header = factionTab.Lang_FactionIntelsAcquiredString_CHS;
+					break;
+					
+				case "TroopsString":
+					e.Column.Header = factionTab.Lang_FactionTroopsString_CHS;
+					break;
+					
+				case "SupplyRoutesString":
+					e.Column.Header = factionTab.Lang_FactionSupplyRoutesString_CHS;
+					break;
+					
+				case "ContributionToEmperor":
+					e.Column.Header = factionTab.Lang_FactionContributionToEmperor_CHS;
+					break;
+				
+				case "NobleRankID":
+					e.Column.Header = factionTab.Lang_FactionNobleRankID_CHS;
+					break;
+
+				case "UpgradingTechnique":
+					e.Column.Header = factionTab.Lang_FactionUpgradingTechnique_CHS;
+					break;
+				
+				case "UpgradingDaysLeft":
+					e.Column.Header = factionTab.Lang_FactionUpgradingDaysLeft_CHS;
+					break;
+					
+				case "AvailableTechniquesString":
+					e.Column.Header = factionTab.Lang_FactionAvailableTechniquesString_CHS;
+					break;
+					
+				case "PreferredTechniqueKinds":
+					e.Column.Header = factionTab.Lang_FactionPreferredTechniqueKinds_CHS;
+					break;
+					
+				case "IsAlien":
+					e.Column.Header = factionTab.Lang_FactionIsAlien_CHS;
+					break;
+					
+				case "NotPlayerSelectable":
+					e.Column.Header = factionTab.Lang_FactionNotPlayerSelectable_CHS;
+					break;
+
+				default:
+					break;
+			}
+		}
+		
+		/*
+		Column display for troop formation tab
+		*/
+		private void TroopFormationTabHeaderDisplay(object sender, DataGridAutoGeneratingColumnEventArgs e)
+		{
+			switch (e.PropertyName)
+			{
+				case "ID":
+					e.Column.Header = troopformationTab.Lang_TroopFormationID_CHS;
+					break;
+
+				case "Name":
+					e.Column.Header = troopformationTab.Lang_TroopFormationName_CHS;
+					break;
+				
+				case "kindID":
+					e.Column.Header = troopformationTab.Lang_TroopFormationKindID_CHS;
+					break;
+					
+				case "Quantity":
+					e.Column.Header = troopformationTab.Lang_TroopFormationQuantity_CHS;
+					break;
+					
+				case "Morale":
+					e.Column.Header = troopformationTab.Lang_TroopFormationMorale_CHS;
+					break;
+					
+				case "Combativity":
+					e.Column.Header = troopformationTab.Lang_TroopFormationCombativity_CHS;
+					break;
+
+				case "Experience":
+					e.Column.Header = troopformationTab.Lang_TroopFormationExperience_CHS;
+					break;
+				
+				case "InjuryAmount":
+					e.Column.Header = troopformationTab.Lang_TroopFormationInjuryAmount_CHS;
+					break;
+					
+				case "YearCreated":
+					e.Column.Header = troopformationTab.Lang_TroopFormationYearCreated_CHS;
+					break;
+					
+				case "BelongsToCityID":
+					e.Column.Header = troopformationTab.Lang_TroopFormationBelongsToCityID_CHS;
+					break;
+					
+				case "FollowingCaptainID":
+					e.Column.Header = troopformationTab.Lang_TroopFormationFollowingCaptainID_CHS;
+					break;
+
+				case "LeaderID":
+					e.Column.Header = troopformationTab.Lang_TroopFormationLeaderID_CHS;
+					break;
+				
+				case "leaderExperience":
+					e.Column.Header = troopformationTab.Lang_TroopFormationLeaderExperience_CHS;
+					break;
+					
+				case "Tiredness":
+					e.Column.Header = troopformationTab.Lang_TroopFormationTiredness_CHS;
+					break;
+					
+				case "ArrivingDays":
+					e.Column.Header = troopformationTab.Lang_TroopFormationArrivingDays_CHS;
+					break;
+					
+				case "DepartureCityID":
+					e.Column.Header = troopformationTab.Lang_TroopFormationDepartureCityID_CHS;
+					break;
+				
+				case "DestinationCityID":
+					e.Column.Header = troopformationTab.Lang_TroopFormationDestinationCityID_CHS;
+					break;
+					
+				case "TroopDamageDealt":
+					e.Column.Header = troopformationTab.Lang_TroopFormationDamageDealt_CHS;
+					break;
+					
+				case "TroopDamageTaken":
+					e.Column.Header = troopformationTab.Lang_TroopFormationDamageTaken_CHS;
+					break;
+					
+				case "DamageDealtOnCities":
+					e.Column.Header = troopformationTab.Lang_TroopFormationDamageDealtOnCities_CHS;
+					break;
+
+				default:
+					break;
+			}
+		}
+		
+		/*
 		Column display for captive tab
 		*/
 		private void CaptiveTabHeaderDisplay(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -559,7 +759,11 @@ namespace WorldOfTheThreeKingdomsEditor
                 cityTab.setup();
                 factionTab = new FactionTab(scen, dgFaction, lblColumnHelp);
                 factionTab.setup();
-                new TroopArrangementTab(scen, dgMilitary, lblColumnHelp).setup();
+				troopformationTab = new TroopFormationTab(scen, dgMilitary, lblColumnHelp);
+				troopformationTab.setup();
+                /* Modified
+				new TroopFormationTab(scen, dgMilitary, lblColumnHelp).setup();
+				*/
                 new TroopTab(scen, dgTroop, lblColumnHelp).setup();
 				captiveTab = new CaptiveTab(scen, dgCaptive, lblColumnHelp);
 				captiveTab.setup();
