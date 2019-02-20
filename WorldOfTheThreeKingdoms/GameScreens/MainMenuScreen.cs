@@ -82,6 +82,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         string[] hards1 = new string[] { "beginner", "easy", "normal", "hard", "veryhard", "custom" };
         string[] hards2 = new string[] { "入门", "初级", "上级", "超级", "修罗", "自订" };
 
+        string[] AvaliableResolutions = new string[] { "1024*768", "1280*720", "1368*768", "1440*900", "1920*1080" };
+
         //private bool doNotSetDifficultyToCustom = false;
 
         NumericSetTextureF nstMusic, nstSound;
@@ -106,6 +108,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         TextBox tbGamerName = null;
         TextBox tbBattleSpeed = null;
+
+        ButtonTexture btnSmallResolution = null;
+        ButtonTexture btnLargeResolution = null;
 
         List<ButtonTexture> cbAIHardList = null;
 
@@ -1915,27 +1920,63 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 tbBattleSpeed.Selected = true;
             };
 
+            btnSmallResolution = new ButtonTexture(@"Content\Textures\Resources\Start\NumberSetS", "Minus", null)
+            {
+                Position = new Vector2(150, 115 + 60 * 4)
+            };
+            btnSmallResolution.OnButtonPress += (sender, e) =>
+            {
+                var index = AvaliableResolutions.ToList().IndexOf(Setting.Current.Resolution);
+                if (index < 0)
+                {
+                    index = 0;
+                }
+                if (index > 0)
+                {
+                    Setting.Current.Resolution = AvaliableResolutions[index - 1];
+                    Session.ChangeDisplay(false);
+                }
+            };
+
+            btnLargeResolution = new ButtonTexture(@"Content\Textures\Resources\Start\NumberSetS", "Plus", null)
+            {
+                Position = new Vector2(150 + 250, 115 + 60 * 4)
+            };
+            btnLargeResolution.OnButtonPress += (sender, e) =>
+            {
+                var index = AvaliableResolutions.ToList().IndexOf(Setting.Current.Resolution);
+                if (index < 0)
+                {
+                    index = 0;
+                }
+                if (index < AvaliableResolutions.Length - 1)
+                {
+                    Setting.Current.Resolution = AvaliableResolutions[index + 1];
+                    Session.ChangeDisplay(false);
+                }
+            };
+
             tbGamerName = new TextBox(TextBoxStyle.Small, "")
             {
                 MaxLength = 20,
                 Position = new Vector2(150, 120 + 60 * 4)
             };
 
-            if (Platform.PlatFormType == PlatFormType.Win)
-            {
-                tbGamerName.TextBoxMode = TextBoxMode.Normal;
-            }
-            else
-            {
-                tbGamerName.TextBoxMode = TextBoxMode.Chinese;
-            }
+            //if (Platform.PlatFormType == PlatFormType.Win)
+            //{
+            //    tbGamerName.TextBoxMode = TextBoxMode.Normal;
+            //}
+            //else
+            //{
+            //    tbGamerName.TextBoxMode = TextBoxMode.Chinese;
+            //}
 
-            tbGamerName.Text = Setting.Current.GamerName;
-            tbGamerName.OnTextBoxSelected += (sender, e) =>
-            {
-                UnCheckTextBoxs();
-                tbGamerName.Selected = true;
-            };
+            //tbGamerName.Text = Setting.Current.GamerName;
+            //tbGamerName.OnTextBoxSelected += (sender, e) =>
+            //{
+            //    UnCheckTextBoxs();
+            //    tbGamerName.Selected = true;
+            //};
 
             btAboutList = new List<ButtonTexture>();
             btOne = new ButtonTexture(@"Content\Textures\Resources\Start\ReadyButton", "Cancel", new Vector2(800 + 220, 615));
@@ -3463,8 +3504,24 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 //    bt.Update();
                 //});
 
-                tbGamerName.Update(seconds);
-                tbGamerName.HandleInput(seconds);
+                //tbGamerName.Update(seconds);
+                //tbGamerName.HandleInput(seconds);
+
+                btnSmallResolution.Enable = btnLargeResolution.Enable = true;
+
+                if (AvaliableResolutions.First() == Setting.Current.Resolution)
+                {
+                    btnSmallResolution.Enable = false;
+                }
+
+                if (AvaliableResolutions.Last() == Setting.Current.Resolution)
+                {
+                    btnLargeResolution.Enable = false;
+                }
+
+                btnSmallResolution.Update();
+
+                btnLargeResolution.Update();
                 
                 Setting.Current.GamerName = tbGamerName.Text.NullToStringTrim();
                                 
@@ -3541,7 +3598,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             float alpha = menuTypeElapsed <= 0.5f ? menuTypeElapsed * 2 : 1f;
 
             //CacheManager.DrawAvatar(@"Content\Textures\Resources\Start\Start.jpg", Vector2.Zero, Color.White, 1f);
-            CacheManager.Draw(@"Content\Textures\Resources\Start\Start.jpg", new Rectangle(0, 0, Session.ResolutionX, Session.ResolutionY), Color.White);
+
+
+
+            CacheManager.Draw(@"Content\Textures\Resources\Start\Start.jpg", new Rectangle(0, 0, 1280, 720), Color.White);
+            //CacheManager.Draw(@"Content\Textures\Resources\Start\Start.jpg", new Rectangle(0, 0, , Color.White);
 
             if (MenuType == MenuType.None)
             {
@@ -3958,13 +4019,21 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 //CacheManager.DrawString(Session.Current.Font, "快速战斗的速度", new Vector2(50 + 300, 120 + 60 * 2), Color.Black * alpha);
 
-                CacheManager.DrawString(Session.Current.Font, "玩家", new Vector2(50, 120 + 60 * 4), Color.Black * alpha);
+                CacheManager.DrawString(Session.Current.Font, "分辨", new Vector2(50, 120 + 60 * 4), Color.Black * alpha);
+
+                btnSmallResolution.Alpha = alpha;
+                btnSmallResolution.Draw();
+
+                CacheManager.DrawString(Session.Current.Font, Setting.Current.Resolution, new Vector2(220, 120 + 60 * 4), Color.Black * alpha);
+
+                btnLargeResolution.Alpha = alpha;
+                btnLargeResolution.Draw();
 
                 //tbBattleSpeed.tranAlpha = alpha;
                 //tbBattleSpeed.Draw();
 
-                tbGamerName.tranAlpha = alpha;
-                tbGamerName.Draw();
+                //tbGamerName.tranAlpha = alpha;
+                //tbGamerName.Draw();
 
                 CacheManager.DrawString(Session.Current.Font, "界面", new Vector2(50, 120 + 60), Color.Black * alpha);
 

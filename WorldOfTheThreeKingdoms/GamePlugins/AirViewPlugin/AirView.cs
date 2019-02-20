@@ -304,6 +304,7 @@ namespace AirViewPlugin
                 else if (this.IsMapShowing && StaticMethods.PointInRectangle(position, this.MapPosition))
                 {
                     this.JumpTo(position);
+                    Session.MainGame.mainGameScreen.cloudLayer.Start();
                 }
             }
         }
@@ -328,6 +329,7 @@ namespace AirViewPlugin
                     if (leftDown)
                     {
                         this.JumpTo(position);
+                        Session.MainGame.mainGameScreen.cloudLayer.Start();
                     }
                     else if (this.isPreparedToJump)
                     {

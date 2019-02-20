@@ -77,6 +77,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private bool mapEdited = false;
 
+        public CloudLayer cloudLayer;
+
         public MainGameScreen()
             : base()
         {
@@ -109,6 +111,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.UpdateCount = 0;
 
             this.screenManager = new ScreenManager();
+
+            this.cloudLayer = new CloudLayer();
 
             //Session.Current.Scenario = new GameScenario(this);
             //this.LoadCommonData();
@@ -263,12 +267,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.mainMapLayer.Draw(base.viewportSize);
             this.architectureLayer.Draw(base.viewportSize, gameTime);
             this.routewayLayer.Draw(base.viewportSize);
+
+            this.cloudLayer.Draw();
+
             this.tileAnimationLayer.Draw(base.viewportSize);
             
             this.troopLayer.Draw(base.viewportSize, gameTime);
-            
-            this.mapVeilLayer.Draw(base.viewportSize);
 
+            this.mapVeilLayer.Draw(base.viewportSize);
 
             switch (base.UndoneWorks.Peek().Kind)
             {
@@ -2769,6 +2775,26 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 base.Update(gameTime);
                 this.CalculateFrameRate(gameTime);
                 this.Plugins.PersonBubblePlugin.Update(gameTime);
+
+                if (cloudLayer.IsVisible)
+                {
+                    if (cloudLayer.IsStart)
+                    {
+
+                    }
+                    else
+                    {
+                        if (this.mainMapLayer.DisplayingMapTiles.Exists(ma => ma == null || ma.TileTexture == null))
+                        {
+
+                        }
+                        else
+                        {
+                            cloudLayer.IsStart = true;
+                        }
+                    }
+                    cloudLayer.Update(Convert.ToSingle(gameTime.ElapsedGameTime.TotalSeconds));
+                }
 
                 switch (base.UndoneWorks.Peek().Kind)
                 {

@@ -87,8 +87,32 @@ namespace GameManager
         //public Parameters gameParameters = new Parameters();
         //public GlobalVariables globalVariables = new GlobalVariables();
 
-        public static int ResolutionX = 925;
-        public static int ResolutionY = 520;
+        public static int ResolutionX
+        {
+            get
+            {
+                int resolutionX = 0;
+                if (!String.IsNullOrEmpty(Resolution) && Resolution.Contains("*"))
+                {
+                    int.TryParse(Resolution.Split('*')[0].Trim(), out resolutionX);
+                }
+                return resolutionX;
+            }
+        }
+
+        public static int ResolutionY
+        {
+            get
+            {
+                int resolutionY = 0;
+                if (!String.IsNullOrEmpty(Resolution) && Resolution.Contains("*"))
+                {
+                    int.TryParse(Resolution.Split('*')[1].Trim(), out resolutionY);
+                }
+                return resolutionY;
+            }
+        }
+
         public static string Resolution
         {
             get
@@ -99,8 +123,6 @@ namespace GameManager
             {
                 if (!String.IsNullOrEmpty(value) && value.Contains("*"))
                 {
-                    int.TryParse(value.Split('*')[0].Trim(), out ResolutionX);
-                    int.TryParse(value.Split('*')[1].Trim(), out ResolutionY);
                     if (Setting.Current != null)
                     {
                         Setting.Current.Resolution = value;
@@ -132,6 +154,7 @@ namespace GameManager
         {
             get
             {
+                return null;
                 if (fontE == null)
                 {
                     fontE = FontContent.Load<SpriteFont>("FontE");
@@ -148,6 +171,7 @@ namespace GameManager
         {
             get
             {
+                return null;
                 if (fontL == null)
                 {
                     fontL = FontContent.Load<SpriteFont>("FontL");
@@ -164,6 +188,7 @@ namespace GameManager
         {
             get
             {
+                return null;
                 if (fontS == null)
                 {
                     fontS = FontContent.Load<SpriteFont>("FontS");
@@ -180,6 +205,7 @@ namespace GameManager
         {
             get
             {
+                return null;
                 if (fontT == null)
                 {
                     fontT = FontContent.Load<SpriteFont>("FontT");
@@ -196,6 +222,7 @@ namespace GameManager
         {
             get
             {
+                return null;
                 if (font == null)
                 {
                     Session.LoadFont(Setting.Current.Language);
@@ -343,7 +370,7 @@ namespace GameManager
             Current.SoundContent = new ContentManager(Current.Content.ServiceProvider, Current.Content.RootDirectory);
             //Current.SoundContent.RootDirectory = "Content";
 
-            LoadFont(Setting.Current.Language);
+            //LoadFont(Setting.Current.Language);
         }
 
         public static void LoadFont(string language)
@@ -394,7 +421,10 @@ namespace GameManager
 
             if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
             {
-                Session.Resolution = Platform.PreferResolution;
+                if (String.IsNullOrEmpty(Session.Resolution))
+                {
+                    Session.Resolution = Platform.PreferResolution;
+                }
 
                 width = int.Parse(Session.Resolution.Split('*')[0]);
                 height = int.Parse(Session.Resolution.Split('*')[1]);
@@ -407,7 +437,6 @@ namespace GameManager
 
                 //InputManager.Scale = new Vector2(screenscalex1, screenscaley1);
 
-                //Platform.SetGraphicsWidthHeight(width, height);
             }
             else if (Platform.PlatFormType == PlatFormType.Android || Platform.PlatFormType == PlatFormType.iOS || Platform.PlatFormType == PlatFormType.UWP)
             {
@@ -454,7 +483,8 @@ namespace GameManager
 			//screenScale = screenscalex >= screenscaley ? screenscaley : screenscalex;
 
 			InputManager.Scale1 = new Vector2(screenscalex1, screenscaley1);
-			InputManager.Scale2 = new Vector2(screenscalex2, screenscaley2);
+
+
 			//CoreGame.Current.SpriteScale = Matrix.CreateScale(screenScale, screenScale, 1);
 			//InputManager.Scale = new Vector2(screenScale, screenScale);
 
@@ -470,11 +500,12 @@ namespace GameManager
             InputManager.ScaleDraw = new Vector2(1, 1);
             if (setScale)
             {
+                InputManager.Scale2 = new Vector2(screenscalex2, screenscaley2);
                 Session.MainGame.disScale = true;
             }
             else
             {
-                Session.MainGame.disScale = true;
+                Session.MainGame.disScale = false;
             }
 
             Session.MainGame.SpriteScale1 = Matrix.CreateScale(screenscalex1, screenscaley1, 1);
@@ -482,7 +513,7 @@ namespace GameManager
 
             Platform.SetGraphicsWidthHeight(width, height);
 
-            //Platform.Current.ProcessViewChanged();
+            Platform.Current.ProcessViewChanged();
 
             Platform.GraphicsApplyChanges();            
 

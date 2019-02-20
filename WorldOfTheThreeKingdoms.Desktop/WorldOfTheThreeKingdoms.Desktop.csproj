@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,7 +13,7 @@
     <AssemblyName>WorldOfTheThreeKingdoms.Desktop</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>DesktopGL</MonoGamePlatform>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -29,6 +29,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +40,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>false</Prefer32Bit>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
@@ -158,6 +160,9 @@
     </Compile>
     <Compile Include="..\WorldOfTheThreeKingdoms\GameManager\Setting.cs">
       <Link>GameManager\Setting.cs</Link>
+    </Compile>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GameManager\TextManager.cs">
+      <Link>GameManager\TextManager.cs</Link>
     </Compile>
     <Compile Include="..\WorldOfTheThreeKingdoms\GameManager\TextureRecs.cs">
       <Link>GameManager\TextureRecs.cs</Link>
@@ -4288,8 +4293,30 @@
     <Reference Include="SharpCompress">
       <HintPath>..\References\SharpCompress.dll</HintPath>
     </Reference>
+    <Reference Include="SharpFontCore, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpFontCore.0.1.1\lib\netstandard2.0\SharpFontCore.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.Core.1.0.0-beta0007\lib\netstandard2.0\SixLabors.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.ImageSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.ImageSharp.1.0.0-beta0006\lib\netstandard2.0\SixLabors.ImageSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -4391,6 +4418,26 @@
       <Link>Content\Data\Scenario\280YXJJ.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Content\Font\FZLB_GBK.TTF">
+      <Link>Content\Font\FZLB_GBK.TTF</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Font\guyin.TTF">
+      <Link>Content\Font\guyin.TTF</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Font\hwzs.ttf">
+      <Link>Content\Font\hwzs.ttf</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Font\simhei.ttf">
+      <Link>Content\Font\simhei.ttf</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Font\xingshu.ttf">
+      <Link>Content\Font\xingshu.ttf</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="..\References\Desktop\x64\SDL2.dll">
       <Link>x64\SDL2.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -4478,2246 +4525,2198 @@
       <Link>Content\Data\malegivenname.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Font\FontE.xnb">
-      <Link>Content\Font\FontE.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Font\FontL.xnb">
-      <Link>Content\Font\FontL.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Font\FontS.xnb">
-      <Link>Content\Font\FontS.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Font\FontT.xnb">
-      <Link>Content\Font\FontT.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Attack\Attack.ogg">
-      <Link>Content\Music\Attack\Attack.ogg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Attack\Attack.xnb">
-      <Link>Content\Music\Attack\Attack.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Autumn\Autumn.ogg">
-      <Link>Content\Music\Autumn\Autumn.ogg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Autumn\Autumn.xnb">
-      <Link>Content\Music\Autumn\Autumn.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Battle\Battle.ogg">
-      <Link>Content\Music\Battle\Battle.ogg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Battle\Battle.xnb">
-      <Link>Content\Music\Battle\Battle.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Defend\Defend.ogg">
-      <Link>Content\Music\Defend\Defend.ogg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Defend\Defend.xnb">
-      <Link>Content\Music\Defend\Defend.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Spring\Spring.ogg">
-      <Link>Content\Music\Spring\Spring.ogg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Spring\Spring.xnb">
-      <Link>Content\Music\Spring\Spring.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Start\Start.ogg">
-      <Link>Content\Music\Start\Start.ogg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Start\Start.xnb">
-      <Link>Content\Music\Start\Start.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Summer\Summer.ogg">
-      <Link>Content\Music\Summer\Summer.ogg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Summer\Summer.xnb">
-      <Link>Content\Music\Summer\Summer.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Winter\Winter.ogg">
-      <Link>Content\Music\Winter\Winter.ogg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\bin\Desktop\Music\Winter\Winter.xnb">
-      <Link>Content\Music\Winter\Winter.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <None Include="Content\Data\Scenario\194QXGJ.json" />
     <Content Include="..\Content\Data\Scenario\Scenarios.json">
       <Link>Content\Data\Scenario\Scenarios.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="app.manifest" />
-    <None Include="Content\Data\Scenario\194QXGJ.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\36.xnb">
-      <Link>Content\Sound\Animation\Female\36.xnb</Link>
+    <Content Include="..\Content\Music\Attack\Attack.mp3">
+      <Link>Content\Music\Attack\Attack.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\46.xnb">
-      <Link>Content\Sound\Animation\Female\46.xnb</Link>
+    <Content Include="..\Content\Music\Autumn\Autumn.mp3">
+      <Link>Content\Music\Autumn\Autumn.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\47.xnb">
-      <Link>Content\Sound\Animation\Female\47.xnb</Link>
+    <Content Include="..\Content\Music\Battle\Battle.mp3">
+      <Link>Content\Music\Battle\Battle.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\57.xnb">
-      <Link>Content\Sound\Animation\Female\57.xnb</Link>
+    <Content Include="..\Content\Music\Defend\Defend.mp3">
+      <Link>Content\Music\Defend\Defend.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\62.xnb">
-      <Link>Content\Sound\Animation\Female\62.xnb</Link>
+    <Content Include="..\Content\Music\Spring\Spring.mp3">
+      <Link>Content\Music\Spring\Spring.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\63.xnb">
-      <Link>Content\Sound\Animation\Female\63.xnb</Link>
+    <Content Include="..\Content\Music\Start\Start.mp3">
+      <Link>Content\Music\Start\Start.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\64.xnb">
-      <Link>Content\Sound\Animation\Female\64.xnb</Link>
+    <Content Include="..\Content\Music\Summer\Summer.mp3">
+      <Link>Content\Music\Summer\Summer.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\67.xnb">
-      <Link>Content\Sound\Animation\Female\67.xnb</Link>
+    <Content Include="..\Content\Music\Winter\Winter.mp3">
+      <Link>Content\Music\Winter\Winter.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\68.xnb">
-      <Link>Content\Sound\Animation\Female\68.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\36.wav">
+      <Link>Content\Sound\Animation\Female\36.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\69.xnb">
-      <Link>Content\Sound\Animation\Female\69.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\46.wav">
+      <Link>Content\Sound\Animation\Female\46.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\chongji.xnb">
-      <Link>Content\Sound\Animation\Female\chongji.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\47.wav">
+      <Link>Content\Sound\Animation\Female\47.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\CriticalStrike.xnb">
-      <Link>Content\Sound\Animation\Female\CriticalStrike.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\57.wav">
+      <Link>Content\Sound\Animation\Female\57.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\dadun.xnb">
-      <Link>Content\Sound\Animation\Female\dadun.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\62.wav">
+      <Link>Content\Sound\Animation\Female\62.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\jinji.xnb">
-      <Link>Content\Sound\Animation\Female\jinji.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\63.wav">
+      <Link>Content\Sound\Animation\Female\63.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\leiting.xnb">
-      <Link>Content\Sound\Animation\Female\leiting.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\64.wav">
+      <Link>Content\Sound\Animation\Female\64.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\pojia.xnb">
-      <Link>Content\Sound\Animation\Female\pojia.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\67.wav">
+      <Link>Content\Sound\Animation\Female\67.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\qiangzhen.xnb">
-      <Link>Content\Sound\Animation\Female\qiangzhen.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\68.wav">
+      <Link>Content\Sound\Animation\Female\68.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\tuji.xnb">
-      <Link>Content\Sound\Animation\Female\tuji.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\69.wav">
+      <Link>Content\Sound\Animation\Female\69.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Female\xuanfeng.xnb">
-      <Link>Content\Sound\Animation\Female\xuanfeng.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\chongji.wav">
+      <Link>Content\Sound\Animation\Female\chongji.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\36.xnb">
-      <Link>Content\Sound\Animation\Male\36.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\CriticalStrike.wav">
+      <Link>Content\Sound\Animation\Female\CriticalStrike.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\46.xnb">
-      <Link>Content\Sound\Animation\Male\46.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\dadun.wav">
+      <Link>Content\Sound\Animation\Female\dadun.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\47.xnb">
-      <Link>Content\Sound\Animation\Male\47.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\jinji.wav">
+      <Link>Content\Sound\Animation\Female\jinji.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\57.xnb">
-      <Link>Content\Sound\Animation\Male\57.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\leiting.wav">
+      <Link>Content\Sound\Animation\Female\leiting.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\62.xnb">
-      <Link>Content\Sound\Animation\Male\62.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\pojia.wav">
+      <Link>Content\Sound\Animation\Female\pojia.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\63.xnb">
-      <Link>Content\Sound\Animation\Male\63.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\qiangzhen.wav">
+      <Link>Content\Sound\Animation\Female\qiangzhen.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\64.xnb">
-      <Link>Content\Sound\Animation\Male\64.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\tuji.wav">
+      <Link>Content\Sound\Animation\Female\tuji.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\67.xnb">
-      <Link>Content\Sound\Animation\Male\67.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Female\xuanfeng.wav">
+      <Link>Content\Sound\Animation\Female\xuanfeng.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\68.xnb">
-      <Link>Content\Sound\Animation\Male\68.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\36.wav">
+      <Link>Content\Sound\Animation\Male\36.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\69.xnb">
-      <Link>Content\Sound\Animation\Male\69.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\46.wav">
+      <Link>Content\Sound\Animation\Male\46.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\chongji.xnb">
-      <Link>Content\Sound\Animation\Male\chongji.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\47.wav">
+      <Link>Content\Sound\Animation\Male\47.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\CriticalStrike.xnb">
-      <Link>Content\Sound\Animation\Male\CriticalStrike.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\57.wav">
+      <Link>Content\Sound\Animation\Male\57.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\dadun.xnb">
-      <Link>Content\Sound\Animation\Male\dadun.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\62.wav">
+      <Link>Content\Sound\Animation\Male\62.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\jinji.xnb">
-      <Link>Content\Sound\Animation\Male\jinji.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\63.wav">
+      <Link>Content\Sound\Animation\Male\63.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\leiting.xnb">
-      <Link>Content\Sound\Animation\Male\leiting.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\64.wav">
+      <Link>Content\Sound\Animation\Male\64.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\pojia.xnb">
-      <Link>Content\Sound\Animation\Male\pojia.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\67.wav">
+      <Link>Content\Sound\Animation\Male\67.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\qiangzhen.xnb">
-      <Link>Content\Sound\Animation\Male\qiangzhen.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\68.wav">
+      <Link>Content\Sound\Animation\Male\68.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\tuji.xnb">
-      <Link>Content\Sound\Animation\Male\tuji.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\69.wav">
+      <Link>Content\Sound\Animation\Male\69.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Male\xuanfeng.xnb">
-      <Link>Content\Sound\Animation\Male\xuanfeng.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\chongji.wav">
+      <Link>Content\Sound\Animation\Male\chongji.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\41.xnb">
-      <Link>Content\Sound\Animation\41.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\CriticalStrike.wav">
+      <Link>Content\Sound\Animation\Male\CriticalStrike.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\42.xnb">
-      <Link>Content\Sound\Animation\42.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\dadun.wav">
+      <Link>Content\Sound\Animation\Male\dadun.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\43.xnb">
-      <Link>Content\Sound\Animation\43.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\jinji.wav">
+      <Link>Content\Sound\Animation\Male\jinji.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\44.xnb">
-      <Link>Content\Sound\Animation\44.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\leiting.wav">
+      <Link>Content\Sound\Animation\Male\leiting.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\48.xnb">
-      <Link>Content\Sound\Animation\48.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\pojia.wav">
+      <Link>Content\Sound\Animation\Male\pojia.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\52.xnb">
-      <Link>Content\Sound\Animation\52.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\qiangzhen.wav">
+      <Link>Content\Sound\Animation\Male\qiangzhen.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\55.xnb">
-      <Link>Content\Sound\Animation\55.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\tuji.wav">
+      <Link>Content\Sound\Animation\Male\tuji.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\56.xnb">
-      <Link>Content\Sound\Animation\56.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Male\xuanfeng.wav">
+      <Link>Content\Sound\Animation\Male\xuanfeng.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\58.xnb">
-      <Link>Content\Sound\Animation\58.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\41.wav">
+      <Link>Content\Sound\Animation\41.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\59.xnb">
-      <Link>Content\Sound\Animation\59.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\42.wav">
+      <Link>Content\Sound\Animation\42.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\60.xnb">
-      <Link>Content\Sound\Animation\60.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\43.wav">
+      <Link>Content\Sound\Animation\43.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\61.xnb">
-      <Link>Content\Sound\Animation\61.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\44.wav">
+      <Link>Content\Sound\Animation\44.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\65.xnb">
-      <Link>Content\Sound\Animation\65.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\48.wav">
+      <Link>Content\Sound\Animation\48.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\66.xnb">
-      <Link>Content\Sound\Animation\66.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\52.wav">
+      <Link>Content\Sound\Animation\52.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Ambush.xnb">
-      <Link>Content\Sound\Animation\Ambush.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\55.wav">
+      <Link>Content\Sound\Animation\55.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Attract.xnb">
-      <Link>Content\Sound\Animation\Attract.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\56.wav">
+      <Link>Content\Sound\Animation\56.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Boost.xnb">
-      <Link>Content\Sound\Animation\Boost.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\58.wav">
+      <Link>Content\Sound\Animation\58.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\CauseChaos.xnb">
-      <Link>Content\Sound\Animation\CauseChaos.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\59.wav">
+      <Link>Content\Sound\Animation\59.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Chaos.xnb">
-      <Link>Content\Sound\Animation\Chaos.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\60.wav">
+      <Link>Content\Sound\Animation\60.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Gongxin.xnb">
-      <Link>Content\Sound\Animation\Gongxin.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\61.wav">
+      <Link>Content\Sound\Animation\61.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\guanchuan.xnb">
-      <Link>Content\Sound\Animation\guanchuan.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\65.wav">
+      <Link>Content\Sound\Animation\65.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Help.xnb">
-      <Link>Content\Sound\Animation\Help.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\66.wav">
+      <Link>Content\Sound\Animation\66.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Hide.xnb">
-      <Link>Content\Sound\Animation\Hide.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Ambush.wav">
+      <Link>Content\Sound\Animation\Ambush.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\huoshi.xnb">
-      <Link>Content\Sound\Animation\huoshi.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Attract.wav">
+      <Link>Content\Sound\Animation\Attract.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Raoluan.xnb">
-      <Link>Content\Sound\Animation\Raoluan.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Boost.wav">
+      <Link>Content\Sound\Animation\Boost.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Recover.xnb">
-      <Link>Content\Sound\Animation\Recover.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\CauseChaos.wav">
+      <Link>Content\Sound\Animation\CauseChaos.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Resist.xnb">
-      <Link>Content\Sound\Animation\Resist.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Chaos.wav">
+      <Link>Content\Sound\Animation\Chaos.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Routed.xnb">
-      <Link>Content\Sound\Animation\Routed.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Gongxin.wav">
+      <Link>Content\Sound\Animation\Gongxin.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\Rumour.xnb">
-      <Link>Content\Sound\Animation\Rumour.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\guanchuan.wav">
+      <Link>Content\Sound\Animation\guanchuan.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Animation\SetFire.xnb">
-      <Link>Content\Sound\Animation\SetFire.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Help.wav">
+      <Link>Content\Sound\Animation\Help.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Control\Control.xnb">
-      <Link>Content\Sound\Control\Control.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Hide.wav">
+      <Link>Content\Sound\Animation\Hide.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\118.xnb">
-      <Link>Content\Sound\Person\118.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\huoshi.wav">
+      <Link>Content\Sound\Animation\huoshi.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\165.xnb">
-      <Link>Content\Sound\Person\165.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Raoluan.wav">
+      <Link>Content\Sound\Animation\Raoluan.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\225.xnb">
-      <Link>Content\Sound\Person\225.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Recover.wav">
+      <Link>Content\Sound\Animation\Recover.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\245.xnb">
-      <Link>Content\Sound\Person\245.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Resist.wav">
+      <Link>Content\Sound\Animation\Resist.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\289.xnb">
-      <Link>Content\Sound\Person\289.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Routed.wav">
+      <Link>Content\Sound\Animation\Routed.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\300.xnb">
-      <Link>Content\Sound\Person\300.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\Rumour.wav">
+      <Link>Content\Sound\Animation\Rumour.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\343.xnb">
-      <Link>Content\Sound\Person\343.xnb</Link>
+    <Content Include="..\Content\Sound\Animation\SetFire.wav">
+      <Link>Content\Sound\Animation\SetFire.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\367.xnb">
-      <Link>Content\Sound\Person\367.xnb</Link>
+    <Content Include="..\Content\Sound\Control\Control.wav">
+      <Link>Content\Sound\Control\Control.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\375.xnb">
-      <Link>Content\Sound\Person\375.xnb</Link>
+    <Content Include="..\Content\Sound\Person\118.wav">
+      <Link>Content\Sound\Person\118.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\395.xnb">
-      <Link>Content\Sound\Person\395.xnb</Link>
+    <Content Include="..\Content\Sound\Person\165.wav">
+      <Link>Content\Sound\Person\165.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\424.xnb">
-      <Link>Content\Sound\Person\424.xnb</Link>
+    <Content Include="..\Content\Sound\Person\225.wav">
+      <Link>Content\Sound\Person\225.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\432.xnb">
-      <Link>Content\Sound\Person\432.xnb</Link>
+    <Content Include="..\Content\Sound\Person\245.wav">
+      <Link>Content\Sound\Person\245.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\515.xnb">
-      <Link>Content\Sound\Person\515.xnb</Link>
+    <Content Include="..\Content\Sound\Person\289.wav">
+      <Link>Content\Sound\Person\289.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\63.xnb">
-      <Link>Content\Sound\Person\63.xnb</Link>
+    <Content Include="..\Content\Sound\Person\300.wav">
+      <Link>Content\Sound\Person\300.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\635.xnb">
-      <Link>Content\Sound\Person\635.xnb</Link>
+    <Content Include="..\Content\Sound\Person\343.wav">
+      <Link>Content\Sound\Person\343.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\660.xnb">
-      <Link>Content\Sound\Person\660.xnb</Link>
+    <Content Include="..\Content\Sound\Person\367.wav">
+      <Link>Content\Sound\Person\367.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\7005.xnb">
-      <Link>Content\Sound\Person\7005.xnb</Link>
+    <Content Include="..\Content\Sound\Person\375.wav">
+      <Link>Content\Sound\Person\375.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\85.xnb">
-      <Link>Content\Sound\Person\85.xnb</Link>
+    <Content Include="..\Content\Sound\Person\395.wav">
+      <Link>Content\Sound\Person\395.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Person\98.xnb">
-      <Link>Content\Sound\Person\98.xnb</Link>
+    <Content Include="..\Content\Sound\Person\424.wav">
+      <Link>Content\Sound\Person\424.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Tactics\Outside.xnb">
-      <Link>Content\Sound\Tactics\Outside.xnb</Link>
+    <Content Include="..\Content\Sound\Person\432.wav">
+      <Link>Content\Sound\Person\432.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\0\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\0\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Person\515.wav">
+      <Link>Content\Sound\Person\515.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\0\Moving.xnb">
-      <Link>Content\Sound\Troop\0\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Person\63.wav">
+      <Link>Content\Sound\Person\63.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\0\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\0\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Person\635.wav">
+      <Link>Content\Sound\Person\635.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\1\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\1\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Person\660.wav">
+      <Link>Content\Sound\Person\660.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\1\Moving.xnb">
-      <Link>Content\Sound\Troop\1\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Person\7005.wav">
+      <Link>Content\Sound\Person\7005.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\1\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\1\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Person\85.wav">
+      <Link>Content\Sound\Person\85.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\10\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\10\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Person\98.wav">
+      <Link>Content\Sound\Person\98.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\10\Moving.xnb">
-      <Link>Content\Sound\Troop\10\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Tactics\Outside.wav">
+      <Link>Content\Sound\Tactics\Outside.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\10\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\10\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\0\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\0\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\100\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\100\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\0\Moving.wav">
+      <Link>Content\Sound\Troop\0\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\100\Moving.xnb">
-      <Link>Content\Sound\Troop\100\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\0\NormalAttack.wav">
+      <Link>Content\Sound\Troop\0\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\100\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\100\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\1\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\1\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\101\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\101\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\1\Moving.wav">
+      <Link>Content\Sound\Troop\1\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\101\Moving.xnb">
-      <Link>Content\Sound\Troop\101\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\1\NormalAttack.wav">
+      <Link>Content\Sound\Troop\1\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\101\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\101\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\10\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\10\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\102\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\102\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\10\Moving.wav">
+      <Link>Content\Sound\Troop\10\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\102\Moving.xnb">
-      <Link>Content\Sound\Troop\102\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\10\NormalAttack.wav">
+      <Link>Content\Sound\Troop\10\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\102\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\102\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\100\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\100\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\103\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\103\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\100\Moving.wav">
+      <Link>Content\Sound\Troop\100\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\103\Moving.xnb">
-      <Link>Content\Sound\Troop\103\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\100\NormalAttack.wav">
+      <Link>Content\Sound\Troop\100\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\103\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\103\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\101\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\101\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\11\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\11\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\101\Moving.wav">
+      <Link>Content\Sound\Troop\101\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\11\Moving.xnb">
-      <Link>Content\Sound\Troop\11\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\101\NormalAttack.wav">
+      <Link>Content\Sound\Troop\101\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\11\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\11\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\102\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\102\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\110\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\110\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\102\Moving.wav">
+      <Link>Content\Sound\Troop\102\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\110\Moving.xnb">
-      <Link>Content\Sound\Troop\110\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\102\NormalAttack.wav">
+      <Link>Content\Sound\Troop\102\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\110\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\110\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\103\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\103\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\111\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\111\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\103\Moving.wav">
+      <Link>Content\Sound\Troop\103\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\111\Moving.xnb">
-      <Link>Content\Sound\Troop\111\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\103\NormalAttack.wav">
+      <Link>Content\Sound\Troop\103\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\111\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\111\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\11\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\11\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\12\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\12\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\11\Moving.wav">
+      <Link>Content\Sound\Troop\11\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\12\Moving.xnb">
-      <Link>Content\Sound\Troop\12\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\11\NormalAttack.wav">
+      <Link>Content\Sound\Troop\11\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\12\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\12\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\110\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\110\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\120\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\120\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\110\Moving.wav">
+      <Link>Content\Sound\Troop\110\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\120\Moving.xnb">
-      <Link>Content\Sound\Troop\120\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\110\NormalAttack.wav">
+      <Link>Content\Sound\Troop\110\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\120\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\120\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\111\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\111\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\121\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\121\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\111\Moving.wav">
+      <Link>Content\Sound\Troop\111\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\121\Moving.xnb">
-      <Link>Content\Sound\Troop\121\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\111\NormalAttack.wav">
+      <Link>Content\Sound\Troop\111\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\121\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\121\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\12\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\12\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\122\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\122\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\12\Moving.wav">
+      <Link>Content\Sound\Troop\12\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\122\Moving.xnb">
-      <Link>Content\Sound\Troop\122\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\12\NormalAttack.wav">
+      <Link>Content\Sound\Troop\12\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\122\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\122\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\120\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\120\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\13\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\13\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\120\Moving.wav">
+      <Link>Content\Sound\Troop\120\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\13\Moving.xnb">
-      <Link>Content\Sound\Troop\13\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\120\NormalAttack.wav">
+      <Link>Content\Sound\Troop\120\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\13\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\13\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\121\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\121\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\14\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\14\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\121\Moving.wav">
+      <Link>Content\Sound\Troop\121\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\14\Moving.xnb">
-      <Link>Content\Sound\Troop\14\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\121\NormalAttack.wav">
+      <Link>Content\Sound\Troop\121\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\14\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\14\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\122\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\122\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\15\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\15\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\122\Moving.wav">
+      <Link>Content\Sound\Troop\122\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\15\Moving.xnb">
-      <Link>Content\Sound\Troop\15\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\122\NormalAttack.wav">
+      <Link>Content\Sound\Troop\122\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\15\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\15\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\13\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\13\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\150\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\150\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\13\Moving.wav">
+      <Link>Content\Sound\Troop\13\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\150\Moving.xnb">
-      <Link>Content\Sound\Troop\150\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\13\NormalAttack.wav">
+      <Link>Content\Sound\Troop\13\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\150\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\150\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\14\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\14\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\151\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\151\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\14\Moving.wav">
+      <Link>Content\Sound\Troop\14\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\151\Moving.xnb">
-      <Link>Content\Sound\Troop\151\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\14\NormalAttack.wav">
+      <Link>Content\Sound\Troop\14\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\151\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\151\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\15\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\15\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\152\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\152\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\15\Moving.wav">
+      <Link>Content\Sound\Troop\15\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\152\Moving.xnb">
-      <Link>Content\Sound\Troop\152\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\15\NormalAttack.wav">
+      <Link>Content\Sound\Troop\15\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\152\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\152\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\150\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\150\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\153\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\153\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\150\Moving.wav">
+      <Link>Content\Sound\Troop\150\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\153\Moving.xnb">
-      <Link>Content\Sound\Troop\153\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\150\NormalAttack.wav">
+      <Link>Content\Sound\Troop\150\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\153\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\153\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\151\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\151\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\154\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\154\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\151\Moving.wav">
+      <Link>Content\Sound\Troop\151\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\154\Moving.xnb">
-      <Link>Content\Sound\Troop\154\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\151\NormalAttack.wav">
+      <Link>Content\Sound\Troop\151\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\154\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\154\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\152\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\152\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\155\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\155\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\152\Moving.wav">
+      <Link>Content\Sound\Troop\152\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\155\Moving.xnb">
-      <Link>Content\Sound\Troop\155\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\152\NormalAttack.wav">
+      <Link>Content\Sound\Troop\152\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\155\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\155\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\153\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\153\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\156\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\156\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\153\Moving.wav">
+      <Link>Content\Sound\Troop\153\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\156\Moving.xnb">
-      <Link>Content\Sound\Troop\156\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\153\NormalAttack.wav">
+      <Link>Content\Sound\Troop\153\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\156\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\156\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\154\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\154\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\157\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\157\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\154\Moving.wav">
+      <Link>Content\Sound\Troop\154\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\157\Moving.xnb">
-      <Link>Content\Sound\Troop\157\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\154\NormalAttack.wav">
+      <Link>Content\Sound\Troop\154\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\157\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\157\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\155\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\155\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\158\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\158\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\155\Moving.wav">
+      <Link>Content\Sound\Troop\155\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\158\Moving.xnb">
-      <Link>Content\Sound\Troop\158\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\155\NormalAttack.wav">
+      <Link>Content\Sound\Troop\155\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\158\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\158\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\156\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\156\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\159\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\159\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\156\Moving.wav">
+      <Link>Content\Sound\Troop\156\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\159\Moving.xnb">
-      <Link>Content\Sound\Troop\159\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\156\NormalAttack.wav">
+      <Link>Content\Sound\Troop\156\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\159\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\159\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\157\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\157\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\16\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\16\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\157\Moving.wav">
+      <Link>Content\Sound\Troop\157\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\16\Moving.xnb">
-      <Link>Content\Sound\Troop\16\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\157\NormalAttack.wav">
+      <Link>Content\Sound\Troop\157\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\16\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\16\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\158\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\158\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\160\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\160\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\158\Moving.wav">
+      <Link>Content\Sound\Troop\158\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\160\Moving.xnb">
-      <Link>Content\Sound\Troop\160\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\158\NormalAttack.wav">
+      <Link>Content\Sound\Troop\158\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\160\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\160\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\159\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\159\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\161\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\161\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\159\Moving.wav">
+      <Link>Content\Sound\Troop\159\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\161\Moving.xnb">
-      <Link>Content\Sound\Troop\161\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\159\NormalAttack.wav">
+      <Link>Content\Sound\Troop\159\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\161\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\161\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\16\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\16\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\162\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\162\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\16\Moving.wav">
+      <Link>Content\Sound\Troop\16\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\162\Moving.xnb">
-      <Link>Content\Sound\Troop\162\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\16\NormalAttack.wav">
+      <Link>Content\Sound\Troop\16\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\162\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\162\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\160\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\160\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\163\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\163\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\160\Moving.wav">
+      <Link>Content\Sound\Troop\160\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\163\Moving.xnb">
-      <Link>Content\Sound\Troop\163\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\160\NormalAttack.wav">
+      <Link>Content\Sound\Troop\160\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\163\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\163\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\161\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\161\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\17\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\17\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\161\Moving.wav">
+      <Link>Content\Sound\Troop\161\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\17\Moving.xnb">
-      <Link>Content\Sound\Troop\17\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\161\NormalAttack.wav">
+      <Link>Content\Sound\Troop\161\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\17\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\17\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\162\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\162\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\2\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\2\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\162\Moving.wav">
+      <Link>Content\Sound\Troop\162\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\2\Moving.xnb">
-      <Link>Content\Sound\Troop\2\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\162\NormalAttack.wav">
+      <Link>Content\Sound\Troop\162\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\2\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\2\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\163\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\163\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\200\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\200\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\163\Moving.wav">
+      <Link>Content\Sound\Troop\163\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\200\Moving.xnb">
-      <Link>Content\Sound\Troop\200\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\163\NormalAttack.wav">
+      <Link>Content\Sound\Troop\163\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\200\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\200\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\17\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\17\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\201\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\201\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\17\Moving.wav">
+      <Link>Content\Sound\Troop\17\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\201\Moving.xnb">
-      <Link>Content\Sound\Troop\201\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\17\NormalAttack.wav">
+      <Link>Content\Sound\Troop\17\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\201\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\201\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\2\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\2\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\202\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\202\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\2\Moving.wav">
+      <Link>Content\Sound\Troop\2\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\202\Moving.xnb">
-      <Link>Content\Sound\Troop\202\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\2\NormalAttack.wav">
+      <Link>Content\Sound\Troop\2\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\202\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\202\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\200\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\200\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\203\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\203\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\200\Moving.wav">
+      <Link>Content\Sound\Troop\200\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\203\Moving.xnb">
-      <Link>Content\Sound\Troop\203\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\200\NormalAttack.wav">
+      <Link>Content\Sound\Troop\200\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\203\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\203\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\201\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\201\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\204\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\204\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\201\Moving.wav">
+      <Link>Content\Sound\Troop\201\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\204\Moving.xnb">
-      <Link>Content\Sound\Troop\204\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\201\NormalAttack.wav">
+      <Link>Content\Sound\Troop\201\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\204\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\204\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\202\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\202\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\205\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\205\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\202\Moving.wav">
+      <Link>Content\Sound\Troop\202\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\205\Moving.xnb">
-      <Link>Content\Sound\Troop\205\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\202\NormalAttack.wav">
+      <Link>Content\Sound\Troop\202\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\205\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\205\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\203\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\203\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\206\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\206\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\203\Moving.wav">
+      <Link>Content\Sound\Troop\203\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\206\Moving.xnb">
-      <Link>Content\Sound\Troop\206\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\203\NormalAttack.wav">
+      <Link>Content\Sound\Troop\203\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\206\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\206\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\204\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\204\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\207\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\207\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\204\Moving.wav">
+      <Link>Content\Sound\Troop\204\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\207\Moving.xnb">
-      <Link>Content\Sound\Troop\207\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\204\NormalAttack.wav">
+      <Link>Content\Sound\Troop\204\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\207\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\207\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\205\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\205\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\208\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\208\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\205\Moving.wav">
+      <Link>Content\Sound\Troop\205\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\208\Moving.xnb">
-      <Link>Content\Sound\Troop\208\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\205\NormalAttack.wav">
+      <Link>Content\Sound\Troop\205\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\208\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\208\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\206\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\206\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\209\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\209\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\206\Moving.wav">
+      <Link>Content\Sound\Troop\206\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\209\Moving.xnb">
-      <Link>Content\Sound\Troop\209\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\206\NormalAttack.wav">
+      <Link>Content\Sound\Troop\206\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\209\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\209\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\207\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\207\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\21\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\21\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\207\Moving.wav">
+      <Link>Content\Sound\Troop\207\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\21\Moving.xnb">
-      <Link>Content\Sound\Troop\21\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\207\NormalAttack.wav">
+      <Link>Content\Sound\Troop\207\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\21\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\21\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\208\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\208\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\210\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\210\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\208\Moving.wav">
+      <Link>Content\Sound\Troop\208\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\210\Moving.xnb">
-      <Link>Content\Sound\Troop\210\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\208\NormalAttack.wav">
+      <Link>Content\Sound\Troop\208\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\210\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\210\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\209\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\209\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\211\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\211\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\209\Moving.wav">
+      <Link>Content\Sound\Troop\209\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\211\Moving.xnb">
-      <Link>Content\Sound\Troop\211\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\209\NormalAttack.wav">
+      <Link>Content\Sound\Troop\209\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\211\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\211\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\21\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\21\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\212\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\212\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\21\Moving.wav">
+      <Link>Content\Sound\Troop\21\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\212\Moving.xnb">
-      <Link>Content\Sound\Troop\212\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\21\NormalAttack.wav">
+      <Link>Content\Sound\Troop\21\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\212\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\212\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\210\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\210\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\213\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\213\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\210\Moving.wav">
+      <Link>Content\Sound\Troop\210\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\213\Moving.xnb">
-      <Link>Content\Sound\Troop\213\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\210\NormalAttack.wav">
+      <Link>Content\Sound\Troop\210\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\213\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\213\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\211\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\211\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\214\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\214\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\211\Moving.wav">
+      <Link>Content\Sound\Troop\211\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\214\Moving.xnb">
-      <Link>Content\Sound\Troop\214\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\211\NormalAttack.wav">
+      <Link>Content\Sound\Troop\211\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\214\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\214\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\212\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\212\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\215\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\215\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\212\Moving.wav">
+      <Link>Content\Sound\Troop\212\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\215\Moving.xnb">
-      <Link>Content\Sound\Troop\215\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\212\NormalAttack.wav">
+      <Link>Content\Sound\Troop\212\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\215\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\215\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\213\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\213\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\22\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\22\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\213\Moving.wav">
+      <Link>Content\Sound\Troop\213\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\22\Moving.xnb">
-      <Link>Content\Sound\Troop\22\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\213\NormalAttack.wav">
+      <Link>Content\Sound\Troop\213\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\22\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\22\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\214\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\214\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\23\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\23\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\214\Moving.wav">
+      <Link>Content\Sound\Troop\214\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\23\Moving.xnb">
-      <Link>Content\Sound\Troop\23\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\214\NormalAttack.wav">
+      <Link>Content\Sound\Troop\214\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\23\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\23\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\215\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\215\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\24\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\24\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\215\Moving.wav">
+      <Link>Content\Sound\Troop\215\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\24\Moving.xnb">
-      <Link>Content\Sound\Troop\24\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\215\NormalAttack.wav">
+      <Link>Content\Sound\Troop\215\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\24\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\24\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\22\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\22\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\25\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\25\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\22\Moving.wav">
+      <Link>Content\Sound\Troop\22\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\25\Moving.xnb">
-      <Link>Content\Sound\Troop\25\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\22\NormalAttack.wav">
+      <Link>Content\Sound\Troop\22\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\25\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\25\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\23\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\23\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\28\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\28\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\23\Moving.wav">
+      <Link>Content\Sound\Troop\23\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\28\Moving.xnb">
-      <Link>Content\Sound\Troop\28\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\23\NormalAttack.wav">
+      <Link>Content\Sound\Troop\23\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\28\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\28\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\24\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\24\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\3\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\3\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\24\Moving.wav">
+      <Link>Content\Sound\Troop\24\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\3\Moving.xnb">
-      <Link>Content\Sound\Troop\3\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\24\NormalAttack.wav">
+      <Link>Content\Sound\Troop\24\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\3\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\3\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\25\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\25\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\30\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\30\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\25\Moving.wav">
+      <Link>Content\Sound\Troop\25\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\30\Moving.xnb">
-      <Link>Content\Sound\Troop\30\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\25\NormalAttack.wav">
+      <Link>Content\Sound\Troop\25\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\30\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\30\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\28\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\28\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\300\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\300\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\28\Moving.wav">
+      <Link>Content\Sound\Troop\28\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\300\Moving.xnb">
-      <Link>Content\Sound\Troop\300\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\28\NormalAttack.wav">
+      <Link>Content\Sound\Troop\28\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\300\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\300\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\3\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\3\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\301\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\301\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\3\Moving.wav">
+      <Link>Content\Sound\Troop\3\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\301\Moving.xnb">
-      <Link>Content\Sound\Troop\301\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\3\NormalAttack.wav">
+      <Link>Content\Sound\Troop\3\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\301\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\301\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\30\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\30\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\302\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\302\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\30\Moving.wav">
+      <Link>Content\Sound\Troop\30\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\302\Moving.xnb">
-      <Link>Content\Sound\Troop\302\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\30\NormalAttack.wav">
+      <Link>Content\Sound\Troop\30\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\302\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\302\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\300\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\300\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\31\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\31\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\300\Moving.wav">
+      <Link>Content\Sound\Troop\300\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\31\Moving.xnb">
-      <Link>Content\Sound\Troop\31\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\300\NormalAttack.wav">
+      <Link>Content\Sound\Troop\300\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\31\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\31\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\301\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\301\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\32\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\32\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\301\Moving.wav">
+      <Link>Content\Sound\Troop\301\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\32\Moving.xnb">
-      <Link>Content\Sound\Troop\32\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\301\NormalAttack.wav">
+      <Link>Content\Sound\Troop\301\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\32\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\32\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\302\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\302\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\400\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\400\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\302\Moving.wav">
+      <Link>Content\Sound\Troop\302\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\400\Moving.xnb">
-      <Link>Content\Sound\Troop\400\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\302\NormalAttack.wav">
+      <Link>Content\Sound\Troop\302\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\400\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\400\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\31\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\31\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\401\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\401\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\31\Moving.wav">
+      <Link>Content\Sound\Troop\31\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\401\Moving.xnb">
-      <Link>Content\Sound\Troop\401\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\31\NormalAttack.wav">
+      <Link>Content\Sound\Troop\31\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\401\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\401\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\32\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\32\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\402\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\402\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\32\Moving.wav">
+      <Link>Content\Sound\Troop\32\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\402\Moving.xnb">
-      <Link>Content\Sound\Troop\402\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\32\NormalAttack.wav">
+      <Link>Content\Sound\Troop\32\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\402\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\402\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\400\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\400\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\403\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\403\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\400\Moving.wav">
+      <Link>Content\Sound\Troop\400\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\403\Moving.xnb">
-      <Link>Content\Sound\Troop\403\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\400\NormalAttack.wav">
+      <Link>Content\Sound\Troop\400\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\403\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\403\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\401\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\401\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\404\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\404\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\401\Moving.wav">
+      <Link>Content\Sound\Troop\401\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\404\Moving.xnb">
-      <Link>Content\Sound\Troop\404\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\401\NormalAttack.wav">
+      <Link>Content\Sound\Troop\401\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\404\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\404\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\402\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\402\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\405\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\405\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\402\Moving.wav">
+      <Link>Content\Sound\Troop\402\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\405\Moving.xnb">
-      <Link>Content\Sound\Troop\405\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\402\NormalAttack.wav">
+      <Link>Content\Sound\Troop\402\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\405\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\405\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\403\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\403\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\406\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\406\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\403\Moving.wav">
+      <Link>Content\Sound\Troop\403\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\406\Moving.xnb">
-      <Link>Content\Sound\Troop\406\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\403\NormalAttack.wav">
+      <Link>Content\Sound\Troop\403\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\406\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\406\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\404\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\404\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\407\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\407\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\404\Moving.wav">
+      <Link>Content\Sound\Troop\404\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\407\Moving.xnb">
-      <Link>Content\Sound\Troop\407\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\404\NormalAttack.wav">
+      <Link>Content\Sound\Troop\404\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\407\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\407\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\405\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\405\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\408\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\408\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\405\Moving.wav">
+      <Link>Content\Sound\Troop\405\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\408\Moving.xnb">
-      <Link>Content\Sound\Troop\408\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\405\NormalAttack.wav">
+      <Link>Content\Sound\Troop\405\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\408\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\408\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\406\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\406\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\50\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\50\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\406\Moving.wav">
+      <Link>Content\Sound\Troop\406\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\50\Moving.xnb">
-      <Link>Content\Sound\Troop\50\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\406\NormalAttack.wav">
+      <Link>Content\Sound\Troop\406\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\50\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\50\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\407\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\407\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\500\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\500\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\407\Moving.wav">
+      <Link>Content\Sound\Troop\407\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\500\Moving.xnb">
-      <Link>Content\Sound\Troop\500\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\407\NormalAttack.wav">
+      <Link>Content\Sound\Troop\407\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\500\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\500\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\408\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\408\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\501\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\501\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\408\Moving.wav">
+      <Link>Content\Sound\Troop\408\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\501\Moving.xnb">
-      <Link>Content\Sound\Troop\501\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\408\NormalAttack.wav">
+      <Link>Content\Sound\Troop\408\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\501\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\501\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\50\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\50\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\502\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\502\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\50\Moving.wav">
+      <Link>Content\Sound\Troop\50\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\502\Moving.xnb">
-      <Link>Content\Sound\Troop\502\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\50\NormalAttack.wav">
+      <Link>Content\Sound\Troop\50\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\502\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\502\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\500\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\500\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\503\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\503\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\500\Moving.wav">
+      <Link>Content\Sound\Troop\500\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\503\Moving.xnb">
-      <Link>Content\Sound\Troop\503\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\500\NormalAttack.wav">
+      <Link>Content\Sound\Troop\500\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\503\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\503\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\501\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\501\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\504\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\504\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\501\Moving.wav">
+      <Link>Content\Sound\Troop\501\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\504\Moving.xnb">
-      <Link>Content\Sound\Troop\504\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\501\NormalAttack.wav">
+      <Link>Content\Sound\Troop\501\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\504\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\504\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\502\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\502\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\51\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\51\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\502\Moving.wav">
+      <Link>Content\Sound\Troop\502\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\51\Moving.xnb">
-      <Link>Content\Sound\Troop\51\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\502\NormalAttack.wav">
+      <Link>Content\Sound\Troop\502\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\51\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\51\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\503\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\503\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\52\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\52\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\503\Moving.wav">
+      <Link>Content\Sound\Troop\503\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\52\Moving.xnb">
-      <Link>Content\Sound\Troop\52\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\503\NormalAttack.wav">
+      <Link>Content\Sound\Troop\503\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\52\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\52\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\504\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\504\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\53\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\53\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\504\Moving.wav">
+      <Link>Content\Sound\Troop\504\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\53\Moving.xnb">
-      <Link>Content\Sound\Troop\53\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\504\NormalAttack.wav">
+      <Link>Content\Sound\Troop\504\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\53\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\53\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\51\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\51\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\54\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\54\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\51\Moving.wav">
+      <Link>Content\Sound\Troop\51\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\54\Moving.xnb">
-      <Link>Content\Sound\Troop\54\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\51\NormalAttack.wav">
+      <Link>Content\Sound\Troop\51\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\54\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\54\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\52\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\52\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\55\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\55\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\52\Moving.wav">
+      <Link>Content\Sound\Troop\52\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\55\Moving.xnb">
-      <Link>Content\Sound\Troop\55\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\52\NormalAttack.wav">
+      <Link>Content\Sound\Troop\52\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\55\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\55\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\53\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\53\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\56\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\56\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\53\Moving.wav">
+      <Link>Content\Sound\Troop\53\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\56\Moving.xnb">
-      <Link>Content\Sound\Troop\56\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\53\NormalAttack.wav">
+      <Link>Content\Sound\Troop\53\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\56\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\56\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\54\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\54\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\57\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\57\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\54\Moving.wav">
+      <Link>Content\Sound\Troop\54\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\57\Moving.xnb">
-      <Link>Content\Sound\Troop\57\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\54\NormalAttack.wav">
+      <Link>Content\Sound\Troop\54\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\57\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\57\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\55\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\55\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\58\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\58\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\55\Moving.wav">
+      <Link>Content\Sound\Troop\55\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\58\Moving.xnb">
-      <Link>Content\Sound\Troop\58\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\55\NormalAttack.wav">
+      <Link>Content\Sound\Troop\55\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\58\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\58\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\56\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\56\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\59\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\59\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\56\Moving.wav">
+      <Link>Content\Sound\Troop\56\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\59\Moving.xnb">
-      <Link>Content\Sound\Troop\59\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\56\NormalAttack.wav">
+      <Link>Content\Sound\Troop\56\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\59\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\59\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\57\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\57\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\60\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\60\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\57\Moving.wav">
+      <Link>Content\Sound\Troop\57\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\60\Moving.xnb">
-      <Link>Content\Sound\Troop\60\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\57\NormalAttack.wav">
+      <Link>Content\Sound\Troop\57\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\60\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\60\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\58\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\58\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\600\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\600\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\58\Moving.wav">
+      <Link>Content\Sound\Troop\58\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\600\Moving.xnb">
-      <Link>Content\Sound\Troop\600\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\58\NormalAttack.wav">
+      <Link>Content\Sound\Troop\58\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\600\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\600\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\59\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\59\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\601\Moving.xnb">
-      <Link>Content\Sound\Troop\601\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\59\Moving.wav">
+      <Link>Content\Sound\Troop\59\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\602\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\602\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\59\NormalAttack.wav">
+      <Link>Content\Sound\Troop\59\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\602\Moving.xnb">
-      <Link>Content\Sound\Troop\602\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\60\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\60\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\602\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\602\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\60\Moving.wav">
+      <Link>Content\Sound\Troop\60\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\603\Moving.xnb">
-      <Link>Content\Sound\Troop\603\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\60\NormalAttack.wav">
+      <Link>Content\Sound\Troop\60\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\604\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\604\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\600\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\600\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\604\Moving.xnb">
-      <Link>Content\Sound\Troop\604\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\600\Moving.wav">
+      <Link>Content\Sound\Troop\600\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\604\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\604\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\600\NormalAttack.wav">
+      <Link>Content\Sound\Troop\600\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\605\Moving.xnb">
-      <Link>Content\Sound\Troop\605\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\601\Moving.wav">
+      <Link>Content\Sound\Troop\601\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\61\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\61\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\602\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\602\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\61\Moving.xnb">
-      <Link>Content\Sound\Troop\61\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\602\Moving.wav">
+      <Link>Content\Sound\Troop\602\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\61\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\61\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\602\NormalAttack.wav">
+      <Link>Content\Sound\Troop\602\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\610\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\610\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\603\Moving.wav">
+      <Link>Content\Sound\Troop\603\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\610\Moving.xnb">
-      <Link>Content\Sound\Troop\610\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\604\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\604\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\610\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\610\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\604\Moving.wav">
+      <Link>Content\Sound\Troop\604\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\611\Moving.xnb">
-      <Link>Content\Sound\Troop\611\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\604\NormalAttack.wav">
+      <Link>Content\Sound\Troop\604\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\612\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\612\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\605\Moving.wav">
+      <Link>Content\Sound\Troop\605\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\612\Moving.xnb">
-      <Link>Content\Sound\Troop\612\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\61\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\61\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\612\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\612\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\61\Moving.wav">
+      <Link>Content\Sound\Troop\61\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\613\Moving.xnb">
-      <Link>Content\Sound\Troop\613\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\61\NormalAttack.wav">
+      <Link>Content\Sound\Troop\61\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\614\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\614\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\610\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\610\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\614\Moving.xnb">
-      <Link>Content\Sound\Troop\614\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\610\Moving.wav">
+      <Link>Content\Sound\Troop\610\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\614\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\614\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\610\NormalAttack.wav">
+      <Link>Content\Sound\Troop\610\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\615\Moving.xnb">
-      <Link>Content\Sound\Troop\615\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\611\Moving.wav">
+      <Link>Content\Sound\Troop\611\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\616\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\616\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\612\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\612\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\616\Moving.xnb">
-      <Link>Content\Sound\Troop\616\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\612\Moving.wav">
+      <Link>Content\Sound\Troop\612\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\616\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\616\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\612\NormalAttack.wav">
+      <Link>Content\Sound\Troop\612\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\617\Moving.xnb">
-      <Link>Content\Sound\Troop\617\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\613\Moving.wav">
+      <Link>Content\Sound\Troop\613\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\62\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\62\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\614\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\614\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\62\Moving.xnb">
-      <Link>Content\Sound\Troop\62\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\614\Moving.wav">
+      <Link>Content\Sound\Troop\614\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\62\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\62\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\614\NormalAttack.wav">
+      <Link>Content\Sound\Troop\614\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\620\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\620\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\615\Moving.wav">
+      <Link>Content\Sound\Troop\615\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\620\Moving.xnb">
-      <Link>Content\Sound\Troop\620\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\616\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\616\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\620\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\620\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\616\Moving.wav">
+      <Link>Content\Sound\Troop\616\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\621\Moving.xnb">
-      <Link>Content\Sound\Troop\621\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\616\NormalAttack.wav">
+      <Link>Content\Sound\Troop\616\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\622\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\622\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\617\Moving.wav">
+      <Link>Content\Sound\Troop\617\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\622\Moving.xnb">
-      <Link>Content\Sound\Troop\622\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\62\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\62\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\622\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\622\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\62\Moving.wav">
+      <Link>Content\Sound\Troop\62\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\623\Moving.xnb">
-      <Link>Content\Sound\Troop\623\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\62\NormalAttack.wav">
+      <Link>Content\Sound\Troop\62\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\624\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\624\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\620\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\620\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\624\Moving.xnb">
-      <Link>Content\Sound\Troop\624\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\620\Moving.wav">
+      <Link>Content\Sound\Troop\620\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\624\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\624\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\620\NormalAttack.wav">
+      <Link>Content\Sound\Troop\620\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\625\Moving.xnb">
-      <Link>Content\Sound\Troop\625\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\621\Moving.wav">
+      <Link>Content\Sound\Troop\621\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\63\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\63\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\622\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\622\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\63\Moving.xnb">
-      <Link>Content\Sound\Troop\63\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\622\Moving.wav">
+      <Link>Content\Sound\Troop\622\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\63\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\63\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\622\NormalAttack.wav">
+      <Link>Content\Sound\Troop\622\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\630\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\630\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\623\Moving.wav">
+      <Link>Content\Sound\Troop\623\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\630\Moving.xnb">
-      <Link>Content\Sound\Troop\630\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\624\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\624\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\630\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\630\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\624\Moving.wav">
+      <Link>Content\Sound\Troop\624\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\631\Moving.xnb">
-      <Link>Content\Sound\Troop\631\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\624\NormalAttack.wav">
+      <Link>Content\Sound\Troop\624\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\64\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\64\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\625\Moving.wav">
+      <Link>Content\Sound\Troop\625\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\64\Moving.xnb">
-      <Link>Content\Sound\Troop\64\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\63\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\63\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\64\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\64\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\63\Moving.wav">
+      <Link>Content\Sound\Troop\63\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\65\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\65\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\63\NormalAttack.wav">
+      <Link>Content\Sound\Troop\63\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\65\Moving.xnb">
-      <Link>Content\Sound\Troop\65\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\630\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\630\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\65\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\65\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\630\Moving.wav">
+      <Link>Content\Sound\Troop\630\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\66\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\66\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\630\NormalAttack.wav">
+      <Link>Content\Sound\Troop\630\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\66\Moving.xnb">
-      <Link>Content\Sound\Troop\66\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\631\Moving.wav">
+      <Link>Content\Sound\Troop\631\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\66\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\66\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\64\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\64\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\67\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\67\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\64\Moving.wav">
+      <Link>Content\Sound\Troop\64\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\67\Moving.xnb">
-      <Link>Content\Sound\Troop\67\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\64\NormalAttack.wav">
+      <Link>Content\Sound\Troop\64\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\67\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\67\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\65\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\65\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\68\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\68\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\65\Moving.wav">
+      <Link>Content\Sound\Troop\65\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\68\Moving.xnb">
-      <Link>Content\Sound\Troop\68\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\65\NormalAttack.wav">
+      <Link>Content\Sound\Troop\65\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\68\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\68\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\66\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\66\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\70\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\70\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\66\Moving.wav">
+      <Link>Content\Sound\Troop\66\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\70\Moving.xnb">
-      <Link>Content\Sound\Troop\70\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\66\NormalAttack.wav">
+      <Link>Content\Sound\Troop\66\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\70\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\70\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\67\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\67\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\71\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\71\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\67\Moving.wav">
+      <Link>Content\Sound\Troop\67\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\71\Moving.xnb">
-      <Link>Content\Sound\Troop\71\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\67\NormalAttack.wav">
+      <Link>Content\Sound\Troop\67\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\71\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\71\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\68\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\68\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\72\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\72\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\68\Moving.wav">
+      <Link>Content\Sound\Troop\68\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\72\Moving.xnb">
-      <Link>Content\Sound\Troop\72\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\68\NormalAttack.wav">
+      <Link>Content\Sound\Troop\68\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\72\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\72\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\70\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\70\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\73\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\73\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\70\Moving.wav">
+      <Link>Content\Sound\Troop\70\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\73\Moving.xnb">
-      <Link>Content\Sound\Troop\73\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\70\NormalAttack.wav">
+      <Link>Content\Sound\Troop\70\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\73\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\73\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\71\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\71\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\74\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\74\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\71\Moving.wav">
+      <Link>Content\Sound\Troop\71\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\74\Moving.xnb">
-      <Link>Content\Sound\Troop\74\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\71\NormalAttack.wav">
+      <Link>Content\Sound\Troop\71\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\74\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\74\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\72\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\72\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\75\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\75\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\72\Moving.wav">
+      <Link>Content\Sound\Troop\72\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\75\Moving.xnb">
-      <Link>Content\Sound\Troop\75\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\72\NormalAttack.wav">
+      <Link>Content\Sound\Troop\72\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\75\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\75\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\73\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\73\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\76\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\76\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\73\Moving.wav">
+      <Link>Content\Sound\Troop\73\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\76\Moving.xnb">
-      <Link>Content\Sound\Troop\76\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\73\NormalAttack.wav">
+      <Link>Content\Sound\Troop\73\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\76\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\76\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\74\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\74\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\77\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\77\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\74\Moving.wav">
+      <Link>Content\Sound\Troop\74\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\77\Moving.xnb">
-      <Link>Content\Sound\Troop\77\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\74\NormalAttack.wav">
+      <Link>Content\Sound\Troop\74\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\77\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\77\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\75\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\75\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\78\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\78\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\75\Moving.wav">
+      <Link>Content\Sound\Troop\75\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\78\Moving.xnb">
-      <Link>Content\Sound\Troop\78\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\75\NormalAttack.wav">
+      <Link>Content\Sound\Troop\75\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\78\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\78\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\76\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\76\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\79\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\79\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\76\Moving.wav">
+      <Link>Content\Sound\Troop\76\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\79\Moving.xnb">
-      <Link>Content\Sound\Troop\79\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\76\NormalAttack.wav">
+      <Link>Content\Sound\Troop\76\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\79\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\79\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\77\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\77\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\80\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\80\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\77\Moving.wav">
+      <Link>Content\Sound\Troop\77\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\80\Moving.xnb">
-      <Link>Content\Sound\Troop\80\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\77\NormalAttack.wav">
+      <Link>Content\Sound\Troop\77\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\80\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\80\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\78\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\78\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\81\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\81\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\78\Moving.wav">
+      <Link>Content\Sound\Troop\78\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\81\Moving.xnb">
-      <Link>Content\Sound\Troop\81\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\78\NormalAttack.wav">
+      <Link>Content\Sound\Troop\78\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\81\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\81\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\79\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\79\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\82\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\82\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\79\Moving.wav">
+      <Link>Content\Sound\Troop\79\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\82\Moving.xnb">
-      <Link>Content\Sound\Troop\82\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\79\NormalAttack.wav">
+      <Link>Content\Sound\Troop\79\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\82\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\82\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\80\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\80\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\83\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\83\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\80\Moving.wav">
+      <Link>Content\Sound\Troop\80\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\83\Moving.xnb">
-      <Link>Content\Sound\Troop\83\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\80\NormalAttack.wav">
+      <Link>Content\Sound\Troop\80\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\83\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\83\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\81\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\81\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\84\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\84\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\81\Moving.wav">
+      <Link>Content\Sound\Troop\81\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\84\Moving.xnb">
-      <Link>Content\Sound\Troop\84\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\81\NormalAttack.wav">
+      <Link>Content\Sound\Troop\81\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\84\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\84\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\82\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\82\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\85\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\85\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\82\Moving.wav">
+      <Link>Content\Sound\Troop\82\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\85\Moving.xnb">
-      <Link>Content\Sound\Troop\85\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\82\NormalAttack.wav">
+      <Link>Content\Sound\Troop\82\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\85\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\85\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\83\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\83\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\86\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\86\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\83\Moving.wav">
+      <Link>Content\Sound\Troop\83\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\86\Moving.xnb">
-      <Link>Content\Sound\Troop\86\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\83\NormalAttack.wav">
+      <Link>Content\Sound\Troop\83\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\86\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\86\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\84\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\84\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\87\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\87\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\84\Moving.wav">
+      <Link>Content\Sound\Troop\84\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\87\Moving.xnb">
-      <Link>Content\Sound\Troop\87\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\84\NormalAttack.wav">
+      <Link>Content\Sound\Troop\84\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\87\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\87\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\85\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\85\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\88\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\88\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\85\Moving.wav">
+      <Link>Content\Sound\Troop\85\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\88\Moving.xnb">
-      <Link>Content\Sound\Troop\88\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\85\NormalAttack.wav">
+      <Link>Content\Sound\Troop\85\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\88\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\88\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\86\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\86\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\89\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\89\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\86\Moving.wav">
+      <Link>Content\Sound\Troop\86\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\89\Moving.xnb">
-      <Link>Content\Sound\Troop\89\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\86\NormalAttack.wav">
+      <Link>Content\Sound\Troop\86\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\89\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\89\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\87\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\87\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\90\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\90\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\87\Moving.wav">
+      <Link>Content\Sound\Troop\87\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\90\Moving.xnb">
-      <Link>Content\Sound\Troop\90\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\87\NormalAttack.wav">
+      <Link>Content\Sound\Troop\87\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\90\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\90\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\88\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\88\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\91\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\91\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\88\Moving.wav">
+      <Link>Content\Sound\Troop\88\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\91\Moving.xnb">
-      <Link>Content\Sound\Troop\91\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\88\NormalAttack.wav">
+      <Link>Content\Sound\Troop\88\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\91\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\91\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\89\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\89\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\92\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\92\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\89\Moving.wav">
+      <Link>Content\Sound\Troop\89\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\92\Moving.xnb">
-      <Link>Content\Sound\Troop\92\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\89\NormalAttack.wav">
+      <Link>Content\Sound\Troop\89\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\92\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\92\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\90\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\90\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\999\CriticalAttack.xnb">
-      <Link>Content\Sound\Troop\999\CriticalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\90\Moving.wav">
+      <Link>Content\Sound\Troop\90\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\999\Moving.xnb">
-      <Link>Content\Sound\Troop\999\Moving.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\90\NormalAttack.wav">
+      <Link>Content\Sound\Troop\90\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Troop\999\NormalAttack.xnb">
-      <Link>Content\Sound\Troop\999\NormalAttack.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\91\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\91\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\AllyDiplomaticRelation.xnb">
-      <Link>Content\Sound\Yinxiao\AllyDiplomaticRelation.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\91\Moving.wav">
+      <Link>Content\Sound\Troop\91\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\BreakDiplomaticRelation.xnb">
-      <Link>Content\Sound\Yinxiao\BreakDiplomaticRelation.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\91\NormalAttack.wav">
+      <Link>Content\Sound\Troop\91\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\bubingfangzhen.xnb">
-      <Link>Content\Sound\Yinxiao\bubingfangzhen.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\92\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\92\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\caocao.xnb">
-      <Link>Content\Sound\Yinxiao\caocao.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\92\Moving.wav">
+      <Link>Content\Sound\Troop\92\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\chonga.xnb">
-      <Link>Content\Sound\Yinxiao\chonga.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\92\NormalAttack.wav">
+      <Link>Content\Sound\Troop\92\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\chuzhan.xnb">
-      <Link>Content\Sound\Yinxiao\chuzhan.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\999\CriticalAttack.wav">
+      <Link>Content\Sound\Troop\999\CriticalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\DenounceDiplomaticRelation.xnb">
-      <Link>Content\Sound\Yinxiao\DenounceDiplomaticRelation.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\999\Moving.wav">
+      <Link>Content\Sound\Troop\999\Moving.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\EncircleDiplomaticRelation.xnb">
-      <Link>Content\Sound\Yinxiao\EncircleDiplomaticRelation.xnb</Link>
+    <Content Include="..\Content\Sound\Troop\999\NormalAttack.wav">
+      <Link>Content\Sound\Troop\999\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\EnhaneceDiplomaticRelation.xnb">
-      <Link>Content\Sound\Yinxiao\EnhaneceDiplomaticRelation.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\AllyDiplomaticRelation.wav">
+      <Link>Content\Sound\Yinxiao\AllyDiplomaticRelation.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\gretreat3.xnb">
-      <Link>Content\Sound\Yinxiao\gretreat3.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\BreakDiplomaticRelation.wav">
+      <Link>Content\Sound\Yinxiao\BreakDiplomaticRelation.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\guanyu.xnb">
-      <Link>Content\Sound\Yinxiao\guanyu.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\bubingfangzhen.wav">
+      <Link>Content\Sound\Yinxiao\bubingfangzhen.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\hougong.xnb">
-      <Link>Content\Sound\Yinxiao\hougong.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\caocao.wav">
+      <Link>Content\Sound\Yinxiao\caocao.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\huangzhong.xnb">
-      <Link>Content\Sound\Yinxiao\huangzhong.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\chonga.wav">
+      <Link>Content\Sound\Yinxiao\chonga.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\nafei.xnb">
-      <Link>Content\Sound\Yinxiao\nafei.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\chuzhan.wav">
+      <Link>Content\Sound\Yinxiao\chuzhan.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\renwusiwang.xnb">
-      <Link>Content\Sound\Yinxiao\renwusiwang.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\DenounceDiplomaticRelation.wav">
+      <Link>Content\Sound\Yinxiao\DenounceDiplomaticRelation.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\ResetDiplomaticRelation.xnb">
-      <Link>Content\Sound\Yinxiao\ResetDiplomaticRelation.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\EncircleDiplomaticRelation.wav">
+      <Link>Content\Sound\Yinxiao\EncircleDiplomaticRelation.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\sheshiwancheng.xnb">
-      <Link>Content\Sound\Yinxiao\sheshiwancheng.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\EnhaneceDiplomaticRelation.wav">
+      <Link>Content\Sound\Yinxiao\EnhaneceDiplomaticRelation.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\shilimiewang.xnb">
-      <Link>Content\Sound\Yinxiao\shilimiewang.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\gretreat3.wav">
+      <Link>Content\Sound\Yinxiao\gretreat3.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\taunt1.xnb">
-      <Link>Content\Sound\Yinxiao\taunt1.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\guanyu.wav">
+      <Link>Content\Sound\Yinxiao\guanyu.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\taunt2.xnb">
-      <Link>Content\Sound\Yinxiao\taunt2.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\hougong.wav">
+      <Link>Content\Sound\Yinxiao\hougong.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\TruceDiplomaticRelation.xnb">
-      <Link>Content\Sound\Yinxiao\TruceDiplomaticRelation.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\huangzhong.wav">
+      <Link>Content\Sound\Yinxiao\huangzhong.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\zainan0.xnb">
-      <Link>Content\Sound\Yinxiao\zainan0.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\nafei.wav">
+      <Link>Content\Sound\Yinxiao\nafei.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\zainan1.xnb">
-      <Link>Content\Sound\Yinxiao\zainan1.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\renwusiwang.wav">
+      <Link>Content\Sound\Yinxiao\renwusiwang.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\zainan2.xnb">
-      <Link>Content\Sound\Yinxiao\zainan2.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\ResetDiplomaticRelation.wav">
+      <Link>Content\Sound\Yinxiao\ResetDiplomaticRelation.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\zainan3.xnb">
-      <Link>Content\Sound\Yinxiao\zainan3.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\sheshiwancheng.wav">
+      <Link>Content\Sound\Yinxiao\sheshiwancheng.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\zainan4.xnb">
-      <Link>Content\Sound\Yinxiao\zainan4.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\shilimiewang.wav">
+      <Link>Content\Sound\Yinxiao\shilimiewang.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\zainan5.xnb">
-      <Link>Content\Sound\Yinxiao\zainan5.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\taunt1.wav">
+      <Link>Content\Sound\Yinxiao\taunt1.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\zhangfei.xnb">
-      <Link>Content\Sound\Yinxiao\zhangfei.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\taunt2.wav">
+      <Link>Content\Sound\Yinxiao\taunt2.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\zhanling.xnb">
-      <Link>Content\Sound\Yinxiao\zhanling.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\TruceDiplomaticRelation.wav">
+      <Link>Content\Sound\Yinxiao\TruceDiplomaticRelation.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\zhaoyun.xnb">
-      <Link>Content\Sound\Yinxiao\zhaoyun.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\zainan0.wav">
+      <Link>Content\Sound\Yinxiao\zainan0.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yinxiao\zhugeliang.xnb">
-      <Link>Content\Sound\Yinxiao\zhugeliang.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\zainan1.wav">
+      <Link>Content\Sound\Yinxiao\zainan1.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Cancel.xnb">
-      <Link>Content\Sound\Cancel.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\zainan2.wav">
+      <Link>Content\Sound\Yinxiao\zainan2.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Click.xnb">
-      <Link>Content\Sound\Click.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\zainan3.wav">
+      <Link>Content\Sound\Yinxiao\zainan3.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Close.xnb">
-      <Link>Content\Sound\Close.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\zainan4.wav">
+      <Link>Content\Sound\Yinxiao\zainan4.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Fold.xnb">
-      <Link>Content\Sound\Fold.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\zainan5.wav">
+      <Link>Content\Sound\Yinxiao\zainan5.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Move.xnb">
-      <Link>Content\Sound\Move.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\zhangfei.wav">
+      <Link>Content\Sound\Yinxiao\zhangfei.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\NextPage.xnb">
-      <Link>Content\Sound\NextPage.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\zhanling.wav">
+      <Link>Content\Sound\Yinxiao\zhanling.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\NO.xnb">
-      <Link>Content\Sound\NO.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\zhaoyun.wav">
+      <Link>Content\Sound\Yinxiao\zhaoyun.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\OK.xnb">
-      <Link>Content\Sound\OK.xnb</Link>
+    <Content Include="..\Content\Sound\Yinxiao\zhugeliang.wav">
+      <Link>Content\Sound\Yinxiao\zhugeliang.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Open.xnb">
-      <Link>Content\Sound\Open.xnb</Link>
+    <Content Include="..\Content\Sound\Cancel.wav">
+      <Link>Content\Sound\Cancel.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Pop.xnb">
-      <Link>Content\Sound\Pop.xnb</Link>
+    <Content Include="..\Content\Sound\Click.wav">
+      <Link>Content\Sound\Click.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\PreviousPage.xnb">
-      <Link>Content\Sound\PreviousPage.xnb</Link>
+    <Content Include="..\Content\Sound\Close.wav">
+      <Link>Content\Sound\Close.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Select.xnb">
-      <Link>Content\Sound\Select.xnb</Link>
+    <Content Include="..\Content\Sound\Fold.wav">
+      <Link>Content\Sound\Fold.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\xuezai.xnb">
-      <Link>Content\Sound\xuezai.xnb</Link>
+    <Content Include="..\Content\Sound\Move.wav">
+      <Link>Content\Sound\Move.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\bin\Desktop\Sound\Yes.xnb">
-      <Link>Content\Sound\Yes.xnb</Link>
+    <Content Include="..\Content\Sound\NextPage.wav">
+      <Link>Content\Sound\NextPage.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Content\Sound\NO.wav">
+      <Link>Content\Sound\NO.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Sound\OK.wav">
+      <Link>Content\Sound\OK.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Sound\Open.wav">
+      <Link>Content\Sound\Open.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Sound\Pop.wav">
+      <Link>Content\Sound\Pop.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Sound\PreviousPage.wav">
+      <Link>Content\Sound\PreviousPage.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Sound\Select.wav">
+      <Link>Content\Sound\Select.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Sound\xuezai.wav">
+      <Link>Content\Sound\xuezai.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\Sound\Yes.wav">
+      <Link>Content\Sound\Yes.wav</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Content\TexturesAlpha\GameComponents\AirView\Data\Architecture.png">
