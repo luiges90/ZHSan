@@ -1028,11 +1028,11 @@ namespace GameObjects
             {
                 if (person == this.Leader)
                 {
-                    person.RoutCount++;
-                    Session.Current.Scenario.YearTable.addDefeatedManyTroopsEntry(Session.Current.Scenario.Date, person, person.RoutCount);
+                    person.TroopsDefeatedCount++;
+                    Session.Current.Scenario.YearTable.addDefeatedManyTroopsEntry(Session.Current.Scenario.Date, person, person.TroopsDefeatedCount);
                 }
             }
-            this.Army.RoutCount++;
+            this.Army.TroopsDefeatedCount++;
         }
 
         public void AddRoutedCount()
@@ -2987,8 +2987,8 @@ namespace GameObjects
             }
             person.LocationTroop = this;
 
-            this.Leader.CaptiveCount++;
-            this.Army.CaptiveCount++;
+            this.Leader.CharactersCapturedCount++;
+            this.Army.CharactersCapturedCount++;
         }
 
         private void CheckCaptiveOnOccupy(Architecture a)
@@ -3023,8 +3023,8 @@ namespace GameObjects
                         person.LocationArchitecture = null;
                         person.LocationTroop = this;
 
-                        this.Leader.CaptiveCount++;
-                        this.Army.CaptiveCount++;
+                        this.Leader.CharactersCapturedCount++;
+                        this.Army.CharactersCapturedCount++;
 
                         ExtensionInterface.call("CapturedByTroopOccupy", new Object[] { Session.Current.Scenario, this, person });
                     }
@@ -5581,10 +5581,10 @@ namespace GameObjects
                         this.OnStratagemSuccess(this, troop, this.CurrentStratagem, true);
                     }
 
-                    this.Persons.GetMaxIntelligencePerson().StratagemSuccessCount++;
-                    troop.Persons.GetMaxIntelligencePerson().StratagemBeSuccessCount++;
-                    this.Army.StratagemSuccessCount++;
-                    troop.Army.StratagemBeSuccessCount++;
+                    this.Persons.GetMaxIntelligencePerson().StrategySucceededCount++;
+                    troop.Persons.GetMaxIntelligencePerson().TrickedByStrategyCount++;
+                    this.Army.StrategySucceededCount++;
+                    troop.Army.TrickedByStrategyCount++;
 
                 }
                 else
@@ -5599,10 +5599,10 @@ namespace GameObjects
                         this.OnResistStratagem(this, troop, this.CurrentStratagem, true);
                     }
 
-                    this.Persons.GetMaxIntelligencePerson().StratagemFailCount++;
-                    troop.Persons.GetMaxIntelligencePerson().StratagemBeFailCount++;
-                    this.Army.StratagemFailCount++;
-                    troop.Army.StratagemBeFailCount++;
+                    this.Persons.GetMaxIntelligencePerson().StrategyFailedCount++;
+                    troop.Persons.GetMaxIntelligencePerson().StrategyDefendedCount++;
+                    this.Army.StrategyFailedCount++;
+                    troop.Army.StrategyDefendedCount++;
                 }
             }
             else if (flag)
@@ -5611,14 +5611,14 @@ namespace GameObjects
                 {
                     this.OnStratagemSuccess(this, troop, this.CurrentStratagem, false);
                 }
-                this.Persons.GetMaxIntelligencePerson().StratagemSuccessCount++;
-                this.Army.StratagemSuccessCount++;
+                this.Persons.GetMaxIntelligencePerson().StrategySucceededCount++;
+                this.Army.StrategySucceededCount++;
             }
             else if ((troop != null) && (this.OnResistStratagem != null))
             {
                 this.OnResistStratagem(this, troop, this.CurrentStratagem, false);
-                this.Persons.GetMaxIntelligencePerson().StratagemFailCount++;
-                this.Army.StratagemFailCount++;
+                this.Persons.GetMaxIntelligencePerson().StrategyFailedCount++;
+                this.Army.StrategyFailedCount++;
             }
             int increment = (2 + (flag ? 1 : 0)) + (this.WaitForDeepChaos ? 2 : 0);
             this.IncreaseStratagemExperience(increment, true);
@@ -7187,7 +7187,7 @@ namespace GameObjects
 
         public bool HasCaptive()
         {
-            return (this.CaptiveCount > 0);
+            return (this.CharactersCapturedCount > 0);
         }
 
         public bool HasCombatMethod(int id)
@@ -11718,7 +11718,7 @@ namespace GameObjects
             }
         }
 
-        public int CaptiveCount
+        public int CharactersCapturedCount
         {
             get
             {

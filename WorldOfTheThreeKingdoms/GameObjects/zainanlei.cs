@@ -12,7 +12,7 @@ namespace GameObjects
     public class zainanlei : GameObject
 	{
         [DataMember]
-        public int zainanleixing
+        public int DisasterType
         {
             get;
             set;

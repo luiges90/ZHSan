@@ -50,6 +50,24 @@ namespace WorldOfTheThreeKingdomsEditor
 		public string Lang_TroopFormationDamageTaken_Desc_CHS = "编队所受的伤害总数。";
 		public string Lang_TroopFormationDamageDealtOnCities_CHS = "城池伤害";
 		public string Lang_TroopFormationDamageDealtOnCities_Desc_CHS = "编队所造成的城池伤害总数。";
+		public string Lang_TroopFormationFormationsOnBoardID_CHS = "运输编队";
+		public string Lang_TroopFormationFormationsOnBoardID_Desc_CHS = "指定船上的在运编队编号。";
+		public string Lang_TroopFormationTroopsDefeatedCount_CHS = "击破数";
+		public string Lang_TroopFormationTroopsDefeatedCount_Desc_CHS = "该编队的部队击破次数。";
+		public string Lang_TroopFormationCharactersKilledCount_CHS = "击杀数";
+		public string Lang_TroopFormationCharactersKilledCount_Desc_CHS = "该编队的人物击杀次数。";
+		public string Lang_TroopFormationCharactersCapturedCount_CHS = "俘虏数";
+		public string Lang_TroopFormationCharactersCapturedCount_Desc_CHS = "该编队的俘虏过的人物总数。";
+		public string Lang_TroopFormationStrategySucceededCount_CHS = "计略成功";
+		public string Lang_TroopFormationStrategySucceededCount_Desc_CHS = "该编队成功施放计略的次数。";
+		public string Lang_TroopFormationStrategyFailedCount_CHS = "计略失败";
+		public string Lang_TroopFormationStrategyFailedCount_Desc_CHS = "该编队施放计略失败的次数";
+		public string Lang_TroopFormationTrickedByStrategyCount_CHS = "中计次数";
+		public string Lang_TroopFormationTrickedByStrategyCount_Desc_CHS = "该编队抵挡计略失败的次数。";
+		public string Lang_TroopFormationStrategyDefendedCount_CHS = "计略阻挡";
+		public string Lang_TroopFormationStrategyDefendedCount_Desc_CHS = "该编队成功阻挡计略的次数。";
+		public string Lang_TroopFormationRecruitingOfficerID_CHS = "补充担当";
+		public string Lang_TroopFormationRecruitingOfficerID_Desc_CHS = "指定担当补充该编队士兵的人数。";
 		
         protected override IItemList GetDataList(GameScenario scen)
         {
@@ -66,7 +84,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 {"FollowingCaptainID", "-1"},
                 {"LeaderID", "-1" },
                 {"TrainingPersonID", "-1" },
-                {"RecruitmentPersonID", "-1" },
+                {"RecruitingOfficerID", "-1" },
                 {"ShelledMilitary", "-1" },
                 {"DepartureCityID", "-1" },
                 {"DestinationCityID", "-1" }
@@ -96,7 +114,16 @@ namespace WorldOfTheThreeKingdomsEditor
                 "DestinationCityID",
 				"TroopDamageDealt",
 				"TroopDamageTaken",
-				"DamageDealtOnCities"
+				"DamageDealtOnCities",
+				"FormationsOnBoardID",
+				"TroopsDefeatedCount",
+				"CharactersKilledCount",
+				"CharactersCapturedCount",
+				"StrategySucceededCount",
+				"StrategyFailedCount",
+				"TrickedByStrategyCount",
+				"StrategyDefendedCount",
+				"RecruitingOfficerID"
             };
         }
 
@@ -123,7 +150,16 @@ namespace WorldOfTheThreeKingdomsEditor
 				{ Lang_TroopFormationDestinationCityID_CHS, Lang_TroopFormationDestinationCityID_Desc_CHS },
 				{ Lang_TroopFormationDamageDealt_CHS, Lang_TroopFormationDamageDealt_Desc_CHS },
 				{ Lang_TroopFormationDamageTaken_CHS, Lang_TroopFormationDamageTaken_Desc_CHS },
-				{ Lang_TroopFormationDamageDealtOnCities_CHS, Lang_TroopFormationDamageDealtOnCities_Desc_CHS }
+				{ Lang_TroopFormationDamageDealtOnCities_CHS, Lang_TroopFormationDamageDealtOnCities_Desc_CHS },
+				{ Lang_TroopFormationFormationsOnBoardID_CHS, Lang_TroopFormationFormationsOnBoardID_Desc_CHS },
+				{ Lang_TroopFormationTroopsDefeatedCount_CHS, Lang_TroopFormationTroopsDefeatedCount_Desc_CHS },
+				{ Lang_TroopFormationCharactersKilledCount_CHS, Lang_TroopFormationCharactersKilledCount_Desc_CHS },
+				{ Lang_TroopFormationCharactersCapturedCount_CHS, Lang_TroopFormationCharactersCapturedCount_Desc_CHS },
+				{ Lang_TroopFormationStrategySucceededCount_CHS, Lang_TroopFormationStrategySucceededCount_Desc_CHS },
+				{ Lang_TroopFormationStrategyFailedCount_CHS, Lang_TroopFormationStrategyFailedCount_Desc_CHS },
+				{ Lang_TroopFormationTrickedByStrategyCount_CHS, Lang_TroopFormationTrickedByStrategyCount_Desc_CHS },
+				{ Lang_TroopFormationStrategyDefendedCount_CHS, Lang_TroopFormationStrategyDefendedCount_Desc_CHS },
+				{ Lang_TroopFormationRecruitingOfficerID_CHS, Lang_TroopFormationRecruitingOfficerID_Desc_CHS }
             };
         }
 

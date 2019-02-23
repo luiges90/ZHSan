@@ -198,7 +198,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         
                         this.bianduiLiebiaoBiaoji = "ArchitectureLeftClick";
                         this.ShowBianduiLiebiao(UndoneWorkKind.None, FrameKind.Military, FrameFunction.Browse , false, true, false ,true,
-                            this.CurrentArchitecture.Militaries, this.CurrentArchitecture.ZhengzaiBuchongDeBiandui(), "", "", this.CurrentArchitecture.MilitaryPopulation);
+                            this.CurrentArchitecture.Militaries, this.CurrentArchitecture.ZhengzaiBuchongDeBiandui(), "", "", this.CurrentArchitecture.ServicePopulation);
                         this.ShowArchitectureSurveyPlugin(this.CurrentArchitecture);
                     }
                 }
@@ -259,7 +259,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                         this.bianduiLiebiaoBiaoji = "ArchitectureLeftClick";
                         this.ShowBianduiLiebiao(UndoneWorkKind.None, FrameKind.Military, FrameFunction.Browse, false, true, false, true,
-                            this.CurrentArchitecture.Militaries, this.CurrentArchitecture.ZhengzaiBuchongDeBiandui(), "", "", this.CurrentArchitecture.MilitaryPopulation);
+                            this.CurrentArchitecture.Militaries, this.CurrentArchitecture.ZhengzaiBuchongDeBiandui(), "", "", this.CurrentArchitecture.ServicePopulation);
                         this.ShowArchitectureSurveyPlugin(this.CurrentArchitecture);
                     }
                 }

@@ -14,53 +14,53 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Music/Attack/Attack.mp3
+#begin Music/Attack/Attack.wma
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:Music/Attack/Attack.mp3
+/build:Music/Attack/Attack.wma
 
-#begin Music/Autumn/Autumn.mp3
+#begin Music/Autumn/Autumn.wma
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:Music/Autumn/Autumn.mp3
+/build:Music/Autumn/Autumn.wma
 
-#begin Music/Battle/Battle.mp3
+#begin Music/Battle/Battle.wma
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:Music/Battle/Battle.mp3
+/build:Music/Battle/Battle.wma
 
-#begin Music/Defend/Defend.mp3
+#begin Music/Defend/Defend.wma
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:Music/Defend/Defend.mp3
+/build:Music/Defend/Defend.wma
 
-#begin Music/Spring/Spring.mp3
+#begin Music/Spring/Spring.wma
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:Music/Spring/Spring.mp3
+/build:Music/Spring/Spring.wma
 
-#begin Music/Start/Start.mp3
+#begin Music/Start/Start.wma
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:Music/Start/Start.mp3
+/build:Music/Start/Start.wma
 
-#begin Music/Summer/Summer.mp3
+#begin Music/Summer/Summer.wma
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:Music/Summer/Summer.mp3
+/build:Music/Summer/Summer.wma
 
-#begin Music/Winter/Winter.mp3
+#begin Music/Winter/Winter.wma
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:Music/Winter/Winter.mp3
+/build:Music/Winter/Winter.wma
 
 #begin Sound/Animation/Female/36.wav
 /importer:WavImporter
@@ -3038,11 +3038,11 @@
 /processorParam:Quality=Best
 /build:Sound/Yinxiao/bubingfangzhen.wav
 
-#begin Sound/Yinxiao/caocao.mp3
+#begin Sound/Yinxiao/caocao.xnb
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Sound/Yinxiao/caocao.mp3
+/build:Sound/Yinxiao/caocao.xnb
 
 #begin Sound/Yinxiao/chonga.wav
 /importer:WavImporter
@@ -3086,11 +3086,11 @@
 /processorParam:Quality=Best
 /build:Sound/Yinxiao/guanyu.wav
 
-#begin Sound/Yinxiao/hougong.mp3
+#begin Sound/Yinxiao/hougong.xnb
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Sound/Yinxiao/hougong.mp3
+/build:Sound/Yinxiao/hougong.xnb
 
 #begin Sound/Yinxiao/huangzhong.wav
 /importer:WavImporter
@@ -3194,17 +3194,17 @@
 /processorParam:Quality=Best
 /build:Sound/Yinxiao/zhanling.wma
 
-#begin Sound/Yinxiao/zhaoyun.mp3
+#begin Sound/Yinxiao/zhaoyun.xnb
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Sound/Yinxiao/zhaoyun.mp3
+/build:Sound/Yinxiao/zhaoyun.xnb
 
-#begin Sound/Yinxiao/zhugeliang.mp3
+#begin Sound/Yinxiao/zhugeliang.xnb
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Sound/Yinxiao/zhugeliang.mp3
+/build:Sound/Yinxiao/zhugeliang.xnb
 
 #begin Sound/Cancel.wav
 /importer:WavImporter
@@ -3315,9 +3315,9 @@
 /processorParam:TextureFormat=Compressed
 /build:Font/FontT.spritefont
 
-#begin Sound/Move.mp3
+#begin Sound/Move.xnb
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Sound/Move.mp3
+/build:Sound/Move.xnb
 

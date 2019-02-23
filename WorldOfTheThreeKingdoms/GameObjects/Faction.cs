@@ -30,7 +30,7 @@ namespace GameObjects
         private int militarycount;
         private int transferingmilitarycount;
         [DataMember]
-        public int ZhaoxianFailureCount = 0;
+        public int TalentsHiringFailedCount = 0;
         [DataMember]
         public int YearOfficialLimit = 0;
         private Person prince = null;
@@ -3411,7 +3411,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public string TransferingMilitariesString { get; set; }
+        public string FormationsInTransportString { get; set; }
 
         public MilitaryList TransferingMilitaries { get; set; }
 
@@ -3481,12 +3481,12 @@ namespace GameObjects
             military.StartingArchitecture = null;
             military.TargetArchitecture = null;
             this.TransferingMilitaries.Remove(military);
-            this.TransferingMilitaryCount--;
+            this.FormationsInTransportCount--;
         }
 
         private void MilitaryDayEvent()
         {
-            //if (this.TransferingMilitaryCount == 0) return;
+            //if (this.FormationsInTransportCount == 0) return;
             foreach (Military m in this.TransferingMilitaries.GetList())
             {
                 m.ArrivingDays--;
@@ -4224,7 +4224,7 @@ namespace GameObjects
 
         public bool HasCaptive()
         {
-            return (this.CaptiveCount > 0);
+            return (this.CharactersCapturedCount > 0);
         }
 
         /*
@@ -5409,7 +5409,7 @@ namespace GameObjects
         {
             if (Session.Current.Scenario.Date.Day <= Session.Current.Scenario.Parameters.DayInTurn)
             {
-                this.ZhaoxianFailureCount = 0;
+                this.TalentsHiringFailedCount = 0;
             }
         }
 
@@ -6455,7 +6455,7 @@ namespace GameObjects
             }
         }
 
-        public int CaptiveCount
+        public int CharactersCapturedCount
         {
             get
             {
@@ -6758,7 +6758,7 @@ namespace GameObjects
             }
         }
         [DataMember]
-        public string MilitariesString { get; set; }
+        public string FormationsString { get; set; }
 
         public MilitaryList Militaries
         {
@@ -6817,7 +6817,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public int MilitaryCount
+        public int FormationCount
         {
             get
             {
@@ -6829,7 +6829,7 @@ namespace GameObjects
             }
         }
         [DataMember]
-        public int TransferingMilitaryCount
+        public int FormationsInTransportCount
         {
             get
             {

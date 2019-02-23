@@ -40,8 +40,18 @@ namespace WorldOfTheThreeKingdomsEditor
 		public string Lang_FactionIntelsAcquiredString_Desc_CHS = "势力情报的编号列表。";
 		public string Lang_FactionTroopsString_CHS = "部队列表";
 		public string Lang_FactionTroopsString_Desc_CHS = "势力部队的编号列表。";
+		public string Lang_FactionFormationsString_CHS = "编队列表";
+		public string Lang_FactionFormationsString_Desc_CHS = "势力编队的编号列表。";
+		public string Lang_FactionFormationCount_CHS = "编队数量";
+		public string Lang_FactionFormationCount_Desc_CHS = "势力编队的总和数量。";
+		public string Lang_FactionFormationsInTransportString_CHS = "运输中编队";
+		public string Lang_FactionFormationsInTransportString_Desc_CHS = "势力运输中的编队编号列表。";
+		public string Lang_FactionFormationsInTransportCount_CHS = "运输数量";
+		public string Lang_FactionFormationsInTransportCount_Desc_CHS = "势力运输中的编队总和数量。";
 		public string Lang_FactionSupplyRoutesString_CHS = "粮道列表";
 		public string Lang_FactionSupplyRoutesString_Desc_CHS = "势力粮道的编号列表。";
+		public string Lang_FactionTalentsHiringFailedCount_CHS = "招贤失败";
+		public string Lang_FactionTalentsHiringFailedCount_Desc_CHS = "势力招贤失败的总和次数。";
 		public string Lang_FactionContributionToEmperor_CHS = "朝廷贡献度";
 		public string Lang_FactionContributionToEmperor_Desc_CHS = "势力的朝廷贡献度。";
 		public string Lang_FactionNobleRankID_CHS = "官爵";
@@ -52,6 +62,8 @@ namespace WorldOfTheThreeKingdomsEditor
 		public string Lang_FactionUpgradingDaysLeft_Desc_CHS = "设定完成升级所剩余的天数。";
 		public string Lang_FactionAvailableTechniquesString_CHS = "已有技巧";
 		public string Lang_FactionAvailableTechniquesString_Desc_CHS = "设定势力已拥有的技巧编号。";
+		public string Lang_FactionPlanTechniqueString_CHS = "计划升级";
+		public string Lang_FactionPlanTechniqueString_Desc_CHS = "指定势力计画升级的技巧编号列表。";
 		public string Lang_FactionPreferredTechniqueKinds_CHS = "偏好技巧";
 		public string Lang_FactionPreferredTechniqueKinds_Desc_CHS = "设定势力偏好的技巧类别编号。";
 		public string Lang_FactionIsAlien_CHS = "异族";
@@ -92,12 +104,12 @@ namespace WorldOfTheThreeKingdomsEditor
                 "MilitaryDistrictsString",
                 "IntelsAcquiredString",
                 "TroopsString",
-				"MilitariesString",
-				"MilitaryCount",
-				"TransferingMilitariesString",
-				"TransferingMilitaryCount",
+				"FormationsString",
+				"FormationCount",
+				"FormationsInTransportString",
+				"FormationsInTransportCount",
                 "SupplyRoutesString",
-				"ZhaoxianFailureCount",
+				"TalentsHiringFailedCount",
                 "ContributionToEmperor",
                 "NobleRankID",
                 "UpgradingTechnique",
@@ -129,12 +141,18 @@ namespace WorldOfTheThreeKingdomsEditor
 				{ Lang_FactionMilitaryDistrictsString_CHS, Lang_FactionMilitaryDistrictsString_Desc_CHS },
 				{ Lang_FactionIntelsAcquiredString_CHS, Lang_FactionIntelsAcquiredString_Desc_CHS },
 				{ Lang_FactionTroopsString_CHS, Lang_FactionTroopsString_Desc_CHS },
+				{ Lang_FactionFormationsString_CHS, Lang_FactionFormationsString_Desc_CHS },
+				{ Lang_FactionFormationCount_CHS, Lang_FactionFormationCount_Desc_CHS },
+				{ Lang_FactionFormationsInTransportString_CHS, Lang_FactionFormationsInTransportString_Desc_CHS },
+				{ Lang_FactionFormationsInTransportCount_CHS, Lang_FactionFormationsInTransportCount_Desc_CHS },
 				{ Lang_FactionSupplyRoutesString_CHS, Lang_FactionSupplyRoutesString_Desc_CHS },
+				{ Lang_FactionTalentsHiringFailedCount_CHS, Lang_FactionTalentsHiringFailedCount_Desc_CHS },
 				{ Lang_FactionContributionToEmperor_CHS, Lang_FactionContributionToEmperor_Desc_CHS },
 				{ Lang_FactionNobleRankID_CHS, Lang_FactionNobleRankID_Desc_CHS },
 				{ Lang_FactionUpgradingTechnique_CHS, Lang_FactionUpgradingTechnique_Desc_CHS },
 				{ Lang_FactionUpgradingDaysLeft_CHS, Lang_FactionUpgradingDaysLeft_Desc_CHS },
 				{ Lang_FactionAvailableTechniquesString_CHS, Lang_FactionAvailableTechniquesString_Desc_CHS },
+				{ Lang_FactionPlanTechniqueString_CHS, Lang_FactionPlanTechniqueString_Desc_CHS },
 				{ Lang_FactionPreferredTechniqueKinds_CHS, Lang_FactionPreferredTechniqueKinds_Desc_CHS },
 				{ Lang_FactionIsAlien_CHS, Lang_FactionIsAlien_Desc_CHS },
 				{ Lang_FactionNotPlayerSelectable_CHS, Lang_FactionNotPlayerSelectable_Desc_CHS }

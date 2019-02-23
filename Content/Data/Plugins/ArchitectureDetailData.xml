@@ -331,7 +331,7 @@
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="260" Y="235" Width="80" Height="25" PropertyName="MilitaryCount"
+    <Text X="260" Y="235" Width="80" Height="25" PropertyName="FormationCount"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -829,7 +829,7 @@
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="467" Y="389" Width="110" Height="20" PropertyName="MilitaryCount"
+    <Text X="467" Y="389" Width="110" Height="20" PropertyName="FormationCount"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"

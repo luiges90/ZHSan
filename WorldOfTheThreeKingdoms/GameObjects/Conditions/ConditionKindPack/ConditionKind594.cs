@@ -12,7 +12,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
 
         public override bool CheckConditionKind(Person person)
         {
-            return (((person.RoutCount + person.RoutedCount) > 0) && ((((float) person.RoutCount) / ((float) (person.RoutedCount))) >= this.rate));
+            return (((person.TroopsDefeatedCount + person.RoutedCount) > 0) && ((((float) person.TroopsDefeatedCount) / ((float) (person.RoutedCount))) >= this.rate));
         }
 
         public override void InitializeParameter(string parameter)

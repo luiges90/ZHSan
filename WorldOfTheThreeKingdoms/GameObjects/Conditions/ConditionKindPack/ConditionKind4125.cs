@@ -12,7 +12,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
 
         public override bool CheckConditionKind(Person person)
         {
-            return (person.StratagemBeFailCount < this.number);
+            return (person.StrategyDefendedCount < this.number);
         }
 
         public override void InitializeParameter(string parameter)

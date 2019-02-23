@@ -1620,6 +1620,10 @@
     <Compile Include="Tools\WordTools.cs" />
   </ItemGroup>
   <ItemGroup>
+	<ContentWithTargetPath Include="..\References\Win\steam_api64.dll">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <TargetPath>steam_api64.dll</TargetPath>
+	</ContentWithTargetPath>
     <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Win\MonoGame.Framework.dll</HintPath>

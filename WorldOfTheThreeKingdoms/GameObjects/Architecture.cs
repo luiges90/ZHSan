@@ -319,7 +319,7 @@ namespace GameObjects
         private GameArea longViewArea = null;
 
         [DataMember]
-        public string MilitariesString { get; set; }
+        public string FormationsString { get; set; }
 
         private int morale;
  
@@ -829,7 +829,7 @@ namespace GameObjects
             return zhengzaiBuchongDeBiandui;
         }
         [DataMember]
-        public int MilitaryPopulation
+        public int ServicePopulation
         {
             get
             {
@@ -1082,7 +1082,7 @@ namespace GameObjects
             foreach (Person person in pl)
             {
                 if (person.WaitForFeiZi != null) continue;
-                if (person.SubFightingForce < t.Leader.FightingForce * result.Count / Math.Min(3, personCount / this.MilitaryCount + 1)) break;
+                if (person.SubFightingForce < t.Leader.FightingForce * result.Count / Math.Min(3, personCount / this.FormationCount + 1)) break;
                 if (!person.Selected && !t.Persons.HasGameObject(person) && person.FightingForce < t.Leader.FightingForce && 
                     !person.HasLeaderValidTitle && person.HasSubofficerValidTitle)
                 {
@@ -1604,7 +1604,7 @@ namespace GameObjects
         public void WithdrawPerson()
         {
             if (this.BelongedFaction.ArchitectureCount <= 1) return;
-            int num = this.PersonCount - this.MilitaryCount;
+            int num = this.PersonCount - this.FormationCount;
             GameObjectList list = this.Persons.GetList();
             if (list.Count > 1)
             {
@@ -2047,7 +2047,7 @@ namespace GameObjects
                 recruitmentPersonList.ReSort();
 
                 int recruitCount = Math.Min(recruitmentMilitaryList.Count, recruitmentPersonList.Count);
-                if (this.MilitaryPopulation < 10)
+                if (this.ServicePopulation < 10)
                 {
                     recruitCount = 1;
                 }
@@ -2217,7 +2217,7 @@ namespace GameObjects
                                 }
                             }
 
-                            needRecruit = this.ExpectedMilitaryPopulation - this.MilitaryPopulation <=
+                            needRecruit = this.ExpectedMilitaryPopulation - this.ServicePopulation <=
                                 this.PopulationDevelopingRate * this.PopulationCeiling * Session.Parameters.AIRecruitPopulationCapMultiply *
                                 (nearFrontline ? 1.0 : Session.Parameters.AIRecruitPopulationCapBackendMultiply) *
                                 (this.BelongedSection != null && this.BelongedSection.AIDetail.ValueRecruitment ? 1.5 : 1) *
@@ -2285,7 +2285,7 @@ namespace GameObjects
                 int unfullArmyCountThreshold;
                 if (this.IsFoodAbundant && this.IsFundAbundant)
                 {
-                    unfullArmyCountThreshold = Math.Min((this.MilitaryPopulation) / Session.Parameters.AINewMilitaryPopulationThresholdDivide + 1, (this.PersonCount + this.MovingPersonCount) / Session.Parameters.AINewMilitaryPersonThresholdDivide + 1);
+                    unfullArmyCountThreshold = Math.Min((this.ServicePopulation) / Session.Parameters.AINewMilitaryPopulationThresholdDivide + 1, (this.PersonCount + this.MovingPersonCount) / Session.Parameters.AINewMilitaryPersonThresholdDivide + 1);
                 }
                 else
                 {
@@ -3004,7 +3004,7 @@ namespace GameObjects
 
         public void  TransferMilitary(Military military, Architecture destination) // 运兵无需武将来运
         {
-            if (this.MilitaryCount == 0) return ;
+            if (this.FormationCount == 0) return ;
             MilitaryList list = new MilitaryList();
             if ((military.Scales > 5) && (military.Morale >= 80) && (military.Combativity >= 80) && (military.InjuryAmount < military.Kind.MinScale)
                 && !military.IsFewScaleNeedRetreat && military.Kind.Movable && military.Kind.Type != MilitaryType.水军)
@@ -3050,7 +3050,7 @@ namespace GameObjects
                              m.ArrivingDays = Math.Max(1, (int) (m.TransferDays(distance) * (1 - this.TroopTransportDayRate)));
                              this.RemoveMilitary(m);
                              this.BelongedFaction.TransferingMilitaries.Add(m);
-                             this.BelongedFaction.TransferingMilitaryCount++;
+                             this.BelongedFaction.FormationsInTransportCount++;
                          }
                      }
                      
@@ -3733,7 +3733,7 @@ namespace GameObjects
                                             {
                                                 foreach (Military military in list4.GetRandomList())
                                                 {
-                                                    if (military.RecruitmentPersonID < 0)
+                                                    if (military.RecruitingOfficerID < 0)
                                                     {
                                                         this.AddPersonToTrainingWork(person, military);
                                                         break;
@@ -4678,7 +4678,7 @@ namespace GameObjects
         public bool CanZhaoXian()
         {
             if (this.BelongedFaction != null && Session.GlobalVariables.ZhaoXianSuccessRate > 0 && Session.Current.Scenario.Date.Month == 3
-              && this.BelongedFaction.ZhaoxianFailureCount < 1 && this.BelongedFaction != null && this.BelongedFaction.Leader.Status != PersonStatus.Captive)
+              && this.BelongedFaction.TalentsHiringFailedCount < 1 && this.BelongedFaction != null && this.BelongedFaction.Leader.Status != PersonStatus.Captive)
                 
             {
                 if (this.AvailGeneratorTypeList().Count > 0 )
@@ -4729,7 +4729,7 @@ namespace GameObjects
                 {
                     Session.MainGame.mainGameScreen.xianshishijiantupian(this.BelongedFaction.Leader, this.Name, "ZhaoXianFailed", "ZhaoXian.jpg", "ZhaoXianFailed", true);
                 }
-                this.BelongedFaction.ZhaoxianFailureCount++;
+                this.BelongedFaction.TalentsHiringFailedCount++;
                 return ;
             }
 
@@ -6233,11 +6233,11 @@ namespace GameObjects
 
         public int DecreaseMilitaryPopulation(int decrement)
         {
-            if (this.MilitaryPopulation < decrement)
+            if (this.ServicePopulation < decrement)
             {
-                decrement = this.MilitaryPopulation;
+                decrement = this.ServicePopulation;
             }
-            this.MilitaryPopulation -= decrement;
+            this.ServicePopulation -= decrement;
             return decrement;
         }
 
@@ -6353,7 +6353,7 @@ namespace GameObjects
                 {
                     TroopList friendlyTroopsInView = this.GetFriendlyTroopsInView();
                     int troopSent = 0;
-                    int militaryCount = this.MilitaryCount;
+                    int militaryCount = this.FormationCount;
 
                     int opFactor = 2;
                     if (this.Food > this.AbundantFood)
@@ -8969,7 +8969,7 @@ namespace GameObjects
 
         public bool HasCaptive()
         {
-            return (this.CaptiveCount > 0);
+            return (this.CharactersCapturedCount > 0);
         }
 
         public bool HasFactionCaptive(Faction f)
@@ -10399,16 +10399,16 @@ namespace GameObjects
         public string PersonsString { get; set; }
 
         [DataMember]
-        public string MovingPersonsString { get; set; }
+        public string CharactersTravellingString { get; set; }
 
         [DataMember]
-        public string NoFactionPersonsString { get; set; }
+        public string UnemployedString { get; set; }
 
         [DataMember]
-        public string NoFactionMovingPersonsString { get; set; }
+        public string UnemployedTravellingString { get; set; }
 
         [DataMember]
-        public string feiziliebiaoString { get; set; }
+        public string ConsortListString { get; set; }
 
         public List<string> LoadPersonsFromString(Dictionary<int, Person> persons, string dataString, PersonStatus status)
         {
@@ -10589,7 +10589,7 @@ namespace GameObjects
                         return true;
                     }
                 }
-                if (this.BelongedFaction.MilitaryCount > this.BelongedFaction.CityTotalSize * Session.GlobalVariables.FactionMilitaryLimt + 1)
+                if (this.BelongedFaction.FormationCount > this.BelongedFaction.CityTotalSize * Session.GlobalVariables.FactionMilitaryLimt + 1)
                 {
                     return false;
                 }
@@ -11324,16 +11324,16 @@ namespace GameObjects
                     return "----";
 
                 case InformationLevel.低:
-                    return StaticMethods.GetNumberStringByGranularity(this.MilitaryPopulation, 0x186a0);
+                    return StaticMethods.GetNumberStringByGranularity(this.ServicePopulation, 0x186a0);
 
                 case InformationLevel.中:
-                    return StaticMethods.GetNumberStringByGranularity(this.MilitaryPopulation, 0xc350);
+                    return StaticMethods.GetNumberStringByGranularity(this.ServicePopulation, 0xc350);
 
                 case InformationLevel.高:
-                    return StaticMethods.GetNumberStringByGranularity(this.MilitaryPopulation, 0x2710);
+                    return StaticMethods.GetNumberStringByGranularity(this.ServicePopulation, 0x2710);
 
                 case InformationLevel.全:
-                    return this.MilitaryPopulation.ToString();
+                    return this.ServicePopulation.ToString();
             }
             return "----";
         }
@@ -11416,7 +11416,7 @@ namespace GameObjects
                 {
                     cnt++;
                     fightingMerit += p.FightingForce;
-                    if (cnt > 5 || cnt > this.MilitaryCount) break;
+                    if (cnt > 5 || cnt > this.FormationCount) break;
                 }
                 int avgFightingMerit = fightingMerit / cnt;
                 foreach (Military m in this.Militaries)
@@ -11571,7 +11571,7 @@ namespace GameObjects
                 {
                     return false;
                 }
-                if (this.Population <= 0 || this.MilitaryPopulation <= 0)
+                if (this.Population <= 0 || this.ServicePopulation <= 0)
                 {
                     return false;
                 }
@@ -11635,7 +11635,7 @@ namespace GameObjects
         private void RecruitmentMilitary(Military military)
         {
             
-            if ((((this.MilitaryPopulation != 0) && (this.Population != 0) && (!Session.GlobalVariables.PopulationRecruitmentLimit 
+            if ((((this.ServicePopulation != 0) && (this.Population != 0) && (!Session.GlobalVariables.PopulationRecruitmentLimit 
                 || (this.ArmyQuantity <= this.Population)))  && ((this.Fund >= (Session.Parameters.RecruitmentFundCost * this.AreaCount * (this.CanRecruitMilitary(military.Kind) ? 1 : 10)))) 
                 && (this.Domination >= Session.Parameters.RecruitmentDomination) && ((this.Morale >= Session.Parameters.RecruitmentMorale)
                 && ((military.RecruitmentPerson != null) && (military.RecruitmentPerson.BelongedFaction != null) 
@@ -11666,9 +11666,9 @@ namespace GameObjects
                 if (randomValue > 0)
                 {
                     this.DecreaseFund(Session.Parameters.RecruitmentFundCost * this.AreaCount * (this.CanRecruitMilitary(military.Kind) ? 1 : 10));
-                    if (populationDecrement > this.MilitaryPopulation)
+                    if (populationDecrement > this.ServicePopulation)
                     {
-                        populationDecrement = this.MilitaryPopulation;
+                        populationDecrement = this.ServicePopulation;
                         randomValue = populationDecrement;
                     }
                     if (populationDecrement > this.Population)
@@ -11724,7 +11724,7 @@ namespace GameObjects
         public void RecruitmentMilitary(Military military, float scale)
         {
             
-            if ((((this.MilitaryPopulation != 0) && (this.Population != 0) && (!Session.GlobalVariables.PopulationRecruitmentLimit || (this.ArmyQuantity <= this.Population))) && ((this.Domination >= Session.Parameters.RecruitmentDomination) && (this.Morale >= Session.Parameters.RecruitmentMorale))) && (military.Quantity < military.Kind.MaxScale))
+            if ((((this.ServicePopulation != 0) && (this.Population != 0) && (!Session.GlobalVariables.PopulationRecruitmentLimit || (this.ArmyQuantity <= this.Population))) && ((this.Domination >= Session.Parameters.RecruitmentDomination) && (this.Morale >= Session.Parameters.RecruitmentMorale))) && (military.Quantity < military.Kind.MaxScale))
             {
                 int decrement = (int)(military.Kind.MinScale * scale);
                 int populationDecrement;
@@ -11747,9 +11747,9 @@ namespace GameObjects
                 }
                 if (decrement > 0)
                 {
-                    if (populationDecrement > this.MilitaryPopulation)
+                    if (populationDecrement > this.ServicePopulation)
                     {
-                        populationDecrement = this.MilitaryPopulation;
+                        populationDecrement = this.ServicePopulation;
                         decrement = populationDecrement;
                     }
                     if (populationDecrement > this.Population)
@@ -11870,7 +11870,7 @@ namespace GameObjects
 
         public bool ReleaseCaptiveAvail()
         {
-            return (this.BelongedFaction.CaptiveCount > 0);
+            return (this.BelongedFaction.CharactersCapturedCount > 0);
         }
 
         public void RemoveBaseSupplyingArchitecture()
@@ -13150,7 +13150,7 @@ namespace GameObjects
         //    }
         //}
 
-        public int CaptiveCount
+        public int CharactersCapturedCount
         {
             get
             {
@@ -14232,7 +14232,7 @@ namespace GameObjects
             }
         }
 
-        public int MilitaryCount
+        public int FormationCount
         {
             get
             {
@@ -14807,7 +14807,7 @@ namespace GameObjects
             }
         }
 
-        public string zainanshengyutianshu
+        public string DisasterDaysLeft
         {
             get
             {

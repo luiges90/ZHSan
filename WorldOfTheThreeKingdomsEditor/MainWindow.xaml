@@ -197,7 +197,7 @@
             -->
             <TabItem Header="城池">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgArchitecture" AlternationCount="2">
+                    <DataGrid x:Name="dgArchitecture" AlternationCount="2" AutoGeneratingColumn="CityTabHeaderDisplay">
 						<DataGrid.ColumnHeaderStyle>
 							<Style TargetType="DataGridColumnHeader">
 								<Setter Property="FontWeight"  Value="Bold"/>

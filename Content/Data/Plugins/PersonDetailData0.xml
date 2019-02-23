@@ -1828,7 +1828,7 @@
                 FontColor="4294967295"
                 Align="Middle">
     </Label>
-    <Text X="807" Y="79" Width="50" Height="20" PropertyName="RoutCount"
+    <Text X="807" Y="79" Width="50" Height="20" PropertyName="TroopsDefeatedCount"
                 FontName="Microsoft YaHei UI"
                 FontSize="13"
                 FontStyle="Regular"
@@ -1856,7 +1856,7 @@
                 FontColor="4294967295"
                 Align="Middle">
     </Label>
-    <Text X="807" Y="129" Width="50" Height="20" PropertyName="StratagemSuccessCount"
+    <Text X="807" Y="129" Width="50" Height="20" PropertyName="StrategySucceededCount"
                 FontName="Microsoft YaHei UI"
                 FontSize="13"
                 FontStyle="Regular"
@@ -1870,7 +1870,7 @@
                 FontColor="4294967295"
                 Align="Middle">
     </Label>
-    <Text X="807" Y="154" Width="50" Height="20" PropertyName="StratagemFailCount"
+    <Text X="807" Y="154" Width="50" Height="20" PropertyName="StrategyFailedCount"
                 FontName="Microsoft YaHei UI"
                 FontSize="13"
                 FontStyle="Regular"
@@ -1884,7 +1884,7 @@
                 FontColor="4294967295"
                 Align="Middle">
     </Label>
-    <Text X="807" Y="179" Width="50" Height="20" PropertyName="StratagemBeSuccessCount"
+    <Text X="807" Y="179" Width="50" Height="20" PropertyName="TrickedByStrategyCount"
                 FontName="Microsoft YaHei UI"
                 FontSize="13"
                 FontStyle="Regular"
@@ -1898,7 +1898,7 @@
                 FontColor="4294967295"
                 Align="Middle">
     </Label>
-    <Text X="807" Y="204" Width="50" Height="20" PropertyName="StratagemBeFailCount"
+    <Text X="807" Y="204" Width="50" Height="20" PropertyName="StrategyDefendedCount"
                 FontName="Microsoft YaHei UI"
                 FontSize="13"
                 FontStyle="Regular"
@@ -1996,7 +1996,7 @@
                 FontColor="4294967295"
                 Align="Middle">
     </Label>
-    <Text X="807" Y="379" Width="50" Height="20" PropertyName="CaptiveCount"
+    <Text X="807" Y="379" Width="50" Height="20" PropertyName="CharactersCapturedCount"
                 FontName="Microsoft YaHei UI"
                 FontSize="13"
                 FontStyle="Regular"
@@ -2024,7 +2024,7 @@
                 FontColor="4294967295"
                 Align="Middle">
     </Label>
-    <Text X="807" Y="429" Width="50" Height="20" PropertyName="OfficerKillCount"
+    <Text X="807" Y="429" Width="50" Height="20" PropertyName="CharactersKilledCount"
                 FontName="Microsoft YaHei UI"
                 FontSize="13"
                 FontStyle="Regular"

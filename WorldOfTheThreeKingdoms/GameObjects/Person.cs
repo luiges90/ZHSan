@@ -1044,21 +1044,21 @@ namespace GameObjects
         [DataMember]
         public int ExecuteCount { get; set; }
         [DataMember]
-        public int OfficerKillCount { get; set; }
+        public int CharactersKilledCount { get; set; }
         [DataMember]
         public int FleeCount { get; set; }
         [DataMember]
         public int HeldCaptiveCount { get; set; }
         [DataMember]
-        public int CaptiveCount { get; set; }
+        public int CharactersCapturedCount { get; set; }
         [DataMember]
-        public int StratagemSuccessCount { get; set; }
+        public int StrategySucceededCount { get; set; }
         [DataMember]
-        public int StratagemFailCount { get; set; }
+        public int StrategyFailedCount { get; set; }
         [DataMember]
-        public int StratagemBeSuccessCount { get; set; }
+        public int TrickedByStrategyCount { get; set; }
         [DataMember]
-        public int StratagemBeFailCount { get; set; }
+        public int StrategyDefendedCount { get; set; }
 
         private int agricultureAbility = 0; // 缓存这几个变量
         private int commerceAbility = 0;
@@ -1835,8 +1835,8 @@ namespace GameObjects
 
         public void KilledInBattle(Troop killingTroop, Person killer)
         {
-            killingTroop.Army.OfficerKillCount++;
-            killer.OfficerKillCount++;
+            killingTroop.Army.CharactersKilledCount++;
+            killer.CharactersKilledCount++;
             Session.Current.Scenario.YearTable.addKilledInBattleEntry(Session.Current.Scenario.Date, killer, this);
 
             foreach (Person p in Session.Current.Scenario.Persons)
@@ -8444,7 +8444,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public int RoutCount
+        public int TroopsDefeatedCount
         {
             get
             {

@@ -623,7 +623,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             military.ArrivingDays = Math.Max(1, military.TransferDays(distance));
                             this.CurrentArchitecture.RemoveMilitary(military);
                             this.CurrentArchitecture.BelongedFaction.TransferingMilitaries.Add(military);
-                            this.CurrentArchitecture.BelongedFaction.TransferingMilitaryCount++;
+                            this.CurrentArchitecture.BelongedFaction.FormationsInTransportCount++;
                         }
                     }
                 }

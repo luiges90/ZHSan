@@ -2477,9 +2477,9 @@ namespace GameObjects
         {
             foreach (Military military in this.Militaries)
             {
-                if (military.ShelledMilitaryID >= 0)
+                if (military.FormationsOnBoardID >= 0)
                 {
-                    military.SetShelledMilitary(this.Militaries.GetGameObject(military.ShelledMilitaryID) as Military);
+                    military.SetShelledMilitary(this.Militaries.GetGameObject(military.FormationsOnBoardID) as Military);
                 }
             }
         }
@@ -3248,7 +3248,7 @@ namespace GameObjects
                 }
                 foreach (Person p in this.Persons)
                 {
-                    if (p.ID == military.RecruitmentPersonID)
+                    if (p.ID == military.RecruitingOfficerID)
                     {
                         //p.RecruitmentMilitary = military;
                         p.RecruitMilitary(military);
@@ -3326,22 +3326,22 @@ namespace GameObjects
                 //}
 
                 //architecture.PersonsString = reader["Persons"].ToString();
-                //architecture.MovingPersonsString = reader["MovingPersons"].ToString();
-                //architecture.NoFactionPersonsString = reader["NoFactionPersons"].ToString();
-                //architecture.NoFactionMovingPersonsString = reader["NoFactionMovingPersons"].ToString();
-                //architecture.feiziliebiaoString = reader["feiziliebiao"].ToString();
+                //architecture.CharactersTravellingString = reader["MovingPersons"].ToString();
+                //architecture.UnemployedString = reader["NoFactionPersons"].ToString();
+                //architecture.UnemployedTravellingString = reader["NoFactionMovingPersons"].ToString();
+                //architecture.ConsortListString = reader["feiziliebiao"].ToString();
 
                 e.AddRange(architecture.LoadPersonsFromString(this.AllPersons, architecture.PersonsString, PersonStatus.Normal));
-                e.AddRange(architecture.LoadPersonsFromString(this.AllPersons, architecture.MovingPersonsString, PersonStatus.Moving));
-                e.AddRange(architecture.LoadPersonsFromString(this.AllPersons, architecture.NoFactionPersonsString, PersonStatus.NoFaction));
-                e.AddRange(architecture.LoadPersonsFromString(this.AllPersons, architecture.NoFactionMovingPersonsString, PersonStatus.NoFactionMoving));
-                e.AddRange(architecture.LoadPersonsFromString(this.AllPersons, architecture.feiziliebiaoString, PersonStatus.Princess));
+                e.AddRange(architecture.LoadPersonsFromString(this.AllPersons, architecture.CharactersTravellingString, PersonStatus.Moving));
+                e.AddRange(architecture.LoadPersonsFromString(this.AllPersons, architecture.UnemployedString, PersonStatus.NoFaction));
+                e.AddRange(architecture.LoadPersonsFromString(this.AllPersons, architecture.UnemployedTravellingString, PersonStatus.NoFactionMoving));
+                e.AddRange(architecture.LoadPersonsFromString(this.AllPersons, architecture.ConsortListString, PersonStatus.Princess));
 
-                //architecture.MilitariesString = reader["Militaries"].ToString();
+                //architecture.FormationsString = reader["Militaries"].ToString();
 
                 //architecture.FacilitiesString = reader["Facilities"].ToString();
 
-                e.AddRange(architecture.LoadMilitariesFromString(this.Militaries, architecture.MilitariesString));
+                e.AddRange(architecture.LoadMilitariesFromString(this.Militaries, architecture.FormationsString));
                 e.AddRange(architecture.LoadFacilitiesFromString(this.Facilities, architecture.FacilitiesString));
 
                 //architecture.FundPacksString = reader["FundPacks"].ToString();
@@ -3368,7 +3368,7 @@ namespace GameObjects
 
                 try
                 {
-                    architecture.zainan.zainanzhonglei = this.GameCommonData.suoyouzainanzhonglei.Getzainanzhonglei(architecture.zainan.zainanleixing);
+                    architecture.zainan.zainanzhonglei = this.GameCommonData.suoyouzainanzhonglei.Getzainanzhonglei(architecture.zainan.DisasterType);
                 }
                 catch
                 {
@@ -3576,11 +3576,11 @@ namespace GameObjects
                 //faction.PlanTechniqueString = (short)reader["PlanTechnique"];
                 faction.PlanTechnique = this.GameCommonData.AllTechniques.GetTechnique(faction.PlanTechniqueString);
 
-                //faction.TransferingMilitariesString = reader["TransferingMilitaries"].ToString();
-                e.AddRange(faction.LoadTransferingMilitariesFromString(this.Militaries, faction.TransferingMilitariesString.NullToString()));
+                //faction.FormationsInTransportString = reader["TransferingMilitaries"].ToString();
+                e.AddRange(faction.LoadTransferingMilitariesFromString(this.Militaries, faction.FormationsInTransportString.NullToString()));
 
-                //faction.MilitariesString = reader["Militaries"].ToString();
-                e.AddRange(faction.LoadMilitariesFromString(this.Militaries, faction.MilitariesString.NullToString()));
+                //faction.FormationsString = reader["Militaries"].ToString();
+                e.AddRange(faction.LoadMilitariesFromString(this.Militaries, faction.FormationsString.NullToString()));
 
                 //faction.GetGeneratorPersonCountString = reader["GetGeneratorPersonCount"].ToString();
                 e.AddRange(faction.LoadGeneratorPersonCountFromString(faction.GetGeneratorPersonCountString.NullToString()));
@@ -3861,9 +3861,9 @@ namespace GameObjects
         {
             foreach (Architecture a in this.Architectures)
             {
-                if (a.MilitaryPopulation == 0)
+                if (a.ServicePopulation == 0)
                 {
-                    a.MilitaryPopulation = (int) (a.Population * (0.25 + (500000 - a.Population) / 500000 * 0.25));
+                    a.ServicePopulation = (int) (a.Population * (0.25 + (500000 - a.Population) / 500000 * 0.25));
                 }
             }
         }
@@ -4595,8 +4595,8 @@ namespace GameObjects
                     faction.AvailableTechniquesString = faction.AvailableTechniques.SaveToString();
                     faction.PlanTechniqueString = (faction.PlanTechnique != null) ? faction.PlanTechnique.ID : -1;
                     faction.GetGeneratorPersonCountString = faction.SaveGeneratorPersonCountToString();
-                    faction.TransferingMilitariesString = faction.TransferingMilitaries.SaveToString();
-                    faction.MilitariesString = faction.Militaries.SaveToString();
+                    faction.FormationsInTransportString = faction.TransferingMilitaries.SaveToString();
+                    faction.FormationsString = faction.Militaries.SaveToString();
                     faction.PrinceID = faction.Prince != null ? faction.Prince.ID : -1;
                 }
             }
@@ -4626,9 +4626,9 @@ namespace GameObjects
                     //row["Area"] = StaticMethods.SaveToString(architecture.ArchitectureArea.Area);
 
                     architecture.PersonsString = architecture.Persons.SaveToString();
-                    architecture.MovingPersonsString = architecture.MovingPersons.SaveToString();
-                    architecture.NoFactionPersonsString = architecture.NoFactionPersons.SaveToString();
-                    architecture.NoFactionMovingPersonsString = architecture.NoFactionMovingPersons.SaveToString();
+                    architecture.CharactersTravellingString = architecture.MovingPersons.SaveToString();
+                    architecture.UnemployedString = architecture.NoFactionPersons.SaveToString();
+                    architecture.UnemployedTravellingString = architecture.NoFactionMovingPersons.SaveToString();
 
                     //row["AgricultureWorkingPersons"] = architecture.AgricultureWorkingPersons.SaveToString();
                     //row["CommerceWorkingPersons"] = architecture.CommerceWorkingPersons.SaveToString();
@@ -4639,8 +4639,8 @@ namespace GameObjects
                     //row["zhenzaiWorkingPersons"] = architecture.ZhenzaiWorkingPersons.SaveToString();
                     //row["TrainingWorkingPersons"] = architecture.TrainingWorkingPersons.SaveToString();
 
-                    architecture.feiziliebiaoString = architecture.Feiziliebiao.SaveToString();
-                    architecture.MilitariesString = architecture.Militaries.SaveToString();
+                    architecture.ConsortListString = architecture.Feiziliebiao.SaveToString();
+                    architecture.FormationsString = architecture.Militaries.SaveToString();
                     architecture.FacilitiesString = architecture.Facilities.SaveToString();
 
                     architecture.PlanFacilityKindID = (architecture.PlanFacilityKind != null) ? architecture.PlanFacilityKind.ID : -1;
@@ -4665,8 +4665,8 @@ namespace GameObjects
 
                     architecture.AIWaterLinksString = architecture.AIWaterLinks.SaveToString();
 
-                    //row["zainanleixing"] = architecture.zainan.zainanzhonglei.ID;
-                    //row["zainanshengyutianshu"] = architecture.zainan.shengyutianshu;
+                    //row["DisasterType"] = architecture.zainan.zainanzhonglei.ID;
+                    //row["DisasterDaysLeft"] = architecture.zainan.shengyutianshu;
 
                     architecture.IntelsAcquiredString = architecture.Informations.SaveToString();
 
@@ -4752,8 +4752,8 @@ namespace GameObjects
 
                 //row["TrainingPersonID"] = -1;
 
-                military.RecruitmentPersonID = military.RecruitmentPerson == null ? -1 : military.RecruitmentPerson.ID;
-                military.ShelledMilitaryID = (military.ShelledMilitary != null) ? military.ShelledMilitary.ID : -1;
+                military.RecruitingOfficerID = military.RecruitmentPerson == null ? -1 : military.RecruitmentPerson.ID;
+                military.FormationsOnBoardID = (military.ShelledMilitary != null) ? military.ShelledMilitary.ID : -1;
             }
 
             foreach (Captive captive in this.Captives)

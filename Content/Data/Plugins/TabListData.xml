@@ -396,7 +396,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="83" Name="RoutCount" IsNumber="true" DisplayName="击破" MinWidth="80" DetailLevel="4"
+        <Column ID="83" Name="TroopsDefeatedCount" IsNumber="true" DisplayName="击破" MinWidth="80" DetailLevel="4"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -703,42 +703,42 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-		<Column ID="158" Name="CaptiveCount" IsNumber="true" DisplayName="俘获将领次数" MinWidth="80" DetailLevel="7"
+		<Column ID="158" Name="CharactersCapturedCount" IsNumber="true" DisplayName="俘获将领次数" MinWidth="80" DetailLevel="7"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-		<Column ID="159" Name="StratagemSuccessCount" IsNumber="true" DisplayName="计略成功次数" MinWidth="80" DetailLevel="7"
+		<Column ID="159" Name="StrategySucceededCount" IsNumber="true" DisplayName="计略成功次数" MinWidth="80" DetailLevel="7"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-		<Column ID="160" Name="StratagemFailCount" IsNumber="true" DisplayName="计略失败次数" MinWidth="80" DetailLevel="7"
+		<Column ID="160" Name="StrategyFailedCount" IsNumber="true" DisplayName="计略失败次数" MinWidth="80" DetailLevel="7"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-		<Column ID="161" Name="StratagemBeSuccessCount" IsNumber="true" DisplayName="计略中计次数" MinWidth="80" DetailLevel="7"
+		<Column ID="161" Name="TrickedByStrategyCount" IsNumber="true" DisplayName="计略中计次数" MinWidth="80" DetailLevel="7"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-		<Column ID="162" Name="StratagemBeFailCount" IsNumber="true" DisplayName="计略阻挡次数" MinWidth="80" DetailLevel="7"
+		<Column ID="162" Name="StrategyDefendedCount" IsNumber="true" DisplayName="计略阻挡次数" MinWidth="80" DetailLevel="7"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-		<Column ID="163" Name="OfficerKillCount" IsNumber="true" DisplayName="致战死数" MinWidth="80" DetailLevel="7"
+		<Column ID="163" Name="CharactersKilledCount" IsNumber="true" DisplayName="致战死数" MinWidth="80" DetailLevel="7"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -1334,7 +1334,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-		<Column ID="112" Name="MilitaryPopulation" IsNumber="true" DisplayName="兵役人口" MinWidth="80" DetailLevel="2"
+		<Column ID="112" Name="ServicePopulation" IsNumber="true" DisplayName="兵役人口" MinWidth="80" DetailLevel="2"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -1439,7 +1439,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="21" Name="MilitaryCount" IsNumber="true" DisplayName="编队数量" MinWidth="80" DetailLevel="3"
+        <Column ID="21" Name="FormationCount" IsNumber="true" DisplayName="编队数量" MinWidth="80" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -1637,7 +1637,7 @@
                 FontColor="4294375158"
                 Align="Middle">
         </Column>
-        <Column ID="95" Name="zainanshengyutianshu" IsNumber="false" DisplayName="剩余天数" MinWidth="80" DetailLevel="9"
+        <Column ID="95" Name="DisasterDaysLeft" IsNumber="false" DisplayName="剩余天数" MinWidth="80" DetailLevel="9"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
@@ -1815,7 +1815,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="12" Name="MilitaryCount" IsNumber="true" DisplayName="编队数量" MinWidth="80" DetailLevel="3"
+        <Column ID="12" Name="FormationCount" IsNumber="true" DisplayName="编队数量" MinWidth="80" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -1927,7 +1927,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-		<Column ID="38" Name="TransferingMilitaryCount" IsNumber="true" DisplayName="运输编队数量" MinWidth="80" DetailLevel="3"
+		<Column ID="38" Name="FormationsInTransportCount" IsNumber="true" DisplayName="运输编队数量" MinWidth="80" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -4178,7 +4178,7 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
-        <Column ID="12" Name="MilitaryCount" IsNumber="true" DisplayName="编队数量" MinWidth="80" DetailLevel="3"
+        <Column ID="12" Name="FormationCount" IsNumber="true" DisplayName="编队数量" MinWidth="80" DetailLevel="3"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"

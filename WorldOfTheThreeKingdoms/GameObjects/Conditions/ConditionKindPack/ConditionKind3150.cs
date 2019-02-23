@@ -12,7 +12,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
 
         public override bool CheckConditionKind(Faction faction)
         {
-            return faction.MilitaryCount >= val;
+            return faction.FormationCount >= val;
         }
 
         public override void InitializeParameter(string parameter)

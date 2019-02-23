@@ -324,14 +324,14 @@ namespace GameObjects
             }
         }
 
-        public int MilitaryCount
+        public int FormationCount
         {
             get
             {
                 int num = 0;
                 foreach (Architecture architecture in this.Architectures)
                 {
-                    num += architecture.MilitaryCount;
+                    num += architecture.FormationCount;
                 }
                 return num + this.TroopCount;
             }

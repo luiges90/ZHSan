@@ -31,7 +31,7 @@ namespace GameObjects
         public Military ShelledMilitary;
 
         [DataMember]
-        public int ShelledMilitaryID;
+        public int FormationsOnBoardID;
 
         public Military ShellingMilitary;
 
@@ -48,7 +48,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public int RoutCount { get; set; }
+        public int TroopsDefeatedCount { get; set; }
         [DataMember]
         public int YearCreated { get; set; }
         [DataMember]
@@ -58,17 +58,17 @@ namespace GameObjects
         [DataMember]
         public int DamageDealtOnCities { get; set; }
         [DataMember]
-        public int OfficerKillCount { get; set; }
+        public int CharactersKilledCount { get; set; }
         [DataMember]
-        public int CaptiveCount { get; set; }
+        public int CharactersCapturedCount { get; set; }
         [DataMember]
-        public int StratagemSuccessCount { get; set; }
+        public int StrategySucceededCount { get; set; }
         [DataMember]
-        public int StratagemFailCount { get; set; }
+        public int StrategyFailedCount { get; set; }
         [DataMember]
-        public int StratagemBeSuccessCount { get; set; }
+        public int TrickedByStrategyCount { get; set; }
         [DataMember]
-        public int StratagemBeFailCount { get; set; }
+        public int StrategyDefendedCount { get; set; }
 
         [DataMember]
         public int BelongsToCityID;
@@ -868,7 +868,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        public int RecruitmentPersonID { get; set; }
+        public int RecruitingOfficerID { get; set; }
 
         [DataMember]
         public int LeaderID

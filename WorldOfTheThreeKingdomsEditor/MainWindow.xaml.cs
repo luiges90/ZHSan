@@ -563,8 +563,28 @@ namespace WorldOfTheThreeKingdomsEditor
 					e.Column.Header = factionTab.Lang_FactionTroopsString_CHS;
 					break;
 					
+				case "FormationsString":
+					e.Column.Header = factionTab.Lang_FactionFormationsString_CHS;
+					break;
+					
+				case "FormationCount":
+					e.Column.Header = factionTab.Lang_FactionFormationCount_CHS;
+					break;
+					
+				case "FormationsInTransportString":
+					e.Column.Header = factionTab.Lang_FactionFormationsInTransportString_CHS;
+					break;
+					
+				case "FormationsInTransportCount":
+					e.Column.Header = factionTab.Lang_FactionFormationsInTransportCount_CHS;
+					break;
+					
 				case "SupplyRoutesString":
 					e.Column.Header = factionTab.Lang_FactionSupplyRoutesString_CHS;
+					break;
+					
+				case "TalentsHiringFailedCount":
+					e.Column.Header = factionTab.Lang_FactionTalentsHiringFailedCount_CHS;
 					break;
 					
 				case "ContributionToEmperor":
@@ -585,6 +605,10 @@ namespace WorldOfTheThreeKingdomsEditor
 					
 				case "AvailableTechniquesString":
 					e.Column.Header = factionTab.Lang_FactionAvailableTechniquesString_CHS;
+					break;
+					
+				case "PlanTechniqueString":
+					e.Column.Header = factionTab.Lang_FactionPlanTechniqueString_CHS;
 					break;
 					
 				case "PreferredTechniqueKinds":
@@ -689,6 +713,78 @@ namespace WorldOfTheThreeKingdomsEditor
 					
 				case "DamageDealtOnCities":
 					e.Column.Header = troopformationTab.Lang_TroopFormationDamageDealtOnCities_CHS;
+					break;
+
+				case "FormationsOnBoardID":
+					e.Column.Header = troopformationTab.Lang_TroopFormationFormationsOnBoardID_CHS;
+					break;
+				
+				case "TroopsDefeatedCount":
+					e.Column.Header = troopformationTab.Lang_TroopFormationTroopsDefeatedCount_CHS;
+					break;
+					
+				case "CharactersKilledCount":
+					e.Column.Header = troopformationTab.Lang_TroopFormationCharactersKilledCount_CHS;
+					break;
+					
+				case "CharactersCapturedCount":
+					e.Column.Header = troopformationTab.Lang_TroopFormationCharactersCapturedCount_CHS;
+					break;
+					
+				case "StrategySucceededCount":
+					e.Column.Header = troopformationTab.Lang_TroopFormationStrategySucceededCount_CHS;
+					break;
+
+				case "StrategyFailedCount":
+					e.Column.Header = troopformationTab.Lang_TroopFormationStrategyFailedCount_CHS;
+					break;
+				
+				case "TrickedByStrategyCount":
+					e.Column.Header = troopformationTab.Lang_TroopFormationTrickedByStrategyCount_CHS;
+					break;
+					
+				case "StrategyDefendedCount":
+					e.Column.Header = troopformationTab.Lang_TroopFormationStrategyDefendedCount_CHS;
+					break;
+					
+				case "RecruitingOfficerID":
+					e.Column.Header = troopformationTab.Lang_TroopFormationRecruitingOfficerID_CHS;
+					break;
+
+				default:
+					break;
+			}
+		}
+		
+		/*
+		Column display for city tab
+		*/
+		private void CityTabHeaderDisplay(object sender, DataGridAutoGeneratingColumnEventArgs e)
+		{
+			switch (e.PropertyName)
+			{
+				case "ID":
+					e.Column.Header = cityTab.Lang_CityID_CHS;
+					break;
+
+				case "Name":
+					e.Column.Header = cityTab.Lang_CityName_CHS;
+					break;
+				
+				case "KindId":
+					e.Column.Header = cityTab.Lang_CityKindId_CHS;
+					break;
+					
+				case "CaptionID":
+					e.Column.Header = cityTab.Lang_CityCaptionID_CHS;
+					break;
+					
+				case "IsStrategicCenter":
+					e.Column.Header = cityTab.Lang_CityIsStrategicCenter_CHS;
+					break;
+					
+				case "StateID":
+					e.Column.Header = cityTab.Lang_CityStateID_CHS;
 					break;
 
 				default:

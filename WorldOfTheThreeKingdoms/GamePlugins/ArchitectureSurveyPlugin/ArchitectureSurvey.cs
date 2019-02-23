@@ -313,7 +313,7 @@ namespace ArchitectureSurveyPlugin
                 }
                 else
                 {
-                    this.ArmyText.Text = this.ArchitectureToSurvey.MilitaryCount.ToString() + "/" + this.ArchitectureToSurvey.ArmyQuantity.ToString();
+                    this.ArmyText.Text = this.ArchitectureToSurvey.FormationCount.ToString() + "/" + this.ArchitectureToSurvey.ArmyQuantity.ToString();
 
                 }
                 /////////////////////////////////////////////////////////////
@@ -347,8 +347,8 @@ namespace ArchitectureSurveyPlugin
                 }
                 this.FactionText.Text = this.ArchitectureToSurvey.FactionString;
                 this.PopulationText.Text = this.ArchitectureToSurvey.Population.ToString();
-                this.MilitaryPopulationText.Text = this.ArchitectureToSurvey.MilitaryPopulation.ToString();
-                this.ArmyText.Text = this.ArchitectureToSurvey.MilitaryCount.ToString() + "/" + this.ArchitectureToSurvey.ArmyQuantity.ToString();
+                this.MilitaryPopulationText.Text = this.ArchitectureToSurvey.ServicePopulation.ToString();
+                this.ArmyText.Text = this.ArchitectureToSurvey.FormationCount.ToString() + "/" + this.ArchitectureToSurvey.ArmyQuantity.ToString();
                 this.DominationText.Text = this.ArchitectureToSurvey.DominationString;
                 this.EnduranceText.Text = this.ArchitectureToSurvey.EnduranceString;
                 this.FundText.Text = this.ArchitectureToSurvey.Fund.ToString();
