@@ -1,263 +1,301 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Root>
-    <ContextMenuRightClick FileName="ContextMenuRightClick.png" SelectedFileName="ContextMenuRightClickSelected.png" FontName="方正隶变_GBK" FontSize="13" FontStyle="Regular" FontColor="4294375158" />
-    <ContextMenuLeftClick FileName="ContextMenuLeftClick.png" SelectedFileName="ContextMenuLeftClickSelected.png" FontName="方正隶变_GBK" FontSize="13" FontStyle="Regular" FontColor="4294375158" />
-    <ContextMenuLeftClick FileName="ContextMenuLeftDisabled.png" SelectedFileName="ContextMenuLeftDisabled.png" FontName="方正隶变_GBK" FontSize="13" FontStyle="Regular" FontColor="4290032820" />
-    <ContextMenuRightClick FileName="ContextMenuRightDisabled.png" SelectedFileName="ContextMenuRightDisabled.png" FontName="方正隶变_GBK" FontSize="13" FontStyle="Regular" FontColor="4290032820" />
-    <HasChildTexture FileName="HasChild.png" />
-    <SoundFile Click="Click" Open="Open" Fold="Fold" />
-    <MenuKindList>
-        <MenuKind ID="1" Name="ArchitectureRightClick" DisplayName="城池右键菜单" IsLeft="false" Width="130" Height="27" DisplayAll="False">
-            <MenuItem ID="1" Name="Architecture" DisplayName="当前城池" DisplayAll="False">
-                <MenuItem ID="1" Name="Detail" DisplayName="详细信息" DisplayIfTrue="DetailAvail" />
-                <MenuItem ID="2" Name="Persons" DisplayName="人物列表" DisplayIfTrue="HasAnyPerson" />
-                <MenuItem ID="3" Name="Militaries" DisplayName="编队列表" DisplayIfTrue="HasMilitary" />
-				<MenuItem ID="11" Name="Informations" DisplayName="情报列表" DisplayIfTrue="HasInformation" />
-                <MenuItem ID="4" Name="NoFactionPersons" DisplayName="在野人物" DisplayIfTrue="HasNoFactionPerson" />
-                <MenuItem ID="5" Name="Facilities" DisplayName="设施列表" DisplayIfTrue="HasFacility" />
-                <MenuItem ID="6" Name="Captive" DisplayName="俘虏列表" DisplayIfTrue="HasCaptive" />
-                <MenuItem ID="7" Name="Treasure" DisplayName="相关宝物" DisplayIfTrue="HasTreasure" />
-                <MenuItem ID="8" Name="Princesses" DisplayName="妃子列表" DisplayIfTrue="HasPrincess" />
-				<MenuItem ID="9" Name="LandLink" DisplayName="陆上连接*" DisplayIfTrue="ArchitectureEditMode" />
-				<MenuItem ID="10" Name="WaterLink" DisplayName="水上连接*" DisplayIfTrue="ArchitectureEditMode" />
-            </MenuItem>
-            <MenuItem ID="2" Name="Faction" DisplayName="当前势力" DisplayIfTrue="CurrentPlayerOwned" DisplayAll="False">
-                <MenuItem ID="1" Name="Detail" DisplayName="详细信息" />
-				<MenuItem ID="2" Name="Architectures" DisplayName="城池列表" />
-				<MenuItem ID="3" Name="Troops" DisplayName="部队列表" />
-				<MenuItem ID="4" Name="Persons" DisplayName="人物列表" />
-				<MenuItem ID="15" Name="Children" DisplayName="子女列表" />
-				<MenuItem ID="5" Name="Militaries" DisplayName="编队列表" />
-				<MenuItem ID="13" Name="Informations" DisplayName="情报列表" DisplayIfTrue="FactionHasInformation" />
-				<MenuItem ID="6" Name="AvailableMilitaryKinds" DisplayName="兵种列表" />
-				<MenuItem ID="7" Name="Captive" DisplayName="俘虏列表" DisplayIfTrue="FactionHasCaptive" />
-				<MenuItem ID="8" Name="SelfCaptive" DisplayName="被俘虏列表" DisplayIfTrue="FactionHasSelfCaptive" />
-				<MenuItem ID="9" Name="DiplomaticRelations" DisplayName="外交关系" />
-				<MenuItem ID="10" Name="Techniques" DisplayName="势力技巧" />
-				<MenuItem ID="11" Name="Sections" DisplayName="军区列表" />
-				<MenuItem ID="12" Name="Treasure" DisplayName="相关宝物" DisplayIfTrue="FactionHasTreasure" />
-				<MenuItem ID="14" Name="TransferingMilitaries" DisplayName="编队运输列表" />
-            </MenuItem>
-        </MenuKind>
-        <MenuKind ID="2" Name="ArchitectureLeftClick" DisplayName="城池左键菜单" IsLeft="true" Width="100" Height="27">
-            <MenuItem ID="1" Name="Internal" DisplayName="内政">
-                <MenuItem ID="0" Name="StopWork" DisplayName="停止" DisplayIfTrue="HasWorkingPerson" />
-                <MenuItem ID="1" Name="zhenzai" DisplayName="赈灾" DisplayIfTrue="kezhenzai" />
-                <MenuItem ID="2" Name="Agriculture" DisplayName="农业" DisplayIfTrue="AgricultureAvail" />
-                <MenuItem ID="3" Name="Commerce" DisplayName="商业" DisplayIfTrue="CommerceAvail" />
-                <MenuItem ID="4" Name="Technology" DisplayName="技术" DisplayIfTrue="TechnologyAvail" />
-                <MenuItem ID="5" Name="Domination" DisplayName="统治" DisplayIfTrue="DominationAvail" />
-                <MenuItem ID="6" Name="Morale" DisplayName="民心" DisplayIfTrue="MoraleAvail" />
-                <MenuItem ID="7" Name="Endurance" DisplayName="耐久" DisplayIfTrue="EnduranceAvail" />
-                <MenuItem ID="8" Name="Facility" DisplayName="设施">
-                    <MenuItem ID="1" Name="Build" DisplayName="新建" DisplayIfTrue="BuildFacilityAvail" />
-                    <MenuItem ID="2" Name="Demolish" DisplayName="拆除" DisplayIfTrue="HaskechaichuFacility" />
-					<MenuItem ID="3" Name="StopBuilding" DisplayName="停工" DisplayIfTrue="StopBuildingFacilityAvail" />
-                </MenuItem>
-                <MenuItem ID="9" Name="Trade" DisplayName="交易">
-                    <MenuItem ID="1" Name="BuyFood" DisplayName="买粮" DisplayIfTrue="BuyFoodAvail" />
-                    <MenuItem ID="2" Name="SellFood" DisplayName="卖粮" DisplayIfTrue="SellFoodAvail" />
-                </MenuItem>
-                <MenuItem ID="10" Name="Expand" DisplayName="扩建" DisplayIfTrue="ExpandAvail" />
-                <MenuItem ID="11" Name="AutoWorking" DisplayName="委任工作" OppositeName="手动工作" OppositeIfTrue="AutoWorking" DisplayIfTrue="AutoWorkingAvail" />
-            </MenuItem>
-            <MenuItem ID="2" Name="Military" DisplayName="军事">
-                <MenuItem ID="1" Name="Campaign" DisplayName="出征" DisplayIfTrue="CampaignAvail" />
-                <MenuItem ID="2" Name="Troopership" DisplayName="运兵船" DisplayIfTrue="TroopershipAvail" />
-                <MenuItem ID="3" Name="Transfer" DisplayName="运兵" DisplayIfTrue="TransferMilitaryAvail" />
-                <MenuItem ID="10" Name="Training" DisplayName="训练" DisplayIfTrue="TrainingAvail" />
-                <MenuItem ID="11" Name="Recruitment" DisplayName="补充" DisplayIfTrue="RecruitmentAvail" />
-                <MenuItem ID="12" Name="New" DisplayName="新编" DisplayIfTrue="NewMilitaryAvail" />
-                <MenuItem ID="13" Name="Merge" DisplayName="合并" DisplayIfTrue="MergeAvail" />
-                <MenuItem ID="14" Name="Disband" DisplayName="解散" DisplayIfTrue="DisbandAvail" />
-                <MenuItem ID="15" Name="LevelUp" DisplayName="升级" DisplayIfTrue="LevelUpAvail" />
-				<MenuItem ID="16" Name="AutoRecruiting" DisplayName="委任补充" OppositeName="手动补充" OppositeIfTrue="AutoRecruiting" DisplayIfTrue="AutoRecruitingAvail" />
-            </MenuItem>
-			<MenuItem ID="3" Name="Routeway" DisplayName="粮道" DisplayIfTrue="RoutewayAvail">
-				<MenuItem ID="1" Name="Design" DisplayName="手动设计" />
-				<MenuItem ID="2" Name="PointShortestNormal" DisplayName="某点最短" />
-				<MenuItem ID="3" Name="PointShortestNoWater" DisplayName="某点避水" />
-				<MenuItem ID="4" Name="ArchitectureShortestNormal" DisplayName="城池最短" />
-				<MenuItem ID="5" Name="ArchitectureShortestNoWater" DisplayName="城池避水" />
-				<MenuItem ID="6" Name="CloseAll" DisplayName="关闭所有" />
-				<MenuItem ID="7" Name="DemolishAll" DisplayName="废弃所有" />
-			</MenuItem>
-			<MenuItem ID="4" Name="Transport" DisplayName="运输" DisplayIfTrue="TransportAvailable">
-				<MenuItem ID="1" Name="Fund" DisplayName="资金" />
-                                <MenuItem ID="2" Name="Food" DisplayName="粮草" />
-			</MenuItem>
-            <MenuItem ID="5" Name="Person" DisplayName="人事">
-                <MenuItem ID="1" Name="Transfer" DisplayName="调动" DisplayIfTrue="PersonTransferAvail" />
-				<MenuItem ID="2" Name="Convene" DisplayName="召集" DisplayIfTrue="PersonConveneAvail" />
-				<MenuItem ID="4" Name="Convince" DisplayName="说服" DisplayIfTrue="ConvincePersonAvail" />
-				<MenuItem ID="3" Name="AutoHire" DisplayName="自动说服" OppositeName="停止说服" OppositeIfTrue="AutoHiring" DisplayIfTrue="AutoHiringAvail" />
-				<MenuItem ID="7" Name="Redeem" DisplayName="赎回" DisplayIfTrue="RedeemAvail" />
-				<MenuItem ID="8" Name="Study" DisplayName="修习">
-					<MenuItem ID="1" Name="Skill" DisplayName="技能" DisplayIfTrue="PersonStudySkillAvail" />
-					<MenuItem ID="2" Name="Title" DisplayName="称号" DisplayIfTrue="PersonStudyTitleAvail" />
-					<MenuItem ID="3" Name="Stunt" DisplayName="特技" DisplayIfTrue="PersonStudyStuntAvail" />
-				</MenuItem>
-				<MenuItem ID="10" Name="Appointment" DisplayName="任免">
-					<MenuItem ID="1" Name="AppointMayor" DisplayName="任命县令" DisplayIfTrue="AppointMayorAvail" />
-					<MenuItem ID="2" Name="RecallMayor" DisplayName="罢免县令" DisplayIfTrue="RecallMayorAvail" />
-					<MenuItem ID="3" Name="AppointOfficer" DisplayName="授予官职" DisplayIfTrue="CanAppoint" />
-					<MenuItem ID="4" Name="RecallOfficer" DisplayName="免除官职" DisplayIfTrue="RecallOfficerAvail" />
-				</MenuItem>
-            </MenuItem>
-            <MenuItem ID="6" Name="Tactics" DisplayName="策略">
-                <MenuItem ID="1" Name="Information" DisplayName="情报" DisplayIfTrue="InformationAvail" />
-				<MenuItem ID="2" Name="StopInformation" DisplayName="停止情报" DisplayIfTrue="StopInformationAvail" />
-                <MenuItem ID="3" Name="Destroy" DisplayName="破坏" DisplayIfTrue="DestroyAvail" />
-                <MenuItem ID="4" Name="Instigate" DisplayName="煽动" DisplayIfTrue="InstigateAvail" />
-                <MenuItem ID="5" Name="Gossip" DisplayName="流言" DisplayIfTrue="GossipAvail" />
-                <MenuItem ID="6" Name="JailBreak" DisplayName="劫牢" DisplayIfTrue="JailBreakAvail" />
-				<MenuItem ID="6" Name="Assassinate" DisplayName="暗杀" DisplayIfTrue="AssassinateAvail" />
-                <MenuItem ID="7" Name="Search" DisplayName="搜索" DisplayIfTrue="SearchAvail" />
-                <MenuItem ID="8" Name="AutoSearching" DisplayName="委任搜索" OppositeName="手动搜索" OppositeIfTrue="AutoSearching" DisplayIfTrue="AutoSearchingAvail" />
-            </MenuItem>
-            <MenuItem ID="7" Name="Monarch" DisplayName="君主">
-                <MenuItem ID="1" Name="officePosition" DisplayName="爵位">
-                    <MenuItem ID="1" Name="jingongzijin" DisplayName="进贡资金" DisplayIfTrue="kejingongzijin" />
-                    <MenuItem ID="2" Name="jingongliangcao" DisplayName="进贡粮草" DisplayIfTrue="kejingongliangcao" />
-                    <MenuItem ID="3" Name="SelfBecomeEmperor" DisplayName="称帝" DisplayIfTrue="SelfBecomeEmperorAvail" />
-                    <MenuItem ID="4" Name="BecomeEmperorLegally" DisplayName="禅位" DisplayIfTrue="BecomeEmperorLegallyAvail" />
-                </MenuItem>
-                <MenuItem ID="2" Name="ChangeCapital" DisplayName="迁都" DisplayIfTrue="ChangeCapitalAvail" />
-                <MenuItem ID="9" Name="SelectPrince"  DisplayName="立储" DisplayIfTrue="SelectPrinceAvail" />
-                <MenuItem ID="11" Name="ZhaoXianBang"  DisplayName="招贤榜">                
-                    <MenuItem ID="1" Name="GenerateOfficer" DisplayName="招贤" DisplayIfTrue="CanZhaoXian" />           
-                </MenuItem>
-                <MenuItem ID="3" Name="Diplomatic" DisplayName="外交">
-                    <MenuItem ID="1" Name="EnhanceDiplomaticRelation" DisplayName="亲善" DisplayIfTrue="EnhanceDiplomaticRelationAvail" />
-                    <MenuItem ID="2" Name="AllyDiplomaticRelation" DisplayName="结盟" DisplayIfTrue="AllyDiplomaticRelationAvail" />
-                    <MenuItem ID="3" Name="ResetDiplomaticRelation" DisplayName="断交" DisplayIfTrue="ResetDiplomaticRelationAvail" />
-                    <MenuItem ID="4" Name="DenounceDiplomaticRelation" DisplayName="声讨" DisplayIfTrue="DenounceDiplomaticRelationAvail" />
-                    <MenuItem ID="5" Name="TruceDiplomaticRelation" DisplayName="停战" DisplayIfTrue="TruceDiplomaticRelationAvail" />
-                    <MenuItem ID="6" Name="QuanXiangDiplomaticRelation" DisplayName="劝降" DisplayIfTrue="QuanXiangDiplomaticRelationAvail" />
-                </MenuItem>
-                <MenuItem ID="4" Name="Techniques" DisplayName="技巧" />
-                <MenuItem ID="5" Name="KillRelease" DisplayName="处置">
-                    <MenuItem ID="1" Name="ReleaseSelfPerson" DisplayName="流放下属" DisplayIfTrue="KillPersonAvail" />
-                    <MenuItem ID="2" Name="ReleaseCaptive" DisplayName="释放俘虏" DisplayIfTrue="ReleaseCaptiveAvail" />
-                    <MenuItem ID="3" Name="KillPerson" DisplayName="处斩下属" DisplayIfTrue="KillPersonAvail" />
-                    <MenuItem ID="4" Name="KillCaptive" DisplayName="处斩俘虏" DisplayIfTrue="ReleaseCaptiveAvail" />
-                   <MenuItem ID="5" Name="MoveCaptive" DisplayName="转移俘虏" DisplayIfTrue="MoveCaptiveAvail" />
-                </MenuItem>
-				<MenuItem ID="9" Name="MakeMarriage" DisplayName="赐婚" DisplayIfTrue="HasMarriageToMake"/> 
-                <MenuItem ID="6" Name="hougongTop" DisplayName="后宫">
-                    <MenuItem ID="1" Name="nafei" DisplayName="纳妃" DisplayIfTrue="kenafei" />
-                    <MenuItem ID="2" Name="hougong" DisplayName="宠幸" DisplayIfTrue="kejinhougong" />
-					<MenuItem ID="3" Name="moveFeizi" DisplayName="移动妃子" DisplayIfTrue="CanMoveFeizi" />
-					<MenuItem ID="4" Name="releaseFeizi" DisplayName="释放妃子" DisplayIfTrue="HaveReleasableFeizis" />
-                </MenuItem>
-				<MenuItem ID="10" Name="TrainChildren" DisplayName="子女培育" DisplayIfTrue="HasChildrenToTrain" />
-                <MenuItem ID="7" Name="Refuse" DisplayName="自动拒绝" OppositeName="手动拒绝" OppositeIfTrue="FactionAutoRefuse" />
-                <MenuItem ID="8" Name="Treasure" DisplayName="宝物">
-                    <MenuItem ID="1" Name="Confiscate" DisplayName="没收" DisplayIfTrue="HasTreasureToConfiscate" />
-                    <MenuItem ID="2" Name="Award" DisplayName="授予" DisplayIfTrue="HasTreasureToAward" />
-                </MenuItem>
-            </MenuItem>
-            <MenuItem ID="8" Name="Section" DisplayName="军区">
-                <MenuItem ID="1" Name="New" DisplayName="新建" DisplayIfTrue="NewSectionAvail" />
-                <MenuItem ID="2" Name="Regroup" DisplayName="重编" DisplayIfTrue="RegroupSectionAvail" />
-                <MenuItem ID="3" Name="Disband" DisplayName="解散" DisplayIfTrue="DisbandSectionAvail" />
-            </MenuItem>
-            <MenuItem ID="9" Name="AllEnter" DisplayName="全部入城" DisplayIfTrue="AllEnterAvail" />
-        </MenuKind>
-        <MenuKind ID="3" Name="MapRightClick" DisplayName="地图右键菜单" IsLeft="false" Width="130" Height="27">
-            <MenuItem ID="1" Name="DateGo" DisplayName="进行">
-                <MenuItem ID="1" Name="1Day" DisplayName="进行一回合" />
-                <MenuItem ID="2" Name="2Days" DisplayName="进行二回合" />
-                <MenuItem ID="3" Name="5Days" DisplayName="进行五回合" />
-                <MenuItem ID="4" Name="10Days" DisplayName="进行十回合" />
-                <MenuItem ID="5" Name="30Days" DisplayName="进行三十回合" />
-            </MenuItem>
-            <MenuItem ID="2" Name="Jump" DisplayName="跳转">
-                <MenuItem ID="1" Name="Architecture" DisplayName="城池" DisplayIfTrue="CurrentPlayerHasArchitecture" />
-                <MenuItem ID="2" Name="Troop" DisplayName="部队" DisplayIfTrue="CurrentPlayerHasTroop" />
-                <MenuItem ID="3" Name="Person" DisplayName="人物" DisplayIfTrue="CurrentPlayerHasPerson" />
-            </MenuItem>
-            <MenuItem ID="3" Name="Switch" DisplayName="开关">
-                <MenuItem ID="1" Name="Smog" DisplayName="显示地图烟幕" OppositeName="隐藏地图烟幕" OppositeIfTrue="IsShowingSmog" />
-                <MenuItem ID="2" Name="TroopTitle" DisplayName="显示部队标题" OppositeName="隐藏部队标题" OppositeIfTrue="IsShowingTroopTitle" />
-                <MenuItem ID="3" Name="Music" DisplayName="播放游戏音乐" OppositeName="停止游戏音乐" OppositeIfTrue="IsPlayingMusic" />
-                <MenuItem ID="4" Name="NormalSound" DisplayName="播放一般音效" OppositeName="关闭一般音效" OppositeIfTrue="IsPlayingNormalSound" />
-                <MenuItem ID="5" Name="BattleSound" DisplayName="播放战斗音效" OppositeName="关闭战斗音效" OppositeIfTrue="IsPlayingBattleSound" />
-                <MenuItem ID="6" Name="TroopAnimation" DisplayName="显示部队动画" OppositeName="省略部队动画" OppositeIfTrue="IsPlayingTroopAnimation" />
-                <MenuItem ID="7" Name="FullScreen" DisplayName="进入全屏显示" OppositeName="退出全屏显示" OppositeIfTrue="IsFullScreen" />
-                <MenuItem ID="8" Name="SkyEye" DisplayName="开启天眼*" OppositeName="关闭天眼" OppositeIfTrue="IsSkyEye" />
-                <MenuItem ID="9" Name="MultipleResource" DisplayName="资源收入加倍*" OppositeName="停止资源加倍" OppositeIfTrue="IsMultipleResource" />
-            </MenuItem>
-            <MenuItem ID="8" Name="YearTable" DisplayName="年表">
-				 <MenuItem ID="1" Name="Year5" DisplayName="最近五年" />
-				 <MenuItem ID="2" Name="OwnFaction" DisplayName="自势力" />
-			</MenuItem>
-            <MenuItem ID="4" Name="Information" DisplayName="信息">
-                <MenuItem ID="1" Name="AllTitles" DisplayName="所有称号" />
-                <MenuItem ID="2" Name="AllSkills" DisplayName="所有技能" />
-                <MenuItem ID="3" Name="AllMilitaryKinds" DisplayName="所有兵种" />
-                <MenuItem ID="4" Name="AllStunts" DisplayName="所有特技" />
-                <MenuItem ID="5" Name="AllFactions" DisplayName="所有势力" />
-                <MenuItem ID="6" Name="AllArchitectures" DisplayName="所有城池*" />
-                <MenuItem ID="7" Name="AllTroops" DisplayName="所有部队*" />
-                <MenuItem ID="8" Name="AllPersons" DisplayName="所有人物*" />
-                <MenuItem ID="9" Name="AllMilitaries" DisplayName="所有编队*" />
-                <MenuItem ID="10" Name="AllSections" DisplayName="所有军区*" />
-                <MenuItem ID="11" Name="AllFacilities" DisplayName="所有设施" />
-                <MenuItem ID="12" Name="AllTerrainDetails" DisplayName="所有地形" />
-				<MenuItem ID="16" Name="AllGuanjues" DisplayName="所有官爵" />
-                <MenuItem ID="15" Name="AllTreasures" DisplayName="所有宝物*" />
-				<MenuItem ID="17" Name="AllDeadPersons" DisplayName="浪沙淘尽英雄" />
-            </MenuItem>
-            <MenuItem ID="5" Name="Save" DisplayName="存储进度" DisplayIfTrue="SaveAvail" />
-            <MenuItem ID="6" Name="Load" DisplayName="读取进度" DisplayIfTrue="LoadAvail" />
-            <MenuItem ID="9" Name="ChangeFaction" DisplayName="转变势力*" />
-            <MenuItem ID="7" Name="System" DisplayName="系统" />
-        </MenuKind>
-        <MenuKind ID="4" Name="TroopLeftClick" DisplayName="部队左键菜单" IsLeft="true" Width="100" Height="27" DisplayIfTrue="ControlAvail">
-            <MenuItem ID="1" Name="TroopMove" DisplayName="移动" DisplayIfTrue="MoveAvail" />
-            <MenuItem ID="2" Name="TroopOccupy" DisplayName="占领" DisplayIfTrue="CanOccupy" />
-            <MenuItem ID="3" Name="TroopTarget" DisplayName="攻击" DisplayIfTrue="TargetAvail" />
-            <MenuItem ID="4" Name="TroopCombatMethod" DisplayName="战法" DisplayIfTrue="CombatMethodAvail" DisplayAll="False">
-            </MenuItem>
-            <MenuItem ID="5" Name="TroopStratagem" DisplayName="计略" DisplayIfTrue="ControlAvail" DisplayAll="False">
-            </MenuItem>
-            <MenuItem ID="6" Name="TroopStunt" DisplayName="特技" DisplayIfTrue="ControlAvail" DisplayAll="False">
-            </MenuItem>
-            <MenuItem ID="7" Name="TroopCutRouteway" DisplayName="截断粮道" DisplayIfTrue="CutRoutewayAvail" />
-            <MenuItem ID="8" Name="TroopEnter" DisplayName="入城" DisplayIfTrue="Canrucheng" />
-			<MenuItem ID="11" Name="TroopMorph" DisplayName="兴建" DisplayIfTrue="MorphAvail" />
-            <MenuItem ID="10" Name="TroopIdle" DisplayName="待命" DisplayIfTrue="ControlAvail" />
-            <MenuItem ID="9" Name="TroopSetAuto" DisplayName="委任" OppositeName="指挥" OppositeIfTrue="Auto" DisplayIfTrue="ControlAvail" />
-        </MenuKind>
-        <MenuKind ID="5" Name="TroopRightClick" DisplayName="部队右键菜单" IsLeft="false" Width="130" Height="27" DisplayAll="False">
-            <MenuItem ID="1" Name="TroopDetail" DisplayName="部队信息" DisplayIfTrue="IsCurrentPlayer" />
-            <MenuItem ID="2" Name="TroopPersons" DisplayName="部队人物" />
-            <MenuItem ID="3" Name="TroopMilitary" DisplayName="部队编队" DisplayIfTrue="IsCurrentPlayer" />
-            <MenuItem ID="4" Name="TroopCaptive" DisplayName="部队俘虏" DisplayIfTrue="HasCaptive" />
-            <MenuItem ID="5" Name="TroopTreasure" DisplayName="相关宝物" DisplayIfTrue="HasTreasure" />
-        </MenuKind>
-        <MenuKind ID="6" Name="RoutewayRightClick" DisplayName="粮道右键菜单" IsLeft="false" Width="130" Height="27">
-            <MenuItem ID="1" Name="RoutewayEdit" DisplayName="编辑粮道" />
-            <MenuItem ID="2" Name="RoutewayShowArea" DisplayName="显示范围" OppositeName="隐藏范围" OppositeIfTrue="IsShowingArea" />
-            <MenuItem ID="3" Name="RoutewayBuild" DisplayName="疏通粮道" OppositeName="暂停疏通" OppositeIfTrue="Building" DisplayIfTrue="BuildAvail" />
-            <MenuItem ID="4" Name="RoutewayClose" DisplayName="关闭粮道" DisplayIfTrue="CloseAvail" />
-            <MenuItem ID="5" Name="RoutewayDemolish" DisplayName="废弃粮道" />
-        </MenuKind>
-        <MenuKind ID="7" Name="ToolBarRightClick" DisplayName="工具栏右键菜单" IsLeft="false" Width="130" Height="27">
-            <MenuItem ID="1" Name="Plugins" DisplayName="插件列表" />
-        </MenuKind>
-        <MenuKind ID="8" Name="ArchitectureTroopLeftClick" DisplayName="城池与部队重叠左键菜单" IsLeft="true" Width="100" Height="27">
-            <MenuItem ID="1" Name="CurrentTroopLeftClick" DisplayName="部队" ChangeDisplayName="CurrentTroopDisplayName" />
-            <MenuItem ID="2" Name="CurrentArchitectureLeftClick" DisplayName="城池" ChangeDisplayName="CurrentArchitectureDisplayName" />
-        </MenuKind>
-        <MenuKind ID="9" Name="ArchitectureTroopRightClick" DisplayName="城池与部队重叠右键菜单" IsLeft="false" Width="130" Height="27">
-            <MenuItem ID="1" Name="CurrentTroopRightClick" DisplayName="部队" ChangeDisplayName="CurrentTroopDisplayName" />
-            <MenuItem ID="2" Name="CurrentArchitectureRightClick" DisplayName="城池" ChangeDisplayName="CurrentArchitectureDisplayName" />
-        </MenuKind>
-        <MenuKind ID="10" Name="TroopRoutewayRightClick" DisplayName="部队与粮道重叠右键菜单" IsLeft="false" Width="130" Height="27">
-            <MenuItem ID="1" Name="CurrentTroopRightClick" DisplayName="部队" ChangeDisplayName="CurrentTroopDisplayName" />
-            <MenuItem ID="2" Name="CurrentRoutewayRightClick" DisplayName="粮道" ChangeDisplayName="CurrentRoutewayDisplayName" />
-        </MenuKind>
-    </MenuKindList>
+  <ContextMenuRightClick FileName="ContextMenuRightClick.png" SelectedFileName="ContextMenuRightClickSelected.png" FontName="方正隶变_GBK" FontSize="13" FontStyle="Regular" FontColor="4294375158" />
+  <ContextMenuLeftClick FileName="ContextMenuLeftClick.png" SelectedFileName="ContextMenuLeftClickSelected.png" FontName="方正隶变_GBK" FontSize="13" FontStyle="Regular" FontColor="4294375158" />
+  <ContextMenuLeftClick FileName="ContextMenuLeftDisabled.png" SelectedFileName="ContextMenuLeftDisabled.png" FontName="方正隶变_GBK" FontSize="13" FontStyle="Regular" FontColor="4290032820" />
+  <ContextMenuRightClick FileName="ContextMenuRightDisabled.png" SelectedFileName="ContextMenuRightDisabled.png" FontName="方正隶变_GBK" FontSize="13" FontStyle="Regular" FontColor="4290032820" />
+  <HasChildTexture FileName="HasChild.png" />
+  <SoundFile Click="Click" Open="Open" Fold="Fold" />
+  <MenuKindList>
+    <MenuKind ID="1" Name="ArchitectureRightClick" DisplayName="城池右键菜单" IsLeft="false" Width="130" Height="27" DisplayAll="False">
+      <MenuItem ID="1" Name="Architecture" DisplayName="当前城池" DisplayAll="False">
+        <MenuItem ID="1" Name="Detail" DisplayName="详细信息" DisplayIfTrue="DetailAvail" />
+        <MenuItem ID="2" Name="Persons" DisplayName="人物列表" DisplayIfTrue="HasAnyPerson" />
+        <MenuItem ID="3" Name="Militaries" DisplayName="编队列表" DisplayIfTrue="HasMilitary" />
+        <MenuItem ID="11" Name="Informations" DisplayName="情报列表" DisplayIfTrue="HasInformation" />
+        <MenuItem ID="4" Name="NoFactionPersons" DisplayName="在野人物" DisplayIfTrue="HasNoFactionPerson" />
+        <MenuItem ID="5" Name="Facilities" DisplayName="设施列表" DisplayIfTrue="HasFacility" />
+        <MenuItem ID="6" Name="Captive" DisplayName="俘虏列表" DisplayIfTrue="HasCaptive" />
+        <MenuItem ID="7" Name="Treasure" DisplayName="相关宝物" DisplayIfTrue="HasTreasure" />
+        <MenuItem ID="8" Name="Princesses" DisplayName="妃子列表" DisplayIfTrue="HasPrincess" />
+        <MenuItem ID="9" Name="LandLink" DisplayName="陆上连接*" DisplayIfTrue="ArchitectureEditMode" />
+        <MenuItem ID="10" Name="WaterLink" DisplayName="水上连接*" DisplayIfTrue="ArchitectureEditMode" />
+      </MenuItem>
+      <MenuItem ID="2" Name="Faction" DisplayName="当前势力" DisplayIfTrue="CurrentPlayerOwned" DisplayAll="False">
+        <MenuItem ID="1" Name="Detail" DisplayName="详细信息" />
+        <MenuItem ID="2" Name="Architectures" DisplayName="城池列表" />
+        <MenuItem ID="3" Name="Troops" DisplayName="部队列表" />
+        <MenuItem ID="4" Name="Persons" DisplayName="人物列表" />
+        <MenuItem ID="15" Name="Children" DisplayName="子女列表" />
+        <MenuItem ID="5" Name="Militaries" DisplayName="编队列表" />
+        <MenuItem ID="13" Name="Informations" DisplayName="情报列表" DisplayIfTrue="FactionHasInformation" />
+        <MenuItem ID="6" Name="AvailableMilitaryKinds" DisplayName="兵种列表" />
+        <MenuItem ID="7" Name="Captive" DisplayName="俘虏列表" DisplayIfTrue="FactionHasCaptive" />
+        <MenuItem ID="8" Name="SelfCaptive" DisplayName="被俘虏列表" DisplayIfTrue="FactionHasSelfCaptive" />
+        <MenuItem ID="9" Name="DiplomaticRelations" DisplayName="外交关系" />
+        <MenuItem ID="10" Name="Techniques" DisplayName="势力技巧" />
+        <MenuItem ID="11" Name="Sections" DisplayName="军区列表" />
+        <MenuItem ID="12" Name="Treasure" DisplayName="相关宝物" DisplayIfTrue="FactionHasTreasure" />
+        <MenuItem ID="14" Name="TransferingMilitaries" DisplayName="编队运输列表" />
+      </MenuItem>
+    </MenuKind>
+    <MenuKind ID="2" Name="ArchitectureLeftClick" DisplayName="城池左键菜单" IsLeft="true" Width="100" Height="27">
+      <MenuItem ID="1" Name="Internal" DisplayName="内政">
+        <MenuItem ID="0" Name="StopWork" DisplayName="停止" DisplayIfTrue="HasWorkingPerson" />
+        <MenuItem ID="1" Name="zhenzai" DisplayName="赈灾" DisplayIfTrue="kezhenzai" />
+        <MenuItem ID="2" Name="Agriculture" DisplayName="农业" DisplayIfTrue="AgricultureAvail" />
+        <MenuItem ID="3" Name="Commerce" DisplayName="商业" DisplayIfTrue="CommerceAvail" />
+        <MenuItem ID="4" Name="Technology" DisplayName="技术" DisplayIfTrue="TechnologyAvail" />
+        <MenuItem ID="5" Name="Domination" DisplayName="统治" DisplayIfTrue="DominationAvail" />
+        <MenuItem ID="6" Name="Morale" DisplayName="民心" DisplayIfTrue="MoraleAvail" />
+        <MenuItem ID="7" Name="Endurance" DisplayName="耐久" DisplayIfTrue="EnduranceAvail" />
+        <MenuItem ID="8" Name="Facility" DisplayName="设施">
+          <MenuItem ID="1" Name="Build" DisplayName="新建" DisplayIfTrue="BuildFacilityAvail" />
+          <MenuItem ID="2" Name="Demolish" DisplayName="拆除" DisplayIfTrue="HaskechaichuFacility" />
+          <MenuItem ID="3" Name="StopBuilding" DisplayName="停工" DisplayIfTrue="StopBuildingFacilityAvail" />
+        </MenuItem>
+        <MenuItem ID="9" Name="Trade" DisplayName="交易">
+          <MenuItem ID="1" Name="BuyFood" DisplayName="买粮" DisplayIfTrue="BuyFoodAvail" />
+          <MenuItem ID="2" Name="SellFood" DisplayName="卖粮" DisplayIfTrue="SellFoodAvail" />
+        </MenuItem>
+        <MenuItem ID="10" Name="Expand" DisplayName="扩建" DisplayIfTrue="ExpandAvail" />
+        <MenuItem ID="11" Name="AutoWorking" DisplayName="委任工作" OppositeName="手动工作" OppositeIfTrue="AutoWorking" DisplayIfTrue="AutoWorkingAvail" />
+      </MenuItem>
+      <MenuItem ID="2" Name="Military" DisplayName="军事">
+        <MenuItem ID="1" Name="Campaign" DisplayName="出征" DisplayIfTrue="CampaignAvail" />
+        <MenuItem ID="2" Name="Troopership" DisplayName="运兵船" DisplayIfTrue="TroopershipAvail" />
+        <MenuItem ID="3" Name="Transfer" DisplayName="运兵" DisplayIfTrue="TransferMilitaryAvail" />
+        <MenuItem ID="10" Name="Training" DisplayName="训练" DisplayIfTrue="TrainingAvail" />
+        <MenuItem ID="11" Name="Recruitment" DisplayName="补充" DisplayIfTrue="RecruitmentAvail" />
+        <MenuItem ID="12" Name="New" DisplayName="新编" DisplayIfTrue="NewMilitaryAvail" />
+        <MenuItem ID="13" Name="Merge" DisplayName="合并" DisplayIfTrue="MergeAvail" />
+        <MenuItem ID="14" Name="Disband" DisplayName="解散" DisplayIfTrue="DisbandAvail" />
+        <MenuItem ID="15" Name="LevelUp" DisplayName="升级" DisplayIfTrue="LevelUpAvail" />
+        <MenuItem ID="16" Name="AutoRecruiting" DisplayName="委任补充" OppositeName="手动补充" OppositeIfTrue="AutoRecruiting" DisplayIfTrue="AutoRecruitingAvail" />
+      </MenuItem>
+      <MenuItem ID="3" Name="Routeway" DisplayName="粮道" DisplayIfTrue="RoutewayAvail">
+        <MenuItem ID="1" Name="Design" DisplayName="手动设计" />
+        <MenuItem ID="2" Name="PointShortestNormal" DisplayName="某点最短" />
+        <MenuItem ID="3" Name="PointShortestNoWater" DisplayName="某点避水" />
+        <MenuItem ID="4" Name="ArchitectureShortestNormal" DisplayName="城池最短" />
+        <MenuItem ID="5" Name="ArchitectureShortestNoWater" DisplayName="城池避水" />
+        <MenuItem ID="6" Name="CloseAll" DisplayName="关闭所有" />
+        <MenuItem ID="7" Name="DemolishAll" DisplayName="废弃所有" />
+      </MenuItem>
+      <MenuItem ID="4" Name="Transport" DisplayName="运输" DisplayIfTrue="TransportAvailable">
+        <MenuItem ID="1" Name="Fund" DisplayName="资金" />
+        <MenuItem ID="2" Name="Food" DisplayName="粮草" />
+      </MenuItem>
+      <MenuItem ID="5" Name="Person" DisplayName="人事">
+        <MenuItem ID="1" Name="Transfer" DisplayName="调动" DisplayIfTrue="PersonTransferAvail" />
+        <MenuItem ID="2" Name="Convene" DisplayName="召集" DisplayIfTrue="PersonConveneAvail" />
+        <MenuItem ID="4" Name="Convince" DisplayName="说服" DisplayIfTrue="ConvincePersonAvail" />
+        <MenuItem ID="3" Name="AutoHire" DisplayName="自动说服" OppositeName="停止说服" OppositeIfTrue="AutoHiring" DisplayIfTrue="AutoHiringAvail" />
+        <MenuItem ID="7" Name="Redeem" DisplayName="赎回" DisplayIfTrue="RedeemAvail" />
+        <MenuItem ID="8" Name="Study" DisplayName="修习">
+          <MenuItem ID="1" Name="Skill" DisplayName="技能" DisplayIfTrue="PersonStudySkillAvail" />
+          <MenuItem ID="2" Name="Title" DisplayName="称号" DisplayIfTrue="PersonStudyTitleAvail" />
+          <MenuItem ID="3" Name="Stunt" DisplayName="特技" DisplayIfTrue="PersonStudyStuntAvail" />
+        </MenuItem>
+        <MenuItem ID="10" Name="Appointment" DisplayName="任免">
+          <MenuItem ID="1" Name="AppointMayor" DisplayName="任命县令" DisplayIfTrue="AppointMayorAvail" />
+          <MenuItem ID="2" Name="RecallMayor" DisplayName="罢免县令" DisplayIfTrue="RecallMayorAvail" />
+          <MenuItem ID="3" Name="AppointOfficer" DisplayName="授予官职" DisplayIfTrue="CanAppoint" />
+          <MenuItem ID="4" Name="RecallOfficer" DisplayName="免除官职" DisplayIfTrue="RecallOfficerAvail" />
+        </MenuItem>
+      </MenuItem>
+      <MenuItem ID="6" Name="Tactics" DisplayName="策略">
+        <MenuItem ID="1" Name="Information" DisplayName="情报" DisplayIfTrue="InformationAvail" />
+        <MenuItem ID="2" Name="StopInformation" DisplayName="停止情报" DisplayIfTrue="StopInformationAvail" />
+        <MenuItem ID="3" Name="Destroy" DisplayName="破坏" DisplayIfTrue="DestroyAvail" />
+        <MenuItem ID="4" Name="Instigate" DisplayName="煽动" DisplayIfTrue="InstigateAvail" />
+        <MenuItem ID="5" Name="Gossip" DisplayName="流言" DisplayIfTrue="GossipAvail" />
+        <MenuItem ID="6" Name="JailBreak" DisplayName="劫牢" DisplayIfTrue="JailBreakAvail" />
+        <MenuItem ID="6" Name="Assassinate" DisplayName="暗杀" DisplayIfTrue="AssassinateAvail" />
+        <MenuItem ID="7" Name="Search" DisplayName="搜索" DisplayIfTrue="SearchAvail" />
+        <MenuItem ID="8" Name="AutoSearching" DisplayName="委任搜索" OppositeName="手动搜索" OppositeIfTrue="AutoSearching" DisplayIfTrue="AutoSearchingAvail" />
+      </MenuItem>
+      <MenuItem ID="7" Name="Monarch" DisplayName="君主">
+        <MenuItem ID="1" Name="officePosition" DisplayName="爵位">
+          <MenuItem ID="1" Name="jingongzijin" DisplayName="进贡资金" DisplayIfTrue="kejingongzijin" />
+          <MenuItem ID="2" Name="jingongliangcao" DisplayName="进贡粮草" DisplayIfTrue="kejingongliangcao" />
+          <MenuItem ID="3" Name="SelfBecomeEmperor" DisplayName="称帝" DisplayIfTrue="SelfBecomeEmperorAvail" />
+          <MenuItem ID="4" Name="BecomeEmperorLegally" DisplayName="禅位" DisplayIfTrue="BecomeEmperorLegallyAvail" />
+        </MenuItem>
+        <MenuItem ID="2" Name="ChangeCapital" DisplayName="迁都" DisplayIfTrue="ChangeCapitalAvail" />
+        <MenuItem ID="9" Name="SelectPrince"  DisplayName="立储" DisplayIfTrue="SelectPrinceAvail" />
+        <MenuItem ID="11" Name="ZhaoXianBang"  DisplayName="招贤榜">
+          <MenuItem ID="1" Name="GenerateOfficer" DisplayName="招贤" DisplayIfTrue="CanZhaoXian" />
+        </MenuItem>
+        <MenuItem ID="3" Name="Diplomatic" DisplayName="外交">
+          <MenuItem ID="1" Name="EnhanceDiplomaticRelation" DisplayName="亲善" DisplayIfTrue="EnhanceDiplomaticRelationAvail" />
+          <MenuItem ID="2" Name="AllyDiplomaticRelation" DisplayName="结盟" DisplayIfTrue="AllyDiplomaticRelationAvail" />
+          <MenuItem ID="3" Name="ResetDiplomaticRelation" DisplayName="断交" DisplayIfTrue="ResetDiplomaticRelationAvail" />
+          <MenuItem ID="4" Name="DenounceDiplomaticRelation" DisplayName="声讨" DisplayIfTrue="DenounceDiplomaticRelationAvail" />
+          <MenuItem ID="5" Name="TruceDiplomaticRelation" DisplayName="停战" DisplayIfTrue="TruceDiplomaticRelationAvail" />
+          <MenuItem ID="6" Name="QuanXiangDiplomaticRelation" DisplayName="劝降" DisplayIfTrue="QuanXiangDiplomaticRelationAvail" />
+        </MenuItem>
+        <MenuItem ID="4" Name="Techniques" DisplayName="技巧" />
+        <MenuItem ID="5" Name="KillRelease" DisplayName="处置">
+          <MenuItem ID="1" Name="ReleaseSelfPerson" DisplayName="流放下属" DisplayIfTrue="KillPersonAvail" />
+          <MenuItem ID="2" Name="ReleaseCaptive" DisplayName="释放俘虏" DisplayIfTrue="ReleaseCaptiveAvail" />
+          <MenuItem ID="3" Name="KillPerson" DisplayName="处斩下属" DisplayIfTrue="KillPersonAvail" />
+          <MenuItem ID="4" Name="KillCaptive" DisplayName="处斩俘虏" DisplayIfTrue="ReleaseCaptiveAvail" />
+          <MenuItem ID="5" Name="MoveCaptive" DisplayName="转移俘虏" DisplayIfTrue="MoveCaptiveAvail" />
+        </MenuItem>
+        <MenuItem ID="9" Name="MakeMarriage" DisplayName="赐婚" DisplayIfTrue="HasMarriageToMake"/>
+        <MenuItem ID="6" Name="hougongTop" DisplayName="后宫">
+          <MenuItem ID="1" Name="nafei" DisplayName="纳妃" DisplayIfTrue="kenafei" />
+          <MenuItem ID="2" Name="hougong" DisplayName="宠幸" DisplayIfTrue="kejinhougong" />
+          <MenuItem ID="3" Name="moveFeizi" DisplayName="移动妃子" DisplayIfTrue="CanMoveFeizi" />
+          <MenuItem ID="4" Name="releaseFeizi" DisplayName="释放妃子" DisplayIfTrue="HaveReleasableFeizis" />
+        </MenuItem>
+        <MenuItem ID="10" Name="TrainChildren" DisplayName="子女培育" DisplayIfTrue="HasChildrenToTrain" />
+        <MenuItem ID="7" Name="Refuse" DisplayName="自动拒绝" OppositeName="手动拒绝" OppositeIfTrue="FactionAutoRefuse" />
+        <MenuItem ID="8" Name="Treasure" DisplayName="宝物">
+          <MenuItem ID="1" Name="Confiscate" DisplayName="没收" DisplayIfTrue="HasTreasureToConfiscate" />
+          <MenuItem ID="2" Name="Award" DisplayName="授予" DisplayIfTrue="HasTreasureToAward" />
+        </MenuItem>
+      </MenuItem>
+      <MenuItem ID="8" Name="Section" DisplayName="军区">
+        <MenuItem ID="1" Name="New" DisplayName="新建" DisplayIfTrue="NewSectionAvail" />
+        <MenuItem ID="2" Name="Regroup" DisplayName="重编" DisplayIfTrue="RegroupSectionAvail" />
+        <MenuItem ID="3" Name="Disband" DisplayName="解散" DisplayIfTrue="DisbandSectionAvail" />
+      </MenuItem>
+      <MenuItem ID="9" Name="AllEnter" DisplayName="全部入城" DisplayIfTrue="AllEnterAvail" />
+      <MenuItem ID="10" Name="Architecture" DisplayPlatform="Mobile" DisplayName="当前城池" DisplayAll="False">
+        <MenuItem ID="1" Name="Detail" DisplayName="详细信息" DisplayIfTrue="DetailAvail" />
+        <MenuItem ID="2" Name="Persons" DisplayName="人物列表" DisplayIfTrue="HasAnyPerson" />
+        <MenuItem ID="3" Name="Militaries" DisplayName="编队列表" DisplayIfTrue="HasMilitary" />
+        <MenuItem ID="11" Name="Informations" DisplayName="情报列表" DisplayIfTrue="HasInformation" />
+        <MenuItem ID="4" Name="NoFactionPersons" DisplayName="在野人物" DisplayIfTrue="HasNoFactionPerson" />
+        <MenuItem ID="5" Name="Facilities" DisplayName="设施列表" DisplayIfTrue="HasFacility" />
+        <MenuItem ID="6" Name="Captive" DisplayName="俘虏列表" DisplayIfTrue="HasCaptive" />
+        <MenuItem ID="7" Name="Treasure" DisplayName="相关宝物" DisplayIfTrue="HasTreasure" />
+        <MenuItem ID="8" Name="Princesses" DisplayName="妃子列表" DisplayIfTrue="HasPrincess" />
+        <MenuItem ID="9" Name="LandLink" DisplayName="陆上连接*" DisplayIfTrue="ArchitectureEditMode" />
+        <MenuItem ID="10" Name="WaterLink" DisplayName="水上连接*" DisplayIfTrue="ArchitectureEditMode" />
+      </MenuItem>
+      <MenuItem ID="11" Name="Faction" DisplayPlatform="Mobile" DisplayName="当前势力" DisplayIfTrue="CurrentPlayerOwned" DisplayAll="False">
+        <MenuItem ID="1" Name="Detail" DisplayName="详细信息" />
+        <MenuItem ID="2" Name="Architectures" DisplayName="城池列表" />
+        <MenuItem ID="3" Name="Troops" DisplayName="部队列表" />
+        <MenuItem ID="4" Name="Persons" DisplayName="人物列表" />
+        <MenuItem ID="15" Name="Children" DisplayName="子女列表" />
+        <MenuItem ID="5" Name="Militaries" DisplayName="编队列表" />
+        <MenuItem ID="13" Name="Informations" DisplayName="情报列表" DisplayIfTrue="FactionHasInformation" />
+        <MenuItem ID="6" Name="AvailableMilitaryKinds" DisplayName="兵种列表" />
+        <MenuItem ID="7" Name="Captive" DisplayName="俘虏列表" DisplayIfTrue="FactionHasCaptive" />
+        <MenuItem ID="8" Name="SelfCaptive" DisplayName="被俘虏列表" DisplayIfTrue="FactionHasSelfCaptive" />
+        <MenuItem ID="9" Name="DiplomaticRelations" DisplayName="外交关系" />
+        <MenuItem ID="10" Name="Techniques" DisplayName="势力技巧" />
+        <MenuItem ID="11" Name="Sections" DisplayName="军区列表" />
+        <MenuItem ID="12" Name="Treasure" DisplayName="相关宝物" DisplayIfTrue="FactionHasTreasure" />
+        <MenuItem ID="14" Name="TransferingMilitaries" DisplayName="编队运输列表" />
+      </MenuItem>
+    </MenuKind>
+    <MenuKind ID="3" Name="MapRightClick" DisplayName="地图右键菜单" IsLeft="false" Width="130" Height="27">
+      <MenuItem ID="1" Name="DateGo" DisplayName="进行">
+        <MenuItem ID="1" Name="1Day" DisplayName="进行一回合" />
+        <MenuItem ID="2" Name="2Days" DisplayName="进行二回合" />
+        <MenuItem ID="3" Name="5Days" DisplayName="进行五回合" />
+        <MenuItem ID="4" Name="10Days" DisplayName="进行十回合" />
+        <MenuItem ID="5" Name="30Days" DisplayName="进行三十回合" />
+      </MenuItem>
+      <MenuItem ID="2" Name="Jump" DisplayName="跳转">
+        <MenuItem ID="1" Name="Architecture" DisplayName="城池" DisplayIfTrue="CurrentPlayerHasArchitecture" />
+        <MenuItem ID="2" Name="Troop" DisplayName="部队" DisplayIfTrue="CurrentPlayerHasTroop" />
+        <MenuItem ID="3" Name="Person" DisplayName="人物" DisplayIfTrue="CurrentPlayerHasPerson" />
+      </MenuItem>
+      <MenuItem ID="3" Name="Switch" DisplayName="开关">
+        <MenuItem ID="1" Name="Smog" DisplayName="显示地图烟幕" OppositeName="隐藏地图烟幕" OppositeIfTrue="IsShowingSmog" />
+        <MenuItem ID="2" Name="TroopTitle" DisplayName="显示部队标题" OppositeName="隐藏部队标题" OppositeIfTrue="IsShowingTroopTitle" />
+        <MenuItem ID="3" Name="Music" DisplayName="播放游戏音乐" OppositeName="停止游戏音乐" OppositeIfTrue="IsPlayingMusic" />
+        <MenuItem ID="4" Name="NormalSound" DisplayName="播放一般音效" OppositeName="关闭一般音效" OppositeIfTrue="IsPlayingNormalSound" />
+        <MenuItem ID="5" Name="BattleSound" DisplayName="播放战斗音效" OppositeName="关闭战斗音效" OppositeIfTrue="IsPlayingBattleSound" />
+        <MenuItem ID="6" Name="TroopAnimation" DisplayName="显示部队动画" OppositeName="省略部队动画" OppositeIfTrue="IsPlayingTroopAnimation" />
+        <MenuItem ID="7" Name="FullScreen" DisplayName="进入全屏显示" OppositeName="退出全屏显示" OppositeIfTrue="IsFullScreen" />
+        <MenuItem ID="8" Name="SkyEye" DisplayName="开启天眼*" OppositeName="关闭天眼" OppositeIfTrue="IsSkyEye" />
+        <MenuItem ID="9" Name="MultipleResource" DisplayName="资源收入加倍*" OppositeName="停止资源加倍" OppositeIfTrue="IsMultipleResource" />
+      </MenuItem>
+      <MenuItem ID="8" Name="YearTable" DisplayName="年表">
+        <MenuItem ID="1" Name="Year5" DisplayName="最近五年" />
+        <MenuItem ID="2" Name="OwnFaction" DisplayName="自势力" />
+      </MenuItem>
+      <MenuItem ID="4" Name="Information" DisplayName="信息">
+        <MenuItem ID="1" Name="AllTitles" DisplayName="所有称号" />
+        <MenuItem ID="2" Name="AllSkills" DisplayName="所有技能" />
+        <MenuItem ID="3" Name="AllMilitaryKinds" DisplayName="所有兵种" />
+        <MenuItem ID="4" Name="AllStunts" DisplayName="所有特技" />
+        <MenuItem ID="5" Name="AllFactions" DisplayName="所有势力" />
+        <MenuItem ID="6" Name="AllArchitectures" DisplayName="所有城池*" />
+        <MenuItem ID="7" Name="AllTroops" DisplayName="所有部队*" />
+        <MenuItem ID="8" Name="AllPersons" DisplayName="所有人物*" />
+        <MenuItem ID="9" Name="AllMilitaries" DisplayName="所有编队*" />
+        <MenuItem ID="10" Name="AllSections" DisplayName="所有军区*" />
+        <MenuItem ID="11" Name="AllFacilities" DisplayName="所有设施" />
+        <MenuItem ID="12" Name="AllTerrainDetails" DisplayName="所有地形" />
+        <MenuItem ID="16" Name="AllGuanjues" DisplayName="所有官爵" />
+        <MenuItem ID="15" Name="AllTreasures" DisplayName="所有宝物*" />
+        <MenuItem ID="17" Name="AllDeadPersons" DisplayName="浪沙淘尽英雄" />
+      </MenuItem>
+      <MenuItem ID="5" Name="Save" DisplayName="存储进度" DisplayIfTrue="SaveAvail" />
+      <MenuItem ID="6" Name="Load" DisplayName="读取进度" DisplayIfTrue="LoadAvail" />
+      <MenuItem ID="9" Name="ChangeFaction" DisplayName="转变势力*" />
+      <MenuItem ID="7" Name="System" DisplayName="系统" />
+    </MenuKind>
+    <MenuKind ID="4" Name="TroopLeftClick" DisplayName="部队左键菜单" IsLeft="true" Width="100" Height="27" DisplayIfTrue="ControlAvail">
+      <MenuItem ID="1" Name="TroopInfo" DisplayPlatform="Mobile" DisplayName="部队">
+        <MenuItem ID="1" Name="TroopDetail" DisplayName="信息" DisplayIfTrue="IsCurrentPlayer" />
+        <MenuItem ID="2" Name="TroopPersons" DisplayName="人物" />
+        <MenuItem ID="3" Name="TroopMilitary" DisplayName="编队" DisplayIfTrue="IsCurrentPlayer" />
+        <MenuItem ID="4" Name="TroopCaptive" DisplayName="俘虏" DisplayIfTrue="HasCaptive" />
+        <MenuItem ID="5" Name="TroopTreasure" DisplayName="宝物" DisplayIfTrue="HasTreasure" />
+      </MenuItem>
+      <MenuItem ID="2" Name="TroopMove" DisplayName="移动" DisplayIfTrue="MoveAvail" />
+      <MenuItem ID="3" Name="TroopOccupy" DisplayName="占领" DisplayIfTrue="CanOccupy" />
+      <MenuItem ID="4" Name="TroopTarget" DisplayName="攻击" DisplayIfTrue="TargetAvail" />
+      <MenuItem ID="5" Name="TroopCombatMethod" DisplayName="战法" DisplayIfTrue="CombatMethodAvail" DisplayAll="False">
+      </MenuItem>
+      <MenuItem ID="6" Name="TroopStratagem" DisplayName="计略" DisplayIfTrue="ControlAvail" DisplayAll="False">
+      </MenuItem>
+      <MenuItem ID="7" Name="TroopStunt" DisplayName="特技" DisplayIfTrue="ControlAvail" DisplayAll="False">
+      </MenuItem>
+      <MenuItem ID="8" Name="TroopCutRouteway" DisplayName="截断粮道" DisplayIfTrue="CutRoutewayAvail" />
+      <MenuItem ID="9" Name="TroopEnter" DisplayName="入城" DisplayIfTrue="Canrucheng" />
+      <MenuItem ID="10" Name="TroopSetAuto" DisplayName="委任" OppositeName="指挥" OppositeIfTrue="Auto" DisplayIfTrue="ControlAvail" />
+      <MenuItem ID="11" Name="TroopIdle" DisplayName="待命" DisplayIfTrue="ControlAvail" />
+      <MenuItem ID="12" Name="TroopMorph" DisplayName="兴建" DisplayIfTrue="MorphAvail" />
+
+    </MenuKind>
+    <MenuKind ID="5" Name="TroopRightClick" DisplayName="部队右键菜单" IsLeft="false" Width="130" Height="27" DisplayAll="False">
+      <MenuItem ID="1" Name="TroopDetail" DisplayName="部队信息" DisplayIfTrue="IsCurrentPlayer" />
+      <MenuItem ID="2" Name="TroopPersons" DisplayName="部队人物" />
+      <MenuItem ID="3" Name="TroopMilitary" DisplayName="部队编队" DisplayIfTrue="IsCurrentPlayer" />
+      <MenuItem ID="4" Name="TroopCaptive" DisplayName="部队俘虏" DisplayIfTrue="HasCaptive" />
+      <MenuItem ID="5" Name="TroopTreasure" DisplayName="相关宝物" DisplayIfTrue="HasTreasure" />
+    </MenuKind>
+    <MenuKind ID="6" Name="RoutewayRightClick" DisplayName="粮道右键菜单" IsLeft="false" Width="130" Height="27">
+      <MenuItem ID="1" Name="RoutewayEdit" DisplayName="编辑粮道" />
+      <MenuItem ID="2" Name="RoutewayShowArea" DisplayName="显示范围" OppositeName="隐藏范围" OppositeIfTrue="IsShowingArea" />
+      <MenuItem ID="3" Name="RoutewayBuild" DisplayName="疏通粮道" OppositeName="暂停疏通" OppositeIfTrue="Building" DisplayIfTrue="BuildAvail" />
+      <MenuItem ID="4" Name="RoutewayClose" DisplayName="关闭粮道" DisplayIfTrue="CloseAvail" />
+      <MenuItem ID="5" Name="RoutewayDemolish" DisplayName="废弃粮道" />
+    </MenuKind>
+    <MenuKind ID="7" Name="ToolBarRightClick" DisplayName="工具栏右键菜单" IsLeft="false" Width="130" Height="27">
+      <MenuItem ID="1" Name="Plugins" DisplayName="插件列表" />
+    </MenuKind>
+    <MenuKind ID="8" Name="ArchitectureTroopLeftClick" DisplayName="城池与部队重叠左键菜单" IsLeft="true" Width="100" Height="27">
+      <MenuItem ID="1" Name="CurrentTroopLeftClick" DisplayName="部队" ChangeDisplayName="CurrentTroopDisplayName" />
+      <MenuItem ID="2" Name="CurrentArchitectureLeftClick" DisplayName="城池" ChangeDisplayName="CurrentArchitectureDisplayName" />
+    </MenuKind>
+    <MenuKind ID="9" Name="ArchitectureTroopRightClick" DisplayName="城池与部队重叠右键菜单" IsLeft="false" Width="130" Height="27">
+      <MenuItem ID="1" Name="CurrentTroopRightClick" DisplayName="部队" ChangeDisplayName="CurrentTroopDisplayName" />
+      <MenuItem ID="2" Name="CurrentArchitectureRightClick" DisplayName="城池" ChangeDisplayName="CurrentArchitectureDisplayName" />
+    </MenuKind>
+    <MenuKind ID="10" Name="TroopRoutewayRightClick" DisplayName="部队与粮道重叠右键菜单" IsLeft="false" Width="130" Height="27">
+      <MenuItem ID="1" Name="CurrentTroopRightClick" DisplayName="部队" ChangeDisplayName="CurrentTroopDisplayName" />
+      <MenuItem ID="2" Name="CurrentRoutewayRightClick" DisplayName="粮道" ChangeDisplayName="CurrentRoutewayDisplayName" />
+    </MenuKind>
+  </MenuKindList>
 </Root>
