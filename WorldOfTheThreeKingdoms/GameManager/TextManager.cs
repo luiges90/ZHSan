@@ -29,16 +29,20 @@ namespace GameManager
 
     public static class TextManager
     {
+        private const float SMALLWIDTHSCALE = 0.52f;
+
+        private const float LITTLEWIDTHSCALE = 0.45f;
+
+        private static char[] SMALLCHARS = new char[] { '，', '。', '、', '-', '“', '”', '"', ' ', '（', '）' };
+
+        private static char[] LITTLECHARS = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+
 
         private static Object LockObject = new object();
 
         private static Dictionary<string, FontFace> FontFaceDics = new Dictionary<string, FontFace>();
 
         private static Dictionary<FontPair, Dictionary<Char, Texture2D>> FontTextureDics = new Dictionary<FontPair, Dictionary<Char, Texture2D>>();
-
-        private static char[] SmallChars = new char[] { '，', '。', '、', '-', '“', '”', '"', ' ' };
-
-        private static char[] LittleChars = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 
         private static FontFace GetFontFace(FontPair pair)
         {
@@ -92,7 +96,9 @@ namespace GameManager
 
             int pairHeight = Convert.ToInt32(Convert.ToSingle(pair.Height) * scale);
 
-            int SmallWidth = Convert.ToInt32(Convert.ToSingle(pair.Width) * 0.55f);
+            int SmallWidth = Convert.ToInt32(Convert.ToSingle(pair.Width) * scale * SMALLWIDTHSCALE);
+
+            int LittleWidth = Convert.ToInt32(Convert.ToSingle(pair.Width) * scale * LITTLEWIDTHSCALE);
 
             Color? tmpColor = null;
 
@@ -152,13 +158,13 @@ namespace GameManager
                 int targetWidth = pairWidth;
                 int targetHeight = pairHeight;
 
-                if (SmallChars.Contains(ch))
+                if (SMALLCHARS.Contains(ch))
                 {
                     targetWidth = SmallWidth;
                 }
-                else if (LittleChars.Contains(ch))
+                else if (LITTLECHARS.Contains(ch))
                 {
-                    targetWidth = SmallWidth;
+                    targetWidth = LittleWidth;
                 }
 
                 already.X += targetWidth;
@@ -201,7 +207,9 @@ namespace GameManager
 
                 int pairHeight = Convert.ToInt32(Convert.ToSingle(pair.Height) * scale);
 
-                int SmallWidth = Convert.ToInt32(Convert.ToSingle(pair.Width) * 0.55f);
+                int SmallWidth = Convert.ToInt32(Convert.ToSingle(pair.Width) * scale * SMALLWIDTHSCALE);
+
+                int LittleWidth = Convert.ToInt32(Convert.ToSingle(pair.Width) * scale * LITTLEWIDTHSCALE);
 
                 Color? tmpColor = null;
 
@@ -261,13 +269,13 @@ namespace GameManager
                     int targetWidth = pairWidth;
                     int targetHeight = pairHeight;
 
-                    if (SmallChars.Contains(ch))
+                    if (SMALLCHARS.Contains(ch))
                     {
                         targetWidth = SmallWidth;
                     }
-                    else if (LittleChars.Contains(ch))
+                    else if (LITTLECHARS.Contains(ch))
                     {
-                        targetWidth = tex == null ? SmallWidth : tex.Width;
+                        targetWidth = LittleWidth;  // tex == null ? LittleWidth : Convert.ToInt16(Convert.ToSingle(tex.Width) * scale);
                     }
 
                     if (tex == null)
