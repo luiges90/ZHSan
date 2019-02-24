@@ -77,7 +77,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private bool mapEdited = false;
 
-        public CloudLayer cloudLayer;
+        public CloudLayer cloudLayer = new CloudLayer();
 
         public MainGameScreen()
             : base()
@@ -111,9 +111,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.UpdateCount = 0;
 
             this.screenManager = new ScreenManager();
-
-            this.cloudLayer = new CloudLayer();
-
+            
             //Session.Current.Scenario = new GameScenario(this);
             //this.LoadCommonData();
 
@@ -1347,6 +1345,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.ResetScreenEdge();
             this.mainMapLayer.ReCalculateTileDestination(this);
             this.Plugins.AirViewPlugin.ResetFramePosition(base.viewportSize, this.mainMapLayer.LeftEdge, this.mainMapLayer.TopEdge, this.mainMapLayer.TotalMapSize);
+
+            if (Session.MainGame.mainGameScreen == null)
+            {
+
+            }
+            else
+            {
+                Session.MainGame.mainGameScreen.cloudLayer.Start();
+            }
         }
 
 
@@ -3242,8 +3249,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
                 else
                 {
-                    this.viewportSize.X = Session.ResolutionX;  // Platform.GraphicsDevice.Viewport.Width;
-                    this.viewportSize.Y = Convert.ToInt32(Session.ResolutionY - this.Plugins.ToolBarPlugin.Height);  // Platform.GraphicsDevice.Viewport.Height - this.Plugins.ToolBarPlugin.Height;
+                    this.viewportSize.X = Session.ResolutionX - 20;  // Platform.GraphicsDevice.Viewport.Width;
+                    this.viewportSize.Y = Convert.ToInt32(Session.ResolutionY - this.Plugins.ToolBarPlugin.Height - 10);  // Platform.GraphicsDevice.Viewport.Height - this.Plugins.ToolBarPlugin.Height;
                 }
 
                 this.viewportSizeFull.X = Session.ResolutionX;

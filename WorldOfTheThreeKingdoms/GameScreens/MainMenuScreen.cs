@@ -3507,21 +3507,24 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 //tbGamerName.Update(seconds);
                 //tbGamerName.HandleInput(seconds);
 
-                btnSmallResolution.Enable = btnLargeResolution.Enable = true;
-
-                if (AvaliableResolutions.First() == Setting.Current.Resolution)
+                if (!Platform.IsMobilePlatForm)
                 {
-                    btnSmallResolution.Enable = false;
+                    btnSmallResolution.Enable = btnLargeResolution.Enable = true;
+
+                    if (AvaliableResolutions.First() == Setting.Current.Resolution)
+                    {
+                        btnSmallResolution.Enable = false;
+                    }
+
+                    if (AvaliableResolutions.Last() == Setting.Current.Resolution)
+                    {
+                        btnLargeResolution.Enable = false;
+                    }
+
+                    btnSmallResolution.Update();
+
+                    btnLargeResolution.Update();
                 }
-
-                if (AvaliableResolutions.Last() == Setting.Current.Resolution)
-                {
-                    btnLargeResolution.Enable = false;
-                }
-
-                btnSmallResolution.Update();
-
-                btnLargeResolution.Update();
                 
                 Setting.Current.GamerName = tbGamerName.Text.NullToStringTrim();
                                 
@@ -4013,21 +4016,24 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 CacheManager.DrawString(Session.Current.Font, "简体中文", new Vector2(50 + 100 + 50, 120), Color.Black * alpha);
 
-                CacheManager.DrawString(Session.Current.Font, "传统中文", new Vector2(50 + 100 + 200 + 50, 120), Color.Black * alpha);              
+                CacheManager.DrawString(Session.Current.Font, "传统中文", new Vector2(50 + 100 + 200 + 50, 120), Color.Black * alpha);
 
                 //CacheManager.DrawString(Session.Current.Font, "战斗", new Vector2(50, 120 + 60 * 2), Color.Black * alpha);
 
                 //CacheManager.DrawString(Session.Current.Font, "快速战斗的速度", new Vector2(50 + 300, 120 + 60 * 2), Color.Black * alpha);
 
-                CacheManager.DrawString(Session.Current.Font, "分辨", new Vector2(50, 120 + 60 * 4), Color.Black * alpha);
+                if (!Platform.IsMobilePlatForm)
+                {
+                    CacheManager.DrawString(Session.Current.Font, "分辨", new Vector2(50, 120 + 60 * 4), Color.Black * alpha);
 
-                btnSmallResolution.Alpha = alpha;
-                btnSmallResolution.Draw();
+                    btnSmallResolution.Alpha = alpha;
+                    btnSmallResolution.Draw();
 
-                CacheManager.DrawString(Session.Current.Font, Setting.Current.Resolution, new Vector2(220, 120 + 60 * 4), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, Setting.Current.Resolution, new Vector2(220, 120 + 60 * 4), Color.Black * alpha);
 
-                btnLargeResolution.Alpha = alpha;
-                btnLargeResolution.Draw();
+                    btnLargeResolution.Alpha = alpha;
+                    btnLargeResolution.Draw();
+                }
 
                 //tbBattleSpeed.tranAlpha = alpha;
                 //tbBattleSpeed.Draw();

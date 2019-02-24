@@ -84,6 +84,88 @@ namespace GameManager
             }
         }
 
+        public static Vector2 GetWidthHeight(string text, FontPair pair, float scale = 1f)
+        {
+            Vector2 already = Vector2.Zero;
+
+            int pairWidth = Convert.ToInt32(Convert.ToSingle(pair.Width) * scale);
+
+            int pairHeight = Convert.ToInt32(Convert.ToSingle(pair.Height) * scale);
+
+            int SmallWidth = Convert.ToInt32(Convert.ToSingle(pair.Width) * 0.55f);
+
+            Color? tmpColor = null;
+
+            already.Y += pairHeight;
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                char ch = text[i];
+
+                if (ch == '\n')
+                {
+                    already.X = 0;
+                    already.Y += pairHeight;
+                    continue;
+                }
+
+                if (ch == '\r')
+                {
+                    continue;
+                }
+
+                if (ch == '<')
+                {
+                    int recent = text.IndexOf('>', i);
+
+                    if (recent > i)
+                    {
+                        var next = text[i + 1];
+
+                        if (next == '/')
+                        {
+                            i = recent;
+                            tmpColor = null;
+                            continue;
+                        }
+                        else
+                        {
+                            string co = text.Substring(i + 1, recent - i - 1);
+                            var col = GetColor(co);
+                            if (col == null)
+                            {
+
+                            }
+                            else
+                            {
+                                i = recent;
+                                tmpColor = col;
+                                continue;
+                            }
+                        }
+                    }
+
+                }
+
+                Vector2 ext = Vector2.Zero;
+
+                int targetWidth = pairWidth;
+                int targetHeight = pairHeight;
+
+                if (SmallChars.Contains(ch))
+                {
+                    targetWidth = SmallWidth;
+                }
+                else if (LittleChars.Contains(ch))
+                {
+                    targetWidth = SmallWidth;
+                }
+
+                already.X += targetWidth;
+            }
+            return already;
+        }
+
         private static Texture2D GetCharTexture(FontFace fontFace, Dictionary<Char, Texture2D> texs, FontPair pair, char ch)
         {
             lock (LockObject)
@@ -127,14 +209,14 @@ namespace GameManager
                 {
                     char ch = text[i];
 
-                    if (ch == '\r')
+                    if (ch == '\n')
                     {
                         already.X = 0;
                         already.Y += pairHeight;
                         continue;
                     }
 
-                    if (ch == '\n')
+                    if (ch == '\r')
                     {
                         continue;
                     }

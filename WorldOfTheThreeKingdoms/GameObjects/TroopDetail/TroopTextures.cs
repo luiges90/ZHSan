@@ -23,6 +23,23 @@ namespace GameObjects.TroopDetail
         private PlatformTexture castTexture;
         public string BeCastedTextureFileName;
         private PlatformTexture beCastedTexture;
+
+        public int TextureWidth
+        {
+            get
+            {
+                return Platform.IsMobilePlatForm ? 600 : 1280;
+            }
+        }
+
+        public int TextureHeight
+        {
+            get
+            {
+                return Platform.IsMobilePlatForm ? 480 : 1024;
+            }
+        }
+
         public PlatformTexture MoveTexture
         {
             get
@@ -32,8 +49,8 @@ namespace GameObjects.TroopDetail
                     if (this.moveTexture == null)
                     {
                         this.moveTexture = CacheManager.GetTempTexture(this.MoveTextureFileName);
-                        this.moveTexture.Width = 1280;
-                        this.moveTexture.Height = 1024;
+                        this.moveTexture.Width = TextureWidth;
+                        this.moveTexture.Height = TextureHeight;
                     }
                 //}
                 //catch
@@ -55,8 +72,8 @@ namespace GameObjects.TroopDetail
                     if (this.attackTexture == null)
                     {
                         this.attackTexture = CacheManager.GetTempTexture(this.AttackTextureFileName);
-                    this.attackTexture.Width = 1280;
-                    this.attackTexture.Height = 1024;
+                    this.attackTexture.Width = TextureWidth;
+                    this.attackTexture.Height = TextureHeight;
                 }
                 //}
                 //catch
@@ -78,8 +95,8 @@ namespace GameObjects.TroopDetail
                     if (this.beAttackedTexture == null)
                     {
                         this.beAttackedTexture = CacheManager.GetTempTexture(this.BeAttackedTextureFileName);
-                    this.beAttackedTexture.Width = 1280;
-                    this.beAttackedTexture.Height = 1024;
+                    this.beAttackedTexture.Width = TextureWidth;
+                    this.beAttackedTexture.Height = TextureHeight;
                 }
                 //}
                 //catch
@@ -103,14 +120,14 @@ namespace GameObjects.TroopDetail
                         if (this.CastTextureFileName == this.AttackTextureFileName)
                         {
                             this.castTexture = this.AttackTexture;
-                        this.castTexture.Width = 1280;
-                        this.castTexture.Height = 1024;
+                        this.castTexture.Width = TextureWidth;
+                        this.castTexture.Height = TextureHeight;
                     }
                         else
                         {
                             this.castTexture = CacheManager.GetTempTexture(this.CastTextureFileName);
-                        this.castTexture.Width = 1280;
-                        this.castTexture.Height = 1024;
+                        this.castTexture.Width = TextureWidth;
+                        this.castTexture.Height = TextureHeight;
                     }
                     }
                 //}
@@ -140,8 +157,8 @@ namespace GameObjects.TroopDetail
                         {
                             this.beCastedTexture = CacheManager.GetTempTexture(this.BeCastedTextureFileName);
                         }
-                    this.beCastedTexture.Width = 1280;
-                    this.beCastedTexture.Height = 1024;
+                    this.beCastedTexture.Width = TextureWidth;
+                    this.beCastedTexture.Height = TextureHeight;
                 }
                 //}
                 //catch

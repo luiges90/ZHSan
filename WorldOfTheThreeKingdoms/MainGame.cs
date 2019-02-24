@@ -425,7 +425,17 @@ namespace WorldOfTheThreeKingdoms
             }
             else
             {
-                SpriteBatch.Begin(spriteMode, BlendState.AlphaBlend);
+                if (mainGameScreen == null || loadingScreen != null)
+                {
+                    SpriteBatch.Begin(spriteMode, BlendState.AlphaBlend, null, null, null, null, SpriteScale1);
+                }
+                else
+                {
+                    //SpriteBatch.Begin(spriteMode, BlendState.AlphaBlend, null, null, null, null, SpriteScale2);
+                    SpriteBatch.Begin(spriteMode, BlendState.AlphaBlend);
+                }
+
+
             }
 
             Platform.GraphicsDevice.Clear(Color.TransparentBlack);

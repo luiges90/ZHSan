@@ -99,12 +99,17 @@ namespace Tools
                     }
                     var array = stream.ToArray();
                     string result = Encoding.UTF8.GetString(array, 0, array.Length);
-                    result = result.Replace("{\"", "{\r\n\"");
-                    result = result.Replace("[{", "[\r\n{");
-                    result = result.Replace(",\"", ",\r\n\"");
-                    result = result.Replace("}", "\r\n}");
-                    result = result.Replace("},{", "},\r\n{");
-                    result = result.Replace("}]", "}\r\n]");
+
+                    if (!Platform.IsMobilePlatForm)
+                    {
+                        result = result.Replace("{\"", "{\n\"");
+                        result = result.Replace("[{", "[\n{");
+                        result = result.Replace(",\"", ",\n\"");
+                        result = result.Replace("}", "\n}");
+                        result = result.Replace("},{", "},\n{");
+                        result = result.Replace("}]", "}\n]");
+                    }
+
                     if (zip)
                     {
                         result = result.GZipCompressString();

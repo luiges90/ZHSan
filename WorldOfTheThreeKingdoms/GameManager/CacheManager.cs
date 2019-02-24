@@ -325,21 +325,21 @@ namespace GameManager
             Draw(name, pos, source, color, SpriteEffects.None, 1f);
         }
 
-        public static void Draw(string name, Vector2 pos, Rectangle? source, Color color, SpriteEffects effect, float scale)
+        public static void Draw(string name, Vector2 pos, Rectangle? source, Color color, SpriteEffects effect, float scale, float depth = 0f)
         {
             Texture2D tex = LoadTexture(name);
             if (tex != null && !tex.IsDisposed)
             {
-                Session.Current.SpriteBatch.Draw(tex, pos, source, color, 0f, Vector2.Zero, scale, effect, 0f);
+                Session.Current.SpriteBatch.Draw(tex, pos, source, color, 0f, Vector2.Zero, scale, effect, depth);
             }
         }
 
-        public static void Draw(string name, Vector2 pos, Rectangle? source, Color color, SpriteEffects effect, Vector2 scale)
+        public static void Draw(string name, Vector2 pos, Rectangle? source, Color color, SpriteEffects effect, Vector2 scale, float depth = 0f)
         {
             Texture2D tex = LoadTexture(name);
             if (tex != null && !tex.IsDisposed)
             {
-                Session.Current.SpriteBatch.Draw(tex, pos, source, color, 0f, Vector2.Zero, scale, effect, 0f);
+                Session.Current.SpriteBatch.Draw(tex, pos, source, color, 0f, Vector2.Zero, scale, effect, depth);
             }
             else
             {
@@ -367,7 +367,16 @@ namespace GameManager
                 }
             }
         }
-        
+
+        public static void Draw(string text, Rectangle rec, Rectangle? source, Color color, float rotation, Vector2 origin, SpriteEffects effect, float depth)
+        {
+            var texture = new PlatformTexture()
+            {
+                Name = text
+            };
+            Draw(texture, rec, source, color, rotation, origin, effect, depth);
+        }
+
 
         public static void Draw(PlatformTexture platformTexture, Rectangle rec, Rectangle? source, Color color, float rotation, Vector2 origin, SpriteEffects effect, float depth)
         {

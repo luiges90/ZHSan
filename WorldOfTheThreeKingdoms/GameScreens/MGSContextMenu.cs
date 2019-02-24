@@ -112,7 +112,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.Plugins.youcelanPlugin.IsShowing = true;
             this.Plugins.ContextMenuPlugin.ShezhiBianduiLiebiaoXinxi(this.Plugins.BianduiLiebiao.IsShowing, this.Plugins.BianduiLiebiao.Weizhi);
 
+            //switch (result)
+            //{
 
+            //    case UndoneWorkKind.ContextMenu:
+            //        this.HandleContextMenuResult(this.Plugins.ContextMenuPlugin.Result);
+            //        this.gengxinyoucelan();
+            //        break;
+            //}
 
             switch (result)
             {

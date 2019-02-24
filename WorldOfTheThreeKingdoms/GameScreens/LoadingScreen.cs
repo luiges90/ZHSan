@@ -100,8 +100,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             }
                             catch (Exception e)
                             {
-                                Program.PrintError(e);
-                                Environment.Exit(1);
+                                throw new Exception("加載出錯：" + e);
+                                //Program.PrintError(e);
+                                //Environment.Exit(1);
                             }
 
                             ClearEvent();

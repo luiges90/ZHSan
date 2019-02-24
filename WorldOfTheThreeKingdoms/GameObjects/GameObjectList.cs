@@ -121,7 +121,7 @@ namespace GameObjects
         {
             if (ID >= 0)
             {
-                return this.gameObjects.FirstOrDefault(ga => ga.ID == ID);
+                return this.gameObjects.FirstOrDefault(ga => ga != null && ga.ID == ID);
                 //foreach (GameObject obj2 in this.gameObjects)
                 //{
                 //    if (obj2.ID == ID)

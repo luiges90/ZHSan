@@ -451,14 +451,15 @@ namespace GameManager
             {
                 if (slope >= 1.5)
                 {
-                    Session.Resolution = "925*520";
-                    LargeContextMenu = true;
+                    Session.Resolution = "1024*680";  //"925*520";
+                    //LargeContextMenu = true;
                 }
                 else
                 {
                     Session.Resolution = "1024*768";
                 }
             }
+
             //else if (Platform.PlatFormType == PlatFormType.iOS)
             //{
             //    screenscalex1 = Convert.ToSingle(Session.ResolutionX) / 1120f;
@@ -559,6 +560,8 @@ namespace GameManager
 
                 mainGameScreen.Initialize();
                 Session.MainGame.mainGameScreen = mainGameScreen;
+
+                mainGameScreen.cloudLayer.Start();
 
                 Session.Current.Scenario.AfterInit();
             };

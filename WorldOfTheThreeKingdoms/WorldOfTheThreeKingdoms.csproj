@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,7 +13,7 @@
     <AssemblyName>WorldOfTheThreeKingdoms</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -31,8 +31,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -70,6 +68,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -79,6 +78,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Contracts\Records.cs" />
@@ -1598,6 +1598,7 @@
     <Compile Include="GameGlobal\UndoneWorkSubKind.cs" />
     <Compile Include="GameGlobal\ZhandouZhuangtai.cs" />
     <Compile Include="MapLayers\ArchitectureLayer.cs" />
+    <Compile Include="MapLayers\CloudLayer.cs" />
     <Compile Include="MapLayers\GameTextures.cs" />
     <Compile Include="MapLayers\MainMapLayer.cs" />
     <Compile Include="MapLayers\MapVeilLayer.cs" />
@@ -1615,11 +1616,6 @@
     <Compile Include="Platforms\WinHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
     <Compile Include="Tools\CGZipUtil.cs" />
     <Compile Include="Tools\ExtendMethods.cs" />
     <Compile Include="Tools\GameTools.cs" />
@@ -1629,8 +1625,9 @@
     <Compile Include="Tools\WordTools.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Xna.Framework">
-      <HintPath>..\References\Win\Microsoft.Xna.Framework.dll</HintPath>
+    <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Win\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
     <Reference Include="Newtonsoft.Json">
@@ -1643,40 +1640,46 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Win\SharpDX.dll</HintPath>
     </Reference>
-    <Reference Include="SharpDX.DXGI, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+    <Reference Include="SharpDX.MediaFoundation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Win\SharpDX.DXGI.dll</HintPath>
+      <HintPath>..\References\Win\SharpDX.MediaFoundation.dll</HintPath>
     </Reference>
-    <Reference Include="SharpFontCore, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SharpFontCore">
       <HintPath>..\References\SharpFontCore.dll</HintPath>
     </Reference>
-    <Reference Include="SixLabors.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SixLabors.Core">
       <HintPath>..\References\SixLabors.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SixLabors.Fonts">
       <HintPath>..\References\SixLabors.Fonts.dll</HintPath>
     </Reference>
-    <Reference Include="SixLabors.ImageSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SixLabors.ImageSharp">
       <HintPath>..\References\SixLabors.ImageSharp.dll</HintPath>
     </Reference>
-    <Reference Include="SixLabors.ImageSharp.Drawing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SixLabors.ImageSharp.Drawing">
       <HintPath>..\References\SixLabors.ImageSharp.Drawing.dll</HintPath>
     </Reference>
-    <Reference Include="SixLabors.Shapes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SixLabors.Shapes">
       <HintPath>..\References\SixLabors.Shapes.dll</HintPath>
+    </Reference>
+    <Reference Include="Steamworks.NET, Version=12.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Win\Steamworks.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\References\System.Buffers.dll</HintPath>
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+    <Reference Include="System.Memory">
       <HintPath>..\References\System.Memory.dll</HintPath>
     </Reference>
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors" />
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\portable-net45+win8+wp8+wpa81\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
@@ -1892,6 +1895,250 @@
     </Content>
     <Content Include="..\Content\Data\yearTableStrings.txt">
       <Link>Content\Data\yearTableStrings.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\MapLayer\Data\LastTroop.png">
+      <Link>Content\Textures\GameComponents\MapLayer\Data\LastTroop.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\MapLayer\Data\LastTroopActive.png">
+      <Link>Content\Textures\GameComponents\MapLayer\Data\LastTroopActive.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\MapLayer\Data\NextTroop.png">
+      <Link>Content\Textures\GameComponents\MapLayer\Data\NextTroop.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\MapLayer\Data\NextTroopActive.png">
+      <Link>Content\Textures\GameComponents\MapLayer\Data\NextTroopActive.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\MapLayer\Data\RoutewayLayer.png">
+      <Link>Content\Textures\GameComponents\MapLayer\Data\RoutewayLayer.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\MapLayer\Data\RoutewayLayerActive.png">
+      <Link>Content\Textures\GameComponents\MapLayer\Data\RoutewayLayerActive.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\MapLayer\Data\WanggeLayer.png">
+      <Link>Content\Textures\GameComponents\MapLayer\Data\WanggeLayer.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\MapLayer\Data\WanggeLayerActive.png">
+      <Link>Content\Textures\GameComponents\MapLayer\Data\WanggeLayerActive.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\100.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\100.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Background.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Background.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Backspace.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Backspace.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Clear.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Clear.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Enter.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Enter.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Exit.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Exit.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Frame.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Frame.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Max.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Max.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Number0.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number0.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Number1.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Number2.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Number3.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number3.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Number4.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number4.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Number5.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number5.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Number6.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number6.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Number7.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number7.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Number8.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number8.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Number9.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number9.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Selectasdion.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Selectasdion.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\Selection.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\Selection.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\NumberInputer\Data\TenThousand.png">
+      <Link>Content\Textures\GameComponents\NumberInputer\Data\TenThousand.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\CheckBox.png">
+      <Link>Content\Textures\GameComponents\TabList\Data\CheckBox.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\CheckBoxSelected.png">
+      <Link>Content\Textures\GameComponents\TabList\Data\CheckBoxSelected.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\ColumnHeader.jpg">
+      <Link>Content\Textures\GameComponents\TabList\Data\ColumnHeader.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\ColumnHeader.png">
+      <Link>Content\Textures\GameComponents\TabList\Data\ColumnHeader.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\ColumnSpliter.jpg">
+      <Link>Content\Textures\GameComponents\TabList\Data\ColumnSpliter.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\FocusTrack.jpg">
+      <Link>Content\Textures\GameComponents\TabList\Data\FocusTrack.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\LeftArrow.png">
+      <Link>Content\Textures\GameComponents\TabList\Data\LeftArrow.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\RightArrow.png">
+      <Link>Content\Textures\GameComponents\TabList\Data\RightArrow.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\RoundCheckBox.png">
+      <Link>Content\Textures\GameComponents\TabList\Data\RoundCheckBox.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\RoundCheckBoxSelected.png">
+      <Link>Content\Textures\GameComponents\TabList\Data\RoundCheckBoxSelected.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\ScrollButton.jpg">
+      <Link>Content\Textures\GameComponents\TabList\Data\ScrollButton.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\ScrollButton.png">
+      <Link>Content\Textures\GameComponents\TabList\Data\ScrollButton.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\ScrollTrack.jpg">
+      <Link>Content\Textures\GameComponents\TabList\Data\ScrollTrack.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\TabButton.png">
+      <Link>Content\Textures\GameComponents\TabList\Data\TabButton.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\GameComponents\TabList\Data\TabButtonSelected.png">
+      <Link>Content\Textures\GameComponents\TabList\Data\TabButtonSelected.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\Start\Cloud1.png">
+      <Link>Content\Textures\Resources\Start\Cloud1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\Start\Cloud2.png">
+      <Link>Content\Textures\Resources\Start\Cloud2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\Start\Cloud3.png">
+      <Link>Content\Textures\Resources\Start\Cloud3.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\Start\Cloud4.png">
+      <Link>Content\Textures\Resources\Start\Cloud4.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\Start\Cloud5.png">
+      <Link>Content\Textures\Resources\Start\Cloud5.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\Start\Cloud6.png">
+      <Link>Content\Textures\Resources\Start\Cloud6.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\Start\Menu.png">
+      <Link>Content\Textures\Resources\Start\Menu.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\Start\Setting.png">
+      <Link>Content\Textures\Resources\Start\Setting.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\TileFrame\Black.png">
+      <Link>Content\Textures\Resources\TileFrame\Black.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\TileFrame\Blue.png">
+      <Link>Content\Textures\Resources\TileFrame\Blue.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\TileFrame\Green.png">
+      <Link>Content\Textures\Resources\TileFrame\Green.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\TileFrame\Purple.png">
+      <Link>Content\Textures\Resources\TileFrame\Purple.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\TileFrame\Red.png">
+      <Link>Content\Textures\Resources\TileFrame\Red.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\TileFrame\wangge.png">
+      <Link>Content\Textures\Resources\TileFrame\wangge.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\TileFrame\White.png">
+      <Link>Content\Textures\Resources\TileFrame\White.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\TileFrame\xuanze.png">
+      <Link>Content\Textures\Resources\TileFrame\xuanze.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Content\TexturesAlpha\Resources\TileFrame\Yellow.png">
+      <Link>Content\Textures\Resources\TileFrame\Yellow.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Textures\GameComponents\AirView\Data\Architecture.png">
@@ -5902,22 +6149,6 @@
       <Link>Content\Textures\GameComponents\Help\Data\ButtonSelected.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\MapLayer\Data\RoutewayLayer.png">
-      <Link>Content\Textures\GameComponents\MapLayer\Data\RoutewayLayer.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\MapLayer\Data\RoutewayLayerActive.png">
-      <Link>Content\Textures\GameComponents\MapLayer\Data\RoutewayLayerActive.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\MapLayer\Data\WanggeLayer.png">
-      <Link>Content\Textures\GameComponents\MapLayer\Data\WanggeLayer.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\MapLayer\Data\WanggeLayerActive.png">
-      <Link>Content\Textures\GameComponents\MapLayer\Data\WanggeLayerActive.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Textures\GameComponents\MapViewSelector\Data\Button.png">
       <Link>Content\Textures\GameComponents\MapViewSelector\Data\Button.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -5992,78 +6223,6 @@
     </Content>
     <Content Include="..\Content\Textures\GameComponents\MarshalSectionDialog\Data\OrientationSelected.png">
       <Link>Content\Textures\GameComponents\MarshalSectionDialog\Data\OrientationSelected.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Background.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Background.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Backspace.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Backspace.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Clear.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Clear.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Enter.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Enter.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Exit.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Exit.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Frame.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Frame.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Max.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Max.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Number0.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number0.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Number1.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number1.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Number2.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number2.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Number3.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number3.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Number4.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number4.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Number5.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number5.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Number6.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number6.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Number7.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number7.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Number8.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number8.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Number9.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Number9.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\NumberInputer\Data\Selection.png">
-      <Link>Content\Textures\GameComponents\NumberInputer\Data\Selection.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Textures\GameComponents\OptionDialog\Data\Basic.png">
@@ -41838,10 +41997,6 @@
       <Link>Content\Textures\GameComponents\PersonPortrait\Images\Default\9999.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\PersonPortrait\Images\Default\9999f.jpg">
-      <Link>Content\Textures\GameComponents\PersonPortrait\Images\Default\9999f.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Textures\GameComponents\PersonPortrait\Images\Default\9999s.jpg">
       <Link>Content\Textures\GameComponents\PersonPortrait\Images\Default\9999s.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -41994,60 +42149,8 @@
       <Link>Content\Textures\GameComponents\SimpleTextDialog\Data\FirstPageSelected.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\CheckBox.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\CheckBox.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\CheckBoxSelected.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\CheckBoxSelected.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\ColumnHeader.jpg">
-      <Link>Content\Textures\GameComponents\TabList\Data\ColumnHeader.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\ColumnSpliter.jpg">
-      <Link>Content\Textures\GameComponents\TabList\Data\ColumnSpliter.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\FocusTrack.jpg">
-      <Link>Content\Textures\GameComponents\TabList\Data\FocusTrack.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\LeftArrow.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\LeftArrow.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\RightArrow.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\RightArrow.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\RoundCheckBox.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\RoundCheckBox.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\RoundCheckBoxSelected.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\RoundCheckBoxSelected.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\ScrollButton.jpg">
-      <Link>Content\Textures\GameComponents\TabList\Data\ScrollButton.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\ScrollTrack.jpg">
-      <Link>Content\Textures\GameComponents\TabList\Data\ScrollTrack.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\TabButton.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\TabButton.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\TabList\Data\TabButtonSelected.png">
-      <Link>Content\Textures\GameComponents\TabList\Data\TabButtonSelected.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ToolBar\Data\Background.jpg">
-      <Link>Content\Textures\GameComponents\ToolBar\Data\Background.jpg</Link>
+    <Content Include="..\Content\Textures\GameComponents\ToolBar\Data\Background.png">
+      <Link>Content\Textures\GameComponents\ToolBar\Data\Background.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Textures\GameComponents\ToolBar\Data\Spliter.png">
@@ -49058,10 +49161,6 @@
       <Link>Content\Textures\Resources\Start\Line-Red.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\Resources\Start\Menu.png">
-      <Link>Content\Textures\Resources\Start\Menu.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Textures\Resources\Start\NumberSetS-Bottom.png">
       <Link>Content\Textures\Resources\Start\NumberSetS-Bottom.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -49080,10 +49179,6 @@
     </Content>
     <Content Include="..\Content\Textures\Resources\Start\Scenario.jpg">
       <Link>Content\Textures\Resources\Start\Scenario.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\Start\Setting.png">
-      <Link>Content\Textures\Resources\Start\Setting.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Textures\Resources\Start\Start.jpg">
@@ -50544,42 +50639,6 @@
     </Content>
     <Content Include="..\Content\Textures\Resources\Terrain\9\TopRightCorner01.png">
       <Link>Content\Textures\Resources\Terrain\9\TopRightCorner01.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\TileFrame\Black.png">
-      <Link>Content\Textures\Resources\TileFrame\Black.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\TileFrame\Blue.png">
-      <Link>Content\Textures\Resources\TileFrame\Blue.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\TileFrame\Green.png">
-      <Link>Content\Textures\Resources\TileFrame\Green.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\TileFrame\Purple.png">
-      <Link>Content\Textures\Resources\TileFrame\Purple.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\TileFrame\Red.png">
-      <Link>Content\Textures\Resources\TileFrame\Red.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\TileFrame\wangge.png">
-      <Link>Content\Textures\Resources\TileFrame\wangge.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\TileFrame\White.png">
-      <Link>Content\Textures\Resources\TileFrame\White.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\TileFrame\xuanze.png">
-      <Link>Content\Textures\Resources\TileFrame\xuanze.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\TileFrame\Yellow.png">
-      <Link>Content\Textures\Resources\TileFrame\Yellow.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Textures\Resources\Treasure\0.jpg">
@@ -55286,24 +55345,10 @@
       <Link>Content\Textures\Resources\Troop\999\Move.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Textures\GameComponents\PersonPortrait\Images\Default\9997.jpg" />
-    <Content Include="Content\Textures\GameComponents\PersonPortrait\Images\Default\9997s.jpg" />
-    <Content Include="Content\Textures\GameComponents\PersonPortrait\Images\Default\9998.jpg" />
-    <Content Include="Content\Textures\GameComponents\PersonPortrait\Images\Default\9998s.jpg" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\CheckBox.png" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\CheckBoxSelected.png" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\ColumnHeader.png" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\ColumnSpliter.png" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\FocusTrack.png" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\LeftArrow.png" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\RightArrow.png" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\RoundCheckBox.png" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\RoundCheckBoxSelected.png" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\ScrollButton.png" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\ScrollTrack.png" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\Select.wav" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\TabButton.png" />
-    <Content Include="Content\Textures\GameComponents\TabList\Data\TabButtonSelected.png" />
+    <Content Include="Content\Font\AllText.txt" />
+    <Content Include="Content\Font\Messages.txt" />
+    <Content Include="Content\Font\MessagesDenyT.txt" />
+    <Content Include="Content\Font\MessagesL.txt" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -57571,32 +57616,28 @@
       <Link>Content\Data\Scenario\280YXJJ.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Font\FZLB_GBK.TTF">
-      <Link>Content\Font\FZLB_GBK.TTF</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Font\guyin.TTF">
-      <Link>Content\Font\guyin.TTF</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Font\hwzs.ttf">
-      <Link>Content\Font\hwzs.ttf</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Font\simhei.ttf">
-      <Link>Content\Font\simhei.ttf</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Font\xingshu.ttf">
-      <Link>Content\Font\xingshu.ttf</Link>
+    <Content Include="..\Content\Data\Scenario\194QXGJ.json">
+      <Link>Content\Data\Scenario\194QXGJ.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="app.config" />
     <None Include="app.manifest" />
-    <Content Include="Content\Data\Scenario\194QXGJ.json">
+    <None Include="Content\Data\xlsTemplate.xlsx" />
+    <Content Include="Content\Font\FZLB_GBK.TTF">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Content\Data\xlsTemplate.xlsx" />
+    <None Include="Content\Font\FontE.spritefont" />
+    <None Include="Content\Font\FontE.xnb" />
+    <None Include="Content\Font\FontL.spritefont" />
+    <None Include="Content\Font\FontL.xnb" />
+    <None Include="Content\Font\FontS.spritefont" />
+    <None Include="Content\Font\FontS.xnb" />
+    <None Include="Content\Font\FontT.spritefont" />
+    <None Include="Content\Font\FontT.xnb" />
+    <None Include="Content\Font\guyin.TTF" />
+    <None Include="Content\Font\hwzs.ttf" />
+    <None Include="Content\Font\simhei.ttf" />
+    <None Include="Content\Font\xingshu.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
