@@ -537,8 +537,8 @@ namespace GameGlobal
             TroopMoraleChange = float.Parse(nextSibling.Attributes.GetNamedItem("TroopMoraleChange").Value);
             RecruitPopualationDecreaseRate = float.Parse(nextSibling.Attributes.GetNamedItem("RecruitPopualationDecreaseRate").Value);
 
-            MakeMarriageCost = int.Parse(nextSibling.Attributes.GetNamedItem("MakeMarriageCost").Value);
-            NafeiCost = int.Parse(nextSibling.Attributes.GetNamedItem("NafeiCost").Value);
+            //MakeMarriageCost = int.Parse(nextSibling.Attributes.GetNamedItem("MakeMarriageCost").Value);
+            //NafeiCost = int.Parse(nextSibling.Attributes.GetNamedItem("NafeiCost").Value);
         }
 
         public void InitBaseRates()

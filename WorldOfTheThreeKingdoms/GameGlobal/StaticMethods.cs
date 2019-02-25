@@ -40,13 +40,14 @@ namespace GameGlobal
 
         public Vector2 GetWidthHeight(string text)
         {
+            //return TextManager.GetWidthHeight(text, CacheManager.FontPair, 1f);
             float width = 0f;
 
             float scale = (Size == 0f ? 14 : Size) / 20;
 
             var chars = text.ToCharArray();
 
-            foreach(char ch in chars)
+            foreach (char ch in chars)
             {
                 width += (ch > 128 ? 28 : 14);
             }

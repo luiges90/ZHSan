@@ -65,6 +65,15 @@ namespace GameManager
 
         public static Vector2 Scale = Vector2.One;
 
+        public static FontPair FontPair = new FontPair()
+        {
+            Name = @"Content\Font\FZLB_GBK.TTF",
+            Size = 30,
+            Style = "",
+            Width = 30,
+            Height = 32
+        };
+
         public static void Clear(CacheType type)
         {
             lock (CacheLock)
@@ -316,21 +325,21 @@ namespace GameManager
             Draw(name, pos, source, color, SpriteEffects.None, 1f);
         }
 
-        public static void Draw(string name, Vector2 pos, Rectangle? source, Color color, SpriteEffects effect, float scale)
+        public static void Draw(string name, Vector2 pos, Rectangle? source, Color color, SpriteEffects effect, float scale, float depth = 0f)
         {
             Texture2D tex = LoadTexture(name);
             if (tex != null && !tex.IsDisposed)
             {
-                Session.Current.SpriteBatch.Draw(tex, pos, source, color, 0f, Vector2.Zero, scale, effect, 0f);
+                Session.Current.SpriteBatch.Draw(tex, pos, source, color, 0f, Vector2.Zero, scale, effect, depth);
             }
         }
 
-        public static void Draw(string name, Vector2 pos, Rectangle? source, Color color, SpriteEffects effect, Vector2 scale)
+        public static void Draw(string name, Vector2 pos, Rectangle? source, Color color, SpriteEffects effect, Vector2 scale, float depth = 0f)
         {
             Texture2D tex = LoadTexture(name);
             if (tex != null && !tex.IsDisposed)
             {
-                Session.Current.SpriteBatch.Draw(tex, pos, source, color, 0f, Vector2.Zero, scale, effect, 0f);
+                Session.Current.SpriteBatch.Draw(tex, pos, source, color, 0f, Vector2.Zero, scale, effect, depth);
             }
             else
             {
@@ -358,7 +367,16 @@ namespace GameManager
                 }
             }
         }
-        
+
+        public static void Draw(string text, Rectangle rec, Rectangle? source, Color color, float rotation, Vector2 origin, SpriteEffects effect, float depth)
+        {
+            var texture = new PlatformTexture()
+            {
+                Name = text
+            };
+            Draw(texture, rec, source, color, rotation, origin, effect, depth);
+        }
+
 
         public static void Draw(PlatformTexture platformTexture, Rectangle rec, Rectangle? source, Color color, float rotation, Vector2 origin, SpriteEffects effect, float depth)
         {
@@ -470,7 +488,6 @@ namespace GameManager
                 return;
             }
             float pictureID = Convert.ToSingle(person.PictureIndex);
-
             //if (person.Age >= 50)
             //{
             //    pictureID += 0.5f;
@@ -479,35 +496,52 @@ namespace GameManager
             //{
             //    pictureID += 0.2f;
             //}
-            DrawZhsanAvatar(pictureID, person.FallbackPictureIndex, type, pos, color, depth);
+            DrawZhsanAvatar(pictureID, type, pos, color, depth);
         }
 
-        public static void DrawZhsanAvatar(float pictureIndex, int fallbackIndex, string type, Rectangle pos, Color color, float depth)
+        public static void DrawZhsanAvatar(float pictureIndex, string type, Rectangle pos, Color color, float depth)
         {
             if (type == "f" || type == "t")
             {
                 type = "";
             }
 
-            string id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Player\{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
+            string id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", pictureIndex, type);
 
-            if (Platform.Current.FileExists(id))
-            {
+            //if (Platform.Current.FileExists(id))
+            //{
                 
-            }
-            else
-            {
-                id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
+            //}
+            //else
+            //{
+            //    id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", pictureIndex, type);
+            //    if (Platform.Current.FileExists(id))
+            //    {
+                    
+            //    }
+            //    else
+            //    {
+            //        id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Player\{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
 
-                if (Platform.Current.FileExists(id))
-                {
+            //        if (Platform.Current.FileExists(id))
+            //        {
                         
-                }
-                else
-                {
-                    id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", fallbackIndex, "");
-                }
-            }
+            //        }
+            //        else
+            //        {
+            //            id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
+
+            //            if (Platform.Current.FileExists(id))
+            //            {
+                            
+            //            }
+            //            else
+            //            {
+            //                id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", Convert.ToInt32(pictureIndex), "");
+            //            }
+            //        }
+            //    }
+            //}
 
             DrawAvatar(id, pos, Color.White, false, true, TextureShape.None, null, depth);
         }
@@ -558,19 +592,23 @@ namespace GameManager
 
         public static void DrawString(SpriteFont font, string text, Vector2 pos, Color color, bool checkTradition = false, bool upload = false)
         {
-            if (font != null && !String.IsNullOrEmpty(text))
+            if (!String.IsNullOrEmpty(text))
             {
                 text = CheckTextCache(font, text, checkTradition, upload);
-                Session.Current.SpriteBatch.DrawString(font, text, pos, color);
+                //Session.Current.SpriteBatch.DrawString(font, text, pos, color);
+
+                TextManager.DrawTexts(text, FontPair, pos, color);
             }
         }
 
         public static void DrawString(SpriteFont font, string text, Vector2 pos, Color color, float rotation, Vector2 origin, float scale, SpriteEffects effects, float layerDepth, bool checkTradition = false, bool upload = false)
         {
-            if (font != null && !String.IsNullOrEmpty(text))
+            if (!String.IsNullOrEmpty(text))
             {
                 text = CheckTextCache(font, text, checkTradition, upload);
-                Session.Current.SpriteBatch.DrawString(font, text, pos * Scale, color, rotation, origin, scale * Scale, effects, layerDepth);
+                //Session.Current.SpriteBatch.DrawString(font, text, pos * Scale, color, rotation, origin, scale * Scale, effects, layerDepth);
+
+                TextManager.DrawTexts(text, FontPair, pos, color, 0, scale, layerDepth);
             }
         }
 

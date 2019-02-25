@@ -35,6 +35,8 @@ namespace ContextMenuPlugin
         private bool visible;
         private bool enabled;
 
+        public string DisplayPlatform;
+
         public MenuItem(MenuKind menuKind, ContextMenu contextMenu)
         {
             this.IsRootItem = false;
@@ -286,6 +288,10 @@ namespace ContextMenuPlugin
             if (rootNode.Attributes.GetNamedItem("OppositeIfTrue") != null)
             {
                 this.OppositeIfTrue = rootNode.Attributes.GetNamedItem("OppositeIfTrue").Value;
+            }
+            if (rootNode.Attributes.GetNamedItem("DisplayPlatform") != null)
+            {
+                this.DisplayPlatform = rootNode.Attributes.GetNamedItem("DisplayPlatform").Value;
             }
             foreach (XmlNode node in rootNode)
             {
@@ -762,6 +768,13 @@ namespace ContextMenuPlugin
             {
                 if (!Session.GlobalVariables.EnableCheat && this.DisplayName.Contains("*")) return false;
                 if (Session.GlobalVariables.hougongGetChildrenRate <= 0 && this.Name.Equals("hougongTop")) return false;
+                if (this.DisplayPlatform == "Mobile")
+                {
+                    if (!Platforms.Platform.IsMobilePlatForm)
+                    {
+                        return false;
+                    }
+                }
                 return this.visible;
             }
             set

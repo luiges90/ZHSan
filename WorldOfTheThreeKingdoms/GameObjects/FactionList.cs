@@ -36,37 +36,58 @@ namespace GameObjects
 
         private void faction_OnAfterCatchLeader(Person leader, Faction faction)
         {
-            Session.MainGame.mainGameScreen.FactionAfterCatchLeader(leader, faction);
+            if (Session.MainGame.mainGameScreen != null)
+            {
+                Session.MainGame.mainGameScreen.FactionAfterCatchLeader(leader, faction);
+            }
         }
 
         private void faction_OnFactionDestroy(Faction faction)
         {
-            Session.MainGame.mainGameScreen.FactionDestroy(faction);
+            if (Session.MainGame.mainGameScreen != null)
+            {
+                Session.MainGame.mainGameScreen.FactionDestroy(faction);
+            }
         }
 
         private void faction_OnForcedChangeCapital(Faction faction, Architecture oldCapital, Architecture newCapital)
         {
-            Session.MainGame.mainGameScreen.FactionForcedChangeCapital(faction, oldCapital, newCapital);
+            if (Session.MainGame.mainGameScreen != null)
+            {
+                Session.MainGame.mainGameScreen.FactionForcedChangeCapital(faction, oldCapital, newCapital);
+            }
         }
 
         private void faction_OnGetControl(Faction faction)
         {
-            Session.MainGame.mainGameScreen.FactionGetControl(faction);
+            if (Session.MainGame.mainGameScreen != null)
+            {
+                Session.MainGame.mainGameScreen.FactionGetControl(faction);
+            }
         }
 
         private void faction_OnInitiativeChangeCapital(Faction faction, Architecture oldCapital, Architecture newCapital)
         {
-            Session.MainGame.mainGameScreen.FactionInitialtiveChangeCapital(faction, oldCapital, newCapital);
+            if (Session.MainGame.mainGameScreen != null)
+            {
+                Session.MainGame.mainGameScreen.FactionInitialtiveChangeCapital(faction, oldCapital, newCapital);
+            }
         }
 
         private void faction_OnTechniqueFinished(Faction faction, Technique technique)
         {
-            Session.MainGame.mainGameScreen.FactionTechniqueFinished(faction, technique);
+            if (Session.MainGame.mainGameScreen != null)
+            {
+                Session.MainGame.mainGameScreen.FactionTechniqueFinished(faction, technique);
+            }
         }
 
         private void faction_OnUpgradeTechnique(Faction faction, Technique technique, Architecture architecture)
         {
-            Session.MainGame.mainGameScreen.FactionUpgradeTechnique(faction, technique, architecture);
+            if (Session.MainGame.mainGameScreen != null)
+            {
+                Session.MainGame.mainGameScreen.FactionUpgradeTechnique(faction, technique, architecture);
+            }
         }
 
         public void RemoveFaction(Faction faction)

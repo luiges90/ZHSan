@@ -92,7 +92,8 @@ namespace ToolBarPlugin
 
             var rec = (this.toolBar.Tools[3] as GameSystemPlugin.GameSystem).SystemDisplayPosition;
 
-            backTool.Position = new Vector2(rec.X + 40, rec.Y - 10);
+            backTool.Position = new Vector2(rec.X, rec.Y);
+            //backTool.Position = new Vector2(rec.X + 40, rec.Y - 10);
         }
 
         public void SetScreen(Screen screen)
