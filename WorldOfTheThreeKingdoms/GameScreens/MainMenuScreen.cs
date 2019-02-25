@@ -3730,7 +3730,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "后宫只限异族", new Vector2(left1, heightBase + height * 5.0f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "只有异族能納妃", new Vector2(left1, heightBase + height * 5.0f), Color.Black * alpha);
 
                     CacheManager.DrawString(Session.Current.Font, "开启作弊功能", new Vector2(left2, heightBase), Color.Black * alpha);
 
