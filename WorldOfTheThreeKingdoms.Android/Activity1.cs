@@ -60,7 +60,7 @@ namespace WorldOfTheThreeKingdoms.Android
             }
             catch (System.Exception ex)
             {
-                WebTools.TakeWarnMsg("OnCreate", "", ex);
+                //WebTools.TakeWarnMsg("OnCreate", "", ex);
             }
         }
 
@@ -115,8 +115,6 @@ namespace WorldOfTheThreeKingdoms.Android
 
         protected override void OnDestroy()
         {
-            Platform.Current.EndShowAd();
-
             // Call base method
             base.OnDestroy();
         }

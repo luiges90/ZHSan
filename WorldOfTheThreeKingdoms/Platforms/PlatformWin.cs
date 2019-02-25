@@ -43,7 +43,7 @@ namespace Platforms
                 
         public new string PreferFullMode = "Window";
 
-        public static new string PreferResolution = "1280*720";
+        public static new string PreferResolution = "1920*1080";  // "1280*720";
 
         public new bool DebugMode = true;
         public new bool ProcessGameData = true;
@@ -1168,7 +1168,7 @@ namespace Platforms
                 string[] str = new string[] { ".jpeg", ".jpg", ".png", ".gif", ".bmp" };
                 if (!str.Contains(extension.ToLower()))
                 {
-                    MessageBox.Show("仅能上传jpg,png,gif,bmp格式的图片！");
+                    System.Windows.Forms.MessageBox.Show("仅能上传jpg,png,gif,bmp格式的图片！");
                 }
                 else
                 {
@@ -1176,7 +1176,7 @@ namespace Platforms
                     FileInfo fileInfo = new FileInfo(fileDialog.FileName);
                     if (fileInfo.Length > 5000 * 1024)
                     {
-                        MessageBox.Show("上传的图片不能大于5000K");
+                        System.Windows.Forms.MessageBox.Show("上传的图片不能大于5000K");
                     }
                     else
                     {

@@ -75,6 +75,9 @@ namespace Tools
 
         public static void SendErrMsg(string msg, Exception ex)
         {
+            //暫不上報錯誤
+            return; 
+
             var errorLog = new ErrorLog()
             {
                 UserIdentity = GetUserIdentity(),

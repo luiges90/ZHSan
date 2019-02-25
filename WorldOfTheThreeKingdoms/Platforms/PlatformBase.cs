@@ -403,8 +403,21 @@ namespace Platforms
 		{
 			try
 			{
+                if (String.IsNullOrEmpty(Path.GetExtension(res)))
+                {
+                    res = res + ".mp3";
+                }
+
+                if (Platform.PlatFormType == PlatFormType.Android)
+                {
+                    if (res.Contains("\\"))
+                    {
+                        res = res.Substring(res.LastIndexOf('\\') + 1);
+                    }
+                }
+
 				Session.Current.MusicContent.Unload();
-				Song song = Session.Current.MusicContent.Load<Song>(res);
+                Song song = Song.FromUri(res, new Uri(res, UriKind.Relative));  // Session.Current.MusicContent.Load<Song>(res);
                 SetMusicVolume((int)Setting.Current.MusicVolume);
 				MediaPlayer.IsRepeating = true;
 				MediaPlayer.Play(song);
@@ -474,9 +487,15 @@ namespace Platforms
             {
                 return true;
             }
-			try
+            if (String.IsNullOrEmpty(Path.GetExtension(res)))
+            {
+                res = res + ".wav";
+            }
+            try
 			{
-				SoundEffect effect = Session.Current.SoundContent.Load<SoundEffect>(res);
+                var bytes = Current.LoadFile(res);
+                var mem = new MemoryStream(bytes);
+                SoundEffect effect = SoundEffect.FromStream(mem); // Session.Current.SoundContent.Load<SoundEffect>(res);
 				effect.Play(Convert.ToSingle(Setting.Current.SoundVolume) / 100, 0.0f, 0.0f);
                 return true;
 			}

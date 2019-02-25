@@ -2820,7 +2820,7 @@ namespace GameObjects
             }
             else if (!this.Sex && this.Age > 40)
             {
-                extraRate *= 1.0f / ((this.Age - 40) / 5.0f + 1);
+                extraRate *= 1.0f / ((this.Age - 40) / 10.0f + 1);
             }
             if (q.Age > 40 && q.Sex)
             {
@@ -2828,7 +2828,7 @@ namespace GameObjects
             }
             else if (!q.Sex && q.Age > 40)
             {
-                extraRate *= 1.0f / ((q.Age - 40) / 5.0f + 1);
+                extraRate *= 1.0f / ((q.Age - 40) / 10.0f + 1);
             }
             if (this.Age < 16)
             {
@@ -10504,10 +10504,10 @@ namespace GameObjects
                 float factor = Session.Current.Scenario.Parameters.HougongRelationHateFactor;
                 foreach (Person p in this.BelongedFaction.GetFeiziList())
                 {
-                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age >= 50) || 
+                    if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age >= 40) || 
                         (p.WillHateIfChongxing || p.Spouse == p.BelongedFactionWithPrincess.Leader)) && !p.Hates(this))
                     {
-                        factor *= 0.9f + (100 - p.Glamour) * 0.001f;
+                        factor *= 0.9f + (100 - p.Glamour) * 0.001f - (p.Age - 40) * 0.01f;
                     }
                 }
 
@@ -10518,8 +10518,8 @@ namespace GameObjects
                     if (((Session.GlobalVariables.PersonNaturalDeath == true && p.Age >= 50) ||
                         (p.WillHateIfChongxing || p.Spouse == p.BelongedFactionWithPrincess.Leader)) && !p.Hates(this)) continue;
 
-                    p.AdjustRelation(this, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
-                    p.AdjustRelation(nvren, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor, -2);
+                    p.AdjustRelation(this, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor * (Math.Min(10, 50 - p.Age) / 10.0f), -2);
+                    p.AdjustRelation(nvren, -houGongDays / 60.0f * (4 - p.PersonalLoyalty) * factor * (Math.Min(10, 50 - p.Age) / 10.0f), -2);
                 }
 
                 makeHateCausedByAffair(this, nvren, this);

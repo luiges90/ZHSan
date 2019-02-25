@@ -15,7 +15,7 @@ namespace FactionTechniquesPlugin
 
     public class FactionTechniques
     {
-        public Vector2 Scale = new Vector2(0.82f, 0.82f);
+        public Vector2 Scale = Vector2.One;  // new Vector2(0.82f, 0.82f);
 
         internal List<TechniqueItem> AllTechniques = new List<TechniqueItem>();
         internal Microsoft.Xna.Framework.Point BackgroundSize;

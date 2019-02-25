@@ -96,7 +96,7 @@ namespace NumberInputerPlugin
             this.numberInputer.SelectionTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             //阿柒:万字按钮相关
             node = nextSibling.ChildNodes.Item(10);
-            this.numberInputer.TenThousandTexture = CacheManager.GetTempTexture(@"GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
+            this.numberInputer.TenThousandTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\NumberInputer\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.numberInputer.TenThousandPosition = StaticMethods.LoadRectangleFromXMLNode(node);
         }
 
