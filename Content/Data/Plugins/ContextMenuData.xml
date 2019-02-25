@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Root>
   <ContextMenuRightClick FileName="ContextMenuRightClick.png" SelectedFileName="ContextMenuRightClickSelected.png" FontName="方正隶变_GBK" FontSize="13" FontStyle="Regular" FontColor="4294375158" />
   <ContextMenuLeftClick FileName="ContextMenuLeftClick.png" SelectedFileName="ContextMenuLeftClickSelected.png" FontName="方正隶变_GBK" FontSize="13" FontStyle="Regular" FontColor="4294375158" />
