@@ -1,4 +1,5 @@
 ﻿using GameManager;
+using MersenneTwister;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -64,7 +65,7 @@ namespace GameGlobal
 
     public class StaticMethods
     {
-        public static System.Random RandomDigit = new System.Random();
+        public static Random RandomDigit = Randoms.Create();
 
         public static void AdjustRectangleInViewport(ref Microsoft.Xna.Framework.Rectangle rect)
         {
@@ -459,7 +460,10 @@ namespace GameGlobal
             return RandomDigit.Next(maxValue);
         }
 
-
+        public static double Random()
+        {
+            return RandomDigit.NextDouble();
+        }
 
         public static bool RectangleInViewport(Microsoft.Xna.Framework.Rectangle rect, Microsoft.Xna.Framework.Point viewportSize)
         {

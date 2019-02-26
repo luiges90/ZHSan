@@ -85,11 +85,10 @@ namespace GameObjects
             return StaticMethods.Random(Math.Abs(max - min) + 1) + Math.Min(max, min);
         }
 
-        private static Random rand = new Random();
         public static int RandomGaussian(double mean, double var)
         {
-            double u1 = rand.NextDouble();
-            double u2 = rand.NextDouble();
+            double u1 = StaticMethods.Random();
+            double u2 = StaticMethods.Random();
             double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) *
                          Math.Sin(2.0 * Math.PI * u2);
             return (int) Math.Round(mean + (var / 3) * randStdNormal);

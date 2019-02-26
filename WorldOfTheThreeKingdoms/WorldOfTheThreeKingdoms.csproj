@@ -1625,6 +1625,9 @@
     <Compile Include="Tools\WordTools.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="MersenneTwister, Version=1.0.6146.4688, Culture=neutral, PublicKeyToken=9c84633ec57842f3, processorArchitecture=MSIL">
+      <HintPath>..\packages\MersenneTwister.1.0.5\lib\portable-net45+netcore45+win8+wp8\MersenneTwister.dll</HintPath>
+    </Reference>
     <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Win\MonoGame.Framework.dll</HintPath>
@@ -55350,6 +55353,7 @@
     <Content Include="Content\Font\MessagesDenyT.txt" />
     <Content Include="Content\Font\MessagesL.txt" />
     <Content Include="Icon.ico" />
+    <Content Include="LICENSES-MersenneTwister.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Content\Data\Scenario\Scenarios.json">
