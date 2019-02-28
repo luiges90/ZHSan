@@ -7626,7 +7626,7 @@ namespace GameObjects
         public bool CanMoveFeizi()
         {
             if (this.movableFeizis.Count <= 0) return false;
-            if (this.HasHostileTroopsInView()) return false;
+            //if (this.HasHostileTroopsInView()) return false;
             if (this.BelongedFaction == null) return false;
 
             foreach (Architecture a in this.BelongedFaction.Architectures)
