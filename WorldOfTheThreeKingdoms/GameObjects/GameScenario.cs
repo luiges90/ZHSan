@@ -781,7 +781,8 @@ namespace GameObjects
                     }
                 }
 
-                if (joinToPerson != null) {
+                if (joinToPerson != null)
+                {
                     person.LocationArchitecture = joinToPerson.BelongedArchitecture;
                     person.Status = joinToPerson.Status;
                     if (person.Status == PersonStatus.Moving || person.Status == PersonStatus.NoFactionMoving)
@@ -802,7 +803,9 @@ namespace GameObjects
                         }
                     }
                     this.AvailablePersons.Add(person);
-                    Session.MainGame.mainGameScreen.haizizhangdachengren(joinToPerson, person, false);
+                    if (joinToPerson.BelongedFactionWithPrincess != null) { 
+                        Session.MainGame.mainGameScreen.haizizhangdachengren(joinToPerson, person, false);
+                    }
                     this.YearTable.addGrownBecomeAvailableEntry(this.Date, person);
                     continue;
                 }
