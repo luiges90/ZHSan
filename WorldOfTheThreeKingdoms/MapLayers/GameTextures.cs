@@ -263,13 +263,11 @@ namespace WorldOfTheThreeKingdoms.Resources
                     //animation.Device = device;
                     animation.TextureFileName = "Content/Textures/Resources/Effects/TileEffect/" + animation.Name + ".png";
 
-                    animation.MaleSoundPath = "Content/Sound/Animation/Male/" + animation.Name;
                     //if (!Platform.Current.FileContentExists(animation.MaleSoundPath, ""))
                     //{
                     //    animation.MaleSoundPath = "Content/Sound/Animation/" + animation.Name;
                     //}
 
-                    animation.FemaleSoundPath = "Content/Sound/Animation/Female/" + animation.Name;
                     //if (!Platform.Current.FileContentExists(animation.FemaleSoundPath, ""))
                     //{
                     //    animation.FemaleSoundPath = "Content/Sound/Animation/" + animation.Name;

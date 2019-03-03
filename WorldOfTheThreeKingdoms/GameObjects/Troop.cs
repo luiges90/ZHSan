@@ -965,12 +965,42 @@ namespace GameObjects
 
         private string getSoundPath(Animation a)
         {
-            return this.Leader.Sex ? a.FemaleSoundPath : a.MaleSoundPath;
+            if (Directory.Exists("Content/Sound/Animation/Person/" + this.Leader.ID))
+            {
+                string[] files = Directory.GetFiles("Content/Sound/Animation/Person/" + this.Leader.ID, a.Name + "*.wav");
+                if (files.Count() > 0)
+                {
+                    return "Content/Sound/Animation/Person/" + this.Leader.ID + "/" + a.Name + GameObject.Random(1, files.Count()) + ".wav";
+                }
+                else
+                {
+                    return this.Leader.Sex ? "Content/Sound/Animation/Female/" + a.Name : "Content/Sound/Animation/Male/" + a.Name;
+                }
+            }
+            else
+            {
+                return this.Leader.Sex ? "Content/Sound/Animation/Female/" + a.Name : "Content/Sound/Animation/Male/" + a.Name;
+            }
         }
 
         private static string getSoundPath(Troop t, Animation a)
         {
-            return t.Leader.Sex ? a.FemaleSoundPath : a.MaleSoundPath;
+            if (Directory.Exists("Content/Sound/Animation/Person/" + t.Leader.ID))
+            {
+                string[] files = Directory.GetFiles("Content/Sound/Animation/Person/" + t.Leader.ID, a.Name + "*.wav");
+                if (files.Count() > 0)
+                {
+                    return "Content/Sound/Animation/Person/" + t.Leader.ID + "/" + a.Name + GameObject.Random(1, files.Count()) + ".wav";
+                }
+                else
+                {
+                    return t.Leader.Sex ? "Content/Sound/Animation/Female/" + a.Name : "Content/Sound/Animation/Male/" + a.Name;
+                }
+            }
+            else
+            {
+                return t.Leader.Sex ? "Content/Sound/Animation/Female/" + a.Name : "Content/Sound/Animation/Male/" + a.Name;
+            }
         }
 
         private void AddCastAnimation(Troop troop, bool sound)

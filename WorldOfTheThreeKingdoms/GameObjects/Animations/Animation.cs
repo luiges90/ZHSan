@@ -18,10 +18,7 @@ namespace GameObjects.Animations
     {
         private bool back;
         private int frameCount;
-        [DataMember]
-        public string MaleSoundPath;
-        [DataMember]
-        public string FemaleSoundPath;
+
         private int stayCount;
         private PlatformTexture texture;
         [DataMember]
