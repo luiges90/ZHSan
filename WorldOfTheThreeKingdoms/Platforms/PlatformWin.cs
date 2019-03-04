@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Graphics.PackedVector;
@@ -43,7 +43,7 @@ namespace Platforms
                 
         public new string PreferFullMode = "Window";
 
-        public static new string PreferResolution = "1920*1080";  // "1280*720";
+        public static new string PreferResolution = "1280*720";
 
         public new bool DebugMode = true;
         public new bool ProcessGameData = true;
@@ -482,17 +482,17 @@ namespace Platforms
                     using (var stream = isUser ? LoadUserFileStream(res) : TitleContainer.OpenStream(res))
                     {
                         Texture2D tex = Texture2D.FromStream(Platform.GraphicsDevice, stream);
-                        //if (tex != null && Path.GetExtension(res).ToLower() == ".png")
-                        //{
-                        //    try
-                        //    {
-                        //        Season.Current.PreMultiplyAlphas(tex);
-                        //    }
-                        //    catch (Exception ex)
-                        //    {
-                        //        WebTools.TakeWarnMsg("处理透明层级失败:" + res, "PreMultiplyAlphas:" + UserApplicationDataPath + res, ex);
-                        //    }
-                        //}
+                        if (tex != null && Path.GetExtension(res).ToLower() == ".png")
+                        {
+                            try
+                            {
+                                GameTools.PreMultiplyAlphas(tex);
+                            }
+                            catch (Exception ex)
+                            {
+                                WebTools.TakeWarnMsg("处理透明层级失败:" + res, "PreMultiplyAlphas:" + UserApplicationDataPath + res, ex);
+                            }
+                        }
                         return tex;
                     }
                 }

@@ -148,7 +148,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 "执行秘书：一世恋",
 "",
 "程序制作：,",
-"耒戈氏  45399735  kpxp  月落乌江  兔巴哥(《三国春秋传》作者，手机版移植)   majorcheng(外交) ",
+"耒戈氏  45399735  kpxp  月落乌江  兔巴哥(手机版移植)   majorcheng(外交) ",
             "breamask(单挑)  我勒个去(其他)  最爱艾氏兄弟  YPZhou(程序优化)",
 "",
 "美工UI模型：",
