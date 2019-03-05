@@ -4346,27 +4346,22 @@ namespace GameObjects
         {
             foreach (DiplomaticRelation relation in this.DiplomaticRelations.GetDiplomaticRelationListByFactionID(des))
             {
-                Faction srcF = this.Factions.GetGameObject(src) as Faction;
-                Faction desF = this.Factions.GetGameObject(des) as Faction;
-                if (srcF != null && !srcF.Destroyed && desF != null && !desF.Destroyed)
+                int theOtherFactionID = relation.GetTheOtherFactionID(des);
+                if ((theOtherFactionID != src) && (Math.Abs(relation.Relation) >= 100))
                 {
-                    int theOtherFactionID = relation.GetTheOtherFactionID(des);
-                    if ((theOtherFactionID != src) && (Math.Abs(relation.Relation) >= 100))
+                    int num2 = this.DiplomaticRelations.GetDiplomaticRelation(src, theOtherFactionID).Relation;
+                    if ((num2 > -GlobalVariables.FriendlyDiplomacyThreshold) && (num2 < Session.GlobalVariables.FriendlyDiplomacyThreshold))
                     {
-                        int num2 = this.DiplomaticRelations.GetDiplomaticRelation(src, theOtherFactionID).Relation;
-                        if ((num2 > -GlobalVariables.FriendlyDiplomacyThreshold) && (num2 < Session.GlobalVariables.FriendlyDiplomacyThreshold))
+                        int num3 = relation.Relation;
+                        if (num3 > 0x3e8)
                         {
-                            int num3 = relation.Relation;
-                            if (num3 > 0x3e8)
-                            {
-                                num3 = 0x3e8;
-                            }
-                            else if (num3 < -0x3e8)
-                            {
-                                num3 = -0x3e8;
-                            }
-                            this.ChangeDiplomaticRelation(src, theOtherFactionID, (offset * num3) / 0x3e8);
+                            num3 = 0x3e8;
                         }
+                        else if (num3 < -0x3e8)
+                        {
+                            num3 = -0x3e8;
+                        }
+                        this.ChangeDiplomaticRelation(src, theOtherFactionID, (offset * num3) / 0x3e8);
                     }
                 }
             }
