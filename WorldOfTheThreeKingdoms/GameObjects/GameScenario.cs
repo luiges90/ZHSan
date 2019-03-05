@@ -3594,6 +3594,8 @@ namespace GameObjects
                 this.Factions.AddFactionWithEvent(faction, false);
             }
 
+            this.DiplomaticRelations.Init(this.Factions);
+
             foreach (Treasure treasure in this.Treasures)
             {
                 treasure.Init();
