@@ -778,7 +778,7 @@ namespace GameObjects
                 Person joinToPerson = null;
                 foreach (Person q in candidates)
                 {
-                    if (joinToPerson != null && joinToPerson.Available && joinToPerson.Alive && joinToPerson.BelongedCaptive == null)
+                    if (q != null && q.Available && q.Alive && q.BelongedCaptive == null)
                     {
                         joinToPerson = q;
                     }
