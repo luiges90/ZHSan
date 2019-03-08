@@ -7141,6 +7141,22 @@ namespace GameObjects
             }
         }
 
+        public PersonList Siblings
+        {
+            get
+            {
+                PersonList list = new PersonList();
+                foreach (Person p in Session.Current.Scenario.Persons)
+                {
+                    if (p.Father == this.Father || p.Mother == this.Mother)
+                    {
+                        list.Add(p);
+                    }
+                }
+                return list;
+            }
+        }
+
         public int TitleMerit
         {
             get

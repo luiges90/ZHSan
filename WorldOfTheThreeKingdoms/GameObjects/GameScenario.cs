@@ -766,21 +766,24 @@ namespace GameObjects
                     treasure.Available = true;
                 }
 
-                Person joinToPerson = person.Father;
+                List<GameObject> candidates = new List<GameObject>();
+                candidates.Add(person.Spouse);
+                candidates.AddRange(person.Brothers.GameObjects);
+                candidates.Add(person.Father);
+                candidates.Add(person.Mother);
+                candidates.AddRange(person.Siblings.GameObjects);
+                candidates.Add(person.Spouse?.Father);
+                candidates.Add(person.Spouse?.Mother);
 
-                if (!(joinToPerson != null && joinToPerson.Available && joinToPerson.Alive && joinToPerson.BelongedCaptive == null))
+                Person joinToPerson = null;
+                foreach (Person q in candidates)
                 {
-                    joinToPerson = person.Mother;
-                    if (!(joinToPerson != null && joinToPerson.Available && joinToPerson.Alive && joinToPerson.BelongedCaptive == null))
+                    if (joinToPerson != null && joinToPerson.Available && joinToPerson.Alive && joinToPerson.BelongedCaptive == null)
                     {
-                        joinToPerson = person.Spouse;
-                        if (!(joinToPerson != null && joinToPerson.Available && joinToPerson.Alive && joinToPerson.BelongedCaptive == null))
-                        {
-                            joinToPerson = null;
-                        }
+                        joinToPerson = q;
                     }
                 }
-
+                
                 if (joinToPerson != null)
                 {
                     person.LocationArchitecture = joinToPerson.BelongedArchitecture;
