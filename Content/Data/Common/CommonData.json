@@ -100161,7 +100161,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"6038 6047",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"913 260 6313 280 103 6073 6190 281 290 292 8559",
+"InfluencesString":"913 260 6313 103 6073 6190 281 290 292 8559",
 "InheritChance":4,
 "Kind":{
 "ID":1,
@@ -100194,7 +100194,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"6036 6045",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"912 260 6053 280 102 6177 6193 281 290 292 8542",
+"InfluencesString":"912 260 6053 102 6177 6193 281 290 292 8542",
 "InheritChance":4,
 "Kind":{
 "ID":1,
@@ -100755,7 +100755,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"6033 6042",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"911 122 280 124 6430 6431 6432 6433 6434 6435 8550",
+"InfluencesString":"911 122 124 6430 6431 6432 6433 6434 6435 8550",
 "InheritChance":7,
 "Kind":{
 "ID":1,
@@ -103758,7 +103758,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"6018 6047",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"281 580 590 630 640 280 6461 6905 6995 8549",
+"InfluencesString":"281 580 590 630 640 6461 6905 6995 8549",
 "InheritChance":4,
 "Kind":{
 "ID":1,
@@ -142995,7 +142995,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"900",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"280 6463 53 281 662 6562 613 260 261 262 590 591 5081 5051",
+"InfluencesString":"6463 53 281 662 6562 613 260 261 262 590 591 5081 5051",
 "InheritChance":0,
 "Kind":{
 "ID":500,
