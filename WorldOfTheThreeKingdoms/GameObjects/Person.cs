@@ -7148,7 +7148,7 @@ namespace GameObjects
                 PersonList list = new PersonList();
                 foreach (Person p in Session.Current.Scenario.Persons)
                 {
-                    if (p.Father == this.Father || p.Mother == this.Mother)
+                    if ((p.Father == this.Father && p.Father != null) || (p.Mother == this.Mother && p.Mother != null))
                     {
                         list.Add(p);
                     }
