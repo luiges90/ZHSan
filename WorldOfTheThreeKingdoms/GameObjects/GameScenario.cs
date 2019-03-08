@@ -781,6 +781,7 @@ namespace GameObjects
                     if (q != null && q.Available && q.Alive && q.BelongedCaptive == null)
                     {
                         joinToPerson = q;
+                        break;
                     }
                 }
                 
@@ -799,10 +800,18 @@ namespace GameObjects
                     person.YearJoin = this.Date.Year;
                     if (joinToPerson.BelongedFactionWithPrincess != null)
                     {
-                        Session.MainGame.mainGameScreen.xianshishijiantupian(joinToPerson.BelongedFactionWithPrincess.Leader, joinToPerson.Name, TextMessageKind.ChildJoin, "ChildJoin", "", "", person.Name, false);
-                        if (person.LocationArchitecture != null)
+                        if (person.Father == joinToPerson || person.Mother == joinToPerson)
                         {
-                            Session.MainGame.mainGameScreen.xianshishijiantupian(person, person.LocationArchitecture.Name, TextMessageKind.ChildJoinSelfTalk, "ChildJoinSelfTalk", "", "", false);
+                            Session.MainGame.mainGameScreen.xianshishijiantupian(joinToPerson.BelongedFactionWithPrincess.Leader, joinToPerson.Name, TextMessageKind.ChildJoin, "ChildJoin", "", "", person.Name, false);
+                            if (person.LocationArchitecture != null)
+                            {
+                                Session.MainGame.mainGameScreen.xianshishijiantupian(person, person.LocationArchitecture.Name, TextMessageKind.ChildJoinSelfTalk, "ChildJoinSelfTalk", "", "", false);
+                            }
+                        }
+                        else
+                        {
+                            Faction f = joinToPerson.BelongedFactionWithPrincess;
+                            Session.MainGame.mainGameScreen.xianshishijiantupian(person, f.Capital.Name, TextMessageKind.PersonJoin, "PersonJoin", "", "", f.Name, false);
                         }
                     }
                     this.AvailablePersons.Add(person);

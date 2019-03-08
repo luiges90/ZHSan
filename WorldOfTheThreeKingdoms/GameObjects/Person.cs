@@ -7153,6 +7153,10 @@ namespace GameObjects
                         list.Add(p);
                     }
                 }
+                list.PropertyName = "Age";
+                list.IsNumber = true;
+                list.SmallToBig = false;
+                list.ReSort();
                 return list;
             }
         }
