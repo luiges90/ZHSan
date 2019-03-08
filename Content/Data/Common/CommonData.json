@@ -119400,7 +119400,7 @@
 "FactionLimit":9999,
 "GenerateConditionsString":"6009 6019 6029",
 "GenerationChance":[0,0,0,0,0,0,0,0,0,0],
-"InfluencesString":"260 262 6053 6303 6361 6113 280 386 601 613 5056 6103 6513 6243 6998",
+"InfluencesString":"260 262 6053 6303 6361 6113 280 386 610 601 613 5056 6103 6513 623 6243 6998",
 "InheritChance":1,
 "Kind":{
 "ID":1,
