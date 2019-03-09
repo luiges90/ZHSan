@@ -800,7 +800,7 @@ namespace GameObjects
                     person.YearJoin = this.Date.Year;
                     if (joinToPerson.BelongedFactionWithPrincess != null)
                     {
-                        if (person.Father == joinToPerson || person.Mother == joinToPerson || person.Spouse == joinToPerson)
+                        if (person.Father == joinToPerson || person.Mother == joinToPerson)
                         {
                             Session.MainGame.mainGameScreen.xianshishijiantupian(joinToPerson.BelongedFactionWithPrincess.Leader, joinToPerson.Name, TextMessageKind.ChildJoin, "ChildJoin", "", "", person.Name, false);
                             if (person.LocationArchitecture != null)
