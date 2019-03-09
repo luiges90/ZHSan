@@ -800,7 +800,7 @@ namespace GameObjects
                     person.YearJoin = this.Date.Year;
                     if (joinToPerson.BelongedFactionWithPrincess != null)
                     {
-                        if (person.Father == joinToPerson || person.Mother == joinToPerson)
+                        if (person.Father == joinToPerson || person.Mother == joinToPerson || person.Spouse == joinToPerson)
                         {
                             Session.MainGame.mainGameScreen.xianshishijiantupian(joinToPerson.BelongedFactionWithPrincess.Leader, joinToPerson.Name, TextMessageKind.ChildJoin, "ChildJoin", "", "", person.Name, false);
                             if (person.LocationArchitecture != null)
@@ -811,7 +811,7 @@ namespace GameObjects
                         else
                         {
                             Faction f = joinToPerson.BelongedFactionWithPrincess;
-                            Session.MainGame.mainGameScreen.xianshishijiantupian(person, f.Capital.Name, TextMessageKind.PersonJoin, "PersonJoin", "", "", f.Name, false);
+                            Session.MainGame.mainGameScreen.xianshishijiantupian(person, person.LocationArchitecture.Name, TextMessageKind.PersonJoin, "PersonJoin", "", "", f.Name, false);
                         }
                     }
                     this.AvailablePersons.Add(person);
