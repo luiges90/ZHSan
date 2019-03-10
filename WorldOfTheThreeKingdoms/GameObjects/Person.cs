@@ -2756,7 +2756,8 @@ namespace GameObjects
                         }
                     }
                 } 
-                else if (this.Status == PersonStatus.Princess && this.BelongedFactionWithPrincess.Leader.LocationArchitecture == this.BelongedArchitecture
+                else if (this.Status == PersonStatus.Princess && this.BelongedFactionWithPrincess != null && 
+                    this.BelongedFactionWithPrincess.Leader.LocationArchitecture == this.BelongedArchitecture
                     && !this.huaiyun && !this.BelongedFactionWithPrincess.Leader.huaiyun && Session.GlobalVariables.getChildrenRate > 0 &&
                     this.isLegalFeiZiExcludeAge(this.BelongedFactionWithPrincess.Leader) && this.BelongedFactionWithPrincess.Leader.isLegalFeiZiExcludeAge(this) &&
                     this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit &&
