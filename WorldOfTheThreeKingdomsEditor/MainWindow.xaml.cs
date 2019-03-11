@@ -34,6 +34,8 @@ namespace WorldOfTheThreeKingdomsEditor
         private ArchitectureTab architectureTab;
         private FactionTab factionTab;
         private PersonTab personTab;
+        private DictionaryTab<int, int> fatherTab;
+        private DictionaryTab<int, int> motherTab;
         private DictionaryTab<int, int> spouseTab;
 
         public bool CopyIncludeTitle = true;
@@ -55,8 +57,10 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 personTab = new PersonTab(scen, dgPerson, lblColumnHelp);
                 personTab.setup();
-                new DictionaryTab<int, int>(scen.FatherIds, "FatherIds", dgFatherId).setup();
-                new DictionaryTab<int, int>(scen.MotherIds, "MotherIds", dgMotherId).setup();
+                fatherTab = new DictionaryTab<int, int>(scen.FatherIds, "FatherIds", dgFatherId);
+                fatherTab.setup();
+                motherTab = new DictionaryTab<int, int>(scen.MotherIds, "MotherIds", dgMotherId);
+                motherTab.setup();
                 spouseTab = new DictionaryTab<int, int>(scen.SpouseIds, "SpouseIds", dgSpouseId);
                 spouseTab.setup();
                 // new DictionaryTab<int, int[]>(scen.BrotherIds, "BrotherIds", dgBrotherId).setup();
@@ -468,12 +472,36 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
-        private void btnDeleteUnavailableRelation_Click(object sender, RoutedEventArgs e)
+        private void btnCleanupRelation_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("刪除所有未登場武將的配偶關係，及刪除無效的配偶關係，是否確認？", "刪除所有未登場武將的特殊關係", MessageBoxButton.OKCancel);
+            MessageBoxResult result = MessageBox.Show("刪除多餘關係，是否確認？", "刪除所有未登場武將的特殊關係", MessageBoxButton.OKCancel);
             if (result == MessageBoxResult.OK)
             {
-                Dictionary<int, int> copy = new Dictionary<int, int>(scen.SpouseIds);
+                Dictionary<int, int> copy = new Dictionary<int, int>(scen.FatherIds);
+                foreach (KeyValuePair<int, int> kv in copy)
+                {
+                    Person k = scen.Persons.GetGameObject(kv.Key) as Person;
+                    Person v = scen.Persons.GetGameObject(kv.Value) as Person;
+                    if (k == null || v == null)
+                    {
+                        scen.FatherIds.Remove(kv.Key);
+                    }
+                }
+                fatherTab.setup();
+
+                copy = new Dictionary<int, int>(scen.MotherIds);
+                foreach (KeyValuePair<int, int> kv in copy)
+                {
+                    Person k = scen.Persons.GetGameObject(kv.Key) as Person;
+                    Person v = scen.Persons.GetGameObject(kv.Value) as Person;
+                    if (k == null || v == null)
+                    {
+                        scen.MotherIds.Remove(kv.Key);
+                    }
+                }
+                motherTab.setup();
+
+                copy = new Dictionary<int, int>(scen.SpouseIds);
                 foreach (KeyValuePair<int, int> kv in copy)
                 {
                     Person k = scen.Persons.GetGameObject(kv.Key) as Person;
@@ -482,7 +510,22 @@ namespace WorldOfTheThreeKingdomsEditor
                     {
                         scen.SpouseIds.Remove(kv.Key);
                     }
-                    else if (!k.Available && !v.Available)
+                }
+                spouseTab.setup();
+            }
+        }
+
+        private void btnDeleteUnavailableRelation_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("刪除所有未登場武將的配偶關係，是否確認？", "刪除所有未登場武將的特殊關係", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                Dictionary<int, int> copy = new Dictionary<int, int>(scen.SpouseIds);
+                foreach (KeyValuePair<int, int> kv in copy)
+                {
+                    Person k = scen.Persons.GetGameObject(kv.Key) as Person;
+                    Person v = scen.Persons.GetGameObject(kv.Value) as Person;
+                    if (k != null && v != null && !k.Available && !v.Available)
                     {
                         scen.SpouseIds.Remove(kv.Key);
                     }
