@@ -905,9 +905,12 @@ namespace GameObjects
    
             Person hater = WillHateLeaderDueToAffair(p, this.Leader, p.suoshurenwuList.GetList(), false);
 
-            if (this.IsAlien && (hater == null ||  hater.PersonalLoyalty >= 2))
+            if (this.IsAlien && (hater == null || hater.PersonalLoyalty >= 2))
             {
-                return true;
+                if (hater == null || hater.BelongedFaction != this)
+                {
+                    return true;
+                }
             }
 
             if (hater != null)
