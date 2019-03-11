@@ -34,6 +34,7 @@ namespace WorldOfTheThreeKingdomsEditor
         private ArchitectureTab architectureTab;
         private FactionTab factionTab;
         private PersonTab personTab;
+        private DictionaryTab<int, int> spouseTab;
 
         public bool CopyIncludeTitle = true;
 
@@ -56,7 +57,8 @@ namespace WorldOfTheThreeKingdomsEditor
                 personTab.setup();
                 new DictionaryTab<int, int>(scen.FatherIds, "FatherIds", dgFatherId).setup();
                 new DictionaryTab<int, int>(scen.MotherIds, "MotherIds", dgMotherId).setup();
-                new DictionaryTab<int, int>(scen.SpouseIds, "SpouseIds", dgSpouseId).setup();
+                spouseTab = new DictionaryTab<int, int>(scen.SpouseIds, "SpouseIds", dgSpouseId);
+                spouseTab.setup();
                 // new DictionaryTab<int, int[]>(scen.BrotherIds, "BrotherIds", dgBrotherId).setup();
                 architectureTab = new ArchitectureTab(scen, dgArchitecture, lblColumnHelp);
                 architectureTab.setup();
@@ -463,6 +465,29 @@ namespace WorldOfTheThreeKingdomsEditor
                 {
                     relation.Relation = 0;
                 }
+            }
+        }
+
+        private void btnDeleteUnavailableRelation_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("刪除所有未登場武將的配偶關係，及刪除無效的配偶關係，是否確認？", "刪除所有未登場武將的特殊關係", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                Dictionary<int, int> copy = new Dictionary<int, int>(scen.SpouseIds);
+                foreach (KeyValuePair<int, int> kv in copy)
+                {
+                    Person k = scen.Persons.GetGameObject(kv.Key) as Person;
+                    Person v = scen.Persons.GetGameObject(kv.Value) as Person;
+                    if (k == null || v == null)
+                    {
+                        scen.SpouseIds.Remove(kv.Key);
+                    }
+                    else if (!k.Available && !v.Available)
+                    {
+                        scen.SpouseIds.Remove(kv.Key);
+                    }
+                }
+                spouseTab.setup();
             }
         }
 

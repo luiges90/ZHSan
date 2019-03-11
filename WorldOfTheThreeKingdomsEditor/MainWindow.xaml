@@ -38,6 +38,8 @@
                 <MenuItem Header="隨機化武將壽命" Click="btnRandomizeDeadYear_Click"/>
                 <MenuItem Header="隨機化武將登場地點" Click="btnRandomizeAvailableLocation_Click"/>
                 <Separator/>
+                <MenuItem Header="刪除所有未登場武將的配偶關係" Click="btnDeleteUnavailableRelation_Click"/>
+                <Separator/>
                 <MenuItem Header="刪除所有勢力外交關係" Click="btnDeleteAllDiplomacy_Click"/>
                 <Separator/>
                 <MenuItem Header="重新設置城池連接" Click="btnRedoArchitectureLinks_Click"/>
