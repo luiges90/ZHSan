@@ -2716,7 +2716,7 @@ namespace GameObjects
                                 }
 
                                 count++;
-                            } while ((GameObject.Chance(haizifuqin.multipleChildrenRate) || GameObject.Chance(this.multipleChildrenRate)) && count <= haizifuqin.maxChildren + this.maxChildren);
+                            } while ((GameObject.Chance(haizifuqin.multipleChildrenRate) || GameObject.Chance(this.multipleChildrenRate) || GameObject.Chance(1)) && count <= haizifuqin.maxChildren + this.maxChildren);
 
                             haizifuqin.suoshurenwu = -1;
                         }
