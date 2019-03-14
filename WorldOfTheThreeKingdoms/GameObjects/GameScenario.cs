@@ -791,13 +791,14 @@ namespace GameObjects
                     person.Status = joinToPerson.Status;
                     if (person.Status == PersonStatus.Moving || person.Status == PersonStatus.NoFactionMoving)
                     {
-                        person.ArrivingDays = Math.Min(joinToPerson.ArrivingDays, 1);
+                        person.Status = PersonStatus.Normal;
                     }
                     else if (person.Status == PersonStatus.Princess)
                     {
                         person.Status = PersonStatus.Normal;
                     }
                     person.YearJoin = this.Date.Year;
+
                     if (joinToPerson.BelongedFactionWithPrincess != null)
                     {
                         if (person.Father == joinToPerson || person.Mother == joinToPerson)
