@@ -5013,7 +5013,8 @@ namespace GameObjects
                 {
                     if (((Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(target.ID, f.ID).Relation +
                         Person.GetIdealOffset(target.Leader, f.Leader) * 1.5) < 0
-                        && (GameObject.Chance(60) || simulate) && !f.IsFriendly(target) && (f.adjacentTo(target) || GameObject.Chance(30) || simulate))
+                        && (GameObject.Chance(60 - Math.Min(30, target.Leader.Karma)) || simulate) && !f.IsFriendly(target) && 
+                        (f.adjacentTo(target) || GameObject.Chance(30 - Math.Min(30, target.Leader.Karma) / 2) || simulate))
                         )
                     {
                         encircleList.Add(f);
