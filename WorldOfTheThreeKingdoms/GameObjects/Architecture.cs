@@ -15042,6 +15042,7 @@ namespace GameObjects
             PersonList nvxingwujiangliebiao = new PersonList();
             foreach (Person person in this.Persons)
             {
+                if (person.ArrivingDays > 0) continue;
                 if (this.BelongedFaction.Leader.isLegalFeiZi(person, true) || (this.BelongedFaction.IsAlien && this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person)))
                 {
                     nvxingwujiangliebiao.Add(person);
@@ -15051,6 +15052,7 @@ namespace GameObjects
             {
                 foreach (Person person in this.NoFactionPersons)
                 {
+                    if (person.ArrivingDays > 0) continue;
                     if (this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person))
                     {
                         nvxingwujiangliebiao.Add(person);
@@ -15059,6 +15061,7 @@ namespace GameObjects
                 foreach (Captive c in this.Captives)
                 {
                     Person person = c.CaptivePerson;
+                    if (person.ArrivingDays > 0) continue;
                     if (this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person))
                     {
                         nvxingwujiangliebiao.Add(person);
