@@ -431,6 +431,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btConfigList1 = new List<ButtonTexture>();
 
+            /*
             btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase))
             {
                 ID = "LiangDao"
@@ -450,8 +451,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
             };
             btConfigList1.Add(btOne);
+            */
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 0.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 0.0f))
             {
                 ID = "ChuShi"
             };
@@ -471,7 +473,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 1.0f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 0.5f))
             {
                 ID = "BuDuiSuLv"
             };
@@ -491,7 +493,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 1.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 1.0f))
             {
                 ID = "DanTiaoSiWang"
             };
@@ -511,7 +513,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 2.0f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 1.5f))
             {
                 ID = "NianLingYouXiao"
             };
@@ -531,7 +533,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 2.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 2.0f))
             {
                 ID = "NianLingYingXiang"
             };
@@ -551,7 +553,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 3.0f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 2.5f))
             {
                 ID = "WuJiangDuli"
             };
@@ -571,7 +573,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 3.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 3.0f))
             {
                 ID = "ShiLiHeBing"
             };
@@ -591,7 +593,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 4.0f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 3.5f))
             {
                 ID = "RenKouXiaoYu"
             };
@@ -611,7 +613,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 4.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 4.0f))
             {
                 ID = "KaiQiTianYan"
             };
@@ -631,7 +633,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 5.0f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 4.5f))
             {
                 ID = "hougongAlienOnly"
             };
@@ -2542,7 +2544,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             //基本
 
-            btConfigList1.FirstOrDefault(bt => bt.ID == "LiangDao").Selected = Session.globalVariablesTemp.LiangdaoXitong;
+            //btConfigList1.FirstOrDefault(bt => bt.ID == "LiangDao").Selected = Session.globalVariablesTemp.LiangdaoXitong;
 
             btConfigList1.FirstOrDefault(bt => bt.ID == "ChuShi").Selected = Session.globalVariablesTemp.IdealTendencyValid;
 
@@ -3715,27 +3717,27 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         nst.Draw(alpha);
                     }
 
-                    CacheManager.DrawString(Session.Current.Font, "粮道系统", new Vector2(left1, heightBase), Color.Black * alpha);
+                    //CacheManager.DrawString(Session.Current.Font, "粮道系统", new Vector2(left1, heightBase), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "出仕相性考虑有效", new Vector2(left1, heightBase + height * 0.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "出仕相性考虑有效", new Vector2(left1, heightBase + height * 0f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "部队速率有效", new Vector2(left1, heightBase + height * 1), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "部队速率有效", new Vector2(left1, heightBase + height * 0.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "武将可能在单挑中死亡", new Vector2(left1, heightBase + height * 1.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "武将可能在单挑中死亡", new Vector2(left1, heightBase + height * 1.0f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "年龄有效", new Vector2(left1, heightBase + height * 2), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "年龄有效", new Vector2(left1, heightBase + height * 1.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "年龄影响能力", new Vector2(left1, heightBase + height * 2.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "年龄影响能力", new Vector2(left1, heightBase + height * 2.0f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "武将有可能独立", new Vector2(left1, heightBase + height * 3f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "武将有可能独立", new Vector2(left1, heightBase + height * 2.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "容许势力合并", new Vector2(left1, heightBase + height * 3.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "容许势力合并", new Vector2(left1, heightBase + height * 3.0f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "人口小于兵力时禁止征兵", new Vector2(left1, heightBase + height * 4f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "人口小于兵力时禁止征兵", new Vector2(left1, heightBase + height * 3.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 4.0f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "只有异族能納妃", new Vector2(left1, heightBase + height * 5.0f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "只有异族能納妃", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
 
                     CacheManager.DrawString(Session.Current.Font, "开启作弊功能", new Vector2(left2, heightBase), Color.Black * alpha);
 
