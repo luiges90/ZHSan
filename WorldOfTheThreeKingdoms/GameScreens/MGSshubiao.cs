@@ -435,9 +435,21 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 tileWidthMax = Session.Current.Scenario.ScenarioMap.TileWidthMin;
             }
+            int tileHeightMax = (int)((1f + num) * this.mainMapLayer.TileHeight);
+            if (tileHeightMax > Session.Current.Scenario.ScenarioMap.TileWidthMax)
+            {
+                tileHeightMax = Session.Current.Scenario.ScenarioMap.TileWidthMax;
+            }
+            else if (tileHeightMax < Session.Current.Scenario.ScenarioMap.TileWidthMin)
+            {
+                tileHeightMax = Session.Current.Scenario.ScenarioMap.TileWidthMin;
+            }
 
             int tileWidth = this.mainMapLayer.TileWidth;
+            int tileHeight = this.mainMapLayer.TileHeight;
             this.mainMapLayer.TileWidth = tileWidthMax;
+            this.mainMapLayer.TileHeight = tileHeightMax;
+
             num = (((float)tileWidthMax) / ((float)tileWidth)) - 1f;
             int num4 = this.mainMapLayer.LeftEdge + ((int)(num * (Session.MainGame.mainGameScreen.mainMapLayer.LeftEdge - InputManager.PoX)));  // InputManager.NowMouse.X)));
             int num5 = this.mainMapLayer.TopEdge + ((int)(num * (Session.MainGame.mainGameScreen.mainMapLayer.TopEdge - InputManager.PoY)));  // InputManager.NowMouse.Y)));
@@ -449,6 +461,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             else
             {
                 this.mainMapLayer.TileWidth = tileWidth;
+                this.mainMapLayer.TileHeight = tileHeight;
             }
             this.ResetScreenEdge();
             this.mainMapLayer.ReCalculateTileDestination(this);
