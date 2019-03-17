@@ -15,6 +15,7 @@ namespace GameObjects
         private int[,] mapData;
         private Point mapDimensions;
         private int tileWidth = 100;
+        private int tileHeight = 100;
         private string dituwenjian;
         private int kuaishu = 20;
         private int meikuaidexiaokuaishu = 10;
@@ -194,11 +195,11 @@ namespace GameObjects
         {
             get
             {
-                return this.tileWidth;
+                return this.tileHeight;
             }
             set
             {
-                this.tileWidth = value;
+                this.tileHeight = value;
             }
         }
         [DataMember]
