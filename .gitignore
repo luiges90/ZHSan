@@ -310,3 +310,4 @@ Docs
 # InnoSetup Output
 Output/
 References/Win/steam_appid.txt
+*.wav
