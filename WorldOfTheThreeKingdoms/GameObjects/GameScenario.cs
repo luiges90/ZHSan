@@ -4629,7 +4629,7 @@ namespace GameObjects
                     architecture.StateID = architecture.LocationState.ID;
                     architecture.CharacteristicsString = architecture.Characteristics.SaveToString();
 
-                    //row["Area"] = StaticMethods.SaveToString(architecture.ArchitectureArea.Area);
+                    architecture.ArchitectureAreaString = StaticMethods.SaveToString(architecture.ArchitectureArea.Area);
 
                     architecture.PersonsString = architecture.Persons.SaveToString();
                     architecture.MovingPersonsString = architecture.MovingPersons.SaveToString();
