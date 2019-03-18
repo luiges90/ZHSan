@@ -201,7 +201,6 @@ namespace GameObjects
 
         public ArchitectureList AIWaterLinks = new ArchitectureList();
 
-        [DataMember]
         public GameArea ArchitectureArea = new GameArea();
 
         public MilitaryList BeMergedMilitaryList = new MilitaryList();
