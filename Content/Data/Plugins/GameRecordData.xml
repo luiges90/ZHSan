@@ -3,7 +3,7 @@
   <ToolBackground Align="Left" Width ="50"></ToolBackground>
   <ToolTexture FileName="Tool.png" Selected="ToolSelected.png" X="5" Y="8" Width="80" Height="32"></ToolTexture>
 
-  <RecordBackground PopSoundFile="Pop" Position="BottomLeft" FileName="RecordBackground.png" X="10" Y="0" Width="450" Height="180"></RecordBackground>
+  <RecordBackground PopSoundFile="Pop" Position="BottomLeft" FileName="RecordBackground.png" X="0" Y="0" Width="450" Height="180"></RecordBackground>
   <Record RowMargin="1"
           FontName="Microsoft YaHei UI"
           FontSize="10"

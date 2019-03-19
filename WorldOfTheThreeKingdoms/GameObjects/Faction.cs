@@ -5168,7 +5168,7 @@ namespace GameObjects
                 {
                     Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(this.ID, toBreak.ID).Relation = 0;
 
-                    this.Leader.DecreaseKarma(10);
+                    this.Leader.DecreaseKarma(5);
 
                     //AI宣布主动解盟
                     Session.MainGame.mainGameScreen.xianshishijiantupian(toBreak.Leader, this.Leader.Name, TextMessageKind.ResetDiplomaticRelation, "ResetDiplomaticRelation", "ResetDiplomaticRelation.jpg", "ResetDiplomaticRelation", toBreak.LeaderName, true);
