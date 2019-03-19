@@ -452,7 +452,7 @@ namespace GameObjects
                 {
                     if (this.RansomArriveDays > 0)
                     {
-                        return (this.RansomArriveDays * Session.Parameters.DayInTurn + "天");
+                        return (this.RansomArriveDays + "天");
                     }
                 }
                 return "----";

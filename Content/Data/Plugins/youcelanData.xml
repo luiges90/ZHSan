@@ -68,7 +68,7 @@
                     FontColor="4292861919"
                     Align="Middle">
             </Column>
-			<Column ID="5" Name="BuildingDaysLeft" IsNumber="false" DisplayName="工期" MinWidth="15"
+			<Column ID="5" Name="BuildingDaysLeftText" IsNumber="false" DisplayName="工期" MinWidth="15"
                     FontName="宋体"
                     FontSize="9"
                     FontStyle="Regular"
