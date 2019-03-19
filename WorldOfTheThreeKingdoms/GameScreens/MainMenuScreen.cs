@@ -3682,7 +3682,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     int resultRow = 0;
                     int resultWidth = 0;
-                    CacheManager.DrawString(Session.Current.Font, CurrentScenario.Desc.SplitLineString(23, 7, ref resultRow, ref resultWidth), new Vector2(40, 460), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, CurrentScenario.Desc.SplitLineString(22, 7, ref resultRow, ref resultWidth), new Vector2(40, 460), Color.Black * alpha);
                 }
 
                 if (!String.IsNullOrEmpty(message))
@@ -4115,7 +4115,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 CacheManager.DrawAvatar(@"Content\Textures\Resources\Start\Common.jpg", Vector2.Zero, Color.White * alpha, 1f);
 
-                CacheManager.DrawString(Session.Current.Font, String.Join(System.Environment.NewLine, aboutLines), new Vector2(40, 40), Color.Black * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 0f);
+                CacheManager.DrawString(Session.Current.Font, String.Join(System.Environment.NewLine, aboutLines), new Vector2(40, 40), Color.Black * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 0f);
 
                 btAboutList.ForEach(bt => bt.Draw(null, Color.White * alpha));
             }

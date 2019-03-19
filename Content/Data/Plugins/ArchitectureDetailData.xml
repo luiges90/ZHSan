@@ -2,462 +2,462 @@
 <Root>
   <Background FileName="Background.png" PictureNull="Null.png" Width="800" Height="540"></Background>
   <Labels>
-    <Label X="60" Y="30" Width="80" Height="25" Label ="城名"
+    <Label X="30" Y="30" Width="80" Height="25" Label ="城名"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="60" Y="55" Width="80" Height="25" PropertyName="Name"
+    <Text X="30" Y="55" Width="80" Height="25" PropertyName="Name"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Bold"
                 FontColor="4294939430"
                 Align="Middle">
     </Text>
-    <Label X="160" Y="30" Width="80" Height="25" Label ="城池类型"
+    <Label X="130" Y="30" Width="80" Height="25" Label ="城池类型"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="160" Y="55" Width="80" Height="25" PropertyName="KindString"
+    <Text X="130" Y="55" Width="80" Height="25" PropertyName="KindString"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Bold"
                 FontColor="4292664557"
                 Align="Middle">
     </Text>
-    <Label X="260" Y="30" Width="80" Height="25" Label ="所属势力"
+    <Label X="230" Y="30" Width="80" Height="25" Label ="所属势力"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="260" Y="55" Width="80" Height="25" PropertyName="FactionString"
+    <Text X="230" Y="55" Width="80" Height="25" PropertyName="FactionString"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Bold"
                 FontColor="4294561617"
                 Align="Middle">
     </Text>
-    <Label X="360" Y="30" Width="80" Height="25" Label ="所在州"
+    <Label X="330" Y="30" Width="80" Height="25" Label ="所在州"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="360" Y="55" Width="80" Height="25" PropertyName="StateString"
+    <Text X="330" Y="55" Width="80" Height="25" PropertyName="StateString"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Bold"
                 FontColor="4292664557"
                 Align="Middle">
     </Text>
-    <Label X="460" Y="30" Width="80" Height="25" Label ="地域"
+    <Label X="430" Y="30" Width="80" Height="25" Label ="地域"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="460" Y="55" Width="80" Height="25" PropertyName="RegionString"
+    <Text X="430" Y="55" Width="80" Height="25" PropertyName="RegionString"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Bold"
                 FontColor="4292664557"
                 Align="Middle">
     </Text>
-    <Label X="560" Y="30" Width="80" Height="25" Label ="规模"
+    <Label X="530" Y="30" Width="80" Height="25" Label ="规模"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="560" Y="55" Width="80" Height="25" PropertyName="JianzhuGuimo"
+    <Text X="530" Y="55" Width="80" Height="25" PropertyName="JianzhuGuimo"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Bold"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="660" Y="30" Width="80" Height="25" Label ="人口"
+    <Label X="630" Y="30" Width="80" Height="25" Label ="人口"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="660" Y="55" Width="80" Height="25" PropertyName="Population"
+    <Text X="630" Y="55" Width="80" Height="25" PropertyName="Population"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4286119584"
                 Align="Middle">
     </Text>
-    <Label X="60" Y="90" Width="80" Height="25" Label ="资金"
+    <Label X="30" Y="90" Width="80" Height="25" Label ="资金"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="60" Y="115" Width="80" Height="25" PropertyName="Fund"
+    <Text X="30" Y="115" Width="80" Height="25" PropertyName="Fund"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="160" Y="90" Width="80" Height="25" Label ="资金收入"
+    <Label X="130" Y="90" Width="80" Height="25" Label ="资金收入"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="160" Y="115" Width="80" Height="25" PropertyName="ExpectedFundString"
+    <Text X="130" Y="115" Width="80" Height="25" PropertyName="ExpectedFundString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="260" Y="90" Width="80" Height="25" Label ="军粮"
+    <Label X="230" Y="90" Width="80" Height="25" Label ="军粮"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="260" Y="115" Width="80" Height="25" PropertyName="Food"
+    <Text X="230" Y="115" Width="80" Height="25" PropertyName="Food"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="360" Y="90" Width="80" Height="25" Label ="军粮收入"
+    <Label X="330" Y="90" Width="80" Height="25" Label ="军粮收入"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="360" Y="115" Width="80" Height="25" PropertyName="ExpectedFoodString"
+    <Text X="330" Y="115" Width="80" Height="25" PropertyName="ExpectedFoodString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="460" Y="90" Width="80" Height="25" Label ="设施空间"
+    <Label X="430" Y="90" Width="80" Height="25" Label ="设施空间"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="460" Y="115" Width="80" Height="25" PropertyName="FacilityPositionString"
+    <Text X="430" Y="115" Width="80" Height="25" PropertyName="FacilityPositionString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="560" Y="90" Width="80" Height="25" Label ="设施维持费"
+    <Label X="530" Y="90" Width="80" Height="25" Label ="设施维持费"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="560" Y="115" Width="80" Height="25" PropertyName="FacilityMaintenanceCostString"
+    <Text X="530" Y="115" Width="80" Height="25" PropertyName="FacilityMaintenanceCostString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="660" Y="90" Width="80" Height="25" Label ="设施有效"
+    <Label X="630" Y="90" Width="80" Height="25" Label ="设施有效"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="660" Y="115" Width="80" Height="25" PropertyName="FacilityEnabledString"
+    <Text X="630" Y="115" Width="80" Height="25" PropertyName="FacilityEnabledString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="60" Y="150" Width="80" Height="25" Label ="农业"
+    <Label X="30" Y="150" Width="80" Height="25" Label ="农业"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="60" Y="175" Width="80" Height="25" PropertyName="AgricultureString"
+    <Text X="30" Y="175" Width="80" Height="25" PropertyName="AgricultureString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="160" Y="150" Width="80" Height="25" Label ="商业"
+    <Label X="130" Y="150" Width="80" Height="25" Label ="商业"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="160" Y="175" Width="80" Height="25" PropertyName="CommerceString"
+    <Text X="130" Y="175" Width="80" Height="25" PropertyName="CommerceString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="260" Y="150" Width="80" Height="25" Label ="技术"
+    <Label X="230" Y="150" Width="80" Height="25" Label ="技术"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="260" Y="175" Width="80" Height="25" PropertyName="TechnologyString"
+    <Text X="230" Y="175" Width="80" Height="25" PropertyName="TechnologyString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="360" Y="150" Width="80" Height="25" Label ="统治"
+    <Label X="330" Y="150" Width="80" Height="25" Label ="统治"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="360" Y="175" Width="80" Height="25" PropertyName="DominationString"
+    <Text X="330" Y="175" Width="80" Height="25" PropertyName="DominationString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="460" Y="150" Width="80" Height="25" Label ="民心"
+    <Label X="430" Y="150" Width="80" Height="25" Label ="民心"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="460" Y="175" Width="80" Height="25" PropertyName="MoraleString"
+    <Text X="430" Y="175" Width="80" Height="25" PropertyName="MoraleString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="560" Y="150" Width="80" Height="25" Label ="耐久"
+    <Label X="530" Y="150" Width="80" Height="25" Label ="耐久"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="560" Y="175" Width="80" Height="25" PropertyName="EnduranceString"
+    <Text X="530" Y="175" Width="80" Height="25" PropertyName="EnduranceString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="660" Y="150" Width="80" Height="25" Label ="内政效率"
+    <Label X="630" Y="150" Width="80" Height="25" Label ="内政效率"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="660" Y="175" Width="80" Height="25" PropertyName="CurrentRateOfInternal"
+    <Text X="630" Y="175" Width="80" Height="25" PropertyName="CurrentRateOfInternal"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Bold"
                 FontColor="4287364887"
                 Align="Middle">
     </Text>
-    <Label X="60" Y="210" Width="80" Height="25" Label ="人物数量"
+    <Label X="30" Y="210" Width="80" Height="25" Label ="人物数量"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="60" Y="235" Width="80" Height="25" PropertyName="PersonCount"
+    <Text X="30" Y="235" Width="80" Height="25" PropertyName="PersonCount"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="160" Y="210" Width="80" Height="25" Label ="在野数量"
+    <Label X="130" Y="210" Width="80" Height="25" Label ="在野数量"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="160" Y="235" Width="80" Height="25" PropertyName="NoFactionPersonCount"
+    <Text X="130" Y="235" Width="80" Height="25" PropertyName="NoFactionPersonCount"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="260" Y="210" Width="80" Height="25" Label ="编队数量"
+    <Label X="230" Y="210" Width="80" Height="25" Label ="编队数量"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="260" Y="235" Width="80" Height="25" PropertyName="MilitaryCount"
+    <Text X="230" Y="235" Width="80" Height="25" PropertyName="MilitaryCount"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="360" Y="210" Width="80" Height="25" Label ="军队数量"
+    <Label X="330" Y="210" Width="80" Height="25" Label ="军队数量"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="360" Y="235" Width="80" Height="25" PropertyName="ArmyQuantity"
+    <Text X="330" Y="235" Width="80" Height="25" PropertyName="ArmyQuantity"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="460" Y="210" Width="80" Height="25" Label ="军队规模"
+    <Label X="430" Y="210" Width="80" Height="25" Label ="军队规模"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="460" Y="235" Width="80" Height="25" PropertyName="ArmyScale"
+    <Text X="430" Y="235" Width="80" Height="25" PropertyName="ArmyScale"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="560" Y="210" Width="80" Height="25" Label ="粮道维持费"
+    <Label X="530" Y="210" Width="80" Height="25" Label ="粮道维持费"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="560" Y="235" Width="80" Height="25" PropertyName="RoutewayActiveCostString"
+    <Text X="530" Y="235" Width="80" Height="25" PropertyName="RoutewayActiveCostString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="660" Y="210" Width="80" Height="25" Label ="情报维持费"
+    <Label X="630" Y="210" Width="80" Height="25" Label ="情报维持费"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="660" Y="235" Width="80" Height="25" PropertyName="InformationCostString"
+    <Text X="630" Y="235" Width="80" Height="25" PropertyName="InformationCostString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="60" Y="270" Width="80" Height="25" Label ="人口增长(％％)"
+    <Label X="30" Y="270" Width="80" Height="25" Label ="人口增长(％％)"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="60" Y="295" Width="80" Height="25" PropertyName="PopulationDevelopingRateString"
+    <Text X="30" Y="295" Width="80" Height="25" PropertyName="PopulationDevelopingRateString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="160" Y="270" Width="80" Height="25" Label ="州效果"
+    <Label X="130" Y="270" Width="80" Height="25" Label ="州效果"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="160" Y="295" Width="80" Height="25" PropertyName="StateEffectString"
+    <Text X="130" Y="295" Width="80" Height="25" PropertyName="StateEffectString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="260" Y="270" Width="80" Height="25" Label ="地区效果"
+    <Label X="230" Y="270" Width="80" Height="25" Label ="地区效果"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="260" Y="295" Width="80" Height="25" PropertyName="RegionEffectString"
+    <Text X="230" Y="295" Width="80" Height="25" PropertyName="RegionEffectString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="360" Y="270" Width="80" Height="25" Label ="战略要冲"
+    <Label X="330" Y="270" Width="80" Height="25" Label ="战略要冲"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="360" Y="295" Width="80" Height="25" PropertyName="IsStrategicCenterString"
+    <Text X="330" Y="295" Width="80" Height="25" PropertyName="IsStrategicCenterString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
                 FontColor="4289703896"
                 Align="Middle">
     </Text>
-    <Label X="460" Y="270" Width="80" Height="25" Label ="粮草衰减率"
+    <Label X="430" Y="270" Width="80" Height="25" Label ="粮草衰减率"
                 FontName="方正隶变_GBK"
                 FontSize="14"
                 FontStyle="Regular"
                 FontColor="4292664557"
                 Align="Middle">
     </Label>
-    <Text X="460" Y="295" Width="80" Height="25" PropertyName="FoodReduceDayRateString"
+    <Text X="430" Y="295" Width="80" Height="25" PropertyName="FoodReduceDayRateString"
                 FontName="方正隶变_GBK"
                 FontSize="15"
                 FontStyle="Regular"
@@ -465,13 +465,13 @@
                 Align="Middle">
     </Text>
   </Labels>
-  <Characteristic X="40" Y="320" Width="360" Height="200" RowMargin="0" TitleColor="4278945279" SubTitleColor="4291355903"
+  <Characteristic X="10" Y="320" Width="360" Height="200" RowMargin="0" TitleColor="4278945279" SubTitleColor="4291355903"
             FontName="宋体"
             FontSize="10"
             FontStyle="Regular"
             FontColor="4292664557">
   </Characteristic>
-  <Facility X="440" Y="320" Width="360" Height="200" RowMargin="0"
+  <Facility X="410" Y="320" Width="360" Height="200" RowMargin="0"
 			TitleColor="4278945279" SubTitleColor="4291355903" SubTitleColor2="4288782753" SubTitleColor3="4288059030" 
             FontName="宋体"
             FontSize="10"
