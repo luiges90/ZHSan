@@ -651,7 +651,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case ContextMenuResult.Monarch_TrainChildren:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectTrainableChildren, false, true, true, false, this.CurrentArchitecture.BelongedFaction.Leader.TrainableChildren, null, "子女培育", "");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectTrainableChildren, false, true, true, true, this.CurrentArchitecture.BelongedFaction.Leader.TrainableChildren, null, "子女培育", "");
                     break;
 
                 case ContextMenuResult.Monarch_ChangeCapital:
