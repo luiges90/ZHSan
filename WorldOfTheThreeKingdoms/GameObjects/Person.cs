@@ -3020,7 +3020,7 @@ namespace GameObjects
                             this.BelongedFaction.IncreaseTechniquePoint(10 * this.MultipleOfTacticsTechniquePoint * 100);
 
                             this.LoseReputationBy(0.005f * this.ConvincingPerson.PersonalLoyalty);
-                            this.DecreaseKarma(Math.Max(1, this.ConvincingPerson.Karma / 20));
+                            this.DecreaseKarma(Math.Max(1, this.ConvincingPerson.Karma / 5));
 
                             Session.MainGame.mainGameScreen.PersonAssassinateSuccess(this, this.ConvincingPerson, architectureByPosition);
                             /*
@@ -3058,7 +3058,7 @@ namespace GameObjects
                         }
 
                         this.LoseReputationBy(0.005f * this.ConvincingPerson.PersonalLoyalty);
-                        this.DecreaseKarma(Math.Max(1, this.ConvincingPerson.Karma / 20));
+                        this.DecreaseKarma(Math.Max(1, this.ConvincingPerson.Karma / 5));
 
                         if (this.Alive)
                         {
@@ -5304,8 +5304,8 @@ namespace GameObjects
                 killer.LoseReputationBy(0.02f * this.PersonalLoyalty);
             }
 
-            killer.DecreaseKarma(2 + Math.Max(0, this.Karma / 5));
-            killer.BelongedFaction.Leader.DecreaseKarma(2 + Math.Max(0, this.Karma / 5));
+            killer.DecreaseKarma(1 + this.PersonalLoyalty + Math.Max(0, this.Karma / 5));
+            killer.BelongedFaction.Leader.DecreaseKarma(1 + this.PersonalLoyalty + Math.Max(0, this.Karma / 5));
         }
 
         public void execute(Faction executingFaction)
@@ -10342,17 +10342,16 @@ namespace GameObjects
                 nvren.SetBelongedCaptive(null, PersonStatus.Normal);
                 nvren.ChangeFaction(this.BelongedFaction);
                 addHate = true;
-                this.DecreaseKarma(5 + Math.Max(0, this.Karma / 5));
             }
             else if (nvren.Status == PersonStatus.NoFaction)
             {
                 addHate = true;
-                this.DecreaseKarma(5 + Math.Max(0, this.Karma / 5));
             }
 
             if (addHate)
             {
                 nvren.AdjustRelation(leader, 0, -200 * nvren.PersonalLoyalty * nvren.PersonalLoyalty);
+                this.DecreaseKarma(1 + nvren.PersonalLoyalty * 2 + Math.Max(0, this.Karma / 5));
 
                 foreach (Person p in Session.Current.Scenario.Persons)
                 {
@@ -10398,7 +10397,7 @@ namespace GameObjects
                         tookSpouse = p;
                         this.LoseReputationBy(0.05f);
 
-                        this.DecreaseKarma(5 + Math.Max(0, this.Karma / 5));
+                        this.DecreaseKarma(1 + p.PersonalLoyalty * 2 + Math.Max(0, this.Karma / 5));
 
                         p.AddHated(this.BelongedFaction.Leader, -200 * p.PersonalLoyalty * p.PersonalLoyalty);
                     }
