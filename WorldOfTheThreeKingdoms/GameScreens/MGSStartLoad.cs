@@ -483,20 +483,25 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             Session.Current.IsWorking = true;
 
-            bool zip = true;
+            //bool zip = true;
 
-            if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
-            {
-                zip = false;
-            }
+            //if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
+            //{
+            //    zip = false;
+            //}
 
             if (fromScenario)
             {
-                scenario = Tools.SimpleSerializer.DeserializeJsonFile<GameScenario>(scenarioName, false, zip);
+                scenario = Tools.SimpleSerializer.DeserializeJsonFile<GameScenario>(scenarioName, false, false);
             }
             else
             {
-                scenario = Tools.SimpleSerializer.DeserializeJsonFile<GameScenario>(scenarioName, true, zip);
+                scenario = Tools.SimpleSerializer.DeserializeJsonFile<GameScenario>(scenarioName, true, false);
+
+                if (scenario == null)
+                {
+                    scenario = Tools.SimpleSerializer.DeserializeJsonFile<GameScenario>(scenarioName, true, true);
+                }
             }
 
             Session.Current.IsWorking = false;
