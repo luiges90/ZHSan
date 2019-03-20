@@ -1616,6 +1616,33 @@
     <Compile Include="Platforms\WinHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpriteFontPlus\BMFontLoader.cs" />
+    <Compile Include="SpriteFontPlus\CharacterRange.cs" />
+    <Compile Include="SpriteFontPlus\Cyotek.Drawing.Bitmap\BitmapFont.cs" />
+    <Compile Include="SpriteFontPlus\Cyotek.Drawing.Bitmap\BitmapFontLoader.cs" />
+    <Compile Include="SpriteFontPlus\Cyotek.Drawing.Bitmap\Character.cs" />
+    <Compile Include="SpriteFontPlus\Cyotek.Drawing.Bitmap\Kerning.cs" />
+    <Compile Include="SpriteFontPlus\Cyotek.Drawing.Bitmap\Padding.cs" />
+    <Compile Include="SpriteFontPlus\Cyotek.Drawing.Bitmap\Page.cs" />
+    <Compile Include="SpriteFontPlus\DynamicSpriteFont.cs" />
+    <Compile Include="SpriteFontPlus\FontStashSharp\Bounds.cs" />
+    <Compile Include="SpriteFontPlus\FontStashSharp\Font.cs" />
+    <Compile Include="SpriteFontPlus\FontStashSharp\FontAtlas.cs" />
+    <Compile Include="SpriteFontPlus\FontStashSharp\FontAtlasNode.cs" />
+    <Compile Include="SpriteFontPlus\FontStashSharp\FontGlyph.cs" />
+    <Compile Include="SpriteFontPlus\FontStashSharp\FontGlyphSquad.cs" />
+    <Compile Include="SpriteFontPlus\FontStashSharp\FontSystem.cs" />
+    <Compile Include="SpriteFontPlus\FontStashSharp\FontSystemParams.cs" />
+    <Compile Include="SpriteFontPlus\FontStashSharp\GlyphPosition.cs" />
+    <Compile Include="SpriteFontPlus\FontStashSharp\StringSegment.cs" />
+    <Compile Include="SpriteFontPlus\GlyphInfo.cs" />
+    <Compile Include="SpriteFontPlus\SpriteBatchExtensions.cs" />
+    <Compile Include="SpriteFontPlus\StbTrueTypeExtensions.cs" />
+    <Compile Include="SpriteFontPlus\StbTrueType\CRuntime.cs" />
+    <Compile Include="SpriteFontPlus\StbTrueType\StbTrueType.cs" />
+    <Compile Include="SpriteFontPlus\StbTrueType\StbTrueType.Generated.cs" />
+    <Compile Include="SpriteFontPlus\TtfFontBaker.cs" />
+    <Compile Include="SpriteFontPlus\TtfFontBakerResult.cs" />
     <Compile Include="Tools\CGZipUtil.cs" />
     <Compile Include="Tools\ExtendMethods.cs" />
     <Compile Include="Tools\GameTools.cs" />
@@ -1664,9 +1691,6 @@
     </Reference>
     <Reference Include="SixLabors.Shapes">
       <HintPath>..\References\SixLabors.Shapes.dll</HintPath>
-    </Reference>
-    <Reference Include="SpriteFontPlus, Version=0.6.3.15, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpriteFontPlus.MonoGame.0.6.3.15\lib\net45\SpriteFontPlus.dll</HintPath>
     </Reference>
     <Reference Include="Steamworks.NET, Version=12.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
@@ -20409,6 +20433,7 @@
     </Content>
     <Content Include="Icon.ico" />
     <Content Include="LICENSES-MersenneTwister.txt" />
+    <Content Include="SpriteFontPlus\SpriteFontPlus.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Content\Data\Scenario\Scenarios.json">
