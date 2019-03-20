@@ -2103,10 +2103,6 @@
       <Link>Content\Textures\Resources\Start\Cloud6.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\TexturesAlpha\Resources\Start\Menu.png">
-      <Link>Content\Textures\Resources\Start\Menu.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\TexturesAlpha\Resources\Start\Setting.png">
       <Link>Content\Textures\Resources\Start\Setting.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -20251,6 +20247,7 @@
     <Content Include="Content\Font\Messages.txt" />
     <Content Include="Content\Font\MessagesDenyT.txt" />
     <Content Include="Content\Font\MessagesL.txt" />
+    <Content Include="Content\LICENSES%283rd-party%29.txt" />
     <Content Include="Content\Sound\Animation\Person\185\185-attacked-01.wav" />
     <Content Include="Content\Sound\Animation\Person\185\185-attacked-02.wav" />
     <Content Include="Content\Sound\Animation\Person\185\185-attacked-03.wav" />
@@ -20405,6 +20402,7 @@
     <Content Include="Content\Sound\Animation\Person\98\CriticalStrike7.wav" />
     <Content Include="Content\Sound\Animation\Person\98\CriticalStrike8.wav" />
     <Content Include="Content\Sound\Animation\Person\98\CriticalStrike9.wav" />
+    <Content Include="Content\Textures\Resources\Start\Menu.png" />
     <Content Include="Icon.ico" />
     <Content Include="LICENSES-MersenneTwister.txt" />
   </ItemGroup>
@@ -22691,6 +22689,7 @@
     <None Include="Content\Font\hwzs.ttf" />
     <None Include="Content\Font\simhei.ttf" />
     <None Include="Content\Font\xingshu.ttf" />
+    <None Include="Content\LICENSE" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
