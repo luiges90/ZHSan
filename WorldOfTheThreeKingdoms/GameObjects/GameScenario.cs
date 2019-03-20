@@ -5037,14 +5037,14 @@ namespace GameObjects
                 file = @"Save\" + LoadedFileName;
             }
 
-            bool zip = true;
+            //bool zip = true;
 
-            if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
-            {
-                zip = false;
-            }
+            //if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
+            //{
+            //    zip = false;
+            //}
 
-            bool result = SimpleSerializer.SerializeJsonFile(scenarioClone, file, zip, false, fullPathProvided);
+            bool result = SimpleSerializer.SerializeJsonFile(scenarioClone, file, false, false, fullPathProvided);
 
             if (result)
             {
@@ -5110,7 +5110,14 @@ namespace GameObjects
             foreach (var condition in CommonData.Current.AllConditions.Conditions)
             {
                 var Kind = condition.Value.Kind;
-                CommonData.Current.AllConditionKinds.ConditionKinds.TryGetValue(Kind.ID, out condition.Value.Kind);
+                if (Kind == null)
+                {
+
+                }
+                else
+                {
+                    CommonData.Current.AllConditionKinds.ConditionKinds.TryGetValue(Kind.ID, out condition.Value.Kind);
+                }
             }
 
             var influenceKinds = new InfluenceKindTable();
@@ -5138,7 +5145,14 @@ namespace GameObjects
             foreach (var influence in CommonData.Current.AllInfluences.Influences)
             {
                 var kind = influence.Value.Kind;
-                CommonData.Current.AllInfluenceKinds.InfluenceKinds.TryGetValue(kind.ID, out influence.Value.Kind);
+                if (kind == null)
+                {
+
+                }
+                else
+                {
+                    CommonData.Current.AllInfluenceKinds.InfluenceKinds.TryGetValue(kind.ID, out influence.Value.Kind);
+                }
             }
 
             var eventEffectKinds = new EventEffectKindTable();
@@ -5162,7 +5176,14 @@ namespace GameObjects
             foreach (var eventEffect in CommonData.Current.AllEventEffects.EventEffects)
             {
                 var kind = eventEffect.Value.Kind;
-                CommonData.Current.AllEventEffectKinds.EventEffectKinds.TryGetValue(kind.ID, out eventEffect.Value.Kind);
+                if (kind == null)
+                {
+
+                }
+                else
+                {
+                    CommonData.Current.AllEventEffectKinds.EventEffectKinds.TryGetValue(kind.ID, out eventEffect.Value.Kind);
+                }
             }
 
             var troopEventEffectKinds = new GameObjects.TroopDetail.EventEffect.EventEffectKindTable();
@@ -5186,9 +5207,15 @@ namespace GameObjects
             foreach (var eventEffect in CommonData.Current.AllTroopEventEffects.EventEffects)
             {
                 var kind = eventEffect.Value.Kind;
-                CommonData.Current.AllTroopEventEffectKinds.EventEffectKinds.TryGetValue(kind.ID, out eventEffect.Value.Kind);
+                if (kind == null)
+                {
+                    
+                }
+                else
+                {
+                    CommonData.Current.AllTroopEventEffectKinds.EventEffectKinds.TryGetValue(kind.ID, out eventEffect.Value.Kind);
+                }
             }
-
             return errorMsg;
         }
 
