@@ -185,7 +185,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btList = new List<ButtonTexture>() { };
 
-            var btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "New", new Vector2(870, 120 + 90));
+            var btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "New", new Vector2(100, 580));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -195,7 +195,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(870, 120 + 90 * 2));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(300, 580));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -205,7 +205,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(870, 120 + 90 * 3));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(500, 580));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -215,7 +215,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(870, 120 + 90 * 4));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(700, 580));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -224,7 +224,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(870, 120 + 90 * 5));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(900, 580));
             btOne.OnButtonPress += (sender, e) =>
             {
                 Platform.Current.Exit();
