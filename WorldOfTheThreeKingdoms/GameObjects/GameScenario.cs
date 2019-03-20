@@ -5037,14 +5037,14 @@ namespace GameObjects
                 file = @"Save\" + LoadedFileName;
             }
 
-            bool zip = true;
+            //bool zip = true;
 
-            if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
-            {
-                zip = false;
-            }
+            //if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
+            //{
+            //    zip = false;
+            //}
 
-            bool result = SimpleSerializer.SerializeJsonFile(scenarioClone, file, zip, false, fullPathProvided);
+            bool result = SimpleSerializer.SerializeJsonFile(scenarioClone, file, false, false, fullPathProvided);
 
             if (result)
             {
