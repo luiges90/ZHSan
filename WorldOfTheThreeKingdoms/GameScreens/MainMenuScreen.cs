@@ -123,16 +123,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         string[] texts = new string[]
         {
-            "滚滚长江东逝水",
-            "浪花淘尽英雄",
-            "是非成败转头空",
-            "青山依旧在",
-            "几度夕阳红",
-            "白发渔樵江渚上",
-            "惯看秋月春风",
-            "一壶浊酒喜相逢",
-            "古今多少事",
-            "都付笑谈中"
         };
 
         string[] aboutLines = new string[]
@@ -195,7 +185,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(300, 580));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(310, 580));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -205,7 +195,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(500, 580));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(520, 580));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -215,7 +205,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(700, 580));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(730, 580));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -224,7 +214,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(900, 580));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(940, 580));
             btOne.OnButtonPress += (sender, e) =>
             {
                 Platform.Current.Exit();

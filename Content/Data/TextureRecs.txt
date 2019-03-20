@@ -1,4 +1,4 @@
-﻿Content\Textures\Resources\Start\Menu:png:New,Save,Setting,About,Exit:1800:136:300:68:2:Scene;
+﻿Content\Textures\Resources\Start\Menu:png:New,Save,Setting,About,Exit:1350:102:225:51:2:Scene;
 Content\Textures\Resources\Start\ReadyButton:png:OK,Cancel,Load:810:50:135:50:2:Scene;
 Content\Textures\Resources\Start\Line-Red:png:Line-Red:200:1:200:1:1:Scene;
 Content\Textures\Resources\Start\CheckBox:png:CheckBox:132:32:33:32:4:Scene;
