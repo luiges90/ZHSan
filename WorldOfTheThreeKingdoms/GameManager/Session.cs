@@ -147,7 +147,7 @@ namespace GameManager
         public ContentManager FontContent;
         public ContentManager MusicContent;
         public ContentManager SoundContent;
-
+        
         SpriteFont fontE, fontL, fontS, fontT, font;
 
         public SpriteFont FontE
@@ -353,6 +353,8 @@ namespace GameManager
                 Setting.Current.BattleSpeed = Setting.Current.GlobalVariables.FastBattleSpeed.ToString();
             }
 
+            Session.LoadFont(Setting.Current.Language);
+
             Platform.InitGraphicsDeviceManager();
 
             TouchPanel.EnabledGestures = GestureType.Tap | GestureType.DoubleTap | GestureType.FreeDrag | GestureType.Flick | GestureType.Pinch;
@@ -377,15 +379,33 @@ namespace GameManager
 
         public static void LoadFont(string language)
         {
-            Session.Current.FontContent.Unload();
+            //Session.Current.FontContent.Unload();
+
+            TextManager.font = null;
+
+            //此處兩種字體及大小可隨需要自由更改
 
             if (language == "cn" || language == "简体")
             {
-                Session.Current.Font = Session.Current.FontContent.Load<SpriteFont>(Platform.Current.PlatformPre + "Content/Font/FontS");
+                CacheManager.FontPair = new FontPair()
+                {
+                    Name = @"Content\Font\FZLB_GBK.TTF",
+                    Size = 30,
+                    Style = "",
+                    Width = 30,
+                    Height = 32
+                };
             }
             else
             {
-                Session.Current.Font = Session.Current.FontContent.Load<SpriteFont>(Platform.Current.PlatformPre + "Content/Font/FontT");
+                CacheManager.FontPair = new FontPair()
+                {
+                    Name = @"Content\Font\JDFGY.TTF",
+                    Size = 28,
+                    Style = "",
+                    Width = 28,
+                    Height = 30
+                };
             }
 
             lock (CacheManager.CacheLock)
