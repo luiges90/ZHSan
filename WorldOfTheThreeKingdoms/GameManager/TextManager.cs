@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Platforms;
 using SpriteFontPlus;
 using System;
@@ -26,7 +26,7 @@ namespace GameManager
     public static class TextManager
     {
 
-        static DynamicSpriteFont font = null;
+        public static DynamicSpriteFont font = null;
 
         public static Object lockObj = new Object();
 
