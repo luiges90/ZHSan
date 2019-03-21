@@ -187,8 +187,7 @@ namespace tupianwenziPlugin
                         }
                         catch
                         {
-                            // this should not happen, hmm...
-                            shijiantupian = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\tupianwenzi\Data\meinvtupian\B0.jpg");
+                            shijiantupian = null;
                         }
 
                     }
