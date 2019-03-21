@@ -143,14 +143,14 @@ namespace GameObjects
             {
                 if (this.picture == null)
                 {
-                    //try
-                    //{
+                    try
+                    {
                         this.picture = CacheManager.GetTempTexture("Content/Textures/Resources/Treasure/" + this.Pic.ToString() + ".jpg");
-                    //}
-                    //catch
-                    //{
-                    //    this.picture = new Texture2D(Platform.GraphicsDevice, 0, 0);
-                    //}
+                    }
+                    catch
+                    {
+                        this.picture = null;
+                    }
                 }
                 return this.picture;
             }
