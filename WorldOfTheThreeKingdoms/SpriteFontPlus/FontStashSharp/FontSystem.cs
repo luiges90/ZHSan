@@ -564,8 +564,8 @@ namespace FontStashSharp
 			if (bitmapOption == FONS_GLYPH_BITMAP_REQUIRED)
 			{
 				added = _atlas.AddRect(gw, gh, &gx, &gy);
-				if (added == 0)
-					throw new Exception("FONS_ATLAS_FULL");
+				//if (added == 0)
+					//throw new Exception("FONS_ATLAS_FULL");
 			}
 			else
 			{
