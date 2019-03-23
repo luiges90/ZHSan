@@ -5659,70 +5659,6 @@
       <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\Mask.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background0.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background0.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background1.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background1.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background10.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background10.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background11.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background11.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background12.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background12.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background13.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background13.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background14.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background14.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background15.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background15.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background2.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background2.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background3.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background3.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background4.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background4.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background5.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background5.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background6.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background6.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background7.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background7.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background8.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background8.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background9.jpg">
-      <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\Background9.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\Bar\Blue.png">
       <Link>Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\Bar\Blue.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -13311,10 +13247,6 @@
       <Link>Content\Textures\Resources\Start\Common.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Textures\Resources\Start\DixingBianjiqi.jpg">
-      <Link>Content\Textures\Resources\Start\DixingBianjiqi.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Textures\Resources\Start\Input-Cursor-Big.png">
       <Link>Content\Textures\Resources\Start\Input-Cursor-Big.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -13353,10 +13285,6 @@
     </Content>
     <Content Include="..\Content\Textures\Resources\Start\Start.jpg">
       <Link>Content\Textures\Resources\Start\Start.jpg</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Textures\Resources\Start\Start1.jpg">
-      <Link>Content\Textures\Resources\Start\Start1.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Textures\Resources\Start\TextBox-Big.png">
@@ -18120,10 +18048,6 @@
       <Link>Content\Sound\Select.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Sound\xuezai.wav">
-      <Link>Content\Sound\xuezai.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Sound\Yes.wav">
       <Link>Content\Sound\Yes.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -20100,130 +20024,6 @@
       <Link>Content\Sound\Troop\999\NormalAttack.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Sound\Yinxiao\AllyDiplomaticRelation.wav">
-      <Link>Content\Sound\Yinxiao\AllyDiplomaticRelation.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\BreakDiplomaticRelation.wav">
-      <Link>Content\Sound\Yinxiao\BreakDiplomaticRelation.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\bubingfangzhen.wav">
-      <Link>Content\Sound\Yinxiao\bubingfangzhen.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\caocao.wav">
-      <Link>Content\Sound\Yinxiao\caocao.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\chonga.wav">
-      <Link>Content\Sound\Yinxiao\chonga.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\chuzhan.wav">
-      <Link>Content\Sound\Yinxiao\chuzhan.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\DenounceDiplomaticRelation.wav">
-      <Link>Content\Sound\Yinxiao\DenounceDiplomaticRelation.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\EncircleDiplomaticRelation.wav">
-      <Link>Content\Sound\Yinxiao\EncircleDiplomaticRelation.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\EnhaneceDiplomaticRelation.wav">
-      <Link>Content\Sound\Yinxiao\EnhaneceDiplomaticRelation.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\gretreat3.wav">
-      <Link>Content\Sound\Yinxiao\gretreat3.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\guanyu.wav">
-      <Link>Content\Sound\Yinxiao\guanyu.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\hougong.wav">
-      <Link>Content\Sound\Yinxiao\hougong.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\huangzhong.wav">
-      <Link>Content\Sound\Yinxiao\huangzhong.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\nafei.wav">
-      <Link>Content\Sound\Yinxiao\nafei.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\renwusiwang.wav">
-      <Link>Content\Sound\Yinxiao\renwusiwang.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\ResetDiplomaticRelation.wav">
-      <Link>Content\Sound\Yinxiao\ResetDiplomaticRelation.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\sheshiwancheng.wav">
-      <Link>Content\Sound\Yinxiao\sheshiwancheng.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\shilimiewang.wav">
-      <Link>Content\Sound\Yinxiao\shilimiewang.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\taunt1.wav">
-      <Link>Content\Sound\Yinxiao\taunt1.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\taunt2.wav">
-      <Link>Content\Sound\Yinxiao\taunt2.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\TruceDiplomaticRelation.wav">
-      <Link>Content\Sound\Yinxiao\TruceDiplomaticRelation.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\zainan0.wav">
-      <Link>Content\Sound\Yinxiao\zainan0.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\zainan1.wav">
-      <Link>Content\Sound\Yinxiao\zainan1.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\zainan2.wav">
-      <Link>Content\Sound\Yinxiao\zainan2.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\zainan3.wav">
-      <Link>Content\Sound\Yinxiao\zainan3.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\zainan4.wav">
-      <Link>Content\Sound\Yinxiao\zainan4.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\zainan5.wav">
-      <Link>Content\Sound\Yinxiao\zainan5.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\zhangfei.wav">
-      <Link>Content\Sound\Yinxiao\zhangfei.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\zhanling.wav">
-      <Link>Content\Sound\Yinxiao\zhanling.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\zhaoyun.wav">
-      <Link>Content\Sound\Yinxiao\zhaoyun.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Sound\Yinxiao\zhugeliang.wav">
-      <Link>Content\Sound\Yinxiao\zhugeliang.wav</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Sound\Move.wav">
       <Link>Content\Sound\Move.wav</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -20319,6 +20119,7 @@
     <None Include="Content\Font\FontT.xnb" />
     <None Include="Content\Font\guyin.TTF" />
     <None Include="Content\Font\hwzs.ttf" />
+    <None Include="Content\Font\JDFGY.TTF" />
     <None Include="Content\Font\simhei.ttf" />
     <None Include="Content\Font\xingshu.ttf" />
     <None Include="Content\LICENSE">
@@ -20342,6 +20143,8 @@
     <Folder Include="Content\Sound\Troop\708\" />
     <Folder Include="Content\Sound\Troop\800\" />
     <Folder Include="Content\Sound\Troop\801\" />
+    <Folder Include="Content\Sound\Yinxiao\" />
+    <Folder Include="Content\Textures\GameComponents\ArchitectureSurvey\Data\Backgrounds\ArchitectureKind\" />
     <Folder Include="Content\Textures\GameComponents\PersonPortrait\Images\Default\" />
     <Folder Include="Content\Textures\GameComponents\PersonPortrait\Images\Player\" />
     <Folder Include="Content\Textures\Resources\Treasure\" />
