@@ -35,7 +35,7 @@ namespace GameManager
         public static void Init(string name, int size)
         {
             var bytes = Platform.Current.LoadFile(name);
-            font = DynamicSpriteFont.FromTtf(bytes, size);
+            font = DynamicSpriteFont.FromTtf(bytes, size, 2048, 2048);
         }
 
         public static void DrawTexts(string text, FontPair pair, Microsoft.Xna.Framework.Vector2 pos, Microsoft.Xna.Framework.Color color, int space = 0, float scale = 1f, float? depth = null)
