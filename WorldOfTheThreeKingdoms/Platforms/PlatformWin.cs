@@ -29,6 +29,7 @@ using Microsoft.Xna.Framework.Input;
 using Tools;
 using WorldOfTheThreeKingdoms;
 using GameManager;
+using WorldOfTheThreeKingdoms.GameScreens;
 
 namespace Platforms
 {
@@ -40,10 +41,10 @@ namespace Platforms
         public static new PlatFormType PlatFormType = PlatFormType.Win;
 
         public static new bool IsMobilePlatForm = false;
-                
+
         public new string PreferFullMode = "Window";
 
-        public static new string PreferResolution = "1280*720";
+        public static new string PreferResolution = "1368*768";
 
         public new bool DebugMode = true;
         public new bool ProcessGameData = true;
@@ -483,17 +484,18 @@ namespace Platforms
                     {
                         Texture2D tex = Texture2D.FromStream(Platform.GraphicsDevice, stream);
                         //貌似在Win7下，這個算法出錯，只能預先處理好材質了再載入了
-                        //if (tex != null && Path.GetExtension(res).ToLower() == ".png" && !res.Contains("Cloud"))
-                        //{
-                            //try
-                            //{
-                            //    GameTools.PreMultiplyAlphas(tex);
-                            //}
-                            //catch (Exception ex)
-                            //{
-                            //    WebTools.TakeWarnMsg("处理透明层级失败:" + res, "PreMultiplyAlphas:" + UserApplicationDataPath + res, ex);
-                            //}
-                        //}
+                        if (MainMenuScreen.Current.btnTextureAlpha.Selected &&
+                            tex != null && Path.GetExtension(res).ToLower() == ".png" && !res.Contains("Cloud"))
+                        {
+                            try
+                            {
+                                GameTools.PreMultiplyAlphas(tex);
+                            }
+                            catch (Exception ex)
+                            {
+                                //WebTools.TakeWarnMsg("处理透明层级失败:" + res, "PreMultiplyAlphas:" + UserApplicationDataPath + res, ex);
+                            }
+                        }
                         return tex;
                     }
                 }
