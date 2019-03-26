@@ -1,4 +1,4 @@
-﻿using GameManager;
+using GameManager;
 using Microsoft.Xna.Framework.Graphics;
 using Platforms;
 using System;
@@ -28,7 +28,7 @@ namespace GameObjects.TroopDetail
         {
             get
             {
-                return Platform.IsMobilePlatForm ? 600 : 1280;
+                return 1280;  // Platform.IsMobilePlatForm ? 600 : 1280;
             }
         }
 
@@ -36,7 +36,7 @@ namespace GameObjects.TroopDetail
         {
             get
             {
-                return Platform.IsMobilePlatForm ? 480 : 1024;
+                return 1024;  // Platform.IsMobilePlatForm ? 480 : 1024;
             }
         }
 
