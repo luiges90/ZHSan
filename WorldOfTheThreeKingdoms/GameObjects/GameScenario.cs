@@ -5247,8 +5247,15 @@ namespace GameObjects
             foreach (var condition in commonData.AllConditions.Conditions)
             {
                 var conditionClone = condition.Value.Clone();
-                commonData.AllConditionKinds.ConditionKinds.TryGetValue(conditionClone.Kind.ID, out conditionClone.Kind);
-                allConditions.AddCondition(conditionClone);
+                if (conditionClone.Kind == null)
+                {
+
+                }
+                else
+                {
+                    commonData.AllConditionKinds.ConditionKinds.TryGetValue(conditionClone.Kind.ID, out conditionClone.Kind);
+                    allConditions.AddCondition(conditionClone);
+                }
             }
             commonData.AllConditions = allConditions;
 
@@ -5305,8 +5312,15 @@ namespace GameObjects
             foreach (var eventEffect in commonData.AllEventEffects.EventEffects)
             {
                 var eve = eventEffect.Value.Clone();
-                commonData.AllEventEffectKinds.EventEffectKinds.TryGetValue(eve.Kind.ID, out eve.Kind);
-                eventEffects.AddEventEffect(eve);
+                if (eve.Kind == null)
+                {
+
+                }
+                else
+                {
+                    commonData.AllEventEffectKinds.EventEffectKinds.TryGetValue(eve.Kind.ID, out eve.Kind);
+                    eventEffects.AddEventEffect(eve);
+                }
             }
             commonData.AllEventEffects = eventEffects;
 
@@ -5332,8 +5346,15 @@ namespace GameObjects
             foreach (var eventEffect in commonData.AllTroopEventEffects.EventEffects)
             {
                 var eve = eventEffect.Value.Clone();
-                commonData.AllTroopEventEffectKinds.EventEffectKinds.TryGetValue(eve.Kind.ID, out eve.Kind);
-                allTroopEventEffects.AddEventEffect(eve);
+                if (eve.Kind == null)
+                {
+
+                }
+                else
+                {
+                    commonData.AllTroopEventEffectKinds.EventEffectKinds.TryGetValue(eve.Kind.ID, out eve.Kind);
+                    allTroopEventEffects.AddEventEffect(eve);
+                }
             }
             commonData.AllTroopEventEffects = allTroopEventEffects;
 
