@@ -507,7 +507,7 @@ namespace GameManager
                 type = "";
             }
 
-            string id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Player\{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
+            string id = String.Format("Content/Textures/GameComponents/PersonPortrait/Images/Player/{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
 
             if (Platform.Current.FileExists(id))
             {
@@ -515,7 +515,7 @@ namespace GameManager
             }
             else
             {
-                id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
+                id = String.Format(@"Content/Textures/GameComponents/PersonPortrait/Images/Default/{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
 
                 if (Platform.Current.FileExists(id))
                 {
@@ -523,7 +523,7 @@ namespace GameManager
                 }
                 else
                 {
-                    id = String.Format(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\{0}{1}.jpg", fallbackIndex, "");
+                    id = String.Format(@"Content/Textures/GameComponents/PersonPortrait/Images/Default/{0}{1}.jpg", fallbackIndex, "");
                 }
             }
 
