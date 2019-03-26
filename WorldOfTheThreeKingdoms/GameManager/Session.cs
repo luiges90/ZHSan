@@ -473,7 +473,7 @@ namespace GameManager
             {
                 if (slope >= 1.5)
                 {
-                    Session.Resolution = "1024*680";  //"925*520";
+                    Session.Resolution = "1000*620";  //"925*520";
                     //LargeContextMenu = true;
                 }
                 else
