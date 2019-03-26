@@ -289,6 +289,10 @@ namespace Platforms
 
         public override string[] GetFiles(string dir)
         {
+            if (dir.Contains(""))
+            {
+                dir = dir.Substring(0, dir.LastIndexOf('/'));
+            }
             return Game.Activity.Assets.List(dir);
         }
 
@@ -298,6 +302,10 @@ namespace Platforms
 
             if (list != null && list.Length > 0)
             {
+                if (file.Contains('/'))
+                {
+                    file = file.Substring(file.LastIndexOf('/') + 1);
+                }
                 return list.Contains(file);
             }
 
