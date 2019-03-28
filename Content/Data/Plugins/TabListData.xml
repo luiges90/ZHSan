@@ -759,6 +759,13 @@
 				FontColor="4294375158"
 				Align="Middle">
         </Column>
+		<Column ID="181" Name="RelationToLeader" IsNumber="true" DisplayName="对君主关系" MinWidth="80" DetailLevel="8"
+				FontName="方正隶变_GBK"
+				FontSize="14"
+				FontStyle="Regular"
+				FontColor="4294375158"
+				Align="Middle">
+        </Column>
 		<Column ID="220" Name="HasSkill" IsNumber="false" DisplayName="驰骋" MinWidth="40" ItemID="20" DetailLevel="5"
 				FontName="方正隶变_GBK"
 				FontSize="14"
@@ -1275,7 +1282,7 @@
         </Tab>
         <Tab ID="14"  Name="PersonRelations" DisplayName="人物关系" Columns="1 121 122 123 125 126 132 133 135">
         </Tab>
-		<Tab ID="15" Name="PersonSpecialRelations" DisplayName="关系武将" Columns="1 180" ListKind="PersonRelationValue" ListMethod="GetPersonRelationList">
+		<Tab ID="15" Name="PersonSpecialRelations" DisplayName="关系武将" Columns="1 181 180" ListKind="PersonRelationValue" ListMethod="GetPersonRelationList">
         </Tab>
 		<Tab ID="16"  Name="MoveTroopSkills" DisplayName="行军步兵" Columns="1 220 221 222 223 224 225 226 230 231 232 236 233 234 235">
         </Tab>
