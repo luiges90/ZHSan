@@ -83,13 +83,20 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                 {
                     var vec = vecs[i];
 
+                    float ratio = 2f;
+
+                    if (Platforms.Platform.PlatFormType == Platforms.PlatFormType.iOS)
+                    {
+                        ratio = 4f;
+                    }
+
                     if (i <= 2)
                     {
-                        vecsReal[i] = vec + new Vector2(0, 391f * elapsedTime2 / 2f);
+                        vecsReal[i] = vec + new Vector2(0, 391f * elapsedTime2 / ratio);
                     }
                     else if (i == 3)
                     {
-                        vecsReal[i] = vec + new Vector2(665f * elapsedTime2 / 2f, 0);
+                        vecsReal[i] = vec + new Vector2(665f * elapsedTime2 / ratio, 0);
                     }
                     else if (i == 4)
                     {
@@ -97,17 +104,18 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                     }
                     else if (i == 5)
                     {
-                        vecsReal[i] = vec + new Vector2(-665f * elapsedTime2 / 2f, 0);
+                        vecsReal[i] = vec + new Vector2(-665f * elapsedTime2 / ratio, 0);
                     }
                     else
                     {
-                        vecsReal[i] = vec + new Vector2(0, -391f * elapsedTime2 / 2f);
+                        vecsReal[i] = vec + new Vector2(0, -391f * elapsedTime2 / ratio);
                     }
 
                 }
                 if (cloudAlpha <= 0)
                 {
                     IsStart = false;
+                    IsVisible = false;
                 }
             }
         }
