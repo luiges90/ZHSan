@@ -21,7 +21,7 @@ using UIKit;
 using System.Net;
 using System.Xml;
 using System.Diagnostics;
-using Microsoft.Xna.Framework.GamerServices;
+//using Microsoft.Xna.Framework.GamerServices;
 using StoreKit;
 //using System.Drawing;
 using CoreGraphics;
@@ -29,6 +29,7 @@ using SharpCompress.Writer;
 using SharpCompress.Common;
 using SharpCompress.Reader;
 using System.Drawing;
+using AVFoundation;
 
 //using Microsoft.Xna.Framework.GamerServices;
 //using Microsoft.Xna.Framework.Storage;
@@ -45,6 +46,8 @@ namespace Platforms
         public static new bool IsMobilePlatForm = true;
 
 		public new bool DisplayMetroStart = false;
+
+        public static AVAudioPlayer player = null;
 
 //		static bool IsTrialOrigin = false;
 //		public static bool? isTrial;
@@ -88,7 +91,7 @@ namespace Platforms
 		{
 			get
 			{
-				return Guide.IsVisible;
+                return false;   //Guide.IsVisible;
 			}
 		}
 
@@ -351,7 +354,7 @@ namespace Platforms
                         //{
                         //    try
                         //    {
-                        //        PreMultiplyAlphas(tex);
+                        //        GameTools.PreMultiplyAlphas(tex);
                         //    }
                         //    catch (Exception ex)
                         //    {
@@ -368,13 +371,44 @@ namespace Platforms
                 return new Texture2D(GraphicsDevice, 1, 1);
             }
         }
-		public virtual string[] GetFiles(string dir)
+		public override string[] GetFiles(string dir)
 		{
+            if (dir.Contains("/"))
+            {
+                dir = dir.Substring(0, dir.LastIndexOf('/'));
+            }
+            //var resources = NSBundle.GetPathsForResources("", dir).NullToEmptyList().Select(re =>
+            //    "Content" + re.Split(new string[] { "Content" }, StringSplitOptions.None)[1]
+            //);
             var resources = NSBundle.GetPathsForResources("", dir).NullToEmptyList().Select(re =>
-                "Content" + re.Split(new string[] { "Content" }, StringSplitOptions.None)[1]
+                re.Substring(re.LastIndexOf('/') + 1)
             );
             return resources.NullToEmptyArray();
 		}
+
+        public string GetFileFullPath(string file)
+        {
+            file = file.Replace("\\", "/");
+
+            var dir = file.Substring(0, file.LastIndexOf('/'));
+
+            return NSBundle.GetPathsForResources("", dir).NullToEmptyList().FirstOrDefault(fi => fi.Contains(file));
+        }
+
+        public override bool FileExists(string file)
+        {
+            var list = GetFiles(file);
+
+            if (list != null && list.Length > 0)
+            {
+                if (file.Contains("/"))
+                {
+                    file = file.Substring(file.LastIndexOf('/') + 1);
+                }
+                return list.Contains(file);
+            }
+            return false;
+        }
         /// <summary>
         /// 加載用戶文本
         /// </summary>
@@ -1040,12 +1074,12 @@ namespace Platforms
 
 		public override void ShowKeyBoard(PlayerIndex index, string name, string title, string desc, AsyncCallback CallbackFunction)
 		{			
-			Guide.BeginShowKeyboardInput(index, name, title, desc, CallbackFunction, null);
+			//Guide.BeginShowKeyboardInput(index, name, title, desc, CallbackFunction, null);
 		}
 
 		public override string EndShowKeyBoard(IAsyncResult ar)
 		{
-			return Guide.EndShowKeyboardInput(ar);
+            return "";   //Guide.EndShowKeyboardInput(ar);
 			//return "";
 		}
 
@@ -1347,7 +1381,135 @@ namespace Platforms
 //            //return null;
         }
 
-		public override void RotatePicture(byte[] image, int rotate, PlatformTask action)
+        /// <summary>
+        /// 播放歌曲
+        /// </summary>
+        /// <param name="url"></param>
+        public override void PlaySong(string res)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(Path.GetExtension(res)))
+                {
+                    res = res + ".mp3";
+                }
+
+                res = GetFileFullPath(res);
+
+                var url = new NSUrl(res);
+
+                //var song = AVAsset.FromUrl(url);
+
+                //var item = AVPlayerItem.FromAsset(song);
+
+                player = AVAudioPlayer.FromUrl(url);  // AVPlayer.FromPlayerItem(item);
+
+                SetMusicVolume((int)Setting.Current.MusicVolume);
+
+                player.NumberOfLoops = -1;
+
+                player.Play();
+                /*
+                Session.Current.MusicContent.Unload();
+                Song song = Song.FromUri(res, new Uri(res, UriKind.Relative));  // Session.Current.MusicContent.Load<Song>(res);
+                SetMusicVolume((int)Setting.Current.MusicVolume);
+                MediaPlayer.IsRepeating = true;
+                MediaPlayer.Play(song);
+                */
+                //    var songs = Directory.EnumerateFiles(directory, "*.mp3")
+                //.Select(file => Song.FromUri(file, new Uri(file)))
+                //.ToList();
+
+                //You can look in the Music folder by setting directory to the following:
+                //string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+
+            }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
+            catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
+            {
+                //监控此
+            }
+        }
+        public override void StopSong()
+        {
+            try
+            {
+                Session.Current.MusicContent.Unload();
+                //MediaPlayer.Stop();
+                if (player != null)
+                {
+                    player.Stop();
+                }
+            }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
+            catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
+            {
+
+            }
+        }
+        public override void PauseSong()
+        {
+            try
+            {
+                if (player != null)
+                {
+                    player.Pause();
+                }
+                //MediaPlayer.Pause();
+            }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
+            catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
+            {
+
+            }
+        }
+        public override void ResumeSong()
+        {
+            try
+            {
+                if (player != null)
+                {
+                    player.Play();
+                }
+                //MediaPlayer.Resume();
+            }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
+            catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// 設置音量
+        /// </summary>
+        /// <param name="volume"></param>
+        public override void SetMusicVolume(int volume)
+        {
+            //if (Sound != null) {
+            //  Sound.Volume = Convert.ToSingle(volume)/100f;
+            //}
+            try
+            {
+                if (player != null)
+                {
+                    player.Volume = Convert.ToSingle(volume) / 100;
+                }
+                //MediaPlayer.Volume = Convert.ToSingle(volume) / 100;
+            }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
+            catch (Exception ex)
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
+            {
+                //Why?
+            }
+        }
+
+        public override void RotatePicture(byte[] image, int rotate, PlatformTask action)
         {
             float orientationDegree = 0f;
 
