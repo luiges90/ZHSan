@@ -2985,14 +2985,14 @@ namespace GameObjects
                 Architecture architectureByPosition = Session.Current.Scenario.GetArchitectureByPosition(this.OutsideDestination.Value);
                 if (architectureByPosition != null && (this.ConvincingPerson.Status == PersonStatus.Normal || this.ConvincingPerson.Status == PersonStatus.NoFaction))
                 {
-                    int diff;
+                    float diff;
                     if (this.ConvincingPerson.Status == PersonStatus.Normal)
                     {
-                        diff = GameObject.Random(this.AssassinateAbility) - GameObject.Random(architectureByPosition.DefendAssassinateAbility) * 2;
+                        diff = GameObject.Random(this.AssassinateAbility) - GameObject.Random(architectureByPosition.DefendAssassinateAbility) * 1.5f;
                     }
                     else
                     {
-                        diff = GameObject.Random(this.AssassinateAbility) - this.ConvincingPerson.AssassinateAbility * 2;
+                        diff = GameObject.Random(this.AssassinateAbility) - this.ConvincingPerson.AssassinateAbility * 1.5f;
                     }
                     if (diff > 0)
                     {
