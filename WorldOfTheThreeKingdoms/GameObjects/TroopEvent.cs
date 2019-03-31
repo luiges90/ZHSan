@@ -246,14 +246,7 @@ namespace GameObjects
 
         public bool CheckCondition(Troop troop)
         {
-            foreach (Condition condition in this.Conditions.Conditions.Values)
-            {
-                if (!condition.CheckCondition(troop))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return Condition.CheckConditionList(this.Conditions.Conditions.Values, troop);
         }
 
         public bool CheckTroop(Troop troop)

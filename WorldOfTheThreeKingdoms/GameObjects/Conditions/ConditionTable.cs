@@ -98,14 +98,7 @@ namespace GameObjects.Conditions
 
         public bool CheckCondition(Person p)
         {
-            foreach (Condition condition in this.Conditions.Values)
-            {
-                if (!condition.CheckCondition(p))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return Condition.CheckConditionList(this.Conditions.Values, p);
         }
 
         public bool CheckPersonalityCondition(Person p)

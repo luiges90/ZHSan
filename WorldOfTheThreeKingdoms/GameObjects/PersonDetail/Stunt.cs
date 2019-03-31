@@ -147,27 +147,13 @@ namespace GameObjects.PersonDetail
 
         public bool IsAIable(Troop troop)
         {
-            foreach (Condition condition in this.AIConditions.Conditions.Values)
-            {
-                if (!condition.CheckCondition(troop))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return Condition.CheckConditionList(this.AIConditions.Conditions.Values, troop);
         }
 
         public bool IsCastable(Troop troop)
         {
             if (this.CastConditions == null) return false;
-            foreach (Condition condition in this.CastConditions.Conditions.Values)
-            {
-                if (!condition.CheckCondition(troop))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return Condition.CheckConditionList(this.CastConditions.Conditions.Values, troop);
         }
 
         public bool IsLearnable(Person person)

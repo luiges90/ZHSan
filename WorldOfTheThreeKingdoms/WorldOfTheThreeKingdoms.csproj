@@ -817,6 +817,8 @@
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind975.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind980.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind990.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind997.cs" />
+    <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind996.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind998.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindPack\ConditionKind999.cs" />
     <Compile Include="GameObjects\Conditions\ConditionKindTable.cs" />

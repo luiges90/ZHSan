@@ -19,6 +19,238 @@ namespace GameObjects.Conditions
             return this.MemberwiseClone() as Condition;
         }
 
+        public static bool CheckConditionList(ICollection<Condition> list, Architecture a, Event e = null)
+        {
+            if (a == null) return false;
+            bool flag = true;
+            bool negate = false;
+            foreach (Condition condition in list)
+            {
+                if (condition.Kind.ID == 996)
+                {
+                    negate = true;
+                }
+                else if (condition.Kind.ID == 997)
+                {
+                    if (flag) return true;
+                    flag = true;
+                }
+                else
+                {
+                    if (negate)
+                    {
+                        if (e == null)
+                        {
+                            if (condition.CheckCondition(a))
+                            {
+                                flag = false;
+                            }
+                        }
+                        else
+                        {
+                            if (condition.CheckCondition(a, e))
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (e == null)
+                        {
+                            if (!condition.CheckCondition(a))
+                            {
+                                flag = false;
+                            }
+                        }
+                        else
+                        {
+                            if (!condition.CheckCondition(a, e))
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                    negate = false;
+                }
+            }
+            return flag;
+        }
+
+        public static bool CheckConditionList(ICollection<Condition> list, Person p, Event e = null)
+        {
+            if (p == null) return false;
+            bool flag = true;
+            bool negate = false;
+            foreach (Condition condition in list)
+            {
+                if (condition.Kind.ID == 996)
+                {
+                    negate = true;
+                }
+                else if (condition.Kind.ID == 997)
+                {
+                    if (flag) return true;
+                    flag = true;
+                }
+                else
+                {
+                    if (negate)
+                    {
+                        if (e == null)
+                        {
+                            if (condition.CheckCondition(p))
+                            {
+                                flag = false;
+                            }
+                        }
+                        else
+                        {
+                            if (condition.CheckCondition(p, e))
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (e == null)
+                        {
+                            if (!condition.CheckCondition(p))
+                            {
+                                flag = false;
+                            }
+                        }
+                        else
+                        {
+                            if (!condition.CheckCondition(p, e))
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                    negate = false;
+                }
+            }
+            return flag;
+        }
+
+        public static bool CheckConditionList(ICollection<Condition> list, Faction f, Event e = null)
+        {
+            if (f == null) return false;
+            bool flag = true;
+            bool negate = false;
+            foreach (Condition condition in list)
+            {
+                if (condition.Kind.ID == 996)
+                {
+                    negate = true;
+                }
+                else if (condition.Kind.ID == 997)
+                {
+                    if (flag) return true;
+                    flag = true;
+                }
+                else
+                {
+                    if (negate)
+                    {
+                        if (e == null)
+                        {
+                            if (condition.CheckCondition(f))
+                            {
+                                flag = false;
+                            }
+                        }
+                        else
+                        {
+                            if (condition.CheckCondition(f, e))
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (e == null)
+                        {
+                            if (!condition.CheckCondition(f))
+                            {
+                                flag = false;
+                            }
+                        }
+                        else
+                        {
+                            if (!condition.CheckCondition(f, e))
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                    negate = false;
+                }
+            }
+            return flag;
+        }
+
+        public static bool CheckConditionList(ICollection<Condition> list, Troop t, Event e = null)
+        {
+            if (t == null) return false;
+            bool flag = true;
+            bool negate = false;
+            foreach (Condition condition in list)
+            {
+                if (condition.Kind.ID == 996)
+                {
+                    negate = true;
+                }
+                else if (condition.Kind.ID == 997)
+                {
+                    if (flag) return true;
+                    flag = true;
+                }
+                else
+                {
+                    if (negate)
+                    {
+                        if (e == null)
+                        {
+                            if (condition.CheckCondition(t))
+                            {
+                                flag = false;
+                            }
+                        }
+                        else
+                        {
+                            if (condition.CheckCondition(t, e))
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (e == null)
+                        {
+                            if (!condition.CheckCondition(t))
+                            {
+                                flag = false;
+                            }
+                        }
+                        else
+                        {
+                            if (!condition.CheckCondition(t, e))
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                    negate = false;
+                }
+            }
+            return flag;
+        }
+
         public bool CheckCondition(Architecture architecture, Event e)
         {
             if (this.Kind == null) return false;

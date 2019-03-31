@@ -190,14 +190,7 @@ namespace GameObjects.FactionDetail
 
         public bool CanResearch(Faction f)
         {
-            foreach (Condition condition in this.Conditions.Conditions.Values)
-            {
-                if (!condition.CheckCondition(f))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return Condition.CheckConditionList(this.Conditions.Conditions.Values, f);
         }
     }
 }

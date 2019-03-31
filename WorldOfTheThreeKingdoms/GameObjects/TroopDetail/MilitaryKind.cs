@@ -1292,14 +1292,7 @@ namespace GameObjects.TroopDetail
 
         public bool CheckConditions(Architecture a)
         {
-            foreach (Condition condition in this.CreateConditions.Conditions.Values)
-            {
-                if (!condition.CheckCondition(a))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return Condition.CheckConditionList(this.CreateConditions.Conditions.Values, a);
         }
         /*
         public int EachMilitaryKindCount(Faction f)

@@ -14935,17 +14935,13 @@ namespace GameObjects
             }
             if (this.HasHostileTroopsInView()) return false;
 
+            List<Condition> conditions = new List<Condition>();
             for (int i = 0; i < Session.Parameters.ExpandConditions.Count; i++)
             {
                 Condition c = Session.Current.Scenario.GameCommonData.AllConditions.GetCondition(Session.Parameters.ExpandConditions[i]);
-                if (c != null)
-                {
-                    if (!c.CheckCondition(this))
-                    {
-                        return false;
-                    }
-                }
+                conditions.Add(c);
             }
+            if (!Condition.CheckConditionList(conditions, this)) return false;
 
             return true;
         }

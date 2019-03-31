@@ -340,13 +340,7 @@ namespace GameObjects.ArchitectureDetail
             {
                 return false;
             }
-            foreach (Conditions.Condition i in this.GetConditionList())
-            {
-                if (!i.CheckCondition(a))
-                {
-                    return false;
-                }
-            }
+            if (!Condition.CheckConditionList(this.Conditions.Conditions.Values, a)) return false;
             if (this.ArchitectureLimit < 9999 && a.GetFacilityKindCount(this.ID) >= this.ArchitectureLimit)
             {
                 return false;

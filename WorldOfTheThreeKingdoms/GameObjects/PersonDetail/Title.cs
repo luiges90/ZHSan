@@ -261,24 +261,9 @@ namespace GameObjects.PersonDetail
         {
             if (AutoLearn > 0 && !ignoreAutoLearn) return false;
             if (this.ManualAward && !ignoreAutoLearn) return false;
-            foreach (Condition condition in this.Conditions.Conditions.Values)
-            {
-                if (!condition.CheckCondition(person))
-                {
-                    return false;
-                }
-            }
-            foreach (Condition condition in this.ArchitectureConditions.Conditions.Values)
-            {
-                if (person.LocationArchitecture == null) return false;
-                if (!condition.CheckCondition(person.LocationArchitecture)) return false;
-            }
-            foreach (Condition condition in this.FactionConditions.Conditions.Values)
-            {
-                if (person.BelongedFaction == null) return false;
-                if (!condition.CheckCondition(person.BelongedFaction)) return false;
-            }
-           
+            if (!Condition.CheckConditionList(this.Conditions.Conditions.Values, person)) return false;
+            if (!Condition.CheckConditionList(this.ArchitectureConditions.Conditions.Values, person.LocationArchitecture)) return false;
+            if (!Condition.CheckConditionList(this.FactionConditions.Conditions.Values, person.BelongedFaction)) return false;
             return CheckLimit(person);
         }
 

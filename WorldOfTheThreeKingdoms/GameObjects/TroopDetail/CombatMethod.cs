@@ -81,14 +81,7 @@ namespace GameObjects.TroopDetail
 
         public bool IsCastable(Troop troop)
         {
-            foreach (Condition condition in this.CastConditions.Conditions.Values)
-            {
-                if (!condition.CheckCondition(troop))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return Condition.CheckConditionList(this.CastConditions.Conditions.Values, troop);
         }
 
         public void Purify(Troop troop)
