@@ -205,12 +205,13 @@ namespace GameObjects
 
         public void addAssassinateEntry(GameDate date, Person killer, Person killed)
         {
+            String killedFactionName = killed.BelongedFaction == null ? "" : killed.BelongedFaction.Name;
             this.addTableEntry(date, composeFactionList(killer.BelongedFaction, killed.BelongedFaction),
-                String.Format(yearTableStrings["assassinate"], killed.BelongedFaction.Name, killed.Name, killed.LocationArchitecture.Name, killer.BelongedFaction.Name, killer.Name, killed.Age), true);
+                String.Format(yearTableStrings["assassinate"], killedFactionName, killed.Name, killed.LocationArchitecture.Name, killedFactionName, killer.Name, killed.Age), true);
             this.addPersonInGameBiography(killer, date,
-                String.Format(yearTableStrings["assassinate_p"], killed.BelongedFaction.Name, killed.Name, killed.LocationArchitecture.Name, killer.BelongedFaction.Name, killer.Name, killed.Age));
+                String.Format(yearTableStrings["assassinate_p"], killedFactionName, killed.Name, killed.LocationArchitecture.Name, killedFactionName, killer.Name, killed.Age));
             this.addPersonInGameBiography(killed, date,
-                String.Format(yearTableStrings["assassinate_q"], killed.BelongedFaction.Name, killed.Name, killed.LocationArchitecture.Name, killer.BelongedFaction.Name, killer.Name, killed.Age));
+                String.Format(yearTableStrings["assassinate_q"], killedFactionName, killed.Name, killed.LocationArchitecture.Name, killedFactionName, killer.Name, killed.Age));
         }
 
         public void addReverseAssassinateEntry(GameDate date, Person killer, Person killed)
