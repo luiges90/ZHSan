@@ -390,7 +390,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Architecture_AfterGetAssassinatePerson()
         {
-            this.CurrentGameObjects = this.CurrentArchitecture.MovablePersons.GetSelectedList();
+            this.CurrentGameObjects = this.CurrentArchitecture.AllAvailablePersons.GetSelectedList();
             if (this.CurrentGameObjects != null)
             {
                 this.CurrentPersons = this.CurrentGameObjects.GetList();

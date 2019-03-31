@@ -2983,9 +2983,17 @@ namespace GameObjects
                 if (this.ConvincingPerson.BelongedFaction == this.BelongedFaction) return;
 
                 Architecture architectureByPosition = Session.Current.Scenario.GetArchitectureByPosition(this.OutsideDestination.Value);
-                if (architectureByPosition != null && this.ConvincingPerson.Status == PersonStatus.Normal)
+                if (architectureByPosition != null && (this.ConvincingPerson.Status == PersonStatus.Normal || this.ConvincingPerson.Status == PersonStatus.NoFaction))
                 {
-                    int diff = GameObject.Random(this.AssassinateAbility) - GameObject.Random(architectureByPosition.DefendAssassinateAbility) * 2;
+                    int diff;
+                    if (this.ConvincingPerson.Status == PersonStatus.Normal)
+                    {
+                        diff = GameObject.Random(this.AssassinateAbility) - GameObject.Random(architectureByPosition.DefendAssassinateAbility) * 2;
+                    }
+                    else
+                    {
+                        diff = GameObject.Random(this.AssassinateAbility) - this.ConvincingPerson.AssassinateAbility * 2;
+                    }
                     if (diff > 0)
                     {
                         this.ConvincingPerson.InjureRate -= diff / 1000.0f;
@@ -3023,20 +3031,6 @@ namespace GameObjects
                             this.DecreaseKarma(Math.Max(1, this.ConvincingPerson.Karma / 5));
 
                             Session.MainGame.mainGameScreen.PersonAssassinateSuccess(this, this.ConvincingPerson, architectureByPosition);
-                            /*
-                            if (GameObject.Random(this.AssassinateAbility) > GameObject.Random(this.ConvincingPerson.AssassinateAbility) * 3 &&
-                                !this.ConvincingPerson.ImmunityOfCaptive)
-                            {
-                                Captive captive = Captive.Create(this.ConvincingPerson, this.BelongedFaction);
-                                this.ConvincingPerson.Status = PersonStatus.Captive;
-                                this.ConvincingPerson.MoveToArchitecture(this.TargetArchitecture);
-
-                                Session.MainGame.mainGameScreen.PersonAssassinateSuccessCaptured(this, this.ConvincingPerson, architectureByPosition);
-                            }
-                            else
-                            {
-                                Session.MainGame.mainGameScreen.PersonAssassinateSuccess(this, this.ConvincingPerson, architectureByPosition);
-                            }*/
                         }
                     }
                     else
@@ -3064,15 +3058,14 @@ namespace GameObjects
                         {
                             Session.MainGame.mainGameScreen.PersonAssassinateFailed(this, this.ConvincingPerson, architectureByPosition);
                         }
+                    }
 
+                    if (!CheckCapturedByArchitecture(architectureByPosition))
+                    {
                         if (!CheckCapturedByArchitecture(architectureByPosition))
                         {
-                            if (!CheckCapturedByArchitecture(architectureByPosition))
-                            {
-                                CheckCapturedByArchitecture(architectureByPosition);
-                            }
+                            CheckCapturedByArchitecture(architectureByPosition);
                         }
-                        
                     }
                 }
             }

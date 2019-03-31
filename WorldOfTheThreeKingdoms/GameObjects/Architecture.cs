@@ -4573,6 +4573,16 @@ namespace GameObjects
            }
        }
 
+        public GameObjectList AllAvailablePersons
+        {
+            get
+            {
+                GameObjectList pl = this.Persons.GetList();
+                pl.AddRange(this.NoFactionPersons);
+                return pl;
+            }
+        }
+
        public PersonList MovablePersons  //代替原来的Persons列表
        {
            get
@@ -15045,14 +15055,6 @@ namespace GameObjects
             }
             if (this.BelongedFaction.IsAlien)
             {
-                foreach (Person person in this.NoFactionPersons)
-                {
-                    if (person.ArrivingDays > 0) continue;
-                    if (this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person))
-                    {
-                        nvxingwujiangliebiao.Add(person);
-                    }
-                }
                 foreach (Captive c in this.Captives)
                 {
                     Person person = c.CaptivePerson;
