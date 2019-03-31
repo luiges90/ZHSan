@@ -2597,7 +2597,7 @@ namespace GameObjects
                         if (knownArch.Count > 0)
                         {
                             Architecture target = (Architecture)knownArch[GameObject.Random(knownArch.Count)];
-                            if (target.BelongedFaction != null || target.BelongedFaction.IsAlien)
+                            if (target.BelongedFaction != null || this.BelongedFaction.IsAlien)
                             {
                                 if (target.BelongedFaction != null && target.BelongedFaction != this.BelongedFaction)
                                 {
@@ -4573,7 +4573,7 @@ namespace GameObjects
             {
                 return assassinatablePersons;
             }
-            if (this.BelongedFaction.IsFriendly(f))
+            if (this.BelongedFaction == null || this.BelongedFaction.IsFriendly(f))
             {
                 assassinatablePersons = this.NoFactionPersons;
                 assassinatablePersonFaction = f;
