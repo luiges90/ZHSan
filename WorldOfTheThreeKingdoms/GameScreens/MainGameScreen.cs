@@ -666,7 +666,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     if (this.CurrentArchitecture != null)
                     {
                         this.selectingLayer.AreaFrameKind = SelectingUndoneWorkKind.AssassinatePosition;
-                        this.selectingLayer.Area = this.CurrentArchitecture.GetAssassinateArchitectureArea();
+                        this.selectingLayer.Area = this.CurrentArchitecture.GetAssassinateArchitectureArea((this.CurrentPersons[0] as Person).BelongedFaction);
                         this.selectingLayer.ShowComment = true;
                         this.selectingLayer.SingleWay = true;
                         this.selectingLayer.FromArea = this.CurrentArchitecture.ArchitectureArea;
@@ -922,7 +922,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             {
                                 person.OutsideDestination = new Point?(this.selectingLayer.SelectedPoint);
                             }
-                            this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetAssassinatePersonTarget, false, true, true, false, architectureByPosition.GetAssassinatePersonTarget(), null, "暗杀", "Personal");
+                            this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetAssassinatePersonTarget, false, true, true, false, architectureByPosition.GetAssassinatePersonTarget((this.CurrentPersons[0] as Person).BelongedFaction), null, "暗杀", "Personal");
                         }
                     }
                     return;

@@ -400,7 +400,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Architecture_AfterGetAssassinatePersonTarget()
         {
-            this.CurrentGameObjects = this.CurrentArchitecture.AllAvailablePersons.GetSelectedList();
+            this.CurrentGameObjects = this.CurrentArchitecture.AssassinatablePersons((this.CurrentPersons[0] as Person).BelongedFaction).GetSelectedList();
             if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
             {
                 foreach (Person person in this.CurrentPersons)

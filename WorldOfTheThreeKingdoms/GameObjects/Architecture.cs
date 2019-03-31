@@ -2603,7 +2603,7 @@ namespace GameObjects
                                 if (((diplomaticRelation >= 0) && (GameObject.Random(diplomaticRelation + 400) <= GameObject.Random(50))) || (diplomaticRelation < 0))
                                 {
                                     PersonList candidates = new PersonList();
-                                    foreach (Person p in target.GetAssassinatePersonTarget())
+                                    foreach (Person p in target.GetAssassinatePersonTarget(this.BelongedFaction))
                                     {
                                         if ((double)(p.UntiredStrength + p.UntiredIntelligence) / (p.Strength + p.Intelligence) > 1.1)
                                         {
@@ -2631,7 +2631,7 @@ namespace GameObjects
                                         int targetAbility = target.DefendAssassinateAbility;
                                         foreach (Person p in candidates)
                                         {
-                                            if (killer.AssassinateAbility > targetAbility && killer.UntiredMerit * 0.9 < p.UntiredMerit && GameObject.Chance(100 - p.BelongedArchitecture.captureChance))
+                                            if (killer.AssassinateAbility > targetAbility * 1.5 && GameObject.Chance(100 - p.BelongedArchitecture.captureChance))
                                             {
                                                 killer.OutsideDestination = new Point?(Session.Current.Scenario.GetClosestPoint(p.BelongedArchitecture.ArchitectureArea, this.Position));
                                                 killer.GoForAssassinate(p);
@@ -4573,14 +4573,26 @@ namespace GameObjects
            }
        }
 
-        public GameObjectList AllAvailablePersons
+        GameObjectList assassinatablePersons = new GameObjectList();
+        Faction assassinatablePersonFaction = null;
+        public GameObjectList AssassinatablePersons(Faction f)
         {
-            get
+            if (assassinatablePersonFaction == f)
             {
-                GameObjectList pl = this.Persons.GetList();
-                pl.AddRange(this.NoFactionPersons);
-                return pl;
+                return assassinatablePersons;
             }
+            if (this.BelongedFaction.IsFriendly(f))
+            {
+                assassinatablePersons = this.NoFactionPersons;
+                assassinatablePersonFaction = f;
+            }
+            else
+            {
+                assassinatablePersons = this.MovablePersons.GetList();
+                assassinatablePersons.AddRange(this.NoFactionPersons);
+                assassinatablePersonFaction = f;
+            }
+            return assassinatablePersons;
         }
 
        public PersonList MovablePersons  //代替原来的Persons列表
@@ -8241,27 +8253,23 @@ namespace GameObjects
             }
         }
 
-        public PersonList GetAssassinatePersonTarget()
+        public PersonList GetAssassinatePersonTarget(Faction from)
         {
-            PersonList list = new PersonList();
-            foreach (Person p in this.Persons)
+            PersonList pl = new PersonList();
+            foreach (Person p in this.AssassinatablePersons(from))
             {
-                list.Add(p);
+                pl.Add(p);
             }
-            foreach (Person p in this.Feiziliebiao)
-            {
-                list.Add(p);
-            }
-            return list;
+            return pl;
         }
 
-        public GameArea GetAssassinateArchitectureArea()
+        public GameArea GetAssassinateArchitectureArea(Faction from)
         {
             GameArea area = new GameArea();
             foreach (Architecture architecture in Session.Current.Scenario.Architectures)
             {
-                if (architecture.BelongedFaction != null && !this.IsFriendly(architecture.BelongedFaction) && 
-                    (architecture.HasPerson() || architecture.Feiziliebiao.Count > 0) && this.BelongedFaction.IsArchitectureKnown(architecture))
+                if (architecture.BelongedFaction != null && 
+                    (architecture.AssassinatablePersons(from).Count > 0) && this.BelongedFaction.IsArchitectureKnown(architecture))
                 {
                     foreach (Point point in architecture.ArchitectureArea.Area)
                     {
@@ -8940,7 +8948,7 @@ namespace GameObjects
 
         public bool AssassinateAvail()
         {
-            return this.AllAvailablePersons.Count > 0 && this.GetAssassinateArchitectureArea().Count > 0;
+            return this.MovablePersons.Count > 0 && this.GetAssassinateArchitectureArea(this.BelongedFaction).Count > 0;
         }
 
         private void characteristicsDoWork()

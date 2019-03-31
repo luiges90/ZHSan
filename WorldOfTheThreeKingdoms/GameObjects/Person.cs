@@ -2992,7 +2992,7 @@ namespace GameObjects
                     }
                     else
                     {
-                        diff = GameObject.Random(this.AssassinateAbility) - this.ConvincingPerson.AssassinateAbility * 1.5f;
+                        diff = GameObject.Random(this.AssassinateAbility) - GameObject.Random(this.ConvincingPerson.AssassinateAbility) * 1.5f;
                     }
                     if (diff > 0)
                     {
@@ -3015,6 +3015,28 @@ namespace GameObjects
 
                             Session.Current.Scenario.YearTable.addAssassinateEntry(Session.Current.Scenario.Date, this, this.ConvincingPerson);
                             this.ConvincingPerson.ToDeath(this, this.ConvincingPerson.BelongedFaction);
+                        }
+                        else if (this.ConvincingPerson.InjureRate < 0.009 * this.Strength && 
+                            GameObject.Chance(this.Strength + this.Intelligence - this.ConvincingPerson.Strength - this.ConvincingPerson.Intelligence))
+                        {
+                            architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -15f, -15);
+                            architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -4f, -4);
+
+                            this.AddStrengthExperience(30);
+                            this.AddIntelligenceExperience(30);
+                            this.AddTacticsExperience(180);
+                            this.BelongedFaction.IncreaseTechniquePoint(30 * this.MultipleOfTacticsTechniquePoint * 100);
+
+                            Captive captive = Captive.Create(this.ConvincingPerson, this.BelongedFaction);
+                            this.ConvincingPerson.Status = PersonStatus.Captive;
+                            foreach (Treasure treasure in this.ConvincingPerson.Treasures.GetList())
+                            {
+                                this.ConvincingPerson.LoseTreasure(treasure);
+                                this.BelongedFaction.Leader.ReceiveTreasure(treasure);
+                            }
+                            this.ConvincingPerson.LocationArchitecture = this.LocationArchitecture;
+
+                            Session.MainGame.mainGameScreen.PersonAssassinateSuccessCaptured(this, this.ConvincingPerson, architectureByPosition);
                         }
                         else
                         {
