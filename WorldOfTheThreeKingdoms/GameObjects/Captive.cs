@@ -90,10 +90,6 @@ namespace GameObjects
 
         public static Captive Create(Person person, Faction capturingFaction)
         {
-            if (person.BelongedFaction == null)
-            {
-                return null;
-            }
             if (person.BelongedFaction == capturingFaction)
             {
                 return null;

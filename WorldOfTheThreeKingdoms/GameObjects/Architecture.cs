@@ -2505,7 +2505,7 @@ namespace GameObjects
                             }
                         }
                     }
-                    if ((this.HasPerson() && (GameObject.Random(this.Fund) >= this.ConvincePersonFund)) && GameObject.Chance(50))
+                    if ((this.HasPerson() && (GameObject.Random(this.Fund) >= this.ConvincePersonFund)) && GameObject.Chance(50) && this.BelongedSection.AIDetail.AllowPersonTactics)
                     {
                         ArchitectureList list4 = new ArchitectureList();
                         foreach (Architecture architecture in knownArch)
@@ -2555,7 +2555,7 @@ namespace GameObjects
                             }
                         }
                     }
-                    if ((this.HasPerson() && (GameObject.Random(this.Fund) >= this.JailBreakArchitectureFund)) && GameObject.Chance(50) && this.JailBreakAvail())
+                    if ((this.HasPerson() && (GameObject.Random(this.Fund) >= this.JailBreakArchitectureFund)) && GameObject.Chance(50) && this.JailBreakAvail() && this.BelongedSection.AIDetail.AllowPersonTactics)
                     {
                         List<Architecture> a = new List<Architecture>();
                         foreach (Architecture architecture in Session.Current.Scenario.Architectures)
@@ -2592,49 +2592,41 @@ namespace GameObjects
                             }
                         }
                     }
-                    if (this.HasPerson() && GameObject.Chance(50) && this.AssassinateAvail())
+                    if (this.HasPerson() && GameObject.Chance(50) && this.AssassinateAvail() && this.BelongedSection.AIDetail.AllowPersonTactics)
                     {
                         if (knownArch.Count > 0)
                         {
                             Architecture target = (Architecture)knownArch[GameObject.Random(knownArch.Count)];
-                            if (target.BelongedFaction != null)
+                            if (target.BelongedFaction != null || target.BelongedFaction.IsAlien)
                             {
-                                diplomaticRelation = Session.Current.Scenario.GetDiplomaticRelation(this.BelongedFaction.ID, target.BelongedFaction.ID);
+                                if (target.BelongedFaction != null && target.BelongedFaction != this.BelongedFaction)
+                                {
+                                    diplomaticRelation = Session.Current.Scenario.GetDiplomaticRelation(this.BelongedFaction.ID, target.BelongedFaction.ID);
+                                }
+                                else
+                                {
+                                    diplomaticRelation = -1000;
+                                }
                                 if (((diplomaticRelation >= 0) && (GameObject.Random(diplomaticRelation + 400) <= GameObject.Random(50))) || (diplomaticRelation < 0))
                                 {
-                                    PersonList candidates = new PersonList();
-                                    foreach (Person p in target.GetAssassinatePersonTarget(this.BelongedFaction))
+                                    firstHalfPerson = this.GetFirstHalfPerson("AssassinateAbility");
+                                    if (firstHalfPerson != null && firstHalfPerson.PersonalLoyalty < 4)
                                     {
-                                        if ((double)(p.UntiredStrength + p.UntiredIntelligence) / (p.Strength + p.Intelligence) > 1.1)
+                                        foreach (Person p in target.GetAssassinatePersonTarget(this.BelongedFaction))
                                         {
-                                            candidates.Add(p);
-                                        }
-                                    }
-                                    if (candidates.Count > 0)
-                                    {
-                                        candidates.SmallToBig = false;
-                                        candidates.PropertyName = "Merit";
-                                        candidates.IsNumber = true;
-                                        candidates.ReSort();
-
-                                        Person killer = null;
-                                        int max = 0;
-                                        foreach (Person p in this.Persons)
-                                        {
-                                            if (killer == null || killer.AssassinateAbility > max)
+                                            int targetDef;
+                                            if (p.Status == PersonStatus.Normal)
                                             {
-                                                killer = p;
-                                                max = killer.AssassinateAbility;
+                                                targetDef = target.DefendAssassinateAbility;
                                             }
-                                        }
-
-                                        int targetAbility = target.DefendAssassinateAbility;
-                                        foreach (Person p in candidates)
-                                        {
-                                            if (killer.AssassinateAbility > targetAbility * 1.5 && GameObject.Chance(100 - p.BelongedArchitecture.captureChance))
+                                            else
                                             {
-                                                killer.OutsideDestination = new Point?(Session.Current.Scenario.GetClosestPoint(p.BelongedArchitecture.ArchitectureArea, this.Position));
-                                                killer.GoForAssassinate(p);
+                                                targetDef = p.AssassinateAbility;
+                                            }
+                                            if (firstHalfPerson.CanConvinceChance(p) <= 20 && firstHalfPerson.AssassinateAbility > targetDef * 2)
+                                            {
+                                                firstHalfPerson.OutsideDestination = this.ArchitectureArea.Centre;
+                                                firstHalfPerson.GoForAssassinate(p);
                                                 break;
                                             }
                                         }

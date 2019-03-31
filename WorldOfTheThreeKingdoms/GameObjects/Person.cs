@@ -3019,8 +3019,11 @@ namespace GameObjects
                         else if (this.ConvincingPerson.InjureRate < 0.009 * this.Strength && 
                             GameObject.Chance(this.Strength + this.Intelligence - this.ConvincingPerson.Strength - this.ConvincingPerson.Intelligence))
                         {
-                            architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -15f, -15);
-                            architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -4f, -4);
+                            if (architectureByPosition.BelongedFaction != this.BelongedFaction)
+                            {
+                                architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -15f, -15);
+                                architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -4f, -4);
+                            }
 
                             this.AddStrengthExperience(30);
                             this.AddIntelligenceExperience(30);
