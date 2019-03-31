@@ -5367,67 +5367,51 @@ namespace GameObjects
 
         public void LeaveFaction()
         {
+            Faction oldFaction = this.BelongedFaction;
             if (GameObject.Chance(20) && this.LocationArchitecture != null && this.Status == PersonStatus.Normal && this.BelongedFaction != null && this.BelongedFaction.Leader != this && !this.IsCaptive)
             {
-                bool stay = false;
-                if (this.Spouse != null && this.Spouse.SameLocationAs(this))
+                if ((this.Loyalty < 50) && (GameObject.Random(this.Loyalty * (1 + (int)this.PersonalLoyalty)) <= GameObject.Random(5)))
                 {
-                    stay = true;
+                    this.LeaveToNoFaction();
+                    ArchitectureList allArch = Session.Current.Scenario.Architectures;
+                    Architecture a;
+                    int tries = 0;
+                    do
+                    {
+                        a = allArch[GameObject.Random(allArch.Count)] as Architecture;
+                        tries++;
+                    } while (a.BelongedFaction == oldFaction && tries <= 10);
+                    this.MoveToArchitecture(a);
+                    ExtensionInterface.call("LeaveFaction", new Object[] { Session.Current.Scenario, this });
                 }
-                else
+                /*else if (((Session.GlobalVariables.IdealTendencyValid && (this.IdealTendency != null)) && (this.IdealTendency.Offset <= 1)) && (this.BelongedFaction.Leader != null))
                 {
-                    foreach (Person p in this.Brothers)
+                    int idealOffset = GetIdealOffset(this, this.BelongedFaction.Leader);
+                    if (idealOffset > this.IdealTendency.Offset + (double) this.BelongedFaction.Reputation / this.BelongedFaction.MaxPossibleReputation * 75)
                     {
-                        if (p.SameLocationAs(this))
+                        GameObjectList list = new GameObjectList();
+                        foreach (GameObjects.Faction faction in Session.Current.Scenario.Factions)
                         {
-                            stay = true;
-                        }
-                    }
-                }
-
-                if (!stay)
-                {
-                    if ((this.Loyalty < 50) && (GameObject.Random(this.Loyalty * (1 + (int)this.PersonalLoyalty)) <= GameObject.Random(5)))
-                    {
-                        this.LeaveToNoFaction();
-                        ExtensionInterface.call("LeaveFaction", new Object[] { Session.Current.Scenario, this });
-                    }
-                    /*else if (((Session.GlobalVariables.IdealTendencyValid && (this.IdealTendency != null)) && (this.IdealTendency.Offset <= 1)) && (this.BelongedFaction.Leader != null))
-                    {
-                        int idealOffset = GetIdealOffset(this, this.BelongedFaction.Leader);
-                        if (idealOffset > this.IdealTendency.Offset + (double) this.BelongedFaction.Reputation / this.BelongedFaction.MaxPossibleReputation * 75)
-                        {
-                            GameObjectList list = new GameObjectList();
-                            foreach (GameObjects.Faction faction in Session.Current.Scenario.Factions)
+                            if (((faction != this.BelongedFaction) && (faction.Leader != null)) && (GetIdealOffset(this, faction.Leader) <= this.IdealTendency.Offset)
+                                && !this.HatedPersons.Contains(faction.LeaderID))
                             {
-                                if (((faction != this.BelongedFaction) && (faction.Leader != null)) && (GetIdealOffset(this, faction.Leader) <= this.IdealTendency.Offset)
-                                    && !this.HatedPersons.Contains(faction.LeaderID))
-                                {
-                                    list.Add(faction);
-                                }
-                            }
-                            if (list.Count > 0)
-                            {
-                                GameObjects.Faction faction2 = list[GameObject.Random(list.Count)] as GameObjects.Faction;
-                                if ((faction2.Capital != null) && ((((this.PersonalLoyalty < (int) PersonLoyalty.很高) || ((this.Father >= 0) && (this.Father == faction2.Leader.ID))) || ((this.Brother >= 0) && (this.Brother == faction2.Leader.Brother))) || (idealOffset > 10)))
-                                {
-                                    this.LeaveToNoFaction();
-                                    this.MoveToArchitecture(faction2.Capital);
-                                    ExtensionInterface.call("LeaveFaction", new Object[] { Session.Current.Scenario, this });
-                                    //this.LocationArchitecture.RemoveNoFactionPerson(this);
-                                    //Session.Current.Scenario.detectDuplication();
-                                }
+                                list.Add(faction);
                             }
                         }
-                    }*/
-                    if ((this.BelongedFaction != null) && (this.BelongedFaction.Leader != null) && this.Hates(this.BelongedFaction.Leader) && (GameObject.Random(this.Loyalty * (1 + (int)this.PersonalLoyalty)) <= GameObject.Random(5)))
-                    {
-                        this.LeaveToNoFaction();
-                        ArchitectureList allArch = Session.Current.Scenario.Architectures;
-                        this.MoveToArchitecture(allArch[GameObject.Random(allArch.Count)] as Architecture);
-                        ExtensionInterface.call("LeaveFaction", new Object[] { Session.Current.Scenario, this });
+                        if (list.Count > 0)
+                        {
+                            GameObjects.Faction faction2 = list[GameObject.Random(list.Count)] as GameObjects.Faction;
+                            if ((faction2.Capital != null) && ((((this.PersonalLoyalty < (int) PersonLoyalty.很高) || ((this.Father >= 0) && (this.Father == faction2.Leader.ID))) || ((this.Brother >= 0) && (this.Brother == faction2.Leader.Brother))) || (idealOffset > 10)))
+                            {
+                                this.LeaveToNoFaction();
+                                this.MoveToArchitecture(faction2.Capital);
+                                ExtensionInterface.call("LeaveFaction", new Object[] { Session.Current.Scenario, this });
+                                //this.LocationArchitecture.RemoveNoFactionPerson(this);
+                                //Session.Current.Scenario.detectDuplication();
+                            }
+                        }
                     }
-                }
+                }*/
             }
         }
 
@@ -7835,6 +7819,18 @@ namespace GameObjects
                             v += 10;
                         }
                     }
+
+                    if (this.Spouse != null && this.Spouse.BelongedFaction == this.BelongedFaction)
+                    {
+                        v += 10;
+                    }
+                    foreach (Person p in this.Brothers)
+                    {
+                        if (p.BelongedFaction == this.BelongedFaction)
+                        {
+                            v += 10;
+                        }
+                    }
                    
                     if (this.Father != null && this.Father.BelongedFactionWithPrincess == this.BelongedFactionWithPrincess)
                     {
@@ -7847,18 +7843,18 @@ namespace GameObjects
 
                     if (this.Hates(this.BelongedFaction.Leader))
                     {
-                        v -= 100;
+                        v -= 50;
                     }
                     else if (this.Closes(this.BelongedFaction.Leader))
                     {
-                        v += 20;
+                        v += 10;
                     }
                     else if (this.IsVeryCloseTo(this.BelongedFaction.Leader))
                     {
-                        v += 50;
+                        v += 30;
                     }
 
-                    v += Math.Max(-150, TempLoyaltyChange);
+                    v += Math.Max(-200, TempLoyaltyChange);
 
                     v = Math.Max(0, v);
 
