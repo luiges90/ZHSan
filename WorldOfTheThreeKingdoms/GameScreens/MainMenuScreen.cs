@@ -4128,7 +4128,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 btnTextureAlpha.Alpha = alpha;
                 btnTextureAlpha.Draw();
 
-                CacheManager.DrawString(Session.Current.Font, "Win10下处理材质Alpha", new Vector2(50 + 100, 120 + height * 5f), Color.Black * alpha);
+                CacheManager.DrawString(Session.Current.Font, "处理材质Alpha", new Vector2(50 + 100, 120 + height * 5f), Color.Black * alpha);
 
             }
             else if (MenuType == MenuType.About)

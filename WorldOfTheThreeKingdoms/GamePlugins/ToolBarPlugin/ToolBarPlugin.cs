@@ -1,4 +1,4 @@
-﻿using GameManager;
+using GameManager;
 using GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -84,9 +84,16 @@ namespace ToolBarPlugin
 
         public void SetRealViewportSize(Point realViewportSize)
         {
-            //this.toolBar.BackgroundPosition = new Rectangle(0, realViewportSize.Y - this.toolBar.BackgroundHeight, realViewportSize.X, this.toolBar.BackgroundHeight);
-
-            this.toolBar.BackgroundPosition = new Rectangle(0, realViewportSize.Y, realViewportSize.X, this.toolBar.BackgroundHeight);
+            if (Platforms.Platform.PlatFormType == Platforms.PlatFormType.iOS)
+            {
+                this.toolBar.BackgroundPosition = new Rectangle(0, realViewportSize.Y + 10, realViewportSize.X + 20, this.toolBar.BackgroundHeight);
+                
+            }
+            else
+            {
+                //this.toolBar.BackgroundPosition = new Rectangle(0, realViewportSize.Y - this.toolBar.BackgroundHeight, realViewportSize.X, this.toolBar.BackgroundHeight);
+                this.toolBar.BackgroundPosition = new Rectangle(0, realViewportSize.Y, realViewportSize.X, this.toolBar.BackgroundHeight);
+            }
 
             this.toolBar.ResetToolsOffset();
 
