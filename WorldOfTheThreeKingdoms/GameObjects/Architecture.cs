@@ -8940,7 +8940,7 @@ namespace GameObjects
 
         public bool AssassinateAvail()
         {
-            return this.MovablePersons.Count > 0 && this.GetAssassinateArchitectureArea().Count > 0;
+            return this.AllAvailablePersons.Count > 0 && this.GetAssassinateArchitectureArea().Count > 0;
         }
 
         private void characteristicsDoWork()
