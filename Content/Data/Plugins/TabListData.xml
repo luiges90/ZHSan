@@ -752,14 +752,14 @@
 				FontColor="4294375158"
 				Align="Right">
         </Column>
-		<Column ID="180" Name="PersonSpecialRelationString" IsNumber="false" DisplayName="关系武将" MinWidth="750" DetailLevel="8"
+		<Column ID="180" Name="PersonSpecialRelationString" IsNumber="false" DisplayName="关系武将" MinWidth="720" DetailLevel="8"
 				FontName="方正隶变_GBK"
 				FontSize="12"
 				FontStyle="Regular"
 				FontColor="4294375158"
 				Align="Middle">
         </Column>
-		<Column ID="181" Name="RelationToLeader" IsNumber="true" DisplayName="对君主关系" MinWidth="80" DetailLevel="8"
+		<Column ID="181" Name="RelationToLeader" IsNumber="true" DisplayName="对君主" MinWidth="50" DetailLevel="8"
 				FontName="方正隶变_GBK"
 				FontSize="14"
 				FontStyle="Regular"
