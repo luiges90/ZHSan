@@ -213,6 +213,24 @@ namespace WorldOfTheThreeKingdomsEditor
 
         protected abstract IItemList GetDataList(GameScenario scen);
 
+        public string getColumnName(string name)
+        {
+            string helpText;
+            if (GetHelpText().TryGetValue(name, out helpText))
+            {
+                helpText = helpText.Split('。')[0];
+                if (helpText.Length <= 0)
+                {
+                    helpText = name;
+                }
+            }
+            else
+            {
+                helpText = name;
+            }
+            return helpText;
+        }
+
         public void setup()
         {
             settingUp = true;
@@ -258,52 +276,61 @@ namespace WorldOfTheThreeKingdomsEditor
                     }
                 }
 
+                string helpText = getColumnName(name);
                 if (type.IsEnum)
                 {
                     DataColumn col = new DataColumn(name, 1.GetType());
                     col.DefaultValue = 0;
+                    col.ColumnName = helpText;
                     dt.Columns.Add(col);
                 }
                 else if (type == typeof(InfluenceKind))
                 {
                     DataColumn col = new DataColumn(name, 1.GetType());
                     col.DefaultValue = 0;
+                    col.ColumnName = helpText;
                     dt.Columns.Add(col);
                 }
                 else if (type == typeof(ConditionKind))
                 {
                     DataColumn col = new DataColumn(name, 1.GetType());
                     col.DefaultValue = 0;
+                    col.ColumnName = helpText;
                     dt.Columns.Add(col);
                 }
                 else if (type == typeof(TitleKind))
                 {
                     DataColumn col = new DataColumn(name, 1.GetType());
                     col.DefaultValue = 1;
+                    col.ColumnName = helpText;
                     dt.Columns.Add(col);
                 }
                 else if (type == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
                 {
                     DataColumn col = new DataColumn(name, 1.GetType());
                     col.DefaultValue = 0;
+                    col.ColumnName = helpText;
                     dt.Columns.Add(col);
                 }
                 else if (type == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
                 {
                     DataColumn col = new DataColumn(name, 1.GetType());
                     col.DefaultValue = 0;
+                    col.ColumnName = helpText;
                     dt.Columns.Add(col);
                 } 
                 else if (type == typeof(List<int>))
                 {
                     DataColumn col = new DataColumn(name, "".GetType());
                     col.DefaultValue = "";
+                    col.ColumnName = helpText;
                     dt.Columns.Add(col);
                 }
                 else
                 {
                     DataColumn col = new DataColumn(name, type);
                     col.DefaultValue = defaultValue;
+                    col.ColumnName = helpText;
                     dt.Columns.Add(col);
                 }
             }
@@ -314,80 +341,78 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 foreach (FieldInfo i in fields)
                 {
+                    string helpText = getColumnName(i.Name);
+
                     if (i.FieldType.IsEnum)
                     {
-                        row[i.Name] = (int) i.GetValue(p);
+                        row[helpText] = (int) i.GetValue(p);
                     }
                     else if (i.FieldType == typeof(InfluenceKind))
                     {
-                        row[i.Name] = ((InfluenceKind)i.GetValue(p)).ID;
+                        row[helpText] = ((InfluenceKind)i.GetValue(p)).ID;
                     }
                     else if (i.FieldType == typeof(ConditionKind))
                     {
-                        row[i.Name] = ((ConditionKind)i.GetValue(p)).ID;
+                        row[helpText] = ((ConditionKind)i.GetValue(p)).ID;
                     }
                     else if (i.FieldType == typeof(TitleKind))
                     {
-                        row[i.Name] = ((TitleKind)i.GetValue(p)).ID;
+                        row[helpText] = ((TitleKind)i.GetValue(p)).ID;
                     }
                     else if (i.FieldType == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
                     {
-                        row[i.Name] = ((GameObjects.ArchitectureDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
+                        row[helpText] = ((GameObjects.ArchitectureDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
                     }
                     else if (i.FieldType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
                     {
-                        row[i.Name] = ((GameObjects.TroopDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
+                        row[helpText] = ((GameObjects.TroopDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
                     }
                     else if (i.FieldType == typeof(List<int>))
                     {
-                        row[i.Name] = ((List<int>)i.GetValue(p)).Aggregate<int, string>("", (s, x) => s += x.ToString() + " ");
+                        row[helpText] = ((List<int>)i.GetValue(p)).Aggregate<int, string>("", (s, x) => s += x.ToString() + " ");
                     }
                     else
                     {
-                        row[i.Name] = i.GetValue(p);
+                        row[helpText] = i.GetValue(p);
                     }
                 }
                 foreach (PropertyInfo i in properties)
                 {
-                    try
+                    string helpText = getColumnName(i.Name);
+
+                    if (i.PropertyType.IsEnum)
                     {
-                        if (i.PropertyType.IsEnum)
-                        {
-                            row[i.Name] = (int)i.GetValue(p);
-                        }
-                        else if (i.PropertyType == typeof(InfluenceKind))
-                        {
-                            row[i.Name] = ((InfluenceKind)i.GetValue(p)).ID;
-                        }
-                        else if (i.PropertyType == typeof(ConditionKind))
-                        {
-                            row[i.Name] = ((ConditionKind)i.GetValue(p)).ID;
-                        }
-                        else if (i.PropertyType == typeof(TitleKind))
-                        {
-                            row[i.Name] = ((TitleKind)i.GetValue(p)).ID;
-                        }
-                        else if (i.PropertyType == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
-                        {
-                            row[i.Name] = ((GameObjects.ArchitectureDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
-                        }
-                        else if (i.PropertyType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
-                        {
-                            row[i.Name] = ((GameObjects.TroopDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
-                        }
-                        else if (i.PropertyType == typeof(List<int>))
-                        {
-                            row[i.Name] = ((List<int>)i.GetValue(p)).Aggregate<int, string>("", (s, x) => s += x.ToString() + " ");
-                        }
-                        else
-                        {
-                            row[i.Name] = i.GetValue(p) ?? DBNull.Value;
-                        }
+                        row[helpText] = (int)i.GetValue(p);
                     }
-                    catch
+                    else if (i.PropertyType == typeof(InfluenceKind))
                     {
-                        row[i.Name] = DBNull.Value;
+                        row[helpText] = ((InfluenceKind)i.GetValue(p)).ID;
                     }
+                    else if (i.PropertyType == typeof(ConditionKind))
+                    {
+                        row[helpText] = ((ConditionKind)i.GetValue(p)).ID;
+                    }
+                    else if (i.PropertyType == typeof(TitleKind))
+                    {
+                        row[helpText] = ((TitleKind)i.GetValue(p)).ID;
+                    }
+                    else if (i.PropertyType == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
+                    {
+                        row[helpText] = ((GameObjects.ArchitectureDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
+                    }
+                    else if (i.PropertyType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
+                    {
+                        row[helpText] = ((GameObjects.TroopDetail.EventEffect.EventEffectKind)i.GetValue(p)).ID;
+                    }
+                    else if (i.PropertyType == typeof(List<int>))
+                    {
+                        row[helpText] = ((List<int>)i.GetValue(p)).Aggregate<int, string>("", (s, x) => s += x.ToString() + " ");
+                    }
+                    else
+                    {
+                        row[helpText] = i.GetValue(p) ?? DBNull.Value;
+                    }
+
                 }
 
                 dt.Rows.Add(row);
@@ -454,77 +479,81 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 foreach (FieldInfo i in fields)
                 {
+                    string iName = getColumnName(i.Name);
+
                     if (i.FieldType.IsEnum)
                     {
-                        i.SetValue(p, (Int32) Enum.ToObject(i.FieldType, e.Row[i.Name]));
+                        i.SetValue(p, (Int32) Enum.ToObject(i.FieldType, e.Row[iName]));
                     }
                     else if (i.FieldType == typeof(InfluenceKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllInfluenceKinds.GetInfluenceKind((int) e.Row[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllInfluenceKinds.GetInfluenceKind((int) e.Row[iName]));
                     }
                     else if (i.FieldType == typeof(ConditionKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllConditionKinds.GetConditionKind((int)e.Row[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllConditionKinds.GetConditionKind((int)e.Row[iName]));
                     }
                     else if (i.FieldType == typeof(TitleKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllTitleKinds.GetTitleKind((int)e.Row[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllTitleKinds.GetTitleKind((int)e.Row[iName]));
                     }
                     else if (i.FieldType == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllEventEffectKinds.GetEventEffectKind((int)e.Row[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllEventEffectKinds.GetEventEffectKind((int)e.Row[iName]));
                     }
                     else if (i.FieldType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)e.Row[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)e.Row[iName]));
                     }
                     else if (i.FieldType == typeof(List<int>))
                     {
-                        i.SetValue(p, e.Row[i.Name].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select((x) => int.Parse(x)).ToList());
+                        i.SetValue(p, e.Row[iName].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select((x) => int.Parse(x)).ToList());
                     }
                     else
                     {
-                        if (e.Row[i.Name] != DBNull.Value)
+                        if (e.Row[iName] != DBNull.Value)
                         {
-                            i.SetValue(p, e.Row[i.Name]);
+                            i.SetValue(p, e.Row[iName]);
                         }
                     }
                 }
                 foreach (PropertyInfo i in properties)
                 {
+                    string iName = getColumnName(i.Name);
+
                     if (i.PropertyType.IsEnum)
                     {
-                        i.SetValue(p, (Int32) Enum.ToObject(i.PropertyType, e.Row[i.Name]));
+                        i.SetValue(p, (Int32) Enum.ToObject(i.PropertyType, e.Row[iName]));
                     }
                     else if (i.PropertyType == typeof(InfluenceKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllInfluenceKinds.GetInfluenceKind((int)e.Row[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllInfluenceKinds.GetInfluenceKind((int)e.Row[iName]));
                     }
                     else if (i.PropertyType == typeof(ConditionKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllConditionKinds.GetConditionKind((int)e.Row[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllConditionKinds.GetConditionKind((int)e.Row[iName]));
                     }
                     else if (i.PropertyType == typeof(TitleKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllTitleKinds.GetTitleKind((int)e.Row[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllTitleKinds.GetTitleKind((int)e.Row[iName]));
                     }
                     else if (i.PropertyType == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllEventEffectKinds.GetEventEffectKind((int)e.Row[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllEventEffectKinds.GetEventEffectKind((int)e.Row[iName]));
                     }
                     else if (i.PropertyType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)e.Row[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)e.Row[iName]));
                     }
                     else if (i.PropertyType == typeof(List<int>))
                     {
-                        i.SetValue(p, e.Row[i.Name].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select((x) => int.Parse(x)).ToList());
+                        i.SetValue(p, e.Row[iName].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select((x) => int.Parse(x)).ToList());
                     }
                     else
                     {
-                        if (e.Row[i.Name] != DBNull.Value)
+                        if (e.Row[iName] != DBNull.Value)
                         {
-                            i.SetValue(p, e.Row[i.Name]);
+                            i.SetValue(p, e.Row[iName]);
                         }
                     }
                 }
@@ -573,77 +602,81 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 foreach (FieldInfo i in fields)
                 {
+                    string iName = getColumnName(i.Name);
+
                     if (i.FieldType.IsEnum)
                     {
-                        i.SetValue(p, (Int32) Enum.ToObject(i.FieldType, item[i.Name]));
+                        i.SetValue(p, (Int32) Enum.ToObject(i.FieldType, item[iName]));
                     }
                     else if (i.FieldType == typeof(InfluenceKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllInfluenceKinds.GetInfluenceKind((int)item[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllInfluenceKinds.GetInfluenceKind((int)item[iName]));
                     }
                     else if (i.FieldType == typeof(ConditionKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllConditionKinds.GetConditionKind((int)item[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllConditionKinds.GetConditionKind((int)item[iName]));
                     }
                     else if (i.FieldType == typeof(TitleKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllTitleKinds.GetTitleKind((int)item[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllTitleKinds.GetTitleKind((int)item[iName]));
                     }
                     else if (i.FieldType == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllEventEffectKinds.GetEventEffectKind((int)item[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllEventEffectKinds.GetEventEffectKind((int)item[iName]));
                     }
                     else if (i.FieldType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)item[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)item[iName]));
                     }
                     else if (i.FieldType == typeof(List<int>))
                     {
-                        i.SetValue(p, item[i.Name].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select((x) => int.Parse(x)).ToList());
+                        i.SetValue(p, item[iName].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select((x) => int.Parse(x)).ToList());
                     }
                     else
                     {
-                        if (item[i.Name] != DBNull.Value)
+                        if (item[iName] != DBNull.Value)
                         {
-                            i.SetValue(p, item[i.Name]);
+                            i.SetValue(p, item[iName]);
                         }
                     }
                 }
                 foreach (PropertyInfo i in properties)
                 {
+                    string iName = getColumnName(i.Name);
+
                     if (i.PropertyType.IsEnum)
                     {
-                        i.SetValue(p, (Int32) Enum.ToObject(i.PropertyType, item[i.Name]));
+                        i.SetValue(p, (Int32) Enum.ToObject(i.PropertyType, item[iName]));
                     }
                     else if (i.PropertyType == typeof(InfluenceKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllInfluenceKinds.GetInfluenceKind((int)item[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllInfluenceKinds.GetInfluenceKind((int)item[iName]));
                     }
                     else if (i.PropertyType == typeof(ConditionKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllConditionKinds.GetConditionKind((int)item[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllConditionKinds.GetConditionKind((int)item[iName]));
                     }
                     else if (i.PropertyType == typeof(TitleKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllTitleKinds.GetTitleKind((int)item[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllTitleKinds.GetTitleKind((int)item[iName]));
                     }
                     else if (i.PropertyType == typeof(GameObjects.ArchitectureDetail.EventEffect.EventEffectKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllEventEffectKinds.GetEventEffectKind((int)item[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllEventEffectKinds.GetEventEffectKind((int)item[iName]));
                     }
                     else if (i.PropertyType == typeof(GameObjects.TroopDetail.EventEffect.EventEffectKind))
                     {
-                        i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)item[i.Name]));
+                        i.SetValue(p, scen.GameCommonData.AllTroopEventEffectKinds.GetEventEffectKind((int)item[iName]));
                     }
                     else if (i.PropertyType == typeof(List<int>))
                     {
-                        i.SetValue(p, item[i.Name].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select((x) => int.Parse(x)).ToList());
+                        i.SetValue(p, item[iName].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select((x) => int.Parse(x)).ToList());
                     }
                     else
                     {
-                        if (item[i.Name] != DBNull.Value)
+                        if (item[iName] != DBNull.Value)
                         {
-                            i.SetValue(p, item[i.Name]);
+                            i.SetValue(p, item[iName]);
                         }
                     }
                 }
