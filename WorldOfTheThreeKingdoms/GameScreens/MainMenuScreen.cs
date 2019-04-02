@@ -22,7 +22,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         Config,
         Save,
         Setting,
-        About
+        About,
+        Start
     }
 
     public class MainMenuScreen
@@ -131,7 +132,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         string[] aboutLines = new string[]
         {
-            String.Format("中华三国志 {0} {1}", Platform.GameVersion, Platform.GameVersionType),
+            String.Format("中华三国志"),
 "游戏的更新与讨论请关注:",
 "官方论坛:http://www.zhsan.com ",
 "百度贴吧:中华三国志吧",
@@ -171,10 +172,33 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         };
 
+        {
+            
+        };
+
         string message = "";
 
         public MainMenuScreen()
         {
+            if (Platform.Current.UserFileExist(new string[] { "startRead.txt" })[0])
+            {
+                string content = Platform.Current.GetUserText("startRead.txt");
+                int version;
+                int.TryParse(content, out version);
+                if (version >= currentStartVersion)
+                {
+                    MenuType = MenuType.None;
+                }
+                else
+                {
+                    MenuType = MenuType.Start;
+                }
+            }
+            else
+            {
+                MenuType = MenuType.Start;
+            }
+            Platform.Current.SaveUserFile("startRead.txt", currentStartVersion.ToString());
             //None
 
             Current = this;
@@ -3619,6 +3643,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 btAboutList.ForEach(bt => bt.Update());
             }
+            else if (MenuType == MenuType.Start)
+            {
+                btAboutList.ForEach(bt => bt.Update());
+            }
 
             btPre.Enable = pageIndex > 1;
             btNext.Enable = pageIndex < pageCount;
@@ -4136,6 +4164,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 CacheManager.DrawAvatar(@"Content\Textures\Resources\Start\Common.jpg", Vector2.Zero, Color.White * alpha, 1f);
 
                 CacheManager.DrawString(Session.Current.Font, String.Join(System.Environment.NewLine, aboutLines), new Vector2(40, 40), Color.Black * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 0f);
+
+                btAboutList.ForEach(bt => bt.Draw(null, Color.White * alpha));
+            }
+            else if (MenuType == MenuType.Start)
+            {
+                CacheManager.DrawAvatar(@"Content\Textures\Resources\Start\Common.jpg", Vector2.Zero, Color.White * alpha, 1f);
+
+                CacheManager.DrawString(Session.Current.Font, String.Join(System.Environment.NewLine, startLines), new Vector2(40, 40), Color.Black * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 0f);
 
                 btAboutList.ForEach(bt => bt.Draw(null, Color.White * alpha));
             }
