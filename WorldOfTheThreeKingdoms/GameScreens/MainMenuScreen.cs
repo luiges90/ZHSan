@@ -145,7 +145,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 "程序制作：,",
 "耒戈氏  45399735  kpxp  月落乌江  兔巴哥(手机版移植)   majorcheng(外交) breamask(单挑)  我勒个去(其他)  最爱艾氏兄弟  YPZhou(程序优化)",
 "",
-"",
 "美工UI模型：",
 "caibao2009（地图）  酷热7(地图、UI)  月落乌江(地图)  sgb6700tt(界面)  Ftian80(头像)  无限时段(粮道) PTMASTER酱(帅旗)   睿哥（头像）  常山（兵模、宣传图） ",
             " 黄金魔导师（地图兵摸UI）    古月（宣传图）",
@@ -172,6 +171,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         };
 
+        int currentStartVersion = 1;
+        string[] startLines = new string[]
         {
             
         };
