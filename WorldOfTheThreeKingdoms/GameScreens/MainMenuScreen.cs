@@ -174,7 +174,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         int currentStartVersion = 1;
         string[] startLines = new string[]
         {
-            
+"新人教程已经发布，在商店页面右侧的游戏手册下载使用。欢迎各位新伙伴学习了解。配了图文，很细致了，相信愿意玩的伙伴可以入门了。因为有大量图片，",
+"文件有20M，请耐心下载了解。请各位伙伴先阅读此文章，再发表评论和疑问。",
+"",
+"另外游戏无法启动问题已经解决（已经设置默认要求安装软件环境）",
+"",
+"祝大家玩的开心！"
         };
 
         string message = "";
