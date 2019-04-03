@@ -62,8 +62,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     globalVariables.SkyEye = false;
                 }
+
+                Session.Current.Scenario.GlobalVariables = globalVariables;
+                Session.Current.Scenario.Parameters = gameParameters;
                 //以下修改是为了可以使剧本自带一些设置，这样可以使剧本作者能够预设一些特殊设定
-                if (Session.Current.Scenario.GlobalVariables != null)
+                /*if (Session.Current.Scenario.GlobalVariables != null)
                 {
                     System.Reflection.FieldInfo[] 非getset字段表 = typeof(GlobalVariables).GetFields((System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance));
                     foreach (var v in 非getset字段表)
@@ -93,7 +96,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 else
                 {
                     Session.Current.Scenario.Parameters = gameParameters;
-                }
+                }*/
 
                 // Session.Current.Scenario.GlobalVariables = globalVariables;
                 // Session.Current.Scenario.Parameters = gameParameters;
