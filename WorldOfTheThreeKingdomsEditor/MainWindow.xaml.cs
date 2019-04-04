@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -20,6 +20,7 @@ using System.IO;
 using Tools;
 using GameGlobal;
 using GameObjects.FactionDetail;
+using System.Drawing;
 
 namespace WorldOfTheThreeKingdomsEditor
 {
@@ -356,6 +357,56 @@ namespace WorldOfTheThreeKingdomsEditor
 
                 MessageBox.Show("已更新" + scenariosPath);
             }
+        }
+
+        private void btnPNGAlpha_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "待處理圖片 (*.png)|*.png";
+            openFileDialog.InitialDirectory = @"Content\Textures";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                String filename = openFileDialog.FileName;
+
+                using (var img = System.Drawing.Image.FromFile(filename))
+                {
+                    var bitmap = new Bitmap(img, img.Width, img.Height);
+
+                    var target = new Bitmap(img.Width, img.Height);
+
+                    using (Graphics g = Graphics.FromImage(bitmap))
+                    {
+                        g.DrawImage(target, 0, 0);
+                        for (int h = 0; h < bitmap.Height; h++)
+                        {
+                            for (int w = 0; w < bitmap.Width; w++)
+                            {
+                                var color = bitmap.GetPixel(w, h);
+                                color = PremultiplyAlpha(color);
+                                target.SetPixel(w, h, color);
+                            }
+                        }
+                    }
+
+                    target.Save(filename.Replace(".png", "-alpha.png"), System.Drawing.Imaging.ImageFormat.Png);
+                }
+
+                MessageBox.Show("PNG圖片PreMultiplied!");
+            }
+        }
+
+        public static System.Drawing.Color PremultiplyAlpha(System.Drawing.Color pixel)
+        {
+            return System.Drawing.Color.FromArgb(
+                pixel.A,
+                PremultiplyAlpha_Component(pixel.R, pixel.A),
+                PremultiplyAlpha_Component(pixel.G, pixel.A),
+                PremultiplyAlpha_Component(pixel.B, pixel.A));
+        }
+
+        private static byte PremultiplyAlpha_Component(byte source, byte alpha)
+        {
+            return (byte)(Convert.ToSingle(source) * Convert.ToSingle(alpha) / Convert.ToSingle(byte.MaxValue) + 0.5f);
         }
 
         private void btnRandomizeIdeal_Click(object sender, RoutedEventArgs e)
