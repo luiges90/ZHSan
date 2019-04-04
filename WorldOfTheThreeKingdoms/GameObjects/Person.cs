@@ -7861,7 +7861,7 @@ namespace GameObjects
 
                     if (this.Hates(this.BelongedFaction.Leader))
                     {
-                        v -= 50;
+                        v -= 100;
                     }
                     else if (this.Closes(this.BelongedFaction.Leader))
                     {
