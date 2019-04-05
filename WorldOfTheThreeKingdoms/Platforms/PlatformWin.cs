@@ -484,18 +484,18 @@ namespace Platforms
                     {
                         Texture2D tex = Texture2D.FromStream(Platform.GraphicsDevice, stream);
                         //貌似在Win7下，這個算法出錯，只能預先處理好材質了再載入了
-                        if (MainMenuScreen.Current.btnTextureAlpha.Selected &&
-                            tex != null && Path.GetExtension(res).ToLower() == ".png" && !res.Contains("Cloud"))
-                        {
-                            try
-                            {
-                                GameTools.PreMultiplyAlphas(tex);
-                            }
-                            catch (Exception ex)
-                            {
-                                //WebTools.TakeWarnMsg("处理透明层级失败:" + res, "PreMultiplyAlphas:" + UserApplicationDataPath + res, ex);
-                            }
-                        }
+                        //if (MainMenuScreen.Current.btnTextureAlpha.Selected &&
+                        //    tex != null && Path.GetExtension(res).ToLower() == ".png" && !res.Contains("Cloud"))
+                        //{
+                        //    try
+                        //    {
+                        //        GameTools.PreMultiplyAlphas(tex);
+                        //    }
+                        //    catch (Exception ex)
+                        //    {
+                        //        //WebTools.TakeWarnMsg("处理透明层级失败:" + res, "PreMultiplyAlphas:" + UserApplicationDataPath + res, ex);
+                        //    }
+                        //}
                         return tex;
                     }
                 }

@@ -1,4 +1,4 @@
-﻿<Window x:Class="WorldOfTheThreeKingdomsEditor.MainWindow"
+<Window x:Class="WorldOfTheThreeKingdomsEditor.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -20,6 +20,8 @@
                 <MenuItem Header="儲存劇本" Command="Save" InputGestureText="Ctrl+S"/>
                 <Separator/>
                 <MenuItem Header="更新Scenarios.json" Click="btnSyncScenario_Click"/>
+                <Separator/>
+                <MenuItem Header="PNG圖片PreMultiply" Click="btnPNGAlpha_Click"/>
                 <Separator/>
                 <MenuItem Header="退出" Click="btnQuit_Click"/>
             </MenuItem>

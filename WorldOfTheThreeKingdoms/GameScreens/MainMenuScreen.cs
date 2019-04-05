@@ -115,7 +115,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         ButtonTexture btnSmallResolution = null;
         ButtonTexture btnLargeResolution = null;
 
-        public ButtonTexture btnTextureAlpha = null;
+        //public ButtonTexture btnTextureAlpha = null;
 
         List<ButtonTexture> cbAIHardList = null;
 
@@ -2011,24 +2011,24 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
             };
 
-            btnTextureAlpha = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(50, 120 + 85 * 5f))
-            {
-                ID = "AutoSave"
-            };
-            btnTextureAlpha.OnButtonPress += (sender, e) =>
-            {
-                var bt = (ButtonTexture)sender;
-                if (bt.Selected)
-                {
-                    bt.Selected = false;
-                    Setting.Current.GlobalVariables.doAutoSave = false;
-                }
-                else
-                {
-                    bt.Selected = true;
-                    Setting.Current.GlobalVariables.doAutoSave = true;
-                }
-            };
+            //btnTextureAlpha = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(50, 120 + 85 * 5f))
+            //{
+            //    ID = "AutoSave"
+            //};
+            //btnTextureAlpha.OnButtonPress += (sender, e) =>
+            //{
+            //    var bt = (ButtonTexture)sender;
+            //    if (bt.Selected)
+            //    {
+            //        bt.Selected = false;
+            //        Setting.Current.GlobalVariables.doAutoSave = false;
+            //    }
+            //    else
+            //    {
+            //        bt.Selected = true;
+            //        Setting.Current.GlobalVariables.doAutoSave = true;
+            //    }
+            //};
 
             tbGamerName = new TextBox(TextBoxStyle.Small, "")
             {
@@ -3600,7 +3600,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     btnLargeResolution.Update();
                 }
 
-                btnTextureAlpha.Update();
+                //btnTextureAlpha.Update();
 
                 Setting.Current.GamerName = tbGamerName.Text.NullToStringTrim();
 
@@ -4169,10 +4169,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 CacheManager.DrawString(Session.Current.Font, "战斗速度", new Vector2(50, 120 + height * 4.5f), Color.Black * alpha);
 
-                btnTextureAlpha.Alpha = alpha;
-                btnTextureAlpha.Draw();
+                //btnTextureAlpha.Alpha = alpha;
+                //btnTextureAlpha.Draw();
 
-                CacheManager.DrawString(Session.Current.Font, "处理材质Alpha", new Vector2(50 + 100, 120 + height * 5f), Color.Black * alpha);
+                //CacheManager.DrawString(Session.Current.Font, "处理材质Alpha", new Vector2(50 + 100, 120 + height * 5f), Color.Black * alpha);
 
             }
             else if (MenuType == MenuType.About)
