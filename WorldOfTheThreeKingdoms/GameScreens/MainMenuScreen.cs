@@ -36,6 +36,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         float menuTypeElapsed = 0f;
 
+        float startElapsed = 0f;
+
+        float startCircle = 15f;
+
+        bool forward = true;
+
+        Vector2 startPos = Vector2.Zero;
+
         bool isClosing = false;
 
         List<ButtonTexture> btList = null;
@@ -221,7 +229,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btList = new List<ButtonTexture>() { };
 
-            var btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "New", new Vector2(100, 580));
+            var btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "New", new Vector2(100, 600));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -231,7 +239,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(310, 580));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(310, 600));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -241,17 +249,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(520, 580));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(520, 600));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
                 UnCheckTextBoxs();
                 MenuType = MenuType.Setting;
-
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(730, 580));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(730, 600));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -260,7 +267,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(940, 580));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(940, 600));
             btOne.OnButtonPress += (sender, e) =>
             {
                 Platform.Current.Exit();
@@ -2911,6 +2918,33 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             float seconds = Convert.ToSingle(gameTime.ElapsedGameTime.TotalSeconds);
 
+            if (forward)
+            {
+                startElapsed = startElapsed + seconds;
+            }
+            else
+            {
+                startElapsed = startElapsed - seconds;
+            }
+
+            if (startElapsed <= 0 || startElapsed >= startCircle)
+            {
+                forward = !forward;
+
+                if (startElapsed < 0)
+                {
+                    startElapsed = 0;
+                }
+                else if (startElapsed > startCircle)
+                {
+                    startElapsed = startCircle;
+                }
+            }
+
+            var right = 2392f - 1280f;
+
+            startPos = new Vector2(- startElapsed / startCircle * right, 0);
+
             if (isClosing)
             {
                 menuTypeElapsed -= seconds;
@@ -3682,8 +3716,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             //CacheManager.DrawAvatar(@"Content\Textures\Resources\Start\Start.jpg", Vector2.Zero, Color.White, 1f);
 
-            CacheManager.Draw(@"Content\Textures\Resources\Start\Start.jpg", new Rectangle(0, 0, 1280, 720), Color.White);
+            CacheManager.Draw(@"Content\Textures\Resources\Start\Start01.jpg", startPos, Color.White);
             //CacheManager.Draw(@"Content\Textures\Resources\Start\Start.jpg", new Rectangle(0, 0, , Color.White);
+
+            CacheManager.Draw(@"Content\Textures\Resources\Start\Logo.png", new Vector2(380, 50), Color.White);
+
+            CacheManager.Draw(@"Content\Textures\Resources\Start\Words.png", new Vector2(380, 260), Color.White);
 
             if (MenuType == MenuType.None)
             {
