@@ -375,15 +375,20 @@ namespace GameObjects
                 {
                     if (p != null /*&& p.ID >= 7000 && p.ID < 8000*/)
                     {
+                        bool ok;
                         if (this.personCond.ContainsKey(i.Key))
                         {
-                            bool ok = Condition.CheckConditionList(this.personCond[i.Key], p, this);
-                            if (ok)
+                            ok = Condition.CheckConditionList(this.personCond[i.Key], p, this);
+                        }
+                        else
+                        {
+                            ok = true;
+                        }
+                        if (ok)
+                        {
+                            if (this.person[i.Key].Contains(null) || this.person[i.Key].Contains(p))
                             {
-                                if (this.person[i.Key].Contains(null) || this.person[i.Key].Contains(p))
-                                {
-                                    candidates[i.Key].Add(p);
-                                }
+                                candidates[i.Key].Add(p);
                             }
                         }
                     }
