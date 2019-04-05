@@ -5388,7 +5388,7 @@ namespace GameObjects
             Faction oldFaction = this.BelongedFaction;
             if (GameObject.Chance(20) && this.LocationArchitecture != null && this.Status == PersonStatus.Normal && this.BelongedFaction != null && this.BelongedFaction.Leader != this && !this.IsCaptive)
             {
-                if ((this.Loyalty < 50) && (GameObject.Random(this.Loyalty * (1 + (int)this.PersonalLoyalty)) <= GameObject.Random(5)))
+                if ((this.Loyalty < 50) && GameObject.Chance(100 - this.Loyalty * 2) && (GameObject.Random(this.Loyalty * (1 + (int)this.PersonalLoyalty)) <= GameObject.Random(5)))
                 {
                     this.LeaveToNoFaction();
                     ArchitectureList allArch = Session.Current.Scenario.Architectures;
