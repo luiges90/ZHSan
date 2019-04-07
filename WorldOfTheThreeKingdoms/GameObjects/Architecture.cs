@@ -2493,6 +2493,7 @@ namespace GameObjects
                                         firstHalfPerson = this.GetFirstHalfPerson("GossipAbility");
                                         if (firstHalfPerson != null && !firstHalfPerson.HasLeadingArmy &&
                                             firstHalfPerson.NonFightingNumber > firstHalfPerson.FightingNumber &&
+                                            firstHalfPerson.FightingNumber < 350 && firstHalfPerson != this.BelongedFaction.Leader && 
                                             (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive) &&
                                             GameObject.Random(architecture2.GetGossipablePersonCount() + 4) >= 4
                                             && GameObject.Random(firstHalfPerson.GossipAbility) >= 200
@@ -2544,9 +2545,16 @@ namespace GameObjects
                                             {
                                                 if (firstHalfPerson.CanConvinceChance(p) > 20)
                                                 {
-                                                    firstHalfPerson.OutsideDestination = this.ArchitectureArea.Centre;
-                                                    firstHalfPerson.GoForConvince(p);
-                                                    break;
+                                                    if (firstHalfPerson != null && !firstHalfPerson.HasLeadingArmy &&
+                                                        firstHalfPerson.NonFightingNumber > firstHalfPerson.FightingNumber &&
+                                                         firstHalfPerson.FightingNumber < 350 && firstHalfPerson != this.BelongedFaction.Leader &&
+                                                        (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive)
+                                                         && GameObject.Chance(100 - architecture2.captureChance))
+                                                    {
+                                                        firstHalfPerson.OutsideDestination = this.ArchitectureArea.Centre;
+                                                        firstHalfPerson.GoForConvince(p);
+                                                        break;
+                                                    }
                                                 }
                                             }
                                         }
@@ -2583,6 +2591,7 @@ namespace GameObjects
                                     firstHalfPerson = this.GetFirstHalfPerson("JailBreakAbility");
                                     if (firstHalfPerson != null && !firstHalfPerson.HasLeadingArmy &&
                                             firstHalfPerson.NonFightingNumber > firstHalfPerson.FightingNumber &&
+                                             firstHalfPerson.FightingNumber < 350 && firstHalfPerson != this.BelongedFaction.Leader &&
                                             (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive)
                                              && GameObject.Chance(100 - target.captureChance))
                                     {
@@ -2625,9 +2634,22 @@ namespace GameObjects
                                             }
                                             if (firstHalfPerson.CanConvinceChance(p) <= 20 && firstHalfPerson.AssassinateAbility > targetDef * 2)
                                             {
-                                                firstHalfPerson.OutsideDestination = this.ArchitectureArea.Centre;
-                                                firstHalfPerson.GoForAssassinate(p);
-                                                break;
+                                                if (target.BelongedFaction == this.BelongedFaction)
+                                                {
+                                                    firstHalfPerson.OutsideDestination = this.ArchitectureArea.Centre;
+                                                    firstHalfPerson.GoForAssassinate(p);
+                                                    break;
+                                                }
+                                                else if (firstHalfPerson != null && !firstHalfPerson.HasLeadingArmy &&
+                                                       firstHalfPerson.NonFightingNumber > firstHalfPerson.FightingNumber &&
+                                                        firstHalfPerson.FightingNumber < 350 && firstHalfPerson != this.BelongedFaction.Leader &&
+                                                       (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive)
+                                                        && GameObject.Chance(100 - target.captureChance))
+                                                {
+                                                    firstHalfPerson.OutsideDestination = this.ArchitectureArea.Centre;
+                                                    firstHalfPerson.GoForAssassinate(p);
+                                                    break;
+                                                }
                                             }
                                         }
                                     }
