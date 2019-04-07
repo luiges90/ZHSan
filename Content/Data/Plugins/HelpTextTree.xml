@@ -808,6 +808,16 @@
         <Leaf Text="耐久强度" Color="4283349491" />
         <Leaf Text="比普通建筑高五成。" Color="4294375158" />
     </Branch>
+	<Branch Name="Monarch_TrainChildren">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="子女培育" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="对君主自己的子女，制定指导方针。" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="所有未成年的子女均有其培育方针，对其能力、特技、称号对进行培育。指定方针后，该方针会使子女成长偏向其种类。然而，所有子女也有不同的能力潜质，当实质能力接近或达到潜质时，能力提升会变得更困难。能力潜质由父母的能力决定。" Color="4294375158" />
+    </Branch>
     <Branch Name="Monarch_Diplomatic_AllyDiplomaticRelation">
         <Leaf Text="君主" Color="4294375158" />
         <Leaf Text="结盟" Color="4283349491" />
