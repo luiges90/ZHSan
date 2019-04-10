@@ -1723,14 +1723,6 @@
       <Link>Content\Data\ChineseCodes.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\femalefaceA.txt">
-      <Link>Content\Data\femalefaceA.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Data\femalefaceM.txt">
-      <Link>Content\Data\femalefaceM.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Data\femalegivenname.txt">
       <Link>Content\Data\femalegivenname.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1741,18 +1733,6 @@
     </Content>
     <Content Include="..\Content\Data\GlobalVariables.xml">
       <Link>Content\Data\GlobalVariables.xml</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Data\maleFaceA.txt">
-      <Link>Content\Data\maleFaceA.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Data\malefaceM.txt">
-      <Link>Content\Data\malefaceM.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Content\Data\malefaceU.txt">
-      <Link>Content\Data\malefaceU.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Content\Data\malegivenname.txt">

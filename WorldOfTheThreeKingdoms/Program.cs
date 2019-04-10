@@ -43,13 +43,20 @@ namespace WorldOfTheThreeKingdoms
                 
                 using (MainGame game = new MainGame())
                 {
-                    try
+                    if (System.Diagnostics.Debugger.IsAttached)
                     {
                         game.Run();
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        PrintError(ex);
+                        try
+                        {
+                            game.Run();
+                        }
+                        catch (Exception ex)
+                        {
+                            PrintError(ex);
+                        }
                     }
                 }
             }
