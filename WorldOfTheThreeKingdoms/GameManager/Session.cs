@@ -254,6 +254,8 @@ namespace GameManager
 
         public static void Init()
         {
+
+
             new PlatformTask(() =>
             {
                 try
@@ -462,7 +464,7 @@ namespace GameManager
             }
             else if (Platform.PlatFormType == PlatFormType.Android || Platform.PlatFormType == PlatFormType.iOS || Platform.PlatFormType == PlatFormType.UWP)
             {
-                Platform.Current.PreparePhone();
+                //Platform.Current.PreparePhone();
 
                 width = Session.MainGame.fullScreenDestination.Width;  // int.Parse(Platform.PreferResolution.Split('*')[0]);
                 height = Session.MainGame.fullScreenDestination.Height;  // int.Parse(Platform.PreferResolution.Split('*')[1]);                
