@@ -1,0 +1,8 @@
+各种Button 
+格式：png；尺寸：100*30
+
+Background
+格式：jpg；尺寸：630*425
+
+LOGO
+格式：png；尺寸：355*30

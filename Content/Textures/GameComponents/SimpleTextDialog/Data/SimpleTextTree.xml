@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Branch Name="ExitGame">
+    <Leaf Text="您确定要" Color="4294967295"></Leaf>
+    <Leaf Text="退出" Color="4285183487"></Leaf>
+    <Leaf Text="游戏吗？未保存的游戏内容将会" Color="4294967295"></Leaf>
+    <Leaf Text="丢失" Color="4294942012"></Leaf>
+    <Leaf Text="。" Color="4294967295"></Leaf>
+  </Branch>
+   <Branch Name="ExitSaveGame">
+    <Leaf Text="您确定要" Color="4294967295"></Leaf>
+    <Leaf Text="退出" Color="4285183487"></Leaf>
+    <Leaf Text="游戏吗？游戏内容将会在离开前保存。" Color="4294967295"></Leaf>
+  </Branch>
+  <Branch Name="DemolishRouteway">
+    <Leaf Text="您确定要" Color="4294967295"></Leaf>
+    <Leaf Text="废弃" Color="4294942012"></Leaf>
+    <Leaf Text="该粮道吗?" Color="4294967295"></Leaf>
+  </Branch>
+  <Branch Name="ClearField">
+    <Leaf Text="您确定要在" Color="4294967295"></Leaf>
+    <Leaf Property="Name" Color="4285183487"></Leaf>
+    <Leaf Text="执行" Color="4294967295"></Leaf>
+    <Leaf Text="清野" Color="4294942012"></Leaf>
+    <Leaf Text="命令吗？该建筑的农业值将减少" Color="4294967295"></Leaf>
+    <Leaf Property="ClearFieldAgricultureCost" Color="4292673536"></Leaf>
+    <Leaf Text="，资金将减少" Color="4294967295"></Leaf>
+    <Leaf Property="ClearFieldFundCost" Color="4292673536"></Leaf>
+    <Leaf Text="。" Color="4294967295"></Leaf>
+  </Branch>
+</Root>

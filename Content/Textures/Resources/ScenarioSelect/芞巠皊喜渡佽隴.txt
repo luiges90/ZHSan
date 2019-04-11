@@ -1,0 +1,11 @@
+各种Button 
+格式：png；尺寸：135*50
+
+Scenarios/ScenarioDescription/Factions
+格式：png；尺寸：100*25
+
+Background
+格式：jpg；尺寸：716*478 底层图片，大小无所谓，建议为单色掉图片
+
+Background
+格式：png；尺寸：700*440
