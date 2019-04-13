@@ -16962,10 +16962,6 @@
       <Link>Content\Data\Scenario\190FDLM.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\Scenario\192XDZX1.json">
-      <Link>Content\Data\Scenario\192XDZX1.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Content\Data\Scenario\197YSCD.json">
       <Link>Content\Data\Scenario\197YSCD.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -17022,15 +17018,13 @@
       <Link>Content\Data\Scenario\280YXJJ.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Content\Data\Scenario\194QXGJ.json">
-      <Link>Content\Data\Scenario\194QXGJ.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="app.config" />
     <None Include="app.manifest" />
     <Content Include="Content\Font\FZLB_GBK.TTF">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Content\Data\Scenario\192XDZX.json" />
+    <None Include="Content\Data\Scenario\194QXGJ.json" />
     <None Include="Content\Font\FontE.spritefont" />
     <None Include="Content\Font\FontE.xnb" />
     <None Include="Content\Font\FontL.spritefont" />
