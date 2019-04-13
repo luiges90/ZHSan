@@ -87,6 +87,8 @@ namespace WorldOfTheThreeKingdoms
             //    this.Window.IsBorderless = true;
             //}
 
+            Platform.Current.PreparePhone();
+
             Session.globalVariablesBasic = new GlobalVariables();
             Session.globalVariablesBasic.InitialGlobalVariables();
 

@@ -25,7 +25,6 @@ using System.Xml;
 using Tools;
 using Matrix = Android.Graphics.Matrix;
 
-
 namespace Platforms
 {
     /// <summary>
@@ -130,6 +129,10 @@ namespace Platforms
                 Session.MainGame.fullScreenDestination = new Rectangle(0, 0, dm.HeightPixels, dm.WidthPixels);
             }
 
+            AndroidContentManager.Init();
+
+            //var stream = AndroidContentManager.OpenStream("Setting.png");
+
             //CoreGame.Current.view = PreferResolution;
             //double x = Math.Pow(Convert.ToSingle(dm.WidthPixels) / dm.Xdpi, 2);
             //double y = Math.Pow(Convert.ToSingle(dm.HeightPixels) / dm.Ydpi, 2);
@@ -160,12 +163,12 @@ namespace Platforms
             return System.Environment.OSVersion.Platform + " " + System.Environment.OSVersion.VersionString;
         }
 
-        #region 用戶文件夾處理
-
-
-        #endregion
-
         #region 加載資源文件
+
+        public Stream LoadStream(string res)
+        {
+            return System.String.IsNullOrEmpty(Channel) ? Game.Activity.Assets.Open(res) : AndroidContentManager.OpenStream(res);
+        }
         
         /// <summary>
         /// 加載資源文本
@@ -177,7 +180,7 @@ namespace Platforms
             res = res.Replace("\\", "/");
             lock (Platform.IoLock)
             {
-                using (var stream = Game.Activity.Assets.Open(res))
+                using (var stream = LoadStream(res))
                 {
                     using (var streamReader = new StreamReader(stream))
                     {
@@ -196,7 +199,7 @@ namespace Platforms
             res = res.Replace("\\", "/");
             lock (Platform.IoLock)
             {
-                using (var stream = Game.Activity.Assets.Open(res))
+                using (var stream = LoadStream(res))
                 {
                     using (var streamReader = new StreamReader(stream))
                     {
@@ -222,7 +225,7 @@ namespace Platforms
             {
                 using (var dest = new MemoryStream())
                 {
-                    using (Stream stream = TitleContainer.OpenStream(res))
+                    using (var stream = LoadStream(res))
                     {
                         stream.CopyTo(dest);
                         return dest.ToArray();
@@ -261,7 +264,7 @@ namespace Platforms
 
                 //lock (Platform.IoLock)
                 //{
-                    using (var stream = isUser ? LoadUserFileStream(res) : TitleContainer.OpenStream(res))
+                    using (var stream = isUser ? LoadUserFileStream(res) : LoadStream(res))
                     {
                         //Texture tex = SharpDX.
                         Texture2D tex = Texture2D.FromStream(GraphicsDevice, stream);
@@ -293,7 +296,9 @@ namespace Platforms
             {
                 dir = dir.Substring(0, dir.LastIndexOf('/'));
             }
-            return Game.Activity.Assets.List(dir);
+
+            return System.String.IsNullOrEmpty(Channel) ? Game.Activity.Assets.List(dir) 
+                : AndroidContentManager.entries.Where(en => en.StartsWith(dir)).NullToEmptyArray().Select(en => en.Contains("/") ? en.Substring(en.LastIndexOf('/') + 1) : en).NullToEmptyArray();
         }
 
         public override bool FileExists(string file)
@@ -1383,6 +1388,187 @@ namespace Platforms
             }
         }
 
+    }
+
+    public static class AndroidContentManager
+    {
+        // Keep this static so we only call Game.Activity.Assets.List() once
+        // No need to call it for each file if the list will never change.
+        // We do need one file list per folder though.
+        static ICSharpCode.SharpZipLib.Zip.ZipFile zif;
+        static ApplicationInfo ainfo;
+
+        static PackageInfo pinfo;
+
+        static string obbPath;
+
+        public static List<string> entries;
+
+        public static void Init()
+        {
+            if (entries == null)
+            {
+                Activity activity = Game.Activity;
+                ainfo = activity.ApplicationInfo;
+                pinfo = activity.PackageManager.GetPackageInfo(ainfo.PackageName, PackageInfoFlags.MetaData);
+
+                obbPath = System.IO.Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "Android", "obb", ainfo.PackageName, $"main.{Platform.PackVersion}.{ainfo.PackageName}.obb");
+                //#if DEBUG
+                //                obbPath = System.IO.Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "Android", "obb", ainfo.PackageName + ".debug", String.Format("main.{0}.{1}.obb", expansionPackVersion, ainfo.PackageName));
+                //#else
+                //            obbPath = Path.Combine (Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "Android", "obb", ainfo.PackageName, String.Format ("main.{0}.{1}.obb", expansionPackVersion, ainfo.PackageName));
+                //#endif
+                try
+                {
+                    zif = new ICSharpCode.SharpZipLib.Zip.ZipFile(obbPath);
+
+                    entries = new List<string>();
+
+                    for (int i = 0; i < zif.Count; i++)
+                    {
+                        var file = zif[i].Name;
+                        if (System.IO.Path.GetExtension(file).Length > 0)
+                        {
+                            entries.Add(file);
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    System.Diagnostics.Debug.WriteLine("++    Zip expansion file could not be opened    ++  {0}", e.Message);
+                    zif = null;
+                }
+            }
+        }
+
+        public static Stream OpenStream(string assetName)
+        {
+            //Stream stream;
+
+            string assetPath = assetName;  // System.IO.Path.Combine(RootDirectory, assetName) + ".xnb";
+
+            Activity activity = Game.Activity;
+
+            string filePath = assetPath;
+
+            lock (Platform.IoLock)
+            {
+                var ze = zif.GetEntry(filePath);
+
+                using (var stream = zif.GetInputStream(ze))
+                {
+                    var mstream = new MemoryStream((int)ze.Size);
+
+                    stream.CopyTo(mstream);
+
+                    mstream.Seek(0, SeekOrigin.Begin);
+
+                    return mstream;
+                }
+            }
+        }
+
+
+        //static string[] textureExtensions = new string[] { ".jpg", ".bmp", ".jpeg", ".png", ".gif" };
+        //static string[] songExtensions = new string[] { ".mp3", ".ogg", ".mid" };
+        //static string[] soundEffectExtensions = new string[] { ".wav", ".mp3", ".ogg", ".mid" };
+        //protected override string Normalize<T>(string assetName)
+        //{
+        //    string result = null;
+
+        //    if (typeof(T) == typeof(Texture2D) || typeof(T) == typeof(Texture))
+        //    {
+        //        result = Normalize(assetName, textureExtensions);
+        //    }
+        //    else if ((typeof(T) == typeof(Song)))
+        //    {
+        //        result = Normalize(assetName, songExtensions);
+        //    }
+        //    else if ((typeof(T) == typeof(SoundEffect)))
+        //    {
+        //        result = Normalize(assetName, soundEffectExtensions);
+        //    }
+        //    if (result == null)
+        //    { //item might not be in the package or be an unsupported file type
+        //        result = base.Normalize<T>(assetName);
+        //    }
+        //    return result;
+        //}
+
+        //protected override object ReadRawAsset<T>(string assetName, string originalAssetName)
+        //{
+        //    if (zif == null)
+        //        return base.ReadRawAsset<T>(assetName, originalAssetName);
+        //    var ze = zif.GetEntry(assetName);
+        //    if (ze == null)
+        //    {
+        //        return base.ReadRawAsset<T>(assetName, originalAssetName);
+        //    }
+        //    if (typeof(T) == typeof(Texture2D) || typeof(T) == typeof(Texture))
+        //    {
+        //        lock (ContentManagerLock)
+        //        {
+        //            using (MemoryStream mstream = new MemoryStream((int)ze.Size))
+        //            {
+
+        //                using (var stream = zif.GetInputStream(ze))
+        //                {
+        //                    stream.CopyTo(mstream);
+
+        //                    mstream.Seek(0, SeekOrigin.Begin);
+
+        //                }
+
+        //                Texture2D texture = Texture2D.FromStream(
+        //                                        graphicsDeviceService.GraphicsDevice, mstream);
+        //                texture.Name = originalAssetName;
+        //                return texture;
+        //            }
+        //        }
+        //    }
+        //    else if ((typeof(T) == typeof(Song)))
+        //    {
+        //        return new Song(obbPath, zif.LocateEntry(ze), ze.CompressedSize);
+        //    }
+        //    else if ((typeof(T) == typeof(SoundEffect)))
+        //    {
+        //        return new SoundEffect(obbPath, zif.LocateEntry(ze), ze.CompressedSize);
+        //    }
+        //    throw new NotImplementedException("This format of file is not supported as raw file");
+        //}
+
+        //internal string Normalize(string fileName, string[] extensions)
+        //{
+        //    if (zif == null)
+        //        return null;
+        //    int index = fileName.LastIndexOf(System.IO.Path.DirectorySeparatorChar);
+        //    string path = string.Empty;
+        //    string file = fileName;
+        //    if (index >= 0)
+        //    {
+        //        path = fileName.Substring(0, index);
+        //        file = fileName.Substring(index + 1, fileName.Length - index - 1);
+        //    }
+
+        //    Dictionary<string, int> files = null;
+        //    if (!entries.TryGetValue(path, out files))
+        //        return null;
+
+        //    bool found = false;
+        //    index = -1;
+        //    foreach (string s in extensions)
+        //    {
+        //        if (files.TryGetValue(file + s, out index))
+        //        {
+        //            found = true;
+        //            break;
+        //        }
+        //    }
+        //    if (!found)
+        //        return null;
+
+        //    return zif[index].Name;
+        //}
     }
 
     public static class BitmapHelpers
