@@ -31713,7 +31713,7 @@
 "ID":280,
 "Name":"被某势力合并"
 },
-"Parameter":"5",
+"Parameter":"6",
 "Parameter2":""
 }
 },
@@ -74801,7 +74801,7 @@
 "Key":18144,
 "Value":{
 "ID":18144,
-"Name":"弩兵屯兵所",
+"Name":"骑兵屯兵所",
 "Description":"【编队】骑兵",
 "Kind":{
 "ID":1120,
@@ -76428,6 +76428,25 @@
 "Type":3
 },
 "Parameter":"141",
+"Parameter2":""
+}
+},
+{
+"Key":18145,
+"Value":{
+"ID":18145,
+"Name":"【编队】运输兵",
+"Description":"【编队】运输兵",
+"Kind":{
+"ID":1120,
+"Name":"可以创建某兵种编队",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"29",
 "Parameter2":""
 }
 }
@@ -78104,7 +78123,7 @@
 "ContactOffence":true,
 "CounterOffence":false,
 "CreateBesideWater":false,
-"CreateConditionsString":"",
+"CreateConditionsString":"998",
 "CreateCost":100,
 "CreateTechnology":0,
 "Defence":450,
@@ -78166,7 +78185,7 @@
 "WastelandRate":0.7,
 "WaterAdaptability":8,
 "WaterRate":0.6,
-"zijinshangxian":0
+"zijinshangxian":1000000
 }
 },
 {
@@ -92718,11 +92737,11 @@
 "AIConditionWeightString":"",
 "ConditionTableString":"",
 "Days":30,
-"Description":"民心、统治、农业、商业、技术、耐久能力增加100",
+"Description":"民心、统治、农业、商业、技术、耐久能力增加100；新编【运输兵】",
 "DisplayCol":0,
 "DisplayRow":10,
 "FundCost":20000,
-"InfluencesString":"2647 2648 2649 2650 2651 2652",
+"InfluencesString":"2647 2648 2649 2650 2651 18145 2652",
 "Kind":10,
 "PointCost":250000,
 "PostID":72,
