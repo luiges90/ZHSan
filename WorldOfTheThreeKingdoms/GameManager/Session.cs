@@ -254,8 +254,6 @@ namespace GameManager
 
         public static void Init()
         {
-
-
             new PlatformTask(() =>
             {
                 try
@@ -475,7 +473,7 @@ namespace GameManager
             {
                 if (slope >= 1.5)
                 {
-                    Session.Resolution = "1000*620";  //"925*520";
+                    Session.Resolution = "1024*680";  //"925*520";
                     //LargeContextMenu = true;
                 }
                 else
@@ -594,44 +592,54 @@ namespace GameManager
         public static void PlayMusic(string category)
         {
             string[] songs = null;
+            //*jokosany背景音乐随机播放原格式:
+            //if (category == "Start")
+            //{
+           //     songs = new string[] { @"Content\Music\Start\Start };
+           // }
+            int ran = new Random().Next(1, 5);
+           // string ranStr = ran < 10 ? ("0" + ran) : ran.ToString();
+
 
             if (category == "Start")
             {
-                songs = new string[] { @"Content\Music\Start\Start" };
+                songs = new string[] { @"Content\Music\Start\" + ran };
             }
             else if (category == "Attack")
             {
-                songs = new string[] { @"Content\Music\Attack\Attack" };
+                songs = new string[] { @"Content\Music\Attack\" + ran };
             }
             else if (category == "Defend")
             {
-                songs = new string[] { @"Content\Music\Defend\Defend" };
+                songs = new string[] { @"Content\Music\Defend\" + ran };
             }
             else if (category == "Battle")
             {
-                songs = new string[] { @"Content\Music\Battle\Battle" };
+                songs = new string[] { @"Content\Music\Battle\" + ran };
             }
             else if (category == "Spring")
             {
-                songs = new string[] { @"Content\Music\Spring\Spring" };
+                songs = new string[] { @"Content\Music\Spring\" + ran };
             }
             else if (category == "Summer")
             {
-                songs = new string[] { @"Content\Music\Summer\Summer" };
+                songs = new string[] { @"Content\Music\Summer\" + ran };
             }
             else if (category == "Autumn")
             {
-                songs = new string[] { @"Content\Music\Autumn\Autumn" };
+                songs = new string[] { @"Content\Music\Autumn\" + ran };
             }
             else if (category == "Winter")
             {
-                songs = new string[] { @"Content\Music\Winter\Winter" };
+                songs = new string[] { @"Content\Music\Winter\" + ran };
             }
-
+            //jokosany
             Random rd = new Random();
             int index = rd.Next(0, songs.Length);
             string song = songs[index];
-
+            //*jokosany
+            ran = 0;
+            //jokosany
             Platform.Current.PlaySong(song);
         }
 

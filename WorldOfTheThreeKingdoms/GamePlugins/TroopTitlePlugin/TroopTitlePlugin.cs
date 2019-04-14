@@ -143,6 +143,22 @@ namespace TroopTitlePlugin
             this.troopTitle.TheMask14 = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\" + node.Attributes.GetNamedItem("Mask4").Value);
             node = nextSibling.ChildNodes.Item(22);
             this.troopTitle.ThePortrait1Position = StaticMethods.LoadRectangleFromXMLNode(node);
+            //*jokosany在第二远地图上显示部队将领名字
+            node = nextSibling.ChildNodes.Item(23);
+           // this.troopTitle.BackgroundsSize = new Microsoft.Xna.Framework.Point(int.Parse(node.Attributes.GetNamedItem("Width").Value), int.Parse(node.Attributes.GetNamedItem("Height").Value));
+           // this.troopTitle.TheBackgroundsPosition = StaticMethods.LoadRectangleFromXMLNode(node);
+           // this.troopTitle.TheBackgrounds = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\" + node.Attributes.GetNamedItem("Backgrounds").Value);
+            node = nextSibling.ChildNodes.Item(24);
+            rectangle = StaticMethods.LoadRectangleFromXMLNode(node);
+            StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
+            this.troopTitle.TroopNamesText = new FreeText(font, color);
+            this.troopTitle.TroopNamesText.Position = rectangle;
+            this.troopTitle.TroopNamesText.Align = (TextAlign)Enum.Parse(typeof(TextAlign), node.Attributes.GetNamedItem("Align").Value);
+            node = nextSibling.ChildNodes.Item(25);//*势力颜色
+            this.troopTitle.FactionColorsPosition = StaticMethods.LoadRectangleFromXMLNode(node);
+            this.troopTitle.FactionColorsPicture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\FactionPicture\" + node.Attributes.GetNamedItem("ColorPicture").Value);
+            this.troopTitle.FactionColorsBackground = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\FactionPicture\" + node.Attributes.GetNamedItem("ColorBackground").Value);
+            //*jokosany
             node = nextSibling.ChildNodes.Item(26);
             rectangle = StaticMethods.LoadRectangleFromXMLNode(node);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
@@ -198,6 +214,8 @@ namespace TroopTitlePlugin
             node = nextSibling.ChildNodes.Item(44);
             this.troopTitle.TheStunt1Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("Stunt").Value);
             this.troopTitle.TheStuntIcon1Position = StaticMethods.LoadRectangleFromXMLNode(node);
+           // this.troopTitle.TheStunt1Texture.Height = int.Parse(node.Attributes.GetNamedItem("Height").Value);
+           // this.troopTitle.TheStunt1Texture.Width = int.Parse(node.Attributes.GetNamedItem("Width").Value);
 
             node = nextSibling.ChildNodes.Item(46);
             this.troopTitle.Theshiqi1Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("FileName").Value);

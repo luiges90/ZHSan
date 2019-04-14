@@ -14698,8 +14698,17 @@ namespace GameObjects
         public PlatformTexture Texture
         {
             get
-            {
-                return this.Kind.Texture;
+            {//joksany扩建后加载新图片
+             // return this.Kind.Texture;
+                if (this.JianzhuGuimo == 5)
+                {
+                    return this.Kind.Texture2;
+                }
+                else if (this.JianzhuGuimo == 13)
+                {
+                    return this.Kind.Texture3;
+                }
+                else return this.Kind.Texture;
             }
         }
 
@@ -14964,7 +14973,7 @@ namespace GameObjects
                     return false;
                 }
                 terrainKindByPosition = Session.Current.Scenario.GetTerrainKindByPosition(point);
-                if (terrainKindByPosition == TerrainKind.峻岭 || terrainKindByPosition == TerrainKind.湿地 || terrainKindByPosition == TerrainKind.水域 || terrainKindByPosition == TerrainKind.无)
+                if (terrainKindByPosition == TerrainKind.峻岭 || terrainKindByPosition == TerrainKind.湿地 || terrainKindByPosition == TerrainKind.水域 || terrainKindByPosition == TerrainKind.无 || terrainKindByPosition == TerrainKind.森林 || terrainKindByPosition == TerrainKind.栈道 || terrainKindByPosition == TerrainKind.荒地 || terrainKindByPosition == TerrainKind.山地)
                 {
                     return false;
                 }

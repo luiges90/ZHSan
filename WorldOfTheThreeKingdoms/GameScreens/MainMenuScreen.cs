@@ -228,10 +228,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             //None
 
             Current = this;
+            //jokosany为丝路开始界面调整按钮位置
 
             btList = new List<ButtonTexture>() { };
 
-            var btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "New", new Vector2(100, 600));
+            var btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "New", new Vector2(30, 630));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -241,7 +242,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(310, 600));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(290, 630));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -251,16 +252,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(520, 600));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(520, 630));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
                 UnCheckTextBoxs();
                 MenuType = MenuType.Setting;
+
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(730, 600));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(750, 630));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -269,15 +271,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(940, 600));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(980, 630));
             btOne.OnButtonPress += (sender, e) =>
             {
                 Platform.Current.Exit();
             };
-            if (Platform.PlatFormType == PlatFormType.iOS || Platform.PlatFormType == PlatFormType.UWP)
-            {
-                btOne.Visible = false;
-            }
+			if (Platform.PlatFormType == PlatFormType.iOS || Platform.PlatFormType == PlatFormType.UWP)
+			{
+				btOne.Visible = false;
+			}
             btList.Add(btOne);
 
             //New
@@ -343,7 +345,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     message = "请选择存档。";
                 }
                 else
-                {
+                {                    
                     Session.StartScenario(CurrentScenario, true);
                 }
             };
@@ -931,7 +933,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 NowNumber = 10,
                 Unit = 1
             };
-
+            
             nstFollowAttachPlus = new NumericSetTextureF(0, 1, 1, null, new Vector2(left2 + 200, heightBase + height * 0f), true)
             {
                 FloatNum = 1,
@@ -1699,7 +1701,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 NowNumber = 10,
                 Unit = 0.005f
             };
-
+            
 
             //int height = 85;
 
@@ -1943,7 +1945,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 IntMode = true,
                 DisNumber = false,
-                NowNumber = 1,
+                NowNumber = 5,
                 Unit = 1
             };
 
@@ -1951,7 +1953,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 IntMode = true,
                 DisNumber = false,
-                NowNumber = 1,
+                NowNumber = 6,
                 Unit = 1
             };
 
@@ -2019,25 +2021,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Session.ChangeDisplay(false);
                 }
             };
-
-            //btnTextureAlpha = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(50, 120 + 85 * 5f))
-            //{
-            //    ID = "AutoSave"
-            //};
-            //btnTextureAlpha.OnButtonPress += (sender, e) =>
-            //{
-            //    var bt = (ButtonTexture)sender;
-            //    if (bt.Selected)
-            //    {
-            //        bt.Selected = false;
-            //        Setting.Current.GlobalVariables.doAutoSave = false;
-            //    }
-            //    else
-            //    {
-            //        bt.Selected = true;
-            //        Setting.Current.GlobalVariables.doAutoSave = true;
-            //    }
-            //};
 
             tbGamerName = new TextBox(TextBoxStyle.Small, "")
             {
@@ -2108,7 +2091,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
 
             };
-
+            
             btNext1 = new ButtonTexture(@"Content\Textures\Resources\Start\LeftAndRight", "Right", new Vector2(860 + 120, 612))
             {
                 Enable = false
@@ -2295,7 +2278,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Session.globalVariablesTemp.AIAutoTakePlayerCaptives = false;
                     Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = false;
 
-                    this.nstDianNaoShengTao.NowNumber = 0;
+                    this.nstDianNaoShengTao.NowNumber = 0;                                        
                     this.nstDianNaoEWai1.NowNumber = 1.0f;
                     this.nstDianNaoEWai2.NowNumber = 0.0f;
 
@@ -2477,7 +2460,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.nstDianNaoWuJiangJingYan2.NowNumber = 0.0f;
                     this.nstDianNaoBuDuiJingYan2.NowNumber = 0.1f;
                     this.nstDianNaoKangJi2.NowNumber = 0.2f;
-                    this.nstDianNaoKangWei2.NowNumber = 0.2f;
+                    this.nstDianNaoKangWei2.NowNumber = 0.2f;                    
 
                     btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoWanJiaDiRen").Selected = false;
                     btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianWanJia").Selected = true;
@@ -2512,14 +2495,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             //if (!doNotSetDifficultyToCustom)
             //{
-            changeDifficultySelection(Difficulty.custom);
+                changeDifficultySelection(Difficulty.custom);
             //}
         }
 
         private void changeDifficultySelection(Difficulty d)
         {
             cbAIHardList.ForEach(bt => bt.Selected = false);
-
+            
             switch (d)
             {
                 case Difficulty.beginner: cbAIHardList.FirstOrDefault(cb => cb.ID == "beginner").Selected = true; break;
@@ -2625,7 +2608,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             btConfigList1.FirstOrDefault(bt => bt.ID == "ShiLiHeBing").Selected = (bool)Session.globalVariablesTemp.PermitFactionMerge;
 
             btConfigList1.FirstOrDefault(bt => bt.ID == "RenKouXiaoYu").Selected = (bool)Session.globalVariablesTemp.PopulationRecruitmentLimit;
-
+           
             btConfigList1.FirstOrDefault(bt => bt.ID == "KaiQiTianYan").Selected = (bool)Session.globalVariablesTemp.SkyEye;
 
             btConfigList1.FirstOrDefault(bt => bt.ID == "KaiQiZuoBi").Selected = (bool)Session.globalVariablesTemp.EnableCheat;
@@ -2633,7 +2616,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             btConfigList1.FirstOrDefault(bt => bt.ID == "YingHeMoshi").Selected = (bool)Session.globalVariablesTemp.HardcoreMode;
 
             btConfigList1.FirstOrDefault(bt => bt.ID == "ShengChengZiSi").Selected = (bool)Session.globalVariablesTemp.createChildren;
-
+           
             btConfigList1.FirstOrDefault(bt => bt.ID == "JianYiAI").Selected = (bool)Session.globalVariablesTemp.AIQuickBattle;
 
             btConfigList1.FirstOrDefault(bt => bt.ID == "hougongAlienOnly").Selected = (bool)Session.globalVariablesTemp.hougongAlienOnly;
@@ -2655,7 +2638,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             nstDayInTurn.NowNumber = Session.parametersTemp.DayInTurn;
 
             //人物
-
+ 
             btConfigList2.FirstOrDefault(bt => bt.ID == "XuNiShangXian").Selected = (bool)Session.globalVariablesTemp.createChildrenIgnoreLimit;
 
             btConfigList2.FirstOrDefault(bt => bt.ID == "WuJiangGuanXi").Selected = (bool)Session.globalVariablesTemp.EnablePersonRelations;
@@ -2829,7 +2812,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             AIEncircleRank = Session.parametersTemp.AIEncircleRank;
             AIEncircleVar = Session.parametersTemp.AIEncircleVar;
-
+            
             //doNotSetDifficultyToCustom = false;           
 
         }
@@ -3097,7 +3080,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
                 else if (CurrentSetting == "人物")
                 {
-                    btConfigList2.ForEach(bt => bt.Update());
+                    btConfigList2.ForEach(bt => bt.Update());                   
 
                     var nsts = new NumericSetTextureF[] { nstMaxExperience, nstMaxSkill, nstPiLeiUp, nstPiLeiDown, nstExperienceUp, nstTreasureDiscover,
     nstFollowAttachPlus, nstFollowDefencePlus, nstSearchTime, nstGeneralChildsMax, nstGeneralChildsAppear, nstGeneralChildsSkill, nstChildsSkill, nstForbiddenDays };
@@ -3197,7 +3180,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     {
                         Session.globalVariablesTemp.ProhibitFactionAgainstDestroyer = (float)nstForbiddenDays.NowNumber;
                     }
-
+                    
                 }
                 else if (CurrentSetting == "参数")
                 {
@@ -3635,11 +3618,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     btnLargeResolution.Update();
                 }
-
-                //btnTextureAlpha.Update();
-
+                
                 Setting.Current.GamerName = tbGamerName.Text.NullToStringTrim();
-
+                                
                 var nsts = new NumericSetTextureF[] { nstMusic, nstSound, nstArmySpeed, nstDialogTime, nstBattleSpeed, nstAutoSaveTime };
 
                 foreach (var nst in nsts)
@@ -3792,7 +3773,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             else if (MenuType == MenuType.Config)
             {
                 CacheManager.DrawAvatar(@"Content\Textures\Resources\Start\Common.jpg", Vector2.Zero, Color.White * alpha, 1f);
-
+                
                 btScenarioList.ForEach(bt => bt.Draw(null, Color.White * alpha));
 
                 lbSettingList.ForEach(lb => lb.Draw(alpha));
@@ -3865,7 +3846,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 else if (CurrentSetting == "人物")
                 {
                     btConfigList2.ForEach(bt => bt.Draw());
-
+                    
                     var nsts = new NumericSetTextureF[] { nstMaxExperience, nstMaxSkill, nstPiLeiUp, nstPiLeiDown, nstExperienceUp, nstTreasureDiscover,
     nstFollowAttachPlus, nstFollowDefencePlus, nstSearchTime, nstGeneralChildsMax, nstGeneralChildsAppear, nstGeneralChildsSkill, nstChildsSkill, nstForbiddenDays };
 
@@ -4127,7 +4108,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             else if (MenuType == MenuType.Setting)
             {
                 CacheManager.DrawAvatar(@"Content\Textures\Resources\Start\Common.jpg", Vector2.Zero, Color.White * alpha, 1f);
-
+                
                 btSettingList.ForEach(bt => bt.Draw(null, Color.White * alpha));
 
                 CacheManager.DrawString(Session.Current.Font, "语言", new Vector2(50, 120), Color.Black * alpha);
@@ -4190,7 +4171,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 CacheManager.DrawString(Session.Current.Font, "显示部队动画", new Vector2(left, 120 + height * 1.5f), Color.Black * alpha);
 
                 CacheManager.DrawString(Session.Current.Font, "被攻击时暂停游戏", new Vector2(left, 120 + height * 2), Color.Black * alpha);
-
+                
                 CacheManager.DrawString(Session.Current.Font, "从某列表中选择单一项时单击即确定", new Vector2(left, 120 + height * 2.5f), Color.Black * alpha);
 
                 CacheManager.DrawString(Session.Current.Font, "不提示小型设施的建设完成", new Vector2(left, 120 + height * 3f), Color.Black * alpha);
@@ -4202,17 +4183,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 CacheManager.DrawString(Session.Current.Font, "自动存档，密度（分钟）", new Vector2(left, 120 + height * 4.5f), Color.Black * alpha);
 
                 CacheManager.DrawString(Session.Current.Font, "游戏窗体失去焦点时继续运行", new Vector2(left, 120 + height * 5f), Color.Black * alpha);
-
+                
                 CacheManager.DrawString(Session.Current.Font, "部队移动（越大越慢）", new Vector2(50, 120 + height * 3.5f), Color.Black * alpha);
 
                 CacheManager.DrawString(Session.Current.Font, "对话窗显示时间", new Vector2(50, 120 + height * 4f), Color.Black * alpha);
 
                 CacheManager.DrawString(Session.Current.Font, "战斗速度", new Vector2(50, 120 + height * 4.5f), Color.Black * alpha);
-
-                //btnTextureAlpha.Alpha = alpha;
-                //btnTextureAlpha.Draw();
-
-                //CacheManager.DrawString(Session.Current.Font, "处理材质Alpha", new Vector2(50 + 100, 120 + height * 5f), Color.Black * alpha);
 
             }
             else if (MenuType == MenuType.About)
