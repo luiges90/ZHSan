@@ -31,6 +31,7 @@ namespace HelpPlugin
             if (this.isShowing)
             {
                 CacheManager.Draw(this.BackgroundTexture, this.BackgroundDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                this.RichText.DisplayOffset = new Point(this.BackgroundDisplayPosition.X + 10, this.BackgroundDisplayPosition.Y + 20);
                 this.RichText.Draw(0.1999f);
             }
         }

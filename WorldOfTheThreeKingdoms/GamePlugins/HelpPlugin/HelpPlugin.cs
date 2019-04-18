@@ -61,8 +61,8 @@ namespace HelpPlugin
             this.help.ButtonTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\Help\Data\" + node.Attributes.GetNamedItem("FileName").Value);
             this.help.ButtonSelectedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\Help\Data\" + node.Attributes.GetNamedItem("Selected").Value);
             node = nextSibling.ChildNodes.Item(2);
-            this.help.RichText.ClientWidth = this.help.BackgroundSize.X;
-            this.help.RichText.ClientHeight = this.help.BackgroundSize.Y;
+            this.help.RichText.ClientWidth = this.help.BackgroundSize.X - 10;
+            this.help.RichText.ClientHeight = this.help.BackgroundSize.Y - 20;
             this.help.RichText.RowMargin = int.Parse(node.Attributes.GetNamedItem("RowMargin").Value);
             StaticMethods.LoadFontAndColorFromXMLNode(node, out font, out color);
 
