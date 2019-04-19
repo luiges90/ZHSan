@@ -4049,6 +4049,18 @@ namespace GameObjects
                     this.mingling = "入城";
                     this.TargetArchitecture = this.StartingArchitecture;
                 }
+                {
+                    Architecture a = Session.Current.Scenario.GetArchitectureByPositionNoCheck(this.Position);
+                    if (a != null && a.BelongedFaction != this.BelongedFaction)
+                    {
+                        a.Agriculture = (int)(a.Agriculture * 0.95);
+                        a.Commerce = (int)(a.Commerce * 0.95);
+                        a.Technology = (int)(a.Technology * 0.95);
+                        a.Domination = (int)(a.Domination * 0.95);
+                        a.Morale = (int)(a.Morale * 0.9);
+                    }
+                }
+
                 this.DrawSelected = false;
             }
         }
