@@ -2354,57 +2354,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 case Difficulty.normal:
 
-                    this.nstDianNaoZiJing1.NowNumber = 2.0f;
-                    this.nstDianNaoLiangCao1.NowNumber = 2.0f;
-                    this.nstDianNaoShangHai1.NowNumber = 1.0f;
-                    this.nstDianNaoBuDuiGongJi1.NowNumber = 1.0f;
-                    this.nstDianNaoFangYu1.NowNumber = 1.0f;
-                    this.nstDianNaoZhengBing1.NowNumber = 1.2f;
-                    this.nstDianNaoXunLian1.NowNumber = 1.2f;
-                    this.nstDianNaoWuJiangJingYan1.NowNumber = 1.0f;
-                    this.nstDianNaoBuDuiJingYan1.NowNumber = 1.5f;
-                    this.nstDianNaoKangJi1.NowNumber = 0f;
-                    this.nstDianNaoKangWei1.NowNumber = 0f;
-                    this.nstDianNaoZiJing2.NowNumber = 0.02f;
-                    this.nstDianNaoLiangCao2.NowNumber = 0.02f;
-                    this.nstDianNaoShangHai2.NowNumber = 0.0f;
-                    this.nstDianNaoBuDuiGongJi2.NowNumber = 0.0f;
-                    this.nstDianNaoFangYu2.NowNumber = 0.0f;
-                    this.nstDianNaoZhengBing2.NowNumber = 0.02f;
-                    this.nstDianNaoXunLian2.NowNumber = 0.02f;
-                    this.nstDianNaoWuJiangJingYan2.NowNumber = 0.0f;
-                    this.nstDianNaoBuDuiJingYan2.NowNumber = 0.01f;
-                    this.nstDianNaoKangJi2.NowNumber = 0.0f;
-                    this.nstDianNaoKangWei2.NowNumber = 0.0f;
-
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoWanJiaDiRen").Selected = false;
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianWanJia").Selected = false;
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianDianNao").Selected = false;
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuFuLu").Selected = false;
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoChengZhongWuJiang").Selected = false;
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuWanJiaFuLu").Selected = false;
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoFuLuZhongCheng").Selected = false;
-                    Session.globalVariablesTemp.PinPointAtPlayer = false;
-                    Session.globalVariablesTemp.internalSurplusRateForPlayer = false;
-                    Session.globalVariablesTemp.internalSurplusRateForAI = false;
-                    Session.globalVariablesTemp.AIAutoTakeNoFactionCaptives = false;
-                    Session.globalVariablesTemp.AIAutoTakeNoFactionPerson = false;
-                    Session.globalVariablesTemp.AIAutoTakePlayerCaptives = false;
-                    Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = false;
-
-                    this.nstDianNaoShengTao.NowNumber = 5f;
-                    this.nstDianNaoEWai1.NowNumber = 1.2f;
-                    this.nstDianNaoEWai2.NowNumber = 0.0f;
-
-                    this.nstDianNaoYinWanJiaHeBing.NowNumber = -1f;
-
-                    this.AIEncircleRank = 30;
-                    this.AIEncircleVar = 30;
-
-                    break;
-
-                case Difficulty.hard:
-
                     this.nstDianNaoZiJing1.NowNumber = 3.0f;
                     this.nstDianNaoLiangCao1.NowNumber = 3.0f;
                     this.nstDianNaoShangHai1.NowNumber = 1.2f;
@@ -2425,6 +2374,57 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.nstDianNaoXunLian2.NowNumber = 0.05f;
                     this.nstDianNaoWuJiangJingYan2.NowNumber = 0.0f;
                     this.nstDianNaoBuDuiJingYan2.NowNumber = 0.02f;
+                    this.nstDianNaoKangJi2.NowNumber = 0.0f;
+                    this.nstDianNaoKangWei2.NowNumber = 0.0f;
+
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoWanJiaDiRen").Selected = false;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianWanJia").Selected = true;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianDianNao").Selected = false;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuFuLu").Selected = true;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoChengZhongWuJiang").Selected = true;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuWanJiaFuLu").Selected = false;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoFuLuZhongCheng").Selected = false;
+                    Session.globalVariablesTemp.PinPointAtPlayer = false;
+                    Session.globalVariablesTemp.internalSurplusRateForPlayer = true;
+                    Session.globalVariablesTemp.internalSurplusRateForAI = false;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionCaptives = true;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionPerson = true;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptives = false;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = false;
+
+                    this.nstDianNaoShengTao.NowNumber = 0f;
+                    this.nstDianNaoEWai1.NowNumber = 1.5f;
+                    this.nstDianNaoEWai2.NowNumber = 0.01f;
+
+                    this.nstDianNaoYinWanJiaHeBing.NowNumber = -1f;
+
+                    this.AIEncircleRank = 30;
+                    this.AIEncircleVar = 30;
+
+                    break;
+
+                case Difficulty.hard:
+
+                    this.nstDianNaoZiJing1.NowNumber = 5.0f;
+                    this.nstDianNaoLiangCao1.NowNumber = 5.0f;
+                    this.nstDianNaoShangHai1.NowNumber = 1.5f;
+                    this.nstDianNaoBuDuiGongJi1.NowNumber = 1.2f;
+                    this.nstDianNaoFangYu1.NowNumber = 1.5f;
+                    this.nstDianNaoZhengBing1.NowNumber = 3.0f;
+                    this.nstDianNaoXunLian1.NowNumber = 3.0f;
+                    this.nstDianNaoWuJiangJingYan1.NowNumber = 1.0f;
+                    this.nstDianNaoBuDuiJingYan1.NowNumber = 3.0f;
+                    this.nstDianNaoKangJi1.NowNumber = 0f;
+                    this.nstDianNaoKangWei1.NowNumber = 0f;
+                    this.nstDianNaoZiJing2.NowNumber = 0.05f;
+                    this.nstDianNaoLiangCao2.NowNumber = 0.05f;
+                    this.nstDianNaoShangHai2.NowNumber = 0.02f;
+                    this.nstDianNaoBuDuiGongJi2.NowNumber = 0.0f;
+                    this.nstDianNaoFangYu2.NowNumber = 0.05f;
+                    this.nstDianNaoZhengBing2.NowNumber = 0.1f;
+                    this.nstDianNaoXunLian2.NowNumber = 0.1f;
+                    this.nstDianNaoWuJiangJingYan2.NowNumber = 0.0f;
+                    this.nstDianNaoBuDuiJingYan2.NowNumber = 0.1f;
                     this.nstDianNaoKangJi2.NowNumber = 0.1f;
                     this.nstDianNaoKangWei2.NowNumber = 0.1f;
 
@@ -2444,8 +2444,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = true;
 
                     this.nstDianNaoShengTao.NowNumber = 10f;
-                    this.nstDianNaoEWai1.NowNumber = 1.5f;
-                    this.nstDianNaoEWai2.NowNumber = 0.01f;
+                    this.nstDianNaoEWai1.NowNumber = 2.0f;
+                    this.nstDianNaoEWai2.NowNumber = 0.02f;
 
                     this.nstDianNaoYinWanJiaHeBing.NowNumber = -1f;
 
@@ -2458,22 +2458,22 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     this.nstDianNaoZiJing1.NowNumber = 5.0f;
                     this.nstDianNaoLiangCao1.NowNumber = 5.0f;
-                    this.nstDianNaoShangHai1.NowNumber = 1.5f;
-                    this.nstDianNaoBuDuiGongJi1.NowNumber = 1.2f;
-                    this.nstDianNaoFangYu1.NowNumber = 1.5f;
-                    this.nstDianNaoZhengBing1.NowNumber = 3.0f;
-                    this.nstDianNaoXunLian1.NowNumber = 3.0f;
+                    this.nstDianNaoShangHai1.NowNumber = 3.0f;
+                    this.nstDianNaoBuDuiGongJi1.NowNumber = 1.5f;
+                    this.nstDianNaoFangYu1.NowNumber = 3.0f;
+                    this.nstDianNaoZhengBing1.NowNumber = 5.0f;
+                    this.nstDianNaoXunLian1.NowNumber = 5.0f;
                     this.nstDianNaoWuJiangJingYan1.NowNumber = 1.0f;
                     this.nstDianNaoBuDuiJingYan1.NowNumber = 4.0f;
                     this.nstDianNaoKangJi1.NowNumber = 0f;
                     this.nstDianNaoKangWei1.NowNumber = 0f;
                     this.nstDianNaoZiJing2.NowNumber = 0.05f;
                     this.nstDianNaoLiangCao2.NowNumber = 0.05f;
-                    this.nstDianNaoShangHai2.NowNumber = 0.02f;
-                    this.nstDianNaoBuDuiGongJi2.NowNumber = 0.0f;
-                    this.nstDianNaoFangYu2.NowNumber = 0.05f;
-                    this.nstDianNaoZhengBing2.NowNumber = 0.1f;
-                    this.nstDianNaoXunLian2.NowNumber = 0.1f;
+                    this.nstDianNaoShangHai2.NowNumber = 0.05f;
+                    this.nstDianNaoBuDuiGongJi2.NowNumber = 0.02f;
+                    this.nstDianNaoFangYu2.NowNumber = 0.2f;
+                    this.nstDianNaoZhengBing2.NowNumber = 0.2f;
+                    this.nstDianNaoXunLian2.NowNumber = 0.2f;
                     this.nstDianNaoWuJiangJingYan2.NowNumber = 0.0f;
                     this.nstDianNaoBuDuiJingYan2.NowNumber = 0.1f;
                     this.nstDianNaoKangJi2.NowNumber = 0.2f;
@@ -2494,7 +2494,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Session.globalVariablesTemp.AIAutoTakePlayerCaptives = true;
                     Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = true;
 
-                    this.nstDianNaoShengTao.NowNumber = 20f;
+                    this.nstDianNaoShengTao.NowNumber = 10f;
                     this.nstDianNaoEWai1.NowNumber = 3.0f;
                     this.nstDianNaoEWai2.NowNumber = 0.05f;
 
