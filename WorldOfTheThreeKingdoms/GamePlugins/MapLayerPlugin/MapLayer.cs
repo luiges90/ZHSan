@@ -71,109 +71,56 @@ namespace MapLayerPlugin
             screen.OnMouseLeftUp += new Screen.MouseLeftUp(this.screen_OnMouseLeftUP);
         }
         private bool over = false;
+        private GameObjectList list;
         private bool Hastroops()
         {
             Faction p = Session.Current.Scenario.CurrentPlayer;
+            list = new GameObjectList();
+            bool b = false;
             if (p != null && p.Troops.Count >= 1)
             {
                 foreach (Troop t in p.Troops)
                 {
                     if (!t.Operated)
                     {
-                        return true;
+                        list.Add(t);
+                        b= true;
                     }
                 }
-                return false;
             }
-            else
-            {
-                return false;
-            }
+            return b;
         }
         private void screen_OnMouseLeftUP(Point position)
         {
             if (base.Enabled && Hastroops())
             {
-                if (StaticMethods.PointInRectangle(position, this.NextTroopDisplayPosition))
+                if (list.Count >= 1)
                 {
-                    over = false;
-                    Faction p = Session.Current.Scenario.CurrentPlayer;
-                    if(p.troopSequence> p.Troops.Count - 1)
+                    Faction faction = Session.Current.Scenario.CurrentPlayer;
+                    if (StaticMethods.PointInRectangle(position, this.NextTroopDisplayPosition))
                     {
-                        p.troopSequence = p.Troops.Count - 1;
-                    }
-                    if (p.troopSequence != -1 && (p.Troops[p.troopSequence] as Troop) != null)
-                    {
-                        (p.Troops[p.troopSequence] as Troop).DrawSelected = false;
-                    }
-                    for (int i = p.troopSequence; i < p.Troops.Count - 1; i++)
-                     {
-                         Troop t = p.Troops[i+1] as Troop;
-                         if (!t.Operated)
-                         {
-                            p.troopSequence = i+1;
-                            over = true;
-                             break;
-                         }
-                     }
-                    if (!over)
-                    {
-                        for (int i = 0; i < p.troopSequence; i++)
+                        if (faction.troopSequence == -1 || faction.troopSequence > list.Count - 1)
                         {
-                            Troop t = p.Troops[i] as Troop;
-                            if (!t.Operated)
-                            {
-                                p.troopSequence = i;
-                                over = true;
-                                break;
-                            }
+                            faction.troopSequence = 0;
                         }
-                    }
-                    if ((p.Troops[p.troopSequence] as Troop) != null && p.troopSequence!=-1 && !(p.Troops[p.troopSequence] as Troop).Operated)
+                            (faction.Troops[faction.troopSequence] as Troop).DrawSelected = true;
+                            Session.MainGame.mainGameScreen.JumpTo((faction.Troops[faction.troopSequence] as Troop).Position);
+                            faction.troopSequence++;
+                    }   
+                    else if (StaticMethods.PointInRectangle(position, this.LastTroopDisplayPosition))
                     {
-                        (p.Troops[p.troopSequence] as Troop).DrawSelected = true;
-                        Session.MainGame.mainGameScreen.JumpTo((p.Troops[p.troopSequence] as Troop).Position);
-                    }
-                }
-               else if (StaticMethods.PointInRectangle(position, this.LastTroopDisplayPosition))
-                {
-                    over = false;
-                    Faction p = Session.Current.Scenario.CurrentPlayer;
-                    if ((p.Troops[p.troopSequence] as Troop) != null && p.troopSequence != -1)
-                    {
-                        (p.Troops[p.troopSequence] as Troop).DrawSelected = false;
-                    }
-                    for (int i = p.troopSequence; i >0; i--)
-                    {
-                        Troop t = p.Troops[i - 1] as Troop;
-                        if (!t.Operated)
+                        if (faction.troopSequence == -1 || faction.troopSequence > list.Count - 1)
                         {
-                            p.troopSequence = i - 1;
-                            over = true;
-                            break;
+                            faction.troopSequence = list.Count - 1;
                         }
-                    }
-                    if (!over)
-                    {
-                        for (int i = p.Troops.Count - 1; i > p.troopSequence; i--)
-                        {
-                            Troop t = p.Troops[i] as Troop;
-                            if (!t.Operated)
-                            {
-                                p.troopSequence = i;
-                                over = true;
-                                break;
-                            }
-                        }
-                    }
-                    if ((p.Troops[p.troopSequence] as Troop) != null && p.troopSequence != -1 && !(p.Troops[p.troopSequence] as Troop).Operated)
-                    {
-                        (p.Troops[p.troopSequence] as Troop).DrawSelected = true;
-                        Session.MainGame.mainGameScreen.JumpTo((p.Troops[p.troopSequence] as Troop).Position);
+                            (faction.Troops[faction.troopSequence] as Troop).DrawSelected = true;
+                            Session.MainGame.mainGameScreen.JumpTo((faction.Troops[faction.troopSequence] as Troop).Position);
+                            faction.troopSequence--;
                     }
                 }
             }
         }
+        
 
         private void screen_OnMouseLeftDown(Point position)
         {
