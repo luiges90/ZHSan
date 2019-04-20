@@ -32,7 +32,7 @@ namespace WorldOfTheThreeKingdoms
                 new MainProcessManager().Processing();
             }*/
 
-           // SteamAPI.Init();
+            SteamAPI.Init();
 
             string exeDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             Directory.SetCurrentDirectory(exeDir);
