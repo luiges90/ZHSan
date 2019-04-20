@@ -1,21 +1,74 @@
-﻿<Window x:Class="WorldOfTheThreeKingdomsEditor.NewFactionWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WorldOfTheThreeKingdomsEditor"
+        xmlns:local= "clr-namespace:WorldOfTheThreeKingdomsEditor"
+        xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="WorldOfTheThreeKingdomsEditor.NewFactionWindow"
         mc:Ignorable="d"
-        Title="建立勢力" Height="200" Width="400">
+        Title="编辑势力" Height="700" Width="1000">
+    <Window.Resources>
+        <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+            <UniformGrid Columns="8" />
+        </ItemsPanelTemplate>
+    </Window.Resources>
     <Grid>
-        <Label Content="武將ID(空格分隔)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.675,0.68"/>
-        <TextBox Name="tbPersons" Height="23" Margin="117,12,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-0.4,0.13"/>
-        <Label Content="君主ID" HorizontalAlignment="Left" Margin="66,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.75,0.6"/>
-        <TextBox Name="tbFactionLeaderID" HorizontalAlignment="Left" Height="23" Margin="117,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.075,0.13"/>
-        <Label Content="起始建築ID" HorizontalAlignment="Left" Margin="42,66,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="tbStartingArchitectureID" HorizontalAlignment="Left" Height="23" Margin="117,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.525,0.565"/>
-        <Label Content="勢力顏色ID" HorizontalAlignment="Left" Margin="42,94,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="tbColorID" HorizontalAlignment="Left" Height="23" Margin="117,96,0,0" TextWrapping="Wrap" Text="52" VerticalAlignment="Top" Width="120"/>
-        <Button Content="確定" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Click="Button_Click"/>
+        <Viewbox Stretch="Uniform">
+            <Canvas Height="700" Width="1000">
 
+                <!--    势力基础信息   -->
+                <Label Content="势力名" Canvas.Left="40" Canvas.Top="11"/>
+                <TextBox  x:Name="txname" Canvas.Left="93" Canvas.Top="11" Text="ddddd" Width="115"/>
+                <Label Content="君主" Canvas.Left="52" Canvas.Top="39"/>
+                <Button x:Name="btleader" Canvas.Left="93" Canvas.Top="39" Height="26" Width="115" Click="Btleader_Click" />
+                <Label Content="储君" Canvas.Left="52" Canvas.Top="99"/>
+                <Button x:Name="btPrince" Canvas.Left="93" Canvas.Top="99" Height="26" Width="115" Click="BtPrince_Click"/>
+                <Label Content="势力颜色" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="69"/>
+                <Button x:Name="BtFcationColor" Content="" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="25" Height="25" Click="BtFcationColor_Click" Foreground="#FFCD9696" BorderBrush="#FFB97D7D" Background="#FF724343" Canvas.Left="91" Canvas.Top="69"/>
+                <Label Content="技巧值" Canvas.Left="40" Canvas.Top="130"/>
+                <TextBox  x:Name="txTechniquePoint" Canvas.Left="91" Canvas.Top="130" Text="1" Width="115"/>
+                <Label Content="声望" Canvas.Left="52" Canvas.Top="159"/>
+                <TextBox  x:Name="txReputation" Canvas.Left="91" Canvas.Top="159" Text="1" Width="115"/>
+                <Label Content="朝廷贡献度" Canvas.Left="16" Canvas.Top="189"/>
+                <TextBox  x:Name="txgongxiandu" Canvas.Left="91" Canvas.Top="189" Text="1" Width="115"/>
+                <Label Content="官爵" Canvas.Left="52" Canvas.Top="219"/>
+                <Button x:Name="btguanjuezi" Canvas.Left="91" Canvas.Top="219" Height="26" Width="115" Click="Btguanjuezi_Click"/>
+                <Label Content="势力首都" Canvas.Left="28" Canvas.Top="249"/>
+                <Button x:Name="btCapital" Canvas.Left="91" Canvas.Top="249" Height="26" Width="115" Click="BtCapital_Click" />
+                <Label Content="异族" Canvas.Left="52" Canvas.Top="280"/>
+                <CheckBox x:Name="cbIsAlien" Canvas.Left="93" Canvas.Top="286" />
+                <Label Content="玩家不可选" Canvas.Left="17" Canvas.Top="306"/>
+                <CheckBox x:Name="cbNoPSelectable" Canvas.Left="93" Canvas.Top="311" Click="CbNoPSelectable_Click"/>
+
+                <!-- 势力建筑列表 -->
+                <Label Content="建筑列表" Canvas.Left="225" Canvas.Top="12" />
+                <ListBox x:Name="lbArchis" Height="206" Canvas.Left="225" Canvas.Top="39" Width="189" />
+                <Button x:Name="btAddchrhi" Content="添加建筑" Canvas.Left="225" Canvas.Top="251" Click="BtAddchrhi_Click"/>
+                <Button x:Name="btDelchrhi" Content="删除建筑" Canvas.Left="293" Canvas.Top="251" Click="BtDelchrhi_Click"/>
+                <Button x:Name="btEditchrhi" Content="编辑建筑" Canvas.Left="360" Canvas.Top="251" Click="BtEditchrhi_Click"/>
+
+                <!-- 势力兵种列表 -->
+                <Label Content="基本兵种" Canvas.Left="458" Canvas.Top="12" />
+                <ListBox x:Name="lbMiliKind" Height="206" Canvas.Left="458" Canvas.Top="39" Width="147"/>
+                <Button x:Name="btAddMiliKind" Content="添加兵种" Canvas.Left="458" Canvas.Top="251" Click="BtAddMiliKind_Click"/>
+                <Button x:Name="btDelMiliKind" Content="删除兵种" Canvas.Left="551" Canvas.Top="251" Click="BtDelMiliKind_Click"/>
+
+                <!-- 势力兵种列表 -->
+                <Label Content="外交关系列表" Canvas.Left="648" Canvas.Top="12" />
+                <DataGrid x:Name="dgDipRelation" Height="207" Canvas.Left="648" Canvas.Top="39" Width="229" CellEditEnding="DgDipRelation_CellEditEnding"/>
+                <Button x:Name="btInitfacDipRe" Content="重置本势力所有外交" Canvas.Left="648" Canvas.Top="251" Click="BtInitfacDipRe_Click"/>
+                <Button x:Name="bt2InitAllDipRe" Content="初始化所有外交" Canvas.Left="787" Canvas.Top="251" Click="Bt2InitAllDipRe_Click"/>
+
+                <!-- 势力科技列表 -->
+                <Label Content="科技列表" Canvas.Left="70" Canvas.Top="369" />
+                <Label Content="正在升级科技" Canvas.Left="225" Canvas.Top="369" />
+                <ComboBox x:Name="cmUpingTec" Canvas.Left="321" Canvas.Top="369" Height="26" Width="161" />
+                <Label Content="升级剩余天数" Canvas.Left="523" Canvas.Top="369" />
+                <TextBox x:Name="txleftdays" Text="1" Canvas.Left="610" Canvas.Top="369" Width="129"/>
+                <ScrollViewer Canvas.Left="70" Canvas.Top="400" Width="800" Height="280" HorizontalScrollBarVisibility="Visible" BorderBrush="Black" Background="#0C000000">
+                    <Grid x:Name="gridTechniques"  />
+                </ScrollViewer>
+            </Canvas>
+        </Viewbox>
     </Grid>
 </Window>
