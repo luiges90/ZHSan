@@ -60,7 +60,20 @@ namespace GameObjects.ArchitectureDetail
                 return this.texture;
             }
         }
-
+        public PlatformTexture Texture2
+        {
+            get
+            {
+                return CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/" + this.ID.ToString() + "-5.png");
+            }
+        }
+        public PlatformTexture Texture3
+        {
+            get
+            {
+                return CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/" + this.ID.ToString() + "-13.png");
+            }
+        }
         //public void ClearTexture()
         //{
         //    if (this.texture != null)
