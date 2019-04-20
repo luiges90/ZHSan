@@ -311,814 +311,873 @@ namespace GameGlobal
             return s;
         }
 
-        public bool InitialGlobalVariables()
+        public bool InitialGlobalVariables(string str)
         {
             Exception exception;
 
             XmlDocument document = new XmlDocument();
-
-            //document.Load("Content/Data/GlobalVariables.xml");
 
             string xml = Platform.Current.LoadText("Content/Data/GlobalVariables.xml");
 
             document.LoadXml(xml);
 
             XmlNode nextSibling = document.FirstChild.NextSibling;
+            if (str == "")
+            {
+                try
+                {
+                    GameDifficulty = nextSibling.Attributes.GetNamedItem("GameDifficulty").Value;
+                }
+                catch (Exception exception1)
+                {
+                    exception = exception1;
+                    throw new Exception("GameDifficulty:\n" + exception.ToString());
+                }
+                try
+                {
+                    MapScrollSpeed = float.Parse(nextSibling.Attributes.GetNamedItem("MapScrollSpeed").Value);
+                }
+                catch (Exception exception1)
+                {
+                    exception = exception1;
+                    throw new Exception("MapScrollSpeed:\n" + exception.ToString());
+                }
+                try
+                {
+                    TroopMoveSpeed = int.Parse(nextSibling.Attributes.GetNamedItem("TroopMoveSpeed").Value);
+                }
+                catch (Exception exception2)
+                {
+                    exception = exception2;
+                    throw new Exception("TroopMoveSpeed:\n" + exception.ToString());
+                }
+                try
+                {
+                    RunWhileNotFocused = bool.Parse(nextSibling.Attributes.GetNamedItem("RunWhileNotFocused").Value);
+                }
+                catch (Exception exception3)
+                {
+                    exception = exception3;
+                    throw new Exception("RunWhileNotFocused:\n" + exception.ToString());
+                }
+                try
+                {
+                    PlayMusic = bool.Parse(nextSibling.Attributes.GetNamedItem("PlayMusic").Value);
+                }
+                catch (Exception exception4)
+                {
+                    exception = exception4;
+                    throw new Exception("PlayMusic:\n" + exception.ToString());
+                }
+                try
+                {
+                    PlayNormalSound = bool.Parse(nextSibling.Attributes.GetNamedItem("PlayNormalSound").Value);
+                }
+                catch (Exception exception5)
+                {
+                    exception = exception5;
+                    throw new Exception("PlayNormalSound:\n" + exception.ToString());
+                }
+                try
+                {
+                    PlayBattleSound = bool.Parse(nextSibling.Attributes.GetNamedItem("PlayBattleSound").Value);
+                }
+                catch (Exception exception6)
+                {
+                    exception = exception6;
+                    throw new Exception("PlayBattleSound:\n" + exception.ToString());
+                }
+                try
+                {
+                    DrawMapVeil = bool.Parse(nextSibling.Attributes.GetNamedItem("DrawMapVeil").Value);
+                }
+                catch (Exception exception7)
+                {
+                    exception = exception7;
+                    throw new Exception("DrawMapVeil:\n" + exception.ToString());
+                }
+                try
+                {
+                    DrawTroopAnimation = bool.Parse(nextSibling.Attributes.GetNamedItem("DrawTroopAnimation").Value);
+                }
+                catch (Exception exception8)
+                {
+                    exception = exception8;
+                    throw new Exception("DrawTroopAnimation:\n" + exception.ToString());
+                }
+                try
+                {
+                    SkyEye = bool.Parse(nextSibling.Attributes.GetNamedItem("SkyEye").Value);
+                }
+                catch (Exception exception9)
+                {
+                    exception = exception9;
+                    throw new Exception("SkyEye:\n" + exception.ToString());
+                }
+                try
+                {
+                    MultipleResource = bool.Parse(nextSibling.Attributes.GetNamedItem("MultipleResource").Value);
+                }
+                catch (Exception exception10)
+                {
+                    exception = exception10;
+                    throw new Exception("MultipleResource:\n" + exception.ToString());
+                }
+                try
+                {
+                    SingleSelectionOneClick = bool.Parse(nextSibling.Attributes.GetNamedItem("SingleSelectionOneClick").Value);
+                }
+                catch (Exception exception11)
+                {
+                    exception = exception11;
+                    throw new Exception("SingleSelectionOneClick:\n" + exception.ToString());
+                }
+                try
+                {
+                    NoHintOnSmallFacility = bool.Parse(nextSibling.Attributes.GetNamedItem("NoHintOnSmallFacility").Value);
+                }
+                catch (Exception exception12)
+                {
+                    exception = exception12;
+                    throw new Exception("NoHintOnSmallFacility:\n" + exception.ToString());
+                }
+                try
+                {
+                    HintPopulation = bool.Parse(nextSibling.Attributes.GetNamedItem("HintPopulation").Value);
+                }
+                catch (Exception exception13)
+                {
+                    exception = exception13;
+                    throw new Exception("HintPopulation:\n" + exception.ToString());
+                }
+                try
+                {
+                    HintPopulationUnder1000 = bool.Parse(nextSibling.Attributes.GetNamedItem("HintPopulationUnder1000").Value);
+                }
+                catch (Exception exception14)
+                {
+                    exception = exception14;
+                    throw new Exception("HintPopulationUnder1000:\n" + exception.ToString());
+                }
+                try
+                {
+                    PopulationRecruitmentLimit = bool.Parse(nextSibling.Attributes.GetNamedItem("PopulationRecruitmentLimit").Value);
+                }
+                catch (Exception exception15)
+                {
+                    exception = exception15;
+                    throw new Exception("PopulationRecruitmentLimit:\n" + exception.ToString());
+                }
+                try
+                {
+                    MilitaryKindSpeedValid = bool.Parse(nextSibling.Attributes.GetNamedItem("MilitaryKindSpeedValid").Value);
+                }
+                catch (Exception exception16)
+                {
+                    exception = exception16;
+                    throw new Exception("MilitaryKindSpeedValid:\n" + exception.ToString());
+                }
+                try
+                {
+                    CommonPersonAvailable = bool.Parse(nextSibling.Attributes.GetNamedItem("CommonPersonAvailable").Value);
+                }
+                catch (Exception exception17)
+                {
+                    exception = exception17;
+                    throw new Exception("CommonPersonAvailable:\n" + exception.ToString());
+                }
+                try
+                {
+                    AdditionalPersonAvailable = bool.Parse(nextSibling.Attributes.GetNamedItem("AdditionalPersonAvailable").Value);
+                }
+                catch (Exception exception18)
+                {
+                    exception = exception18;
+                    throw new Exception("AdditionalPersonAvailable:\n" + exception.ToString());
+                }
+                try
+                {
+                    PlayerPersonAvailable = bool.Parse(nextSibling.Attributes.GetNamedItem("PlayerPersonAvailable").Value);
+                }
+                catch (Exception exception19)
+                {
+                    exception = exception19;
+                    throw new Exception("PlayerPersonAvailable:\n" + exception.ToString());
+                }
+                try
+                {
+                    PersonNaturalDeath = bool.Parse(nextSibling.Attributes.GetNamedItem("PersonNaturalDeath").Value);
+                }
+                catch (Exception exception20)
+                {
+                    exception = exception20;
+                    throw new Exception("PersonNaturalDeath:\n" + exception.ToString());
+                }
+                try
+                {
+                    IdealTendencyValid = bool.Parse(nextSibling.Attributes.GetNamedItem("IdealTendencyValid").Value);
+                }
+                catch (Exception exception21)
+                {
+                    exception = exception21;
+                    throw new Exception("IdealTendencyValid:\n" + exception.ToString());
+                }
+                try
+                {
+                    PinPointAtPlayer = bool.Parse(nextSibling.Attributes.GetNamedItem("PinPointAtPlayer").Value);
+                }
+                catch (Exception exception22)
+                {
+                    exception = exception22;
+                    throw new Exception("PinPointAtPlayer:\n" + exception.ToString());
+                }
+                try
+                {
+                    IgnoreStrategyTendency = bool.Parse(nextSibling.Attributes.GetNamedItem("IgnoreStrategyTendency").Value);
+                }
+                catch (Exception exception23)
+                {
+                    exception = exception23;
+                    throw new Exception("IgnoreStrategyTendency:\n" + exception.ToString());
+                }
+                try
+                {
+                    createChildren = bool.Parse(nextSibling.Attributes.GetNamedItem("createChildren").Value);
+                }
+                catch (Exception exception23)
+                {
+                    exception = exception23;
+                    throw new Exception("createChildren:\n" + exception.ToString());
+                }
+                try
+                {
+                    zainanfashengjilv = int.Parse(nextSibling.Attributes.GetNamedItem("zainanfashengjilv").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("zainanfashengjilv:\n" + exception.ToString());
+                }
+                try
+                {
+                    doAutoSave = bool.Parse(nextSibling.Attributes.GetNamedItem("doAutoSave").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("doAutoSave:\n" + exception.ToString());
+                }
+                try
+                {
+                    createChildrenIgnoreLimit = bool.Parse(nextSibling.Attributes.GetNamedItem("createChildrenIgnoreLimit").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("createChildrenIgnoreLimit:\n" + exception.ToString());
+                }
+                try
+                {
+                    internalSurplusRateForPlayer = bool.Parse(nextSibling.Attributes.GetNamedItem("internalSurplusRateForPlayer").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("internalSurplusRateForPlayer:\n" + exception.ToString());
+                }
+                try
+                {
+                    internalSurplusRateForAI = bool.Parse(nextSibling.Attributes.GetNamedItem("internalSurplusRateForAI").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("internalSurplusRateForAI:\n" + exception.ToString());
+                }
+                try
+                {
+                    getChildrenRate = int.Parse(nextSibling.Attributes.GetNamedItem("getChildrenRate").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("getChildrenRate:\n" + exception.ToString());
+                }
+                try
+                {
+                    hougongGetChildrenRate = int.Parse(nextSibling.Attributes.GetNamedItem("hougongGetChildrenRate").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("hougongGetChildrenRate:\n" + exception.ToString());
+                }
+                try
+                {
+                    AIExecutionRate = int.Parse(nextSibling.Attributes.GetNamedItem("AIExecutionRate").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("AIExecutionRate:\n" + exception.ToString());
+                }
+                try
+                {
+                    AIExecuteBetterOfficer = bool.Parse(nextSibling.Attributes.GetNamedItem("AIExecuteBetterOfficer").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("AIExecuteBetterOfficer:\n" + exception.ToString());
+                }
+                try
+                {
+                    maxExperience = int.Parse(nextSibling.Attributes.GetNamedItem("maxExperience").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("maxExperience:\n" + exception.ToString());
+                }
+                try
+                {
+                    lockChildrenLoyalty = bool.Parse(nextSibling.Attributes.GetNamedItem("lockChildrenLoyalty").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("lockChildrenLoyalty:\n" + exception.ToString());
+                }
+                try
+                {
+                    AIAutoTakeNoFactionCaptives = bool.Parse(nextSibling.Attributes.GetNamedItem("AIAutoTakeNoFactionCaptives").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("AIAutoTakeNoFactionCaptives:\n" + exception.ToString());
+                }
+                try
+                {
+                    AIAutoTakeNoFactionPerson = bool.Parse(nextSibling.Attributes.GetNamedItem("AIAutoTakeNoFactionPerson").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("AIAutoTakeNoFactionPerson:\n" + exception.ToString());
+                }
+                try
+                {
+                    AIAutoTakePlayerCaptives = bool.Parse(nextSibling.Attributes.GetNamedItem("AIAutoTakePlayerCaptives").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("AIAutoTakePlayerCaptives:\n" + exception.ToString());
+                }
+                try
+                {
+                    AIAutoTakePlayerCaptiveOnlyUnfull = bool.Parse(nextSibling.Attributes.GetNamedItem("AIAutoTakePlayerCaptiveOnlyUnfull").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("AIAutoTakePlayerCaptiveOnlyUnfull:\n" + exception.ToString());
+                }
+                try
+                {
+                    DialogShowTime = int.Parse(nextSibling.Attributes.GetNamedItem("DialogShowTime").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("DialogShowTime:\n" + exception.ToString());
+                }
+                try
+                {
+                    TechniquePointMultiple = float.Parse(nextSibling.Attributes.GetNamedItem("TechniquePointMultiple").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("TechniquePointMultiple:\n" + exception.ToString());
+                }
+                try
+                {
+                    PermitFactionMerge = bool.Parse(nextSibling.Attributes.GetNamedItem("PermitFactionMerge").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("PermitFactionMerge:\n" + exception.ToString());
+                }
+                try
+                {
+                    LeadershipOffenceRate = float.Parse(nextSibling.Attributes.GetNamedItem("LeadershipOffenceRate").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("LeadershipOffenceRate:\n" + exception.ToString());
+                }
+                try
+                {
+                    LiangdaoXitong = bool.Parse(nextSibling.Attributes.GetNamedItem("LiangdaoXitong").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("LiangdaoXitong:\n" + exception.ToString());
+                }
+                try
+                {
+                    WujiangYoukenengDuli = bool.Parse(nextSibling.Attributes.GetNamedItem("WujiangYoukenengDuli").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("WujiangYoukenengDuli:\n" + exception.ToString());
+                }
+                try
+                {
+                    FastBattleSpeed = int.Parse(nextSibling.Attributes.GetNamedItem("FastBattleSpeed").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("FastBattleSpeed:\n" + exception.ToString());
+                }
+                try
+                {
+                    AINoTeamTransfer = bool.Parse(nextSibling.Attributes.GetNamedItem("AINoTeamTransfer").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("AINoTeamTransfer:\n" + exception.ToString());
+                }
+                try
+                {
+                    EnableCheat = bool.Parse(nextSibling.Attributes.GetNamedItem("EnableCheat").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("EnableCheat:\n" + exception.ToString());
+                }
+                try
+                {
+                    HardcoreMode = bool.Parse(nextSibling.Attributes.GetNamedItem("HardcoreMode").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("HardcoreMode:\n" + exception.ToString());
+                }
+                try
+                {
+                    LandArmyCanGoDownWater = bool.Parse(nextSibling.Attributes.GetNamedItem("LandArmyCanGoDownWater").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("LandArmyCanGoDownWater:\n" + exception.ToString());
+                }
+                try
+                {
+                    MaxAbility = int.Parse(nextSibling.Attributes.GetNamedItem("MaxAbility").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("MaxAbility:\n" + exception.ToString());
+                }
+                try
+                {
+                    TirednessIncrease = int.Parse(nextSibling.Attributes.GetNamedItem("TirednessIncrease").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("TirednessIncrease:\n" + exception.ToString());
+                }
+                try
+                {
+                    TirednessDecrease = int.Parse(nextSibling.Attributes.GetNamedItem("TirednessDecrease").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("TirednessDecrease:\n" + exception.ToString());
+                }
+                try
+                {
+                    EnableAgeAbilityFactor = bool.Parse(nextSibling.Attributes.GetNamedItem("EnableAgeAbilityFactor").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("EnableAgeAbilityFactor:\n" + exception.ToString());
+                }
+                try
+                {
+                    TabListDetailLevel = int.Parse(nextSibling.Attributes.GetNamedItem("TabListDetailLevel").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("TabListDetailLevel:\n" + exception.ToString());
+                }
+                try
+                {
+                    EnableExtensions = bool.Parse(nextSibling.Attributes.GetNamedItem("EnableExtensions").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("EnableExtensions:\n" + exception.ToString());
+                }
+                try
+                {
+                    EncryptSave = bool.Parse(nextSibling.Attributes.GetNamedItem("EncryptSave").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("EncryptSave:\n" + exception.ToString());
+                }
+                try
+                {
+                    AutoSaveFrequency = int.Parse(nextSibling.Attributes.GetNamedItem("AutoSaveFrequency").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("AutoSaveFrequency:\n" + exception.ToString());
+                }
+                try
+                {
+                    ShowChallengeAnimation = bool.Parse(nextSibling.Attributes.GetNamedItem("ShowChallengeAnimation").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("ShowChallengeAnimation:\n" + exception.ToString());
+                }
+                try
+                {
+                    PersonDieInChallenge = bool.Parse(nextSibling.Attributes.GetNamedItem("PersonDieInChallenge").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("PersonDieInChallenge:\n" + exception.ToString());
+                }
+                try
+                {
+                    OfficerDieInBattleRate = int.Parse(nextSibling.Attributes.GetNamedItem("OfficerDieInBattleRate").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("OfficerDieInBattleRate:\n" + exception.ToString());
+                }
+                try
+                {
+                    OfficerChildrenLimit = int.Parse(nextSibling.Attributes.GetNamedItem("OfficerChildrenLimit").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("OfficerChildrenLimit:\n" + exception.ToString());
+                }
+                try
+                {
+                    StopToControlOnAttack = bool.Parse(nextSibling.Attributes.GetNamedItem("StopToControlOnAttack").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("StopToControlOnAttack:\n" + exception.ToString());
+                }
+                try
+                {
+                    MaxMilitaryExperience = int.Parse(nextSibling.Attributes.GetNamedItem("MaxMilitaryExperience").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("MaxMilitaryExperience:\n" + exception.ToString());
+                }
+                try
+                {
+                    CreateRandomOfficerChance = float.Parse(nextSibling.Attributes.GetNamedItem("CreateRandomOfficerChance").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("CreateRandomOfficerChance:\n" + exception.ToString());
+                }
+                try
+                {
+                    ZhaoXianSuccessRate = float.Parse(nextSibling.Attributes.GetNamedItem("ZhaoXianSuccessRate").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("ZhaoXianSuccessRate:\n" + exception.ToString());
+                }
 
-            try
-            {
-                GameDifficulty = nextSibling.Attributes.GetNamedItem("GameDifficulty").Value;
-            }
-            catch (Exception exception1)
-            {
-                exception = exception1;
-                throw new Exception("GameDifficulty:\n" + exception.ToString());
-            }
-            try
-            {
-                MapScrollSpeed = float.Parse(nextSibling.Attributes.GetNamedItem("MapScrollSpeed").Value);
-            }
-            catch (Exception exception1)
-            {
-                exception = exception1;
-                throw new Exception("MapScrollSpeed:\n" + exception.ToString());
-            }
-            try
-            {
-                TroopMoveSpeed = int.Parse(nextSibling.Attributes.GetNamedItem("TroopMoveSpeed").Value);
-            }
-            catch (Exception exception2)
-            {
-                exception = exception2;
-                throw new Exception("TroopMoveSpeed:\n" + exception.ToString());
-            }
-            try
-            {
-                RunWhileNotFocused = bool.Parse(nextSibling.Attributes.GetNamedItem("RunWhileNotFocused").Value);
-            }
-            catch (Exception exception3)
-            {
-                exception = exception3;
-                throw new Exception("RunWhileNotFocused:\n" + exception.ToString());
-            }
-            try
-            {
-                PlayMusic = bool.Parse(nextSibling.Attributes.GetNamedItem("PlayMusic").Value);
-            }
-            catch (Exception exception4)
-            {
-                exception = exception4;
-                throw new Exception("PlayMusic:\n" + exception.ToString());
-            }
-            try
-            {
-                PlayNormalSound = bool.Parse(nextSibling.Attributes.GetNamedItem("PlayNormalSound").Value);
-            }
-            catch (Exception exception5)
-            {
-                exception = exception5;
-                throw new Exception("PlayNormalSound:\n" + exception.ToString());
-            }
-            try
-            {
-                PlayBattleSound = bool.Parse(nextSibling.Attributes.GetNamedItem("PlayBattleSound").Value);
-            }
-            catch (Exception exception6)
-            {
-                exception = exception6;
-                throw new Exception("PlayBattleSound:\n" + exception.ToString());
-            }
-            try
-            {
-                DrawMapVeil = bool.Parse(nextSibling.Attributes.GetNamedItem("DrawMapVeil").Value);
-            }
-            catch (Exception exception7)
-            {
-                exception = exception7;
-                throw new Exception("DrawMapVeil:\n" + exception.ToString());
-            }
-            try
-            {
-                DrawTroopAnimation = bool.Parse(nextSibling.Attributes.GetNamedItem("DrawTroopAnimation").Value);
-            }
-            catch (Exception exception8)
-            {
-                exception = exception8;
-                throw new Exception("DrawTroopAnimation:\n" + exception.ToString());
-            }
-            try
-            {
-                SkyEye = bool.Parse(nextSibling.Attributes.GetNamedItem("SkyEye").Value);
-            }
-            catch (Exception exception9)
-            {
-                exception = exception9;
-                throw new Exception("SkyEye:\n" + exception.ToString());
-            }
-            try
-            {
-                MultipleResource = bool.Parse(nextSibling.Attributes.GetNamedItem("MultipleResource").Value);
-            }
-            catch (Exception exception10)
-            {
-                exception = exception10;
-                throw new Exception("MultipleResource:\n" + exception.ToString());
-            }
-            try
-            {
-                SingleSelectionOneClick = bool.Parse(nextSibling.Attributes.GetNamedItem("SingleSelectionOneClick").Value);
-            }
-            catch (Exception exception11)
-            {
-                exception = exception11;
-                throw new Exception("SingleSelectionOneClick:\n" + exception.ToString());
-            }
-            try
-            {
-                NoHintOnSmallFacility = bool.Parse(nextSibling.Attributes.GetNamedItem("NoHintOnSmallFacility").Value);
-            }
-            catch (Exception exception12)
-            {
-                exception = exception12;
-                throw new Exception("NoHintOnSmallFacility:\n" + exception.ToString());
-            }
-            try
-            {
-                HintPopulation = bool.Parse(nextSibling.Attributes.GetNamedItem("HintPopulation").Value);
-            }
-            catch (Exception exception13)
-            {
-                exception = exception13;
-                throw new Exception("HintPopulation:\n" + exception.ToString());
-            }
-            try
-            {
-                HintPopulationUnder1000 = bool.Parse(nextSibling.Attributes.GetNamedItem("HintPopulationUnder1000").Value);
-            }
-            catch (Exception exception14)
-            {
-                exception = exception14;
-                throw new Exception("HintPopulationUnder1000:\n" + exception.ToString());
-            }
-            try
-            {
-                PopulationRecruitmentLimit = bool.Parse(nextSibling.Attributes.GetNamedItem("PopulationRecruitmentLimit").Value);
-            }
-            catch (Exception exception15)
-            {
-                exception = exception15;
-                throw new Exception("PopulationRecruitmentLimit:\n" + exception.ToString());
-            }
-            try
-            {
-                MilitaryKindSpeedValid = bool.Parse(nextSibling.Attributes.GetNamedItem("MilitaryKindSpeedValid").Value);
-            }
-            catch (Exception exception16)
-            {
-                exception = exception16;
-                throw new Exception("MilitaryKindSpeedValid:\n" + exception.ToString());
-            }
-            try
-            {
-                CommonPersonAvailable = bool.Parse(nextSibling.Attributes.GetNamedItem("CommonPersonAvailable").Value);
-            }
-            catch (Exception exception17)
-            {
-                exception = exception17;
-                throw new Exception("CommonPersonAvailable:\n" + exception.ToString());
-            }
-            try
-            {
-                AdditionalPersonAvailable = bool.Parse(nextSibling.Attributes.GetNamedItem("AdditionalPersonAvailable").Value);
-            }
-            catch (Exception exception18)
-            {
-                exception = exception18;
-                throw new Exception("AdditionalPersonAvailable:\n" + exception.ToString());
-            }
-            try
-            {
-                PlayerPersonAvailable = bool.Parse(nextSibling.Attributes.GetNamedItem("PlayerPersonAvailable").Value);
-            }
-            catch (Exception exception19)
-            {
-                exception = exception19;
-                throw new Exception("PlayerPersonAvailable:\n" + exception.ToString());
-            }
-            try
-            {
-                PersonNaturalDeath = bool.Parse(nextSibling.Attributes.GetNamedItem("PersonNaturalDeath").Value);
-            }
-            catch (Exception exception20)
-            {
-                exception = exception20;
-                throw new Exception("PersonNaturalDeath:\n" + exception.ToString());
-            }
-            try
-            {
-                IdealTendencyValid = bool.Parse(nextSibling.Attributes.GetNamedItem("IdealTendencyValid").Value);
-            }
-            catch (Exception exception21)
-            {
-                exception = exception21;
-                throw new Exception("IdealTendencyValid:\n" + exception.ToString());
-            }
-            try
-            {
-                PinPointAtPlayer = bool.Parse(nextSibling.Attributes.GetNamedItem("PinPointAtPlayer").Value);
-            }
-            catch (Exception exception22)
-            {
-                exception = exception22;
-                throw new Exception("PinPointAtPlayer:\n" + exception.ToString());
-            }
-            try
-            {
-                IgnoreStrategyTendency = bool.Parse(nextSibling.Attributes.GetNamedItem("IgnoreStrategyTendency").Value);
-            }
-            catch (Exception exception23)
-            {
-                exception = exception23;
-                throw new Exception("IgnoreStrategyTendency:\n" + exception.ToString());
-            }
-            try
-            {
-                createChildren = bool.Parse(nextSibling.Attributes.GetNamedItem("createChildren").Value);
-            }
-            catch (Exception exception23)
-            {
-                exception = exception23;
-                throw new Exception("createChildren:\n" + exception.ToString());
-            }
-            try
-            {
-                zainanfashengjilv = int.Parse(nextSibling.Attributes.GetNamedItem("zainanfashengjilv").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("zainanfashengjilv:\n" + exception.ToString());
-            }
-            try
-            {
-                doAutoSave = bool.Parse(nextSibling.Attributes.GetNamedItem("doAutoSave").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("doAutoSave:\n" + exception.ToString());
-            }
-            try
-            {
-                createChildrenIgnoreLimit = bool.Parse(nextSibling.Attributes.GetNamedItem("createChildrenIgnoreLimit").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("createChildrenIgnoreLimit:\n" + exception.ToString());
-            }
-            try
-            {
-                internalSurplusRateForPlayer = bool.Parse(nextSibling.Attributes.GetNamedItem("internalSurplusRateForPlayer").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("internalSurplusRateForPlayer:\n" + exception.ToString());
-            }
-            try
-            {
-                internalSurplusRateForAI = bool.Parse(nextSibling.Attributes.GetNamedItem("internalSurplusRateForAI").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("internalSurplusRateForAI:\n" + exception.ToString());
-            }
-            try
-            {
-                getChildrenRate = int.Parse(nextSibling.Attributes.GetNamedItem("getChildrenRate").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("getChildrenRate:\n" + exception.ToString());
-            }
-            try
-            {
-                hougongGetChildrenRate = int.Parse(nextSibling.Attributes.GetNamedItem("hougongGetChildrenRate").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("hougongGetChildrenRate:\n" + exception.ToString());
-            }
-            try
-            {
-                AIExecutionRate = int.Parse(nextSibling.Attributes.GetNamedItem("AIExecutionRate").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("AIExecutionRate:\n" + exception.ToString());
-            }
-            try
-            {
-                AIExecuteBetterOfficer = bool.Parse(nextSibling.Attributes.GetNamedItem("AIExecuteBetterOfficer").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("AIExecuteBetterOfficer:\n" + exception.ToString());
-            }
-            try
-            {
-                maxExperience = int.Parse(nextSibling.Attributes.GetNamedItem("maxExperience").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("maxExperience:\n" + exception.ToString());
-            }
-            try
-            {
-                lockChildrenLoyalty = bool.Parse(nextSibling.Attributes.GetNamedItem("lockChildrenLoyalty").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("lockChildrenLoyalty:\n" + exception.ToString());
-            }
-            try
-            {
-                AIAutoTakeNoFactionCaptives = bool.Parse(nextSibling.Attributes.GetNamedItem("AIAutoTakeNoFactionCaptives").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("AIAutoTakeNoFactionCaptives:\n" + exception.ToString());
-            }
-            try
-            {
-                AIAutoTakeNoFactionPerson = bool.Parse(nextSibling.Attributes.GetNamedItem("AIAutoTakeNoFactionPerson").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("AIAutoTakeNoFactionPerson:\n" + exception.ToString());
-            }
-            try
-            {
-                AIAutoTakePlayerCaptives = bool.Parse(nextSibling.Attributes.GetNamedItem("AIAutoTakePlayerCaptives").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("AIAutoTakePlayerCaptives:\n" + exception.ToString());
-            }
-            try
-            {
-                AIAutoTakePlayerCaptiveOnlyUnfull = bool.Parse(nextSibling.Attributes.GetNamedItem("AIAutoTakePlayerCaptiveOnlyUnfull").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("AIAutoTakePlayerCaptiveOnlyUnfull:\n" + exception.ToString());
-            }
-            try
-            {
-                DialogShowTime = int.Parse(nextSibling.Attributes.GetNamedItem("DialogShowTime").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("DialogShowTime:\n" + exception.ToString());
-            }
-            try
-            {
-                TechniquePointMultiple = float.Parse(nextSibling.Attributes.GetNamedItem("TechniquePointMultiple").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("TechniquePointMultiple:\n" + exception.ToString());
-            }
-            try
-            {
-                PermitFactionMerge = bool.Parse(nextSibling.Attributes.GetNamedItem("PermitFactionMerge").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("PermitFactionMerge:\n" + exception.ToString());
-            }
-            try
-            {
-                LeadershipOffenceRate = float.Parse(nextSibling.Attributes.GetNamedItem("LeadershipOffenceRate").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("LeadershipOffenceRate:\n" + exception.ToString());
-            }
-            try
-            {
-                LiangdaoXitong  = bool.Parse(nextSibling.Attributes.GetNamedItem("LiangdaoXitong").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("LiangdaoXitong:\n" + exception.ToString());
-            }
-            try
-            {
-                WujiangYoukenengDuli = bool.Parse(nextSibling.Attributes.GetNamedItem("WujiangYoukenengDuli").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("WujiangYoukenengDuli:\n" + exception.ToString());
-            }
-            try
-            {
-                FastBattleSpeed = int.Parse(nextSibling.Attributes.GetNamedItem("FastBattleSpeed").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("FastBattleSpeed:\n" + exception.ToString());
-            }
-            try
-            {
-                AINoTeamTransfer = bool.Parse(nextSibling.Attributes.GetNamedItem("AINoTeamTransfer").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("AINoTeamTransfer:\n" + exception.ToString());
-            }
-            try
-            {
-                EnableCheat = bool.Parse(nextSibling.Attributes.GetNamedItem("EnableCheat").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("EnableCheat:\n" + exception.ToString());
-            }
-            try
-            {
-                HardcoreMode = bool.Parse(nextSibling.Attributes.GetNamedItem("HardcoreMode").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("HardcoreMode:\n" + exception.ToString());
-            }
-            try
-            {
-                LandArmyCanGoDownWater = bool.Parse(nextSibling.Attributes.GetNamedItem("LandArmyCanGoDownWater").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("LandArmyCanGoDownWater:\n" + exception.ToString());
-            }
-            try
-            {
-                MaxAbility = int.Parse(nextSibling.Attributes.GetNamedItem("MaxAbility").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("MaxAbility:\n" + exception.ToString());
-            }
-            try
-            {
-                TirednessIncrease = int.Parse(nextSibling.Attributes.GetNamedItem("TirednessIncrease").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("TirednessIncrease:\n" + exception.ToString());
-            }
-            try
-            {
-                TirednessDecrease = int.Parse(nextSibling.Attributes.GetNamedItem("TirednessDecrease").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("TirednessDecrease:\n" + exception.ToString());
-            }
-            try
-            {
-                EnableAgeAbilityFactor = bool.Parse(nextSibling.Attributes.GetNamedItem("EnableAgeAbilityFactor").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("EnableAgeAbilityFactor:\n" + exception.ToString());
-            }
-            try
-            {
-                TabListDetailLevel = int.Parse(nextSibling.Attributes.GetNamedItem("TabListDetailLevel").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("TabListDetailLevel:\n" + exception.ToString());
-            }
-            try
-            {
-                EnableExtensions = bool.Parse(nextSibling.Attributes.GetNamedItem("EnableExtensions").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("EnableExtensions:\n" + exception.ToString());
-            }
-            try
-            {
-                EncryptSave = bool.Parse(nextSibling.Attributes.GetNamedItem("EncryptSave").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("EncryptSave:\n" + exception.ToString());
-            }
-            try
-            {
-                AutoSaveFrequency = int.Parse(nextSibling.Attributes.GetNamedItem("AutoSaveFrequency").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("AutoSaveFrequency:\n" + exception.ToString());
-            }
-            try
-            {
-                ShowChallengeAnimation = bool.Parse(nextSibling.Attributes.GetNamedItem("ShowChallengeAnimation").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("ShowChallengeAnimation:\n" + exception.ToString());
-            }
-            try
-            {
-                PersonDieInChallenge = bool.Parse(nextSibling.Attributes.GetNamedItem("PersonDieInChallenge").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("PersonDieInChallenge:\n" + exception.ToString());
-            }
-            try
-            {
-                OfficerDieInBattleRate = int.Parse(nextSibling.Attributes.GetNamedItem("OfficerDieInBattleRate").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("OfficerDieInBattleRate:\n" + exception.ToString());
-            }
-            try
-            {
-                OfficerChildrenLimit = int.Parse(nextSibling.Attributes.GetNamedItem("OfficerChildrenLimit").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("OfficerChildrenLimit:\n" + exception.ToString());
-            }
-            try
-            {
-                StopToControlOnAttack = bool.Parse(nextSibling.Attributes.GetNamedItem("StopToControlOnAttack").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("StopToControlOnAttack:\n" + exception.ToString());
-            }
-            try
-            {
-                MaxMilitaryExperience = int.Parse(nextSibling.Attributes.GetNamedItem("MaxMilitaryExperience").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("MaxMilitaryExperience:\n" + exception.ToString());
-            }
-            try
-            {
-                CreateRandomOfficerChance = float.Parse(nextSibling.Attributes.GetNamedItem("CreateRandomOfficerChance").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("CreateRandomOfficerChance:\n" + exception.ToString());
-            }
-            try
-            {
-                ZhaoXianSuccessRate = float.Parse(nextSibling.Attributes.GetNamedItem("ZhaoXianSuccessRate").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("ZhaoXianSuccessRate:\n" + exception.ToString());
-            }
-            
-            try
-            {
-                CreatedOfficerAbilityFactor = float.Parse(nextSibling.Attributes.GetNamedItem("CreatedOfficerAbilityFactor").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("CreatedOfficerAbilityFactor:\n" + exception.ToString());
-            }
-            try
-            {
-                EnablePersonRelations = bool.Parse(nextSibling.Attributes.GetNamedItem("EnablePersonRelations").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("EnablePersonRelations:\n" + exception.ToString());
-            }
-            try
-            {
-                ChildrenAvailableAge = int.Parse(nextSibling.Attributes.GetNamedItem("ChildrenAvailableAge").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("ChildrenAvailableAge:\n" + exception.ToString());
-            }
-            try
-            {
-                FullScreen = bool.Parse(nextSibling.Attributes.GetNamedItem("FullScreen").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("FullScreen:\n" + exception.ToString());
-            }
-            try
-            {
-                FriendlyDiplomacyThreshold = int.Parse(nextSibling.Attributes.GetNamedItem("FriendlyDiplomacyThreshold").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("FriendlyDiplomacyThreshold:\n" + exception.ToString());
-            }
-            try
-            {
-                SurroundFactor = int.Parse(nextSibling.Attributes.GetNamedItem("SurroundFactor").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("SurroundFactor:\n" + exception.ToString());
-            }
-            try
-            {
-                ArmyPopulationCap = float.Parse(nextSibling.Attributes.GetNamedItem("ArmyPopulationCap").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("ArmyPopulationCap:\n" + exception.ToString());
-            }
-            try 
-            {
-                PermitQuanXiang = bool.Parse(nextSibling.Attributes.GetNamedItem("PermitQuanXiang").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("PermitQuanXiang:\n" + exception.ToString());
-            }
-            try
-            {
-                PermitManualAwardTitleAutoLearn = bool.Parse(nextSibling.Attributes.GetNamedItem("PermitManualAwardTitleAutoLearn").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("PermitManualAwardTitleAutoLearn:\n" + exception.ToString());
+                try
+                {
+                    CreatedOfficerAbilityFactor = float.Parse(nextSibling.Attributes.GetNamedItem("CreatedOfficerAbilityFactor").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("CreatedOfficerAbilityFactor:\n" + exception.ToString());
+                }
+                try
+                {
+                    EnablePersonRelations = bool.Parse(nextSibling.Attributes.GetNamedItem("EnablePersonRelations").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("EnablePersonRelations:\n" + exception.ToString());
+                }
+                try
+                {
+                    ChildrenAvailableAge = int.Parse(nextSibling.Attributes.GetNamedItem("ChildrenAvailableAge").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("ChildrenAvailableAge:\n" + exception.ToString());
+                }
+                try
+                {
+                    FullScreen = bool.Parse(nextSibling.Attributes.GetNamedItem("FullScreen").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("FullScreen:\n" + exception.ToString());
+                }
+                try
+                {
+                    FriendlyDiplomacyThreshold = int.Parse(nextSibling.Attributes.GetNamedItem("FriendlyDiplomacyThreshold").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("FriendlyDiplomacyThreshold:\n" + exception.ToString());
+                }
+                try
+                {
+                    SurroundFactor = int.Parse(nextSibling.Attributes.GetNamedItem("SurroundFactor").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("SurroundFactor:\n" + exception.ToString());
+                }
+                try
+                {
+                    ArmyPopulationCap = float.Parse(nextSibling.Attributes.GetNamedItem("ArmyPopulationCap").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("ArmyPopulationCap:\n" + exception.ToString());
+                }
+                try
+                {
+                    PermitQuanXiang = bool.Parse(nextSibling.Attributes.GetNamedItem("PermitQuanXiang").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("PermitQuanXiang:\n" + exception.ToString());
+                }
+                try
+                {
+                    PermitManualAwardTitleAutoLearn = bool.Parse(nextSibling.Attributes.GetNamedItem("PermitManualAwardTitleAutoLearn").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("PermitManualAwardTitleAutoLearn:\n" + exception.ToString());
+                }
+
+                try
+                {
+                    zhaoxianOfficerMax = int.Parse(nextSibling.Attributes.GetNamedItem("zhaoxianOfficerMax").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("zhaoxianOfficerMax:\n" + exception.ToString());
+                }
+
+                try
+                {
+
+                    FactionMilitaryLimt = int.Parse(nextSibling.Attributes.GetNamedItem("FactionMilitaryLimt").Value);
+
+                    FixedUnnaturalDeathAge = int.Parse(nextSibling.Attributes.GetNamedItem("FixedUnnaturalDeathAge").Value);
+
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+
+                    throw new Exception("FactionMilitaryLimt:\n" + exception.ToString());
+
+                    throw new Exception("FixedUnnaturalDeathAge:\n" + exception.ToString());
+
+                }
+                try
+                {
+                    AIQuickBattle = bool.Parse(nextSibling.Attributes.GetNamedItem("AIQuickBattle").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("AIQuickBattle:\n" + exception.ToString());
+                }
+                try
+                {
+                    PlayerAutoSectionHasAIResourceBonus = bool.Parse(nextSibling.Attributes.GetNamedItem("PlayerAutoSectionHasAIResourceBonus").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("PlayerAutoSectionHasAIResourceBonus:\n" + exception.ToString());
+                }
+                try
+                {
+                    ProhibitFactionAgainstDestroyer = float.Parse(nextSibling.Attributes.GetNamedItem("ProhibitFactionAgainstDestroyer").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("ProhibitFactionAgainstDestroyer:\n" + exception.ToString());
+                }
+                try
+                {
+                    AIMergeAgainstPlayer = float.Parse(nextSibling.Attributes.GetNamedItem("AIMergeAgainstPlayer").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("AIMergeAgainstPlayer:\n" + exception.ToString());
+                }
+                try
+                {
+                    RemoveSpouseIfNotAvailable = bool.Parse(nextSibling.Attributes.GetNamedItem("RemoveSpouseIfNotAvailable").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("RemoveSpouseIfNotAvailable:\n" + exception.ToString());
+                }
+                try
+                {
+                    SkyEyeSimpleNotification = bool.Parse(nextSibling.Attributes.GetNamedItem("SkyEyeSimpleNotification").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("SkyEyeSimpleNotification:\n" + exception.ToString());
+                }
+                try
+                {
+                    AutoMultipleMarriage = bool.Parse(nextSibling.Attributes.GetNamedItem("AutoMultipleMarriage").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("AutoMultipleMarriage:\n" + exception.ToString());
+                }
+                try
+                {
+                    BornHistoricalChildren = bool.Parse(nextSibling.Attributes.GetNamedItem("BornHistoricalChildren").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("BornHistoricalChildren:\n" + exception.ToString());
+                }
+                try
+                {
+                    hougongAlienOnly = bool.Parse(nextSibling.Attributes.GetNamedItem("hougongAlienOnly").Value);
+                }
+                catch (Exception exception24)
+                {
+                    exception = exception24;
+                    throw new Exception("hougongAlienOnly:\n" + exception.ToString());
+                }
             }
 
-            try
+            else
             {
-                zhaoxianOfficerMax = int.Parse(nextSibling.Attributes.GetNamedItem("zhaoxianOfficerMax").Value);
-			}
-            catch (Exception exception24)
-            {
-                exception = exception24;
-				throw new Exception("zhaoxianOfficerMax:\n" + exception.ToString());
-			}
-            
-            try
-            {
+                document = new XmlDocument();
+                xml = Platform.Current.LoadText(str);
+                document.LoadXml(xml);
+                nextSibling = document.FirstChild.NextSibling;
+                for (int i = 0; i < nextSibling.Attributes.Count; i++)
+                {
+                    System.Reflection.FieldInfo[] fieldInfos = typeof(GlobalVariables).GetFields((System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance));
+                    foreach (var v in fieldInfos)
+                    {
+                        if (v.Name == nextSibling.Attributes[i].Name)
+                        {
+                            if (v.FieldType.ToString() == "System.Int32")
+                            {
+                                string temp = nextSibling.Attributes[i].Value.ToString();
+                                if (temp.Contains("E"))
+                                {
+                                    Decimal de;
+                                    Decimal.TryParse(temp, System.Globalization.NumberStyles.Any, null, out de);
+                                    v.SetValue(Session.Current.Scenario.GlobalVariables, (int)de);
+                                }
+                                else
+                                {
+                                    v.SetValue(Session.Current.Scenario.GlobalVariables, int.Parse(nextSibling.Attributes[i].Value.ToString()));
+                                }
+                            }
+                            else if (v.FieldType.ToString() == "System.Single")
+                            {
+                                string temp = nextSibling.Attributes[i].Value.ToString();
+                                if (temp.Contains("E"))
+                                {
+                                    Decimal de;
+                                    Decimal.TryParse(temp, System.Globalization.NumberStyles.Any, null, out de);
+                                    v.SetValue(Session.Current.Scenario.GlobalVariables, (float)de);
+                                }
+                                else
+                                {
+                                    v.SetValue(Session.Current.Scenario.GlobalVariables, float.Parse(nextSibling.Attributes[i].Value.ToString()));
+                                }
+                            }
+                            else if (v.FieldType.ToString() == "System.Boolean")
+                            {
+                                v.SetValue(Session.Current.Scenario.GlobalVariables, bool.Parse(nextSibling.Attributes[i].Value.ToString()));
+                            }
+                            else if (v.FieldType.ToString() == "System.String")
+                            {
+                                v.SetValue(Session.Current.Scenario.GlobalVariables, nextSibling.Attributes[i].Value.ToString());
+                            }
+                            if (v.Name == "PersonNaturalDeath")
+                            {
+                                Session.Current.Scenario.GlobalVariables.PersonNaturalDeath = bool.Parse(nextSibling.Attributes[i].Value.ToString());
+                            }
+                        }
+                    }
+                }
+            }
 
-                FactionMilitaryLimt = int.Parse(nextSibling.Attributes.GetNamedItem("FactionMilitaryLimt").Value);
-
-                FixedUnnaturalDeathAge = int.Parse(nextSibling.Attributes.GetNamedItem("FixedUnnaturalDeathAge").Value);
-
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-
-                throw new Exception("FactionMilitaryLimt:\n" + exception.ToString());
-
-                throw new Exception("FixedUnnaturalDeathAge:\n" + exception.ToString());
-
-            }
-            try
-            {
-                AIQuickBattle = bool.Parse(nextSibling.Attributes.GetNamedItem("AIQuickBattle").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("AIQuickBattle:\n" + exception.ToString());
-            }
-            try
-            {
-                PlayerAutoSectionHasAIResourceBonus = bool.Parse(nextSibling.Attributes.GetNamedItem("PlayerAutoSectionHasAIResourceBonus").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("PlayerAutoSectionHasAIResourceBonus:\n" + exception.ToString());
-            }
-            try
-            {
-                ProhibitFactionAgainstDestroyer = float.Parse(nextSibling.Attributes.GetNamedItem("ProhibitFactionAgainstDestroyer").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("ProhibitFactionAgainstDestroyer:\n" + exception.ToString());
-            }
-            try
-            {
-                AIMergeAgainstPlayer = float.Parse(nextSibling.Attributes.GetNamedItem("AIMergeAgainstPlayer").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("AIMergeAgainstPlayer:\n" + exception.ToString());
-            }
-            try
-            {
-                RemoveSpouseIfNotAvailable = bool.Parse(nextSibling.Attributes.GetNamedItem("RemoveSpouseIfNotAvailable").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("RemoveSpouseIfNotAvailable:\n" + exception.ToString());
-            }
-            try
-            {
-                SkyEyeSimpleNotification = bool.Parse(nextSibling.Attributes.GetNamedItem("SkyEyeSimpleNotification").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("SkyEyeSimpleNotification:\n" + exception.ToString());
-            }
-            try
-            {
-                AutoMultipleMarriage = bool.Parse(nextSibling.Attributes.GetNamedItem("AutoMultipleMarriage").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("AutoMultipleMarriage:\n" + exception.ToString());
-            }
-            try
-            {
-                BornHistoricalChildren = bool.Parse(nextSibling.Attributes.GetNamedItem("BornHistoricalChildren").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("BornHistoricalChildren:\n" + exception.ToString());
-            }
-            try
-            {
-                hougongAlienOnly = bool.Parse(nextSibling.Attributes.GetNamedItem("hougongAlienOnly").Value);
-            }
-            catch (Exception exception24)
-            {
-                exception = exception24;
-                throw new Exception("hougongAlienOnly:\n" + exception.ToString());
-            }
             return true;
         }
 
