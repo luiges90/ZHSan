@@ -10,7 +10,7 @@ namespace GameObjects
     {
         [DataMember]
         public int ActiveFundCost;
-        [DataMember]
+        
         public Routeway BelongedRouteway;
         [DataMember]
         public int BuildFundCost;

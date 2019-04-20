@@ -14,24 +14,30 @@ namespace GameObjects
     [DataContract]
     public class Routeway : GameObject
     {
+        [DataMember]
         private bool avoidWater;
         
         public Faction BelongedFaction;
+
+        [DataMember]
         private bool building;
         
         public Architecture DestinationArchitecture;
         
         public Architecture EndArchitecture;
+
+        [DataMember]
         private bool HasSupportedLegion = false;
+        [DataMember]
         private int inefficiencyDays;
+        [DataMember]
         private int lastActivePointIndex = -1;
+        [DataMember]
         private bool removeAfterClose;
         
         public void Init()
         {
             RouteArea = new Dictionary<Point, RoutePoint>();
-
-            lastActivePointIndex = -1;
         }
 
         public Dictionary<Point, RoutePoint> RouteArea = new Dictionary<Point, RoutePoint>();
@@ -49,6 +55,9 @@ namespace GameObjects
 
         [DataMember]
         public int DestinationArchitectureString { get; set; }
+
+        [DataMember]
+        public int BelongedFactionString { get; set; }
 
         public Architecture StartArchitecture;
 

@@ -3437,6 +3437,8 @@ namespace GameObjects
                 //routeway.DestinationArchitectureString = (int)reader["DestinationArchitecture"];
                 routeway.DestinationArchitecture = this.Architectures.GetGameObject(routeway.DestinationArchitectureString) as Architecture;
 
+                routeway.BelongedFaction = this.Factions.GetGameObject(routeway.BelongedFactionString) as Faction;
+
                 //routeway.LoadRoutePointsFromString(reader["Points"].ToString());
 
                 if (e.Count > 0)
