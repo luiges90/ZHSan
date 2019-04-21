@@ -219,9 +219,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.Plugins.youcelanPlugin.IsShowing = false;
                     this.mapEdited = true;
                 }
-                else if (InputManager.KeyBoardState.IsKeyDown(Keys.LeftAlt) && InputManager.KeyBoardState.IsKeyDown(Keys.Q) && Session.GlobalVariables.EnableCheat)
+                else if (InputManager.KeyBoardState.IsKeyDown(Keys.LeftAlt) && InputManager.KeyBoardState.IsKeyDown(Keys.F) && Session.GlobalVariables.EnableCheat)
                 {
-                    this.currentKey = Keys.Q;
+                    this.currentKey = Keys.F;//q已经被网格占用，改为f关闭
                     this.editMode = false;
                     this.mainMapLayer.xianshidituxiaokuai = false;
                     this.Plugins.youcelanPlugin.IsShowing = true;
