@@ -4933,7 +4933,7 @@ namespace GameObjects
 
             if (saveMap)
             {
-
+                this.ScenarioMap.MapDataString = ScenarioMap.SaveToString();//修复游戏中编辑地形后无法保存
                 foreach (Region region in this.Regions)
                 {
                     region.StatesListString = region.States.SaveToString();
