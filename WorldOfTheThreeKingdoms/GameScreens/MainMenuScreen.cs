@@ -185,21 +185,18 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 "感谢广大网友的支持！"
         };
 
-        int currentStartVersion = 1;
+        int currentStartVersion = 2;
         string[] startLines = new string[]
         {
 "新人教程已经发布，在商店页面右侧的游戏手册下载使用。欢迎各位新伙伴学习了解。配了图文，很细致了，相信愿意玩的伙伴可以入门了。因为有大量图片，",
 "文件有20M，请耐心下载了解。请各位伙伴先阅读此文章，再发表评论和疑问。",
 "",
-"另外游戏无法启动问题已经解决（已经设置默认要求安装软件环境）",
+"新人教程(bilibili視頻): https://www.bilibili.com/video/av50152479/",
 "",
 "祝大家玩的开心！",
             "",
             "-----------------------------------",
-            "中华三国志(v1.2.2)更新",
-            "不能再煽動無主城池",
-            "自動軍團不再自行執行策略",
-            "更新頭像及寶物圖"
+            "中华三国志(v1.3)更新",
         };
 
         string message = "";
