@@ -4454,7 +4454,7 @@ namespace GameObjects
             {
                 Point? nullable;
                 Point? nullable2;
-                Session.Current.Scenario.GetClosestPointsBetweenTwoAreas(this.GetRoutewayStartPoints(), node.A.GetAIRoutewayEndPoints(this, true), out nullable, out nullable2);
+                Session.Current.Scenario.GetClosestPointsBetweenTwoAreas(this.GetRoutewayStartPoints(), node.A.GetAIRoutewayEndPoints(this, false), out nullable, out nullable2);
                 if (nullable.HasValue && nullable2.HasValue)
                 {
                     this.BelongedFaction.RoutewayPathBuilder.MultipleWaterCost = false;
@@ -7268,7 +7268,7 @@ namespace GameObjects
             {
                 Point? nullable;
                 Point? nullable2;
-                Session.Current.Scenario.GetClosestPointsBetweenTwoAreas(this.GetRoutewayStartPoints(), node.A.GetAIRoutewayEndPoints(this, true), out nullable, out nullable2);
+                Session.Current.Scenario.GetClosestPointsBetweenTwoAreas(this.GetRoutewayStartPoints(), node.A.GetAIRoutewayEndPoints(this, false), out nullable, out nullable2);
                 if (nullable.HasValue && nullable2.HasValue)
                 {
                     this.BelongedFaction.RoutewayPathBuilder.MultipleWaterCost = node.Kind == LinkKind.Land;
