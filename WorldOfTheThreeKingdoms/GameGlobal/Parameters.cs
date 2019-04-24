@@ -313,7 +313,7 @@ namespace GameGlobal
         [DataMember]
         public int MakeMarrigeIdealLimit = 5;
         [DataMember]
-        public int MakeMarriageCost = 80000;
+        public int MakeMarriageCost = 8000;
         [DataMember]
         public int NafeiCost = 50000;
         [DataMember]
@@ -339,9 +339,9 @@ namespace GameGlobal
         [DataMember]
         public int MaxRelation = 10000;
         [DataMember]
-        public float HougongRelationHateFactor = 1.0f;
+        public float HougongRelationHateFactor = 3.0f;
         [DataMember]
-        public int AIMaxFeizi = 20;
+        public int AIMaxFeizi = 3000;
         [DataMember]
         public int MaxReputationForRecruit = 3000000;
         [DataMember]
