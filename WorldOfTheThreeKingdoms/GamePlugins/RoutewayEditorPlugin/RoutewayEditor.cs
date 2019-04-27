@@ -694,10 +694,6 @@ namespace RoutewayEditorPlugin
                     }
                 }
             }
-            if (this.draging)
-            {
-                this.Drag();
-            }
         }
 
         private void screen_OnMouseRightDown(Point position)
