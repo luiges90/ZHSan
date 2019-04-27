@@ -1387,6 +1387,23 @@ namespace GameObjects
             }*/
             this.OffenceOnlyBeforeMoveFlag = false;
 
+            if (this.BelongedLegion != null && this.BelongedLegion.PreferredRouteway != null && 
+                !this.BelongedLegion.PreferredRouteway.Developing && this.BelongedLegion.PreferredRouteway.LastPoint != null 
+                && this.BelongedLegion.PreferredRouteway.LastPoint.Index < this.BelongedLegion.PreferredRouteway.RoutePoints.Count - 1)
+            {
+                if (this.CurrentCombatMethod == null)
+                {
+                    this.AttackDefaultKind = TroopAttackDefaultKind.防最弱;
+                    this.AttackTargetKind = TroopAttackTargetKind.目标默认;
+                }
+                if (this.CurrentStratagem == null)
+                {
+                    this.CastTargetKind = TroopCastTargetKind.特定默认;
+                }
+                this.RealDestination = this.BelongedLegion.PreferredRouteway.LastPoint.Position;
+                return true;
+            }
+
             Dictionary<Point, CreditPack> positionCredits = new Dictionary<Point, CreditPack>();
             foreach (Point point in dayArea.Area)
             {
