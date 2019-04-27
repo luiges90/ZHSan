@@ -1180,7 +1180,6 @@ namespace GameObjects
             //this.PlayAIZhaoXian();
             this.PrepareAI();
             this.AIExecute();
-            this.ClearFieldAI();
             this.RoutewayAI();
             this.AITreasure();
             this.AITrade();
@@ -4114,7 +4113,7 @@ namespace GameObjects
         public void BeginToBuildAFacility(FacilityKind facilityKind)
         {
             this.BuildingFacility = facilityKind.ID;
-            this.BuildingDaysLeft = (int)(facilityKind.Days * (1 - this.facilityConstructionTimeRateDecrease));
+            this.BuildingDaysLeft = Math.Max(1, (int)(facilityKind.Days * (1 - this.facilityConstructionTimeRateDecrease)));
             this.DecreaseFund(facilityKind.FundCost);
             if (this.BelongedFaction.TechniquePoint < facilityKind.PointCost)
             {
@@ -5178,64 +5177,6 @@ namespace GameObjects
                 Session.Current.Scenario.Troops.RemoveTroop(this.RobberTroop);
                 this.RobberTroop = null;
             }
-        }
-
-        public void ClearField()
-        {
-            if (this.Kind.HasAgriculture)
-            {
-                this.Agriculture -= this.ClearFieldAgricultureCost;
-            }
-            this.DecreaseFund(this.ClearFieldFundCost);
-            int num = 0;
-            foreach (Point point in this.LongViewArea.Area)
-            {
-                if ((Session.Current.Scenario.GetArchitectureByPosition(point) != null) || Session.Current.Scenario.NoFoodDictionary.HasPosition(point))
-                {
-                    continue;
-                }
-                Troop troopByPosition = Session.Current.Scenario.GetTroopByPosition(point);
-                if ((troopByPosition == null) || this.BelongedFaction.IsFriendly(troopByPosition.BelongedFaction))
-                {
-                    TerrainDetail terrainDetailByPosition = Session.Current.Scenario.GetTerrainDetailByPosition(point);
-                    if ((terrainDetailByPosition != null) && (terrainDetailByPosition.FoodDeposit > 0))
-                    {
-                        num += terrainDetailByPosition.GetRandomFood(Session.Current.Scenario.Date.Season);
-                        Session.Current.Scenario.NoFoodDictionary.AddPosition(new NoFoodPosition(point, terrainDetailByPosition.RandomRegainDays));
-                    }
-                }
-            }
-            this.IncreaseFood(num / 4);
-            ExtensionInterface.call("ClearField", new Object[] { Session.Current.Scenario, this });
-        }
-
-        private void ClearFieldAI()
-        {
-            if ((((((this.Endurance + this.Domination) - this.Agriculture) < 0) && (this.ArmyScale < this.NormalArmyScale)) && this.ClearFieldAvail()) && ((this.ClearFieldCredit / this.LongViewArea.Count) >= 0xc350))
-            {
-                float rationRate = 0f;
-                int relationUnderZeroTroopFightingForceInView = this.GetRelationUnderZeroTroopFightingForceInView(out rationRate);
-                if ((relationUnderZeroTroopFightingForceInView > 0) && ((rationRate < 0.2f) && (relationUnderZeroTroopFightingForceInView > ((this.GetFriendlyTroopFightingForceInView() + (this.FoodCostPerDayOfAllMilitaries * ((this.PersonCount < 10) ? this.PersonCount : 10))) * 2))))
-                {
-                    this.ClearField();
-                }
-            }
-        }
-
-        public bool ClearFieldAvail()
-        {
-            return false;
-#pragma warning disable CS0162 // Unreachable code detected
-            if (this.Kind.HasAgriculture && (this.Agriculture <= this.ClearFieldAgricultureCost))
-#pragma warning restore CS0162 // Unreachable code detected
-            {
-                return false;
-            }
-            if (this.Fund < this.ClearFieldFundCost)
-            {
-                return false;
-            }
-            return true;
         }
 
         public void ClearFundPacks()
@@ -11159,11 +11100,6 @@ namespace GameObjects
             return (num > 0);
         }
 
-        public bool PersonHireAvail()
-        {
-            return ((!this.HasManualHire && (this.NoFactionPersonCount > 0)) && (this.Fund >= this.HirePersonFund));
-        }
-
         public bool PersonStudySkillAvail()
         {
             foreach (Person person in this.Persons)
@@ -11602,7 +11538,7 @@ namespace GameObjects
                 {
                     return false;
                 }
-                if (this.BelongedFaction != null && this.BelongedFaction.Army > (long)(this.BelongedFaction.Population * Session.GlobalVariables.ArmyPopulationCap)) //势力兵力超过上限时，不能补充
+                if (this.BelongedFaction != null && this.BelongedFaction.Army > (long)(this.BelongedFaction.Population * Session.Current.Scenario.Parameters.MilitaryPopulationCap)) //势力兵力超过上限时，不能补充,原有参数替换成在主菜单设置可调的参数
                 {
                     return false;
                 }
@@ -13201,55 +13137,6 @@ namespace GameObjects
             }
         }
 
-        public int ClearFieldAgricultureCost
-        {
-            get
-            {
-                if (this.Kind.HasAgriculture)
-                {
-                    return ((this.LongViewArea.Count - this.AreaCount) * Session.Parameters.ClearFieldAgricultureCostUnit);
-                }
-                return 0;
-            }
-        }
-
-        public int ClearFieldCredit
-        {
-            get
-            {
-                int num = 0;
-                foreach (Point point in this.LongViewArea.Area)
-                {
-                    if ((Session.Current.Scenario.GetArchitectureByPosition(point) != null) || Session.Current.Scenario.NoFoodDictionary.HasPosition(point))
-                    {
-                        continue;
-                    }
-                    Troop troopByPosition = Session.Current.Scenario.GetTroopByPosition(point);
-                    if ((troopByPosition == null) || this.BelongedFaction.IsFriendly(troopByPosition.BelongedFaction))
-                    {
-                        TerrainDetail terrainDetailByPosition = Session.Current.Scenario.GetTerrainDetailByPosition(point);
-                        if ((terrainDetailByPosition != null) && (terrainDetailByPosition.FoodDeposit > 0))
-                        {
-                            num += terrainDetailByPosition.GetFood(Session.Current.Scenario.Date.Season);
-                        }
-                    }
-                }
-                return num;
-            }
-        }
-
-        public int ClearFieldFundCost
-        {
-            get
-            {
-                int num = (int)(((this.LongViewArea.Count - this.AreaCount) * Session.Parameters.ClearFieldFundCostUnit) * this.RateOfClearField);
-                if (this.Kind.HasAgriculture)
-                {
-                    return num;
-                }
-                return (num * 2);
-            }
-        }
         [DataMember]
         public int Commerce
         {
@@ -14045,14 +13932,6 @@ namespace GameObjects
             set
             {
                 this.hireFinished = value;
-            }
-        }
-
-        public int HirePersonFund
-        {
-            get
-            {
-                return (int)((Session.Parameters.HireNoFactionPersonCost * this.AreaCount) * this.RateOfHirePerson);
             }
         }
 

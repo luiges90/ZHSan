@@ -35,10 +35,6 @@ namespace GameGlobal
         [DataMember]
         public int ChangeCapitalCost = 0x1388;
         [DataMember]
-        public int ClearFieldAgricultureCostUnit = 3;
-        [DataMember]
-        public int ClearFieldFundCostUnit = 50;
-        [DataMember]
         public int ConvincePersonCost = 200;
         [DataMember]
         public float DefaultPopulationDevelopingRate = 6E-05f;
@@ -65,8 +61,6 @@ namespace GameGlobal
         [DataMember]
         public int JailBreakArchitectureCost = 200;
         [DataMember]
-        public int HireNoFactionPersonCost = 100;
-        [DataMember]
         public int InstigateArchitectureCost = 200;
         [DataMember]
         public int InternalFundCost = 5;
@@ -92,8 +86,6 @@ namespace GameGlobal
         public int RewardPersonCost = 100;
         [DataMember]
         public int SellFoodCommerce = 500;
-        [DataMember]
-        public int SendSpyCost = 200;
         [DataMember]
         public int SurroundArchitectureDominationUnit = 2;
         [DataMember]
@@ -243,12 +235,6 @@ namespace GameGlobal
         [DataMember]
         public int AIOffendMaxDiplomaticRelationMultiply = 20;
         [DataMember]
-        public float AIOffendReserveAdd = 0.8f;
-        [DataMember]
-        public float AIOffendReserveBCDiffMultiply = 0.1f;
-        [DataMember]
-        public float AIOffendDefendingTroopRate = 0.75f;
-        [DataMember]
         public float AIOffendDefendTroopAdd = 1.2f;
         [DataMember]
         public float AIOffendDefendTroopMultiply = 0.1f;
@@ -297,8 +283,6 @@ namespace GameGlobal
         [DataMember]
         public float VeryCloseAbilityRate = 1.2F;
         [DataMember]
-        public int RetainFeiziPersonalLoyalty = 0;
-        [DataMember]
         public int AIEncirclePlayerRate = 0;
         [DataMember]
         public float BasicAIExtraPerson = 0;
@@ -332,8 +316,6 @@ namespace GameGlobal
         public List<int> ExpandConditions = new List<int>();
         [DataMember]
         public float SearchPersonArchitectureCountPower = 0;
-        [DataMember]
-        public float InternalSurplusMinEffect = 0.2f;
         [DataMember]
         public int DayInTurn = 1;
         [DataMember]
@@ -391,16 +373,12 @@ namespace GameGlobal
                 SelectPrinceCost = int.Parse(nextSibling.Attributes.GetNamedItem("SelectPrinceCost").Value);
                 TransferCostPerMilitary = int.Parse(nextSibling.Attributes.GetNamedItem("TransferCostPerMilitary").Value); //运兵耗钱
                 TransferFoodPerMilitary = int.Parse(nextSibling.Attributes.GetNamedItem("TransferFoodPerMilitary").Value);  //运兵耗粮
-                HireNoFactionPersonCost = int.Parse(nextSibling.Attributes.GetNamedItem("HireNoFactionPersonCost").Value);
                 ConvincePersonCost = int.Parse(nextSibling.Attributes.GetNamedItem("ConvincePersonCost").Value);
                 RewardPersonCost = int.Parse(nextSibling.Attributes.GetNamedItem("RewardPersonCost").Value);
-                SendSpyCost = int.Parse(nextSibling.Attributes.GetNamedItem("SendSpyCost").Value);
                 DestroyArchitectureCost = int.Parse(nextSibling.Attributes.GetNamedItem("DestroyArchitectureCost").Value);
                 InstigateArchitectureCost = int.Parse(nextSibling.Attributes.GetNamedItem("InstigateArchitectureCost").Value);
                 GossipArchitectureCost = int.Parse(nextSibling.Attributes.GetNamedItem("GossipArchitectureCost").Value);
                 JailBreakArchitectureCost = int.Parse(nextSibling.Attributes.GetNamedItem("JailBreakArchitectureCost").Value);
-                ClearFieldFundCostUnit = int.Parse(nextSibling.Attributes.GetNamedItem("ClearFieldFundCostUnit").Value);
-                ClearFieldAgricultureCostUnit = int.Parse(nextSibling.Attributes.GetNamedItem("ClearFieldAgricultureCostUnit").Value);
                 SurroundArchitectureDominationUnit = int.Parse(nextSibling.Attributes.GetNamedItem("SurroundArchitectureDominationUnit").Value);
                 FireDamageScale = float.Parse(nextSibling.Attributes.GetNamedItem("FireDamageScale").Value);
                 AIFundRate = float.Parse(nextSibling.Attributes.GetNamedItem("AIFundRate").Value);
@@ -478,9 +456,6 @@ namespace GameGlobal
                 AIAttackChanceIfUnfull = float.Parse(nextSibling.Attributes.GetNamedItem("AIAttackChanceIfUnfull").Value);
                 AIObeyStrategyTendencyChance = int.Parse(nextSibling.Attributes.GetNamedItem("AIObeyStrategyTendencyChance").Value);
                 AIOffendMaxDiplomaticRelationMultiply = int.Parse(nextSibling.Attributes.GetNamedItem("AIOffendMaxDiplomaticRelationMultiply").Value);
-                AIOffendReserveAdd = float.Parse(nextSibling.Attributes.GetNamedItem("AIOffendReserveAdd").Value);
-                AIOffendReserveBCDiffMultiply = float.Parse(nextSibling.Attributes.GetNamedItem("AIOffendReserveBCDiffMultiply").Value);
-                AIOffendDefendingTroopRate = float.Parse(nextSibling.Attributes.GetNamedItem("AIOffendDefendingTroopRate").Value);
                 AIOffendDefendTroopAdd = float.Parse(nextSibling.Attributes.GetNamedItem("AIOffendDefendTroopAdd").Value);
                 AIOffendDefendTroopMultiply = float.Parse(nextSibling.Attributes.GetNamedItem("AIOffendDefendTroopMultiply").Value);
                 AIOffendIgnoreReserveProbAmbitionMultiply = int.Parse(nextSibling.Attributes.GetNamedItem("AIOffendIgnoreReserveProbAmbitionMultiply").Value);
@@ -512,8 +487,6 @@ namespace GameGlobal
                 CloseAbilityRate = float.Parse(nextSibling.Attributes.GetNamedItem("CloseAbilityRate").Value);
                 VeryCloseAbilityRate = float.Parse(nextSibling.Attributes.GetNamedItem("VeryCloseAbilityRate").Value);
 
-                RetainFeiziPersonalLoyalty = int.Parse(nextSibling.Attributes.GetNamedItem("RetainFeiziPersonalLoyalty").Value);
-
                 AIEncirclePlayerRate = int.Parse(nextSibling.Attributes.GetNamedItem("AIEncirclePlayerRate").Value);
 
                 InternalSurplusFactor = int.Parse(nextSibling.Attributes.GetNamedItem("InternalSurplusFactor").Value);
@@ -527,7 +500,6 @@ namespace GameGlobal
                 AIEncircleVar = int.Parse(nextSibling.Attributes.GetNamedItem("AIEncircleVar").Value);
 
                 RansomRate = float.Parse(nextSibling.Attributes.GetNamedItem("RansomRate").Value);
-                InternalSurplusMinEffect = float.Parse(nextSibling.Attributes.GetNamedItem("InternalSurplusMinEffect").Value);
 
                 DayInTurn = int.Parse(nextSibling.Attributes.GetNamedItem("DayInTurn").Value);
                 MaxRelation = int.Parse(nextSibling.Attributes.GetNamedItem("MaxRelation").Value);
@@ -670,16 +642,12 @@ namespace GameGlobal
             element.SetAttribute("RecruitmentDomination", RecruitmentDomination.ToString());
             element.SetAttribute("RecruitmentMorale", RecruitmentMorale.ToString());
             element.SetAttribute("ChangeCapitalCost", ChangeCapitalCost.ToString());
-            element.SetAttribute("HireNoFactionPersonCost", HireNoFactionPersonCost.ToString());
             element.SetAttribute("ConvincePersonCost", ConvincePersonCost.ToString());
             element.SetAttribute("RewardPersonCost", RewardPersonCost.ToString());
-            element.SetAttribute("SendSpyCost", SendSpyCost.ToString());
             element.SetAttribute("DestroyArchitectureCost", DestroyArchitectureCost.ToString());
             element.SetAttribute("InstigateArchitectureCost", InstigateArchitectureCost.ToString());
             element.SetAttribute("GossipArchitectureCost", GossipArchitectureCost.ToString());
             element.SetAttribute("JailBreakArchitectureCost", JailBreakArchitectureCost.ToString());
-            element.SetAttribute("ClearFieldFundCostUnit", ClearFieldFundCostUnit.ToString());
-            element.SetAttribute("ClearFieldAgricultureCostUnit", ClearFieldAgricultureCostUnit.ToString());
             element.SetAttribute("SurroundArchitectureDominationUnit", SurroundArchitectureDominationUnit.ToString());
             element.SetAttribute("FireDamageScale", FireDamageScale.ToString());
             element.SetAttribute("AIFundRate", AIFundRate.ToString());
@@ -746,9 +714,6 @@ namespace GameGlobal
             element.SetAttribute("AIAttackChanceIfUnfull", AIAttackChanceIfUnfull.ToString());
             element.SetAttribute("AIObeyStrategyTendencyChance", AIObeyStrategyTendencyChance.ToString());
             element.SetAttribute("AIOffendMaxDiplomaticRelationMultiply", AIOffendMaxDiplomaticRelationMultiply.ToString());
-            element.SetAttribute("AIOffendReserveAdd", AIOffendReserveAdd.ToString());
-            element.SetAttribute("AIOffendReserveBCDiffMultiply", AIOffendReserveBCDiffMultiply.ToString());
-            element.SetAttribute("AIOffendDefendingTroopRate", AIOffendDefendingTroopRate.ToString());
             element.SetAttribute("AIOffendDefendTroopAdd", AIOffendDefendTroopAdd.ToString());
             element.SetAttribute("AIOffendDefendTroopMultiply", AIOffendDefendTroopMultiply.ToString());
             element.SetAttribute("AIOffendIgnoreReserveProbAmbitionMultiply", AIOffendIgnoreReserveProbAmbitionMultiply.ToString());
@@ -772,7 +737,6 @@ namespace GameGlobal
             element.SetAttribute("AIAntiStratagemIncreaseRate", AIAntiStratagemIncreaseRate.ToString());
             element.SetAttribute("CloseAbilityRate", CloseAbilityRate.ToString());
             element.SetAttribute("VeryCloseAbilityRate", VeryCloseAbilityRate.ToString());
-            element.SetAttribute("RetainFeiziPersonalLoyalty", RetainFeiziPersonalLoyalty.ToString());
             element.SetAttribute("AIEncirclePlayerRate", AIEncirclePlayerRate.ToString());
             element.SetAttribute("InternalSurplusFactor", InternalSurplusFactor.ToString());
             element.SetAttribute("AIExtraPerson", AIExtraPerson.ToString());
@@ -787,7 +751,6 @@ namespace GameGlobal
             element.SetAttribute("AutoLearnSkillSuccessRate", AutoLearnSkillSuccessRate.ToString());
             element.SetAttribute("AutoLearnStuntSuccessRate", AutoLearnStuntSuccessRate.ToString());
             element.SetAttribute("RansomRate", RansomRate.ToString());
-            element.SetAttribute("InternalSurplusMinEffect", InternalSurplusMinEffect.ToString());
             element.SetAttribute("DayInTurn", DayInTurn.ToString());
             element.SetAttribute("MaxRelation", MaxRelation.ToString());
             element.SetAttribute("HougongRelationHateFactor", HougongRelationHateFactor.ToString());

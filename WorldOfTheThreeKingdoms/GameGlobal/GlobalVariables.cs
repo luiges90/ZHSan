@@ -190,8 +190,6 @@ namespace GameGlobal
         [DataMember]
         public int DialogShowTime = 10;
         [DataMember]
-        public bool AINoTeamTransfer = false;
-        [DataMember]
         public bool LandArmyCanGoDownWater = true;
         [DataMember]
         public bool EnableResposiveThreading = false;
@@ -227,8 +225,6 @@ namespace GameGlobal
         public bool StopToControlOnAttack = true;
         [DataMember]
         public int MaxMilitaryExperience = 3000;
-        [DataMember]
-        public float ArmyPopulationCap = 1.0f; //兵力上限 
         [DataMember]
         public int FactionMilitaryLimt = 9000;
         [DataMember]
@@ -749,15 +745,6 @@ namespace GameGlobal
                 }
                 try
                 {
-                    AINoTeamTransfer = bool.Parse(nextSibling.Attributes.GetNamedItem("AINoTeamTransfer").Value);
-                }
-                catch (Exception exception24)
-                {
-                    exception = exception24;
-                    throw new Exception("AINoTeamTransfer:\n" + exception.ToString());
-                }
-                try
-                {
                     EnableCheat = bool.Parse(nextSibling.Attributes.GetNamedItem("EnableCheat").Value);
                 }
                 catch (Exception exception24)
@@ -981,15 +968,6 @@ namespace GameGlobal
                 {
                     exception = exception24;
                     throw new Exception("SurroundFactor:\n" + exception.ToString());
-                }
-                try
-                {
-                    ArmyPopulationCap = float.Parse(nextSibling.Attributes.GetNamedItem("ArmyPopulationCap").Value);
-                }
-                catch (Exception exception24)
-                {
-                    exception = exception24;
-                    throw new Exception("ArmyPopulationCap:\n" + exception.ToString());
                 }
                 try
                 {
@@ -1236,7 +1214,6 @@ namespace GameGlobal
             element.SetAttribute("LiangdaoXitong", LiangdaoXitong.ToString());
             element.SetAttribute("WujiangYoukenengDuli", WujiangYoukenengDuli.ToString());
             element.SetAttribute("FastBattleSpeed", FastBattleSpeed.ToString());
-            element.SetAttribute("AINoTeamTransfer", AINoTeamTransfer.ToString());
             element.SetAttribute("EnableCheat", EnableCheat.ToString());
             element.SetAttribute("HardcoreMode", HardcoreMode.ToString());
             element.SetAttribute("LandArmyCanGoDownWater", LandArmyCanGoDownWater.ToString());
@@ -1262,7 +1239,6 @@ namespace GameGlobal
             element.SetAttribute("FullScreen", FullScreen.ToString());
             element.SetAttribute("FriendlyDiplomacyThreshold", FriendlyDiplomacyThreshold.ToString());
             element.SetAttribute("SurroundFactor", SurroundFactor.ToString());
-            element.SetAttribute("ArmyPopulationCap", ArmyPopulationCap.ToString());
             element.SetAttribute("PermitQuanXiang", PermitQuanXiang.ToString());
             element.SetAttribute("PermitManualAwardTitleAutoLearn", PermitManualAwardTitleAutoLearn.ToString());
             element.SetAttribute("zhaoxianOfficerMax", zhaoxianOfficerMax.ToString());
