@@ -1,0 +1,8 @@
+各种Button 
+格式：png；尺寸：200*45
+
+Start
+格式：jpg；尺寸：794*594
+
+Start01/Start02
+格式：GIF；尺寸：789*953
