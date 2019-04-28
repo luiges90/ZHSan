@@ -75,8 +75,21 @@ namespace Tools
                 return Convert.ToByte(1);
             }
         }
+
+        public static List<T> GetLast<T>(this List<T> list, int num)
+        {
+            if (list.Count <= num)
+            {
+                return list;
+            }
+            else
+            {
+                return list.GetListRange(list.Count - num, num);
+            }
+        }
+
         /// <summary>
-        /// 獲取分頁數據
+        /// 獲取分頁數據t
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
@@ -348,20 +361,20 @@ namespace Tools
         }
 
         public static double[] Root2(double a, double b, double c)
-        {  
-            double[] Roots = new double[2];  
-            double Delt = b * b - 4 * a * c;  
-            if (Delt >= 0)  
-            {  
-                Roots[0] = (-b + Math.Sqrt(Delt)) / 2 * a;  
-                Roots[1] = (-b - Math.Sqrt(Delt)) / 2 * a;  
-                return Roots;  
-            }  
-            else  
-            {  
-                Roots = null;  
-                return Roots;  
-            }  
+        {
+            double[] Roots = new double[2];
+            double Delt = b * b - 4 * a * c;
+            if (Delt >= 0)
+            {
+                Roots[0] = (-b + Math.Sqrt(Delt)) / 2 * a;
+                Roots[1] = (-b - Math.Sqrt(Delt)) / 2 * a;
+                return Roots;
+            }
+            else
+            {
+                Roots = null;
+                return Roots;
+            }
         }
 
         //獲取同多個多邊形的相交點
@@ -369,7 +382,7 @@ namespace Tools
         {
             var resultPoints = new List<Vector2[]>();
 
-            foreach(var poly in polygonPointsList)
+            foreach (var poly in polygonPointsList)
             {
                 for (int i = 0, j = 1; i <= poly.Length; j = i, i++)
                 {
@@ -466,7 +479,7 @@ namespace Tools
             }
             return inside;
         }
-        
+
         public static bool IsInCircle(Vector2 vecCircle, float radius, Vector2 vecPoint)
         {
             var vecDis = vecPoint - vecCircle;

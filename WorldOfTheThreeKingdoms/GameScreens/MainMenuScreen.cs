@@ -32,6 +32,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public MenuType MenuType = MenuType.None;
 
+        bool dantiao = false;
+
+        GameScenario scenario = null;
+
+        Faction faction = null;
+
         float textGameElapsed = 0f;
 
         float menuTypeElapsed = 0f;
@@ -76,6 +82,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         int pageid1 = 1;
         int page1 = 0;
 
+        int pageIndex2 = 1;
+        int pageCount2 = 0;
+        int pageid2 = 1;
+        int page2 = 0;
+
+        ButtonTexture btnDantiao = null;
+
         List<Scenario> ScenarioList = new List<Scenario>();
 
         Scenario CurrentScenario = null;
@@ -87,6 +100,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         List<ButtonTexture> btScenarioPlayersList = new List<ButtonTexture>();
         List<ButtonTexture> btScenarioPlayersListPaged = new List<ButtonTexture>();
+
+        List<ButtonTexture> btDantiaoPlayersList = new List<ButtonTexture>();
+        List<ButtonTexture> btDantiaoPlayersListPaged = new List<ButtonTexture>();
 
         string CurrentSetting = "基本";
 
@@ -234,7 +250,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 menuTypeElapsed = 0f;
                 UnCheckTextBoxs();
                 MenuType = MenuType.New;
+                dantiao = false;
+                scenario = null;
+                faction = null;
                 InitScenarioList();
+                ScreenLayers.DantiaoLayer.Persons = null;
             };
             btList.Add(btOne);
 
@@ -294,17 +314,58 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
                 else
                 {
-                    if (MenuType == MenuType.New)
+                    if (dantiao)
                     {
-                        Session.globalVariablesTemp = Session.globalVariablesBasic.Clone();
-                        Session.parametersTemp = Session.parametersBasic.Clone();
-                        InitConfig();
-                        MenuType = MenuType.Config;
+                        if (ScreenLayers.DantiaoLayer.Persons.Count < 2)
+                        {
+                            message = "请选择两名武将。";
+                        }
+                        else
+                        {
+                            if (MenuType == MenuType.New)
+                            {
+                                Session.globalVariablesTemp = Session.globalVariablesBasic.Clone();
+                                Session.parametersTemp = Session.parametersBasic.Clone();
+                                InitConfig();
+                                MenuType = MenuType.Config;
+                            }
+                            else
+                            {
+                                MenuType = MenuType.New;
+
+                                btScenarioSelectList.ForEach(bt =>
+                                {
+                                    bt.Selected = false;
+                                });
+
+                                btScenarioPlayersList.Clear();
+
+                                pageIndex1 = 1;
+
+                                Session.StartScenario(CurrentScenario, false);
+
+                                CurrentScenario = null;
+
+                                scenario = null;
+
+                                faction = null;
+                            }
+                        }
                     }
                     else
                     {
-                        MenuType = MenuType.New;
-                        Session.StartScenario(CurrentScenario, false);
+                        if (MenuType == MenuType.New)
+                        {
+                            Session.globalVariablesTemp = Session.globalVariablesBasic.Clone();
+                            Session.parametersTemp = Session.parametersBasic.Clone();
+                            InitConfig();
+                            MenuType = MenuType.Config;
+                        }
+                        else
+                        {
+                            MenuType = MenuType.New;
+                            Session.StartScenario(CurrentScenario, false);
+                        }
                     }
                 }
 
@@ -2099,9 +2160,29 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btPre1.OnButtonPress += (sender, e) =>
             {
-                if (pageIndex1 > 1)
+                if (dantiao)
                 {
-                    pageIndex1--;
+                    if (faction == null)
+                    {
+                        if (pageIndex1 > 1)
+                        {
+                            pageIndex1--;
+                        }
+                    }
+                    else
+                    {
+                        if (pageIndex2 > 1)
+                        {
+                            pageIndex2--;
+                        }
+                    }
+                }
+                else
+                {
+                    if (pageIndex1 > 1)
+                    {
+                        pageIndex1--;
+                    }
                 }
 
             };
@@ -2112,11 +2193,46 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btNext1.OnButtonPress += (sender, e) =>
             {
-                if (pageIndex1 < pageCount1)
+                if (dantiao)
                 {
-                    pageIndex1++;
+                    if (faction == null)
+                    {
+                        if (pageIndex1 < pageCount1)
+                        {
+                            pageIndex1++;
+                        }
+                    }
+                    else
+                    {
+                        if (pageIndex2 < pageCount2)
+                        {
+                            pageIndex2++;
+                        }
+                    }
                 }
+                else
+                {
+                    if (pageIndex1 < pageCount1)
+                    {
+                        pageIndex1++;
+                    }
+                }
+            };
 
+            btnDantiao = new ButtonTexture(@"Content\Textures\Resources\Dantiao\Button", "Button", new Vector2(860 + 260, 650))
+            {
+                //Visible = Platform.PlatFormType == PlatFormType.Win ? false : true
+            };
+            btnDantiao.OnButtonPress += (sender, e) =>
+            {
+                menuTypeElapsed = 0f;
+                UnCheckTextBoxs();
+                MenuType = MenuType.New;
+                dantiao = true;
+                scenario = null;
+                faction = null;
+                InitScenarioList();
+                ScreenLayers.DantiaoLayer.Persons = null;
             };
 
             InitSetting();
@@ -2169,27 +2285,102 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     CurrentScenario = ScenarioList.FirstOrDefault(sc => sc.Name == id);
 
-                    var iDs = CurrentScenario.IDs.Split(',').NullToEmptyList();
-                    var names = CurrentScenario.Names.Split(',').NullToEmptyList();
-
-                    btScenarioPlayersList = new List<ButtonTexture>();
-
-                    for (int i = 0; i < iDs.Count; i++)
+                    if (dantiao)
                     {
-                        var id0 = iDs[i];
-                        var btPlayer = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", null)
-                        {
-                            ID = id0
-                        };
-                        btPlayer.OnButtonPress += (sender0, e0) =>
-                        {
-                            var btP = (ButtonTexture)sender0;
-                            btP.Selected = !btP.Selected;
-                        };
-                        btScenarioPlayersList.Add(btPlayer);
-                    }
+                        scenario = null;
 
-                    pageIndex1 = 1;
+                        faction = null;
+
+                        ScreenLayers.DantiaoLayer.Persons = new List<Person>();
+
+                        new Task(() =>
+                        {
+
+                            while (CommonData.CurrentReady == false)
+                            {
+                                Platform.Sleep(100);
+                            }
+
+                            var scenarioName = String.Format(@"Content\Data\Scenario\{0}.json", CurrentScenario.Name);
+
+                            scenario = MainGameScreen.LoadScenarioData(scenarioName, true, null);
+
+                            var factions = scenario.Factions;
+
+                            btScenarioPlayersList = new List<ButtonTexture>();
+
+                            for (int i = 0; i < factions.Count; i++)
+                            {
+                                var id0 = factions[i];
+                                var btPlayer = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", null)
+                                {
+                                    ID = id0.Name
+                                };
+                                btPlayer.OnButtonPress += (sender0, e0) =>
+                                {
+                                    var btP = (ButtonTexture)sender0;
+                                    var id1 = btP.ID;
+
+                                    faction = scenario.Factions.GameObjects.FirstOrDefault(fi => fi.Name == id1) as Faction;
+
+                                    btDantiaoPlayersList = new List<ButtonTexture>();
+
+                                    for (int j = 0; j < faction.Persons.Count; j++)
+                                    {
+                                        var per = faction.Persons[j] as Person;
+                                        var btPer = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", null)
+                                        {
+                                            ID = per.Name
+                                        };
+                                        btPer.OnButtonPress += (sender1, e1) =>
+                                        {
+                                            var btG = (ButtonTexture)sender1;
+
+                                            var person = faction.Persons.GameObjects.FirstOrDefault(pe => ((Person)pe).Name == btG.ID) as Person;
+
+                                            ScreenLayers.DantiaoLayer.Persons.Add(person);
+
+                                            faction = null;
+
+                                        };
+
+                                        btDantiaoPlayersList.Add(btPer);
+                                    }
+
+                                    pageIndex2 = 1;
+
+                                };
+                                btScenarioPlayersList.Add(btPlayer);
+                            }
+
+                            pageIndex1 = 1;
+
+                        }).Start();
+                    }
+                    else
+                    {
+                        var iDs = CurrentScenario.IDs.Split(',').NullToEmptyList();
+                        var names = CurrentScenario.Names.Split(',').NullToEmptyList();
+
+                        btScenarioPlayersList = new List<ButtonTexture>();
+
+                        for (int i = 0; i < iDs.Count; i++)
+                        {
+                            var id0 = iDs[i];
+                            var btPlayer = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", null)
+                            {
+                                ID = id0
+                            };
+                            btPlayer.OnButtonPress += (sender0, e0) =>
+                            {
+                                var btP = (ButtonTexture)sender0;
+                                btP.Selected = !btP.Selected;
+                            };
+                            btScenarioPlayersList.Add(btPlayer);
+                        }
+
+                        pageIndex1 = 1;
+                    }
                 };
                 btScenarioSelectList.Add(btOne);
             }
@@ -2975,6 +3166,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 textLevel = Convert.ToInt32(textGameElapsed / 2f);
 
                 btList.ForEach(bt => bt.Update());
+
+                btnDantiao.Update();
             }
             else if (MenuType == MenuType.New)
             {
@@ -2997,18 +3190,51 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     btOne.Update();
                 }
 
-                btScenarioPlayersListPaged = GenericTools.GetPageList<ButtonTexture>(btScenarioPlayersList, pageIndex1.ToString(), 8, ref pageCount1, ref page1);
-
-                for (int i = 0; i < btScenarioPlayersListPaged.Count; i++)
+                if (dantiao)
                 {
-                    var btOne = btScenarioPlayersListPaged[i];
-                    btOne.Position = new Vector2(740, 80 + 55 * i);
-                    btOne.Update();
+                    if (faction == null)
+                    {
+                        btScenarioPlayersListPaged = GenericTools.GetPageList<ButtonTexture>(btScenarioPlayersList, pageIndex1.ToString(), 8, ref pageCount1, ref page1);
+
+                        for (int i = 0; i < btScenarioPlayersListPaged.Count; i++)
+                        {
+                            var btOne = btScenarioPlayersListPaged[i];
+                            btOne.Position = new Vector2(740, 80 + 55 * i);
+                            btOne.Update();
+                        }
+                    }
+                    else
+                    {
+                        btDantiaoPlayersListPaged = GenericTools.GetPageList<ButtonTexture>(btDantiaoPlayersList, pageIndex2.ToString(), 8, ref pageCount2, ref page2);
+
+                        for (int i = 0; i < btDantiaoPlayersListPaged.Count; i++)
+                        {
+                            var btOne = btDantiaoPlayersListPaged[i];
+                            btOne.Position = new Vector2(740, 80 + 55 * i);
+                            btOne.Update();
+                        }
+                    }
+
+                    if (CurrentScenario != null)
+                    {
+                        CurrentScenario.Players = String.Join(",", ScreenLayers.DantiaoLayer.Persons.NullToEmptyList().Select(pe => ((Person)pe).BelongedFaction.ID));
+                    }
                 }
-
-                if (CurrentScenario != null)
+                else
                 {
-                    CurrentScenario.Players = String.Join(",", btScenarioPlayersList.Where(bt => bt.Selected).Select(bt => bt.ID));
+                    btScenarioPlayersListPaged = GenericTools.GetPageList<ButtonTexture>(btScenarioPlayersList, pageIndex1.ToString(), 8, ref pageCount1, ref page1);
+
+                    for (int i = 0; i < btScenarioPlayersListPaged.Count; i++)
+                    {
+                        var btOne = btScenarioPlayersListPaged[i];
+                        btOne.Position = new Vector2(740, 80 + 55 * i);
+                        btOne.Update();
+                    }
+
+                    if (CurrentScenario != null)
+                    {
+                        CurrentScenario.Players = String.Join(",", btScenarioPlayersList.Where(bt => bt.Selected).Select(bt => bt.ID));
+                    }
                 }
             }
             else if (MenuType == MenuType.Config)
@@ -3702,10 +3928,30 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             btPre.Update();
             btNext.Update();
 
-            btPre1.Enable = pageIndex1 > 1;
-            btNext1.Enable = pageIndex1 < pageCount1;
-            btPre1.Update();
-            btNext1.Update();
+            if (dantiao)
+            {
+                if (faction == null)
+                {
+                    btPre1.Enable = pageIndex1 > 1;
+                    btNext1.Enable = pageIndex1 < pageCount1;
+                    btPre1.Update();
+                    btNext1.Update();
+                }
+                else
+                {
+                    btPre1.Enable = pageIndex2 > 1;
+                    btNext1.Enable = pageIndex2 < pageCount2;
+                    btPre1.Update();
+                    btNext1.Update();
+                }
+            }
+            else
+            {
+                btPre1.Enable = pageIndex1 > 1;
+                btNext1.Enable = pageIndex1 < pageCount1;
+                btPre1.Update();
+                btNext1.Update();
+            }
 
         }
 
@@ -3730,6 +3976,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     var text = String.Join(System.Environment.NewLine, texts[i].ToArray());
                     CacheManager.DrawString(Session.Current.Font, text, new Vector2(720 - 65 * i, 230), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+                }
+
+                btnDantiao.Draw();
+
+                if (btnDantiao.Visible)
+                {
+                    CacheManager.DrawString(Session.Current.Font, "单挑", btnDantiao.Position + new Vector2(20, 7), Color.DarkRed, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                 }
             }
             else if (MenuType == MenuType.New)
@@ -3761,18 +4014,70 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
                 });
 
-                btScenarioPlayersListPaged.ForEach(bt =>
+                if (dantiao)
                 {
-                    int index = btScenarioPlayersList.IndexOf(bt);
-                    if (index >= 0)
+                    if (scenario == null)
                     {
-                        var play = CurrentScenario.Names.Split(',').NullToEmptyArray()[index];
-
-                        bt.Draw(null, Color.White * alpha);
-
-                        CacheManager.DrawString(Session.Current.Font, play, bt.Position + new Vector2(45, 2), Color.Black * alpha);
+                        CacheManager.DrawString(Session.Current.Font, CurrentScenario == null ? "" : "剧本加载中....", new Vector2(780, 150), Color.Black * alpha);
                     }
-                });
+                    else
+                    {
+                        if (faction == null)
+                        {
+                            btScenarioPlayersListPaged.ForEach(bt =>
+                            {
+                                int index = btScenarioPlayersList.IndexOf(bt);
+                                if (index >= 0)
+                                {
+                                    var play = CurrentScenario.Names.Split(',').NullToEmptyArray()[index] + (dantiao ? "势力" : "");
+
+                                    bt.Draw(null, Color.White * alpha);
+
+                                    CacheManager.DrawString(Session.Current.Font, play, bt.Position + new Vector2(45, 2), Color.Black * alpha);
+                                }
+                            });
+                        }
+                        else
+                        {
+                            btDantiaoPlayersListPaged.ForEach(bt =>
+                            {
+                                int index = btDantiaoPlayersList.IndexOf(bt);
+                                if (index >= 0)
+                                {
+                                    var person = faction.Persons[index] as Person;
+
+                                    bt.Draw(null, Color.White * alpha);
+
+                                    CacheManager.DrawString(Session.Current.Font, person.Name, bt.Position + new Vector2(45, 2), Color.Black * alpha);
+                                }
+                            });
+                        }
+
+                        if (ScreenLayers.DantiaoLayer.Persons != null)
+                        {
+                            var pers = ScreenLayers.DantiaoLayer.Persons.GetLast(2).NullToEmptyList();
+
+                            var persons = String.Join(", ", pers.Select(p => p.Name).NullToEmptyList());
+
+                            CacheManager.DrawString(Session.Current.Font, persons, new Vector2(880, 27), Color.Blue * alpha);
+                        }
+                    }
+                }
+                else
+                {
+                    btScenarioPlayersListPaged.ForEach(bt =>
+                    {
+                        int index = btScenarioPlayersList.IndexOf(bt);
+                        if (index >= 0)
+                        {
+                            var play = CurrentScenario.Names.Split(',').NullToEmptyArray()[index];
+
+                            bt.Draw(null, Color.White * alpha);
+
+                            CacheManager.DrawString(Session.Current.Font, play, bt.Position + new Vector2(45, 2), Color.Black * alpha);
+                        }
+                    });
+                }
 
                 if (CurrentScenario != null)
                 {

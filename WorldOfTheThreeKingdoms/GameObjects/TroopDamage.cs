@@ -41,6 +41,8 @@ namespace GameObjects
         public int StealInjured;
         public int TirednessIncrease;
         public int StealFood;
+
+        public bool ChallengeStarted;
     }
 }
 

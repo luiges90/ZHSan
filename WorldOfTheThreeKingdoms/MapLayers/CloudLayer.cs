@@ -41,15 +41,25 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
 
         float elapsedTime = 0f;
 
+        float delayTime = 1f;
+
         Vector2 scale;
 
         public bool IsVisible = false;
 
         public bool IsStart = false;
 
+        public bool Reverse = false;
+
         public CloudLayer()
         {
             scale = new Vector2(Convert.ToSingle(Session.ResolutionX) / 800f, Convert.ToSingle(Session.ResolutionY) / 480f);
+
+            if (DantiaoLayer.Persons != null && DantiaoLayer.Persons.Count >= 2)
+            {
+                Reverse = true;
+            }
+
         }
 
         public void Start()
@@ -57,6 +67,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
             cloudAlpha = 1f;
             elapsedTime = 0f;
             IsVisible = true;
+
             vecsReal = new Vector2[] {
             new Vector2(230 + 350, 150 + 200),   //右下
             new Vector2(90 + 250, 150 + 250),    //中下
@@ -73,9 +84,30 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
         {
             if (IsVisible && IsStart)
             {
+                if (delayTime > 0)
+                {
+                    delayTime -= gameTime;
+
+                    if (delayTime <= 0)
+                    {
+                        delayTime = 0;
+                    }
+
+                    return;
+                }
+
                 elapsedTime += gameTime;
 
-                float elapsedTime2 = elapsedTime < 1f ? elapsedTime : 1f;
+                float elapsedTime2 = 0f;
+
+                if (Reverse)
+                {
+                    elapsedTime2 = elapsedTime >= 1 ? 0 : 1 - elapsedTime;
+                }
+                else
+                {
+                    elapsedTime2 = elapsedTime < 1f ? elapsedTime : 1f;
+                }
 
                 cloudAlpha = 1 - elapsedTime2;
 
@@ -112,19 +144,38 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                     }
 
                 }
-                if (cloudAlpha <= 0)
+
+                if (Reverse && cloudAlpha >= 1)
+                {
+                    IsStart = false;
+
+                    if (DantiaoLayer.Persons != null && DantiaoLayer.Persons.Count >= 2 && Session.MainGame.mainGameScreen.dantiaoLayer == null)
+                    {
+                        if (DantiaoLayer.Persons == null)
+                        {
+
+                        }
+                        else
+                        {
+                            Session.MainGame.mainGameScreen.dantiaoLayer = new DantiaoLayer(DantiaoLayer.Persons[DantiaoLayer.Persons.Count - 2], DantiaoLayer.Persons[DantiaoLayer.Persons.Count - 1]);
+                        }
+                    }
+
+                }
+                else if (!Reverse && cloudAlpha <= 0)
                 {
                     IsStart = false;
                     IsVisible = false;
+                    Reverse = false;
                 }
             }
         }
 
         public void Draw()
         {
-            if (IsVisible)
+            if (Reverse && delayTime <= 0 || !Reverse && IsVisible)
             {
-                float depth = 0.798f;
+                float depth = Reverse ? 0.1f - 0.005f : 0.798f;
 
                 CacheManager.Draw(@"Content\Textures\Resources\Start\Cloud1", vecsReal[0], null, Color.White * cloudAlpha, SpriteEffects.None, scale, depth);
                 CacheManager.Draw(@"Content\Textures\Resources\Start\Cloud2", vecsReal[0], null, Color.White * cloudAlpha, SpriteEffects.None, scale, depth);

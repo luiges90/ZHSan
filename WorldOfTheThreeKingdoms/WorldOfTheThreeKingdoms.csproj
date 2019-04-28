@@ -82,6 +82,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Contracts\Records.cs" />
+    <Compile Include="GameManager\AnimatedTexture.cs" />
     <Compile Include="GameManager\CacheManager.cs" />
     <Compile Include="GameManager\InputManager.cs" />
     <Compile Include="GameManager\Scenario.cs" />
@@ -1601,6 +1602,7 @@
     <Compile Include="GameGlobal\ZhandouZhuangtai.cs" />
     <Compile Include="MapLayers\ArchitectureLayer.cs" />
     <Compile Include="MapLayers\CloudLayer.cs" />
+    <Compile Include="MapLayers\DantiaoLayer.cs" />
     <Compile Include="MapLayers\GameTextures.cs" />
     <Compile Include="MapLayers\MainMapLayer.cs" />
     <Compile Include="MapLayers\MapVeilLayer.cs" />
@@ -1676,24 +1678,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Win\SharpDX.MediaFoundation.dll</HintPath>
     </Reference>
-    <Reference Include="SharpFontCore">
-      <HintPath>..\References\SharpFontCore.dll</HintPath>
-    </Reference>
-    <Reference Include="SixLabors.Core">
-      <HintPath>..\References\SixLabors.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="SixLabors.Fonts">
-      <HintPath>..\References\SixLabors.Fonts.dll</HintPath>
-    </Reference>
-    <Reference Include="SixLabors.ImageSharp">
-      <HintPath>..\References\SixLabors.ImageSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="SixLabors.ImageSharp.Drawing">
-      <HintPath>..\References\SixLabors.ImageSharp.Drawing.dll</HintPath>
-    </Reference>
-    <Reference Include="SixLabors.Shapes">
-      <HintPath>..\References\SixLabors.Shapes.dll</HintPath>
-    </Reference>
     <Reference Include="Steamworks.NET, Version=12.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Win\Steamworks.NET.dll</HintPath>
@@ -1706,9 +1690,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Memory">
       <HintPath>..\References\System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\portable-net45+win8+wp8+wpa81\System.Numerics.Vectors.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

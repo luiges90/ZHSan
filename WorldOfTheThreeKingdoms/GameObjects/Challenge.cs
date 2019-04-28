@@ -15,6 +15,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Diagnostics;
 using GameManager;
+using WorldOfTheThreeKingdoms.GameScreens.ScreenLayers;
 
 namespace GameObjects
 {
@@ -47,41 +48,50 @@ namespace GameObjects
         private void challengeHappen(TroopDamage damage, Person maxStrengthPerson, Person destination, int chance)
         {
             int flag = 0;
-            damage.ChallengeHappened = true;  //单挑发生
+            //damage.ChallengeHappened = true;  //单挑发生
             if ((Session.GlobalVariables.ShowChallengeAnimation) &&
                 (Session.Current.Scenario.IsPlayer(maxStrengthPerson.BelongedFaction) || Session.Current.Scenario.IsPlayer(destination.BelongedFaction) || (Session.GlobalVariables.SkyEye && Session.GlobalVariables.SkyEyeSimpleNotification) || this.ChallengeOftenShow))  //单挑双方有玩家的武将才演示
             {
                 
                 try
                 {
-                    int returnValue;
-                    returnValue = this.challengeShow(maxStrengthPerson, destination);
+                    Session.MainGame.mainGameScreen.EnableUpdate = false;
+
+                    challengeShow(damage, maxStrengthPerson, destination);
+
+                    //int returnValue;
+                    //returnValue = this.challengeShow(maxStrengthPerson, destination);
                     //returnValue = 10;
-                    if (returnValue >= -4 && returnValue <= 10 && returnValue != 0)
-                    {
-                        flag = returnValue;
-                    }
-                    else   //返回值出错时避免跳出
-                    {
-                        flag = (GameObject.Chance(chance) ? 1 : 2);
-                    }
+
+                    //if (returnValue >= -4 && returnValue <= 10 && returnValue != 0)
+                    //{
+                    //    flag = returnValue;
+                    //}
+                    //else   //返回值出错时避免跳出
+                    //{
+                    //    flag = (GameObject.Chance(chance) ? 1 : 2);
+                    //}
 
                 }
                 catch
                 {
                     flag = (GameObject.Chance(chance) ? 1 : 2);
+                    damage.ChallengeHappened = true;  //单挑发生
                 }
             }
             else
             {
                 flag = (GameObject.Chance(chance) ? 1 : 2);
+                damage.ChallengeHappened = true;  //单挑发生
             }
 
             //flag = -4;
-
-            damage.ChallengeResult = flag;
-            damage.ChallengeSourcePerson = maxStrengthPerson;
-            damage.ChallengeDestinationPerson = destination;
+            if (damage.ChallengeHappened)
+            {
+                damage.ChallengeResult = flag;
+                damage.ChallengeSourcePerson = maxStrengthPerson;
+                damage.ChallengeDestinationPerson = destination;
+            }
 
         }
 
@@ -117,10 +127,26 @@ namespace GameObjects
             return para;
         }
 
-        private int challengeShow(Person maxStrengthPerson, Person destination)
+        private void challengeShow(TroopDamage damage, Person maxStrengthPerson, Person destination)
         {
-            throw new NotImplementedException("跨平台單挑程序尚未實現！");
-            
+            DantiaoLayer.Persons = new List<Person>()
+            {
+                maxStrengthPerson,
+                destination
+            };
+
+            damage.ChallengeStarted = true;
+
+            Session.MainGame.mainGameScreen.cloudLayer.Reverse = true;
+
+            Session.MainGame.mainGameScreen.cloudLayer.Start();
+
+            Session.MainGame.mainGameScreen.dantiaoLayer = new DantiaoLayer(DantiaoLayer.Persons[DantiaoLayer.Persons.Count - 2], DantiaoLayer.Persons[DantiaoLayer.Persons.Count - 1]);
+
+            Session.MainGame.mainGameScreen.dantiaoLayer.damage = damage;
+
+            //throw new NotImplementedException("跨平台單挑程序尚未實現！");
+
             /////////////////////////////////////////////////调用单挑程序
             //string fileName = @"Dantiao\start.exe";
 

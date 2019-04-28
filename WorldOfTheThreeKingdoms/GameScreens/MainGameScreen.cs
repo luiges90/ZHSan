@@ -79,6 +79,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public CloudLayer cloudLayer = new CloudLayer();
 
+        public DantiaoLayer dantiaoLayer = null;
+
         public MainGameScreen()
             : base()
         {
@@ -267,6 +269,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.routewayLayer.Draw(base.viewportSize);
 
             this.cloudLayer.Draw();
+
+            if (this.dantiaoLayer != null)
+            {
+                this.dantiaoLayer.Draw();
+            }
 
             this.tileAnimationLayer.Draw(base.viewportSize);
             
@@ -2761,6 +2768,37 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }                
             }
 
+            if (cloudLayer.IsVisible)
+            {
+                if (cloudLayer.IsStart)
+                {
+
+                }
+                else
+                {
+                    if (this.mainMapLayer.DisplayingMapTiles.Exists(ma => ma == null || ma.TileTexture == null))
+                    {
+
+                    }
+                    else
+                    {
+                        cloudLayer.IsStart = true;
+                    }
+                }
+                cloudLayer.Update(Convert.ToSingle(gameTime.ElapsedGameTime.TotalSeconds));
+            }
+
+            if (dantiaoLayer == null)
+            {
+
+            }
+            else
+            {
+                dantiaoLayer.Update(Convert.ToSingle(gameTime.ElapsedGameTime.TotalSeconds));
+
+                return;
+            }
+
             if (this.Plugins.ToolBarPlugin != null)
             {
                 var btBack = ((ToolBarPlugin.ToolBarPlugin)this.Plugins.ToolBarPlugin).backTool;
@@ -2782,26 +2820,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 base.Update(gameTime);
                 this.CalculateFrameRate(gameTime);
                 this.Plugins.PersonBubblePlugin.Update(gameTime);
-
-                if (cloudLayer.IsVisible)
-                {
-                    if (cloudLayer.IsStart)
-                    {
-
-                    }
-                    else
-                    {
-                        if (this.mainMapLayer.DisplayingMapTiles.Exists(ma => ma == null || ma.TileTexture == null))
-                        {
-
-                        }
-                        else
-                        {
-                            cloudLayer.IsStart = true;
-                        }
-                    }
-                    cloudLayer.Update(Convert.ToSingle(gameTime.ElapsedGameTime.TotalSeconds));
-                }
 
                 switch (base.UndoneWorks.Peek().Kind)
                 {
@@ -3603,7 +3621,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.Plugins.ConfirmationDialogPlugin.IsShowing = true;
         }
 
-        private void ReturnToMainMenu()
+        public void ReturnToMainMenu()
         {
             Session.MainGame.loadingScreen = new LoadingScreen();
             Session.MainGame.loadingScreen.LoadScreenEvent += (sender0, e0) =>
