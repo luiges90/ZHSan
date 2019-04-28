@@ -203,6 +203,12 @@ namespace GameObjects
                 this.Building = true;
             }
 
+            if (this.StartArchitecture.BelongedSection == null)
+            {
+                this.Close();
+                return;
+            }
+
             if (this.EndArchitecture != null && 
                 this.StartArchitecture.BelongedSection.AIDetail.AutoRun && this.BelongedFaction == this.EndArchitecture.BelongedFaction)
             {
