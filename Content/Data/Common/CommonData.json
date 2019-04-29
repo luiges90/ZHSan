@@ -18124,12 +18124,12 @@
 "Key":2106,
 "Value":{
 "ID":2106,
-"Name":"建筑农业",
+"Name":"建筑农业未满",
 "Kind":{
 "ID":2105,
 "Name":"建筑农业不多于若干程度"
 },
-"Parameter":"0.95",
+"Parameter":"0.75",
 "Parameter2":""
 }
 },
@@ -18207,7 +18207,7 @@
 "ID":2125,
 "Name":"建筑技术不多于若干程度"
 },
-"Parameter":"0.95",
+"Parameter":"0.75",
 "Parameter2":""
 }
 },
@@ -18246,7 +18246,7 @@
 "ID":2135,
 "Name":"建筑统治不多于若干程度"
 },
-"Parameter":"0.95",
+"Parameter":"0.75",
 "Parameter2":""
 }
 },
@@ -18285,7 +18285,7 @@
 "ID":2145,
 "Name":"建筑耐久不多于若干程度"
 },
-"Parameter":"0.95",
+"Parameter":"0.75",
 "Parameter2":""
 }
 },
@@ -18311,7 +18311,7 @@
 "ID":2155,
 "Name":"建筑民心不多于若干程度"
 },
-"Parameter":"0.95",
+"Parameter":"0.75",
 "Parameter2":""
 }
 },
@@ -18350,7 +18350,7 @@
 "ID":2165,
 "Name":"建筑人口不多于若干程度"
 },
-"Parameter":"0.95",
+"Parameter":"0.75",
 "Parameter2":""
 }
 },
@@ -78047,7 +78047,7 @@
 "FoodPerSoldier":1,
 "ForrestAdaptability":100,
 "ForrestRate":0.7,
-"GrasslandAdaptability":5,
+"GrasslandAdaptability":100,
 "GrasslandRate":0.9,
 "InfluencesString":"827 330 701",
 "InjuryChance":25,
@@ -78061,7 +78061,7 @@
 "MinCommand":0,
 "MinScale":300,
 "MorphToKindId":-1,
-"MountainAdaptability":10,
+"MountainAdaptability":100,
 "MountainRate":0.7,
 "Movability":20,
 "ObliqueOffence":false,
@@ -78074,7 +78074,7 @@
 "OffencePerScale":2,
 "OffenceRadius":1,
 "OneAdaptabilityKind":0,
-"PlainAdaptability":5,
+"PlainAdaptability":100,
 "PlainRate":1,
 "PointsPerSoldier":0,
 "RationDays":15,
@@ -78092,7 +78092,7 @@
 "TitleInfluence":-1,
 "Type":3,
 "ViewRadius":3,
-"WastelandAdaptability":12,
+"WastelandAdaptability":100,
 "WastelandRate":0.7,
 "WaterAdaptability":5,
 "WaterRate":0.6,
@@ -78129,7 +78129,7 @@
 "Defence":450,
 "DefencePer100Experience":0,
 "DefencePerScale":0,
-"Description":"用来输送资金和粮草，可以渡河。",
+"Description":"用来输送资金和粮草，可以渡河。【相关技巧：设置功曹】【玩家可用】",
 "DesertAdaptability":20,
 "DesertRate":0.6,
 "FireDamageRate":3,
@@ -84448,7 +84448,7 @@
 "Defence":1050,
 "DefencePer100Experience":6,
 "DefencePerScale":25,
-"Description":"大戟士属于重装步兵，统帅是张合，是袁绍部队中的精英部队。【相关人物：张合】",
+"Description":"大戟士属于重装步兵，统帅是张郃，是袁绍部队中的精英部队。【相关人物：张郃】",
 "DesertAdaptability":9,
 "DesertRate":0.5,
 "FireDamageRate":1,
@@ -85516,7 +85516,7 @@
 "Defence":900,
 "DefencePer100Experience":4,
 "DefencePerScale":20,
-"Description":"曲义统率的敢死部队，曾大破公孙瓒以白马义从为中坚的骑兵阵。【相关人物：曲义】",
+"Description":"麴义统率的敢死部队，曾大破公孙瓒以白马义从为中坚的骑兵阵。【相关人物：麴义】",
 "DesertAdaptability":8,
 "DesertRate":0.7,
 "FireDamageRate":1,

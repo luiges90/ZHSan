@@ -12255,7 +12255,7 @@ namespace GameObjects
         {
             get
             {
-                return (this.drawAnimation && Setting.Current.GlobalVariables.DrawTroopAnimation);
+                return (this.drawAnimation && Session.Current.Scenario.GlobalVariables.DrawTroopAnimation);
             }
             set
             {

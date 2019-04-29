@@ -3026,12 +3026,18 @@ namespace GameObjects
 
             foreach (KeyValuePair<int, int> i in FatherIds)
             {
-                (this.Persons.GetGameObject(i.Key) as Person).Father = this.Persons.GetGameObject(i.Value) as Person;
+                if (this.Persons.GetGameObject(i.Key) != null)
+                {
+                    (this.Persons.GetGameObject(i.Key) as Person).Father = this.Persons.GetGameObject(i.Value) as Person;
+                }
             }
 
             foreach (KeyValuePair<int, int> i in MotherIds)
             {
-                (this.Persons.GetGameObject(i.Key) as Person).Mother = this.Persons.GetGameObject(i.Value) as Person;
+                if (this.Persons.GetGameObject(i.Key) != null)
+                {
+                    (this.Persons.GetGameObject(i.Key) as Person).Mother = this.Persons.GetGameObject(i.Value) as Person;
+                }
             }
 
             foreach (KeyValuePair<int, int> i in SpouseIds)
@@ -3100,11 +3106,11 @@ namespace GameObjects
                 foreach (int j in i.Value)
                 {
                     Person q = this.Persons.GetGameObject(j) as Person;
-                    if (q != null)
+                    if (p != null && q != null)
                     {
                         p.AddClose(q);
                     }
-                    else
+                    else if (p != null)
                     {
                         errorMsg.Add("人物ID" + p.ID + "：亲爱武将ID" + j + "不存在");
                     }
@@ -3117,11 +3123,11 @@ namespace GameObjects
                 foreach (int j in i.Value)
                 {
                     Person q = this.Persons.GetGameObject(j) as Person;
-                    if (q != null)
+                    if (p != null && q != null)
                     {
                         p.AddHated(q);
                     }
-                    else
+                    else if (p != null)
                     {
                         errorMsg.Add("人物ID" + p.ID + "：厌恶武将ID" + j + "不存在");
                     }
@@ -3147,7 +3153,10 @@ namespace GameObjects
 
             foreach (KeyValuePair<int, int> i in MarriageGranterId)
             {
-                (this.Persons.GetGameObject(i.Key) as Person).marriageGranter = this.Persons.GetGameObject(i.Value) as Person;
+                if ((this.Persons.GetGameObject(i.Key) as Person) != null)
+                {
+                    (this.Persons.GetGameObject(i.Key) as Person).marriageGranter = this.Persons.GetGameObject(i.Value) as Person;
+                }
             }
 
             foreach (Person p in this.Persons)
