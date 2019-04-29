@@ -60,14 +60,15 @@
     <AndroidResource Include="Resources\Drawable\Splash.png" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Values\Strings.xml" />
+    <None Include="packages.config" />
     <None Include="Properties\AndroidManifest.xml" />
     <Content Include="..\WorldOfTheThreeKingdoms\LICENSES-MersenneTwister.txt">
       <Link>LICENSES-MersenneTwister.txt</Link>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\References\ICSharpCode.SharpZipLib.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.1.0.145, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.1.0\lib\netstandard2.0\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Lidgren.Network, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -199,6 +200,9 @@
     </Compile>
     <Compile Include="..\WorldOfTheThreeKingdoms\GameGlobal\ZhandouZhuangtai.cs">
       <Link>GameGlobal\ZhandouZhuangtai.cs</Link>
+    </Compile>
+    <Compile Include="..\WorldOfTheThreeKingdoms\GameManager\AnimatedTexture.cs">
+      <Link>GameManager\AnimatedTexture.cs</Link>
     </Compile>
     <Compile Include="..\WorldOfTheThreeKingdoms\GameManager\CacheManager.cs">
       <Link>GameManager\CacheManager.cs</Link>
@@ -4264,6 +4268,9 @@
     </Compile>
     <Compile Include="..\WorldOfTheThreeKingdoms\MapLayers\CloudLayer.cs">
       <Link>MapLayers\CloudLayer.cs</Link>
+    </Compile>
+    <Compile Include="..\WorldOfTheThreeKingdoms\MapLayers\DantiaoLayer.cs">
+      <Link>MapLayers\DantiaoLayer.cs</Link>
     </Compile>
     <Compile Include="..\WorldOfTheThreeKingdoms\MapLayers\GameTextures.cs">
       <Link>MapLayers\GameTextures.cs</Link>

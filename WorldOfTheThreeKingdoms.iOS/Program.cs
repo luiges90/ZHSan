@@ -1,5 +1,6 @@
 ﻿using System;
 using Foundation;
+using Microsoft.Xna.Framework;
 using UIKit;
 
 namespace WorldOfTheThreeKingdoms.iOS
@@ -7,9 +8,9 @@ namespace WorldOfTheThreeKingdoms.iOS
     [Register("AppDelegate")]
     class Program : UIApplicationDelegate
     {
-        private static MainGame game;
+        private static Game game;
 
-        public static void RunGame()
+        internal static void RunGame()
         {
             game = new MainGame();
             game.Run();
