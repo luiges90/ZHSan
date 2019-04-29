@@ -16,7 +16,7 @@
 	<key>CFBundleName</key>
 	<string>中華三國志</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2</string>
+	<string>1.2.2</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -34,7 +34,7 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon-1.appiconset</string>
 	<key>CFBundleVersion</key>
-	<string>1200</string>
+	<string>1220</string>
 	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>XSLaunchImageAssets</key>
