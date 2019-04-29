@@ -460,8 +460,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, msgKind, shijian, tupian, shengyin);
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
                 this.Plugins.tupianwenziPlugin.IsShowing = true;
-                this.PauseMusic();
-                this.tufashijianzantingyinyue = true;
+                //jokosany取消暂停音乐，下面共计4个
+               // this.PauseMusic();
+               // this.tufashijianzantingyinyue = true;
             }
         }
 
@@ -482,8 +483,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, msgKind, shijian, tupian, shengyin);
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
                 this.Plugins.tupianwenziPlugin.IsShowing = true;
-                this.PauseMusic();
-                this.tufashijianzantingyinyue = true;
+               // this.PauseMusic();
+               // this.tufashijianzantingyinyue = true;
             }
         }
 
@@ -507,8 +508,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, shijian, tupian, shengyin);
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
                 this.Plugins.tupianwenziPlugin.IsShowing = true;
-                this.PauseMusic();
-                this.tufashijianzantingyinyue = true;
+               // this.PauseMusic();
+              //  this.tufashijianzantingyinyue = true;
             }
         }
 
@@ -532,8 +533,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, shijian, tupian, shengyin);
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
                 this.Plugins.tupianwenziPlugin.IsShowing = true;
-                this.PauseMusic();
-                this.tufashijianzantingyinyue = true;
+              //  this.PauseMusic();
+               // this.tufashijianzantingyinyue = true;
 
             }
         }
