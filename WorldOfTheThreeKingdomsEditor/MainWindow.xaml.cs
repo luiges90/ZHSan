@@ -21,6 +21,7 @@ using Tools;
 using GameGlobal;
 using GameObjects.FactionDetail;
 using System.Drawing;
+using OfficeOpenXml;
 
 namespace WorldOfTheThreeKingdomsEditor
 {
@@ -38,6 +39,7 @@ namespace WorldOfTheThreeKingdomsEditor
         private DictionaryTab<int, int> fatherTab;
         private DictionaryTab<int, int> motherTab;
         private DictionaryTab<int, int> spouseTab;
+        private string scename;
 
         public bool CopyIncludeTitle = true;
 
@@ -96,6 +98,7 @@ namespace WorldOfTheThreeKingdomsEditor
             new ArchitectureKindTab(scen, dgArchitectureKind, lblColumnHelp).setup();
             new MilitaryKindTab(scen, dgMilitaryKind, lblColumnHelp).setup();
             new TechniqueTab(scen, dgTechniques, lblColumnHelp).setup();
+            new GuanjueTab(scen, dgGuanjue, lblColumnHelp).setup();
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)
@@ -116,7 +119,7 @@ namespace WorldOfTheThreeKingdomsEditor
             if (openFileDialog.ShowDialog() == true)
             {
                 String filename = openFileDialog.FileName;
-
+                scename = filename;
                 scen = WorldOfTheThreeKingdoms.GameScreens.MainGameScreen.LoadScenarioData(filename, true, null, true);
                 scen.GameCommonData = CommonData.Current;
 
@@ -215,15 +218,23 @@ namespace WorldOfTheThreeKingdomsEditor
             if (scen.Factions.Count == 0) return null;
 
             string time = scen.Date.Year.ToString().PadLeft(4, '0') + "-" + scen.Date.Month.ToString().PadLeft(2, '0') + "-" + scen.Date.Day.ToString().PadLeft(2, '0');
+            GameObjectList gameObjectList = new GameObjectList();//恢复原先剧本设定，某些势力玩家不可选
+            foreach (Faction faction in scen.Factions)
+            {
+                if (!faction.NotPlayerSelectable)
+                {
+                    gameObjectList.Add(faction);
+                }
+            }
             return new GameManager.Scenario()
             {
                 Create = DateTime.Now.ToSeasonDateTime(),
                 Desc = scen.ScenarioDescription,
                 First = StaticMethods.SaveToString(scen.ScenarioMap.JumpPosition),
-                IDs = scen.Factions.GameObjects.Select(x => x.ID.ToString()).Aggregate((a, b) => a + "," + b),
+                IDs = gameObjectList.GameObjects.Select(x => x.ID.ToString()).Aggregate((a, b) => a + "," + b),
                 Info = "电脑",
                 Name = (scenName.IndexOf(".json") >= 0) ? scenName.Substring(0, scenName.IndexOf(".json")) : scenName,
-                Names = scen.Factions.GameObjects.Select(x => x.Name).Aggregate((a, b) => a + "," + b),
+                Names = gameObjectList.GameObjects.Select(x => x.Name).Aggregate((a, b) => a + "," + b),
                 //  Path = "",
                 // PlayTime = scenario.GameTime.ToString(),
                 // Player = "",
@@ -317,19 +328,6 @@ namespace WorldOfTheThreeKingdomsEditor
         private void btnQuit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-        }
-
-        private void btnNewFaction_Click(object sender, RoutedEventArgs e)
-        {
-            NewFactionWindow newFactionWindow = new NewFactionWindow(scen);
-            newFactionWindow.Show();
-            newFactionWindow.Closed += NewFactionWindow_Closed;
-        }
-
-        private void NewFactionWindow_Closed(object sender, EventArgs e)
-        {
-            architectureTab.setup();
-            factionTab.setup();
         }
 
         private void btnSyncScenario_Click(object sender, RoutedEventArgs e)
@@ -506,6 +504,8 @@ namespace WorldOfTheThreeKingdomsEditor
                 foreach (Architecture architecture2 in scen.Architectures)
                 {
                     architecture2.FindLinks(scen.Architectures);
+                    architecture2.AILandLinksString = architecture2.AILandLinks.SaveToString();
+                    architecture2.AIWaterLinksString = architecture2.AIWaterLinks.SaveToString();
                 }
                 architectureTab.setup();
             }
@@ -605,6 +605,192 @@ namespace WorldOfTheThreeKingdomsEditor
         private void MenuItem_IncludeTitle_Unchecked(object sender, EventArgs e)
         {
             CopyIncludeTitle = false;
+        }
+
+        private void btnScenariotoexcel_Click(object sender, EventArgs e)
+        {
+            if (!Directory.Exists(@Environment.CurrentDirectory + @"\转换生成文件"))//如果不存在就创建file文件夹
+            {
+                Directory.CreateDirectory(@Environment.CurrentDirectory + @"\转换生成文件");
+            }
+            if (scename != null && scename != "")
+            {
+                String scenName = scename.Substring(scename.LastIndexOf(@"\") + 1, scename.LastIndexOf(".") - scename.LastIndexOf(@"\") - 1);
+                if (File.Exists(Environment.CurrentDirectory + "\\转换生成文件\\" + scenName + "." + "xlsx"))
+                {
+                    File.Delete(Environment.CurrentDirectory + "\\转换生成文件\\" + scenName + "." + "xlsx");
+                }
+                if (File.Exists(Environment.CurrentDirectory + "\\转换生成文件\\" + scenName + "地形信息.txt"))
+                {
+                    File.Delete(Environment.CurrentDirectory + "\\转换生成文件\\" + scenName + "地形信息.txt");
+                }
+                using (ExcelPackage package = new ExcelPackage(new FileInfo(Environment.CurrentDirectory + "\\转换生成文件\\" + scenName + "." + "xlsx")))
+                {
+                    for(int i=0;i< tabControl.Items.Count;i++)
+                    {
+                            ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(((TabItem)tabControl.Items[i]).Header.ToString());
+                            tabControl.SelectedIndex = i;
+                             Grid grid = (Grid)tabControl.SelectedContent;
+                             DataGrid dataGrid = (DataGrid)grid.Children[0];
+                             DataTable dt = ((DataView)dataGrid.ItemsSource).Table;
+                             worksheet.Cells["a1"].LoadFromDataTable(dt, true); 
+                        ///临时用来检查剧本问题的
+                       /* if(((TabItem)tabControl.Items[i]).Header.ToString() == "武將")
+                        {
+                            int n = dt.Columns.Count;
+                            worksheet.Cells[1, n+1].Value = "武将所属";
+                            worksheet.Cells[1, n + 2].Value = "武将势力";
+                            for (int ii=0;ii<scen.Persons.Count;ii++)
+                            {
+                                worksheet.Cells[ii + 2, n + 1].Value = ((Person)scen.Persons[ii]).Location ;
+                                worksheet.Cells[ii + 2, n + 2].Value = ((Person)scen.Persons[ii]).BelongedFaction ;
+                            }
+                        }*/
+                    }
+                    package.Save();
+
+                }
+                StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + "\\转换生成文件\\" + scenName + "地形信息.txt", false, Encoding.GetEncoding("gb2312"));
+                sw.Write(scen.ScenarioMap.MapDataString);
+                sw.Flush();
+                sw.Close();
+                sw.Dispose();
+                MessageBox.Show("转换完毕,请查阅根目录下转换生成文件夹");
+            }
+            else
+            {
+                MessageBox.Show("请先用编辑器打开想要修改的剧本");
+            }
+        }
+
+        private void btnsce_Click(object sender, RoutedEventArgs e)
+        {
+            SceWindow sceWindow = new SceWindow(scen);
+            sceWindow.ShowDialog();
+        }
+
+        private void btnSets_Click(object sender, RoutedEventArgs e)
+        {
+            Sets sets = new Sets(scen);
+            sets.Title = "Glo参数设置";
+            sets.path1 = @Environment.CurrentDirectory + "\\Content\\Data\\GlobalVariables.xml";
+            sets.typ = "Glo";
+            if (this.scename != "" && this.scename != null)
+            {
+                sets.scename = this.scename.Substring(scename.LastIndexOf(@"\") + 1, scename.LastIndexOf(".") - scename.LastIndexOf(@"\") - 1);
+
+            }
+            sets.InitialSets();
+            sets.ShowDialog();
+            sets.Owner = this;
+        }
+        private void btnSetsPara_Click(object sender, RoutedEventArgs e)
+        {
+            Sets sets = new Sets(scen);
+            sets.Title = "Para参数设置";
+            sets.path1 = @Environment.CurrentDirectory + "\\Content\\Data\\GameParameters.xml";
+            sets.typ = "Para";
+            if (this.scename != "" && this.scename != null)
+            {
+                sets.scename = this.scename.Substring(scename.LastIndexOf(@"\") + 1, scename.LastIndexOf(".") - scename.LastIndexOf(@"\") - 1);
+
+            }
+            sets.InitialSets();
+            sets.ShowDialog();
+            sets.Owner = this;
+        }
+
+        private void DgFaction_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+           /* if (e.Column.Header.Equals("颜色编号"))
+            {
+                  int n =0;
+                if ((e.EditingElement as TextBox).Text != null && (e.EditingElement as TextBox).Text != null)
+                {
+                    // n = int.Parse((e.EditingElement as TextBox).Text);
+                    bool b = int.TryParse((e.EditingElement as TextBox).Text,out n);
+                    if(n !=0)
+                    {
+                         Microsoft.Xna.Framework.Color color = scen.GameCommonData.AllColors[n];
+                         e.Row.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B));
+                    }
+                }
+            }*/  // 这两个屏蔽是显示势力颜色，但因只能做到整行背景色改变，太花
+        }
+
+        private void DgFaction_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+          /* if(e.Row.GetIndex()<dgFaction.Items.Count-1)
+            {
+                Microsoft.Xna.Framework.Color color = scen.GameCommonData.AllColors[((Faction)scen.Factions[e.Row.GetIndex()]).ColorIndex];
+                e.Row.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B));
+            }*/
+        }
+
+        private void DgFaction_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dgFaction.SelectedItem != null)
+            {
+                Faction faction = scen.Factions.GetGameObject(int.Parse(((DataRowView)dgFaction.SelectedItem).Row["ID"].ToString())) as Faction;
+                dgFaction.IsReadOnly = true;
+                Editfaction(faction);
+            }
+        }
+        private void Editfaction(Faction faction)
+        {
+            NewFactionWindow newFactionWindow = new NewFactionWindow(scen, this, faction);
+            newFactionWindow.Closed += NewFactionWindow_Closed;
+            newFactionWindow.ShowDialog();
+        }
+
+        private void NewFactionWindow_Closed(object sender, EventArgs e)
+        {
+            dgFaction.IsReadOnly = false;
+            architectureTab.setup();
+            factionTab.setup();
+        }
+
+        private void Menueditfac_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgFaction.SelectedItem != null)
+            {
+                Faction faction = scen.Factions.GetGameObject(int.Parse(((DataRowView)dgFaction.SelectedItem).Row["ID"].ToString())) as Faction;
+                Editfaction(faction);
+            }
+        }
+
+        private void MenuDeltfac_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = dgFaction.SelectedCells.Count - 1; i > 0; i -= dgFaction.Columns.Count)
+            {
+                Faction faction = scen.Factions.GetGameObject(int.Parse(((DataRowView)dgFaction.SelectedCells[i].Item).Row["ID"].ToString())) as Faction;
+                scen.Factions.RemoveFaction(faction);
+            }
+            factionTab.setup();
+        }
+
+        private void MenuAddfac_Click(object sender, RoutedEventArgs e)
+        {
+            Faction f = new Faction();
+            f.ID = scen.Factions.GetFreeGameObjectID();
+            f.ColorIndex = 52;
+            f.BaseMilitaryKindsString = "0 1 3";
+            f.UpgradingTechnique = -1;
+            f.TransferingMilitaries = new MilitaryList();
+            f.TransferingMilitariesString = "";
+            f.TransferingMilitaryCount = 0;
+            f.AvailableTechniquesString = "";
+            f.PreferredTechniqueKinds = new List<int>() { 0 ,1, 2,3, 4, 5, 6, 7, 8, 9, 10 };
+            f.PlanTechniqueString = -1;
+            f.GetGeneratorPersonCountString = "0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0";
+            f.InformationsString = "";
+            f.LegionsString = "";
+            f.MilitariesString = "";
+            f.RoutewaysString = "";
+            f.SectionsString = "";
+            f.TroopListString = "";
+            scen.Factions.Add(f);
+            Editfaction(f);
         }
     }
 

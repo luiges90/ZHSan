@@ -88,12 +88,12 @@ namespace WorldOfTheThreeKingdoms
             //}
 
             Platform.Current.PreparePhone();
-
+            string str = "";
             Session.globalVariablesBasic = new GlobalVariables();
-            Session.globalVariablesBasic.InitialGlobalVariables();
+            Session.globalVariablesBasic.InitialGlobalVariables(str);
 
             Session.parametersBasic = new Parameters();
-            Session.parametersBasic.InitializeGameParameters();
+            Session.parametersBasic.InitializeGameParameters(str);
 
             //獲取設置數據
             Setting.Init();
@@ -111,7 +111,7 @@ namespace WorldOfTheThreeKingdoms
             if (Platform.PlatFormType == PlatFormType.Win)  //Platform.PlatFormType == PlatFormType.UWP
             {
                 DateTime buildDate = new FileInfo(Platform.Current.Location).LastWriteTime;
-                base.Window.Title = "中华三国志(v1.2.2) - build-" + buildDate.Year + "-" + buildDate.Month + "-" + buildDate.Day;
+                base.Window.Title = "中华三国志(v1.3) - build-" + buildDate.Year + "-" + buildDate.Month + "-" + buildDate.Day;
             }
 
             Platform.Current.SetMouseVisible(false);

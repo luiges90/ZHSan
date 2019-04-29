@@ -20,6 +20,86 @@ namespace Tools
     public static class GameTools
     {
 
+        /// <summary>
+        /// 生成待編譯資源列表，遍歷Content文件夾
+        /// </summary>
+        /// <returns></returns>
+        public static string GetContentList(bool android)
+        {
+            var conDir = Platform.Current.SolutionDir + "Content";
+
+            var dires = Platform.Current.GetDirectories(conDir, true);
+
+            List<string> lines = new List<string>();
+
+            foreach (var dir in dires)
+            {
+                lines.Add("<ItemGroup>");
+
+                var di = dir.Split(new string[] { "Content" }, StringSplitOptions.None)[1];
+
+                if (android)
+                {
+                    lines.Add($"<Folder Include=\"Assets\\Content{di}\" />");
+                }
+                else
+                {
+                    lines.Add($"<Folder Include=\"Content{di}\" />");
+                }
+
+                //win ios
+                //<Folder Include="Content\Sound\Troop\29\" />
+                //android
+                //<Folder Include="Assets\Content\Sound\Animation\Person\493\" />
+
+                var files = Platform.Current.GetFiles(dir, false);
+
+                foreach (var file in files)
+                {
+                    if (file.ToCharArray().Any(ch => (int)ch > 127))
+                    {
+                        continue;
+                    }
+
+                    string fi = "Content" + file.Split(new string[] { "Content" }, StringSplitOptions.None)[1];
+
+                    if (android)
+                    {
+                        var fi1 = fi;
+                        var fi2 = fi;
+
+                        if (fi.Contains(".mp3"))
+                        {
+                            //<Link>Assets\Attack.mp3</Link>
+                            fi2 = fi.Substring(fi.LastIndexOf('\\') + 1);
+                        }
+                        else if (fi.Contains("ditu"))
+                        {
+                            fi1 = fi1.Replace("Content", "ContentLite");
+                        }
+
+                        lines.Add($"<AndroidAsset Include=\"..\\{fi1}\"><Link>Assets\\{fi2}</Link><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></AndroidAsset>");
+                    }
+                    else
+                    {
+                        lines.Add($"<Content Include=\"..\\{fi}\"><Link>{fi}</Link><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></Content>");
+                    }
+                }
+
+                /* Android
+                <AndroidAsset Include="..\Content\Textures\Resources\ditu\neo7\1518.jpg"><Link>Assets\Content\Textures\Resources\ditu\neo7\1518.jpg</Link><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></AndroidAsset>
+                 */
+
+                /* Win iOS
+                <Content Include="..\Content\Sound\Troop\999\NormalAttack.wav"><Link>Content\Sound\Troop\999\NormalAttack.wav</Link><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></Content>
+                */
+
+                lines.Add("</ItemGroup>");
+            }
+
+            return String.Join("\r\n", lines);
+        }
+
         public static long ZipFile(string zipFile, string[] files)
         {
             using (var zip = Platform.Current.LoadUserFileStream(zipFile, true))

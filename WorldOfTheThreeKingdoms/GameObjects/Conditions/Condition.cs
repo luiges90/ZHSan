@@ -84,6 +84,12 @@ namespace GameObjects.Conditions
             bool negate = false;
             foreach (Condition condition in list)
             {
+                //why Kind is null sometimes?
+                if (condition.Kind == null)
+                {
+                    flag = false;
+                    continue;
+                }
                 if (condition.Kind.ID == 996)
                 {
                     negate = true;

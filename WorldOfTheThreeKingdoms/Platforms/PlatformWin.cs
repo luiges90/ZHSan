@@ -228,7 +228,7 @@ namespace Platforms
         {
             get
             {
-                return AppDomain.CurrentDomain.BaseDirectory.Replace(@"WorldOfTheThreeKingdoms\bin\Win\", "");                
+                return AppDomain.CurrentDomain.BaseDirectory.Split(new string[] { "WorldOfTheThreeKingdoms" }, StringSplitOptions.None)[0];  //.Replace(@"WorldOfTheThreeKingdoms\bin\Win\", "");                
             }
         }
 
@@ -362,9 +362,15 @@ namespace Platforms
 
         #region 處理文件夾事宜
 
-        public override string[] GetFiles(string dir)
+
+        public override string[] GetDirectories(string dir, bool all = false)
         {
-            return Directory.GetFiles(dir, "*.*", SearchOption.AllDirectories);
+            return Directory.GetDirectories(dir, "*.*", all ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+        }
+
+        public override string[] GetFiles(string dir, bool all = false)
+        {
+            return Directory.GetFiles(dir, "*.*", all ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
         }
 
         public override string ReadAllText(string file)

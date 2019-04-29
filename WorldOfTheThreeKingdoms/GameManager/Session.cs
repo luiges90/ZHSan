@@ -147,7 +147,7 @@ namespace GameManager
         public ContentManager FontContent;
         public ContentManager MusicContent;
         public ContentManager SoundContent;
-        
+
         SpriteFont fontE, fontL, fontS, fontT, font;
 
         public SpriteFont FontE
@@ -260,7 +260,7 @@ namespace GameManager
                 {
                     #region 手機版采用跟PC同樣設置
                     //if (Platform.PlatFormType == PlatFormType.Win)
-                    //{                        
+                    //{
                     //    //此選項用於生成壓縮格式的劇本，以減小遊戲占用存儲空間
                     //    bool BuildScenarioDataZip = false;
 
@@ -465,16 +465,16 @@ namespace GameManager
                 //Platform.Current.PreparePhone();
 
                 width = Session.MainGame.fullScreenDestination.Width;  // int.Parse(Platform.PreferResolution.Split('*')[0]);
-                height = Session.MainGame.fullScreenDestination.Height;  // int.Parse(Platform.PreferResolution.Split('*')[1]);                
+                height = Session.MainGame.fullScreenDestination.Height;  // int.Parse(Platform.PreferResolution.Split('*')[1]);
             }
 
-			float slope = Convert.ToSingle(width) / Convert.ToSingle(height);
+            float slope = Convert.ToSingle(width) / Convert.ToSingle(height);
             if (Platform.PlatFormType == PlatFormType.Android || Platform.PlatFormType == PlatFormType.iOS || Platform.PlatFormType == PlatFormType.UWP)
             {
                 if (slope >= 1.5)
                 {
-                    Session.Resolution = "1024*680";  //"925*520";
-                    //LargeContextMenu = true;
+                    Session.Resolution = "1000*620";  //"925*520";
+                                                      //LargeContextMenu = true;
                 }
                 else
                 {
@@ -503,22 +503,22 @@ namespace GameManager
             screenscalex2 = Convert.ToSingle(width) / Session.ResolutionX;  // 1120f;
             screenscaley2 = Convert.ToSingle(height) / Session.ResolutionY;  // 630f;
 
-			//screenScale = screenscalex >= screenscaley ? screenscaley : screenscalex;
+            //screenScale = screenscalex >= screenscaley ? screenscaley : screenscalex;
 
-			InputManager.Scale1 = new Vector2(screenscalex1, screenscaley1);
+            InputManager.Scale1 = new Vector2(screenscalex1, screenscaley1);
 
 
-			//CoreGame.Current.SpriteScale = Matrix.CreateScale(screenScale, screenScale, 1);
-			//InputManager.Scale = new Vector2(screenScale, screenScale);
+            //CoreGame.Current.SpriteScale = Matrix.CreateScale(screenScale, screenScale, 1);
+            //InputManager.Scale = new Vector2(screenScale, screenScale);
 
-			//if (Platform.PlatFormType == PlatFormType.iOS)
-			//{
-                //if (slope < 1.5)
-                //{
+            //if (Platform.PlatFormType == PlatFormType.iOS)
+            //{
+            //if (slope < 1.5)
+            //{
             //        InputManager.Scale1 = new Vector2(Session.ResolutionX / 1280f, Session.ResolutionY / 720f);
             //        InputManager.Scale2 = Vector2.One;
-                //}
-			//}
+            //}
+            //}
 
             InputManager.ScaleDraw = new Vector2(1, 1);
             if (setScale)
@@ -538,7 +538,7 @@ namespace GameManager
 
             Platform.Current.ProcessViewChanged();
 
-            Platform.GraphicsApplyChanges();            
+            Platform.GraphicsApplyChanges();
 
             InputManager.SWidth = Session.ResolutionX;
             InputManager.SHeight = Session.ResolutionY;
@@ -560,7 +560,7 @@ namespace GameManager
 
         public static void StartScenario(Scenario scenario, bool save)
         {
-            var players = scenario.Players.Split(',').RemoveNullOrEmpty().Select(id => int.Parse(id)).NullToEmptyList();        
+            var players = scenario.Players.Split(',').RemoveNullOrEmpty().Select(id => int.Parse(id)).NullToEmptyList();
 
             Session.MainGame.loadingScreen = new LoadingScreen();
             Session.MainGame.loadingScreen.LoadScreenEvent += (sender0, e0) =>
@@ -647,7 +647,7 @@ namespace GameManager
         {
             Platform.Current.StopSong();
         }
-        
+
     }
 }
 

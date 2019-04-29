@@ -32,6 +32,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public MenuType MenuType = MenuType.None;
 
+        bool dantiao = false;
+
+        GameScenario scenario = null;
+
+        Faction faction = null;
+
         float textGameElapsed = 0f;
 
         float menuTypeElapsed = 0f;
@@ -76,6 +82,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         int pageid1 = 1;
         int page1 = 0;
 
+        int pageIndex2 = 1;
+        int pageCount2 = 0;
+        int pageid2 = 1;
+        int page2 = 0;
+
+        ButtonTexture btnDantiao = null;
+
         List<Scenario> ScenarioList = new List<Scenario>();
 
         Scenario CurrentScenario = null;
@@ -87,6 +100,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         List<ButtonTexture> btScenarioPlayersList = new List<ButtonTexture>();
         List<ButtonTexture> btScenarioPlayersListPaged = new List<ButtonTexture>();
+
+        List<ButtonTexture> btDantiaoPlayersList = new List<ButtonTexture>();
+        List<ButtonTexture> btDantiaoPlayersListPaged = new List<ButtonTexture>();
 
         string CurrentSetting = "基本";
 
@@ -262,7 +278,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 menuTypeElapsed = 0f;
                 UnCheckTextBoxs();
                 MenuType = MenuType.New;
+                dantiao = false;
+                scenario = null;
+                faction = null;
                 InitScenarioList();
+                ScreenLayers.DantiaoLayer.Persons = null;
             };
             btList.Add(btOne);
 
@@ -322,17 +342,58 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
                 else
                 {
-                    if (MenuType == MenuType.New)
+                    if (dantiao)
                     {
-                        Session.globalVariablesTemp = Session.globalVariablesBasic.Clone();
-                        Session.parametersTemp = Session.parametersBasic.Clone();
-                        InitConfig();
-                        MenuType = MenuType.Config;
+                        if (ScreenLayers.DantiaoLayer.Persons.Count < 2)
+                        {
+                            message = "请选择两名武将。";
+                        }
+                        else
+                        {
+                            if (MenuType == MenuType.New)
+                            {
+                                Session.globalVariablesTemp = Session.globalVariablesBasic.Clone();
+                                Session.parametersTemp = Session.parametersBasic.Clone();
+                                InitConfig();
+                                MenuType = MenuType.Config;
+                            }
+                            else
+                            {
+                                MenuType = MenuType.New;
+
+                                btScenarioSelectList.ForEach(bt =>
+                                {
+                                    bt.Selected = false;
+                                });
+
+                                btScenarioPlayersList.Clear();
+
+                                pageIndex1 = 1;
+
+                                Session.StartScenario(CurrentScenario, false);
+
+                                CurrentScenario = null;
+
+                                scenario = null;
+
+                                faction = null;
+                            }
+                        }
                     }
                     else
                     {
-                        MenuType = MenuType.New;
-                        Session.StartScenario(CurrentScenario, false);
+                        if (MenuType == MenuType.New)
+                        {
+                            Session.globalVariablesTemp = Session.globalVariablesBasic.Clone();
+                            Session.parametersTemp = Session.parametersBasic.Clone();
+                            InitConfig();
+                            MenuType = MenuType.Config;
+                        }
+                        else
+                        {
+                            MenuType = MenuType.New;
+                            Session.StartScenario(CurrentScenario, false);
+                        }
                     }
                 }
 
@@ -501,7 +562,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btConfigList1 = new List<ButtonTexture>();
 
-            /*
+
             btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase))
             {
                 ID = "LiangDao"
@@ -521,9 +582,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
             };
             btConfigList1.Add(btOne);
-            */
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 0.0f))
+
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 0.5f))
             {
                 ID = "ChuShi"
             };
@@ -543,7 +604,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 0.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 1f))
             {
                 ID = "BuDuiSuLv"
             };
@@ -563,7 +624,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 1.0f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 1.5f))
             {
                 ID = "DanTiaoSiWang"
             };
@@ -583,7 +644,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 1.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 2f))
             {
                 ID = "NianLingYouXiao"
             };
@@ -603,7 +664,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 2.0f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 2.5f))
             {
                 ID = "NianLingYingXiang"
             };
@@ -623,7 +684,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 2.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 3f))
             {
                 ID = "WuJiangDuli"
             };
@@ -643,7 +704,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 3.0f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 3.5f))
             {
                 ID = "ShiLiHeBing"
             };
@@ -663,7 +724,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 3.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 4f))
             {
                 ID = "RenKouXiaoYu"
             };
@@ -683,7 +744,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 4.0f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 4.5f))
             {
                 ID = "KaiQiTianYan"
             };
@@ -703,7 +764,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btConfigList1.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 4.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 5f))
             {
                 ID = "hougongAlienOnly"
             };
@@ -2127,9 +2188,29 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btPre1.OnButtonPress += (sender, e) =>
             {
-                if (pageIndex1 > 1)
+                if (dantiao)
                 {
-                    pageIndex1--;
+                    if (faction == null)
+                    {
+                        if (pageIndex1 > 1)
+                        {
+                            pageIndex1--;
+                        }
+                    }
+                    else
+                    {
+                        if (pageIndex2 > 1)
+                        {
+                            pageIndex2--;
+                        }
+                    }
+                }
+                else
+                {
+                    if (pageIndex1 > 1)
+                    {
+                        pageIndex1--;
+                    }
                 }
 
             };
@@ -2140,11 +2221,46 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btNext1.OnButtonPress += (sender, e) =>
             {
-                if (pageIndex1 < pageCount1)
+                if (dantiao)
                 {
-                    pageIndex1++;
+                    if (faction == null)
+                    {
+                        if (pageIndex1 < pageCount1)
+                        {
+                            pageIndex1++;
+                        }
+                    }
+                    else
+                    {
+                        if (pageIndex2 < pageCount2)
+                        {
+                            pageIndex2++;
+                        }
+                    }
                 }
+                else
+                {
+                    if (pageIndex1 < pageCount1)
+                    {
+                        pageIndex1++;
+                    }
+                }
+            };
 
+            btnDantiao = new ButtonTexture(@"Content\Textures\Resources\Dantiao\Button", "Button", new Vector2(860 + 260, 650))
+            {
+                //Visible = Platform.PlatFormType == PlatFormType.Win ? false : true
+            };
+            btnDantiao.OnButtonPress += (sender, e) =>
+            {
+                menuTypeElapsed = 0f;
+                UnCheckTextBoxs();
+                MenuType = MenuType.New;
+                dantiao = true;
+                scenario = null;
+                faction = null;
+                InitScenarioList();
+                ScreenLayers.DantiaoLayer.Persons = null;
             };
 
             InitSetting();
@@ -2197,27 +2313,102 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     CurrentScenario = ScenarioList.FirstOrDefault(sc => sc.Name == id);
 
-                    var iDs = CurrentScenario.IDs.Split(',').NullToEmptyList();
-                    var names = CurrentScenario.Names.Split(',').NullToEmptyList();
-
-                    btScenarioPlayersList = new List<ButtonTexture>();
-
-                    for (int i = 0; i < iDs.Count; i++)
+                    if (dantiao)
                     {
-                        var id0 = iDs[i];
-                        var btPlayer = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", null)
-                        {
-                            ID = id0
-                        };
-                        btPlayer.OnButtonPress += (sender0, e0) =>
-                        {
-                            var btP = (ButtonTexture)sender0;
-                            btP.Selected = !btP.Selected;
-                        };
-                        btScenarioPlayersList.Add(btPlayer);
-                    }
+                        scenario = null;
 
-                    pageIndex1 = 1;
+                        faction = null;
+
+                        ScreenLayers.DantiaoLayer.Persons = new List<Person>();
+
+                        new Task(() =>
+                        {
+
+                            while (CommonData.CurrentReady == false)
+                            {
+                                Platform.Sleep(100);
+                            }
+
+                            var scenarioName = String.Format(@"Content\Data\Scenario\{0}.json", CurrentScenario.Name);
+
+                            scenario = MainGameScreen.LoadScenarioData(scenarioName, true, null);
+
+                            var factions = scenario.Factions;
+
+                            btScenarioPlayersList = new List<ButtonTexture>();
+
+                            for (int i = 0; i < factions.Count; i++)
+                            {
+                                var id0 = factions[i];
+                                var btPlayer = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", null)
+                                {
+                                    ID = id0.Name
+                                };
+                                btPlayer.OnButtonPress += (sender0, e0) =>
+                                {
+                                    var btP = (ButtonTexture)sender0;
+                                    var id1 = btP.ID;
+
+                                    faction = scenario.Factions.GameObjects.FirstOrDefault(fi => fi.Name == id1) as Faction;
+
+                                    btDantiaoPlayersList = new List<ButtonTexture>();
+
+                                    for (int j = 0; j < faction.Persons.Count; j++)
+                                    {
+                                        var per = faction.Persons[j] as Person;
+                                        var btPer = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", null)
+                                        {
+                                            ID = per.Name
+                                        };
+                                        btPer.OnButtonPress += (sender1, e1) =>
+                                        {
+                                            var btG = (ButtonTexture)sender1;
+
+                                            var person = faction.Persons.GameObjects.FirstOrDefault(pe => ((Person)pe).Name == btG.ID) as Person;
+
+                                            ScreenLayers.DantiaoLayer.Persons.Add(person);
+
+                                            faction = null;
+
+                                        };
+
+                                        btDantiaoPlayersList.Add(btPer);
+                                    }
+
+                                    pageIndex2 = 1;
+
+                                };
+                                btScenarioPlayersList.Add(btPlayer);
+                            }
+
+                            pageIndex1 = 1;
+
+                        }).Start();
+                    }
+                    else
+                    {
+                        var iDs = CurrentScenario.IDs.Split(',').NullToEmptyList();
+                        var names = CurrentScenario.Names.Split(',').NullToEmptyList();
+
+                        btScenarioPlayersList = new List<ButtonTexture>();
+
+                        for (int i = 0; i < iDs.Count; i++)
+                        {
+                            var id0 = iDs[i];
+                            var btPlayer = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", null)
+                            {
+                                ID = id0
+                            };
+                            btPlayer.OnButtonPress += (sender0, e0) =>
+                            {
+                                var btP = (ButtonTexture)sender0;
+                                btP.Selected = !btP.Selected;
+                            };
+                            btScenarioPlayersList.Add(btPlayer);
+                        }
+
+                        pageIndex1 = 1;
+                    }
                 };
                 btScenarioSelectList.Add(btOne);
             }
@@ -2235,7 +2426,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             //doNotSetDifficultyToCustom = true;
 
-            //nstDianNaoChuZhan, , ,           
+            //nstDianNaoChuZhan, , ,
 
             //btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 3.5f))
             //{
@@ -2379,57 +2570,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 case Difficulty.normal:
 
-                    this.nstDianNaoZiJing1.NowNumber = 2.0f;
-                    this.nstDianNaoLiangCao1.NowNumber = 2.0f;
-                    this.nstDianNaoShangHai1.NowNumber = 1.0f;
-                    this.nstDianNaoBuDuiGongJi1.NowNumber = 1.0f;
-                    this.nstDianNaoFangYu1.NowNumber = 1.0f;
-                    this.nstDianNaoZhengBing1.NowNumber = 1.2f;
-                    this.nstDianNaoXunLian1.NowNumber = 1.2f;
-                    this.nstDianNaoWuJiangJingYan1.NowNumber = 1.0f;
-                    this.nstDianNaoBuDuiJingYan1.NowNumber = 1.5f;
-                    this.nstDianNaoKangJi1.NowNumber = 0f;
-                    this.nstDianNaoKangWei1.NowNumber = 0f;
-                    this.nstDianNaoZiJing2.NowNumber = 0.02f;
-                    this.nstDianNaoLiangCao2.NowNumber = 0.02f;
-                    this.nstDianNaoShangHai2.NowNumber = 0.0f;
-                    this.nstDianNaoBuDuiGongJi2.NowNumber = 0.0f;
-                    this.nstDianNaoFangYu2.NowNumber = 0.0f;
-                    this.nstDianNaoZhengBing2.NowNumber = 0.02f;
-                    this.nstDianNaoXunLian2.NowNumber = 0.02f;
-                    this.nstDianNaoWuJiangJingYan2.NowNumber = 0.0f;
-                    this.nstDianNaoBuDuiJingYan2.NowNumber = 0.01f;
-                    this.nstDianNaoKangJi2.NowNumber = 0.0f;
-                    this.nstDianNaoKangWei2.NowNumber = 0.0f;
-
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoWanJiaDiRen").Selected = false;
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianWanJia").Selected = false;
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianDianNao").Selected = false;
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuFuLu").Selected = false;
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoChengZhongWuJiang").Selected = false;
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuWanJiaFuLu").Selected = false;
-                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoFuLuZhongCheng").Selected = false;
-                    Session.globalVariablesTemp.PinPointAtPlayer = false;
-                    Session.globalVariablesTemp.internalSurplusRateForPlayer = false;
-                    Session.globalVariablesTemp.internalSurplusRateForAI = false;
-                    Session.globalVariablesTemp.AIAutoTakeNoFactionCaptives = false;
-                    Session.globalVariablesTemp.AIAutoTakeNoFactionPerson = false;
-                    Session.globalVariablesTemp.AIAutoTakePlayerCaptives = false;
-                    Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = false;
-
-                    this.nstDianNaoShengTao.NowNumber = 5f;
-                    this.nstDianNaoEWai1.NowNumber = 1.2f;
-                    this.nstDianNaoEWai2.NowNumber = 0.0f;
-
-                    this.nstDianNaoYinWanJiaHeBing.NowNumber = -1f;
-
-                    this.AIEncircleRank = 30;
-                    this.AIEncircleVar = 30;
-
-                    break;
-
-                case Difficulty.hard:
-
                     this.nstDianNaoZiJing1.NowNumber = 3.0f;
                     this.nstDianNaoLiangCao1.NowNumber = 3.0f;
                     this.nstDianNaoShangHai1.NowNumber = 1.2f;
@@ -2450,6 +2590,57 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.nstDianNaoXunLian2.NowNumber = 0.05f;
                     this.nstDianNaoWuJiangJingYan2.NowNumber = 0.0f;
                     this.nstDianNaoBuDuiJingYan2.NowNumber = 0.02f;
+                    this.nstDianNaoKangJi2.NowNumber = 0.0f;
+                    this.nstDianNaoKangWei2.NowNumber = 0.0f;
+
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoWanJiaDiRen").Selected = false;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianWanJia").Selected = true;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "ShouRuSuoJianDianNao").Selected = false;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuFuLu").Selected = true;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoChengZhongWuJiang").Selected = true;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoShuoFuWanJiaFuLu").Selected = false;
+                    btConfigList4.FirstOrDefault(bt => bt.ID == "DianNaoFuLuZhongCheng").Selected = false;
+                    Session.globalVariablesTemp.PinPointAtPlayer = false;
+                    Session.globalVariablesTemp.internalSurplusRateForPlayer = true;
+                    Session.globalVariablesTemp.internalSurplusRateForAI = false;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionCaptives = true;
+                    Session.globalVariablesTemp.AIAutoTakeNoFactionPerson = true;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptives = false;
+                    Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = false;
+
+                    this.nstDianNaoShengTao.NowNumber = 0f;
+                    this.nstDianNaoEWai1.NowNumber = 1.5f;
+                    this.nstDianNaoEWai2.NowNumber = 0.01f;
+
+                    this.nstDianNaoYinWanJiaHeBing.NowNumber = -1f;
+
+                    this.AIEncircleRank = 30;
+                    this.AIEncircleVar = 30;
+
+                    break;
+
+                case Difficulty.hard:
+
+                    this.nstDianNaoZiJing1.NowNumber = 5.0f;
+                    this.nstDianNaoLiangCao1.NowNumber = 5.0f;
+                    this.nstDianNaoShangHai1.NowNumber = 1.5f;
+                    this.nstDianNaoBuDuiGongJi1.NowNumber = 1.2f;
+                    this.nstDianNaoFangYu1.NowNumber = 1.5f;
+                    this.nstDianNaoZhengBing1.NowNumber = 3.0f;
+                    this.nstDianNaoXunLian1.NowNumber = 3.0f;
+                    this.nstDianNaoWuJiangJingYan1.NowNumber = 1.0f;
+                    this.nstDianNaoBuDuiJingYan1.NowNumber = 3.0f;
+                    this.nstDianNaoKangJi1.NowNumber = 0f;
+                    this.nstDianNaoKangWei1.NowNumber = 0f;
+                    this.nstDianNaoZiJing2.NowNumber = 0.05f;
+                    this.nstDianNaoLiangCao2.NowNumber = 0.05f;
+                    this.nstDianNaoShangHai2.NowNumber = 0.02f;
+                    this.nstDianNaoBuDuiGongJi2.NowNumber = 0.0f;
+                    this.nstDianNaoFangYu2.NowNumber = 0.05f;
+                    this.nstDianNaoZhengBing2.NowNumber = 0.1f;
+                    this.nstDianNaoXunLian2.NowNumber = 0.1f;
+                    this.nstDianNaoWuJiangJingYan2.NowNumber = 0.0f;
+                    this.nstDianNaoBuDuiJingYan2.NowNumber = 0.1f;
                     this.nstDianNaoKangJi2.NowNumber = 0.1f;
                     this.nstDianNaoKangWei2.NowNumber = 0.1f;
 
@@ -2469,8 +2660,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = true;
 
                     this.nstDianNaoShengTao.NowNumber = 10f;
-                    this.nstDianNaoEWai1.NowNumber = 1.5f;
-                    this.nstDianNaoEWai2.NowNumber = 0.01f;
+                    this.nstDianNaoEWai1.NowNumber = 2.0f;
+                    this.nstDianNaoEWai2.NowNumber = 0.02f;
 
                     this.nstDianNaoYinWanJiaHeBing.NowNumber = -1f;
 
@@ -2483,22 +2674,22 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                     this.nstDianNaoZiJing1.NowNumber = 5.0f;
                     this.nstDianNaoLiangCao1.NowNumber = 5.0f;
-                    this.nstDianNaoShangHai1.NowNumber = 1.5f;
-                    this.nstDianNaoBuDuiGongJi1.NowNumber = 1.2f;
-                    this.nstDianNaoFangYu1.NowNumber = 1.5f;
-                    this.nstDianNaoZhengBing1.NowNumber = 3.0f;
-                    this.nstDianNaoXunLian1.NowNumber = 3.0f;
+                    this.nstDianNaoShangHai1.NowNumber = 3.0f;
+                    this.nstDianNaoBuDuiGongJi1.NowNumber = 1.5f;
+                    this.nstDianNaoFangYu1.NowNumber = 3.0f;
+                    this.nstDianNaoZhengBing1.NowNumber = 5.0f;
+                    this.nstDianNaoXunLian1.NowNumber = 5.0f;
                     this.nstDianNaoWuJiangJingYan1.NowNumber = 1.0f;
                     this.nstDianNaoBuDuiJingYan1.NowNumber = 4.0f;
                     this.nstDianNaoKangJi1.NowNumber = 0f;
                     this.nstDianNaoKangWei1.NowNumber = 0f;
                     this.nstDianNaoZiJing2.NowNumber = 0.05f;
                     this.nstDianNaoLiangCao2.NowNumber = 0.05f;
-                    this.nstDianNaoShangHai2.NowNumber = 0.02f;
-                    this.nstDianNaoBuDuiGongJi2.NowNumber = 0.0f;
-                    this.nstDianNaoFangYu2.NowNumber = 0.05f;
-                    this.nstDianNaoZhengBing2.NowNumber = 0.1f;
-                    this.nstDianNaoXunLian2.NowNumber = 0.1f;
+                    this.nstDianNaoShangHai2.NowNumber = 0.05f;
+                    this.nstDianNaoBuDuiGongJi2.NowNumber = 0.02f;
+                    this.nstDianNaoFangYu2.NowNumber = 0.2f;
+                    this.nstDianNaoZhengBing2.NowNumber = 0.2f;
+                    this.nstDianNaoXunLian2.NowNumber = 0.2f;
                     this.nstDianNaoWuJiangJingYan2.NowNumber = 0.0f;
                     this.nstDianNaoBuDuiJingYan2.NowNumber = 0.1f;
                     this.nstDianNaoKangJi2.NowNumber = 0.2f;
@@ -2519,7 +2710,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Session.globalVariablesTemp.AIAutoTakePlayerCaptives = true;
                     Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = true;
 
-                    this.nstDianNaoShengTao.NowNumber = 20f;
+                    this.nstDianNaoShengTao.NowNumber = 10f;
                     this.nstDianNaoEWai1.NowNumber = 3.0f;
                     this.nstDianNaoEWai2.NowNumber = 0.05f;
 
@@ -2633,7 +2824,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             //基本
 
-            //btConfigList1.FirstOrDefault(bt => bt.ID == "LiangDao").Selected = Session.globalVariablesTemp.LiangdaoXitong;
+            btConfigList1.FirstOrDefault(bt => bt.ID == "LiangDao").Selected = Session.globalVariablesTemp.LiangdaoXitong;
 
             btConfigList1.FirstOrDefault(bt => bt.ID == "ChuShi").Selected = Session.globalVariablesTemp.IdealTendencyValid;
 
@@ -2855,7 +3046,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             AIEncircleRank = Session.parametersTemp.AIEncircleRank;
             AIEncircleVar = Session.parametersTemp.AIEncircleVar;
 
-            //doNotSetDifficultyToCustom = false;           
+            //doNotSetDifficultyToCustom = false;
 
         }
 
@@ -3003,6 +3194,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 textLevel = Convert.ToInt32(textGameElapsed / 2f);
 
                 btList.ForEach(bt => bt.Update());
+
+                btnDantiao.Update();
             }
             else if (MenuType == MenuType.New)
             {
@@ -3025,18 +3218,51 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     btOne.Update();
                 }
 
-                btScenarioPlayersListPaged = GenericTools.GetPageList<ButtonTexture>(btScenarioPlayersList, pageIndex1.ToString(), 8, ref pageCount1, ref page1);
-
-                for (int i = 0; i < btScenarioPlayersListPaged.Count; i++)
+                if (dantiao)
                 {
-                    var btOne = btScenarioPlayersListPaged[i];
-                    btOne.Position = new Vector2(740, 80 + 55 * i);
-                    btOne.Update();
+                    if (faction == null)
+                    {
+                        btScenarioPlayersListPaged = GenericTools.GetPageList<ButtonTexture>(btScenarioPlayersList, pageIndex1.ToString(), 8, ref pageCount1, ref page1);
+
+                        for (int i = 0; i < btScenarioPlayersListPaged.Count; i++)
+                        {
+                            var btOne = btScenarioPlayersListPaged[i];
+                            btOne.Position = new Vector2(740, 80 + 55 * i);
+                            btOne.Update();
+                        }
+                    }
+                    else
+                    {
+                        btDantiaoPlayersListPaged = GenericTools.GetPageList<ButtonTexture>(btDantiaoPlayersList, pageIndex2.ToString(), 8, ref pageCount2, ref page2);
+
+                        for (int i = 0; i < btDantiaoPlayersListPaged.Count; i++)
+                        {
+                            var btOne = btDantiaoPlayersListPaged[i];
+                            btOne.Position = new Vector2(740, 80 + 55 * i);
+                            btOne.Update();
+                        }
+                    }
+
+                    if (CurrentScenario != null)
+                    {
+                        CurrentScenario.Players = String.Join(",", ScreenLayers.DantiaoLayer.Persons.NullToEmptyList().Select(pe => ((Person)pe).BelongedFaction.ID));
+                    }
                 }
-
-                if (CurrentScenario != null)
+                else
                 {
-                    CurrentScenario.Players = String.Join(",", btScenarioPlayersList.Where(bt => bt.Selected).Select(bt => bt.ID));
+                    btScenarioPlayersListPaged = GenericTools.GetPageList<ButtonTexture>(btScenarioPlayersList, pageIndex1.ToString(), 8, ref pageCount1, ref page1);
+
+                    for (int i = 0; i < btScenarioPlayersListPaged.Count; i++)
+                    {
+                        var btOne = btScenarioPlayersListPaged[i];
+                        btOne.Position = new Vector2(740, 80 + 55 * i);
+                        btOne.Update();
+                    }
+
+                    if (CurrentScenario != null)
+                    {
+                        CurrentScenario.Players = String.Join(",", btScenarioPlayersList.Where(bt => bt.Selected).Select(bt => bt.ID));
+                    }
                 }
             }
             else if (MenuType == MenuType.Config)
@@ -3730,10 +3956,30 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             btPre.Update();
             btNext.Update();
 
-            btPre1.Enable = pageIndex1 > 1;
-            btNext1.Enable = pageIndex1 < pageCount1;
-            btPre1.Update();
-            btNext1.Update();
+            if (dantiao)
+            {
+                if (faction == null)
+                {
+                    btPre1.Enable = pageIndex1 > 1;
+                    btNext1.Enable = pageIndex1 < pageCount1;
+                    btPre1.Update();
+                    btNext1.Update();
+                }
+                else
+                {
+                    btPre1.Enable = pageIndex2 > 1;
+                    btNext1.Enable = pageIndex2 < pageCount2;
+                    btPre1.Update();
+                    btNext1.Update();
+                }
+            }
+            else
+            {
+                btPre1.Enable = pageIndex1 > 1;
+                btNext1.Enable = pageIndex1 < pageCount1;
+                btPre1.Update();
+                btNext1.Update();
+            }
 
         }
 
@@ -3759,6 +4005,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     var text = String.Join(System.Environment.NewLine, texts[i].ToArray());
                     CacheManager.DrawString(Session.Current.Font, text, new Vector2(720 - 65 * i, 230), Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+                }
+
+                btnDantiao.Draw();
+
+                if (btnDantiao.Visible)
+                {
+                    CacheManager.DrawString(Session.Current.Font, "单挑", btnDantiao.Position + new Vector2(20, 7), Color.DarkRed, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                 }
             }
             else if (MenuType == MenuType.New)
@@ -3790,18 +4043,70 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
                 });
 
-                btScenarioPlayersListPaged.ForEach(bt =>
+                if (dantiao)
                 {
-                    int index = btScenarioPlayersList.IndexOf(bt);
-                    if (index >= 0)
+                    if (scenario == null)
                     {
-                        var play = CurrentScenario.Names.Split(',').NullToEmptyArray()[index];
-
-                        bt.Draw(null, Color.White * alpha);
-
-                        CacheManager.DrawString(Session.Current.Font, play, bt.Position + new Vector2(45, 2), Color.Black * alpha);
+                        CacheManager.DrawString(Session.Current.Font, CurrentScenario == null ? "" : "剧本加载中....", new Vector2(780, 150), Color.Black * alpha);
                     }
-                });
+                    else
+                    {
+                        if (faction == null)
+                        {
+                            btScenarioPlayersListPaged.ForEach(bt =>
+                            {
+                                int index = btScenarioPlayersList.IndexOf(bt);
+                                if (index >= 0)
+                                {
+                                    var play = CurrentScenario.Names.Split(',').NullToEmptyArray()[index] + (dantiao ? "势力" : "");
+
+                                    bt.Draw(null, Color.White * alpha);
+
+                                    CacheManager.DrawString(Session.Current.Font, play, bt.Position + new Vector2(45, 2), Color.Black * alpha);
+                                }
+                            });
+                        }
+                        else
+                        {
+                            btDantiaoPlayersListPaged.ForEach(bt =>
+                            {
+                                int index = btDantiaoPlayersList.IndexOf(bt);
+                                if (index >= 0)
+                                {
+                                    var person = faction.Persons[index] as Person;
+
+                                    bt.Draw(null, Color.White * alpha);
+
+                                    CacheManager.DrawString(Session.Current.Font, person.Name, bt.Position + new Vector2(45, 2), Color.Black * alpha);
+                                }
+                            });
+                        }
+
+                        if (ScreenLayers.DantiaoLayer.Persons != null)
+                        {
+                            var pers = ScreenLayers.DantiaoLayer.Persons.GetLast(2).NullToEmptyList();
+
+                            var persons = String.Join(", ", pers.Select(p => p.Name).NullToEmptyList());
+
+                            CacheManager.DrawString(Session.Current.Font, persons, new Vector2(880, 27), Color.Blue * alpha);
+                        }
+                    }
+                }
+                else
+                {
+                    btScenarioPlayersListPaged.ForEach(bt =>
+                    {
+                        int index = btScenarioPlayersList.IndexOf(bt);
+                        if (index >= 0)
+                        {
+                            var play = CurrentScenario.Names.Split(',').NullToEmptyArray()[index];
+
+                            bt.Draw(null, Color.White * alpha);
+
+                            CacheManager.DrawString(Session.Current.Font, play, bt.Position + new Vector2(45, 2), Color.Black * alpha);
+                        }
+                    });
+                }
 
                 if (CurrentScenario != null)
                 {
@@ -3842,27 +4147,27 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         nst.Draw(alpha);
                     }
 
-                    //CacheManager.DrawString(Session.Current.Font, "粮道系统", new Vector2(left1, heightBase), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "粮道系统", new Vector2(left1, heightBase), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "出仕相性考虑有效", new Vector2(left1, heightBase + height * 0f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "出仕相性考虑有效", new Vector2(left1, heightBase + height * 0.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "部队速率有效", new Vector2(left1, heightBase + height * 0.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "部队速率有效", new Vector2(left1, heightBase + height * 1f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "武将可能在单挑中死亡", new Vector2(left1, heightBase + height * 1.0f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "武将可能在单挑中死亡", new Vector2(left1, heightBase + height * 1.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "年龄有效", new Vector2(left1, heightBase + height * 1.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "年龄有效", new Vector2(left1, heightBase + height * 2f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "年龄影响能力", new Vector2(left1, heightBase + height * 2.0f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "年龄影响能力", new Vector2(left1, heightBase + height * 2.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "武将有可能独立", new Vector2(left1, heightBase + height * 2.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "武将有可能独立", new Vector2(left1, heightBase + height * 3f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "容许势力合并", new Vector2(left1, heightBase + height * 3.0f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "容许势力合并", new Vector2(left1, heightBase + height * 3.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "人口小于兵力时禁止征兵", new Vector2(left1, heightBase + height * 3.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "人口小于兵力时禁止征兵", new Vector2(left1, heightBase + height * 4f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 4.0f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "只有异族能納妃", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "只有异族能納妃", new Vector2(left1, heightBase + height * 5f), Color.Black * alpha);
 
                     CacheManager.DrawString(Session.Current.Font, "开启作弊功能", new Vector2(left2, heightBase), Color.Black * alpha);
 

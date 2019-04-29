@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Root>
-  <Background FileName="Background.png" Width="400" Height="400"></Background>
+  <Background FileName="Background.png" Width="600" Height="450"></Background>
   <Button FileName="Button.png" Selected="ButtonSelected.png"></Button>
   <RichText RowMargin="0"
             FontName="Microsoft YaHei UI"
-            FontSize="9"
+            FontSize="13"
             FontStyle="Regular"
             FontColor="4293190897"
 			TitleColor="4294959991"
-			SubTitleColor="4291100612">
+			SubTitleColor="4291100612" x="10" y="10">
   </RichText>
 </Root>

@@ -32,7 +32,6 @@
                 <MenuItem Header="刪除" Command="Delete"/>
             </MenuItem>
             <MenuItem Header="功能">
-                <MenuItem Header="新增勢力" Click="btnNewFaction_Click"/>
                 <MenuItem Header="新增隨機武將" Click="btnNewPerson_Click" IsEnabled="False"/>
                 <Separator/>
                 <MenuItem Header="隨機化武將相性" Click="btnRandomizeIdeal_Click"/>
@@ -46,6 +45,16 @@
                 <MenuItem Header="刪除所有勢力外交關係" Click="btnDeleteAllDiplomacy_Click"/>
                 <Separator/>
                 <MenuItem Header="重新設置城池連接" Click="btnRedoArchitectureLinks_Click"/>
+            </MenuItem>
+            <MenuItem Header="转换">
+                <MenuItem Header="剧本转excel" Click="btnScenariotoexcel_Click"/>
+                <Separator/>
+             </MenuItem>
+            <MenuItem Header="其他">
+                <MenuItem Header="剧本信息" Click="btnsce_Click"/>
+                <Separator/>
+                <MenuItem Header="游戏Glo参数" Click="btnSets_Click"/>
+                <MenuItem Header="游戏Para参数" Click="btnSetsPara_Click"/>
             </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
@@ -88,7 +97,15 @@
             </TabItem>
             <TabItem Header="勢力">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgFaction"/>
+                    <DataGrid x:Name="dgFaction" FrozenColumnCount="2" CellEditEnding="DgFaction_CellEditEnding" LoadingRow="DgFaction_LoadingRow" MouseDoubleClick="DgFaction_MouseDoubleClick" CanUserAddRows="False">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu  DataContext="{Binding ElementName=dgFaction,Path=SelectedItems}">
+                                <MenuItem Name="menuEditfac" Header="编辑此势力" Click="Menueditfac_Click" ></MenuItem>
+                                <MenuItem Name="menuAddfac" Header="新增势力" Click="MenuAddfac_Click"  ></MenuItem>
+                                <MenuItem Name="menuDeltfac" Header="删除势力" Click="MenuDeltfac_Click" ></MenuItem>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="編隊">
@@ -210,6 +227,11 @@
             <TabItem Header="技巧類">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="dgTechniques" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="官爵類">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgGuanjue" />
                 </Grid>
             </TabItem>
         </TabControl>

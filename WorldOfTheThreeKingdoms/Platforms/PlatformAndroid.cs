@@ -129,7 +129,14 @@ namespace Platforms
                 Session.MainGame.fullScreenDestination = new Rectangle(0, 0, dm.HeightPixels, dm.WidthPixels);
             }
 
-            AndroidContentManager.Init();
+            if (System.String.IsNullOrEmpty(Platform.Current.Channel))
+            {
+
+            }
+            else
+            {
+                AndroidContentManager.Init();
+            }
 
             //var stream = AndroidContentManager.OpenStream("Setting.png");
 
@@ -290,7 +297,7 @@ namespace Platforms
             }
         }
 
-        public override string[] GetFiles(string dir)
+        public override string[] GetFiles(string dir, bool all = false)
         {
             if (dir.Contains("/"))
             {

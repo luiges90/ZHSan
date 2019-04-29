@@ -1387,6 +1387,23 @@ namespace GameObjects
             }*/
             this.OffenceOnlyBeforeMoveFlag = false;
 
+            if (this.BelongedLegion != null && this.BelongedLegion.PreferredRouteway != null && 
+                !this.BelongedLegion.PreferredRouteway.Developing && this.BelongedLegion.PreferredRouteway.LastPoint != null 
+                && this.BelongedLegion.PreferredRouteway.LastPoint.Index < this.BelongedLegion.PreferredRouteway.RoutePoints.Count - 1)
+            {
+                if (this.CurrentCombatMethod == null)
+                {
+                    this.AttackDefaultKind = TroopAttackDefaultKind.防最弱;
+                    this.AttackTargetKind = TroopAttackTargetKind.目标默认;
+                }
+                if (this.CurrentStratagem == null)
+                {
+                    this.CastTargetKind = TroopCastTargetKind.特定默认;
+                }
+                this.RealDestination = this.BelongedLegion.PreferredRouteway.LastPoint.Position;
+                return true;
+            }
+
             Dictionary<Point, CreditPack> positionCredits = new Dictionary<Point, CreditPack>();
             foreach (Point point in dayArea.Area)
             {
@@ -4049,6 +4066,18 @@ namespace GameObjects
                     this.mingling = "入城";
                     this.TargetArchitecture = this.StartingArchitecture;
                 }
+                {
+                    Architecture a = Session.Current.Scenario.GetArchitectureByPositionNoCheck(this.Position);
+                    if (a != null && a.BelongedFaction != this.BelongedFaction)
+                    {
+                        a.Agriculture = (int)(a.Agriculture * 0.95);
+                        a.Commerce = (int)(a.Commerce * 0.95);
+                        a.Technology = (int)(a.Technology * 0.95);
+                        a.Domination = (int)(a.Domination * 0.95);
+                        a.Morale = (int)(a.Morale * 0.9);
+                    }
+                }
+
                 this.DrawSelected = false;
             }
         }
@@ -5800,7 +5829,7 @@ namespace GameObjects
                 {
                     if (architecture.Food >= this.FoodCostPerDay)
                     {
-                        num += 31;
+                        num += 62;
                         this.HasSupply = true;
                         flag = true;
                         break;
@@ -5814,7 +5843,7 @@ namespace GameObjects
                 {
                     if (architecture.Food >= this.FoodCostPerDay)
                     {
-                        num += 17;
+                        num += 34;
                         flag = true;
                         this.HasSupply = true;
                         break;
@@ -5824,7 +5853,7 @@ namespace GameObjects
                 {
                     if ((this.BelongedLegion.PreferredRouteway != null) && this.BelongedLegion.PreferredRouteway.IsEnough(position, this.FoodCostPerDay))
                     {
-                        num += 23;
+                        num += 46;
                         this.HasSupply = true;
                     }
                     else
@@ -5833,7 +5862,7 @@ namespace GameObjects
                         {
                             if (point.BelongedRouteway.IsEnough(point.ConsumptionRate, this.FoodCostPerDay))
                             {
-                                num += 11;
+                                num += 22;
                                 this.HasSupply = true;
                                 break;
                             }
@@ -5866,7 +5895,7 @@ namespace GameObjects
                     {
                         if (point.BelongedRouteway.IsEnough(point.ConsumptionRate, this.FoodCostPerDay))
                         {
-                            num += 20;
+                            num += 40;
                             this.HasSupply = true;
                             break;
                         }
@@ -12226,7 +12255,7 @@ namespace GameObjects
         {
             get
             {
-                return (this.drawAnimation && Setting.Current.GlobalVariables.DrawTroopAnimation);
+                return (this.drawAnimation && Session.Current.Scenario.GlobalVariables.DrawTroopAnimation);
             }
             set
             {
