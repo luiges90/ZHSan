@@ -379,7 +379,14 @@ namespace Platforms
 
         public override string[] GetFiles(string dir, bool all = false)
         {
-            return Directory.GetFiles(dir, "*.*", all ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+            if (DirectoryExists(dir))
+            {
+                return Directory.GetFiles(dir, "*.*", all ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public override string ReadAllText(string file)

@@ -14243,7 +14243,8 @@ namespace GameObjects
         {
             get
             {
-                if (!this.Kind.HasLongView)
+                //Why Kind is null sometimes?
+                if (this.Kind == null || !this.Kind.HasLongView)
                 {
                     return this.ViewArea;
                 }
@@ -14772,7 +14773,7 @@ namespace GameObjects
         {
             get
             {
-                return ((this.Kind.ViewDistance + (this.AreaCount / this.Kind.ViewDistanceIncrementDivisor)) + this.IncrementOfViewRadius);
+                return (this.kind == null ? 0 : (this.Kind.ViewDistance + (this.AreaCount / this.Kind.ViewDistanceIncrementDivisor))) + this.IncrementOfViewRadius;
             }
         }
 

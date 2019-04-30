@@ -37,6 +37,21 @@ namespace GameManager
         [DataMember]
         public string MOD { get; set; }
 
+        public string MODRuntime
+        {
+            get
+            {
+                if (Session.Current == null || Session.Current.Scenario == null)
+                {
+                    return Setting.Current.MOD;
+                }
+                else
+                {
+                    return Session.Current.Scenario.MOD;
+                }
+            }
+        }
+
         [DataMember]
         public GlobalVariables GlobalVariables { get; set; }
 

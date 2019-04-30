@@ -1466,7 +1466,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             }
 
-            if (Setting.Current.MOD == "Shanshui")
+            if (Setting.Current.MODRuntime == "Shanshui")
             {
                 //jokosany取消暂停音乐
             }

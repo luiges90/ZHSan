@@ -41,6 +41,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 this.LoadScenario(base.InitializationFileName, base.InitializationFactionIDs, true, this);
 
+                Session.Current.Scenario.MOD = Setting.Current.MOD;
+
                 var globalVariables = Session.globalVariablesTemp;  //.globalVariablesBasic.Clone();
 
                 var gameParameters = Session.parametersTemp;  //.parametersBasic.Clone();
@@ -210,7 +212,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Session.GlobalVariables.SaveToXml();
                 Session.Parameters.SaveToXml();
 
-                if (Setting.Current.MOD == "Shanshui")
+                if (Setting.Current.MODRuntime == "Shanshui")
                 {
 
                 }
@@ -289,7 +291,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 jianzhu.jianzhuqizi = new qizi();
                 //jianzhu.jianzhuqizi.qizidezi = new FreeText(font1, color1);
                 
-                if (Setting.Current.MOD == "Shanshui")
+                if (Setting.Current.MODRuntime == "Shanshui")
                 {
                     //jokosany不允许加载城池名片
                 }

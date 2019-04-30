@@ -68,7 +68,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                             //////////architecture.jianzhubiaoti.DisplayOffset = new Point(0, -this.mainMapLayer.TileWidth / 2);
                             //architecture.jianzhubiaoti.Draw(0.7999f);
 
-                            if (Setting.Current.MOD == "Shanshui")
+                            if (Setting.Current.MODRuntime == "Shanshui")
                             {
                                 //jokosany不允许加载城池名片
                             }
@@ -265,7 +265,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
             {
                 return tupian;
             }
-            if (Setting.Current.MOD == "Shanshui")
+            if (Setting.Current.MODRuntime == "Shanshui")
             {
                 //jokosany不允许加载关隘图片
             }

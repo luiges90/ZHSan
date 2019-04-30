@@ -555,16 +555,16 @@ namespace Platforms
 
         public string GetMODFile(string res)
         {
-            res = res.Replace("\\", "/");
+            //res = res.Replace("\\", "/");
 
             //根據MOD來選擇素材
-            if (String.IsNullOrEmpty(Setting.Current.MOD))
+            if (String.IsNullOrEmpty(Setting.Current.MODRuntime))
             {
 
             }
             else
             {
-                var mod = res.Replace("Content", "MODs/" + Setting.Current.MOD);
+                var mod = res.Replace("Content", "MODs\\" + Setting.Current.MODRuntime);
 
                 if (Platform.Current.FileExists(mod))
                 {
@@ -580,13 +580,13 @@ namespace Platforms
             string[] files = null;
 
             //根據MOD來選擇素材
-            if (String.IsNullOrEmpty(Setting.Current.MOD))
+            if (String.IsNullOrEmpty(Setting.Current.MODRuntime))
             {
                 files = GetFiles(dir, false).NullToEmptyArray();
             }
             else
             {
-                var mod = dir.Replace("Content", "MODs/" + Setting.Current.MOD);
+                var mod = dir.Replace("Content", "MODs\\" + Setting.Current.MODRuntime);
 
                 files = GetFiles(mod, false).NullToEmptyArray();
 

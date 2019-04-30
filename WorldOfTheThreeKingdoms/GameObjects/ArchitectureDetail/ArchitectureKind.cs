@@ -54,7 +54,7 @@ namespace GameObjects.ArchitectureDetail
             get
             {
                 //jokosany不允许加载小城
-                if (Setting.Current.MOD == "Shanshui")
+                if (Setting.Current.MODRuntime == "Shanshui")
                 {
 
                 }

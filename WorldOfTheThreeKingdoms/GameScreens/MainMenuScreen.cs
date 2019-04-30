@@ -165,71 +165,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
         };
 
-        string[] aboutLines = new string[]
-        {
-            String.Format("中华三国志"),
-"游戏的更新与讨论请关注:",
-"官方论坛:http://www.zhsan.com ",
-"百度贴吧:中华三国志吧",
-"订阅号:中三之家（zhsan_com）",
-"",
-"原作者：Clip_on",
-"负责人：耒戈氏",
-"执行秘书：一世恋",
-"",
-"程序制作：,",
-"耒戈氏  45399735  kpxp  月落乌江（剧本编辑器）  兔巴哥(《三国春秋传》作者，手机版移植)   majorcheng(外交) breamask(单挑)  我勒个去(其他)  最爱艾氏兄弟  YPZhou(程序优化)",
-"",
-"",
-"美工UI模型：",
-"caibao2009（地图）  酷热7(地图、UI)  月落乌江(地图)  sgb6700tt(界面)  Ftian80(头像)  无限时段(粮道)  PTMASTER酱(帅旗)   睿哥（头像）  腿长一米六的滥情种（头像）  蓝心（头像） ",
-            " 啸林山人（头像）  常山（兵模）   古月（宝物图）  左撇（宝物图）  蓝色（UI）  ",
-"",
-"剧本：",
-"zwm213  清风凉亭  yesf  lakina006  amisuzuki  yesf  酷热7  粒粒橙  o哀之咏叹调o  髀里肉生o0  一身是胆  一世恋  caibao2009  哈哈哈呵呵呵  helokero13  yuanhouzi123(称号)  熊家依若(武将) "
-            ," 黑翼喵  郭文斌(兵种)  asmz2002(影响文字)  枫舞影(对话文字)  余襄子（传记） 燕返（测试） 风中翎羽（优化） 落叶梧桐（优化） ",
-"",
-"音乐音效配音",
-"一丝不狗  洛书  ciaos597  欧阳冰凌  四步花开  虚君  易萧  苏小样  屯屯",
-"特别鸣谢《嗜血印》之艺龙李叔支持的音乐音效",
-"特别鸣谢《炎黄战纪》支持的音乐音效",
-"",
-"视频动画制作",
-"欧阳小锤（开始动画）  秋木萋萋（开始动画）  赵虎威（感恩视频）",
-"",
-"宣传运营：",
-"一世恋（论坛、steam上架、游侠）  酷热7（论坛）  郭文斌（论坛）  陸陸大顺(论坛)  阿伍（论坛、贴吧、qq群、steam社区）  米卡柳丁（订阅号）  天青色等煙雨（TAPTAP） ",
-            " 赵凤、二娃子、李存孝（qq群）  快乐自逍遥（贴吧）  叶千落（协助发行）  念他（奶油关）  有晴人（贴吧） 水人（小黑盒） 今日头条（耐撕儿游戏） ",
-"",
-"中三丝路DLC制作：黄金魔导师。程序鸣谢：耒戈氏、月落乌江、兔八哥。艺术鸣谢:徐超然(南一先生，琴)，毛小贝(筝)，丰草(九歌艾草，筝)，墨姀(筝)，张箬(卧云先生，书)，",
-            "田筱煜和罗志翔(昆曲)。感谢常山和古月(兵模)、左撇(UI)、本大少(地形)的帮助。",
-"",
-"感谢以下媒体、自媒体的曝光宣传：",
-"52PK游戏网、游侠、游讯、3DM、STEAM贴吧君、太平洋游戏、拯救大魔王、凌晨大黑狗、265G游戏网",
-"",
-"该游戏为学习交流之用，游戏制作者对其所制作部分分别享有版权，游戏中图片、音乐等资源版权为原制作团队所有。未经许可禁止把该游戏用作商业用途。",
-"",
-"感谢广大网友的支持！"
-        };
+        string[] aboutLines = null;
 
         int currentStartVersion = 2;
-        string[] startLines = new string[]
-        {
-"新人教程已经发布，在商店页面右侧的游戏手册下载使用。欢迎各位新伙伴学习了解。配了图文，很细致了，相信愿意玩的伙伴可以入门了。因为有大量图片，",
-"文件有20M，请耐心下载了解。请各位伙伴先阅读此文章，再发表评论和疑问。",
-"",
-"新人教程(bilibili視頻): https://www.bilibili.com/video/av50152479/",
-"",
-"祝大家玩的开心！",
-            "",
-            "-----------------------------------",
-            "中华三国志(v1.3)更新",
-        };
+        string[] startLines = null;
 
         string message = "";
 
         public MainMenuScreen()
         {
+            startLines = Platform.Current.LoadTexts(@"Content\StartLines.txt");
+
             if (Platform.Current.UserFileExist(new string[] { "startRead.txt" })[0])
             {
                 string content = Platform.Current.GetUserText("startRead.txt");
@@ -250,7 +196,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
             Platform.Current.SaveUserFile("startRead.txt", currentStartVersion.ToString());
             //None
-            
+
             var dires = Platform.Current.GetDirectories("MODs", false).NullToEmptyList();
 
             if (dires.Count > 1)
@@ -325,6 +271,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 menuTypeElapsed = 0f;
                 UnCheckTextBoxs();
                 MenuType = MenuType.About;
+
+                aboutLines = Platform.Current.LoadTexts(@"Content\AboutLines.txt");
             };
             btList.Add(btOne);
 
@@ -576,7 +524,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btConfigList1 = new List<ButtonTexture>();
 
-            
+
             btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase))
             {
                 ID = "LiangDao"
@@ -596,7 +544,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
             };
             btConfigList1.Add(btOne);
-            
+
 
             btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 0.5f))
             {
@@ -2050,7 +1998,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             }
             else
-            {                
+            {
                 for (int i = 0; i < MODs.Length; i++)
                 {
                     var mod = MODs[i];
@@ -3248,11 +3196,38 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             if (Setting.Current.MOD == "Shanshui")
             {
+                //jokosany暂时不显示动态开始界面
                 startPos = Vector2.Zero;
+
+                //jokosany为丝路开始界面调整按钮位置
+
+                btList.FirstOrDefault(bt => bt.Name == "New").Position = new Vector2(60, 630);
+
+                btList.FirstOrDefault(bt => bt.Name == "Save").Position = new Vector2(290, 630);
+
+                btList.FirstOrDefault(bt => bt.Name == "Setting").Position = new Vector2(520, 630);
+
+                btList.FirstOrDefault(bt => bt.Name == "About").Position = new Vector2(750, 630);
+
+                btList.FirstOrDefault(bt => bt.Name == "Exit").Position = new Vector2(980, 630);
+
+                btnDantiao.Position = new Vector2(860 + 260, 650 - 80);
             }
             else
             {
                 startPos = new Vector2(-startElapsed / startCircle * right, 0);
+
+                btList.FirstOrDefault(bt => bt.Name == "New").Position = new Vector2(100, 600);
+
+                btList.FirstOrDefault(bt => bt.Name == "Save").Position = new Vector2(310, 600);
+
+                btList.FirstOrDefault(bt => bt.Name == "Setting").Position = new Vector2(520, 600);
+
+                btList.FirstOrDefault(bt => bt.Name == "About").Position = new Vector2(730, 600);
+
+                btList.FirstOrDefault(bt => bt.Name == "Exit").Position = new Vector2(940, 600);
+
+                btnDantiao.Position = new Vector2(860 + 260, 650);
             }
 
             if (isClosing)
@@ -4084,9 +4059,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             CacheManager.Draw(@"Content\Textures\Resources\Start\Start01.jpg", startPos, Color.White);
             //CacheManager.Draw(@"Content\Textures\Resources\Start\Start.jpg", new Rectangle(0, 0, , Color.White);
 
-            CacheManager.Draw(@"Content\Textures\Resources\Start\Logo.png", new Vector2(380, 50), Color.White);
+            if (Setting.Current.MOD == "Shanshui")
+            {
 
-            CacheManager.Draw(@"Content\Textures\Resources\Start\Words.png", new Vector2(380, 260), Color.White);
+            }
+            else
+            {
+                CacheManager.Draw(@"Content\Textures\Resources\Start\Logo.png", new Vector2(380, 50), Color.White);
+
+                CacheManager.Draw(@"Content\Textures\Resources\Start\Words.png", new Vector2(380, 260), Color.White);
+            }
 
             if (MenuType == MenuType.None)
             {
@@ -4238,27 +4220,56 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         nst.Draw(alpha);
                     }
 
-                    CacheManager.DrawString(Session.Current.Font, "粮道系统", new Vector2(left1, heightBase), Color.Black * alpha);
+                    if (Setting.Current.MOD == "Shanshui")
+                    {
+                        CacheManager.DrawString(Session.Current.Font, "粮道系统", new Vector2(left1, heightBase), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "出仕相性考虑有效", new Vector2(left1, heightBase + height * 0.5f), Color.Black * alpha);
+                        CacheManager.DrawString(Session.Current.Font, "出仕相性考虑有效", new Vector2(left1, heightBase + height * 0f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "部队速率有效", new Vector2(left1, heightBase + height * 1f), Color.Black * alpha);
+                        CacheManager.DrawString(Session.Current.Font, "部队速率有效", new Vector2(left1, heightBase + height * 0.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "武将可能在单挑中死亡", new Vector2(left1, heightBase + height * 1.5f), Color.Black * alpha);
+                        CacheManager.DrawString(Session.Current.Font, "武将可能在单挑中死亡", new Vector2(left1, heightBase + height * 1f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "年龄有效", new Vector2(left1, heightBase + height * 2f), Color.Black * alpha);
+                        CacheManager.DrawString(Session.Current.Font, "年龄有效", new Vector2(left1, heightBase + height * 1.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "年龄影响能力", new Vector2(left1, heightBase + height * 2.5f), Color.Black * alpha);
+                        CacheManager.DrawString(Session.Current.Font, "年龄影响能力", new Vector2(left1, heightBase + height * 2f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "武将有可能独立", new Vector2(left1, heightBase + height * 3f), Color.Black * alpha);
+                        CacheManager.DrawString(Session.Current.Font, "武将有可能独立", new Vector2(left1, heightBase + height * 2.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "容许势力合并", new Vector2(left1, heightBase + height * 3.5f), Color.Black * alpha);
+                        CacheManager.DrawString(Session.Current.Font, "容许势力合并", new Vector2(left1, heightBase + height * 3f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "人口小于兵力时禁止征兵", new Vector2(left1, heightBase + height * 4f), Color.Black * alpha);
+                        CacheManager.DrawString(Session.Current.Font, "人口小于兵力时禁止征兵", new Vector2(left1, heightBase + height * 3.5f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
+                        CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 4f), Color.Black * alpha);
 
-                    CacheManager.DrawString(Session.Current.Font, "只有异族能納妃", new Vector2(left1, heightBase + height * 5f), Color.Black * alpha);
+                        CacheManager.DrawString(Session.Current.Font, "只有异族能納妃", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
+
+                    }
+                    else
+                    {
+                        CacheManager.DrawString(Session.Current.Font, "粮道系统", new Vector2(left1, heightBase), Color.Black * alpha);
+
+                        CacheManager.DrawString(Session.Current.Font, "出仕相性考虑有效", new Vector2(left1, heightBase + height * 0.5f), Color.Black * alpha);
+
+                        CacheManager.DrawString(Session.Current.Font, "部队速率有效", new Vector2(left1, heightBase + height * 1f), Color.Black * alpha);
+
+                        CacheManager.DrawString(Session.Current.Font, "武将可能在单挑中死亡", new Vector2(left1, heightBase + height * 1.5f), Color.Black * alpha);
+
+                        CacheManager.DrawString(Session.Current.Font, "年龄有效", new Vector2(left1, heightBase + height * 2f), Color.Black * alpha);
+
+                        CacheManager.DrawString(Session.Current.Font, "年龄影响能力", new Vector2(left1, heightBase + height * 2.5f), Color.Black * alpha);
+
+                        CacheManager.DrawString(Session.Current.Font, "武将有可能独立", new Vector2(left1, heightBase + height * 3f), Color.Black * alpha);
+
+                        CacheManager.DrawString(Session.Current.Font, "容许势力合并", new Vector2(left1, heightBase + height * 3.5f), Color.Black * alpha);
+
+                        CacheManager.DrawString(Session.Current.Font, "人口小于兵力时禁止征兵", new Vector2(left1, heightBase + height * 4f), Color.Black * alpha);
+
+                        CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
+
+                        CacheManager.DrawString(Session.Current.Font, "只有异族能納妃", new Vector2(left1, heightBase + height * 5f), Color.Black * alpha);
+
+                    }
 
                     CacheManager.DrawString(Session.Current.Font, "开启作弊功能", new Vector2(left2, heightBase), Color.Black * alpha);
 
@@ -4528,7 +4539,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             {
                                 string viewTime = "(" + (playTime / 60 / 60) + ":" + (playTime / 60 % 60) + ")";
 
-                                CacheManager.DrawString(Session.Current.Font, viewTime, bt.Position + new Vector2(45 + 900, 2), Color.Blue * alpha);
+                                if (Setting.Current.MOD == "Shanshui")
+                                {
+                                    //jokosany君主名字3个字，会和时间字体重叠,把下面的45改为65
+                                    CacheManager.DrawString(Session.Current.Font, viewTime, bt.Position + new Vector2(65 + 900, 2), Color.Blue * alpha);
+                                }
+                                else
+                                {
+                                    CacheManager.DrawString(Session.Current.Font, viewTime, bt.Position + new Vector2(45 + 900, 2), Color.Blue * alpha);
+                                }
                             }
                         }
 

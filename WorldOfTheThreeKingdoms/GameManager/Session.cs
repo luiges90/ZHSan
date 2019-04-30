@@ -593,46 +593,51 @@ namespace GameManager
 
         public static void PlayMusic(string category)
         {
-            string[] songs = null;
+            string[] songs = Platform.Current.GetMODFiles(@"Content\Music\" + category).NullToEmptyArray();
 
-            if (category == "Start")
-            {
-                songs = new string[] { @"Content\Music\Start\Start" };
-            }
-            else if (category == "Attack")
-            {
-                songs = new string[] { @"Content\Music\Attack\Attack" };
-            }
-            else if (category == "Defend")
-            {
-                songs = new string[] { @"Content\Music\Defend\Defend" };
-            }
-            else if (category == "Battle")
-            {
-                songs = new string[] { @"Content\Music\Battle\Battle" };
-            }
-            else if (category == "Spring")
-            {
-                songs = new string[] { @"Content\Music\Spring\Spring" };
-            }
-            else if (category == "Summer")
-            {
-                songs = new string[] { @"Content\Music\Summer\Summer" };
-            }
-            else if (category == "Autumn")
-            {
-                songs = new string[] { @"Content\Music\Autumn\Autumn" };
-            }
-            else if (category == "Winter")
-            {
-                songs = new string[] { @"Content\Music\Winter\Winter" };
-            }
+            //if (category == "Start")
+            //{
+            //    songs = new string[] { @"Content\Music\Start\Start" };
+            //}
+            //else if (category == "Attack")
+            //{
+            //    songs = new string[] { @"Content\Music\Attack\Attack" };
+            //}
+            //else if (category == "Defend")
+            //{
+            //    songs = new string[] { @"Content\Music\Defend\Defend" };
+            //}
+            //else if (category == "Battle")
+            //{
+            //    songs = new string[] { @"Content\Music\Battle\Battle" };
+            //}
+            //else if (category == "Spring")
+            //{
+            //    songs = new string[] { @"Content\Music\Spring\Spring" };
+            //}
+            //else if (category == "Summer")
+            //{
+            //    songs = new string[] { @"Content\Music\Summer\Summer" };
+            //}
+            //else if (category == "Autumn")
+            //{
+            //    songs = new string[] { @"Content\Music\Autumn\Autumn" };
+            //}
+            //else if (category == "Winter")
+            //{
+            //    songs = new string[] { @"Content\Music\Winter\Winter" };
+            //}
 
             Random rd = new Random();
             int index = rd.Next(0, songs.Length);
             string song = songs[index];
 
             Platform.Current.PlaySong(song);
+        }
+
+        static string[] ListUpSongs(string dir)
+        {
+            return Platform.Current.GetMODFiles(dir).NullToEmptyArray();
         }
 
         public static void StopSong()

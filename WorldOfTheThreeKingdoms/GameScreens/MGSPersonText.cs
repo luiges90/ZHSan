@@ -461,7 +461,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
                 this.Plugins.tupianwenziPlugin.IsShowing = true;
 
-                if (Setting.Current.MOD == "Shanshui")
+                if (Setting.Current.MODRuntime == "Shanshui")
                 {
                     //jokosany取消暂停音乐，下面共计4个
                 }
@@ -492,7 +492,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
                 this.Plugins.tupianwenziPlugin.IsShowing = true;
 
-                if (Setting.Current.MOD == "Shanshui")
+                if (Setting.Current.MODRuntime == "Shanshui")
                 {
                     //jokosany取消暂停音乐，下面共计4个
                 }
@@ -525,7 +525,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
                 this.Plugins.tupianwenziPlugin.IsShowing = true;
 
-                if (Setting.Current.MOD == "Shanshui")
+                if (Setting.Current.MODRuntime == "Shanshui")
                 {
                     //jokosany取消暂停音乐，下面共计4个
                 }
@@ -554,7 +554,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, shijian, tupian, shengyin);
                 this.Plugins.tupianwenziPlugin.SetPosition(ShowPosition.Bottom, Session.MainGame.mainGameScreen);
                 this.Plugins.tupianwenziPlugin.IsShowing = true;
-                if (Setting.Current.MOD == "Shanshui")
+                if (Setting.Current.MODRuntime == "Shanshui")
                 {
                     //jokosany取消暂停音乐，下面共计4个
                 }

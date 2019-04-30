@@ -6795,7 +6795,7 @@ namespace GameObjects
                 switch (this.Action)
                 {
                     case TroopAction.Stop:
-                        return Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(28 ).Textures.MoveTexture;
+                        return Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(28).Textures.MoveTexture;
 
                     case TroopAction.Move:
                         return Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(28).Textures.MoveTexture;

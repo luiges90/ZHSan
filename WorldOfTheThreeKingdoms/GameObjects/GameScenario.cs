@@ -30,6 +30,9 @@ namespace GameObjects
     {
         //public GameFreeText.FreeText GameProgressCaution;
 
+        [DataMember]
+        public string MOD { get; set; }
+
         public static string SCENARIO_ERROR_TEXT_FILE
         {
             get
