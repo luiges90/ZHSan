@@ -1465,11 +1465,20 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
             }
-            if (this.tufashijianzantingyinyue && this.Plugins.tupianwenziPlugin.IsShowing == false)
+
+            if (Setting.Current.MOD == "Shanshui")
             {
-                this.ResumeMusic();
-                this.tufashijianzantingyinyue = false;
+                //jokosany取消暂停音乐
             }
+            else
+            {
+                if (this.tufashijianzantingyinyue && this.Plugins.tupianwenziPlugin.IsShowing == false)
+                {
+                    this.ResumeMusic();
+                    this.tufashijianzantingyinyue = false;
+                }
+            }
+
             return item;
         }
 

@@ -35,6 +35,9 @@ namespace GameManager
         public string BattleSpeed { get; set; }
 
         [DataMember]
+        public string MOD { get; set; }
+
+        [DataMember]
         public GlobalVariables GlobalVariables { get; set; }
 
         public static Setting Current = null;
@@ -44,7 +47,7 @@ namespace GameManager
 
         }
 
-        public static void Init()
+        public static void Init(bool prepare)
         {
             try
             {
@@ -55,7 +58,11 @@ namespace GameManager
                     try
                     {
                         Current = SimpleSerializer.DeserializeJsonFile<Setting>(file1, true, false);
-                        Prepare();
+
+                        if (prepare)
+                        {
+                            Prepare();
+                        }
 
                         Save();
                     }
@@ -73,7 +80,11 @@ namespace GameManager
             if (Current == null)
             {
                 Current = new Setting();
-                Prepare();
+
+                if (prepare)
+                {
+                    Prepare();
+                }
 
                 Save();
             }

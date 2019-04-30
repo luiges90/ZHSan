@@ -210,16 +210,23 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Session.GlobalVariables.SaveToXml();
                 Session.Parameters.SaveToXml();
 
-                //这里已经保存了玩家自定的信息后，再单独加载剧本制作者设定的信息，这样不会将玩家的设定保存覆盖
-                string str = @"Content\Data\Scenario\" + base.InitializationFileName + "GlobalVariables.xml";
-                if (File.Exists(Environment.CurrentDirectory + "\\" + str))
+                if (Setting.Current.MOD == "Shanshui")
                 {
-                    Session.Current.Scenario.GlobalVariables.InitialGlobalVariables(str);
+
                 }
-                string str2 = @"Content\Data\Scenario\" + base.InitializationFileName + "GameParameters.xml";
-                if (File.Exists(Environment.CurrentDirectory + "\\" + str2))
+                else
                 {
-                    Session.Current.Scenario.Parameters.InitializeGameParameters(str2);
+                    //这里已经保存了玩家自定的信息后，再单独加载剧本制作者设定的信息，这样不会将玩家的设定保存覆盖
+                    string str = @"Content\Data\Scenario\" + base.InitializationFileName + "GlobalVariables.xml";
+                    if (File.Exists(Environment.CurrentDirectory + "\\" + str))
+                    {
+                        Session.Current.Scenario.GlobalVariables.InitialGlobalVariables(str);
+                    }
+                    string str2 = @"Content\Data\Scenario\" + base.InitializationFileName + "GameParameters.xml";
+                    if (File.Exists(Environment.CurrentDirectory + "\\" + str2))
+                    {
+                        Session.Current.Scenario.Parameters.InitializeGameParameters(str2);
+                    }
                 }
 
                 Session.Current.Scenario.AfterLoadGameScenario(this);
@@ -281,16 +288,25 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 //jianzhu.jianzhubiaoti.Align = TextAlign.Left;
                 jianzhu.jianzhuqizi = new qizi();
                 //jianzhu.jianzhuqizi.qizidezi = new FreeText(font1, color1);
-                try
+                
+                if (Setting.Current.MOD == "Shanshui")
                 {
-                    jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/" + jianzhu.CaptionID + ".png");
-                    jianzhu.CaptionTexture.Width = 120;
-                    jianzhu.CaptionTexture.Height = 28;
+                    //jokosany不允许加载城池名片
                 }
-                catch
+                else
                 {
-                    jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/None.png");
+                    try
+                    {
+                        jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/" + jianzhu.CaptionID + ".png");
+                        jianzhu.CaptionTexture.Width = 120;
+                        jianzhu.CaptionTexture.Height = 28;
+                    }
+                    catch
+                    {
+                        jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/None.png");
+                    }
                 }
+
                 /*
                 if (jianzhu.BelongedFaction != null)
                 {
@@ -298,7 +314,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }*/
 
                 //this.qizidezi.Align = TextAlign.Middle;
-
 
                 jianzhu.jianzhuqizi.qizipoint = new Point(jianzhu.dingdian.X, jianzhu.dingdian.Y-1);
 

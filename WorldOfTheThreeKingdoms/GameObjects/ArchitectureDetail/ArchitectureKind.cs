@@ -53,13 +53,24 @@ namespace GameObjects.ArchitectureDetail
         {
             get
             {
-                if (this.texture == null)
+                //jokosany不允许加载小城
+                if (Setting.Current.MOD == "Shanshui")
                 {
-                    this.texture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/" + this.ID.ToString() + ".png");
+
                 }
+                else
+                {
+                    if (this.texture == null)
+                    {
+                        this.texture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/" + this.ID.ToString() + ".png");
+                    }
+                }
+
                 return this.texture;
             }
         }
+
+        //jokosany扩建后加载新图
         public PlatformTexture Texture2
         {
             get

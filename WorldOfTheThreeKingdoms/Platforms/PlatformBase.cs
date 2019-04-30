@@ -553,6 +553,56 @@ namespace Platforms
 
         #region 用戶文件夾處理
 
+        public string GetMODFile(string res)
+        {
+            res = res.Replace("\\", "/");
+
+            //根據MOD來選擇素材
+            if (String.IsNullOrEmpty(Setting.Current.MOD))
+            {
+
+            }
+            else
+            {
+                var mod = res.Replace("Content", "MODs/" + Setting.Current.MOD);
+
+                if (Platform.Current.FileExists(mod))
+                {
+                    res = mod;
+                }
+            }
+
+            return res;
+        }
+
+        public string[] GetMODFiles(string dir)
+        {
+            string[] files = null;
+
+            //根據MOD來選擇素材
+            if (String.IsNullOrEmpty(Setting.Current.MOD))
+            {
+                files = GetFiles(dir, false).NullToEmptyArray();
+            }
+            else
+            {
+                var mod = dir.Replace("Content", "MODs/" + Setting.Current.MOD);
+
+                files = GetFiles(mod, false).NullToEmptyArray();
+
+                if (files.Length == 0)
+                {
+                    files = GetFiles(dir, false).NullToEmptyArray();
+                }
+                else
+                {
+                    
+                }
+            }
+
+            return files;
+        }
+
         protected string UserApplicationDataPath
         {
             get

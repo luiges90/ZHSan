@@ -26,8 +26,19 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         Start
     }
 
+    public class MOD
+    {
+        public string ID { get; set; }
+
+        public string Name { get; set; }
+
+        public string Desc { get; set; }
+    }
+
     public class MainMenuScreen
     {
+        public MOD[] MODs = null;
+
         public static MainMenuScreen Current = null;
 
         public MenuType MenuType = MenuType.None;
@@ -239,6 +250,37 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
             Platform.Current.SaveUserFile("startRead.txt", currentStartVersion.ToString());
             //None
+            
+            var dires = Platform.Current.GetDirectories("MODs", false).NullToEmptyList();
+
+            if (dires.Count > 1)
+            {
+                MODs = new MOD[]
+                {
+                    new MOD() { ID = "", Name = "原版", Desc = "" }
+                };
+
+                foreach (var dir in dires)
+                {
+                    var mod = new MOD();
+
+                    mod.ID = dir.Substring(dir.LastIndexOf('\\') + 1);
+
+                    var lines = Platform.Current.ReadAllLines($@"MODs\{mod.ID}\{mod.ID}.txt").NullToEmptyArray();
+
+                    if (lines.Length > 0)
+                    {
+                        mod.Name = lines[0];
+                    }
+
+                    if (lines.Length > 1)
+                    {
+                        mod.Desc = lines[1];
+                    }
+
+                    MODs = MODs.Union(new MOD[] { mod }).NullToEmptyArray();
+                }
+            }
 
             Current = this;
 
@@ -1783,6 +1825,26 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btSettingList.Add(btOne);
 
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left + 300, 120))
+            {
+                ID = "ShowChallengeAnimation"
+            };
+            btOne.OnButtonPress += (sender, e) =>
+            {
+                var bt = (ButtonTexture)sender;
+                if (bt.Selected)
+                {
+                    bt.Selected = false;
+                    Setting.Current.GlobalVariables.ShowChallengeAnimation = false;
+                }
+                else
+                {
+                    bt.Selected = true;
+                    Setting.Current.GlobalVariables.ShowChallengeAnimation = true;
+                }
+            };
+            btSettingList.Add(btOne);
+
             btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, 120 + height * 0.5f))
             {
                 ID = "BattleSound"
@@ -1982,6 +2044,45 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
             };
             btSettingList.Add(btOne);
+
+            if (MODs == null)
+            {
+
+            }
+            else
+            {                
+                for (int i = 0; i < MODs.Length; i++)
+                {
+                    var mod = MODs[i];
+
+                    btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(150 + 200 * i, 120 + height * -1f))
+                    {
+                        ID = "MOD" + mod.ID
+                    };
+                    btOne.OnButtonPress += (sender, e) =>
+                    {
+                        btSettingList.Where(bt0 => !String.IsNullOrEmpty(bt0.ID) && bt0.ID.StartsWith("MOD")).ForEach(bt1 => { bt1.Selected = false; });
+
+                        var bt = (ButtonTexture)sender;
+
+                        bt.Selected = true;
+
+                        string id = bt.ID.Replace("MOD", "");
+
+                        if (Setting.Current.MOD == id)
+                        {
+
+                        }
+                        else
+                        {
+                            Setting.Current.MOD = id;
+
+                            CacheManager.Clear(CacheType.Live);
+                        }
+                    };
+                    btSettingList.Add(btOne);
+                }
+            }
 
             nstMusic = new NumericSetTextureF(0, 100, 100, null, new Vector2(150, 115 + 60 * 2), true)
             {
@@ -3052,6 +3153,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             var btOne = btSettingList.FirstOrDefault(bt => bt.ID == "CommonSound");
             btOne.Selected = Setting.Current.GlobalVariables.PlayNormalSound;
 
+            btOne = btSettingList.FirstOrDefault(bt => bt.ID == "ShowChallengeAnimation");
+            btOne.Selected = Setting.Current.GlobalVariables.ShowChallengeAnimation;
+
             btOne = btSettingList.FirstOrDefault(bt => bt.ID == "BattleSound");
             btOne.Selected = Setting.Current.GlobalVariables.PlayBattleSound;
 
@@ -3081,6 +3185,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btOne = btSettingList.FirstOrDefault(bt => bt.ID == "OutFocus");
             btOne.Selected = Setting.Current.GlobalVariables.RunWhileNotFocused;
+
+            for (int i = 0; i < MODs.Length; i++)
+            {
+                var mod = MODs[i];
+
+                btOne = btSettingList.FirstOrDefault(bt => bt.ID == "MOD" + mod.ID);
+
+                btOne.Selected = mod.ID == Setting.Current.MOD.NullToString();
+            }
 
             nstAutoSaveTime.NowNumber = Setting.Current.GlobalVariables.AutoSaveFrequency;
 
@@ -3133,7 +3246,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             var right = 2392f - 1280f;
 
-            startPos = new Vector2(- startElapsed / startCircle * right, 0);
+            if (Setting.Current.MOD == "Shanshui")
+            {
+                startPos = Vector2.Zero;
+            }
+            else
+            {
+                startPos = new Vector2(-startElapsed / startCircle * right, 0);
+            }
 
             if (isClosing)
             {
@@ -4485,6 +4605,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 CacheManager.DrawString(Session.Current.Font, "播放一般音效", new Vector2(left, 120), Color.Black * alpha);
 
+                CacheManager.DrawString(Session.Current.Font, "演示单挑", new Vector2(left + 300, 120), Color.Black * alpha);
+
                 CacheManager.DrawString(Session.Current.Font, "播放战斗音效", new Vector2(left, 120 + height * 0.5f), Color.Black * alpha);
 
                 CacheManager.DrawString(Session.Current.Font, "显示地图烟幕", new Vector2(left, 120 + height * 1), Color.Black * alpha);
@@ -4511,11 +4633,26 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 CacheManager.DrawString(Session.Current.Font, "战斗速度", new Vector2(50, 120 + height * 4.5f), Color.Black * alpha);
 
+                if (MODs == null)
+                {
+
+                }
+                else
+                {
+                    CacheManager.DrawString(Session.Current.Font, "MOD", new Vector2(50, 120 + height * -1f), Color.DarkRed * alpha);
+
+                    for (int i = 0; i < MODs.Length; i++)
+                    {
+                        var mod = MODs[i];
+
+                        CacheManager.DrawString(Session.Current.Font, mod.Name, new Vector2(50 + 150 + 200 * i, 120 + height * -1f), Color.Black * alpha);
+                    }
+                }
+
                 //btnTextureAlpha.Alpha = alpha;
                 //btnTextureAlpha.Draw();
 
                 //CacheManager.DrawString(Session.Current.Font, "处理材质Alpha", new Vector2(50 + 100, 120 + height * 5f), Color.Black * alpha);
-
             }
             else if (MenuType == MenuType.About)
             {

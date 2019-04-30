@@ -49,7 +49,7 @@ namespace GameObjects
         {
             int flag = 0;
             //damage.ChallengeHappened = true;  //单挑发生
-            if ((Session.GlobalVariables.ShowChallengeAnimation) &&
+            if ((Setting.Current.GlobalVariables.ShowChallengeAnimation) &&   //Session.GlobalVariables.ShowChallengeAnimation
                 (Session.Current.Scenario.IsPlayer(maxStrengthPerson.BelongedFaction) || Session.Current.Scenario.IsPlayer(destination.BelongedFaction) || (Session.GlobalVariables.SkyEye && Session.GlobalVariables.SkyEyeSimpleNotification) || this.ChallengeOftenShow))  //单挑双方有玩家的武将才演示
             {
                 

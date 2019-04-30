@@ -15299,7 +15299,7 @@ namespace GameObjects
                     }
                 }
 
-                if (this.Kind.ID == 2)  //如果是关隘
+                if (this.kind != null && this.Kind.ID == 2)  //如果是关隘
                 {
                     if (this.JianzhuGuimo == 1)
                     {

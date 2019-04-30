@@ -321,6 +321,9 @@ namespace Platforms
         public string LoadText(string res)
         {
             res = res.Replace("\\", "/");
+
+            res = base.GetMODFile(res);
+
             lock (Platform.IoLock)
             {
                 return File.ReadAllText(res);
@@ -334,6 +337,9 @@ namespace Platforms
         public string[] LoadTexts(string res)
         {
             res = res.Replace("\\", "/");
+
+            res = base.GetMODFile(res);
+
             lock (Platform.IoLock)
             {
                 return File.ReadAllLines(res);
@@ -347,6 +353,9 @@ namespace Platforms
         public byte[] LoadFile(string res)
         {
             res = res.Replace("\\", "/");
+
+            res = base.GetMODFile(res);
+
             using (var dest = new MemoryStream())
             {
                 lock (Platform.IoLock)
@@ -481,11 +490,12 @@ namespace Platforms
                 }
                 else
                 {
-
+                    res = base.GetMODFile(res);
                 }
 
                 lock (Platform.IoLock)
                 {
+
                     using (var stream = isUser ? LoadUserFileStream(res) : TitleContainer.OpenStream(res))
                     {
                         Texture2D tex = Texture2D.FromStream(Platform.GraphicsDevice, stream);
