@@ -19,8 +19,8 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             return new Dictionary<string, string>()
             {
-                {"HidePlace", "-1"},
-                {"BelongedPerson", "-1" }
+                {"HidePlaceIDString", "-1"},
+                {"BelongedPersonIDString", "-1" }
             };
         }
 
