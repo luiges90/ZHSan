@@ -3640,7 +3640,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 Setting.Current.GamerName = tbGamerName.Text.NullToStringTrim();
 
-                var nsts = new NumericSetTextureF[] { nstMusic, nstSound, nstArmySpeed, nstDialogTime, nstBattleSpeed, nstAutoSaveTime };
+                var nsts = new NumericSetTextureF[] { nstMusic, nstSound, nstArmySpeed, nstDialogTime, nstBattleSpeed, nstAutoSaveTime };//后面没有战斗速度的处理，虽然此参数并无用
 
                 foreach (var nst in nsts)
                 {
