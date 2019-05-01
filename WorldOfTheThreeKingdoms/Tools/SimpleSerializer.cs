@@ -99,8 +99,16 @@ namespace Tools
                     }
                     var array = stream.ToArray();
                     string result = Encoding.UTF8.GetString(array, 0, array.Length);
-
-                    if (!Platform.IsMobilePlatForm)
+                    if(Platform.PlatFormType== PlatFormType.Win)
+                    {
+                        result = result.Replace("{\"", "{\r\n\"");
+                        result = result.Replace("[{", "[\r\n{");
+                        result = result.Replace(",\"", ",\r\n\"");
+                        result = result.Replace("}", "\r\n}");
+                        result = result.Replace("},{", "},\r\n{");
+                        result = result.Replace("}]", "}\r\n]");
+                    }
+                    else if (!Platform.IsMobilePlatForm)
                     {
                         result = result.Replace("{\"", "{\n\"");
                         result = result.Replace("[{", "[\n{");

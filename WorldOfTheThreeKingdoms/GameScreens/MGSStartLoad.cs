@@ -774,7 +774,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 scenarioName = String.Format(@"Save\{0}.json", filename);
             }
 
-            LoadScenarioData(scenarioName, fromScenario, mainGameScreen);
+            LoadScenarioData(scenarioName, fromScenario, mainGameScreen, false);
 
             var scenario = Session.Current.Scenario;
 
