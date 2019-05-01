@@ -362,31 +362,35 @@ namespace WorldOfTheThreeKingdomsEditor
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "待處理圖片 (*.png)|*.png";
             openFileDialog.InitialDirectory = @"Content\Textures";
+            openFileDialog.Multiselect = true;
             if (openFileDialog.ShowDialog() == true)
             {
-                String filename = openFileDialog.FileName;
+                var filenames = openFileDialog.FileNames;
 
-                using (var img = System.Drawing.Image.FromFile(filename))
+                foreach (var filename in filenames)
                 {
-                    var bitmap = new Bitmap(img, img.Width, img.Height);
-
-                    var target = new Bitmap(img.Width, img.Height);
-
-                    using (Graphics g = Graphics.FromImage(bitmap))
+                    using (var img = System.Drawing.Image.FromFile(filename))
                     {
-                        g.DrawImage(target, 0, 0);
-                        for (int h = 0; h < bitmap.Height; h++)
+                        var bitmap = new Bitmap(img, img.Width, img.Height);
+
+                        var target = new Bitmap(img.Width, img.Height);
+
+                        using (Graphics g = Graphics.FromImage(bitmap))
                         {
-                            for (int w = 0; w < bitmap.Width; w++)
+                            g.DrawImage(target, 0, 0);
+                            for (int h = 0; h < bitmap.Height; h++)
                             {
-                                var color = bitmap.GetPixel(w, h);
-                                color = PremultiplyAlpha(color);
-                                target.SetPixel(w, h, color);
+                                for (int w = 0; w < bitmap.Width; w++)
+                                {
+                                    var color = bitmap.GetPixel(w, h);
+                                    color = PremultiplyAlpha(color);
+                                    target.SetPixel(w, h, color);
+                                }
                             }
                         }
-                    }
 
-                    target.Save(filename.Replace(".png", "-alpha.png"), System.Drawing.Imaging.ImageFormat.Png);
+                        target.Save(filename.Replace(".png", "-alpha.png"), System.Drawing.Imaging.ImageFormat.Png);
+                    }
                 }
 
                 MessageBox.Show("PNG圖片PreMultiplied!");
