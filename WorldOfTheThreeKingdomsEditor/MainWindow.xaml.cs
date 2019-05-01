@@ -39,6 +39,13 @@ namespace WorldOfTheThreeKingdomsEditor
         private DictionaryTab<int, int> fatherTab;
         private DictionaryTab<int, int> motherTab;
         private DictionaryTab<int, int> spouseTab;
+        private DictionaryintTab brotherIdsTab;
+        private DictionaryintTab suoshuIdsTab;
+        private DictionaryintTab closeIdsTab;
+        private DictionaryintTab hatedIdsTab;
+        private RegionTab regionTab;
+        private StateTab stateTab;
+        private TerrainDetailTab terrainDetailTab;
         private string scename;
 
         public bool CopyIncludeTitle = true;
@@ -60,17 +67,29 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 personTab = new PersonTab(scen, dgPerson, lblColumnHelp);
                 personTab.setup();
-                fatherTab = new DictionaryTab<int, int>(scen.FatherIds, "FatherIds", dgFatherId);
+                fatherTab = new DictionaryTab<int, int>(scen.FatherIds, "FatherIds", dgFatherId, scen);
                 fatherTab.setup();
-                motherTab = new DictionaryTab<int, int>(scen.MotherIds, "MotherIds", dgMotherId);
+                motherTab = new DictionaryTab<int, int>(scen.MotherIds, "MotherIds", dgMotherId, scen);
                 motherTab.setup();
-                spouseTab = new DictionaryTab<int, int>(scen.SpouseIds, "SpouseIds", dgSpouseId);
+                spouseTab = new DictionaryTab<int, int>(scen.SpouseIds, "SpouseIds", dgSpouseId, scen);
                 spouseTab.setup();
-                // new DictionaryTab<int, int[]>(scen.BrotherIds, "BrotherIds", dgBrotherId).setup();
+                brotherIdsTab = new DictionaryintTab(scen.BrotherIds, "BrotherIds", dgBrotherIds, scen);
+                brotherIdsTab.setup();
+                suoshuIdsTab = new DictionaryintTab(scen.SuoshuIds, "SuoshuIds", dgSuoshuIds, scen);
+                suoshuIdsTab.setup();
+                closeIdsTab = new DictionaryintTab(scen.CloseIds, "CloseIds", dgCloseIds, scen);
+                closeIdsTab.setup();
+                hatedIdsTab = new DictionaryintTab(scen.HatedIds, "HatedIds", dgHatedIds, scen);
+                hatedIdsTab.setup();
                 architectureTab = new ArchitectureTab(scen, dgArchitecture, lblColumnHelp);
                 architectureTab.setup();
                 factionTab = new FactionTab(scen, dgFaction, lblColumnHelp);
                 factionTab.setup();
+                regionTab = new RegionTab(dgRegion, scen);
+                regionTab.setup();
+                stateTab = new StateTab(dgState, scen);
+                stateTab.setup();
+                //new PersonIDRelationsTab( dgPersonRelations,scen).setup();
                 new MilitaryTab(scen, dgMilitary, lblColumnHelp).setup();
                 new TroopTab(scen, dgTroop, lblColumnHelp).setup();
                 new CaptiveTab(scen, dgCaptive, lblColumnHelp).setup();
@@ -99,6 +118,7 @@ namespace WorldOfTheThreeKingdomsEditor
             new MilitaryKindTab(scen, dgMilitaryKind, lblColumnHelp).setup();
             new TechniqueTab(scen, dgTechniques, lblColumnHelp).setup();
             new GuanjueTab(scen, dgGuanjue, lblColumnHelp).setup();
+            new TerrainDetailTab(scen, dgTerrainDetail, lblColumnHelp).setup();
         }
 
         public static DataTable DataViewAsDataTable(DataView dv)
@@ -133,6 +153,7 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             if (scenLoaded)
             {
+                scen.ProcessScenarioData(true,true);//保存前再读取一进度，是为了把新增加的信息重新刷到scen里
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "劇本檔 (*.json)|*.json";
                 saveFileDialog.InitialDirectory = @"Content\Data\Scenario";
@@ -280,35 +301,54 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             Grid grid = (Grid)tabControl.SelectedContent;
             DataGrid dataGrid = (DataGrid)grid.Children[0];
-
-            try
+            if (dataGrid ==dgRegion || dataGrid == dgState)
             {
-                String text = Clipboard.GetText();
-                String[] textRows = text.Split(new char[] { '\n' });
-
-                DataTable dt = ((DataView)dataGrid.ItemsSource).ToTable();
-                for (int i = 0; i < textRows.Count(); i++)
-                {
-                    if (textRows[i].Length == 0) continue;
-
-                    String[] data = textRows[i].Split(new char[] { '\t' });
-
-                    DataColumnCollection columns = dt.Columns;
-                    DataRow row = dt.NewRow();
-
-                    for (int j = 0; j < Math.Min(columns.Count, data.Count()); ++j)
-                    {
-                        row[columns[j].ColumnName] = data[j];
-                    }
-
-                    dt.Rows.Add(row);
-                }
-
-                dataGrid.ItemsSource = dt.AsDataView();
+                MessageBox.Show("此页面不允许使用复制粘贴功能，请手动双击或右键进行编辑");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("導入資料錯誤:" + ex);
+                try
+                {
+                    String text = Clipboard.GetText();
+                    String[] textRows = text.Split(new char[] { '\n' });
+
+                    DataTable dt = ((DataView)dataGrid.ItemsSource).ToTable();
+                    for (int i = 0; i < textRows.Count(); i++)
+                    {
+                        if (textRows[i].Length == 0) continue;
+
+                        String[] data = textRows[i].Split(new char[] { '\t' });
+
+                        DataColumnCollection columns = dt.Columns;
+                        DataRow row = dt.NewRow();
+                        List<string> tempids = new List<string>();
+                        foreach (DataRow dataRow in dt.Rows)
+                        {
+                            tempids.Add(dataRow["ID"].ToString());
+                        }
+                        for (int j = 0; j < Math.Min(columns.Count, data.Count()); ++j)
+                        {
+                            row[columns[j].ColumnName] = data[j];
+
+                            if (tempids.Contains(row["ID"].ToString()))
+                            {
+                                MessageBox.Show("编号不可以为重复，重复ID为" + row["ID"].ToString() + ",此记录之后的记录粘贴失败");
+                                goto mark;
+                            }
+                        }
+                        dt.Rows.Add(row);
+                    }
+                mark:
+                    dataGrid.ItemsSource = dt.AsDataView();
+                    if (scenLoaded)
+                    {
+                        scen.ProcessScenarioData(true, true);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("導入資料錯誤:" + ex);
+                }
             }
         }
 
@@ -606,7 +646,9 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             CopyIncludeTitle = false;
         }
-
+       
+        //剧本设置相关
+        //
         private void btnScenariotoexcel_Click(object sender, EventArgs e)
         {
             if (!Directory.Exists(@Environment.CurrentDirectory + @"\转换生成文件"))//如果不存在就创建file文件夹
@@ -634,18 +676,6 @@ namespace WorldOfTheThreeKingdomsEditor
                              DataGrid dataGrid = (DataGrid)grid.Children[0];
                              DataTable dt = ((DataView)dataGrid.ItemsSource).Table;
                              worksheet.Cells["a1"].LoadFromDataTable(dt, true); 
-                        ///临时用来检查剧本问题的
-                       /* if(((TabItem)tabControl.Items[i]).Header.ToString() == "武將")
-                        {
-                            int n = dt.Columns.Count;
-                            worksheet.Cells[1, n+1].Value = "武将所属";
-                            worksheet.Cells[1, n + 2].Value = "武将势力";
-                            for (int ii=0;ii<scen.Persons.Count;ii++)
-                            {
-                                worksheet.Cells[ii + 2, n + 1].Value = ((Person)scen.Persons[ii]).Location ;
-                                worksheet.Cells[ii + 2, n + 2].Value = ((Person)scen.Persons[ii]).BelongedFaction ;
-                            }
-                        }*/
                     }
                     package.Save();
 
@@ -700,32 +730,14 @@ namespace WorldOfTheThreeKingdomsEditor
             sets.Owner = this;
         }
 
-        private void DgFaction_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-           /* if (e.Column.Header.Equals("颜色编号"))
-            {
-                  int n =0;
-                if ((e.EditingElement as TextBox).Text != null && (e.EditingElement as TextBox).Text != null)
-                {
-                    // n = int.Parse((e.EditingElement as TextBox).Text);
-                    bool b = int.TryParse((e.EditingElement as TextBox).Text,out n);
-                    if(n !=0)
-                    {
-                         Microsoft.Xna.Framework.Color color = scen.GameCommonData.AllColors[n];
-                         e.Row.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B));
-                    }
-                }
-            }*/  // 这两个屏蔽是显示势力颜色，但因只能做到整行背景色改变，太花
-        }
+        //剧本设置相关
+        //
 
-        private void DgFaction_LoadingRow(object sender, DataGridRowEventArgs e)
-        {
-          /* if(e.Row.GetIndex()<dgFaction.Items.Count-1)
-            {
-                Microsoft.Xna.Framework.Color color = scen.GameCommonData.AllColors[((Faction)scen.Factions[e.Row.GetIndex()]).ColorIndex];
-                e.Row.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B));
-            }*/
-        }
+/// <summary>
+/// 势力相关
+/// </summary>
+
+ 
 
         private void DgFaction_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -748,6 +760,8 @@ namespace WorldOfTheThreeKingdomsEditor
             dgFaction.IsReadOnly = false;
             architectureTab.setup();
             factionTab.setup();
+            //factionTab = new FactionTab(scen, dgFaction, lblColumnHelp);
+            //factionTab.setup();
         }
 
         private void Menueditfac_Click(object sender, RoutedEventArgs e)
@@ -791,6 +805,509 @@ namespace WorldOfTheThreeKingdomsEditor
             f.TroopListString = "";
             scen.Factions.Add(f);
             Editfaction(f);
+        }
+
+        /// <summary>
+        /// 势力相关
+        /// </summary>
+
+
+        //字典相关
+        //
+
+ 
+        private void creatDicWindow(bool edit, int p1ID, string p2IDs, string dgname ,bool ones)
+        {
+            Grid grid0 = (Grid)tabControl.SelectedContent;
+            DataGrid dataGrid0 = (DataGrid)grid0.Children[0];
+            dataGrid0.CancelEdit();
+            int temp1 = p1ID;
+            string tempP2IDs = p2IDs;
+            //int temp2 = p2ID;
+            Window win = new Window();
+            win.Title = "编辑武将关系";
+            if (!edit)
+            {
+                win.Title = "新增武将关系";
+            }
+            win.Width = 500;
+            win.Height = 250;
+            win.ResizeMode = ResizeMode.NoResize;
+            Grid grid = new Grid();
+            win.Content = grid;
+            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
+            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
+            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
+            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
+            Person p1 = scen.Persons.GetGameObject(p1ID) as Person;
+            string p1name = p1 == null ? "" : p1.Name;
+            string p2names = "";
+            GameObjectList list = new GameObjectList();
+
+            char[] separator = new char[] { ' ', '\n', '\r', '\t' };
+            string[] strArray = p2IDs.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < strArray.Length; i++)
+            {
+                Person p2 = scen.Persons.GetGameObject(int.Parse(strArray[i])) as Person;
+                if(p2 !=null)
+                {
+                    list.Add(p2);
+                    p2names = p2names + p2.Name + " ";
+                }
+            }
+            string tempP1name = p1name;
+            string tempP2names = p2names;
+
+            Label labelP1ID = new Label { Content = "武将ID:   " + p1ID, HorizontalContentAlignment = HorizontalAlignment.Center, VerticalContentAlignment = VerticalAlignment.Center };
+            Label labelP1 = new Label { Content = "武将名称:   " + p1name, HorizontalContentAlignment = HorizontalAlignment.Center, VerticalContentAlignment = VerticalAlignment.Center };
+            Button buttonperson = new Button() { Width = 75, Height = 30, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Content = p1name, IsEnabled = !edit };
+            Label labelP2ID = new Label { Content = "对方武将ID:   " + p2IDs, HorizontalContentAlignment = HorizontalAlignment.Center, VerticalContentAlignment = VerticalAlignment.Center };
+            Label labelP2 = new Label { Content = "对方武将名称:   " + p2names, HorizontalContentAlignment = HorizontalAlignment.Center, VerticalContentAlignment = VerticalAlignment.Center };
+            Button button2person = new Button() { Width = 75, Height = 30, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Content = p2names };
+            buttonperson.Click += Buttonperson_Click;
+            button2person.Click += Button2person_Click;
+            void Buttonperson_Click(object sender, RoutedEventArgs e)
+            {
+                Window window = new Window();
+                window.Title = "请选择武将--双击确认";
+                window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                window.Width = 800;
+                window.Height = 600;
+                Grid grid2 = new Grid();
+                window.Content = grid2;
+                grid2.Margin = new Thickness(50);
+                ListBox listBox = new ListBox();
+                DataGrid dataGrid1 = new DataGrid();
+                DataTable dt2 = new DataTable();
+                dt2.Columns.Add("ID", typeof(int));
+                dt2.Columns.Add("姓名");
+                dt2.Columns.Add("性别");
+                dt2.Columns.Add("所在");
+                dt2.Columns.Add("所属势力");
+                dt2.Columns.Add("武学");
+                dt2.Columns.Add("将略");
+                dt2.Columns.Add("谋略");
+                dt2.Columns.Add("政理");
+                dt2.Columns.Add("风度");
+                DataRow dr1 = dt2.NewRow();
+                dr1["ID"] = -1;
+                dr1["姓名"] = "无";
+                dt2.Rows.Add(dr1);
+                foreach (Person person in scen.Persons)
+                {
+                    DataRow dr = dt2.NewRow();
+                    dr["ID"] = person.ID;
+                    dr["姓名"] = person.Name;
+                    dr["性别"] = person.SexString;
+                    dr["所在"] = person.Location;
+                    dr["所属势力"] = person.BelongedFaction;
+                    dr["武学"] = person.Strength;
+                    dr["将略"] = person.Command;
+                    dr["谋略"] = person.Intelligence;
+                    dr["政理"] = person.Politics;
+                    dr["风度"] = person.Glamour;
+                    dt2.Rows.Add(dr);
+                }
+                dataGrid1.ItemsSource = dt2.DefaultView;
+                dataGrid1.MouseDoubleClick += dataGrid1_MouseDoubleClick;
+                void dataGrid1_MouseDoubleClick(object sender2, MouseButtonEventArgs e2)
+                {
+                    if (dataGrid1.SelectedItem != null)
+                    {
+                        DataTable dt5 = ((DataView)dataGrid1.ItemsSource).ToTable();
+                        p1ID = int.Parse(dt5.Rows[dataGrid1.SelectedIndex]["ID"].ToString());
+                        window.Close();
+                        p1 = scen.Persons.GetGameObject(p1ID) as Person;
+                        p1name = p1 == null ? "" : p1.Name;
+                        labelP1ID.Content = "武将ID:   " + p1ID;
+                        labelP1.Content = "武将名称:   " + p1name;
+                        buttonperson.Content = p1name;
+                    }
+                }
+                dataGrid1.IsReadOnly = true;
+                grid2.Children.Add(dataGrid1);
+                dataGrid1.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+                window.ShowDialog();
+            }
+            void Button2person_Click(object sender, RoutedEventArgs e)
+            {
+                list = new GameObjectList();
+                strArray = p2IDs.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < strArray.Length; i++)
+                {
+                    Person p2 = scen.Persons.GetGameObject(int.Parse(strArray[i])) as Person;
+                    if (p2 != null)
+                    {
+                        list.Add(p2);
+                    }
+                }
+                //string idssss = "";
+                //string namessss = "";
+                Window window = new Window();
+                string titleplugin = "  注意:最多只能选一个";
+                if(ones)
+                {
+                    titleplugin = "  注意:可以选择多个";
+                }
+                window.Title = "请选择武将-勾选后点击确认" + titleplugin; ;
+                window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                window.Width = 800;
+                window.Height = 600;
+                Grid grid2 = new Grid();
+                window.Content = grid2;
+                grid2.Margin = new Thickness(50);
+                ListBox listBox = new ListBox();
+                DataGrid dataGrid1 = new DataGrid();
+                DataTable dt2 = new DataTable();
+                dt2.Columns.Add("选择", typeof(bool));
+                dt2.Columns.Add("ID", typeof(int));
+                dt2.Columns.Add("姓名");
+                dt2.Columns.Add("性别");
+                dt2.Columns.Add("所在");
+                dt2.Columns.Add("所属势力");
+                dt2.Columns.Add("武学");
+                dt2.Columns.Add("将略");
+                dt2.Columns.Add("谋略");
+                dt2.Columns.Add("政理");
+                dt2.Columns.Add("风度");
+                //DataRow dr1 = dt2.NewRow();
+                //dr1["ID"] = -1;
+                //dr1["姓名"] = "无";
+                //dt2.Rows.Add(dr1);
+                foreach (Person person in scen.Persons)
+                {
+                    DataRow dr = dt2.NewRow();
+                    dr["选择"] = false;
+                    if (list.HasGameObject(person))
+                    {
+                        dr["选择"] = true;
+                    }
+                    dr["ID"] = person.ID;
+                    dr["姓名"] = person.Name;
+                    dr["性别"] = person.SexString;
+                    dr["所在"] = person.Location;
+                    dr["所属势力"] = person.BelongedFaction;
+                    dr["武学"] = person.Strength;
+                    dr["将略"] = person.Command;
+                    dr["谋略"] = person.Intelligence;
+                    dr["政理"] = person.Politics;
+                    dr["风度"] = person.Glamour;
+                    dt2.Rows.Add(dr);
+                }
+                dataGrid1.CanUserAddRows = false;
+                foreach (DataColumn column in dt2.Columns)
+                {
+                    if (!column.ColumnName.Equals( "选择"))
+                    {
+                        column.ReadOnly = true;
+                    }
+                }
+                dataGrid1.ItemsSource = dt2.DefaultView;
+                dataGrid1.MouseLeftButtonUp += DataGrid1_MouseLeftButtonUp;
+                void DataGrid1_MouseLeftButtonUp(object sender2, MouseButtonEventArgs e2)
+                {
+                    if (!bool.Parse(((DataRowView)dataGrid1.SelectedItem).Row["选择"].ToString()))
+                    {
+                        ((DataRowView)dataGrid1.SelectedItem).Row["选择"] = true;
+                    }
+                    else if (bool.Parse(((DataRowView)dataGrid1.SelectedItem).Row["选择"].ToString()))
+                    {
+                        ((DataRowView)dataGrid1.SelectedItem).Row["选择"] = false;
+                    }
+                }
+                Button buttonsave2 = new Button() { Width = 50, Height = 25, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Bottom, Content = "确定" };
+                buttonsave2.Click += Buttonsave2_Click;
+                void Buttonsave2_Click(object sender2, RoutedEventArgs e2)
+                {
+                    DataTable dataTable = ((DataView)dataGrid1.ItemsSource).ToTable();
+                    int n = 0;
+                    string idssss = "";
+                    string namessss = "";
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        if (bool.Parse( row["选择"].ToString()))
+                        {
+                            idssss = idssss + row["ID"].ToString() + " ";
+                            namessss = namessss + row["姓名"].ToString() + " ";
+                            n++;
+                        }
+                    }
+                    if(!ones && n>1)
+                    {
+                        System.ComponentModel.ICollectionView v = CollectionViewSource.GetDefaultView(dt2);
+                        v.SortDescriptions.Clear();
+                        v.SortDescriptions.Add(new System.ComponentModel.SortDescription("选择", System.ComponentModel.ListSortDirection.Descending));
+                        v.Refresh();
+                        dataGrid1.ColumnFromDisplayIndex(0).SortDirection = System.ComponentModel.ListSortDirection.Descending;
+
+                        //dataGrid1.Columns[dt2.Columns["选择"].Ordinal].SortDirection = System.ComponentModel.ListSortDirection.Descending;
+                        //  dt2.DefaultView.Sort = ("选择 DESC");//这种方法会无法取消已点击列标题产生的排列
+                        MessageBox.Show("此类关系最多只允许选择一个武将");
+                    }
+                    else if(!ones && n ==0)
+                    {
+                        p2IDs = "-1";
+                        p2names = "";
+                        window.Close();
+                        labelP2ID.Content = "武将ID:   " + p2IDs;
+                        labelP2.Content = "武将名称:   " + p2names;
+                        button2person.Content = p2names;
+                    }
+                    else
+                    {
+                        p2IDs = idssss;
+                        p2names = namessss;
+                        window.Close();
+                        labelP2ID.Content = "武将ID:   " + p2IDs;
+                        labelP2.Content = "武将名称:   " + p2names;
+                        button2person.Content = p2names;
+                    }
+                }
+
+                Button buttonexit2 = new Button() { Width = 50, Height = 25, HorizontalAlignment = HorizontalAlignment.Right, VerticalAlignment = VerticalAlignment.Bottom, Content = "取消" };
+                buttonexit2.Click += Buttonexit2_Click;
+                void Buttonexit2_Click(object sender2, RoutedEventArgs e2)
+                {
+                    window.Close();
+                }
+
+                dataGrid1.Margin = new Thickness(0, 0, 0, 30);
+                grid2.Children.Add(dataGrid1);
+                grid2.Children.Add(buttonsave2);
+                grid2.Children.Add(buttonexit2);
+                dataGrid1.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+                window.ShowDialog();
+            }
+
+            Button buttonBack = new Button() { Width = 75, Height = 30, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Content = "还原初始设置" };
+            buttonBack.Click += ButtonBack_Click;
+            void ButtonBack_Click(object sender, RoutedEventArgs e)
+            {
+                p1ID = temp1;
+                p1name = tempP1name;
+                p2IDs = tempP2IDs;
+                p2names = tempP2names;
+
+                labelP1ID.Content = "武将ID:   " + p1ID;
+                labelP1.Content = "武将名称:   " + p1name;
+                buttonperson.Content = p1name;
+                labelP2ID.Content = "武将ID:   " + p2IDs;
+                labelP2.Content = "武将名称:   " + p2names;
+                button2person.Content = p2names;
+            }
+            Button buttonSave = new Button() { Width = 75, Height = 30, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Content = "保存退出" };
+            void dicclose1 (int P1ID,int P2ID, Dictionary<int, int> dict,Window window)
+            {
+                if (P1ID != -1)
+                {
+                    if (dict.ContainsKey(P1ID))
+                    {
+                        dict[P1ID] = P2ID;
+                    }
+                    else
+                    {
+                        dict.Remove(P1ID);
+                        dict.Add(P1ID, P2ID);
+                    }
+                }
+                window.Close();
+            }
+            void dicclose2(int P1ID, int[] P2IDs, Dictionary<int, int[]> dict, Window window)
+            {
+                if (P1ID != -1)
+                {
+                    if (dict.ContainsKey(P1ID))
+                    {
+                        dict[P1ID] = P2IDs;
+                    }
+                    else
+                    {
+                        dict.Remove(P1ID);
+                        dict.Add(P1ID, P2IDs);
+                    }
+                }
+                window.Close();
+            }
+            buttonSave.Click += ButtonSave_Click;
+            void ButtonSave_Click(object sender, RoutedEventArgs e)
+            {
+                if(!ones)
+                {
+                    Dictionary<int, int> dict = new Dictionary<int, int>();
+                    int p2ID = int.Parse(p2IDs);
+                    if (dgname == "dgFatherId")
+                    {
+                        dict = scen.FatherIds;
+                        dicclose1(p1ID, p2ID, dict, win);
+                        fatherTab.setup();
+                    }
+                    else if (dgname == "dgMotherId")
+                    {
+                        dict = scen.MotherIds;
+                        dicclose1(p1ID, p2ID, dict, win);
+                        motherTab.setup();
+                    }
+                    else if (dgname == "dgSpouseId")
+                    {
+                        dict = scen.SpouseIds;
+                        dicclose1(p1ID, p2ID, dict, win);
+                        spouseTab.setup();
+                    }
+                }
+                else
+                {
+                    Dictionary<int, int[]> dict = new Dictionary<int, int[]>();
+                    GameGlobal.StaticMethods.LoadFromString(out int[] value, p2IDs);
+                    if (dgname == "dgBrotherIds")
+                    {
+                        dict = scen.BrotherIds;
+                        dicclose2(p1ID, value, dict, win);
+                        brotherIdsTab.setup();
+                    }
+                    else if (dgname == "dgSuoshuIds")
+                    {
+                        dict = scen.SuoshuIds;
+                        dicclose2(p1ID, value, dict, win);
+                        suoshuIdsTab.setup();
+                    }
+                    else if (dgname == "dgCloseIds")
+                    {
+                        dict = scen.CloseIds;
+                        dicclose2(p1ID, value, dict, win);
+                        closeIdsTab.setup();
+                    }
+                    else if (dgname == "dgHatedIds")
+                    {
+                        dict = scen.HatedIds;
+                        dicclose2(p1ID, value, dict, win);
+                        hatedIdsTab.setup();
+                    }
+                }
+            }
+            Button buttonExit = new Button() { Width = 75, Height = 30, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Content = "直接退出" };
+            buttonExit.Click += ButtonExit_Click;
+            void ButtonExit_Click(object sender, RoutedEventArgs e)
+            {
+                win.Close();
+            }
+
+            grid.Children.Add(labelP1ID);
+            grid.Children.Add(labelP1);
+            grid.Children.Add(buttonperson);
+            grid.Children.Add(labelP2ID);
+            grid.Children.Add(labelP2);
+            grid.Children.Add(button2person);
+            grid.Children.Add(buttonBack);
+            grid.Children.Add(buttonSave);
+            grid.Children.Add(buttonExit);
+            Grid.SetColumn(labelP1ID, 0);
+            Grid.SetRow(labelP1ID, 0);
+            Grid.SetColumn(labelP1, 0);
+            Grid.SetRow(labelP1, 1);
+            Grid.SetColumn(buttonperson, 0);
+            Grid.SetRow(buttonperson, 2);
+            Grid.SetColumn(buttonBack, 1);
+            Grid.SetRow(buttonBack, 0);
+            Grid.SetColumn(buttonSave, 1);
+            Grid.SetRow(buttonSave, 1);
+            Grid.SetColumn(buttonExit, 1);
+            Grid.SetRow(buttonExit, 2);
+            Grid.SetColumn(labelP2ID, 2);
+            Grid.SetRow(labelP2ID, 0);
+            Grid.SetColumn(labelP2, 2);
+            Grid.SetRow(labelP2, 1);
+            Grid.SetColumn(button2person, 2);
+            Grid.SetRow(button2person, 2);
+            win.ShowDialog();
+        }
+
+        private void MenuAddid_Click(object sender, RoutedEventArgs e)
+        {
+            Grid grid = (Grid)tabControl.SelectedContent;
+            DataGrid dataGrid = (DataGrid)grid.Children[0];
+            string dgname = dataGrid.Name;
+            if (dgname == "dgFatherId" || dgname == "dgMotherId" || dgname == "dgSpouseId")
+            {
+                string p2IDs = ((DataRowView)dataGrid.SelectedItem).Row["对方武将ID"].ToString();
+                creatDicWindow(false, -1, "-1", dgname, false);
+            }
+            else if (dgname == "dgBrotherId" || dgname == "dgSuoshuIds" || dgname == "dgCloseIds" || dgname == "dgHatedIds")
+            {
+                string p2IDs = ((DataRowView)dataGrid.SelectedItem).Row["武将IDs，不同武将间用空格格开"].ToString();
+                creatDicWindow(false, -1, "", dgname, true);
+            }
+        }
+
+        private void creatdicwindow()
+        {
+            Grid grid = (Grid)tabControl.SelectedContent;
+            DataGrid dataGrid = (DataGrid)grid.Children[0];
+            string dgname = dataGrid.Name;
+            if (dataGrid.SelectedItem != null)
+            {
+                int n1 = int.Parse(((DataRowView)dataGrid.SelectedItem).Row["ID"].ToString());
+                if (dgname == "dgFatherId" || dgname == "dgMotherId" || dgname == "dgSpouseId")
+                {
+                    string p2IDs = ((DataRowView)dataGrid.SelectedItem).Row["对方武将ID"].ToString();
+                    creatDicWindow(true, n1, p2IDs, dgname, false);
+                }
+                else if (dgname == "dgBrotherIds" || dgname == "dgSuoshuIds" || dgname == "dgCloseIds" || dgname == "dgHatedIds")
+                {
+                    string p2IDs = ((DataRowView)dataGrid.SelectedItem).Row["武将IDs，不同武将间用空格格开"].ToString();
+                    creatDicWindow(true, n1, p2IDs, dgname, true);
+                }
+            }
+        }
+
+        private void MenuEditid_Click(object sender, RoutedEventArgs e)
+        {
+            creatdicwindow();
+        }
+
+        private void DgDictionary_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            creatdicwindow();
+        }
+
+        //字典相关
+        //
+
+
+        private void MenuAdd_Click(object sender, RoutedEventArgs e)
+        {
+            bool edit = false;
+            nomalcreatwindow(edit);
+        }
+
+        private void MenuEdit_Click(object sender, RoutedEventArgs e)
+        {
+            bool edit = true;
+            nomalcreatwindow(edit);
+        }
+
+        private void nomalcreatwindow(bool edit)
+        {
+            Grid grid = (Grid)tabControl.SelectedContent;
+            DataGrid dataGrid = grid.Children[0] as DataGrid;
+            if ((!edit || (edit && dataGrid.SelectedItem != null)) && dataGrid.ItemsSource !=null)
+            {
+                if (dataGrid == dgRegion)
+                {
+                    regionTab.creatWindow(edit, dgState);
+                }
+                else if (dataGrid == dgState)
+                {
+                    stateTab.creatWindow(edit, dgRegion);
+                }
+            }
+        }
+
+        private void DgNomal_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            bool edit = true;
+            nomalcreatwindow(edit);
         }
     }
 

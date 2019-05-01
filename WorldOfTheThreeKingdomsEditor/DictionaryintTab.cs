@@ -11,16 +11,17 @@ using System.Windows.Controls;
 
 namespace WorldOfTheThreeKingdomsEditor
 {
-    class DictionaryTab<K, V>
+    class DictionaryintTab
     {
-        private Dictionary<K, V> dict;
+        private Dictionary<int, int[]> dict;
         private String name;
         private DataGrid dg;
+        private DataTable dt = new DataTable();
         private GameScenario scen;
         private static bool settingUp = false;
-        private DataTable dt;
+
         // dict is write-thru
-        public DictionaryTab(Dictionary<K, V> dict, String name, DataGrid dg,GameScenario scen)
+        public DictionaryintTab(Dictionary<int, int[]> dict, String name, DataGrid dg,GameScenario scen)
         {
             this.scen = scen;
             this.dict = dict;
@@ -33,45 +34,47 @@ namespace WorldOfTheThreeKingdomsEditor
             settingUp = true;
             dg.ItemsSource = null;
             dt = new DataTable(name);
-            dt.Columns.Add("ID", typeof(K));
-            dt.Columns["ID"].ReadOnly = true;
-            dt.Columns.Add("武将名称" );
+            dt.Columns.Add("武将ID",typeof(int));
+            dt.Columns["武将ID"].ReadOnly = true;
+            dt.Columns.Add("武将名称");
             dt.Columns["武将名称"].ReadOnly = true;
-            dt.Columns.Add("对方武将ID", typeof(V));
+            dt.Columns.Add("武将IDs，不同武将间用空格格开");
             dt.Columns.Add("对方武将名称");
             dt.Columns["对方武将名称"].ReadOnly = true;
             initdt();
-
             DataColumn[] PrimaryKeyColumns = new DataColumn[1];
-            PrimaryKeyColumns[0] = dt.Columns["ID"];
+            PrimaryKeyColumns[0] = dt.Columns["武将ID"];
             dt.PrimaryKey = PrimaryKeyColumns;
-            dg.CanUserAddRows = false;
             DependencyPropertyDescriptor dpd = DependencyPropertyDescriptor.FromProperty(ItemsControl.ItemsSourceProperty, typeof(DataGrid));
-
+            dg.CanUserAddRows = false;
             dg.ItemsSource = dt.AsDataView();
 
-            dt.TableNewRow += Dt_TableNewRow;
             dg.BeginningEdit += Dg_BeginningEdit;
-            dt.RowChanged += Dt_RowChanged;//值变更后执行
+            dt.RowChanged += Dt_RowChanged;
             dt.RowDeleting += Dt_RowDeleting;
-            dpd.AddValueChanged(dg, dg_ItemsSourceChanged);
+            //dpd.AddValueChanged(dg, dg_ItemsSourceChanged);//针对的是复制粘贴后的情况
         }
 
         private void initdt()
         {
             settingUp = true;
             dt.Clear();
-            foreach (KeyValuePair<K, V> i in dict)
+            foreach (KeyValuePair<int, int[]> i in dict)
             {
                 DataRow row = dt.NewRow();
                 int.TryParse(i.Key.ToString(), out int n1);
                 Person p1 = scen.Persons.GetGameObject(n1) as Person;
-                int.TryParse(i.Value.ToString(), out int n2);
-                Person p2 = scen.Persons.GetGameObject(n2) as Person;
-                row["ID"] = i.Key;
+                string sname = "";
+                for (int ii = 0; ii < i.Value.Length; ii++)
+                {
+                    Person p2 = scen.Persons.GetGameObject(i.Value[ii]) as Person;
+                    string ssss = p2 != null ? p2.Name + " " : "";
+                    sname = sname + ssss;
+                }
+                row["武将ID"] = i.Key;
                 row["武将名称"] = p1 != null ? p1.Name : "";
-                row["对方武将ID"] = i.Value;
-                row["对方武将名称"] = p2 != null ? p2.Name : "";
+                row["武将IDs，不同武将间用空格格开"] = GameGlobal.StaticMethods.SaveToString(i.Value);
+                row["对方武将名称"] = sname;
                 dt.Rows.Add(row);
             }
             settingUp = false;
@@ -79,7 +82,7 @@ namespace WorldOfTheThreeKingdomsEditor
         private int oldID = -1;
         private void Dg_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
-            if (e.Column.Header.Equals("ID"))
+            if (e.Column.Header.Equals("武将ID"))
             {
                 MessageBox.Show("请不要轻易直接修改武将ID，如其他相关编号未修改完全很可能造成跳出");
                 oldID = int.Parse((e.Column.GetCellContent(e.Row) as TextBlock).Text);
@@ -89,22 +92,22 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             try
             {
-                dict.Remove((K)e.Row["ID"]);
+                dict.Remove((int)e.Row["武将ID"]);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("資料輸入錯誤。" + ex.Message);
             }
         }
-
+        
         private void Dt_RowChanged(object sender, DataRowChangeEventArgs e)
         {
             try
             {
                 if (!settingUp)
                 {
-                    K key = (K)e.Row["ID"];
-                    V value = (V)e.Row["对方武将ID"];
+                    int key = int.Parse(e.Row["武将ID"].ToString());
+                    GameGlobal.StaticMethods.LoadFromString(out int[] value, e.Row["武将IDs，不同武将间用空格格开"].ToString());
                     if (dict.ContainsKey(key))
                     {
                         dict[key] = value;
@@ -123,24 +126,11 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
-        private void Dt_TableNewRow(object sender, DataTableNewRowEventArgs e)
-        {
-            try
-            {
-                dict.Add((K)e.Row["ID"], (V)e.Row["对方武将ID"]);
-            }
-            catch (Exception ex)
-            {
-                 MessageBox.Show("資料輸入錯誤。" + ex.Message);
-            }
-        }
 
         private void dg_ItemsSourceChanged(object sender, EventArgs e)
         {
             if (settingUp) return;
-
             DataGrid dataGrid = (DataGrid)sender;
-
             for (int r = 0; r < dataGrid.Items.Count; r++)
             {
                 DataRowView item = dataGrid.Items[r] as DataRowView;
@@ -148,9 +138,8 @@ namespace WorldOfTheThreeKingdomsEditor
                 {
                     continue;
                 }
-
-                K key = (K)item.Row["ID"];
-                V value = (V)item.Row["对方武将ID"];
+                int key = (int)(item["武将ID"]);
+                GameGlobal.StaticMethods.LoadFromString(out int[] value, item["武将IDs，不同武将间用空格格开"].ToString());
                 if (dict.ContainsKey(key))
                 {
                     dict[key] = value;
@@ -161,6 +150,7 @@ namespace WorldOfTheThreeKingdomsEditor
                     dict.Add(key, value);
                 }
             }
+            this.setup();
         }
 
     }
