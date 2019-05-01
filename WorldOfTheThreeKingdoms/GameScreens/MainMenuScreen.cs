@@ -3134,13 +3134,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             btOne = btSettingList.FirstOrDefault(bt => bt.ID == "OutFocus");
             btOne.Selected = Setting.Current.GlobalVariables.RunWhileNotFocused;
 
-            for (int i = 0; i < MODs.Length; i++)
+            if (MODs != null)
             {
-                var mod = MODs[i];
+                for (int i = 0; i < MODs.Length; i++)
+                {
+                    var mod = MODs[i];
 
-                btOne = btSettingList.FirstOrDefault(bt => bt.ID == "MOD" + mod.ID);
+                    btOne = btSettingList.FirstOrDefault(bt => bt.ID == "MOD" + mod.ID);
 
-                btOne.Selected = mod.ID == Setting.Current.MOD.NullToString();
+                    btOne.Selected = mod.ID == Setting.Current.MOD.NullToString();
+                }
             }
 
             nstAutoSaveTime.NowNumber = Setting.Current.GlobalVariables.AutoSaveFrequency;
