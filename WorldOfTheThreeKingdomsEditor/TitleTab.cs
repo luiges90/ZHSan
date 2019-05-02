@@ -22,7 +22,8 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 {"MapLimit", "9999" },
                 {"FactionLimit", "9999" },
-                {"InheritChance", "20" }
+                {"InheritChance", "20" },
+                {"GenerationChance","0 0 0 0 0 0 0 0 0 0" }
             };
         }
 
@@ -81,7 +82,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 { "ArchitectureConditionsString", "建筑条件" },
                 { "FactionConditionsString", "势力条件" },
                 { "LostConditionsString", "失去条件" },
-                { "AutoLearn", "自动习得机率：每天有1/此数的机率自动习得这个称号。0为不会自动习得" },
+                { "AutoLearn", "自动习得机率：每天有1除以此数的机率自动习得这个称号。0为不会自动习得" },
                 { "AutoLearnText", "习得对话" },
                 { "AutoLearnTextByCourier", "习得传令官对话" },
                 { "MapLimit", "全地图数目上限" },
@@ -98,6 +99,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 { "Normal2", "平凡武官型武将能取得此技能的机率参数" },
                 { "Cheap", "平凡女官型武将能取得此技能的机率参数" },
                 { "Ability", "此技能的相关能力、0-4为武统智政魅" },
+                {"GenerationChance","不同生成武将类型获得机率" }
             };
         }
 

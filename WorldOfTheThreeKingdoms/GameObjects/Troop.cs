@@ -6795,7 +6795,7 @@ namespace GameObjects
                 switch (this.Action)
                 {
                     case TroopAction.Stop:
-                        return Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(28).Textures.MoveTexture;
+                        return Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(28 ).Textures.MoveTexture;
 
                     case TroopAction.Move:
                         return Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(28).Textures.MoveTexture;
@@ -12255,11 +12255,11 @@ namespace GameObjects
         {
             get
             {
-                return (this.drawAnimation && Session.Current.Scenario.GlobalVariables.DrawTroopAnimation);
+                return ( Setting.Current.GlobalVariables.DrawTroopAnimation);
             }
             set
             {
-                this.drawAnimation = value;
+                Setting.Current.GlobalVariables.DrawTroopAnimation = value;
             }
         }
 

@@ -692,5 +692,33 @@ namespace WorldOfTheThreeKingdomsEditor
                 window.ShowDialog();
             }
         }
+
+
+        private void DgFaction_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            /* if (e.Column.Header.Equals("颜色编号"))
+             {
+                   int n =0;
+                 if ((e.EditingElement as TextBox).Text != null && (e.EditingElement as TextBox).Text != null)
+                 {
+                     // n = int.Parse((e.EditingElement as TextBox).Text);
+                     bool b = int.TryParse((e.EditingElement as TextBox).Text,out n);
+                     if(n !=0)
+                     {
+                          Microsoft.Xna.Framework.Color color = scen.GameCommonData.AllColors[n];
+                          e.Row.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B));
+                     }
+                 }
+             }*/  // 这两个屏蔽是显示势力颜色，但因只能做到整行背景色改变，太花
+        }
+
+        private void DgFaction_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            /* if(e.Row.GetIndex()<dgFaction.Items.Count-1)
+              {
+                  Microsoft.Xna.Framework.Color color = scen.GameCommonData.AllColors[((Faction)scen.Factions[e.Row.GetIndex()]).ColorIndex];
+                  e.Row.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B));
+              }*/
+        }
     }
 }
