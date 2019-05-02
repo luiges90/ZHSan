@@ -3209,41 +3209,19 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             var right = 2392f - 1280f;
 
-            if (Setting.Current.MOD == "Shanshui")
-            {
-                //jokosany暂时不显示动态开始界面
-                startPos = Vector2.Zero;
+            startPos = new Vector2(-startElapsed / startCircle * right, 0);
 
-                //jokosany为丝路开始界面调整按钮位置
+            btList.FirstOrDefault(bt => bt.Name == "New").Position = new Vector2(100, 600);
 
-                btList.FirstOrDefault(bt => bt.Name == "New").Position = new Vector2(60, 630);
+            btList.FirstOrDefault(bt => bt.Name == "Save").Position = new Vector2(310, 600);
 
-                btList.FirstOrDefault(bt => bt.Name == "Save").Position = new Vector2(290, 630);
+            btList.FirstOrDefault(bt => bt.Name == "Setting").Position = new Vector2(520, 600);
 
-                btList.FirstOrDefault(bt => bt.Name == "Setting").Position = new Vector2(520, 630);
+            btList.FirstOrDefault(bt => bt.Name == "About").Position = new Vector2(730, 600);
 
-                btList.FirstOrDefault(bt => bt.Name == "About").Position = new Vector2(750, 630);
+            btList.FirstOrDefault(bt => bt.Name == "Exit").Position = new Vector2(940, 600);
 
-                btList.FirstOrDefault(bt => bt.Name == "Exit").Position = new Vector2(980, 630);
-
-                btnDantiao.Position = new Vector2(860 + 260, 650 - 80);
-            }
-            else
-            {
-                startPos = new Vector2(-startElapsed / startCircle * right, 0);
-
-                btList.FirstOrDefault(bt => bt.Name == "New").Position = new Vector2(100, 600);
-
-                btList.FirstOrDefault(bt => bt.Name == "Save").Position = new Vector2(310, 600);
-
-                btList.FirstOrDefault(bt => bt.Name == "Setting").Position = new Vector2(520, 600);
-
-                btList.FirstOrDefault(bt => bt.Name == "About").Position = new Vector2(730, 600);
-
-                btList.FirstOrDefault(bt => bt.Name == "Exit").Position = new Vector2(940, 600);
-
-                btnDantiao.Position = new Vector2(860 + 260, 650);
-            }
+            btnDantiao.Position = new Vector2(860 + 260, 650);
 
             if (isClosing)
             {
@@ -4074,16 +4052,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             CacheManager.Draw(@"Content\Textures\Resources\Start\Start01.jpg", startPos, Color.White);
             //CacheManager.Draw(@"Content\Textures\Resources\Start\Start.jpg", new Rectangle(0, 0, , Color.White);
 
-            if (Setting.Current.MOD == "Shanshui")
-            {
+            CacheManager.Draw(@"Content\Textures\Resources\Start\Logo.png", new Vector2(380, 50), Color.White);
 
-            }
-            else
-            {
-                CacheManager.Draw(@"Content\Textures\Resources\Start\Logo.png", new Vector2(380, 50), Color.White);
-
-                CacheManager.Draw(@"Content\Textures\Resources\Start\Words.png", new Vector2(380, 260), Color.White);
-            }
+            CacheManager.Draw(@"Content\Textures\Resources\Start\Words.png", new Vector2(380, 260), Color.White);
 
             if (MenuType == MenuType.None)
             {
@@ -4235,56 +4206,27 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         nst.Draw(alpha);
                     }
 
-                    if (Setting.Current.MOD == "Shanshui")
-                    {
-                        CacheManager.DrawString(Session.Current.Font, "粮道系统", new Vector2(left1, heightBase), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "粮道系统", new Vector2(left1, heightBase), Color.Black * alpha);
 
-                        CacheManager.DrawString(Session.Current.Font, "出仕相性考虑有效", new Vector2(left1, heightBase + height * 0f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "出仕相性考虑有效", new Vector2(left1, heightBase + height * 0.5f), Color.Black * alpha);
 
-                        CacheManager.DrawString(Session.Current.Font, "部队速率有效", new Vector2(left1, heightBase + height * 0.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "部队速率有效", new Vector2(left1, heightBase + height * 1f), Color.Black * alpha);
 
-                        CacheManager.DrawString(Session.Current.Font, "武将可能在单挑中死亡", new Vector2(left1, heightBase + height * 1f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "武将可能在单挑中死亡", new Vector2(left1, heightBase + height * 1.5f), Color.Black * alpha);
 
-                        CacheManager.DrawString(Session.Current.Font, "年龄有效", new Vector2(left1, heightBase + height * 1.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "年龄有效", new Vector2(left1, heightBase + height * 2f), Color.Black * alpha);
 
-                        CacheManager.DrawString(Session.Current.Font, "年龄影响能力", new Vector2(left1, heightBase + height * 2f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "年龄影响能力", new Vector2(left1, heightBase + height * 2.5f), Color.Black * alpha);
 
-                        CacheManager.DrawString(Session.Current.Font, "武将有可能独立", new Vector2(left1, heightBase + height * 2.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "武将有可能独立", new Vector2(left1, heightBase + height * 3f), Color.Black * alpha);
 
-                        CacheManager.DrawString(Session.Current.Font, "容许势力合并", new Vector2(left1, heightBase + height * 3f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "容许势力合并", new Vector2(left1, heightBase + height * 3.5f), Color.Black * alpha);
 
-                        CacheManager.DrawString(Session.Current.Font, "人口小于兵力时禁止征兵", new Vector2(left1, heightBase + height * 3.5f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "人口小于兵力时禁止征兵", new Vector2(left1, heightBase + height * 4f), Color.Black * alpha);
 
-                        CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 4f), Color.Black * alpha);
+                    CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
 
-                        CacheManager.DrawString(Session.Current.Font, "只有异族能納妃", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
-
-                    }
-                    else
-                    {
-                        CacheManager.DrawString(Session.Current.Font, "粮道系统", new Vector2(left1, heightBase), Color.Black * alpha);
-
-                        CacheManager.DrawString(Session.Current.Font, "出仕相性考虑有效", new Vector2(left1, heightBase + height * 0.5f), Color.Black * alpha);
-
-                        CacheManager.DrawString(Session.Current.Font, "部队速率有效", new Vector2(left1, heightBase + height * 1f), Color.Black * alpha);
-
-                        CacheManager.DrawString(Session.Current.Font, "武将可能在单挑中死亡", new Vector2(left1, heightBase + height * 1.5f), Color.Black * alpha);
-
-                        CacheManager.DrawString(Session.Current.Font, "年龄有效", new Vector2(left1, heightBase + height * 2f), Color.Black * alpha);
-
-                        CacheManager.DrawString(Session.Current.Font, "年龄影响能力", new Vector2(left1, heightBase + height * 2.5f), Color.Black * alpha);
-
-                        CacheManager.DrawString(Session.Current.Font, "武将有可能独立", new Vector2(left1, heightBase + height * 3f), Color.Black * alpha);
-
-                        CacheManager.DrawString(Session.Current.Font, "容许势力合并", new Vector2(left1, heightBase + height * 3.5f), Color.Black * alpha);
-
-                        CacheManager.DrawString(Session.Current.Font, "人口小于兵力时禁止征兵", new Vector2(left1, heightBase + height * 4f), Color.Black * alpha);
-
-                        CacheManager.DrawString(Session.Current.Font, "默认开启天眼", new Vector2(left1, heightBase + height * 4.5f), Color.Black * alpha);
-
-                        CacheManager.DrawString(Session.Current.Font, "只有异族能納妃", new Vector2(left1, heightBase + height * 5f), Color.Black * alpha);
-
-                    }
+                    CacheManager.DrawString(Session.Current.Font, "只有异族能納妃", new Vector2(left1, heightBase + height * 5f), Color.Black * alpha);
 
                     CacheManager.DrawString(Session.Current.Font, "开启作弊功能", new Vector2(left2, heightBase), Color.Black * alpha);
 
@@ -4554,15 +4496,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             {
                                 string viewTime = "(" + (playTime / 60 / 60) + ":" + (playTime / 60 % 60) + ")";
 
-                                if (Setting.Current.MOD == "Shanshui")
-                                {
-                                    //jokosany君主名字3个字，会和时间字体重叠,把下面的45改为65
-                                    CacheManager.DrawString(Session.Current.Font, viewTime, bt.Position + new Vector2(65 + 900, 2), Color.Blue * alpha);
-                                }
-                                else
-                                {
-                                    CacheManager.DrawString(Session.Current.Font, viewTime, bt.Position + new Vector2(45 + 900, 2), Color.Blue * alpha);
-                                }
+                                CacheManager.DrawString(Session.Current.Font, viewTime, bt.Position + new Vector2(45 + 900, 2), Color.Blue * alpha);
                             }
                         }
 

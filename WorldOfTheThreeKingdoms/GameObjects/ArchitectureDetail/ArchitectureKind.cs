@@ -53,17 +53,9 @@ namespace GameObjects.ArchitectureDetail
         {
             get
             {
-                //jokosany不允许加载小城
-                if (Setting.Current.MODRuntime == "Shanshui")
+                if (this.texture == null)
                 {
-
-                }
-                else
-                {
-                    if (this.texture == null)
-                    {
-                        this.texture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/" + this.ID.ToString() + ".png");
-                    }
+                    this.texture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/" + this.ID.ToString() + ".png");
                 }
 
                 return this.texture;

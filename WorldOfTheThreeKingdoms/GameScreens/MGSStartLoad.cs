@@ -212,23 +212,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Session.GlobalVariables.SaveToXml();
                 Session.Parameters.SaveToXml();
 
-                if (Setting.Current.MODRuntime == "Shanshui")
+                //这里已经保存了玩家自定的信息后，再单独加载剧本制作者设定的信息，这样不会将玩家的设定保存覆盖
+                string str = @"Content\Data\Scenario\" + base.InitializationFileName + "GlobalVariables.xml";
+                if (File.Exists(Environment.CurrentDirectory + "\\" + str))
                 {
-
+                    Session.Current.Scenario.GlobalVariables.InitialGlobalVariables(str);
                 }
-                else
+                string str2 = @"Content\Data\Scenario\" + base.InitializationFileName + "GameParameters.xml";
+                if (File.Exists(Environment.CurrentDirectory + "\\" + str2))
                 {
-                    //这里已经保存了玩家自定的信息后，再单独加载剧本制作者设定的信息，这样不会将玩家的设定保存覆盖
-                    string str = @"Content\Data\Scenario\" + base.InitializationFileName + "GlobalVariables.xml";
-                    if (File.Exists(Environment.CurrentDirectory + "\\" + str))
-                    {
-                        Session.Current.Scenario.GlobalVariables.InitialGlobalVariables(str);
-                    }
-                    string str2 = @"Content\Data\Scenario\" + base.InitializationFileName + "GameParameters.xml";
-                    if (File.Exists(Environment.CurrentDirectory + "\\" + str2))
-                    {
-                        Session.Current.Scenario.Parameters.InitializeGameParameters(str2);
-                    }
+                    Session.Current.Scenario.Parameters.InitializeGameParameters(str2);
                 }
 
                 Session.Current.Scenario.AfterLoadGameScenario(this);
@@ -280,33 +273,25 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             //Microsoft.Xna.Framework.Color color1 = new Color(1f, 1f, 1f);
 
             //qizidezi = new FreeText(new System.Drawing.Font("方正北魏楷书繁体", 30f), new Color(1f, 1f, 1f));
-            
+
             foreach (Architecture jianzhu in Session.Current.Scenario.Architectures)
             {
-
                 //jianzhu.jianzhubiaoti = new FreeText(fontjianzhu, colorjianzhu);
                 ///////jianzhu.jianzhubiaoti.DisplayOffset = new Point(0, -mainMapLayer.TileWidth / 2);
                 //jianzhu.jianzhubiaoti.Text = jianzhu.Name;
                 //jianzhu.jianzhubiaoti.Align = TextAlign.Left;
                 jianzhu.jianzhuqizi = new qizi();
                 //jianzhu.jianzhuqizi.qizidezi = new FreeText(font1, color1);
-                
-                if (Setting.Current.MODRuntime == "Shanshui")
+
+                try
                 {
-                    //jokosany不允许加载城池名片
+                    jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/" + jianzhu.CaptionID + ".png");
+                    jianzhu.CaptionTexture.Width = 120;
+                    jianzhu.CaptionTexture.Height = 28;
                 }
-                else
+                catch
                 {
-                    try
-                    {
-                        jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/" + jianzhu.CaptionID + ".png");
-                        jianzhu.CaptionTexture.Width = 120;
-                        jianzhu.CaptionTexture.Height = 28;
-                    }
-                    catch
-                    {
-                        jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/None.png");
-                    }
+                    jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/None.png");
                 }
 
                 /*
@@ -317,7 +302,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 //this.qizidezi.Align = TextAlign.Middle;
 
-                jianzhu.jianzhuqizi.qizipoint = new Point(jianzhu.dingdian.X, jianzhu.dingdian.Y-1);
+                jianzhu.jianzhuqizi.qizipoint = new Point(jianzhu.dingdian.X, jianzhu.dingdian.Y - 1);
 
             }
         }

@@ -68,17 +68,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                             //////////architecture.jianzhubiaoti.DisplayOffset = new Point(0, -this.mainMapLayer.TileWidth / 2);
                             //architecture.jianzhubiaoti.Draw(0.7999f);
 
-                            if (Setting.Current.MODRuntime == "Shanshui")
-                            {
-                                //jokosany不允许加载城池名片
-                            }
-                            else
-                            {
-                                Rectangle jianzhubiaotibeijingweizhi;
-                                jianzhubiaotibeijingweizhi = new Rectangle(jianzhubiaotiPosition.X + Session.MainGame.mainGameScreen.mainMapLayer.TileWidth / 2 - architecture.CaptionTexture.Width / 2, jianzhubiaotiPosition.Y + Session.MainGame.mainGameScreen.mainMapLayer.TileHeight / 2 - architecture.CaptionTexture.Height / 2, architecture.CaptionTexture.Width, architecture.CaptionTexture.Height);
-                                //CacheManager.Draw(Session.MainGame.mainGameScreen.Textures.jianzhubiaotibeijing, jianzhubiaotibeijingweizhi, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.79996f);
-                                CacheManager.Draw(architecture.CaptionTexture, jianzhubiaotibeijingweizhi, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.79996f);
-                            }
+                            Rectangle jianzhubiaotibeijingweizhi;
+                            jianzhubiaotibeijingweizhi = new Rectangle(jianzhubiaotiPosition.X + Session.MainGame.mainGameScreen.mainMapLayer.TileWidth / 2 - architecture.CaptionTexture.Width / 2, jianzhubiaotiPosition.Y + Session.MainGame.mainGameScreen.mainMapLayer.TileHeight / 2 - architecture.CaptionTexture.Height / 2, architecture.CaptionTexture.Width, architecture.CaptionTexture.Height);
+                            //CacheManager.Draw(Session.MainGame.mainGameScreen.Textures.jianzhubiaotibeijing, jianzhubiaotibeijingweizhi, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.79996f);
+                            CacheManager.Draw(architecture.CaptionTexture, jianzhubiaotibeijingweizhi, null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.79996f);
 
                             if (architecture.BelongedFaction != null && Session.MainGame.mainGameScreen.mainMapLayer.TileInScreen(architecture.jianzhuqizi.qizipoint))      //不是空城的话绘制旗子
                             {
@@ -265,80 +258,71 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
             {
                 return tupian;
             }
-            if (Setting.Current.MODRuntime == "Shanshui")
+
+            if (architecture.Kind.ID == 2)
             {
-                //jokosany不允许加载关隘图片
+                if (architecture.JianzhuGuimo == 1)
+                {
+                    tupian = architecture.Texture;
+                }
+                else if (architecture.JianzhuGuimo == 3)//小关
+                {
+                    if (architecture.ArchitectureArea.Area[0].X == architecture.ArchitectureArea.Area[1].X) //竖关
+                    {
+
+                        tupian = Session.MainGame.mainGameScreen.Textures.guandetupian[1];
+                    }
+                    else //横关
+                    {
+
+                        tupian = Session.MainGame.mainGameScreen.Textures.guandetupian[0];
+                    }
+                }
+                else if (architecture.JianzhuGuimo == 5)//大关
+                {
+                    if (architecture.ArchitectureArea.Area[0].X == architecture.ArchitectureArea.Area[1].X) //竖关
+                    {
+                        tupian = Session.MainGame.mainGameScreen.Textures.guandetupian[2];
+
+                    }
+                    else //横关
+                    {
+                        tupian = architecture.Texture;
+
+                    }
+
+                }
+
             }
             else
             {
-                if (architecture.Kind.ID == 2)
+                //try
+                //{
+                if (architecture.JianzhuGuimo == 13 && Session.MainGame.mainGameScreen.Textures.largeCityImg.ContainsKey(architecture.Kind.ID))
                 {
-                    if (architecture.JianzhuGuimo == 1)
-                    {
-                        tupian = architecture.Texture;
-                    }
-                    else if (architecture.JianzhuGuimo == 3)//小关
-                    {
-                        if (architecture.ArchitectureArea.Area[0].X == architecture.ArchitectureArea.Area[1].X) //竖关
-                        {
-
-                            tupian = Session.MainGame.mainGameScreen.Textures.guandetupian[1];
-                        }
-                        else //横关
-                        {
-
-                            tupian = Session.MainGame.mainGameScreen.Textures.guandetupian[0];
-                        }
-                    }
-                    else if (architecture.JianzhuGuimo == 5)//大关
-                    {
-                        if (architecture.ArchitectureArea.Area[0].X == architecture.ArchitectureArea.Area[1].X) //竖关
-                        {
-                            tupian = Session.MainGame.mainGameScreen.Textures.guandetupian[2];
-
-                        }
-                        else //横关
-                        {
-                            tupian = architecture.Texture;
-
-                        }
-
-                    }
-
+                    tupian = Session.MainGame.mainGameScreen.Textures.largeCityImg[architecture.Kind.ID];
+                }
+                else if (architecture.JianzhuGuimo == 5 && Session.MainGame.mainGameScreen.Textures.mediumCityImg.ContainsKey(architecture.Kind.ID))
+                {
+                    tupian = Session.MainGame.mainGameScreen.Textures.mediumCityImg[architecture.Kind.ID];
                 }
                 else
                 {
-                    //try
-                    //{
-                    if (architecture.JianzhuGuimo == 13 && Session.MainGame.mainGameScreen.Textures.largeCityImg.ContainsKey(architecture.Kind.ID))
-                    {
-                        tupian = Session.MainGame.mainGameScreen.Textures.largeCityImg[architecture.Kind.ID];
-                    }
-                    else if (architecture.JianzhuGuimo == 5 && Session.MainGame.mainGameScreen.Textures.mediumCityImg.ContainsKey(architecture.Kind.ID))
-                    {
-                        tupian = Session.MainGame.mainGameScreen.Textures.mediumCityImg[architecture.Kind.ID];
-                    }
-                    else
-                    {
-                        tupian = architecture.Texture;
-                    }
-                    //}
-                    //catch (KeyNotFoundException)
-                    //{
-                    //    tupian = architecture.Texture;
-                    //}
+                    tupian = architecture.Texture;
                 }
+                //}
+                //catch (KeyNotFoundException)
+                //{
+                //    tupian = architecture.Texture;
+                //}
             }
 
             return tupian;
         }
 
-
         public void Initialize()
         {
         }
-    }
-
- 
+    } 
 
 }
