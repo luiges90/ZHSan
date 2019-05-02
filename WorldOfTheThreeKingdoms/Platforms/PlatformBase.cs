@@ -34,9 +34,9 @@ namespace Platforms
         public static Platform Current = new Platform();
         //System.IO.File.Exists(GameApplicationUrl))
         //System.Reflection.AssemblyName.GetAssemblyName(GameApplicationUrl).Version.ToString();
-        public static string GameVersion = "1.2.3.0";
+        public static string GameVersion = "1.2.8.0";
 
-        public static int PackVersion = 1230;
+        public static int PackVersion = 1280;
 
         public static string GameVersionType = "dev";
 
@@ -564,7 +564,7 @@ namespace Platforms
             }
             else
             {
-                var mod = res.Replace("Content", "MODs\\" + Setting.Current.MODRuntime);
+                var mod = res.Replace("Content", "MODs/" + Setting.Current.MODRuntime);
 
                 if (Platform.Current.FileExists(mod))
                 {
@@ -617,6 +617,11 @@ namespace Platforms
         }
 
         public virtual string[] GetFiles(string dir, bool all = false)
+        {
+            return null;
+        }
+
+        public virtual string[] GetFilesBasic(string dir, bool all = false)
         {
             return null;
         }

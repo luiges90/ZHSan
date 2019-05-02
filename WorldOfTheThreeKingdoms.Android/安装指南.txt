@@ -1,0 +1,4 @@
+﻿
+Android/obb文件夹下增加com.zhsan.threekingdoms文件夹
+里面放入obb文件
+安装apk文件

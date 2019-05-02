@@ -12581,7 +12581,7 @@ namespace GameObjects
  
         public bool StateAdminEffectAvail()
         {
-            return (this.Kind.HasTechnology && (this.Technology >= ((int)(this.TechnologyCeiling * 0.5))));
+            return (this.Kind != null && this.Kind.HasTechnology && (this.Technology >= ((int)(this.TechnologyCeiling * 0.5))));
         }
 
         private void StopAllWork()
@@ -14761,7 +14761,7 @@ namespace GameObjects
                 {
                     return this.viewArea;
                 }
-                return (this.viewArea = GameArea.GetAreaFromArea(this.ArchitectureArea, this.ViewDistance, this.kind.HasObliqueView, this.BelongedFaction));
+                return (this.viewArea = GameArea.GetAreaFromArea(this.ArchitectureArea, this.ViewDistance, this.kind == null ? false : this.kind.HasObliqueView, this.BelongedFaction));
             }
             set
             {
