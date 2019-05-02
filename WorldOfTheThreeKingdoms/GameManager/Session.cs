@@ -593,7 +593,7 @@ namespace GameManager
 
         public static void PlayMusic(string category)
         {
-            string[] songs = Platform.Current.GetMODFiles(@"Content\Music\" + category).NullToEmptyArray();
+            string[] songs = ListUpSongs(category);
 
             //if (category == "Start")
             //{
@@ -628,16 +628,41 @@ namespace GameManager
             //    songs = new string[] { @"Content\Music\Winter\Winter" };
             //}
 
-            Random rd = new Random();
-            int index = rd.Next(0, songs.Length);
-            string song = songs[index];
+            if (songs.Length > 0)
+            {
+                Random rd = new Random();
+                int index = rd.Next(0, songs.Length);
+                string song = songs[index];
 
-            Platform.Current.PlaySong(song);
+                Platform.Current.PlaySong(song);
+            }
         }
 
-        static string[] ListUpSongs(string dir)
+        static string[] ListUpSongs(string category)
         {
-            return Platform.Current.GetMODFiles(dir).NullToEmptyArray();
+            string[] songs = null;
+
+            if (Platform.PlatFormType == PlatFormType.Android)
+            {
+                var allFiles = Platform.Current.GetFilesBasic("", false).NullToEmptyArray().Where(fi => !fi.Contains("/")).NullToEmptyArray();
+
+                var start = Setting.Current.MODRuntime.NullToString("Original") + "-" + category;
+
+                songs = allFiles.Where(fi => fi.StartsWith(start)).NullToEmptyArray();
+
+                if (songs.Length == 0)
+                {
+                    start = "Original-" + category;
+
+                    songs = allFiles.Where(fi => fi.StartsWith(start)).NullToEmptyArray();
+                }
+            }
+            else
+            {
+                songs = Platform.Current.GetMODFiles(@"Content\Music\" + category).NullToEmptyArray();
+            }
+
+            return songs;
         }
 
         public static void StopSong()

@@ -2372,6 +2372,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                                     faction = scenario.Factions.GameObjects.FirstOrDefault(fi => fi.Name == id1) as Faction;
 
+                                    if (Platform.IsMobilePlatForm)
+                                    {
+                                        InputManager.PoX = 0;
+                                        InputManager.PoY = 0;
+                                    }
+                                        
                                     btDantiaoPlayersList = new List<ButtonTexture>();
 
                                     for (int j = 0; j < faction.Persons.Count; j++)
@@ -2390,6 +2396,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                                             ScreenLayers.DantiaoLayer.Persons.Add(person);
 
                                             faction = null;
+
+                                            if (Platform.IsMobilePlatForm)
+                                            {
+                                                InputManager.PoX = 0;
+                                                InputManager.PoY = 0;
+                                            }
 
                                         };
 

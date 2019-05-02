@@ -691,7 +691,7 @@ namespace GameObjects
                     this.AddKnownAreaData(point, InformationLevel.高);
                 }
             }
-            if (a.Kind.HasLongView)
+            if (a.Kind != null && a.Kind.HasLongView)
             {
                 foreach (Point point in a.LongViewArea.Area)
                 {
