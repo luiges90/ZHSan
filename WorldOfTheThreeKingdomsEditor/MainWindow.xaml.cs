@@ -389,7 +389,20 @@ namespace WorldOfTheThreeKingdomsEditor
                             }
                         }
 
-                        target.Save(filename.Replace(".png", "-alpha.png"), System.Drawing.Imaging.ImageFormat.Png);
+                        var dir = filename.Substring(0, filename.LastIndexOf('\\') + 1);
+
+                        var file = filename.Substring(filename.LastIndexOf('\\') + 1);
+
+                        var newDir = dir + "Alpha\\";
+
+                        var newFile = newDir + file;
+
+                        if (!Directory.Exists(newDir))
+                        {
+                            Directory.CreateDirectory(newDir);
+                        }
+
+                        target.Save(newFile, System.Drawing.Imaging.ImageFormat.Png);
                     }
                 }
 

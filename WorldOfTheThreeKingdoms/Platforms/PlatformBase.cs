@@ -558,7 +558,7 @@ namespace Platforms
             //res = res.Replace("\\", "/");
 
             //根據MOD來選擇素材
-            if (String.IsNullOrEmpty(Setting.Current.MODRuntime))
+            if (Setting.Current == null || String.IsNullOrEmpty(Setting.Current.MODRuntime))
             {
 
             }
