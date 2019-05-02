@@ -3017,7 +3017,8 @@ namespace GameObjects
                             this.ConvincingPerson.ToDeath(this, this.ConvincingPerson.BelongedFaction);
                         }
                         else if (this.ConvincingPerson.InjureRate < 0.009 * this.Strength && 
-                            GameObject.Chance(this.Strength + this.Intelligence - this.ConvincingPerson.Strength - this.ConvincingPerson.Intelligence))
+                            GameObject.Chance(this.Strength + this.Intelligence - this.ConvincingPerson.Strength - this.ConvincingPerson.Intelligence) && 
+                            (architectureByPosition.BelongedFaction == null || GameObject.Chance(100 - (architectureByPosition.Morale / 10))))
                         {
                             if (architectureByPosition.BelongedFaction != this.BelongedFaction)
                             {
