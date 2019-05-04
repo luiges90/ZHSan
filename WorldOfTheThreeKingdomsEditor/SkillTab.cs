@@ -20,7 +20,7 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             return new Dictionary<string, string>()
             {
-
+                {"GenerationChance","0 0 0 0 0 0 0 0 0 0" }
             };
         }
 
@@ -36,21 +36,12 @@ namespace WorldOfTheThreeKingdomsEditor
                 "Name",
                 "Combat",
                 "InfluencesString",
-                "ConditionsString",
+                "ConditionTableString",
                 "Prerequisite",
                 "Description",
                 "GenerateConditionsString",
-                "General",
-                "Brave",
-                "Advisor",
-                "Politician",
-                "IntelGeneral",
-                "Emperor",
-                "AllRounder",
-                "Normal",
-                "Normal2",
-                "Cheap",
-                "Ability"
+                "GenerationChance",
+                "RelatedAbility"
             };
         }
 
@@ -65,21 +56,12 @@ namespace WorldOfTheThreeKingdomsEditor
                 { "Name", "名称" },
                 { "Combat", "战斗" },
                 { "InfluencesString", "影响列表" },
-                { "ConditionsString", "条件列表" },
+                { "ConditionTableString", "条件列表" },
                 { "Prerequisite", "条件描述" },
                 { "Description", "描述" },
                 { "GenerateConditionsString", "生成武将条件" },
-                { "General", "将军型武将(如夏侯惇、关羽、孙策等)能取得此技能的机率参数" },
-                { "Brave", "勇猛型武将(如典韦、胡车儿等)能取得此技能的机率参数" },
-                { "Advisor", "军师型武将(如诸葛亮、司马懿、陆逊等)能取得此技能的机率参数" },
-                { "Politician", "识者型武将(如陈群、董允等)能取得此技能的机率参数" },
-                { "IntelGeneral", "智将型武将(如姜维、甘宁等)能取得此技能的机率参数" },
-                { "Emperor", "君主型武将(如刘备、孙权等)能取得此技能的机率参数" },
-                { "AllRounder", "全能型武将能取得此技能的机率参数" },
-                { "Normal", "平凡文官型武将能取得此技能的机率参数" },
-                { "Normal2", "平凡武官型武将能取得此技能的机率参数" },
-                { "Cheap", "平凡女官型武将能取得此技能的机率参数" },
-                { "Ability", "此技能的相关能力、0-4为武统智政魅" },
+                { "GenerationChance","不同生成武将类型获得机率" },
+                { "RelatedAbility", "此技能的相关能力、0-4为武统智政魅" },
             };
         }
 
