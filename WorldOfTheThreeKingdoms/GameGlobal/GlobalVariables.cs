@@ -1273,8 +1273,8 @@ namespace GameGlobal
             element.SetAttribute("AutoMultipleMarriage", AutoMultipleMarriage.ToString());
             element.SetAttribute("BornHistoricalChildren", BornHistoricalChildren.ToString());
             element.SetAttribute("hougongAlienOnly", hougongAlienOnly.ToString());
-            element.SetAttribute("StartCircleTime", hougongAlienOnly.ToString());
-            element.SetAttribute("ScenarioMapPerTime", hougongAlienOnly.ToString());
+            element.SetAttribute("StartCircleTime", StartCircleTime.ToString());
+            element.SetAttribute("ScenarioMapPerTime", ScenarioMapPerTime.ToString());
 
             document.AppendChild(element);
         

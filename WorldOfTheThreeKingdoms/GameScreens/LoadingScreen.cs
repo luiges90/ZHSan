@@ -78,6 +78,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     if (page > 1)
                     {
                         page--;
+                        pageTime = 0f;
                     }
                 };
 
@@ -99,6 +100,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     if (page < maps.Length)
                     {
                         page++;
+                        pageTime = 0f;
                     }
                 };
 
