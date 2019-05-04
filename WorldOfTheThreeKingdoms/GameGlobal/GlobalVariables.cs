@@ -275,6 +275,10 @@ namespace GameGlobal
         public bool AutoMultipleMarriage = false;
         [DataMember]
         public bool BornHistoricalChildren = false;
+        [DataMember]
+        public float StartCircleTime = 30f;
+        [DataMember]
+        public float ScenarioMapPerTime = 30f;
 
         public const string cryptKey = "A3g0c3%2";
 
@@ -1096,8 +1100,23 @@ namespace GameGlobal
                     exception = exception24;
                     throw new Exception("hougongAlienOnly:\n" + exception.ToString());
                 }
-            }
+                try
+                {
+                    StartCircleTime = float.Parse(nextSibling.Attributes.GetNamedItem("StartCircleTime").Value);
+                }
+                catch (Exception exception24)
+                {
 
+                }
+                try
+                {
+                    ScenarioMapPerTime = float.Parse(nextSibling.Attributes.GetNamedItem("ScenarioMapPerTime").Value);
+                }
+                catch (Exception exception24)
+                {
+
+                }
+            }
             else
             {
                 document = new XmlDocument();
@@ -1254,6 +1273,8 @@ namespace GameGlobal
             element.SetAttribute("AutoMultipleMarriage", AutoMultipleMarriage.ToString());
             element.SetAttribute("BornHistoricalChildren", BornHistoricalChildren.ToString());
             element.SetAttribute("hougongAlienOnly", hougongAlienOnly.ToString());
+            element.SetAttribute("StartCircleTime", hougongAlienOnly.ToString());
+            element.SetAttribute("ScenarioMapPerTime", hougongAlienOnly.ToString());
 
             document.AppendChild(element);
         

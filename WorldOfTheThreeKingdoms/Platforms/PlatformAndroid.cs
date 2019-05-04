@@ -333,6 +333,8 @@ namespace Platforms
 
         public override string[] GetDirectories(string dir, bool all = false)
         {
+            dir = dir.Replace("\\", "/");
+
             if (!dir.EndsWith("/"))
             {
                 dir = dir + "/";
