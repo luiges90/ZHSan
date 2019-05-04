@@ -68,9 +68,9 @@ namespace WorldOfTheThreeKingdomsEditor
                 Person p1 = scen.Persons.GetGameObject(n1) as Person;
                 int.TryParse(i.Value.ToString(), out int n2);
                 Person p2 = scen.Persons.GetGameObject(n2) as Person;
-                row["ID"] = i.Key;
+                row["ID"] =(K) i.Key;
                 row["武将名称"] = p1 != null ? p1.Name : "";
-                row["对方武将ID"] = i.Value;
+                row["对方武将ID"] =(V) i.Value;
                 row["对方武将名称"] = p2 != null ? p2.Name : "";
                 dt.Rows.Add(row);
             }
@@ -131,7 +131,7 @@ namespace WorldOfTheThreeKingdomsEditor
             }
             catch (Exception ex)
             {
-                 MessageBox.Show("資料輸入錯誤。" + ex.Message);
+                 //MessageBox.Show("資料輸入錯誤。" + ex.Message);
             }
         }
 
