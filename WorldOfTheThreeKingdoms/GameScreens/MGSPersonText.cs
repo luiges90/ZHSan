@@ -525,9 +525,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             if ((zongshixianshi) || p.BelongedFaction == Session.Current.Scenario.CurrentPlayer)
             {
-
-
-
                 p.TextResultString = TextResultString;
                 p.TextDestinationString = TextDestinationString;
                 this.Plugins.tupianwenziPlugin.SetGameObjectBranch(p, p, shijian, tupian, shengyin);

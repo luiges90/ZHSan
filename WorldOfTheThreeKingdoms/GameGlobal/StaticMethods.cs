@@ -373,7 +373,7 @@ namespace GameGlobal
             return null;
         }
 
-        public static void LoadFromString(int[] intArray, string dataString)
+        public static void LoadFromString(out int[] intArray, string dataString)
         {
             char[] separator = new char[] { ' ', '\n', '\r', '\t' };
             string[] strArray = dataString.Split(separator, StringSplitOptions.RemoveEmptyEntries);

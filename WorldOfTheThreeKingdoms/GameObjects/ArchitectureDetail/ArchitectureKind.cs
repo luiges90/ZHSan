@@ -57,6 +57,7 @@ namespace GameObjects.ArchitectureDetail
                 {
                     this.texture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/" + this.ID.ToString() + ".png");
                 }
+
                 return this.texture;
             }
         }

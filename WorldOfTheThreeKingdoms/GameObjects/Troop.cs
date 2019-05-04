@@ -12255,11 +12255,11 @@ namespace GameObjects
         {
             get
             {
-                return (this.drawAnimation && Session.Current.Scenario.GlobalVariables.DrawTroopAnimation);
+                return ( Setting.Current.GlobalVariables.DrawTroopAnimation);
             }
             set
             {
-                this.drawAnimation = value;
+                Setting.Current.GlobalVariables.DrawTroopAnimation = value;
             }
         }
 

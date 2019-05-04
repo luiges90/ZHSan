@@ -26,8 +26,19 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         Start
     }
 
+    public class MOD
+    {
+        public string ID { get; set; }
+
+        public string Name { get; set; }
+
+        public string Desc { get; set; }
+    }
+
     public class MainMenuScreen
     {
+        public MOD[] MODs = null;
+
         public static MainMenuScreen Current = null;
 
         public MenuType MenuType = MenuType.None;
@@ -153,99 +164,18 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         string[] texts = new string[]
         {
         };
-
-        string[] aboutLines = new string[]
-        {
-            String.Format("中华三国志"),
-            //jokosany
-"游戏的更新与讨论请关注:官方论坛:http://www.zhsan.com                                                                                                                                    百度贴吧:中华三国志吧          订阅号:中三之家（zhsan_com）",
-"",
-"原作者：Clip_on",
-"负责人：耒戈氏",
-"执行秘书：一世恋",
-"",
-"程序制作：,",
-"耒戈氏  45399735  kpxp  月落乌江（剧本编辑器）  兔巴哥(《三国春秋传》作者，手机版移植)   majorcheng(外交) breamask(单挑)  我勒个去(其他)  最爱艾氏兄弟  YPZhou(程序优化)",
-"",
-"美工UI模型：",
-"caibao2009（地图）  酷热7(地图、UI)  月落乌江(地图)  sgb6700tt(界面)  Ftian80(头像)  无限时段(粮道)  PTMASTER酱(帅旗)   睿哥（头像）  腿长一米六的滥情种（头像）  蓝心（头像） ",
-            " 啸林山人（头像）  常山（兵模）   古月（宝物图）  左撇（宝物图）  蓝色（UI）  ",
-"",
-"剧本：",
-"zwm213  清风凉亭  yesf  lakina006  amisuzuki  yesf  酷热7  粒粒橙  o哀之咏叹调o  髀里肉生o0  一身是胆  一世恋  caibao2009  哈哈哈呵呵呵  helokero13  yuanhouzi123(称号)  熊家依若(武将) "
-            ," 黑翼喵  郭文斌(兵种)  asmz2002(影响文字)  枫舞影(对话文字)  余襄子（传记） 燕返（测试） 风中翎羽（优化） 落叶梧桐（优化） ",
-"",
-"音乐音效配音",
-"一丝不狗  洛书  ciaos597  欧阳冰凌  四步花开  虚君  易萧  苏小样  屯屯",
-"特别鸣谢《嗜血印》之艺龙李叔支持的音乐音效",
-"特别鸣谢《炎黄战纪》支持的音乐音效",
-"",
-"视频动画制作",
-"欧阳小锤（开始动画）  秋木萋萋（开始动画）  赵虎威（感恩视频）",
-"",
-"宣传运营：",
-"一世恋（论坛、steam上架、游侠）  酷热7（论坛）  郭文斌（论坛）  陸陸大顺(论坛)  阿伍（论坛、贴吧、qq群、steam社区）  米卡柳丁（订阅号）  天青色等煙雨（TAPTAP） ",
-            " 赵凤、二娃子、李存孝（qq群）  快乐自逍遥（贴吧）  叶千落（协助发行）  念他（奶油关）  有晴人（贴吧） 水人（小黑盒） 今日头条（耐撕儿游戏） ",
-"",
-"中三丝路DLC制作：黄金魔导师。程序鸣谢：耒戈氏、月落乌江、兔八哥。艺术鸣谢:徐超然(南一先生，琴)，毛小贝(筝)，丰草(九歌艾草，筝)，墨姀(筝)，张箬(卧云先生，书)，",
-            "田筱煜和罗志翔(昆曲)。感谢常山和古月(兵模)、左撇(UI)、本大少(地形)的帮助。",
-"",
-"感谢以下媒体、自媒体的曝光宣传：52PK游戏网、游侠、游讯、3DM、STEAM贴吧君、太平洋游戏、拯救大魔王、凌晨大黑狗、265G游戏网",
-"",
-"",
-"该游戏为学习交流之用，游戏制作者对其所制作部分分别享有版权，游戏中图片、音乐等资源版权为原制作团队所有。未经许可禁止把该游戏用作商业用途。感谢广大网友的支持！"
-        };
+        
+        string[] aboutLines = null;
 
         int currentStartVersion = 2;
-        string[] startLines = new string[]
-        {
-"中华三国志丝路山水地图版是中华三国志2019年诞生的一款丹青山水国画风格的MOD，地图素材取自于明朝的丝路山水地图（原名蒙古山水地图），由三国爱好者耗时半年进行重制，",
- "开始界面标题和临江仙由擅书画者张箬(卧云先生)执笔题字，背景音乐由徐超然(南一先生)、丰草(九歌艾草)、毛小贝等擅琴筝者无偿授权，部分曲目也由传统文化爱好者倾情弹奏原创。",
- "游戏的地图数据参考历史资料，北至鲜卑乌孙南达交趾朱崖，构建了230座城池关隘，依据汉朝士兵服饰原创了兵模设计和动画，使整体更加符合传统山水画的风格。",
-"",
-"为确保较好的游戏体验，请：",
-"1，设置电脑分辨率1366*768，然后在游戏设置页面，设置游戏分辨率1280*720(否则游戏字体太小，或自行调整电脑和游戏分辨率)，部队移动5，战斗速度6。",
-"2，戴上耳机(关心家人，沉迷游戏伤身)。",
-"3，硬核游戏，上手较难。请耐心查看游戏根目录下的新手教程、游戏菜单右边的问号(帮助文档)，或者QQ群论坛讨论。",
-"",
-"DLC游戏特别说明：",
-"1.因写意国画不太适合田字形格子的移动模式，请君在移动部队前，先观察移动目的地之地形信息。",
-"2.一般的河流(小河或者大河的上游，非浅白色，请观察其格子地形信息)，部队在耗费一定移动力时可直接通过；在大河上过桥的时候，也会降低移动力。",
-"3.部队UI界面：武将头像的背景色是其势力颜色。头像边框左为士气右则战意，如果全满，则由一圈金光环绕。详细信息(如特殊兵种)，鼠标移动到部队格子即可显示详细信息。",
-"4.全国仅接近30座区域中心城市可进行扩建，且全国城池最多可扩建一次(洛阳和长安已最大，不可再扩建)，请重视区域中心城池的重要性吧。",
-"5.更换背景音乐方法：游戏地图上鼠标右键->开关->停止游戏音乐，然后再开启游戏音乐，即可更换。",
-"6.游戏进行时，背景音乐偶尔会消失(BUG)。存档后，重启游戏即可。",
-"",
-
-"DLC版权声明：",
-"1，中三丝路山水地图版免费，但禁止商用，非营利性的用途只能用于中三，或经过制作者同意授权。",
-"2，使用本DLC里的背景音乐到其他游戏，需经过音乐授权人同意(联系方式请见下面)。",
-"3，使用本DLC里的地图，无需经过地图作者同意，只需注明作者和来源即可。",
-"",
-"如果你喜欢游戏的背景音乐和毛笔字，欢迎关注：",
-"徐超然(南一先生)：擅古琴，B站号：22845872，微博：徐超然_古琴，网易云音乐：徐超然。",
-"丰草(九歌艾草)：擅古筝，B站号：10217453，微博：丰草-古箏。",
-"毛小贝：擅古筝，B站号：6536074，微博：毛小贝古筝。",
-"墨姀：擅古筝，QQ1587817010。",
-"张箬(卧云先生)：擅书画诗词，QQ1873157496。",
-"田筱煜和罗志翔：擅古筝昆曲，QQ940531372。",
-"",
-"",
-"因志愿者们业余时间有限，欢迎你加入中三大家庭，参与修复和美化，更欢迎制作各历史时期的MOD和剧本事件。",
-
-"中三Steam官方QQ群：209956920。论坛：www.zhsan.com。百度贴吧：中华三国志吧。",
-
-"感谢你对志愿者们工作的支持~~",
-
-"中三丝路版版本号(同原版主体)：v1.2.2。",
-"",
-"(本内容存放于游戏根目录：DLC使用者必读.txt)",
-        };
+        string[] startLines = null;
 
         string message = "";
 
         public MainMenuScreen()
         {
+            startLines = Platform.Current.LoadTexts(@"Content\StartLines.txt");
+
             if (Platform.Current.UserFileExist(new string[] { "startRead.txt" })[0])
             {
                 string content = Platform.Current.GetUserText("startRead.txt");
@@ -266,6 +196,37 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
             Platform.Current.SaveUserFile("startRead.txt", currentStartVersion.ToString());
             //None
+
+            var dires = Platform.Current.GetDirectories("MODs", false).NullToEmptyList();
+
+            if (dires.Count > 1)
+            {
+                MODs = new MOD[]
+                {
+                    new MOD() { ID = "", Name = "原版", Desc = "" }
+                };
+
+                foreach (var dir in dires)
+                {
+                    var mod = new MOD();
+
+                    mod.ID = dir.Substring(dir.LastIndexOf('\\') + 1);
+
+                    var lines = Platform.Current.ReadAllLines($@"MODs\{mod.ID}\{mod.ID}.txt").NullToEmptyArray();
+
+                    if (lines.Length > 0)
+                    {
+                        mod.Name = lines[0];
+                    }
+
+                    if (lines.Length > 1)
+                    {
+                        mod.Desc = lines[1];
+                    }
+
+                    MODs = MODs.Union(new MOD[] { mod }).NullToEmptyArray();
+                }
+            }
 
             Current = this;
 
@@ -311,6 +272,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 menuTypeElapsed = 0f;
                 UnCheckTextBoxs();
                 MenuType = MenuType.About;
+
+                aboutLines = Platform.Current.LoadTexts(@"Content\AboutLines.txt");
             };
             btList.Add(btOne);
 
@@ -1811,6 +1774,26 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btSettingList.Add(btOne);
 
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left + 300, 120))
+            {
+                ID = "ShowChallengeAnimation"
+            };
+            btOne.OnButtonPress += (sender, e) =>
+            {
+                var bt = (ButtonTexture)sender;
+                if (bt.Selected)
+                {
+                    bt.Selected = false;
+                    Setting.Current.GlobalVariables.ShowChallengeAnimation = false;
+                }
+                else
+                {
+                    bt.Selected = true;
+                    Setting.Current.GlobalVariables.ShowChallengeAnimation = true;
+                }
+            };
+            btSettingList.Add(btOne);
+
             btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, 120 + height * 0.5f))
             {
                 ID = "BattleSound"
@@ -2010,6 +1993,45 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
             };
             btSettingList.Add(btOne);
+
+            if (MODs == null)
+            {
+
+            }
+            else
+            {
+                for (int i = 0; i < MODs.Length; i++)
+                {
+                    var mod = MODs[i];
+
+                    btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(150 + 200 * i, 120 + height * -1f))
+                    {
+                        ID = "MOD" + mod.ID
+                    };
+                    btOne.OnButtonPress += (sender, e) =>
+                    {
+                        btSettingList.Where(bt0 => !String.IsNullOrEmpty(bt0.ID) && bt0.ID.StartsWith("MOD")).ForEach(bt1 => { bt1.Selected = false; });
+
+                        var bt = (ButtonTexture)sender;
+
+                        bt.Selected = true;
+
+                        string id = bt.ID.Replace("MOD", "");
+
+                        if (Setting.Current.MOD == id)
+                        {
+
+                        }
+                        else
+                        {
+                            Setting.Current.MOD = id;
+
+                            CacheManager.Clear(CacheType.Live);
+                        }
+                    };
+                    btSettingList.Add(btOne);
+                }
+            }
 
             nstMusic = new NumericSetTextureF(0, 100, 100, null, new Vector2(150, 115 + 60 * 2), true)
             {
@@ -2351,6 +2373,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                                     faction = scenario.Factions.GameObjects.FirstOrDefault(fi => fi.Name == id1) as Faction;
 
+                                    if (Platform.IsMobilePlatForm)
+                                    {
+                                        InputManager.PoX = 0;
+                                        InputManager.PoY = 0;
+                                    }
+                                        
                                     btDantiaoPlayersList = new List<ButtonTexture>();
 
                                     for (int j = 0; j < faction.Persons.Count; j++)
@@ -2369,6 +2397,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                                             ScreenLayers.DantiaoLayer.Persons.Add(person);
 
                                             faction = null;
+
+                                            if (Platform.IsMobilePlatForm)
+                                            {
+                                                InputManager.PoX = 0;
+                                                InputManager.PoY = 0;
+                                            }
 
                                         };
 
@@ -3080,6 +3114,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             var btOne = btSettingList.FirstOrDefault(bt => bt.ID == "CommonSound");
             btOne.Selected = Setting.Current.GlobalVariables.PlayNormalSound;
 
+            btOne = btSettingList.FirstOrDefault(bt => bt.ID == "ShowChallengeAnimation");
+            btOne.Selected = Setting.Current.GlobalVariables.ShowChallengeAnimation;
+
             btOne = btSettingList.FirstOrDefault(bt => bt.ID == "BattleSound");
             btOne.Selected = Setting.Current.GlobalVariables.PlayBattleSound;
 
@@ -3109,6 +3146,18 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btOne = btSettingList.FirstOrDefault(bt => bt.ID == "OutFocus");
             btOne.Selected = Setting.Current.GlobalVariables.RunWhileNotFocused;
+
+            if (MODs != null)
+            {
+                for (int i = 0; i < MODs.Length; i++)
+                {
+                    var mod = MODs[i];
+
+                    btOne = btSettingList.FirstOrDefault(bt => bt.ID == "MOD" + mod.ID);
+
+                    btOne.Selected = mod.ID == Setting.Current.MOD.NullToString();
+                }
+            }
 
             nstAutoSaveTime.NowNumber = Setting.Current.GlobalVariables.AutoSaveFrequency;
 
@@ -3161,7 +3210,19 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             var right = 2392f - 1280f;
 
-            startPos = new Vector2(- startElapsed / startCircle * right, 0);
+            startPos = new Vector2(-startElapsed / startCircle * right, 0);
+
+            btList.FirstOrDefault(bt => bt.Name == "New").Position = new Vector2(100, 600);
+
+            btList.FirstOrDefault(bt => bt.Name == "Save").Position = new Vector2(310, 600);
+
+            btList.FirstOrDefault(bt => bt.Name == "Setting").Position = new Vector2(520, 600);
+
+            btList.FirstOrDefault(bt => bt.Name == "About").Position = new Vector2(730, 600);
+
+            btList.FirstOrDefault(bt => bt.Name == "Exit").Position = new Vector2(940, 600);
+
+            btnDantiao.Position = new Vector2(860 + 260, 650);
 
             if (isClosing)
             {
@@ -3891,7 +3952,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 Setting.Current.GamerName = tbGamerName.Text.NullToStringTrim();
 
-                var nsts = new NumericSetTextureF[] { nstMusic, nstSound, nstArmySpeed, nstDialogTime, nstBattleSpeed, nstAutoSaveTime };
+                var nsts = new NumericSetTextureF[] { nstMusic, nstSound, nstArmySpeed, nstDialogTime, nstBattleSpeed, nstAutoSaveTime };//后面没有战斗速度的处理，虽然此参数并无用
 
                 foreach (var nst in nsts)
                 {
@@ -4515,6 +4576,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 CacheManager.DrawString(Session.Current.Font, "播放一般音效", new Vector2(left, 120), Color.Black * alpha);
 
+                CacheManager.DrawString(Session.Current.Font, "演示单挑", new Vector2(left + 300, 120), Color.Black * alpha);
+
                 CacheManager.DrawString(Session.Current.Font, "播放战斗音效", new Vector2(left, 120 + height * 0.5f), Color.Black * alpha);
 
                 CacheManager.DrawString(Session.Current.Font, "显示地图烟幕", new Vector2(left, 120 + height * 1), Color.Black * alpha);
@@ -4541,11 +4604,26 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 CacheManager.DrawString(Session.Current.Font, "战斗速度", new Vector2(50, 120 + height * 4.5f), Color.Black * alpha);
 
+                if (MODs == null)
+                {
+
+                }
+                else
+                {
+                    CacheManager.DrawString(Session.Current.Font, "MOD", new Vector2(50, 120 + height * -1f), Color.DarkRed * alpha);
+
+                    for (int i = 0; i < MODs.Length; i++)
+                    {
+                        var mod = MODs[i];
+
+                        CacheManager.DrawString(Session.Current.Font, mod.Name, new Vector2(50 + 150 + 200 * i, 120 + height * -1f), Color.Black * alpha);
+                    }
+                }
+
                 //btnTextureAlpha.Alpha = alpha;
                 //btnTextureAlpha.Draw();
 
                 //CacheManager.DrawString(Session.Current.Font, "处理材质Alpha", new Vector2(50 + 100, 120 + height * 5f), Color.Black * alpha);
-
             }
             else if (MenuType == MenuType.About)
             {

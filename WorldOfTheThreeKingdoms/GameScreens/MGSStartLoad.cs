@@ -41,6 +41,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 this.LoadScenario(base.InitializationFileName, base.InitializationFactionIDs, true, this);
 
+                Session.Current.Scenario.MOD = Setting.Current.MOD;
+
                 var globalVariables = Session.globalVariablesTemp;  //.globalVariablesBasic.Clone();
 
                 var gameParameters = Session.parametersTemp;  //.parametersBasic.Clone();
@@ -271,16 +273,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             //Microsoft.Xna.Framework.Color color1 = new Color(1f, 1f, 1f);
 
             //qizidezi = new FreeText(new System.Drawing.Font("方正北魏楷书繁体", 30f), new Color(1f, 1f, 1f));
-            
+
             foreach (Architecture jianzhu in Session.Current.Scenario.Architectures)
             {
-
                 //jianzhu.jianzhubiaoti = new FreeText(fontjianzhu, colorjianzhu);
                 ///////jianzhu.jianzhubiaoti.DisplayOffset = new Point(0, -mainMapLayer.TileWidth / 2);
                 //jianzhu.jianzhubiaoti.Text = jianzhu.Name;
                 //jianzhu.jianzhubiaoti.Align = TextAlign.Left;
                 jianzhu.jianzhuqizi = new qizi();
                 //jianzhu.jianzhuqizi.qizidezi = new FreeText(font1, color1);
+
                 try
                 {
                     jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/" + jianzhu.CaptionID + ".png");
@@ -291,6 +293,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     jianzhu.CaptionTexture = CacheManager.GetTempTexture("Content/Textures/Resources/Architecture/Caption/None.png");
                 }
+
                 /*
                 if (jianzhu.BelongedFaction != null)
                 {
@@ -299,8 +302,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 //this.qizidezi.Align = TextAlign.Middle;
 
-
-                jianzhu.jianzhuqizi.qizipoint = new Point(jianzhu.dingdian.X, jianzhu.dingdian.Y-1);
+                jianzhu.jianzhuqizi.qizipoint = new Point(jianzhu.dingdian.X, jianzhu.dingdian.Y - 1);
 
             }
         }
@@ -757,7 +759,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 scenarioName = String.Format(@"Save\{0}.json", filename);
             }
 
-            LoadScenarioData(scenarioName, fromScenario, mainGameScreen);
+            LoadScenarioData(scenarioName, fromScenario, mainGameScreen, false);
 
             var scenario = Session.Current.Scenario;
 

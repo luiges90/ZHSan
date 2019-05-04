@@ -629,10 +629,11 @@ namespace GameManager
             {
                 songs = new string[] { @"Content\Music\Autumn\" + ran };
             }
-            else if (category == "Winter")
+            else
             {
                 songs = new string[] { @"Content\Music\Winter\" + ran };
             }
+
             //jokosany
             Random rd = new Random();
             int index = rd.Next(0, songs.Length);

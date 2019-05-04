@@ -94,7 +94,6 @@ namespace GameGlobal
         Tactics_Instigate,
         Tactics_Gossip,
         Tactics_Search,
-        Tactics_ClearField,
         Tactics_JailBreak,
         Tactics_Assassinate,
         Diplomacy,

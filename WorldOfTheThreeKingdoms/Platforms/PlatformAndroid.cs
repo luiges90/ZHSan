@@ -36,7 +36,7 @@ namespace Platforms
 
         public static new bool IsMobilePlatForm = true;
 
-        public new string Channel = "";  //"PlayStore";
+        public new string Channel = "Zhsan";  //"PlayStore";
 
         public static bool IsActive
         {
@@ -185,6 +185,9 @@ namespace Platforms
         public string LoadText(string res)
         {
             res = res.Replace("\\", "/");
+
+            res = base.GetMODFile(res);
+
             lock (Platform.IoLock)
             {
                 using (var stream = LoadStream(res))
@@ -204,6 +207,9 @@ namespace Platforms
         public string[] LoadTexts(string res)
         {
             res = res.Replace("\\", "/");
+
+            res = base.GetMODFile(res);
+
             lock (Platform.IoLock)
             {
                 using (var stream = LoadStream(res))
@@ -228,6 +234,9 @@ namespace Platforms
         public byte[] LoadFile(string res)
         {
             res = res.Replace("\\", "/");
+
+            res = base.GetMODFile(res);
+
             lock (Platform.IoLock)
             {
                 using (var dest = new MemoryStream())
@@ -266,7 +275,7 @@ namespace Platforms
                 }
                 else
                 {
-
+                    res = base.GetMODFile(res);
                 }
 
                 //lock (Platform.IoLock)
@@ -297,15 +306,110 @@ namespace Platforms
             }
         }
 
+        public override string[] ReadAllLines(string file)
+        {
+            file = file.Replace("\\", "/");
+
+            string[] lines = null;
+
+            lock (Platform.IoLock)
+            {
+                using (var stream = LoadStream(file))
+                {
+                    using (var streamReader = new StreamReader(stream))
+                    {
+                        List<string> texts = new List<string>();
+                        while (!streamReader.EndOfStream)
+                        {
+                            texts.Add(streamReader.ReadLine());
+                        }
+                        lines = texts.ToArray();
+                    }
+                }
+            }
+
+            return lines;
+        }
+
+        public override string[] GetDirectories(string dir, bool all = false)
+        {
+            if (!dir.EndsWith("/"))
+            {
+                dir = dir + "/";
+            }
+
+            var directories = new List<string>();
+
+            if (System.String.IsNullOrEmpty(Channel))
+            {
+                directories = Game.Activity.Assets.List(dir).NullToEmptyList();
+            }
+            else
+            {
+                var allFiles = AndroidContentManager.entries.Where(en => en.StartsWith(dir)).NullToEmptyArray().Select(en => en.Replace(dir, "")).NullToEmptyArray();
+
+                foreach (var file in allFiles)
+                {
+                    if (file.Contains("/"))
+                    {
+                        var di = file.Substring(0, file.IndexOf('/'));
+                        if (!System.String.IsNullOrEmpty(di) && !directories.Contains(di))
+                        {
+                            directories.Add(di);
+                        }
+
+                    }
+                }
+
+            }
+
+            return directories.NullToEmptyArray();
+        }
+
         public override string[] GetFiles(string dir, bool all = false)
         {
+            string[] list = null;
+
             if (dir.Contains("/"))
             {
                 dir = dir.Substring(0, dir.LastIndexOf('/'));
             }
 
-            return System.String.IsNullOrEmpty(Channel) ? Game.Activity.Assets.List(dir) 
-                : AndroidContentManager.entries.Where(en => en.StartsWith(dir)).NullToEmptyArray().Select(en => en.Contains("/") ? en.Substring(en.LastIndexOf('/') + 1) : en).NullToEmptyArray();
+            if (System.String.IsNullOrEmpty(Channel))
+            {
+                list = Game.Activity.Assets.List(dir);
+            }
+            else
+            {
+                list = AndroidContentManager.entries.Where(en => en.StartsWith(dir)).NullToEmptyArray().Select(en => en.Contains("/") ? en.Substring(en.LastIndexOf('/') + 1) : en).NullToEmptyArray();
+            }
+
+            return list;
+        }
+
+        public override string[] GetFilesBasic(string dir, bool all = false)
+        {
+            return Game.Activity.Assets.List(dir);
+        }
+
+        public override bool DirectoryExists(string dir)
+        {
+            string[] list = null;
+
+            if (System.String.IsNullOrEmpty(Channel))
+            {
+                list = Game.Activity.Assets.List(dir);
+            }
+            else
+            {
+                list = AndroidContentManager.entries.Where(en => en.StartsWith(dir)).NullToEmptyArray().Select(en => en.Contains("/") ? en.Substring(en.LastIndexOf('/') + 1) : en).NullToEmptyArray();
+            }
+
+            if (list == null || list.Length <= 0)
+            {
+                return false;
+            }
+            return true;
         }
 
         public override bool FileExists(string file)

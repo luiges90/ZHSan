@@ -34,9 +34,9 @@ namespace Platforms
         public static Platform Current = new Platform();
         //System.IO.File.Exists(GameApplicationUrl))
         //System.Reflection.AssemblyName.GetAssemblyName(GameApplicationUrl).Version.ToString();
-        public static string GameVersion = "1.2.3.0";
+        public static string GameVersion = "1.2.8.0";
 
-        public static int PackVersion = 1230;
+        public static int PackVersion = 1280;
 
         public static string GameVersionType = "dev";
 
@@ -553,6 +553,56 @@ namespace Platforms
 
         #region 用戶文件夾處理
 
+        public string GetMODFile(string res)
+        {
+            //res = res.Replace("\\", "/");
+
+            //根據MOD來選擇素材
+            if (Setting.Current == null || String.IsNullOrEmpty(Setting.Current.MODRuntime))
+            {
+
+            }
+            else
+            {
+                var mod = res.Replace("Content", "MODs/" + Setting.Current.MODRuntime);
+
+                if (Platform.Current.FileExists(mod))
+                {
+                    res = mod;
+                }
+            }
+
+            return res;
+        }
+
+        public string[] GetMODFiles(string dir)
+        {
+            string[] files = null;
+
+            //根據MOD來選擇素材
+            if (String.IsNullOrEmpty(Setting.Current.MODRuntime))
+            {
+                files = GetFiles(dir, false).NullToEmptyArray();
+            }
+            else
+            {
+                var mod = dir.Replace("Content", "MODs\\" + Setting.Current.MODRuntime);
+
+                files = GetFiles(mod, false).NullToEmptyArray();
+
+                if (files.Length == 0)
+                {
+                    files = GetFiles(dir, false).NullToEmptyArray();
+                }
+                else
+                {
+                    
+                }
+            }
+
+            return files;
+        }
+
         protected string UserApplicationDataPath
         {
             get
@@ -567,6 +617,11 @@ namespace Platforms
         }
 
         public virtual string[] GetFiles(string dir, bool all = false)
+        {
+            return null;
+        }
+
+        public virtual string[] GetFilesBasic(string dir, bool all = false)
         {
             return null;
         }

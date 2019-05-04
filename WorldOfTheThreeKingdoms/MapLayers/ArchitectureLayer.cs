@@ -258,6 +258,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
             {
                 return tupian;
             }
+
             if (architecture.Kind.ID == 2)
             {
                 if (architecture.JianzhuGuimo == 1)
@@ -315,15 +316,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                 //    tupian = architecture.Texture;
                 //}
             }
+
             return tupian;
         }
-
 
         public void Initialize()
         {
         }
-    }
-
- 
+    } 
 
 }

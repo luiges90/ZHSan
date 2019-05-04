@@ -621,15 +621,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetJailBreakPerson, false, true, true, true, this.CurrentArchitecture.Persons, null, "劫狱", "劫狱");
                     break;
 
-                case ContextMenuResult.Tactics_ClearField:
-                    this.Plugins.ConfirmationDialogPlugin.SetSimpleTextDialog(this.Plugins.SimpleTextDialogPlugin);
-                    this.Plugins.ConfirmationDialogPlugin.ClearFunctions();
-                    this.Plugins.ConfirmationDialogPlugin.AddYesFunction(new GameDelegates.VoidFunction(this.CurrentArchitecture.ClearField));
-                    this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
-                    this.Plugins.SimpleTextDialogPlugin.SetGameObjectBranch(this.CurrentArchitecture, "ClearField");
-                    this.Plugins.ConfirmationDialogPlugin.IsShowing = true;
-                    break;
-
                 case ContextMenuResult.Monarch_officePosition_jingongzijin:
                     this.Plugins.TransportDialogPlugin.SetSourceArchiecture(this.CurrentArchitecture);
                     this.Plugins.TransportDialogPlugin.SetKind(TransportKind.EmperorFund);

@@ -9,17 +9,16 @@
     <Grid SizeChanged="Grid_SizeChanged">
 
         <Button Content="加载剧本设置" HorizontalAlignment="Left" Margin="75,20,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_1"/>
-        <Button Content="保存剧本设置" HorizontalAlignment="Left" Margin="225,20,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_2"/>
-        <DataGrid Width="400" Margin="0,60,0,0" Name="dgSetGlo" HorizontalAlignment="Left" >
+        <Button Content="保存剧本设置" HorizontalAlignment="Left" Margin="225,20,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_2" ToolTip=""/>
+        <DataGrid Width="400" Margin="0,60,0,0" Name="dgSetGlo" HorizontalAlignment="Left" CanUserAddRows="False" >
         </DataGrid>
         <Button Content="加载全局设置" HorizontalAlignment="Right" Margin="0,20,225,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
         <Button Content="保存全局设置" HorizontalAlignment="Right" Margin="0,20,75,0" VerticalAlignment="Top" Width="100" Click="Button_Click_3"/>
-        <DataGrid  Width="400" Name="dgSetGlo2" Margin="0,60,0,0" HorizontalAlignment="Right" >
+        <DataGrid  Width="400" Name="dgSetGlo2" Margin="0,60,0,0" HorizontalAlignment="Right"  CanUserAddRows="False" CanUserDeleteRows="False" >
         </DataGrid>
         <Path Stretch="Fill" Data=" M550,50 600,50 M580,40 600,50  M580,60 600,50 M600,50 650,50 M630,40 650,50  M630,60 650,50" HorizontalAlignment="Center" Height="16.908" VerticalAlignment="Top" Width="61.752" Stroke="Black" Margin="498.248,150,432,0" StrokeThickness="3" />
         <Button Name="scedelset" Content="选中移除" HorizontalAlignment="Center" Margin="432,150,485,0" VerticalAlignment="Top" Width="75" Click="Scedelset_Click"/>
         <Path Stretch="Fill" Data="  M 650,50 600,50 M600,50 620,60 M600,50 620,40 M600,50 550,50 M550,50 570,60 M550,50 570,40" HorizontalAlignment="Center" Height="16.908" VerticalAlignment="Top" Width="61.752" Stroke="Black" Margin="428.822,300,501.426,0" StrokeThickness="3" />
         <Button Name="sceaddset" Content="选中添加" HorizontalAlignment="Center" Margin="485,300,432,0" VerticalAlignment="Top" Width="75" Click="Sceaddset_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="485,60,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
     </Grid>
 </Window>

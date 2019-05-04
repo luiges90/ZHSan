@@ -1465,11 +1465,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
             }
+
             if (this.tufashijianzantingyinyue && this.Plugins.tupianwenziPlugin.IsShowing == false)
             {
                 this.ResumeMusic();
                 this.tufashijianzantingyinyue = false;
             }
+
             return item;
         }
 

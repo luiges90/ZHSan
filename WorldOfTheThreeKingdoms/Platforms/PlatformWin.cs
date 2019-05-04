@@ -311,7 +311,7 @@ namespace Platforms
                 return ApplicationUrl + "WorldOfTheThreeKingdoms.exe";
             }
         }
-
+        public bool editing = false;
         #region 加載資源文件
         /// <summary>
         /// 加載資源文本
@@ -321,6 +321,12 @@ namespace Platforms
         public string LoadText(string res)
         {
             res = res.Replace("\\", "/");
+            if (!editing)
+            {
+                res = base.GetMODFile(res);
+            }
+
+
             lock (Platform.IoLock)
             {
                 return File.ReadAllText(res);
@@ -334,6 +340,9 @@ namespace Platforms
         public string[] LoadTexts(string res)
         {
             res = res.Replace("\\", "/");
+
+            res = base.GetMODFile(res);
+
             lock (Platform.IoLock)
             {
                 return File.ReadAllLines(res);
@@ -347,6 +356,9 @@ namespace Platforms
         public byte[] LoadFile(string res)
         {
             res = res.Replace("\\", "/");
+
+            res = base.GetMODFile(res);
+
             using (var dest = new MemoryStream())
             {
                 lock (Platform.IoLock)
@@ -370,7 +382,14 @@ namespace Platforms
 
         public override string[] GetFiles(string dir, bool all = false)
         {
-            return Directory.GetFiles(dir, "*.*", all ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+            if (DirectoryExists(dir))
+            {
+                return Directory.GetFiles(dir, "*.*", all ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public override string ReadAllText(string file)
@@ -481,11 +500,12 @@ namespace Platforms
                 }
                 else
                 {
-
+                    res = base.GetMODFile(res);
                 }
 
                 lock (Platform.IoLock)
                 {
+
                     using (var stream = isUser ? LoadUserFileStream(res) : TitleContainer.OpenStream(res))
                     {
                         Texture2D tex = Texture2D.FromStream(Platform.GraphicsDevice, stream);

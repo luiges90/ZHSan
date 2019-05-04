@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfTheThreeKingdoms", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfTheThreeKingdoms.Android", "WorldOfTheThreeKingdoms.Android\WorldOfTheThreeKingdoms.Android.csproj", "{211E4AAF-E752-44AA-8CAA-91F05ABBA81D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfTheThreeKingdoms.Play", "WorldOfTheThreeKingdoms.Play\WorldOfTheThreeKingdoms.Play.csproj", "{C92733E3-85D4-45EC-B4A6-86668D5799DB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfTheThreeKingdoms.iOS", "WorldOfTheThreeKingdoms.iOS\WorldOfTheThreeKingdoms.iOS.csproj", "{39038F79-DE28-46E6-A1BB-B8F4ED9238F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfTheThreeKingdoms.Desktop", "WorldOfTheThreeKingdoms.Desktop\WorldOfTheThreeKingdoms.Desktop.csproj", "{BD8E782A-7491-42FB-BB5F-8F4BFB57CC33}"

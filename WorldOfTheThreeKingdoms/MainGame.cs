@@ -88,6 +88,10 @@ namespace WorldOfTheThreeKingdoms
             //}
 
             Platform.Current.PreparePhone();
+
+            //獲取設置數據
+            Setting.Init(false);
+
             string str = "";
             Session.globalVariablesBasic = new GlobalVariables();
             Session.globalVariablesBasic.InitialGlobalVariables(str);
@@ -96,7 +100,7 @@ namespace WorldOfTheThreeKingdoms
             Session.parametersBasic.InitializeGameParameters(str);
 
             //獲取設置數據
-            Setting.Init();
+            Setting.Init(true);
 
             Session.Init();
 
