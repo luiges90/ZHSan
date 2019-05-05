@@ -49,7 +49,7 @@ namespace WorldOfTheThreeKingdomsEditor
         private string scename;
 
         public bool CopyIncludeTitle = true;
-
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -102,6 +102,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
             // Common
             new TitleTab(scen, dgTitle, lblColumnHelp).setup();
+            new TitleKindTab(scen, dgTitleKind, lblColumnHelp).setup();
             new SkillTab(scen, dgSkill, lblColumnHelp).setup();
             new StuntTab(scen, dgStunt, lblColumnHelp).setup();
             new CombatMethodTab(scen, dgCombatMethod, lblColumnHelp).setup();

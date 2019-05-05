@@ -10,18 +10,18 @@ using System.Windows.Controls;
 
 namespace WorldOfTheThreeKingdomsEditor
 {
-    class InfleunceKindTab : BaseTab<InfluenceKind>
+    class TitleKindTab : BaseTab<TitleKind>
     {
         protected override IItemList GetDataList(GameScenario scen)
         {
-            return new GameObjectDictionaryItemList(scen.GameCommonData.AllInfluenceKinds.InfluenceKinds);
+            return new GameObjectDictionaryItemList(scen.GameCommonData.AllTitleKinds.TitleKinds);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()
         {
             return new Dictionary<string, string>()
             {
-                {"AIPersonValuePow", "1" }
+                //{"AIPersonValuePow", "1" }
             };
         }
 
@@ -30,11 +30,12 @@ namespace WorldOfTheThreeKingdomsEditor
             return new String[]
             {
                 "ID",
-                "Type",
                 "Name",
                 "Combat",
-                "AIPersonValue",
-                "AIPersonValuePow",
+                "StudyDay",
+                "SuccessRate",
+                "Recallable",
+                "RandomTeachable",
             };
         }
 
@@ -42,15 +43,16 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             return new Dictionary<string, string>()
             {
-                {"Type","种类" },
                 {"Name","名称" },
                 {"Combat","战斗" },
-                {"AIPersonValue","武將AI值" },
-                {"AIPersonValuePow","武將AI值乘冪" }
+                {"StudyDay","习得天数" },
+                {"SuccessRate","习得成功率" },
+                {"Recallable","可免除" },
+                {"RandomTeachable","可额外传授" }
             };
         }
 
-        public InfleunceKindTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
+        public TitleKindTab(GameScenario scen, DataGrid dg, TextBlock helpTextBlock)
         {
             init(scen, dg, helpTextBlock);
         }
