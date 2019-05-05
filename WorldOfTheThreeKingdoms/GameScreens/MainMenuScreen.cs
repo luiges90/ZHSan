@@ -4506,7 +4506,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             {
                                 string viewTime = "(" + (playTime / 60 / 60) + ":" + (playTime / 60 % 60) + ")";
 
-                                CacheManager.DrawString(Session.Current.Font, viewTime, bt.Position + new Vector2(45 + 900, 2), Color.Blue * alpha);
+                                CacheManager.DrawString(Session.Current.Font, viewTime, bt.Position + new Vector2(65 + 900, 2), Color.Blue * alpha);
                             }
                         }
 
