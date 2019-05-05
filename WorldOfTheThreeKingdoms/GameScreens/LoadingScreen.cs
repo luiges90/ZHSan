@@ -1,49 +1,140 @@
 ﻿using GameManager;
 using GameObjects;
+using GamePanels;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Platforms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tools;
 
 namespace WorldOfTheThreeKingdoms.GameScreens
 {
     public class LoadingScreen
     {
-        string background = "";
+        public string Mode = "Start";  //End
 
+        public string Scenario = "";
+
+        string[] maps = null;
+
+        string background = "";
         string tishi = "";
+        float textPre = 0f;
 
         float elapsedTime = 0f;
 
+        float pageTime = 0f;
+
         Vector2 backgroundScale = Microsoft.Xna.Framework.Vector2.One;  // new Vector2(1280f/1024f, 720/768f);
 
-        float textPre = 0f;
+        int page = 1;
+
+        bool pause = false;
 
         public bool IsLoading = false;
         public bool IsComplete = false;
         public event EventHandler LoadScreenEvent;
+
+        ButtonTexture btPre, btPlay, btPause, btNext, btLoad, btStart;
 
         public void ClearEvent()
         {
             LoadScreenEvent = null;
         }
 
-        public LoadingScreen()
+        public LoadingScreen(string mode, string scenario)
         {
-            int ran = new Random().Next(1, 60);
+            Mode = mode;
 
-            string ranStr = ran < 10 ? ("0" + ran) : ran.ToString();
+            Scenario = scenario.NullToString().Split('-')[0];
 
-            background = "Content/Textures/Resources/ScenarioLoading/" + ranStr + ".jpg";
+            if (Mode == "Start")
+            {
 
-            tishi = new TiShiText().getRandomText();
+                var dirs = Platform.Current.GetDirectories(@"Content\Textures\Resources\ScenarioLoading\Maps").NullToEmptyArray();
 
-            var textLength = 22.4 * tishi.Trim().Length;
+                var dir = dirs.FirstOrDefault(di => di.Contains(Scenario));
 
-            textPre = Convert.ToSingle((845 - textLength) / 2);
+                if (dir == null)
+                {
+                    Mode = "";
+                }
+                else
+                {
+                    maps = Platform.Current.GetFiles(dir).NullToEmptyArray().Where(fi => fi.EndsWith(".jpg")).NullToEmptyArray();
+                }
+
+            }
+
+            if (Mode == "Start")
+            {
+                btPre = new ButtonTexture(@"Content\Textures\Resources\Start\Play", "Pre", new Vector2(200 - 50, 640));
+                btPre.OnButtonPress += (sender, e) =>
+                {
+                    if (page > 1)
+                    {
+                        page--;
+                        pageTime = 0f;
+                    }
+                };
+
+                btPlay = new ButtonTexture(@"Content\Textures\Resources\Start\Play", "Play", new Vector2(200 + 220, 640));
+                btPlay.OnButtonPress += (sender, e) =>
+                {
+                    pause = false;
+                };
+
+                btPause = new ButtonTexture(@"Content\Textures\Resources\Start\Play", "Pause", new Vector2(200 + 220, 640));
+                btPause.OnButtonPress += (sender, e) =>
+                {
+                    pause = true;
+                };
+
+                btNext = new ButtonTexture(@"Content\Textures\Resources\Start\Play", "Next", new Vector2(200 + 220 * 2, 640));
+                btNext.OnButtonPress += (sender, e) =>
+                {
+                    if (page < maps.Length)
+                    {
+                        page++;
+                        pageTime = 0f;
+                    }
+                };
+
+                btLoad = new ButtonTexture(@"Content\Textures\Resources\Start\Play", "Load", new Vector2(200 + 220 * 3 + 100, 640));
+                btLoad.Enable = false;
+
+                btStart = new ButtonTexture(@"Content\Textures\Resources\Start\Play", "Start", new Vector2(200 + 220 * 3 + 100, 640));
+                btStart.OnButtonPress += (sender, e) =>
+                {
+                    Session.MainGame.loadingScreen = null;
+                };
+            }
+            else
+            {
+                var pictures = Platform.Current.GetFiles(@"Content\Textures\Resources\ScenarioLoading").NullToEmptyArray().Where(pi => pi.EndsWith(".jpg")).NullToEmptyArray();
+
+                if (pictures.Length > 0)
+                {
+                    int ran = new Random().Next(1, pictures.Length);
+
+                    //string ranStr = ran < 10 ? ("0" + ran) : ran.ToString();
+
+                    background = pictures[ran-1];  // "Content/Textures/Resources/ScenarioLoading/" + ranStr + ".jpg";
+
+                    tishi = new TiShiText().getRandomText();
+
+                    var textLength = 22.4 * tishi.Trim().Length;
+
+                    textPre = Convert.ToSingle((845 - textLength) / 2);
+                }
+
+            }
+
+
         }
 
         public void Load()
@@ -56,6 +147,70 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             float seconds = Convert.ToSingle(gameTime.ElapsedGameTime.TotalSeconds);
 
             elapsedTime += seconds;
+
+            if (Mode == "Start")
+            {
+                if (pause)
+                {
+                    btPlay.Visible = true;
+                    btPause.Visible = false;
+                }
+                else
+                {
+                    btPlay.Visible = false;
+                    btPause.Visible = true;
+
+                    if (page < maps.Length)
+                    {
+                        pageTime += seconds;
+
+                        if (pageTime >= Session.globalVariablesBasic.ScenarioMapPerTime)
+                        {
+                            page++;
+                            pageTime -= Session.globalVariablesBasic.ScenarioMapPerTime;
+                        }
+                    }
+                }
+
+                if (IsComplete)
+                {
+                    btLoad.Visible = false;
+                    btStart.Visible = true;
+                }
+                else
+                {
+                    btLoad.Visible = true;
+                    btStart.Visible = false;
+                }
+
+                btPre.Enable = btNext.Enable = true;
+
+                if (page <= 1)
+                {
+                    btPre.Enable = false;
+                }
+
+                if (page >= maps.Length)
+                {
+                    btNext.Enable = false;
+                }
+
+                btPre.Update();
+
+                btPlay.Update();
+
+                btPause.Update();
+
+                btNext.Update();
+
+                btLoad.Update();
+
+                btStart.Update();
+            }
+            else
+            {
+
+            }
 
             if (elapsedTime >= 0.2f)
             {
@@ -107,7 +262,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                             ClearEvent();
                             IsComplete = true;
-                            Session.MainGame.loadingScreen = null;
+                            if (Mode == "Start")
+                            {
+
+                            }
+                            else
+                            {
+                                Session.MainGame.loadingScreen = null;
+                            }
                         }).Start();
                         
                     }
@@ -117,11 +279,50 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public void Draw(GameTime gameTime)
         {
-            CacheManager.DrawAvatar(background, Vector2.Zero, Color.White * 1f, backgroundScale);
+            if (Mode == "Start")
+            {
+                CacheManager.DrawAvatar(@"Content/Textures/Resources/Start/LoadingBack.jpg", Vector2.Zero, Color.White * 1f, 1f);
 
-            CacheManager.DrawAvatar(@"Content/Textures/Resources/ScenarioLoading/jindulan.png", new Vector2(215, 650), Color.White * 1f, 1f);
+                var map = maps[page - 1];
 
-            CacheManager.DrawString(Session.Current.Font, tishi.Trim(), new Vector2(215 + textPre, 650) + new Vector2(10, 10), Color.White, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 0f);
+                if (String.IsNullOrEmpty(map))
+                {
+
+                }
+                else
+                {
+                    //@"Content/Textures/Resources/ScenarioLoading/Maps/" + Scenario
+                    CacheManager.DrawAvatar(map, new Vector2(23 + 66, 5 + 44), Color.White * 1f, new Vector2(1106f / 2821f, 565f / 1587f));
+                }
+
+                CacheManager.DrawAvatar(@"Content/Textures/Resources/Start/LoadingBorder.png", new Vector2(23, 5), Color.White * 1f, 1f);
+
+                btPre.Draw();
+
+                btPlay.Draw();
+
+                btPause.Draw();
+
+                btNext.Draw();
+
+                btLoad.Draw();
+
+                btStart.Draw();
+
+                if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop || Platform.PlatFormType == PlatFormType.UWP && !Platform.IsMobile)
+                {
+                    CacheManager.DrawAvatar(@"Content\Textures\Resources\MouseArrow\Normal.png", InputManager.Position, Color.White, 1f);
+                }
+            }
+            else
+            {
+                CacheManager.DrawAvatar(background, Vector2.Zero, Color.White * 1f, backgroundScale);
+
+                CacheManager.DrawAvatar(@"Content/Textures/Resources/ScenarioLoading/jindulan.png", new Vector2(215, 650), Color.White * 1f, 1f);
+
+                CacheManager.DrawString(Session.Current.Font, tishi.Trim(), new Vector2(215 + textPre, 650) + new Vector2(10, 10), Color.White, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 0f);
+            }
+
         }
 
         public void ExitScreen()

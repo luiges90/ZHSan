@@ -3625,7 +3625,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public void ReturnToMainMenu()
         {
-            Session.MainGame.loadingScreen = new LoadingScreen();
+            Session.MainGame.loadingScreen = new LoadingScreen("End", "");
             Session.MainGame.loadingScreen.LoadScreenEvent += (sender0, e0) =>
             {
                 Platform.Sleep(1000);

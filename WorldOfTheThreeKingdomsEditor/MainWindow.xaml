@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldOfTheThreeKingdomsEditor"
         mc:Ignorable="d"
-        Title="中華三國志劇本編輯器" Height="600" Width="960">
+        Title="中華三國志劇本編輯器" Height="600" Width="1024" WindowState="Maximized">
     <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="OpenCommandBinding_Executed"/>
         <CommandBinding Command="Save" Executed="SaveCommandBinding_Executed"/>
@@ -202,6 +202,11 @@
                     <DataGrid x:Name="dgTitle"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="称号种类">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgTitleKind"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                </Grid>
+            </TabItem>
             <TabItem Header="技能">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="dgSkill"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
@@ -224,7 +229,7 @@
             </TabItem>
             <TabItem Header="影响类">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgInflunceKind"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgInflunceKind"  CellStyle="{DynamicResource DataGridCellStyle1}" CanUserAddRows="False" CanUserDeleteRows="False"/>
                 </Grid>
             </TabItem>
             <TabItem Header="条件">
@@ -234,7 +239,7 @@
             </TabItem>
             <TabItem Header="条件类">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgConditionKind"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgConditionKind"  CellStyle="{DynamicResource DataGridCellStyle1}" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"/>
                 </Grid>
             </TabItem>
             <TabItem Header="事件影响">
@@ -244,7 +249,7 @@
             </TabItem>
             <TabItem Header="事件影响类">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgEventEffectKind"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgEventEffectKind"  CellStyle="{DynamicResource DataGridCellStyle1}" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"/>
                 </Grid>
             </TabItem>
             <TabItem Header="部队事件影响">
@@ -254,7 +259,7 @@
             </TabItem>
             <TabItem Header="部队事件影响类">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTroopEventEffectKind"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgTroopEventEffectKind"  CellStyle="{DynamicResource DataGridCellStyle1}" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"/>
                 </Grid>
             </TabItem>
             <TabItem Header="设施类">

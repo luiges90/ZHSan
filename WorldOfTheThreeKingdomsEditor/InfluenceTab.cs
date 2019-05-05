@@ -45,7 +45,8 @@ namespace WorldOfTheThreeKingdomsEditor
                 {"Name","名称" },
                 {"Combat","战斗" },
                 {"Parameter","参数" },
-                {"Parameter2","参数2" }
+                {"Parameter2","参数2" },
+                {"Description","描述" },
             };
         }
 

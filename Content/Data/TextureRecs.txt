@@ -29,6 +29,7 @@ Content\Textures\Resources\Start\Cloud3:png:Cloud3:466:351:466:351:1:Scene;
 Content\Textures\Resources\Start\Cloud4:png:Cloud4:663:391:663:391:1:Scene;
 Content\Textures\Resources\Start\Cloud5:png:Cloud5:586:396:586:396:1:Scene;
 Content\Textures\Resources\Start\Cloud6:png:Cloud6:466:351:466:351:1:Scene;
+Content\Textures\Resources\Start\Play:png:Pre,Play,Pause,Next,Load,Start:600:300:200:50:3:Scene;
 Content\Textures\Resources\Dantiao\Story:png:Story:200:42:100:42:2:Scene;
 Content\Textures\Resources\Dantiao\Button:png:Button:200:42:100:42:2:Scene;
 Content\Textures\Resources\Dantiao\Page:png:Left,Right:100:24:25:24:2:Scene;

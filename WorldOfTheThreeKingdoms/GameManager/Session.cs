@@ -562,7 +562,8 @@ namespace GameManager
         {
             var players = scenario.Players.Split(',').RemoveNullOrEmpty().Select(id => int.Parse(id)).NullToEmptyList();
 
-            Session.MainGame.loadingScreen = new LoadingScreen();
+            Session.MainGame.loadingScreen = new LoadingScreen("Start", scenario.Name);
+
             Session.MainGame.loadingScreen.LoadScreenEvent += (sender0, e0) =>
             {
                 var mainGameScreen = new MainGameScreen();
