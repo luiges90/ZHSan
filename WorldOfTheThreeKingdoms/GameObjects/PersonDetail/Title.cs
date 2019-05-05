@@ -126,21 +126,7 @@ namespace GameObjects.PersonDetail
                 generationChance = value;
             }
         }
-        [DataMember]
-        public int RelatedAbility { get; set; }//目前官方的此值默认为空，默认为0
 
-        public int GetRelatedAbility(Person p)
-        {
-            switch (RelatedAbility)
-            {
-                case 0: return p.Strength;
-                case 1: return p.Command;
-                case 2: return p.Intelligence;
-                case 3: return p.Politics;
-                case 4: return p.Glamour;
-            }
-            return 0;
-        }
         [DataMember]
         public int MapLimit
         {

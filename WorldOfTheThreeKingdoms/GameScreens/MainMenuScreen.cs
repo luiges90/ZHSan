@@ -55,8 +55,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         float startElapsed = 0f;
 
-        float startCircle = 15f;
-
         bool forward = true;
 
         Vector2 startPos = Vector2.Zero;
@@ -196,35 +194,37 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
             Platform.Current.SaveUserFile("startRead.txt", currentStartVersion.ToString());
             //None
-
-            var dires = Platform.Current.GetDirectories("MODs", false).NullToEmptyList();
-
-            if (dires.Count > 1)
+            if (Platform.Current.DirectoryExists("MODs"))
             {
-                MODs = new MOD[]
+                var dires = Platform.Current.GetDirectories("MODs", false).NullToEmptyList();
+
+                if (dires.Count > 1)
                 {
+                    MODs = new MOD[]
+                    {
                     new MOD() { ID = "", Name = "原版", Desc = "" }
-                };
+                    };
 
-                foreach (var dir in dires)
-                {
-                    var mod = new MOD();
-
-                    mod.ID = dir.Substring(dir.LastIndexOf('\\') + 1);
-
-                    var lines = Platform.Current.ReadAllLines($@"MODs\{mod.ID}\{mod.ID}.txt").NullToEmptyArray();
-
-                    if (lines.Length > 0)
+                    foreach (var dir in dires)
                     {
-                        mod.Name = lines[0];
-                    }
+                        var mod = new MOD();
 
-                    if (lines.Length > 1)
-                    {
-                        mod.Desc = lines[1];
-                    }
+                        mod.ID = dir.Substring(dir.LastIndexOf('\\') + 1);
 
-                    MODs = MODs.Union(new MOD[] { mod }).NullToEmptyArray();
+                        var lines = Platform.Current.ReadAllLines($@"MODs\{mod.ID}\{mod.ID}.txt").NullToEmptyArray();
+
+                        if (lines.Length > 0)
+                        {
+                            mod.Name = lines[0];
+                        }
+
+                        if (lines.Length > 1)
+                        {
+                            mod.Desc = lines[1];
+                        }
+
+                        MODs = MODs.Union(new MOD[] { mod }).NullToEmptyArray();
+                    }
                 }
             }
 
@@ -3193,7 +3193,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 startElapsed = startElapsed - seconds;
             }
 
-            if (startElapsed <= 0 || startElapsed >= startCircle)
+            if (startElapsed <= 0 || startElapsed >= Session.globalVariablesBasic.StartCircleTime)
             {
                 forward = !forward;
 
@@ -3201,15 +3201,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     startElapsed = 0;
                 }
-                else if (startElapsed > startCircle)
+                else if (startElapsed > Session.globalVariablesBasic.StartCircleTime)
                 {
-                    startElapsed = startCircle;
+                    startElapsed = Session.globalVariablesBasic.StartCircleTime;
                 }
             }
 
             var right = 2392f - 1280f;
 
-            startPos = new Vector2(-startElapsed / startCircle * right, 0);
+            startPos = new Vector2(-startElapsed / Session.globalVariablesBasic.StartCircleTime * right, 0);
 
             btList.FirstOrDefault(bt => bt.Name == "New").Position = new Vector2(100, 600);
 

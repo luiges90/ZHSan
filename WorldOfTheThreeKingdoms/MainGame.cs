@@ -358,7 +358,7 @@ namespace WorldOfTheThreeKingdoms
                                     //保存當前進度
                                     mainGameScreen.SaveGameAutoPosition();
 
-                                    loadingScreen = new LoadingScreen();
+                                    loadingScreen = new LoadingScreen("End", "");
                                     loadingScreen.LoadScreenEvent += (sender0, e0) =>
                                     {
                                         Platform.Sleep(1000);
@@ -494,7 +494,7 @@ namespace WorldOfTheThreeKingdoms
                                 //保存當前進度
                                 mainGameScreen.SaveGameAutoPosition();
 
-                                loadingScreen = new LoadingScreen();
+                                loadingScreen = new LoadingScreen("End", "");
                                 loadingScreen.LoadScreenEvent += (sender0, e0) =>
                                 {
                                     Platform.Sleep(1000);
