@@ -137,7 +137,7 @@ namespace GameManager
                 }
                 if (Current.MusicVolume == null)
                 {
-                    Current.MusicVolume = 30;
+                    Current.MusicVolume = 70;
                 }
                 if (Current.SoundVolume == null)
                 {

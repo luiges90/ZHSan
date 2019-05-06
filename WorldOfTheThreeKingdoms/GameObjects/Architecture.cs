@@ -14845,15 +14845,15 @@ namespace GameObjects
 
             if (this.Kind.Expandable < this.JianzhuGuimo) return false;
 
-            TerrainKind terrainKindByPosition;
+            TerrainDetail terrainKindByPosition;
             foreach (Point point in this.ExpandPoint())
             {
                 if (Session.Current.Scenario.PositionOutOfRange(point))
                 {
                     return false;
                 }
-                terrainKindByPosition = Session.Current.Scenario.GetTerrainKindByPosition(point);
-                if (terrainKindByPosition == TerrainKind.峻岭 || terrainKindByPosition == TerrainKind.湿地 || terrainKindByPosition == TerrainKind.水域 || terrainKindByPosition == TerrainKind.无 || terrainKindByPosition == TerrainKind.森林 || terrainKindByPosition == TerrainKind.栈道 || terrainKindByPosition == TerrainKind.荒地 || terrainKindByPosition == TerrainKind.山地)
+                terrainKindByPosition = Session.Current.Scenario.GetTerrainDetailByPosition(point);
+                if (!terrainKindByPosition.CanExtendInto)
                 {
                     return false;
                 }
