@@ -37,8 +37,14 @@
   <TheBackground1 Mask1="Null.png" Mask2="Null.png" Mask3="Mask13.png" Mask4="Mask14.png" Background="Background1.png" X="0" Y="0" Width="90" Height="56"></TheBackground1>
   <PersonPortrait1Position X="13" Y="12" Width="26" Height="34" ></PersonPortrait1Position>
   <Item23></Item23>
-  <Item24></Item24>
-  <Item25></Item25>
+  <TroopName X="-11" Y="-19" Width="3" Height="30" Mask="jokosany第二远地图显示将领名字"
+           FontName="宋体"
+           FontSize="14"
+           FontStyle="Bold"
+           FontColor="4294967295"
+           Align="Left">
+  </TroopName>
+  <FactionColor ColorPicture="Factions.png" ColorBackground="qizis.png" X="-16" Y="-30" Width="35" Height="40"  Mask="jokosany第二远地图显示将领名字"></FactionColor>
   <FactionNameText X="3" Y="-8" Width="20" Height="10"
           FontName="宋体"
           FontSize="9"
