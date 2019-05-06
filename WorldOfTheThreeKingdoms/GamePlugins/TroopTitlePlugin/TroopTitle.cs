@@ -209,11 +209,13 @@ namespace TroopTitlePlugin
         internal PlatformTexture Thezhanyi2Texture;
         internal Rectangle Thezhanyi2Position;
 
+        internal int minTileWidth = 0;
+        internal int maxTileWidth = 999;
 
         internal void DrawTroop(Troop troop, bool playerControlling)
         {
             //*jokosany在第二远地图上显示部队将领名字
-                if (Session.Current.Scenario.ScenarioMap.TileWidth < 70 && Session.Current.Scenario.ScenarioMap.TileWidth>35)
+                if (Session.Current.Scenario.ScenarioMap.TileWidth <= maxTileWidth && Session.Current.Scenario.ScenarioMap.TileWidth >= minTileWidth)
             {
                 Color white = Color.White;
                 this.DisplayOffset = Session.MainGame.mainGameScreen.GetPointByPosition(troop.Position);

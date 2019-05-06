@@ -130,4 +130,5 @@
   <Item75></Item75>
   <Theshiqi2 FileName="shiqi2.png" X="37" Y="28" Width="59" Height="4"></Theshiqi2>
   <Thezhanyi2 FileName="zhanyi2.png" X="36" Y="32" Width="56" Height="4"></Thezhanyi2>
+  <DisplayTileWidth Min="50" Max="999" />
 </Root>

@@ -295,7 +295,9 @@ namespace TroopTitlePlugin
             node = nextSibling.ChildNodes.Item(77);
             this.troopTitle.Thezhanyi2Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("FileName").Value);
             this.troopTitle.Thezhanyi2Position = StaticMethods.LoadRectangleFromXMLNode(node);
-
+            node = nextSibling.ChildNodes.Item(78);
+            this.troopTitle.minTileWidth = int.Parse(node.Attributes.GetNamedItem("Min").Value);
+            this.troopTitle.maxTileWidth = int.Parse(node.Attributes.GetNamedItem("Max").Value);
         }
 
         public void SetGraphicsDevice()
