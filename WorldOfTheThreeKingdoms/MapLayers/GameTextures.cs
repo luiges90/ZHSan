@@ -168,7 +168,7 @@ namespace WorldOfTheThreeKingdoms.Resources
                 {
                     str = "Content/Textures/Resources/Troop/" + kind2.ID.ToString() + "/";
 
-                    var files = Platform.Current.GetMODFiles(str);
+                    var files = Platform.Current.GetMODFiles(str, false);
 
                     //重複的兵模，載入原始圖
                     if (files.Length == 1 && files[0].Contains("same"))

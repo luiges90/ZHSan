@@ -375,9 +375,21 @@ namespace Platforms
         #region 處理文件夾事宜
 
 
-        public override string[] GetDirectories(string dir, bool all = false)
+        public override string[] GetDirectories(string dir, bool all, bool full)
         {
-            return Directory.GetDirectories(dir, "*.*", all ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+            if (Directory.Exists(dir))
+            {
+                return Directory.GetDirectories(dir, "*.*", all ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public override string[] GetDirectoriesBasic(string dir, bool all, bool full)
+        {
+            return GetDirectories(dir, all, true);
         }
 
         public override string[] GetFiles(string dir, bool all = false)
@@ -390,6 +402,11 @@ namespace Platforms
             {
                 return null;
             }
+        }
+
+        public override string[] GetFilesBasic(string dir, bool all = false)
+        {
+            return GetFiles(dir, false);
         }
 
         public override string ReadAllText(string file)

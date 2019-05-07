@@ -254,6 +254,13 @@ namespace GameManager
 
         public static void Init()
         {
+<<<<<<< HEAD
+=======
+            //var same = GameTools.CheckSame();
+            //var list1 = GameTools.GetContentList("Content", true);
+            //var list2 = GameTools.GetContentList("MODs", true);
+
+>>>>>>> master
             new PlatformTask(() =>
             {
                 try
@@ -562,7 +569,7 @@ namespace GameManager
         {
             var players = scenario.Players.Split(',').RemoveNullOrEmpty().Select(id => int.Parse(id)).NullToEmptyList();
 
-            Session.MainGame.loadingScreen = new LoadingScreen("Start", scenario.Name);
+            Session.MainGame.loadingScreen = new LoadingScreen(save  ? "" : "Start", scenario.Name);
 
             Session.MainGame.loadingScreen.LoadScreenEvent += (sender0, e0) =>
             {
@@ -601,39 +608,7 @@ namespace GameManager
             int ran = new Random().Next(1, 5);
            // string ranStr = ran < 10 ? ("0" + ran) : ran.ToString();
 
-
-            if (category == "Start")
-            {
-                songs = new string[] { @"Content\Music\Start\" + ran };
-            }
-            else if (category == "Attack")
-            {
-                songs = new string[] { @"Content\Music\Attack\" + ran };
-            }
-            else if (category == "Defend")
-            {
-                songs = new string[] { @"Content\Music\Defend\" + ran };
-            }
-            else if (category == "Battle")
-            {
-                songs = new string[] { @"Content\Music\Battle\" + ran };
-            }
-            else if (category == "Spring")
-            {
-                songs = new string[] { @"Content\Music\Spring\" + ran };
-            }
-            else if (category == "Summer")
-            {
-                songs = new string[] { @"Content\Music\Summer\" + ran };
-            }
-            else if (category == "Autumn")
-            {
-                songs = new string[] { @"Content\Music\Autumn\" + ran };
-            }
-            else
-            {
-                songs = new string[] { @"Content\Music\Winter\" + ran };
-            }
+            songs = Platform.Current.GetMODFiles(@"Content\Music\" + category, true).NullToEmptyArray();
 
             //jokosany
             Random rd = new Random();

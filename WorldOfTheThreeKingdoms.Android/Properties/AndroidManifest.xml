@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.zhsan.threekingdoms" android:versionCode="1280" android:versionName="1.2.8.0" android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="27" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="WorldOfTheThreeKingdoms.Android" android:versionCode="1288" android:versionName="1.2.8.8" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<application android:icon="@drawable/Icon" android:label="中華三國志"></application>

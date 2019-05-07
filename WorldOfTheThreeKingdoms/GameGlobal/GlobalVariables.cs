@@ -278,7 +278,7 @@ namespace GameGlobal
         [DataMember]
         public float StartCircleTime = 30f;
         [DataMember]
-        public float ScenarioMapPerTime = 30f;
+        public float ScenarioMapPerTime = 3f;
 
         public const string cryptKey = "A3g0c3%2";
 

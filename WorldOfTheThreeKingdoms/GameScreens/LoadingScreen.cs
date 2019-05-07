@@ -51,11 +51,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             Mode = mode;
 
             Scenario = scenario.NullToString().Split('-')[0];
-
+            
             if (Mode == "Start")
             {
+                string baseDir = @"Content\Textures\Resources\ScenarioLoading\Maps\";
 
-                var dirs = Platform.Current.GetDirectories(@"Content\Textures\Resources\ScenarioLoading\Maps").NullToEmptyArray();
+                var dirs = Platform.Current.GetMODDirectories(baseDir, true).NullToEmptyArray();
 
                 var dir = dirs.FirstOrDefault(di => di.Contains(Scenario));
 
@@ -65,7 +66,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
                 else
                 {
-                    maps = Platform.Current.GetFiles(dir).NullToEmptyArray().Where(fi => fi.EndsWith(".jpg")).NullToEmptyArray();
+                    maps = Platform.Current.GetMODFiles(dir + "/", true).NullToEmptyArray().Where(fi => fi.EndsWith(".jpg")).NullToEmptyArray();  //.Select(fi => baseDir + Scenario + @"\" + fi).NullToEmptyArray();
                 }
 
             }
@@ -79,6 +80,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     {
                         page--;
                         pageTime = 0f;
+                        if (Platform.IsMobilePlatForm)
+                        {
+                            InputManager.PoX = 0;
+                            InputManager.PoY = 0;
+                        }
                     }
                 };
 
@@ -101,6 +107,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     {
                         page++;
                         pageTime = 0f;
+                        if (Platform.IsMobilePlatForm)
+                        {
+                            InputManager.PoX = 0;
+                            InputManager.PoY = 0;
+                        }
                     }
                 };
 
@@ -115,7 +126,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
             else
             {
-                var pictures = Platform.Current.GetFiles(@"Content\Textures\Resources\ScenarioLoading").NullToEmptyArray().Where(pi => pi.EndsWith(".jpg")).NullToEmptyArray();
+                var baseDir = @"Content\Textures\Resources\ScenarioLoading\";
+
+                var pictures = Platform.Current.GetMODFiles(baseDir, true).NullToEmptyArray().Where(pi => pi.EndsWith(".jpg")).NullToEmptyArray();  //.Select(fi => baseDir + fi).NullToEmptyArray();
 
                 if (pictures.Length > 0)
                 {
@@ -283,17 +296,21 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 CacheManager.DrawAvatar(@"Content/Textures/Resources/Start/LoadingBack.jpg", Vector2.Zero, Color.White * 1f, 1f);
 
-                var map = maps[page - 1];
-
-                if (String.IsNullOrEmpty(map))
+                if (maps.Length > 0)
                 {
+                    var map = maps[page - 1];
 
+                    if (String.IsNullOrEmpty(map))
+                    {
+
+                    }
+                    else
+                    {
+                        //@"Content/Textures/Resources/ScenarioLoading/Maps/" + Scenario
+                        CacheManager.DrawAvatar(map, new Vector2(23 + 66, 5 + 44), Color.White * 1f, new Vector2(1106f / 2821f, 565f / 1587f));
+                    }
                 }
-                else
-                {
-                    //@"Content/Textures/Resources/ScenarioLoading/Maps/" + Scenario
-                    CacheManager.DrawAvatar(map, new Vector2(23 + 66, 5 + 44), Color.White * 1f, new Vector2(1106f / 2821f, 565f / 1587f));
-                }
+
 
                 CacheManager.DrawAvatar(@"Content/Textures/Resources/Start/LoadingBorder.png", new Vector2(23, 5), Color.White * 1f, 1f);
 

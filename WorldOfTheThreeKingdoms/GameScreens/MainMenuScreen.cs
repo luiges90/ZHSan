@@ -33,6 +33,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         public string Name { get; set; }
 
         public string Desc { get; set; }
+
+        public string Mode { get; set; }
     }
 
     public class MainMenuScreen
@@ -193,38 +195,68 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 MenuType = MenuType.Start;
             }
             Platform.Current.SaveUserFile("startRead.txt", currentStartVersion.ToString());
-            //None
-            if (Platform.Current.DirectoryExists("MODs"))
+
+            List<string> dires = new List<string>();
+
+            int xOffset = 0;
+            int yOffset = 0;
+
+            if (Platform.PlatFormType == PlatFormType.Android)
             {
-                var dires = Platform.Current.GetDirectories("MODs", false).NullToEmptyList();
-
-                if (dires.Count > 1)
+                if (Platform.Current.DirectoryExists("MODs"))
                 {
-                    MODs = new MOD[]
+                    dires = Platform.Current.GetDirectories("MODs", false, false).NullToEmptyList();
+                }
+            }
+            else
+            {
+                if (Platform.Current.DirectoryExists("MODs"))
+                {
+                    //分別讀取Assets/MODs與.obb中的MODs
+
+                    var dirsBasic = Platform.Current.GetDirectoriesBasic("MODs", false, false).NullToEmptyArray();
+
+                    var dirsExpan = Platform.Current.GetDirectoriesExpan("MODs", false, false).NullToEmptyArray();
+
+                    dires = dirsBasic.Union(dirsExpan).NullToEmptyList();
+                }
+            }
+
+            //None
+            if (dires.Count > 0)
+            {
+                MODs = new MOD[]
+                {
+                        new MOD() { ID = "", Name = "原版", Desc = "", Mode = "" }
+                };
+
+                foreach (var dir in dires)
+                {
+                    var mod = new MOD();
+
+                    mod.ID = dir.Substring(dir.LastIndexOf('\\') + 1);
+
+                    var lines = Platform.Current.ReadAllLines($@"MODs\{mod.ID}\{mod.ID}.txt").NullToEmptyArray();
+
+                    if (lines.Length > 0)
                     {
-                    new MOD() { ID = "", Name = "原版", Desc = "" }
-                    };
-
-                    foreach (var dir in dires)
-                    {
-                        var mod = new MOD();
-
-                        mod.ID = dir.Substring(dir.LastIndexOf('\\') + 1);
-
-                        var lines = Platform.Current.ReadAllLines($@"MODs\{mod.ID}\{mod.ID}.txt").NullToEmptyArray();
-
-                        if (lines.Length > 0)
-                        {
-                            mod.Name = lines[0];
-                        }
-
-                        if (lines.Length > 1)
-                        {
-                            mod.Desc = lines[1];
-                        }
-
-                        MODs = MODs.Union(new MOD[] { mod }).NullToEmptyArray();
+                        mod.Name = lines[0];
                     }
+
+                    if (lines.Length > 1)
+                    {
+                        mod.Desc = lines[1];
+
+                        if (lines.Length > 2)
+                        {
+                            string s = lines[2];
+                            string[] s2 = s.Split(new char[]{' '});
+                            xOffset = int.Parse(s2[0]);
+                            yOffset = int.Parse(s2[1]);
+                        }
+                    }
+
+                    MODs = MODs.Union(new MOD[] { mod }).NullToEmptyArray();
                 }
             }
 
@@ -232,8 +264,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btList = new List<ButtonTexture>() { };
 
-            //jokosany为丝路开始界面调整按钮位置
-            var btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "New", new Vector2(60, 630));
+            var btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "New", new Vector2(100 + xOffset, 600 + yOffset));
+
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -247,7 +279,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(290, 630));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(310 + xOffset, 600 + yOffset));
+
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -257,7 +290,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(520, 630));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(520 + xOffset, 600 + yOffset));
+
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -266,7 +300,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(750, 630));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(730 + xOffset, 600 + yOffset));
+
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -277,7 +312,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(980, 630));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(940 + xOffset, 600 + yOffset));
+
             btOne.OnButtonPress += (sender, e) =>
             {
                 Platform.Current.Exit();
@@ -313,34 +349,29 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         }
                         else
                         {
-                            if (MenuType == MenuType.New)
+                            Session.globalVariablesTemp = Session.globalVariablesBasic.Clone();
+                            Session.parametersTemp = Session.parametersBasic.Clone();
+
+                            //InitConfig();
+
+                            MenuType = MenuType.New;
+
+                            btScenarioSelectList.ForEach(bt =>
                             {
-                                Session.globalVariablesTemp = Session.globalVariablesBasic.Clone();
-                                Session.parametersTemp = Session.parametersBasic.Clone();
-                                InitConfig();
-                                MenuType = MenuType.Config;
-                            }
-                            else
-                            {
-                                MenuType = MenuType.New;
+                                bt.Selected = false;
+                            });
 
-                                btScenarioSelectList.ForEach(bt =>
-                                {
-                                    bt.Selected = false;
-                                });
+                            btScenarioPlayersList.Clear();
 
-                                btScenarioPlayersList.Clear();
+                            pageIndex1 = 1;
 
-                                pageIndex1 = 1;
+                            Session.StartScenario(CurrentScenario, false);
 
-                                Session.StartScenario(CurrentScenario, false);
+                            CurrentScenario = null;
 
-                                CurrentScenario = null;
+                            scenario = null;
 
-                                scenario = null;
-
-                                faction = null;
-                            }
+                            faction = null;
                         }
                     }
                     else
@@ -4498,7 +4529,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             {
                                 string viewTime = "(" + (playTime / 60 / 60) + ":" + (playTime / 60 % 60) + ")";
 
-                                //jokosany君主名字3个字，会和时间字体重叠,把下面的45改为65
                                 CacheManager.DrawString(Session.Current.Font, viewTime, bt.Position + new Vector2(65 + 900, 2), Color.Blue * alpha);
                             }
                         }

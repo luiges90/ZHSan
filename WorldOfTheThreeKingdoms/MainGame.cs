@@ -416,7 +416,10 @@ namespace WorldOfTheThreeKingdoms
                 }
             }
 
-            var spriteMode = mainGameScreen == null ? SpriteSortMode.Deferred : SpriteSortMode.BackToFront;
+            //var spriteMode = mainGameScreen == null ? SpriteSortMode.Deferred : SpriteSortMode.BackToFront;
+
+            var spriteMode = mainGameScreen == null || loadingScreen != null ? SpriteSortMode.Deferred : SpriteSortMode.BackToFront;
+
 
             if (disScale) //Platform.PlatFormType == PlatForm.iOS && isRetina)
             {

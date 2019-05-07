@@ -34,9 +34,9 @@ namespace Platforms
         public static Platform Current = new Platform();
         //System.IO.File.Exists(GameApplicationUrl))
         //System.Reflection.AssemblyName.GetAssemblyName(GameApplicationUrl).Version.ToString();
-        public static string GameVersion = "1.2.8.0";
+        public static string GameVersion = "1.2.8.8";
 
-        public static int PackVersion = 1280;
+        public static int PackVersion = 1288;
 
         public static string GameVersionType = "dev";
 
@@ -575,24 +575,24 @@ namespace Platforms
             return res;
         }
 
-        public string[] GetMODFiles(string dir)
+        public string[] GetMODFiles(string dir, bool full)
         {
             string[] files = null;
 
             //根據MOD來選擇素材
             if (String.IsNullOrEmpty(Setting.Current.MODRuntime))
             {
-                files = GetFiles(dir, false).NullToEmptyArray();
+                files = GetFilesBasic(dir, full).NullToEmptyArray();
             }
             else
             {
                 var mod = dir.Replace("Content", "MODs\\" + Setting.Current.MODRuntime);
 
-                files = GetFiles(mod, false).NullToEmptyArray();
+                files = GetFiles(mod, full).NullToEmptyArray();
 
                 if (files.Length == 0)
                 {
-                    files = GetFiles(dir, false).NullToEmptyArray();
+                    files = GetFilesBasic(dir, full).NullToEmptyArray();
                 }
                 else
                 {
@@ -603,6 +603,34 @@ namespace Platforms
             return files;
         }
 
+        public string[] GetMODDirectories(string dir, bool full)
+        {
+            string[] dirs = null;
+
+            //根據MOD來選擇文件夾
+            if (String.IsNullOrEmpty(Setting.Current.MODRuntime))
+            {
+                dirs = GetDirectories(dir, false, full).NullToEmptyArray();
+            }
+            else
+            {
+                var mod = dir.Replace("Content", "MODs\\" + Setting.Current.MODRuntime);
+
+                dirs = GetDirectories(mod, false, full).NullToEmptyArray();
+
+                if (dirs.Length == 0)
+                {
+                    dirs = GetDirectoriesBasic(dir, false, full).NullToEmptyArray();
+                }
+                else
+                {
+
+                }
+            }
+
+            return dirs;
+        }
+
         protected string UserApplicationDataPath
         {
             get
@@ -611,12 +639,22 @@ namespace Platforms
             }
         }
 
-        public virtual string[] GetDirectories(string dir, bool all = false)
+        public virtual string[] GetDirectories(string dir, bool all, bool full)
         {
             return null;
         }
 
-        public virtual string[] GetFiles(string dir, bool all = false)
+        public virtual string[] GetDirectoriesBasic(string dir, bool all, bool full)
+        {
+            return null;
+        }
+
+        public virtual string[] GetDirectoriesExpan(string dir, bool all, bool full)
+        {
+            return null;
+        }
+
+        public virtual string[] GetFiles(string dir, bool all)
         {
             return null;
         }
