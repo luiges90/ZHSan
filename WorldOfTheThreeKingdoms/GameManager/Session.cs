@@ -254,7 +254,9 @@ namespace GameManager
 
         public static void Init()
         {
-            //var list = GameTools.GetContentList(true);
+            //var same = GameTools.CheckSame();
+            //var list1 = GameTools.GetContentList("Content", true);
+            //var list2 = GameTools.GetContentList("MODs", true);
 
             new PlatformTask(() =>
             {
@@ -564,7 +566,7 @@ namespace GameManager
         {
             var players = scenario.Players.Split(',').RemoveNullOrEmpty().Select(id => int.Parse(id)).NullToEmptyList();
 
-            Session.MainGame.loadingScreen = new LoadingScreen("Start", scenario.Name);
+            Session.MainGame.loadingScreen = new LoadingScreen(save  ? "" : "Start", scenario.Name);
 
             Session.MainGame.loadingScreen.LoadScreenEvent += (sender0, e0) =>
             {
@@ -660,7 +662,7 @@ namespace GameManager
             }
             else
             {
-                songs = Platform.Current.GetMODFiles(@"Content\Music\" + category).NullToEmptyArray();
+                songs = Platform.Current.GetMODFiles(@"Content\Music\" + category, true).NullToEmptyArray();
             }
 
             return songs;

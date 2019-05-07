@@ -41,7 +41,7 @@ namespace GameManager
         {
             get
             {
-                if (Session.Current == null || Session.Current.Scenario == null)
+                if (Session.Current == null || Session.Current.Scenario == null || Session.Current.Scenario.MOD == null)
                 {
                     return Setting.Current.MOD;
                 }

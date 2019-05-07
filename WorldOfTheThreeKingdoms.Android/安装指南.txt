@@ -1,4 +1,7 @@
 ﻿
-Android/obb文件夹下增加com.zhsan.threekingdoms文件夹
-里面放入obb文件  main.1280.com.zhsan.threekingdoms.obb
+扩展MOD指南
+
 安装apk文件
+
+Android/obb文件夹下增加WorldOfTheThreeKingdoms.Android文件夹
+里面放入obb文件  main.1288.WorldOfTheThreeKingdoms.Android.obb

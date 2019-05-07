@@ -33,6 +33,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         public string Name { get; set; }
 
         public string Desc { get; set; }
+
+        public string Mode { get; set; }
     }
 
     public class MainMenuScreen
@@ -193,38 +195,54 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 MenuType = MenuType.Start;
             }
             Platform.Current.SaveUserFile("startRead.txt", currentStartVersion.ToString());
-            //None
-            if (Platform.Current.DirectoryExists("MODs"))
+
+            List<string> dires = new List<string>();
+
+            if (Platform.PlatFormType == PlatFormType.Android)
             {
-                var dires = Platform.Current.GetDirectories("MODs", false).NullToEmptyList();
+                //分別讀取Assets/MODs與.obb中的MODs
 
-                if (dires.Count > 1)
+                var dirsBasic = Platform.Current.GetDirectoriesBasic("MODs", false, false).NullToEmptyArray();
+
+                var dirsExpan = Platform.Current.GetDirectoriesExpan("MODs", false, false).NullToEmptyArray();
+
+                dires = dirsBasic.Union(dirsExpan).NullToEmptyList();
+            }
+            else
+            {
+                if (Platform.Current.DirectoryExists("MODs"))
                 {
-                    MODs = new MOD[]
+                    dires = Platform.Current.GetDirectories("MODs", false, false).NullToEmptyList();
+                }
+            }
+
+            //None
+            if (dires.Count > 0)
+            {
+                MODs = new MOD[]
+                {
+                        new MOD() { ID = "", Name = "原版", Desc = "", Mode = "" }
+                };
+
+                foreach (var dir in dires)
+                {
+                    var mod = new MOD();
+
+                    mod.ID = dir.Substring(dir.LastIndexOf('\\') + 1);
+
+                    var lines = Platform.Current.ReadAllLines($@"MODs\{mod.ID}\{mod.ID}.txt").NullToEmptyArray();
+
+                    if (lines.Length > 0)
                     {
-                    new MOD() { ID = "", Name = "原版", Desc = "" }
-                    };
-
-                    foreach (var dir in dires)
-                    {
-                        var mod = new MOD();
-
-                        mod.ID = dir.Substring(dir.LastIndexOf('\\') + 1);
-
-                        var lines = Platform.Current.ReadAllLines($@"MODs\{mod.ID}\{mod.ID}.txt").NullToEmptyArray();
-
-                        if (lines.Length > 0)
-                        {
-                            mod.Name = lines[0];
-                        }
-
-                        if (lines.Length > 1)
-                        {
-                            mod.Desc = lines[1];
-                        }
-
-                        MODs = MODs.Union(new MOD[] { mod }).NullToEmptyArray();
+                        mod.Name = lines[0];
                     }
+
+                    if (lines.Length > 1)
+                    {
+                        mod.Desc = lines[1];
+                    }
+
+                    MODs = MODs.Union(new MOD[] { mod }).NullToEmptyArray();
                 }
             }
 
@@ -312,34 +330,29 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         }
                         else
                         {
-                            if (MenuType == MenuType.New)
+                            Session.globalVariablesTemp = Session.globalVariablesBasic.Clone();
+                            Session.parametersTemp = Session.parametersBasic.Clone();
+
+                            //InitConfig();
+
+                            MenuType = MenuType.New;
+
+                            btScenarioSelectList.ForEach(bt =>
                             {
-                                Session.globalVariablesTemp = Session.globalVariablesBasic.Clone();
-                                Session.parametersTemp = Session.parametersBasic.Clone();
-                                InitConfig();
-                                MenuType = MenuType.Config;
-                            }
-                            else
-                            {
-                                MenuType = MenuType.New;
+                                bt.Selected = false;
+                            });
 
-                                btScenarioSelectList.ForEach(bt =>
-                                {
-                                    bt.Selected = false;
-                                });
+                            btScenarioPlayersList.Clear();
 
-                                btScenarioPlayersList.Clear();
+                            pageIndex1 = 1;
 
-                                pageIndex1 = 1;
+                            Session.StartScenario(CurrentScenario, false);
 
-                                Session.StartScenario(CurrentScenario, false);
+                            CurrentScenario = null;
 
-                                CurrentScenario = null;
+                            scenario = null;
 
-                                scenario = null;
-
-                                faction = null;
-                            }
+                            faction = null;
                         }
                     }
                     else
@@ -4496,7 +4509,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             {
                                 string viewTime = "(" + (playTime / 60 / 60) + ":" + (playTime / 60 % 60) + ")";
 
-                                CacheManager.DrawString(Session.Current.Font, viewTime, bt.Position + new Vector2(45 + 900, 2), Color.Blue * alpha);
+                                CacheManager.DrawString(Session.Current.Font, viewTime, bt.Position + new Vector2(65 + 900, 2), Color.Blue * alpha);
                             }
                         }
 

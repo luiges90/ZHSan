@@ -36,7 +36,30 @@ namespace Platforms
 
         public static new bool IsMobilePlatForm = true;
 
-        public new string Channel = "Zhsan";  //"PlayStore";
+        public new string Channel = "";  //"PlayStore";
+
+        public bool LoadFromOBB
+        {
+            get
+            {
+                if (System.String.IsNullOrEmpty(Channel))
+                {
+                    if (Setting.Current != null && 
+                        (System.String.IsNullOrEmpty(Setting.Current.MODRuntime) || Setting.Current.MODRuntime == "Qinghuai"))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
 
         public static bool IsActive
         {
@@ -129,14 +152,16 @@ namespace Platforms
                 Session.MainGame.fullScreenDestination = new Rectangle(0, 0, dm.HeightPixels, dm.WidthPixels);
             }
 
-            if (System.String.IsNullOrEmpty(Platform.Current.Channel))
-            {
+            AndroidContentManager.Init();
 
-            }
-            else
-            {
-                AndroidContentManager.Init();
-            }
+            //if (System.String.IsNullOrEmpty(Platform.Current.Channel))
+            //{
+
+            //}
+            //else
+            //{
+                
+            //}
 
             //var stream = AndroidContentManager.OpenStream("Setting.png");
 
@@ -174,7 +199,32 @@ namespace Platforms
 
         public Stream LoadStream(string res)
         {
-            return System.String.IsNullOrEmpty(Channel) ? Game.Activity.Assets.Open(res) : AndroidContentManager.OpenStream(res);
+            res = res.Replace("\\", "/");
+
+            Stream stream = null;
+            if (LoadFromOBB)
+            {
+                if (FileExists(res))
+                {
+                    stream = AndroidContentManager.OpenStream(res);
+                }
+                else
+                {
+                    stream = Game.Activity.Assets.Open(res);
+                }
+            }
+            else
+            {
+                if (FileExists(res))
+                {
+                    stream = Game.Activity.Assets.Open(res);
+                }
+                else
+                {
+                    stream = AndroidContentManager.OpenStream(res);
+                }
+            }
+            return stream;
         }
         
         /// <summary>
@@ -331,7 +381,7 @@ namespace Platforms
             return lines;
         }
 
-        public override string[] GetDirectories(string dir, bool all = false)
+        public override string[] GetDirectories(string dir, bool all, bool full)
         {
             dir = dir.Replace("\\", "/");
 
@@ -340,16 +390,48 @@ namespace Platforms
                 dir = dir + "/";
             }
 
-            var directories = new List<string>();
-
-            if (System.String.IsNullOrEmpty(Channel))
+            if (LoadFromOBB)
             {
-                directories = Game.Activity.Assets.List(dir).NullToEmptyList();
+                return GetDirectoriesExpan(dir, all, full);
             }
             else
             {
-                var allFiles = AndroidContentManager.entries.Where(en => en.StartsWith(dir)).NullToEmptyArray().Select(en => en.Replace(dir, "")).NullToEmptyArray();
+                return GetDirectoriesBasic(dir, all, full);
+            }
+        }
 
+        public override string[] GetDirectoriesBasic(string dir, bool all, bool full)
+        {
+            string[] dirs = null;
+
+            dir = dir.Replace("\\", "/");
+            if (!dir.EndsWith("/"))
+            {
+                dir += "/";
+            }
+
+            dirs = Game.Activity.Assets.List(dir).NullToEmptyArray();
+
+            if (full)
+            {
+                dirs = dirs.Select(fi => dir + fi).NullToEmptyArray();
+            }
+
+            return dirs;
+        }
+
+        public override string[] GetDirectoriesExpan(string dir, bool all, bool full)
+        {
+            var directories = new List<string>();
+
+            var allFiles = AndroidContentManager.entries.Where(en => en.StartsWith(dir)).NullToEmptyArray().Select(en => en.Replace(dir + "/", "")).NullToEmptyArray();
+
+            if (full)
+            {
+
+            }
+            else
+            {
                 foreach (var file in allFiles)
                 {
                     if (file.Contains("/"))
@@ -359,10 +441,8 @@ namespace Platforms
                         {
                             directories.Add(di);
                         }
-
                     }
                 }
-
             }
 
             return directories.NullToEmptyArray();
@@ -377,13 +457,22 @@ namespace Platforms
                 dir = dir.Substring(0, dir.LastIndexOf('/'));
             }
 
-            if (System.String.IsNullOrEmpty(Channel))
+            if (LoadFromOBB)
             {
-                list = Game.Activity.Assets.List(dir);
+                list = AndroidContentManager.entries.Where(en => en.StartsWith(dir)).NullToEmptyArray().Select(en => en.Contains("/") ? en.Substring(en.LastIndexOf('/') + 1) : en).NullToEmptyArray();
             }
             else
             {
-                list = AndroidContentManager.entries.Where(en => en.StartsWith(dir)).NullToEmptyArray().Select(en => en.Contains("/") ? en.Substring(en.LastIndexOf('/') + 1) : en).NullToEmptyArray();
+                dir = dir.Replace("\\", "/");
+                list = Game.Activity.Assets.List(dir);
+                if (all)
+                {
+                    if (dir.EndsWith("/"))
+                    {
+                        dir = dir.Substring(0, dir.Length - 1);
+                    }
+                    list = list.Select(fi => dir + "/" + fi).NullToEmptyArray();
+                }
             }
 
             return list;
@@ -391,20 +480,27 @@ namespace Platforms
 
         public override string[] GetFilesBasic(string dir, bool all = false)
         {
-            return Game.Activity.Assets.List(dir);
+            string[] files = null;
+            dir = dir.Replace("\\", "/"); 
+            files = Game.Activity.Assets.List(dir);
+            if (all)
+            {
+                files = files.Select(fi => dir + fi).NullToEmptyArray();
+            }
+            return files;
         }
 
         public override bool DirectoryExists(string dir)
         {
             string[] list = null;
 
-            if (System.String.IsNullOrEmpty(Channel))
+            if (LoadFromOBB)
             {
-                list = Game.Activity.Assets.List(dir);
+                list = AndroidContentManager.entries.Where(en => en.StartsWith(dir)).NullToEmptyArray().Select(en => en.Contains("/") ? en.Substring(en.LastIndexOf('/') + 1) : en).NullToEmptyArray();
             }
             else
             {
-                list = AndroidContentManager.entries.Where(en => en.StartsWith(dir)).NullToEmptyArray().Select(en => en.Contains("/") ? en.Substring(en.LastIndexOf('/') + 1) : en).NullToEmptyArray();
+                list = Game.Activity.Assets.List(dir);
             }
 
             if (list == null || list.Length <= 0)
@@ -416,7 +512,7 @@ namespace Platforms
 
         public override bool FileExists(string file)
         {
-            var list = GetFiles(file);
+            var list = GetFiles(file, false);
 
             if (list != null && list.Length > 0)
             {
@@ -925,34 +1021,7 @@ namespace Platforms
             System.Threading.Thread.Sleep(time);
         }
 
-        public override void OpenMarket(string key)
-        {
-            if (System.String.IsNullOrEmpty(Platform.Current.Channel))
-            {
-                //OpenLink(WebTools.WebSiteView + "/download.aspx?from=WorldOfTheThreeKingdoms" + Platform.PlatFormType.ToString());
-            }
-            else
-            {
-                /* This code assumes you are inside an activity */
-                Uri uri = Uri.Parse("market://details?id=" + Activity1.ApplicationContext.PackageName);
-                Intent rateAppIntent = new Intent(Intent.ActionView, uri);
-
-                if (Activity1.PackageManager.QueryIntentActivities(rateAppIntent, 0).Count > 0)
-                {
-                    Activity1.StartActivity(rateAppIntent);
-                }
-                else
-                {
-                    /* handle your error case: the device has no way to handle market urls */
-                }
-            }
-        }
-
-        public override void OpenReview(string key)
-        {
-            OpenMarket(key);
-        }
-
+        
         public override byte[] ScreenShot(GraphicsDevice graphics, RenderTarget2D screenshot)
         {
             graphics.SetRenderTarget(null);
@@ -1515,40 +1584,50 @@ namespace Platforms
 
         static string obbPath;
 
-        public static List<string> entries;
+        public static List<string> entries = null;
 
         public static void Init()
         {
             if (entries == null)
             {
                 Activity activity = Game.Activity;
-                ainfo = activity.ApplicationInfo;
-                pinfo = activity.PackageManager.GetPackageInfo(ainfo.PackageName, PackageInfoFlags.MetaData);
 
-                obbPath = System.IO.Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "Android", "obb", ainfo.PackageName, $"main.{Platform.PackVersion}.{ainfo.PackageName}.obb");
-                //#if DEBUG
-                //                obbPath = System.IO.Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "Android", "obb", ainfo.PackageName + ".debug", String.Format("main.{0}.{1}.obb", expansionPackVersion, ainfo.PackageName));
-                //#else
-                //            obbPath = Path.Combine (Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "Android", "obb", ainfo.PackageName, String.Format ("main.{0}.{1}.obb", expansionPackVersion, ainfo.PackageName));
-                //#endif
                 try
                 {
-                    zif = new ICSharpCode.SharpZipLib.Zip.ZipFile(obbPath);
+                    ainfo = activity.ApplicationInfo;
+                    pinfo = activity.PackageManager.GetPackageInfo(ainfo.PackageName, PackageInfoFlags.MetaData);
 
+                    obbPath = System.IO.Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "Android", "obb", ainfo.PackageName, $"main.{Platform.PackVersion}.{ainfo.PackageName}.obb");
+                    //#if DEBUG
+                    //                obbPath = System.IO.Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "Android", "obb", ainfo.PackageName + ".debug", String.Format("main.{0}.{1}.obb", expansionPackVersion, ainfo.PackageName));
+                    //#else
+                    //            obbPath = Path.Combine (Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "Android", "obb", ainfo.PackageName, String.Format ("main.{0}.{1}.obb", expansionPackVersion, ainfo.PackageName));
+                    //#endif
                     entries = new List<string>();
-
-                    for (int i = 0; i < zif.Count; i++)
+                    if (File.Exists(obbPath))
                     {
-                        var file = zif[i].Name;
-                        if (System.IO.Path.GetExtension(file).Length > 0)
+                        zif = new ICSharpCode.SharpZipLib.Zip.ZipFile(obbPath);
+
+                        entries = new List<string>();
+
+                        for (int i = 0; i < zif.Count; i++)
                         {
-                            entries.Add(file);
+                            var file = zif[i].Name;
+                            if (System.IO.Path.GetExtension(file).Length > 0)
+                            {
+                                entries.Add(file);
+                            }
                         }
                     }
+                    else
+                    {
+
+                    }
+
                 }
                 catch (Exception e)
                 {
-                    System.Diagnostics.Debug.WriteLine("++    Zip expansion file could not be opened    ++  {0}", e.Message);
+                    //System.Diagnostics.Debug.WriteLine("++    Zip expansion file could not be opened    ++  {0}", e.Message);
                     zif = null;
                 }
             }
