@@ -600,24 +600,16 @@ namespace GameManager
         public static void PlayMusic(string category)
         {
             string[] songs = null;
-            //*jokosany背景音乐随机播放原格式:
-            //if (category == "Start")
-            //{
-           //     songs = new string[] { @"Content\Music\Start\Start };
-           // }
-            int ran = new Random().Next(1, 5);
-           // string ranStr = ran < 10 ? ("0" + ran) : ran.ToString();
-
             songs = Platform.Current.GetMODFiles(@"Content\Music\" + category, true).NullToEmptyArray();
 
-            //jokosany
-            Random rd = new Random();
-            int index = rd.Next(0, songs.Length);
-            string song = songs[index];
-            //*jokosany
-            ran = 0;
-            //jokosany
-            Platform.Current.PlaySong(song);
+            if (songs.Length > 0)
+            {
+                Random rd = new Random();
+                int index = rd.Next(0, songs.Length);
+                string song = songs[index];
+
+                Platform.Current.PlaySong(song);
+            }
         }
 
         public static void StopSong()
