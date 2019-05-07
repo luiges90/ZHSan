@@ -4551,7 +4551,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 CacheManager.DrawString(Session.Current.Font, "简体中文", new Vector2(50 + 100 + 50, 120), Color.Black * alpha);
 
-                CacheManager.DrawString(Session.Current.Font, "传统中文", new Vector2(50 + 100 + 200 + 50, 120), Color.Black * alpha);
+                CacheManager.DrawString(Session.Current.Font, "繁体中文", new Vector2(50 + 100 + 200 + 50, 120), Color.Black * alpha);
 
                 //CacheManager.DrawString(Session.Current.Font, "战斗", new Vector2(50, 120 + 60 * 2), Color.Black * alpha);
 
