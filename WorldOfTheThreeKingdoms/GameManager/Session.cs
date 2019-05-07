@@ -254,13 +254,6 @@ namespace GameManager
 
         public static void Init()
         {
-<<<<<<< HEAD
-=======
-            //var same = GameTools.CheckSame();
-            //var list1 = GameTools.GetContentList("Content", true);
-            //var list2 = GameTools.GetContentList("MODs", true);
-
->>>>>>> master
             new PlatformTask(() =>
             {
                 try
