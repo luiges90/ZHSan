@@ -198,21 +198,27 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             List<string> dires = new List<string>();
 
+            int xOffset = 0;
+            int yOffset = 0;
+
             if (Platform.PlatFormType == PlatFormType.Android)
             {
-                //分別讀取Assets/MODs與.obb中的MODs
-
-                var dirsBasic = Platform.Current.GetDirectoriesBasic("MODs", false, false).NullToEmptyArray();
-
-                var dirsExpan = Platform.Current.GetDirectoriesExpan("MODs", false, false).NullToEmptyArray();
-
-                dires = dirsBasic.Union(dirsExpan).NullToEmptyList();
+                if (Platform.Current.DirectoryExists("MODs"))
+                {
+                    dires = Platform.Current.GetDirectories("MODs", false, false).NullToEmptyList();
+                }
             }
             else
             {
                 if (Platform.Current.DirectoryExists("MODs"))
                 {
-                    dires = Platform.Current.GetDirectories("MODs", false, false).NullToEmptyList();
+                    //分別讀取Assets/MODs與.obb中的MODs
+
+                    var dirsBasic = Platform.Current.GetDirectoriesBasic("MODs", false, false).NullToEmptyArray();
+
+                    var dirsExpan = Platform.Current.GetDirectoriesExpan("MODs", false, false).NullToEmptyArray();
+
+                    dires = dirsBasic.Union(dirsExpan).NullToEmptyList();
                 }
             }
 
@@ -240,6 +246,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     if (lines.Length > 1)
                     {
                         mod.Desc = lines[1];
+
+                        if (lines.Length > 2)
+                        {
+                            string s = lines[2];
+                            string[] s2 = s.Split(new char[]{' '});
+                            xOffset = int.Parse(s2[0]);
+                            yOffset = int.Parse(s2[1]);
+                        }
                     }
 
                     MODs = MODs.Union(new MOD[] { mod }).NullToEmptyArray();
@@ -250,7 +264,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btList = new List<ButtonTexture>() { };
 
-            var btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "New", new Vector2(100, 600));
+            var btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "New", new Vector2(100 + xOffset, 600 + yOffset));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -264,7 +278,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(310, 600));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(310 + xOffset, 600 + yOffset));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -274,7 +288,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(520, 600));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(520 + xOffset, 600 + yOffset));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -283,7 +297,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(730, 600));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(730 + xOffset, 600 + yOffset));
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -294,7 +308,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(940, 600));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(940 + xOffset, 600 + yOffset));
             btOne.OnButtonPress += (sender, e) =>
             {
                 Platform.Current.Exit();
@@ -4515,7 +4529,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                         if (index == 0)
                         {
-                            CacheManager.DrawString(Session.Current.Font, "自动", bt.Position + new Vector2(45 + 35, 2), PlatformColor.DarkRed * alpha);
+                            CacheManager.DrawString(Session.Current.Font, "自动", bt.Position + new Vector2(65 + 35, 2), PlatformColor.DarkRed * alpha);
                         }
 
                         bt.Draw(null, Color.White * alpha);
