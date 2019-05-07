@@ -4529,7 +4529,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                         if (index == 0)
                         {
-                            CacheManager.DrawString(Session.Current.Font, "自动", bt.Position + new Vector2(65 + 35, 2), PlatformColor.DarkRed * alpha);
+                            CacheManager.DrawString(Session.Current.Font, "自动", bt.Position + new Vector2(45 + 35, 2), PlatformColor.DarkRed * alpha);
                         }
 
                         bt.Draw(null, Color.White * alpha);
