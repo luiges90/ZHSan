@@ -2215,13 +2215,7 @@ namespace GameObjects
                                 }
                             }
 
-                            needRecruit = this.ExpectedMilitaryPopulation - this.MilitaryPopulation <=
-                                this.PopulationDevelopingRate * this.PopulationCeiling * Session.Parameters.AIRecruitPopulationCapMultiply *
-                                (nearFrontline ? 1.0 : Session.Parameters.AIRecruitPopulationCapBackendMultiply) *
-                                (this.BelongedSection != null && this.BelongedSection.AIDetail.ValueRecruitment ? 1.5 : 1) *
-                                (((Enum.GetNames(typeof(PersonStrategyTendency)).Length - (int)this.BelongedFaction.Leader.StrategyTendency))
-                                * Session.Parameters.AIRecruitPopulationCapStrategyTendencyMulitply + Session.Parameters.AIRecruitPopulationCapStrategyTendencyAdd)
-                                * (this.HostileLine ? Session.Parameters.AIRecruitPopulationCapHostilelineMultiply : 1);
+                            needRecruit = true;
                         }
                     }
                     needRecruit = needRecruit && (GameObject.Chance(this.Persons.Count * 25) || (!need[0] && !need[1] && !need[2])); // 太少武将在城内时就不要补充了，先搞好内政更重要
@@ -6905,7 +6899,7 @@ namespace GameObjects
                 }
                 else
                 {
-                    mPop = (int) (pop * (0.25 + (500000 - this.Population) / 500000 * 0.25));
+                    mPop = (int) (pop * (0.25 + (500000 - this.Population) / 500000 * 0.25) * Session.Parameters.MilitaryPopulationReloadQuantity);
                 }
                 this.IncreaseMilitaryPopulation((int) mPop);
                 if (GameObject.Chance((int) ((mPop - (int) mPop) * 100))) {
@@ -13453,18 +13447,6 @@ namespace GameObjects
                 }
                 num += 100;
                 ExpectedFundCache = num;
-                return num;
-            }
-        }
-
-        public int ExpectedMilitaryPopulation
-        {
-            get
-            {
-                int num;
-                num = this.Population / 10 * this.Morale / 1000;
-                num = (int)(num * this.militaryPopulationRateIncrease * Session.Parameters.MilitaryPopulationReloadQuantity);
-                     
                 return num;
             }
         }
