@@ -254,7 +254,7 @@ namespace GameObjects
         public bool DayLocationLoyaltyNoChange;
         public float DayRateIncrementOfInternal;       
 
-        [DataMember]
+        //[DataMember]
         public Legion DefensiveLegion;
         [DataMember]
         public int DefensiveLegionID;
@@ -7576,7 +7576,7 @@ namespace GameObjects
             }
             return null;
         }
-        [DataMember]
+        //[DataMember]
         public PersonList ConvinceDestinationPersonList = new PersonList();
         public PersonList GetConvinceDestinationPersonList(Faction faction)
         {
@@ -14691,7 +14691,7 @@ namespace GameObjects
             set;
         }
         */
-        [DataMember]
+        //[DataMember]
         public qizi jianzhuqizi
         {
             get;

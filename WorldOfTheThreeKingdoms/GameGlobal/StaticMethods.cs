@@ -422,9 +422,12 @@ namespace GameGlobal
             char[] separator = new char[] { ' ', '\n', '\r', '\t' };
             string[] strArray = dataString.Split(separator, StringSplitOptions.RemoveEmptyEntries);
             list.Clear();
-            for (int i = 0; i < strArray.Length; i += 2)
+            if(strArray.Length>=2)
             {
-                list.Add(int.Parse(strArray[i]), int.Parse(strArray[i + 1]));
+                for (int i = 0; i < strArray.Length; i += 2)
+                {
+                    list.Add(int.Parse(strArray[i]), int.Parse(strArray[i + 1]));
+                }
             }
         }
 
@@ -556,6 +559,42 @@ namespace GameGlobal
                 builder.Append(num.Key.ToString() + " " + num.Value.ToString() + " ");
             }
             return builder.ToString();
+        }
+
+        public static string SaveToString(List<KeyValuePair<int, int>> List)
+        {
+            if (List == null)
+            {
+                return "";
+            }
+            StringBuilder builder = new StringBuilder();
+            foreach (KeyValuePair<int, int> num in List)
+            {
+                builder.Append(num.Key.ToString() + " " + num.Value.ToString() + " ");
+            }
+            return builder.ToString();
+        }
+        public static void LoadFromString(List<KeyValuePair<int, int>> list, string dataString)
+        {
+            char[] separator = new char[] { ' ', '\n', '\r', '\t' };
+            string[] strArray = dataString.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            list.Clear();
+            for (int i = 0; i < strArray.Length; i += 2)
+            {
+                list.Add(new KeyValuePair<int, int>(int.Parse(strArray[i]), int.Parse(strArray[i + 1])));
+            }
+        }
+        public static GameObjects.zainanlei LoadzainanfromString(string zainanstring)
+        {
+            char[] separator = new char[] { ' ', '\n', '\r', '\t' };
+            string[] strArray = zainanstring.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            GameObjects.zainanlei zainan = new GameObjects.zainanlei();
+            for (int i = 0; i < strArray.Length; i += 2)
+            {
+                zainan.zainanleixing = int.Parse(strArray[i]);
+                zainan.shengyutianshu = int.Parse(strArray[i + 1]);
+            }
+            return zainan;
         }
     }
 }

@@ -17,8 +17,26 @@
             <Canvas Height="700" Width="1000">
 
                 <!--    势力基础信息   -->
+                <Button Name="btSave" Content = "保存退出" Canvas.Left="396" Canvas.Top="302" Height="35" Width="86" Click="BtSave_Click" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                            <GradientStop Color="#FFEBEBEB" Offset="0.216"/>
+                            <GradientStop Color="#FFD17B7B" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Name="btExit" Content = "直接退出" Canvas.Left="535" Canvas.Top="302" Height="35" Width="86" Click="BtExit_Click" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                            <GradientStop Color="#FFEBEBEB" Offset="0.216"/>
+                            <GradientStop Color="#FFD17B7B" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
                 <Label Content="势力名" Canvas.Left="40" Canvas.Top="11"/>
-                <TextBox  x:Name="txname" Canvas.Left="93" Canvas.Top="11" Text="ddddd" Width="115"/>
+                <TextBox  x:Name="txname" Canvas.Left="93" Canvas.Top="11" Text="势力名" Width="115"/>
                 <Label Content="君主" Canvas.Left="52" Canvas.Top="39"/>
                 <Button x:Name="btleader" Canvas.Left="93" Canvas.Top="39" Height="26" Width="115" Click="Btleader_Click" />
                 <Label Content="储君" Canvas.Left="52" Canvas.Top="99"/>
@@ -38,24 +56,24 @@
                 <Label Content="异族" Canvas.Left="52" Canvas.Top="280"/>
                 <CheckBox x:Name="cbIsAlien" Canvas.Left="93" Canvas.Top="286" />
                 <Label Content="玩家不可选" Canvas.Left="17" Canvas.Top="306"/>
-                <CheckBox x:Name="cbNoPSelectable" Canvas.Left="93" Canvas.Top="311" Click="CbNoPSelectable_Click"/>
+                <CheckBox x:Name="cbNoPSelectable" Canvas.Left="93" Canvas.Top="311"/>
 
                 <!-- 势力建筑列表 -->
                 <Label Content="建筑列表" Canvas.Left="225" Canvas.Top="12" />
-                <ListBox x:Name="lbArchis" Height="206" Canvas.Left="225" Canvas.Top="39" Width="189" />
+                <ListBox x:Name="lbArchis" Height="206" Canvas.Left="225" Canvas.Top="39" Width="189" HorizontalContentAlignment="Stretch" />
                 <Button x:Name="btAddchrhi" Content="添加建筑" Canvas.Left="225" Canvas.Top="251" Click="BtAddchrhi_Click"/>
                 <Button x:Name="btDelchrhi" Content="删除建筑" Canvas.Left="293" Canvas.Top="251" Click="BtDelchrhi_Click"/>
                 <Button x:Name="btEditchrhi" Content="编辑建筑" Canvas.Left="360" Canvas.Top="251" Click="BtEditchrhi_Click"/>
 
                 <!-- 势力兵种列表 -->
                 <Label Content="基本兵种" Canvas.Left="458" Canvas.Top="12" />
-                <ListBox x:Name="lbMiliKind" Height="206" Canvas.Left="458" Canvas.Top="39" Width="147"/>
+                <ListBox x:Name="lbMiliKind" Height="206" Canvas.Left="458" Canvas.Top="39" Width="147" HorizontalAlignment="Stretch"/>
                 <Button x:Name="btAddMiliKind" Content="添加兵种" Canvas.Left="458" Canvas.Top="251" Click="BtAddMiliKind_Click"/>
                 <Button x:Name="btDelMiliKind" Content="删除兵种" Canvas.Left="551" Canvas.Top="251" Click="BtDelMiliKind_Click"/>
 
                 <!-- 势力兵种列表 -->
                 <Label Content="外交关系列表" Canvas.Left="648" Canvas.Top="12" />
-                <DataGrid x:Name="dgDipRelation" Height="207" Canvas.Left="648" Canvas.Top="39" Width="229" CellEditEnding="DgDipRelation_CellEditEnding"/>
+                <DataGrid x:Name="dgDipRelation" Height="207" Canvas.Left="648" Canvas.Top="39" Width="229" CellStyle="{StaticResource DataGridCellStyle1}"/>
                 <Button x:Name="btInitfacDipRe" Content="重置本势力所有外交" Canvas.Left="648" Canvas.Top="251" Click="BtInitfacDipRe_Click"/>
                 <Button x:Name="bt2InitAllDipRe" Content="初始化所有外交" Canvas.Left="787" Canvas.Top="251" Click="Bt2InitAllDipRe_Click"/>
 

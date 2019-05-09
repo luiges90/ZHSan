@@ -52,7 +52,9 @@ namespace WorldOfTheThreeKingdomsEditor
                 { "ArchitectureTarget","目标可能为建筑" },
                 { "CastConditionsString","使用条件" },
                 { "ViewingHostile","视野内敌军越多越有可能使用" },
-                { "AnimationKind","动画" }
+                { "AnimationKind","动画" },
+                { "AttackDefaultString","攻击默认类型" },
+                { "AttackTargetString","攻击目标类型" },
             };
         }
 

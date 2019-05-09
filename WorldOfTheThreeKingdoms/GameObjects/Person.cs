@@ -466,7 +466,7 @@ namespace GameObjects
 
         private Captive belongedCaptive;
 
-        [DataMember]
+        //[DataMember]
         public Captive BelongedCaptive
         {
             get
@@ -11097,17 +11097,6 @@ namespace GameObjects
                 }
             }
         }
-
-        //public void RemoveRelation(Person p)
-        //{
-        //    foreach (KeyValuePair<Person, int> i in this.relations)
-        //    {
-        //        if (i.Key == p)
-        //        {
-        //            this.relations.Remove(p);
-        //        }
-        //    }
-        //}
 
         public Dictionary<Person, int> GetAllRelations()
         {

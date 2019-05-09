@@ -20,35 +20,48 @@ namespace WorldOfTheThreeKingdomsEditor
     /// </summary>
     public partial class UserControl1_labeltext : UserControl
     {
-        public static readonly DependencyProperty TextProperty =DependencyProperty.Register("Text", typeof(string),typeof(UserControl1_labeltext),new PropertyMetadata("TextBox", new PropertyChangedCallback(OnTextChanged)));
-        
+        //public static readonly DependencyProperty TextProperty =DependencyProperty.Register("Text", typeof(string),typeof(UserControl1_labeltext),new PropertyMetadata("TextBox", new PropertyChangedCallback(OnTextChanged)));
+
+        //public string Text
+        //{
+        //    get { return (string)GetValue(TextProperty); }
+
+        //    set { SetValue(TextProperty, value); }
+        //}
+
+        //static void OnTextChanged(object sender, DependencyPropertyChangedEventArgs args)
+        //{
+        //    UserControl1_labeltext source = (UserControl1_labeltext)sender;
+        //    source.tb.Text = (string)args.NewValue;
+        //}
+
+        //public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(string), typeof(UserControl1_labeltext), new PropertyMetadata("TextBlock", new PropertyChangedCallback(OnTitleChanged)));
+
+        //static void OnTitleChanged(object sender, DependencyPropertyChangedEventArgs args)
+        //{
+        //    UserControl1_labeltext source = (UserControl1_labeltext)sender;
+        //    source.tbtitle.Text = (string)args.NewValue;
+        //}
+        //public UserControl1_labeltext()
+        //{
+        //    InitializeComponent();
+        //}
+
         public string Text
         {
-            get { return (string)GetValue(TextProperty); }
+            get {return this.tb.Text; }
 
-            set { SetValue(TextProperty, value); }
+            set { this.tb.Text = value; }
         }
 
-        static void OnTextChanged(object sender, DependencyPropertyChangedEventArgs args)
-        {
-            UserControl1_labeltext source = (UserControl1_labeltext)sender;
-            source.tb.Text = (string)args.NewValue;
-        }
-
-        public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(string), typeof(UserControl1_labeltext), new PropertyMetadata("TextBlock", new PropertyChangedCallback(OnTitleChanged)));
 
         public string Title
         {
-            get { return (string)GetValue(TitleProperty); }
+            get { return this.tbtitle.Text; }
 
-            set { SetValue(TitleProperty, value); }
+            set { this.tbtitle.Text = value; }
         }
 
-        static void OnTitleChanged(object sender, DependencyPropertyChangedEventArgs args)
-        {
-            UserControl1_labeltext source = (UserControl1_labeltext)sender;
-            source.tbtitle.Text = (string)args.NewValue;
-        }
         public UserControl1_labeltext()
         {
             InitializeComponent();

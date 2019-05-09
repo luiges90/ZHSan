@@ -461,7 +461,7 @@ namespace GameObjects
         private TierPathFinder simplepathFinder = new TierPathFinder();
         [DataMember]
         public bool Simulating;
-        [DataMember]
+        //[DataMember]
         public CombatMethod SimulatingCombatMethod;
         private string SoundFileLocation;
 
@@ -501,7 +501,7 @@ namespace GameObjects
         private int stuntDayLeft;
         public bool StuntMustSurround;
         public bool StuntRecoverFromChaos;
-        [DataMember]
+        //[DataMember]
         public StuntTable Stunts = new StuntTable();
         private int stuntTileAnimationIndex;
         private int stuntTileStayIndex;
@@ -12250,7 +12250,7 @@ namespace GameObjects
             }
         }
 
-        [DataMember]
+        //[DataMember]
         public bool DrawAnimation
         {
             get
@@ -13058,70 +13058,72 @@ namespace GameObjects
                     }
                     else
                     {
-
-                        bool runAnimation = Session.Current.Scenario.IsKnownToAnyPlayer(this);
-
-                        bool oldInWater = this.Army.bushiShuijunBingqieChuyuShuiyu(this.position);
-                        bool newInWater = this.Army.bushiShuijunBingqieChuyuShuiyu(value);
-                        bool changeArmyKind = oldInWater != newInWater;
-
-                        if (changeArmyKind)
+                        if(this.army!=null)
                         {
-                            this.preResetArmyKindData();
-                        }
+                            bool runAnimation = Session.Current.Scenario.IsKnownToAnyPlayer(this);
 
-                        if (changeArmyKind)
-                        {
-                            this.postResetArmyKindData();
-                        }
+                            bool oldInWater = this.Army.bushiShuijunBingqieChuyuShuiyu(this.position);
+                            bool newInWater = this.Army.bushiShuijunBingqieChuyuShuiyu(value);
+                            bool changeArmyKind = oldInWater != newInWater;
 
-                        // position updatd
-                        runAnimation = runAnimation || Session.Current.Scenario.IsKnownToAnyPlayer(this);
-
-                        if (runAnimation)
-                        {
-                            if (this.position != this.PreviousPosition)
+                            if (changeArmyKind)
                             {
-                                this.Action = TroopAction.Move;
+                                this.preResetArmyKindData();
                             }
-                            if ((this.position == this.destination) && (this.OnEndPath != null))
-                            {
-                                this.OnEndPath(this);
-                            }
-                        }
 
-                        int num = this.position.X - this.PreviousPosition.X;
-                        int num2 = this.position.Y - this.PreviousPosition.Y;
-                        Session.Current.Scenario.SetMapTileTroop(this);
-                        if ((Math.Abs(num) + Math.Abs(num2)) > 0)
-                        {
+                            if (changeArmyKind)
+                            {
+                                this.postResetArmyKindData();
+                            }
+
+                            // position updatd
+                            runAnimation = runAnimation || Session.Current.Scenario.IsKnownToAnyPlayer(this);
+
                             if (runAnimation)
                             {
-                                this.TryToPlaySound(this.Position, this.Army.Kind.Sounds.MovingSoundPath, false);
+                                if (this.position != this.PreviousPosition)
+                                {
+                                    this.Action = TroopAction.Move;
+                                }
+                                if ((this.position == this.destination) && (this.OnEndPath != null))
+                                {
+                                    this.OnEndPath(this);
+                                }
                             }
-                            this.CheckCurrentPosition();
-                            if (this.Destroyed)
+
+                            int num = this.position.X - this.PreviousPosition.X;
+                            int num2 = this.position.Y - this.PreviousPosition.Y;
+                            Session.Current.Scenario.SetMapTileTroop(this);
+                            if ((Math.Abs(num) + Math.Abs(num2)) > 0)
                             {
-                                return;
+                                if (runAnimation)
+                                {
+                                    this.TryToPlaySound(this.Position, this.Army.Kind.Sounds.MovingSoundPath, false);
+                                }
+                                this.CheckCurrentPosition();
+                                if (this.Destroyed)
+                                {
+                                    return;
+                                }
+                                this.ResetTerrainData();
+                                this.RefreshTerrainRelatedData();
+                                this.MoveContactArea(num, num2);
+                                this.MoveOffenceArea(num, num2);
+                                this.MoveStratagemArea(num, num2);
+                                this.MoveViewArea(num, num2);
                             }
-                            this.ResetTerrainData();
-                            this.RefreshTerrainRelatedData();
-                            this.MoveContactArea(num, num2);
-                            this.MoveOffenceArea(num, num2);
-                            this.MoveStratagemArea(num, num2);
-                            this.MoveViewArea(num, num2);
-                        }
-                        if (Session.Current.Scenario.GetTroopByPosition(this.position) == this)
-                        {
-                            this.StepNotFinished = true;
-                        }
-                        else
-                        {
-                            this.StepNotFinished = false;
-                        }
-                        if (this.FirstTierPath != null && runAnimation)
-                        {
-                            this.UpdateAnimation();
+                            if (Session.Current.Scenario.GetTroopByPosition(this.position) == this)
+                            {
+                                this.StepNotFinished = true;
+                            }
+                            else
+                            {
+                                this.StepNotFinished = false;
+                            }
+                            if (this.FirstTierPath != null && runAnimation)
+                            {
+                                this.UpdateAnimation();
+                            }
                         }
                     }
                 }

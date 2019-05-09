@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldOfTheThreeKingdomsEditor"
         mc:Ignorable="d"
-        Title="中華三國志劇本編輯器" Height="600" Width="1024" WindowState="Maximized">
+        Title="中华三国志剧本编辑器" Height="600" Width="1024" WindowState="Maximized">
     <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="OpenCommandBinding_Executed"/>
         <CommandBinding Command="Save" Executed="SaveCommandBinding_Executed"/>
@@ -14,49 +14,52 @@
         <CommandBinding Command="Delete" Executed="DeleteCommandBinding_Executed"/>
     </Window.CommandBindings>
     <Window.Resources>
-        <ContextMenu x:Key="dgDictionMenu" >
-            <MenuItem  Header="新增关系" Click="MenuAddid_Click"   ></MenuItem>
-            <MenuItem  Header="编辑关系" Click="MenuEditid_Click"   ></MenuItem>
-            <MenuItem  Header="删除选中关系" Command="Delete" ></MenuItem>
-        </ContextMenu>
         <ContextMenu x:Key="dgNomalMenu" >
             <MenuItem  Header="新增此类" Click="MenuAdd_Click"   ></MenuItem>
             <MenuItem  Header="编辑选中" Click="MenuEdit_Click"   ></MenuItem>
             <MenuItem  Header="删除选中" Command="Delete" ></MenuItem>
+            <MenuItem  Header="刷新数据" Click="MenuRefresh_Click"></MenuItem>
+            <MenuItem  Header="全选"  Click="MenuSelectAll_Click" InputGestureText="Ctrl+A"></MenuItem>
+            <MenuItem Header="复制" Command="Copy" InputGestureText="Ctrl+C"/>
+            <MenuItem Header="粘贴" Command="Paste" InputGestureText="Ctrl+V"/>
         </ContextMenu>
     </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="檔案">
-                <MenuItem Header="讀取劇本" Command="Open" InputGestureText="Ctrl+O"/>
-                <MenuItem Header="儲存劇本" Command="Save" InputGestureText="Ctrl+S"/>
+            <MenuItem Header="档案">
+                <MenuItem Header="读取剧本" Command="Open" InputGestureText="Ctrl+O"/>
+                <MenuItem Header="储存剧本" Command="Save" InputGestureText="Ctrl+S"/>
+                <Separator/>
+                <MenuItem Header="读取存档" Click="OpenSave"/>
+                <MenuItem Header="储存存档" Click="Save_Click"/>
                 <Separator/>
                 <MenuItem Header="更新Scenarios.json" Click="btnSyncScenario_Click"/>
                 <Separator/>
-                <MenuItem Header="PNG圖片PreMultiply" Click="btnPNGAlpha_Click"/>
+                <MenuItem Header="PNG图片PreMultiply" Click="btnPNGAlpha_Click"/>
                 <Separator/>
                 <MenuItem Header="退出" Click="btnQuit_Click"/>
             </MenuItem>
-            <MenuItem Header="編輯">
+            <MenuItem Header="编辑">
                 <!--<MenuItem IsCheckable="true" Header="包含標題" IsChecked="true" Checked="MenuItem_IncludeTitle_Checked" Unchecked="MenuItem_IncludeTitle_Unchecked"/>-->
-                <MenuItem Header="複製" Command="Copy" InputGestureText="Ctrl+C"/>
-                <MenuItem Header="貼上" Command="Paste" InputGestureText="Ctrl+V"/>
-                <MenuItem Header="刪除" Command="Delete"/>
+                <MenuItem Header="复制" Command="Copy" InputGestureText="Ctrl+C"/>
+                <MenuItem Header="粘贴" Command="Paste" InputGestureText="Ctrl+V"/>
+                <MenuItem Header="删除" Command="Delete"/>
+                <MenuItem  Header="全选"  Click="MenuSelectAll_Click" InputGestureText="Ctrl+A"></MenuItem>
             </MenuItem>
             <MenuItem Header="功能">
-                <MenuItem Header="新增隨機武將" Click="btnNewPerson_Click" IsEnabled="False"/>
+                <MenuItem Header="新增随机武将" Click="btnNewPerson_Click" IsEnabled="False"/>
                 <Separator/>
-                <MenuItem Header="隨機化武將相性" Click="btnRandomizeIdeal_Click"/>
-                <MenuItem Header="隨機化武將性格" Click="btnRandomizePersonality_Click"/>
-                <MenuItem Header="隨機化武將壽命" Click="btnRandomizeDeadYear_Click"/>
-                <MenuItem Header="隨機化武將登場地點" Click="btnRandomizeAvailableLocation_Click"/>
+                <MenuItem Header="随机化武将相性" Click="btnRandomizeIdeal_Click"/>
+                <MenuItem Header="随机化武将性格" Click="btnRandomizePersonality_Click"/>
+                <MenuItem Header="随机化武将寿命" Click="btnRandomizeDeadYear_Click"/>
+                <MenuItem Header="随机化武将登场地点" Click="btnRandomizeAvailableLocation_Click"/>
                 <Separator/>
-                <MenuItem Header="刪除多餘關係" Click="btnCleanupRelation_Click"/>
-                <MenuItem Header="刪除所有未登場武將的配偶關係" Click="btnDeleteUnavailableRelation_Click"/>
+                <MenuItem Header="删除多余关系" Click="btnCleanupRelation_Click"/>
+                <MenuItem Header="删除所有未登场武将的配偶关系" Click="btnDeleteUnavailableRelation_Click"/>
                 <Separator/>
-                <MenuItem Header="刪除所有勢力外交關係" Click="btnDeleteAllDiplomacy_Click"/>
+                <MenuItem Header="删除所有势力外交" Click="btnDeleteAllDiplomacy_Click"/>
                 <Separator/>
-                <MenuItem Header="重新設置城池連接" Click="btnRedoArchitectureLinks_Click"/>
+                <MenuItem Header="重新设置城池链接" Click="btnRedoArchitectureLinks_Click"/>
             </MenuItem>
             <MenuItem Header="转换">
                 <MenuItem Header="剧本转excel" Click="btnScenariotoexcel_Click"/>
@@ -85,211 +88,233 @@
         <TabControl x:Name="tabControl" Margin="10,10,10,10">
             <TabItem Header="武将">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgPerson" CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgPerson" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="父亲">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgFatherId" ContextMenu="{StaticResource dgDictionMenu}" MouseDoubleClick="DgDictionary_MouseDoubleClick"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgFatherId" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="母亲">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgMotherId" ContextMenu="{StaticResource dgDictionMenu}" MouseDoubleClick="DgDictionary_MouseDoubleClick"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgMotherId"  CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="配偶">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgSpouseId" ContextMenu="{StaticResource dgDictionMenu}" MouseDoubleClick="DgDictionary_MouseDoubleClick"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgSpouseId" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="义兄弟">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgBrotherIds" ContextMenu="{StaticResource dgDictionMenu}" MouseDoubleClick="DgDictionary_MouseDoubleClick"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgBrotherIds" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="所属人物">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgSuoshuIds" ContextMenu="{StaticResource dgDictionMenu}" MouseDoubleClick="DgDictionary_MouseDoubleClick"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgSuoshuIds" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="亲近人物">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgCloseIds" ContextMenu="{StaticResource dgDictionMenu}" MouseDoubleClick="DgDictionary_MouseDoubleClick"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgCloseIds" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="厌恶人物">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgHatedIds" ContextMenu="{StaticResource dgDictionMenu}" MouseDoubleClick="DgDictionary_MouseDoubleClick"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgHatedIds" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
-            <!--<TabItem Header="人物关系">
+            <TabItem Header="人物关系">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgPersonRelations" ContextMenu="{StaticResource dgDictionMenu}" MouseDoubleClick="DgDictionary_MouseDoubleClick"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgPersonRelations" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
-            </TabItem>-->
+            </TabItem>
             <TabItem Header="建筑">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgArchitecture" CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgArchitecture" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="势力">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgFaction" FrozenColumnCount="2" MouseDoubleClick="DgFaction_MouseDoubleClick" CanUserAddRows="False" CellStyle="{DynamicResource DataGridCellStyle1}">
-                        <DataGrid.ContextMenu>
-                            <ContextMenu  DataContext="{Binding ElementName=dgFaction,Path=SelectedItems}">
-                                <MenuItem Name="menuEditfac" Header="编辑此势力" Click="Menueditfac_Click" ></MenuItem>
-                                <MenuItem Name="menuAddfac" Header="新增势力" Click="MenuAddfac_Click"  ></MenuItem>
-                                <MenuItem Name="menuDeltfac" Header="删除势力" Click="MenuDeltfac_Click" ></MenuItem>
-                            </ContextMenu>
-                        </DataGrid.ContextMenu>
-                    </DataGrid>
+                    <DataGrid x:Name="dgFaction" FrozenColumnCount="2" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" CanUserAddRows="False" CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="势力外交">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgDiplomaticRelation" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="军区">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="军区种类" Height="30" Width="100" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="13" HorizontalContentAlignment="Center" Margin="0,0,0,0"></Label>
+                    <DataGrid x:Name="dgSectionAIDetail"  CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseDoubleClick="DgNomal_MouseDoubleClick" CanUserAddRows="False" CanUserDeleteRows="False" Margin="0,30,0,0" Height="260" VerticalAlignment="Top" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected"/>
+                    <DataGrid x:Name="dgSection"  CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseDoubleClick="DgNomal_MouseDoubleClick" Margin="0,312,0,0" MouseLeftButtonUp="Dg_Selected"  MouseRightButtonUp="Dg_Selected" />
                 </Grid>
             </TabItem>
             <TabItem Header="编队">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgMilitary" CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgMilitary" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="部队">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTroop" CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgTroop" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="设施">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgFacility" CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgFacility" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="俘虏">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgCaptive" CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgCaptive" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="事件">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgEvent" CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgEvent" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="部队事件">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTroopEvent" CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgTroopEvent" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="宝物">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTreasure" CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgTreasure" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="列传">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgBiography"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgBiography" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick"  ColumnWidth="*"/>
                 </Grid>
             </TabItem>
             <TabItem Header="地区">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgRegion" ContextMenu="{StaticResource dgNomalMenu}" MouseDoubleClick="DgNomal_MouseDoubleClick" CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgRegion" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="州域">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgState" ContextMenu="{StaticResource dgNomalMenu}" MouseDoubleClick="DgNomal_MouseDoubleClick"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgState" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <!-- common -->
             <TabItem Header="称号">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTitle"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgTitle" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="称号种类">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTitleKind"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgTitleKind" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="技能">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgSkill"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgSkill" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="特技">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgStunt"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgStunt" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="战法">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgCombatMethod"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgCombatMethod" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="人物个性语言">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgTextMessageKind"  CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick"  IsReadOnly="True" HorizontalAlignment="Left"  ColumnWidth="*" Width="200"/>
+                    <DataGrid x:Name="dgTextMessage" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick"  Margin="250,0,0,0"/>
                 </Grid>
             </TabItem>
             <TabItem Header="影响">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgInfluence"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="750"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="影响种类" Height="30" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="13" HorizontalContentAlignment="Center" Margin="0,0,0,0" Grid.Column="0"></Label>
+                    <DataGrid x:Name="dgInflunceKind"  CellStyle="{DynamicResource DataGridCellStyle1}"  ContextMenu="{StaticResource dgNomalMenu}" MouseDoubleClick="DgNomal_MouseDoubleClick" CanUserAddRows="False" CanUserDeleteRows="False" Margin="0,30,20,0"  Grid.Column="0" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected"/>
+                    <DataGrid x:Name="dgInfluence"  CellStyle="{DynamicResource DataGridCellStyle1}"  ContextMenu="{StaticResource dgNomalMenu}" MouseDoubleClick="DgNomal_MouseDoubleClick" Margin="20,0,0,0" Grid.Column="1" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="影响类">
+            <!--<TabItem Header="影响类型">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="dgInflunceKind"  CellStyle="{DynamicResource DataGridCellStyle1}" CanUserAddRows="False" CanUserDeleteRows="False"/>
                 </Grid>
-            </TabItem>
+            </TabItem>-->
             <TabItem Header="条件">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgCondition"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <Label Content="条件种类" Height="30" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13" HorizontalContentAlignment="Center" Margin="115,0,0,0"></Label>
+                    <DataGrid x:Name="dgConditionKind" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick"  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" HorizontalAlignment="Left"  ColumnWidth="*" Width="330" Margin="0,30,0,0"/>
+                    <DataGrid x:Name="dgCondition"  CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick"  Margin="350,0,0,0" />
                 </Grid>
             </TabItem>
-            <TabItem Header="条件类">
+            <!--<TabItem Header="条件类">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="dgConditionKind"  CellStyle="{DynamicResource DataGridCellStyle1}" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"/>
                 </Grid>
-            </TabItem>
+            </TabItem>-->
             <TabItem Header="事件影响">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgEventEffect"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <Label Content="事件影响种类" Height="30" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13" HorizontalContentAlignment="Center" Margin="115,0,0,0"></Label>
+                    <DataGrid x:Name="dgEventEffectKind" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" HorizontalAlignment="Left"  ColumnWidth="*" Width="330"  Margin="0,30,0,0"/>
+                    <DataGrid x:Name="dgEventEffect" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick"  Margin="350,0,0,0" />
                 </Grid>
             </TabItem>
-            <TabItem Header="事件影响类">
+            <!--<TabItem Header="事件影响类">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="dgEventEffectKind"  CellStyle="{DynamicResource DataGridCellStyle1}" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"/>
                 </Grid>
-            </TabItem>
+            </TabItem>-->
             <TabItem Header="部队事件影响">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTroopEventEffect"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <Label Content="部队事件影响种类" Height="30" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13" HorizontalContentAlignment="Center" Margin="105,0,0,0"></Label>
+                    <DataGrid x:Name="dgTroopEventEffectKind" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" HorizontalAlignment="Left"  ColumnWidth="*" Width="330" Margin="0,30,0,0"/>
+                    <DataGrid x:Name="dgTroopEventEffect" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" Margin="350,0,0,0" />
                 </Grid>
             </TabItem>
-            <TabItem Header="部队事件影响类">
+            <!--<TabItem Header="部队事件影响类">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="dgTroopEventEffectKind"  CellStyle="{DynamicResource DataGridCellStyle1}" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"/>
                 </Grid>
-            </TabItem>
+            </TabItem>-->
             <TabItem Header="设施类">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgFacilityKind"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgFacilityKind" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="建筑类">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgArchitectureKind"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgArchitectureKind" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="兵种类">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgMilitaryKind"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgMilitaryKind" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="技巧类">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTechniques"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgTechniques" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="官爵类">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgGuanjue"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgGuanjue" CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="地形类">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dgTerrainDetail" CanUserAddRows="False" CanUserDeleteRows="False"  CellStyle="{DynamicResource DataGridCellStyle1}"/>
+                    <DataGrid x:Name="dgTerrainDetail" CanUserAddRows="False" CanUserDeleteRows="False"  CellStyle="{DynamicResource DataGridCellStyle1}" ContextMenu="{StaticResource dgNomalMenu}" MouseLeftButtonUp="Dg_Selected" MouseRightButtonUp="Dg_Selected" MouseDoubleClick="DgNomal_MouseDoubleClick" />
                 </Grid>
             </TabItem>
         </TabControl>

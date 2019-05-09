@@ -132,7 +132,7 @@ namespace GameObjects.TroopDetail
         [DataMember]
         public int AttackTargetString { get; set; }
         
-        [DataMember]
+        //[DataMember]
         public AttackDefaultKind AttackDefault
         {
             get
@@ -145,7 +145,7 @@ namespace GameObjects.TroopDetail
             }
         }
 
-        [DataMember]
+        //[DataMember]
         public AttackTargetKind AttackTarget
         {
             get
