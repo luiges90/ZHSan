@@ -25,7 +25,7 @@ namespace GameObjects
 
         public ConditionTable Conditions = new ConditionTable();
 
-        [DataMember]
+        //[DataMember]
         public List<PersonDialog> Dialogs = new List<PersonDialog>();
 
         [DataMember]

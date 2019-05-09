@@ -264,9 +264,7 @@ namespace GameObjects
         public string SectionsString { get; set; }
 
         public SectionList Sections = new SectionList();
-        [DataMember]
-        public Dictionary<Point, object> SpyMessageCloseList = new Dictionary<Point, object>();
-       
+
         public bool StopToControl;
 
         public MilitaryKindTable TechniqueMilitaryKinds = new MilitaryKindTable();
