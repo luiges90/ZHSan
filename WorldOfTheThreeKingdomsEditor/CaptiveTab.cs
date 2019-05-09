@@ -12,7 +12,7 @@ namespace WorldOfTheThreeKingdomsEditor
     {
         protected override IItemList GetDataList(GameScenario scen)
         {
-            return new GameObjectItemList(scen.Captives);
+            return new GameObjectItemList(scen.captiveData);
         }
 
         protected override Dictionary<string, string> GetDefaultValues()
@@ -30,8 +30,11 @@ namespace WorldOfTheThreeKingdomsEditor
             return new String[]
             {
                 "ID",
-                "CaptivePerson",
-                "CaptiveFaction"
+                "CaptivePersonID",
+                "CaptiveFactionID",
+                "RansomArchitectureID",
+                "RansomFund",
+                "RansomArriveDays",
             };
         }
 
@@ -39,8 +42,11 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             return new Dictionary<string, string>()
             {
-                { "CaptivePerson", "俘虏人物" },
-                { "CaptiveFaction",  "俘虏势力" }
+                { "CaptivePersonID", "俘虏人物" },
+                { "CaptiveFactionID",  "俘虏势力" },
+                { "RansomArchitectureID", "赎金目标建筑" },
+                { "RansomFund",  "赎金金额" },
+                { "RansomArriveDays", "赎金到达时间" },
             };
         }
 
