@@ -501,7 +501,7 @@ namespace GameObjects
         private int stuntDayLeft;
         public bool StuntMustSurround;
         public bool StuntRecoverFromChaos;
-        //[DataMember]
+        [DataMember]
         public StuntTable Stunts = new StuntTable();
         private int stuntTileAnimationIndex;
         private int stuntTileStayIndex;
