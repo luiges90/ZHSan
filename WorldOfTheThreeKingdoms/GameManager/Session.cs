@@ -254,7 +254,9 @@ namespace GameManager
 
         public static void Init()
         {
-            //var list = GameTools.GetContentList(true);
+            //var same = GameTools.CheckSame();
+            //var list1 = GameTools.GetContentList("Content", true);
+            //var list2 = GameTools.GetContentList("MODs", true);
 
             new PlatformTask(() =>
             {
@@ -564,7 +566,7 @@ namespace GameManager
         {
             var players = scenario.Players.Split(',').RemoveNullOrEmpty().Select(id => int.Parse(id)).NullToEmptyList();
 
-            Session.MainGame.loadingScreen = new LoadingScreen("Start", scenario.Name);
+            Session.MainGame.loadingScreen = new LoadingScreen(save  ? "" : "Start", scenario.Name);
 
             Session.MainGame.loadingScreen.LoadScreenEvent += (sender0, e0) =>
             {
@@ -594,40 +596,8 @@ namespace GameManager
 
         public static void PlayMusic(string category)
         {
-            string[] songs = ListUpSongs(category);
-
-            //if (category == "Start")
-            //{
-            //    songs = new string[] { @"Content\Music\Start\Start" };
-            //}
-            //else if (category == "Attack")
-            //{
-            //    songs = new string[] { @"Content\Music\Attack\Attack" };
-            //}
-            //else if (category == "Defend")
-            //{
-            //    songs = new string[] { @"Content\Music\Defend\Defend" };
-            //}
-            //else if (category == "Battle")
-            //{
-            //    songs = new string[] { @"Content\Music\Battle\Battle" };
-            //}
-            //else if (category == "Spring")
-            //{
-            //    songs = new string[] { @"Content\Music\Spring\Spring" };
-            //}
-            //else if (category == "Summer")
-            //{
-            //    songs = new string[] { @"Content\Music\Summer\Summer" };
-            //}
-            //else if (category == "Autumn")
-            //{
-            //    songs = new string[] { @"Content\Music\Autumn\Autumn" };
-            //}
-            //else if (category == "Winter")
-            //{
-            //    songs = new string[] { @"Content\Music\Winter\Winter" };
-            //}
+            string[] songs = null;
+            songs = Platform.Current.GetMODFiles(@"Content\Music\" + category, true).NullToEmptyArray();
 
             if (songs.Length > 0)
             {
@@ -660,7 +630,7 @@ namespace GameManager
             }
             else
             {
-                songs = Platform.Current.GetMODFiles(@"Content\Music\" + category).NullToEmptyArray();
+                songs = Platform.Current.GetMODFiles(@"Content\Music\" + category, true).NullToEmptyArray();
             }
 
             return songs;

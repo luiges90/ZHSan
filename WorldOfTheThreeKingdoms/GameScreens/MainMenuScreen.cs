@@ -33,6 +33,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         public string Name { get; set; }
 
         public string Desc { get; set; }
+
+        public string Mode { get; set; }
     }
 
     public class MainMenuScreen
@@ -193,37 +195,57 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 MenuType = MenuType.Start;
             }
             Platform.Current.SaveUserFile("startRead.txt", currentStartVersion.ToString());
-            //None
+
+            List<string> dires = new List<string>();
+
             int xOffset = 0;
             int yOffset = 0;
-            if (Platform.Current.DirectoryExists("MODs"))
+
+            if (Platform.PlatFormType == PlatFormType.Android)
             {
-                var dires = Platform.Current.GetDirectories("MODs", false).NullToEmptyList();
-
-                if (dires.Count > 1)
+                if (Platform.Current.DirectoryExists("MODs"))
                 {
-                    MODs = new MOD[]
+                    dires = Platform.Current.GetDirectories("MODs", false, false).NullToEmptyList();
+                }
+            }
+            else
+            {
+                if (Platform.Current.DirectoryExists("MODs"))
+                {
+                    //分別讀取Assets/MODs與.obb中的MODs
+
+                    var dirsBasic = Platform.Current.GetDirectoriesBasic("MODs", false, false).NullToEmptyArray();
+
+                    var dirsExpan = Platform.Current.GetDirectoriesExpan("MODs", false, false).NullToEmptyArray();
+
+                    dires = dirsBasic.Union(dirsExpan).NullToEmptyList();
+                }
+            }
+
+            //None
+            if (dires.Count > 0)
+            {
+                MODs = new MOD[]
+                {
+                        new MOD() { ID = "", Name = "原版", Desc = "", Mode = "" }
+                };
+
+                foreach (var dir in dires)
+                {
+                    var mod = new MOD();
+
+                    mod.ID = dir.Substring(dir.LastIndexOf('\\') + 1);
+
+                    var lines = Platform.Current.ReadAllLines($@"MODs\{mod.ID}\{mod.ID}.txt").NullToEmptyArray();
+
+                    if (lines.Length > 0)
                     {
-                    new MOD() { ID = "", Name = "原版", Desc = "" }
-                    };
+                        mod.Name = lines[0];
+                    }
 
-                    foreach (var dir in dires)
+                    if (lines.Length > 1)
                     {
-                        var mod = new MOD();
-
-                        mod.ID = dir.Substring(dir.LastIndexOf('\\') + 1);
-
-                        var lines = Platform.Current.ReadAllLines($@"MODs\{mod.ID}\{mod.ID}.txt").NullToEmptyArray();
-
-                        if (lines.Length > 0)
-                        {
-                            mod.Name = lines[0];
-                        }
-
-                        if (lines.Length > 1)
-                        {
-                            mod.Desc = lines[1];
-                        }
+                        mod.Desc = lines[1];
 
                         if (lines.Length > 2)
                         {
@@ -232,9 +254,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             xOffset = int.Parse(s2[0]);
                             yOffset = int.Parse(s2[1]);
                         }
-
-                        MODs = MODs.Union(new MOD[] { mod }).NullToEmptyArray();
                     }
+
+                    MODs = MODs.Union(new MOD[] { mod }).NullToEmptyArray();
                 }
             }
 
@@ -322,34 +344,29 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         }
                         else
                         {
-                            if (MenuType == MenuType.New)
+                            Session.globalVariablesTemp = Session.globalVariablesBasic.Clone();
+                            Session.parametersTemp = Session.parametersBasic.Clone();
+
+                            //InitConfig();
+
+                            MenuType = MenuType.New;
+
+                            btScenarioSelectList.ForEach(bt =>
                             {
-                                Session.globalVariablesTemp = Session.globalVariablesBasic.Clone();
-                                Session.parametersTemp = Session.parametersBasic.Clone();
-                                InitConfig();
-                                MenuType = MenuType.Config;
-                            }
-                            else
-                            {
-                                MenuType = MenuType.New;
+                                bt.Selected = false;
+                            });
 
-                                btScenarioSelectList.ForEach(bt =>
-                                {
-                                    bt.Selected = false;
-                                });
+                            btScenarioPlayersList.Clear();
 
-                                btScenarioPlayersList.Clear();
+                            pageIndex1 = 1;
 
-                                pageIndex1 = 1;
+                            Session.StartScenario(CurrentScenario, false);
 
-                                Session.StartScenario(CurrentScenario, false);
+                            CurrentScenario = null;
 
-                                CurrentScenario = null;
+                            scenario = null;
 
-                                scenario = null;
-
-                                faction = null;
-                            }
+                            faction = null;
                         }
                     }
                     else
@@ -4534,7 +4551,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 CacheManager.DrawString(Session.Current.Font, "简体中文", new Vector2(50 + 100 + 50, 120), Color.Black * alpha);
 
-                CacheManager.DrawString(Session.Current.Font, "传统中文", new Vector2(50 + 100 + 200 + 50, 120), Color.Black * alpha);
+                CacheManager.DrawString(Session.Current.Font, "繁体中文", new Vector2(50 + 100 + 200 + 50, 120), Color.Black * alpha);
 
                 //CacheManager.DrawString(Session.Current.Font, "战斗", new Vector2(50, 120 + 60 * 2), Color.Black * alpha);
 

@@ -19,32 +19,59 @@ namespace Tools
 
     public static class GameTools
     {
+        public static string CheckSame()
+        { 
+            var conDir = Platform.Current.SolutionDir + @"Content\Textures\Resources\Troop";
+
+            var dires = Platform.Current.GetDirectories(conDir, true, true);
+
+            List<string> lens = new List<string>();
+
+            foreach (var dir in dires)
+            {
+                var files = Platform.Current.GetFiles(dir, false);
+
+                int length = 0;
+
+                foreach (var fi in files)
+                {
+                    var bytes = Platform.Current.ReadAllBytes(fi);
+
+                    length += bytes.Length;
+                }
+
+                lens.Add(dir + " " + length);
+            }
+
+            return String.Join("\r\n", lens.OrderBy(le => le.Split(' ')[1]));
+        }
 
         /// <summary>
         /// 生成待編譯資源列表，遍歷Content文件夾
         /// </summary>
         /// <returns></returns>
-        public static string GetContentList(bool android)
+        public static string GetContentList(string directory, bool android)
         {
-            var conDir = Platform.Current.SolutionDir + "Content";
+            var conDir = Platform.Current.SolutionDir + directory;  // "Content";
 
-            var dires = Platform.Current.GetDirectories(conDir, true);
+            var dires = Platform.Current.GetDirectories(conDir, true, true);
 
             List<string> lines = new List<string>();
 
+            lines.Add("<ItemGroup>");
+
             foreach (var dir in dires)
             {
-                lines.Add("<ItemGroup>");
 
-                var di = dir.Split(new string[] { "Content" }, StringSplitOptions.None)[1];
+                var di = dir.Split(new string[] { directory }, StringSplitOptions.None)[1];
 
                 if (android)
                 {
-                    lines.Add($"<Folder Include=\"Assets\\Content{di}\" />");
+                    lines.Add($"<Folder Include=\"Assets\\{directory}{di}\" />");
                 }
                 else
                 {
-                    lines.Add($"<Folder Include=\"Content{di}\" />");
+                    lines.Add($"<Folder Include=\"{directory}{di}\" />");
                 }
 
                 //win ios
@@ -61,7 +88,7 @@ namespace Tools
                         continue;
                     }
 
-                    string fi = "Content" + file.Split(new string[] { "Content" }, StringSplitOptions.None)[1];
+                    string fi = directory + file.Split(new string[] { directory }, StringSplitOptions.None)[1];
 
                     if (android)
                     {
@@ -75,7 +102,7 @@ namespace Tools
                         }
                         else if (fi.Contains("ditu"))
                         {
-                            fi1 = fi1.Replace("Content", "ContentLite");
+                            fi1 = fi1.Replace("Content", "ContentLite").Replace(@"MODs\Qinghuai", "ContentLite");
                         }
 
                         lines.Add($"<AndroidAsset Include=\"..\\{fi1}\"><Link>Assets\\{fi2}</Link><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></AndroidAsset>");
@@ -93,9 +120,9 @@ namespace Tools
                 /* Win iOS
                 <Content Include="..\Content\Sound\Troop\999\NormalAttack.wav"><Link>Content\Sound\Troop\999\NormalAttack.wav</Link><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></Content>
                 */
-
-                lines.Add("</ItemGroup>");
             }
+
+            lines.Add("</ItemGroup>");
 
             return String.Join("\r\n", lines);
         }
