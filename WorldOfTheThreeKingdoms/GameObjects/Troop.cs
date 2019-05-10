@@ -68,6 +68,8 @@ namespace GameObjects
 
             CombatMethods = new CombatMethodTable();
 
+            Stunts = new StuntTable();
+
             BaseRateOfQibingDamage = 1;
 
             DecrementNumberList = new CombatNumberItemList(CombatNumberDirection.下);
@@ -501,7 +503,6 @@ namespace GameObjects
         private int stuntDayLeft;
         public bool StuntMustSurround;
         public bool StuntRecoverFromChaos;
-        [DataMember]
         public StuntTable Stunts = new StuntTable();
         private int stuntTileAnimationIndex;
         private int stuntTileStayIndex;
