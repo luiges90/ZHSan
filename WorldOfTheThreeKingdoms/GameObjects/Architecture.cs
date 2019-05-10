@@ -2217,11 +2217,11 @@ namespace GameObjects
 
                             needRecruit = this.MilitaryPopulation >
                                 this.PopulationDevelopingRate * this.PopulationCeiling * Session.Parameters.AIRecruitPopulationCapMultiply *
-                                (nearFrontline ? 1.0 : Session.Parameters.AIRecruitPopulationCapBackendMultiply) *
-                                (this.BelongedSection != null && this.BelongedSection.AIDetail.ValueRecruitment ? 1.5 : 1) *
-                                (((Enum.GetNames(typeof(PersonStrategyTendency)).Length - (int)this.BelongedFaction.Leader.StrategyTendency))
+                                (nearFrontline ? 1.0 : Session.Parameters.AIRecruitPopulationCapBackendMultiply) /
+                                (this.BelongedSection != null && this.BelongedSection.AIDetail.ValueRecruitment ? 2.0 : 1) /
+                                ((int)this.BelongedFaction.Leader.StrategyTendency
                                 * Session.Parameters.AIRecruitPopulationCapStrategyTendencyMulitply + Session.Parameters.AIRecruitPopulationCapStrategyTendencyAdd)
-                                * (this.HostileLine ? Session.Parameters.AIRecruitPopulationCapHostilelineMultiply : 1);
+                                / (this.HostileLine ? Session.Parameters.AIRecruitPopulationCapHostilelineMultiply : 1);
                         }
                     }
                     needRecruit = needRecruit && (GameObject.Chance(this.Persons.Count * 25) || (!need[0] && !need[1] && !need[2])); // 太少武将在城内时就不要补充了，先搞好内政更重要
