@@ -2215,7 +2215,7 @@ namespace GameObjects
                                 }
                             }
 
-                            needRecruit = this.MilitaryPopulation <=
+                            needRecruit = this.MilitaryPopulation >
                                 this.PopulationDevelopingRate * this.PopulationCeiling * Session.Parameters.AIRecruitPopulationCapMultiply *
                                 (nearFrontline ? 1.0 : Session.Parameters.AIRecruitPopulationCapBackendMultiply) *
                                 (this.BelongedSection != null && this.BelongedSection.AIDetail.ValueRecruitment ? 1.5 : 1) *
