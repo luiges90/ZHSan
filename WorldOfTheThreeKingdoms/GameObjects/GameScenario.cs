@@ -3143,13 +3143,17 @@ namespace GameObjects
                 foreach (int j in i.Value)
                 {
                     Person q = this.Persons.GetGameObject(j) as Person;
-                    if (q != null)
+                    if (p != null && q != null)
                     {
                         p.suoshurenwuList.Add(q);
                     }
-                    else
+                    else if (p != null)
                     {
                         errorMsg.Add("人物ID" + p.ID + "：所属人物表ID" + j + "不存在");
+                    } 
+                    else
+                    {
+                        errorMsg.Add("人物ID" + p + "：所属人物表ID" + j + "不存在");
                     }
                 }
             }
