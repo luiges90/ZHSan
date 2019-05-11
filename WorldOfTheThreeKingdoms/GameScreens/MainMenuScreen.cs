@@ -861,7 +861,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralBattleDead = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 2.5f), true)
+            nstGeneralBattleDead = new NumericSetTextureF(0, 300, 300, null, new Vector2(left2 + 300, heightBase + height * 2.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
