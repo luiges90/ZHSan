@@ -14567,15 +14567,7 @@ namespace GameObjects
         {
             get
             {
-                if (this.JianzhuGuimo == 5)
-                {
-                    return this.Kind.Texture2;
-                }
-                else if (this.JianzhuGuimo == 13)
-                {
-                    return this.Kind.Texture3;
-                }
-                else return this.Kind.Texture;
+                return this.Kind.Texture;
 
             }
         }
