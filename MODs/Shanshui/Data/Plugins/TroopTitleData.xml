@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <BackgroundFile FileName="Background.png" PictureNull="Null.png" Width="80" Height="38"></BackgroundFile>
+  <PortraitTexturePosition X="0" Y="0" Width="26" Height="34" ></PortraitTexturePosition>
+  <FactionTextureFile FileName="Faction.png" X="0" Y="0" Width="37" Height="43"></FactionTextureFile>
+  <NameText X="26" Y="10" Width="52" Height="30"
+            FontName="宋体"
+            FontSize="9"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Left">
+  </NameText>
+  <ActionIcon Done="ActionDone.png" Undone="ActionUndone.png" Auto="ActionAuto.png" AutoDone="ActionAutoDone.png" X="65" Y="0" Width="14" Height="14"></ActionIcon>
+  <FoodIcon Normal="FoodNormal.png" Shortage="FoodShortage.png" X="75" Y="0" Width="14" Height="14"></FoodIcon>
+  <Control NoControl="NoControl.png" X="65" Y="0" Width="14" Height="14"></Control>
+  <Stunt Stunt="Stunt.png" X="75" Y="0" Width="14" Height="14"></Stunt>
+  <binglitext X="25" Y="-3" Width="43" Height="20"
+        FontName="宋体"
+        FontSize="11"
+        FontStyle="Regular"
+        FontColor="4294967295"
+        Align="Left">
+  </binglitext>
+  <shiqicao FileName="shiqicao.png" X="0" Y="34"  Width="80" Height="7"></shiqicao>
+  <shiqitiao FileName="shiqitiao.png" X="2" Y="36"  Width="76" Height="3"></shiqitiao>
+  <Item11></Item11>
+  <Item12></Item12>
+  <Item13></Item13>
+  <Item14></Item14>
+  <Switchs UIKind="1" >
+  </Switchs>
+  <Item16></Item16>
+  <Item17></Item17>
+  <Item18></Item18>
+  <Item19></Item19>
+  <Item20></Item20>
+  <TheBackground1 Mask1="Null.png" Mask2="Null.png" Mask3="Mask13.png" Mask4="Mask14.png" Background="Background1.png" X="-5" Y="0" Width="90" Height="46"></TheBackground1>
+  <PersonPortrait1Position X="3" Y="5" Width="28" Height="35" ></PersonPortrait1Position>
+  <TheBackgrounds Backgrounds="Backgrounds.png" X="-20" Y="-10" Width="46" Height="17" Mask="jokosany第二远地图显示将领名字"></TheBackgrounds>  
+  <TroopName X="-11" Y="-19" Width="3" Height="30" Mask="jokosany第二远地图显示将领名字"
+           FontName="宋体"
+           FontSize="14"
+           FontStyle="Bold"
+           FontColor="4294967295"
+           Align="Left">
+  </TroopName>
+  <FactionColor ColorPicture="Factions.png" ColorBackground="qizis.png" X="-16" Y="-30" Width="35" Height="40"  Mask="jokosany第二远地图显示将领名字"></FactionColor>
+  <FactionNameText X="0" Y="0" Width="20" Height="10"
+          FontName="宋体"
+          FontSize="9"
+          FontStyle="Regular"
+          FontColor="4280163870"
+          Align="Left"
+          FactionNameKind="1" ShowFactionNameBackground="off" Background="Null.png">
+  </FactionNameText>
+  <FactionColor ColorPicture="Faction.png" ColorBackground="qizi.png" X="-2" Y="1" Width="38" Height="42"></FactionColor>
+  <Item28></Item28>
+  <Item29></Item29>
+  <Item30></Item30>
+  <TroopName X="34" Y="-15" Width="25" Height="42"
+           FontName="宋体"
+           FontSize="12"
+           FontStyle="Italic"
+           FontColor="4294967295"
+           Align="Left">
+  </TroopName>
+  <Item32></Item32>
+  <Item33></Item33>
+  <Item34></Item34>
+  <Item35></Item35>
+  <TroopKind1Position X="36" Y="21" Width="9" Height="9" TroopKind1="0.png" TroopKind2="1.png" TroopKind3="2.png" TroopKind4="3.png" TroopKind5="4.png"></TroopKind1Position>
+  <Thebingli1Text X="45" Y="10" Width="42" Height="25"
+      FontName="宋体"
+      FontSize="11"
+      FontStyle="Regular"
+      FontColor="4294967295"
+      Align="Left">
+  </Thebingli1Text>
+  <Item38></Item38>
+  <Item39></Item39>
+  <Item40></Item40>
+  <TheActionIcon1 Done="ActionDone1.png" Undone="ActionUndone1.png" Auto="ActionAuto1.png" AutoDone="ActionAutoDone1.png" X="36" Y="34" Width="9" Height="9"></TheActionIcon1>
+  <TheFoodIcon1 Normal="FoodNormal.png" Shortage="FoodShortage1.png" X="78" Y="34" Width="10" Height="10"></TheFoodIcon1>
+  <TheControl1 NoControl="NoControl1.png" X="64" Y="34" Width="10" Height="10"></TheControl1>
+  <TheStunt1 Stunt="Stunt1.png" X="50" Y="34" Width="9" Height="9"></TheStunt1>
+  <Item45></Item45>
+  <Theshiqi1 FileName="shiqi1.png" X="-9" Y="-2" Width="25" Height="50"></Theshiqi1>
+  <Thezhanyi1 FileName="zhanyi1.png" X="16" Y="-2" Width="25" Height="50"></Thezhanyi1>
+  <Item48></Item48>
+  <Item49></Item49>
+  <Item50></Item50>
+  
+  <TheBackground2 Mask1="Mask21.png" Mask2="Mask22.png" Mask3="Null.png" Mask4="Null.png" Background="Background2.png" X="0" Y="0" Width="100" Height="39"></TheBackground2>
+  <PersonPortrait2Position X="1" Y="10" Width="27" Height="27" ></PersonPortrait2Position>
+  <Item53></Item53>
+  <Item54></Item54>
+  <Item55></Item55>
+  <FactionName2Text X="8" Y="-10" Width="20" Height="10"
+          FontName="宋体"
+          FontSize="9"
+          FontStyle="Regular"
+          FontColor="4294967295"
+          Align="Left"
+          FactionNameKind="1" ShowFactionNameBackground="off" Background="Null.png">
+  </FactionName2Text>
+  <FactionColor2 ColorPicture="Faction.png" ColorBackground="qizi.png" X="3" Y="-25" Width="50" Height="40"></FactionColor2>
+  <Item58></Item58>
+  <Item59></Item59>
+  <Item60></Item60>
+  <TroopName X="33" Y="3" Width="52" Height="10"
+            FontName="宋体"
+            FontSize="9"
+            FontStyle="Regular"
+            FontColor="4294967295"
+            Align="Middle">
+  </TroopName>
+  <Item62></Item62>
+  <Item63></Item63>
+  <Item64></Item64>
+  <Item65></Item65>
+  <TroopKind2Position X="27" Y="13" Width="13" Height="13" TroopKind1="0.png" TroopKind2="1.png" TroopKind3="2.png" TroopKind4="3.png" TroopKind5="4.png"></TroopKind2Position>
+  <Thebingli2Text X="42" Y="13" Width="42" Height="13"
+      FontName="宋体"
+      FontSize="9"
+      FontStyle="Regular"
+      FontColor="4294967295"
+      Align="Middle">
+  </Thebingli2Text>
+  <Item68></Item68>
+  <Item69></Item69>
+  <Item70></Item70>
+  <TheActionIcon2 Done="ActionDone2.png" Undone="ActionUndone2.png" Auto="ActionAuto2.png" AutoDone="ActionAutoDone2.png" X="0" Y="0" Width="100" Height="39"></TheActionIcon2>
+  <TheFoodIcon2 Normal="FoodNormal.png" Shortage="FoodShortage2.png" X="0" Y="0" Width="100" Height="39"></TheFoodIcon2>
+  <TheControl2 NoControl="NoControl2.png" X="0" Y="0" Width="100" Height="39"></TheControl2>
+  <TheStunt2 Stunt="Stunt2.png" X="0" Y="0" Width="100" Height="39"></TheStunt2>
+  <Item75></Item75>
+  <Theshiqi2 FileName="shiqi2.png" X="37" Y="28" Width="59" Height="4"></Theshiqi2>
+  <Thezhanyi2 FileName="zhanyi2.png" X="36" Y="32" Width="56" Height="4"></Thezhanyi2>
+  <DisplayTileWidth Min="36" Max="69" />
+</Root>
