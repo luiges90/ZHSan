@@ -67,14 +67,6 @@ namespace TroopTitlePlugin
         internal PlatformTexture TheMask13;
         internal PlatformTexture TheMask14;
         internal Rectangle TheBackground1Position;
-        internal PlatformTexture TheBackgrounds;//*jokosany在第二远地图上显示部队将领名字
-        internal PlatformTexture FactionColorsPicture;//*jokosany在第二远地图上显示部队将领名字
-        internal PlatformTexture FactionColorsBackground;//*jokosany在第二远地图上显示部队将领名字
-        internal Rectangle FactionColorsPosition;//*jokosany在第二远地图上显示部队将领名字
-        internal Rectangle TheBackgroundsPosition;//*jokosany在第二远地图上显示部队将领名字
-        internal Point BackgroundsSize;//*jokosany在第二远地图上显示部队将领名字
-        internal FreeText TroopNamesText;//*jokosany在第二远地图上显示部队将领名字
-        
         internal PlatformTexture TheBackground2;
         internal PlatformTexture TheMask21;
         internal PlatformTexture TheMask22;
@@ -209,44 +201,14 @@ namespace TroopTitlePlugin
         internal PlatformTexture Thezhanyi2Texture;
         internal Rectangle Thezhanyi2Position;
 
-        internal int minTileWidth = 0;
-        internal int maxTileWidth = 999;
 
         internal void DrawTroop(Troop troop, bool playerControlling)
         {
-            //*jokosany在第二远地图上显示部队将领名字
-                if (Session.Current.Scenario.ScenarioMap.TileWidth <= maxTileWidth && Session.Current.Scenario.ScenarioMap.TileWidth >= minTileWidth)
+            if (Session.Current.Scenario.ScenarioMap.TileWidth >= 50)
             {
                 Color white = Color.White;
                 this.DisplayOffset = Session.MainGame.mainGameScreen.GetPointByPosition(troop.Position);
-                this.DisplayOffset = new Point(this.DisplayOffset.X, this.DisplayOffset.Y);
-                if (troop.BelongedFaction != null)
-                {
-                    white = troop.BelongedFaction.FactionColor;
-                }
-
-                //  CacheManager.Draw(this.TheBackgrounds, this.TheBackgroundsDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.47f);
-
-                CacheManager.Draw(this.FactionColorsPicture, this.FactionColorsDisplayPosition, null, white, 0f, Vector2.Zero, SpriteEffects.None, 0.469f);
-                CacheManager.Draw(this.FactionColorsBackground, this.FactionColorsDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
-
-                //  Rectangle? sourceRectangle = null;
-                //   CacheManager.Draw(this.TheBackgrounds, new Rectangle(this.TheBackgroundsDisplayPosition.X, this.TheBackgroundsDisplayPosition.Y, this.BackgroundsSize.X, this.BackgroundsSize.Y), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.47f);
-                //  CacheManager.Draw(this.TheBackgrounds, new Rectangle(this.displayOffset.X, this.displayOffset.Y, this.BackgroundsSize.X, this.BackgroundsSize.Y), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.47f);
-
-               // this.TroopNamesText.Text = troop.Leader.Name;
-                this.TroopNamesText.Text = troop.Leader.SurName;
-                this.TroopNamesText.Draw(0.462f);
-
-
-            }
-                //*jokosany
-                if (Session.Current.Scenario.ScenarioMap.TileWidth >= 70)
-            {
-                Color white = Color.White;
-                this.DisplayOffset = Session.MainGame.mainGameScreen.GetPointByPosition(troop.Position);
-                this.DisplayOffset = new Point(this.DisplayOffset.X - 15, this.DisplayOffset.Y - 25);
-                //*jokosany上面X坐标修改为+3,Y-5
+                this.DisplayOffset = new Point(this.DisplayOffset.X, this.DisplayOffset.Y - 13);
                 if (troop.BelongedFaction != null)
                 {
                     white = troop.BelongedFaction.FactionColor;
@@ -279,7 +241,7 @@ namespace TroopTitlePlugin
                     //}
                 }
                 if (UIKind == "Old")
-                {
+                {                    
                     Rectangle? sourceRectangle = null;
                     CacheManager.Draw(this.BackgroundTexture, new Rectangle(this.displayOffset.X, this.displayOffset.Y, this.BackgroundSize.X, this.BackgroundSize.Y), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.47f);
                     CacheManager.Draw(this.shiqicaotupian, new Rectangle(this.displayOffset.X + this.shiqicaoweizhi.X, this.displayOffset.Y + this.shiqicaoweizhi.Y, this.shiqicaoweizhi.Width, this.shiqicaoweizhi.Height), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.469f);
@@ -374,24 +336,19 @@ namespace TroopTitlePlugin
                     //{ 
                         //CacheManager.Draw(troop.Leader.TroopPortrait, this.ThePortraitDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.469f);
 
-                    //*jokosany武将头像层次
-                        CacheManager.DrawZhsanAvatar(troop.Leader, "s", this.ThePortraitDisplayPosition, Color.White, 0.468f);
-                    //*jokosany
+                        CacheManager.DrawZhsanAvatar(troop.Leader, "s", this.ThePortraitDisplayPosition, Color.White, 0.469f);
+
                         if (ShowFactionName1Background == "on")
                         {
                             CacheManager.Draw(this.FactionName1Background, this.FactionNameDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.462f);
                         }
-                        //*jokosany势力颜色
-                        CacheManager.Draw(this.FactionColor1Picture, this.FactionColorDisplayPosition, null, white, 0f, Vector2.Zero, SpriteEffects.None, 0.471f);
-                      //  CacheManager.Draw(this.FactionColor1Background, this.FactionColorDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
-                      //*jokosany
+                        CacheManager.Draw(this.FactionColor1Picture, this.FactionColorDisplayPosition, null, white, 0f, Vector2.Zero, SpriteEffects.None, 0.463f);
+                        CacheManager.Draw(this.FactionColor1Background, this.FactionColorDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                     //}
                     //catch { }
                     try
-                    {
-                        //*jokosany兵种类型显示
+                    { 
                         CacheManager.Draw(this.TheTroopKindPicture, this.TheTroopKindDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
-                      //*jokosany
                     }
                     catch { }
                     try
@@ -439,9 +396,7 @@ namespace TroopTitlePlugin
                     }
                     if (FactionName1Kind == "1")
                     {
-                        //*jokosany旗子上面的字（统帅的姓）
-                      //  this.FactionName1Text.Text = troop.Leader.SurName;
-                       //*jokosany
+                        this.FactionName1Text.Text = troop.Leader.SurName;
                     }
                     else if (FactionName1Kind == "2")
                     {
@@ -603,7 +558,6 @@ namespace TroopTitlePlugin
             this.FactionName2Text.DisplayOffset = this.displayOffset;
             this.TroopName1Text.DisplayOffset = this.displayOffset;
             this.TroopName2Text.DisplayOffset = this.displayOffset;
-            this.TroopNamesText.DisplayOffset = this.displayOffset;//*jokosany在第二远地图上显示部队将领名字
             this.Thebingli1Text.DisplayOffset = this.displayOffset;
             this.Thebingli2Text.DisplayOffset = this.displayOffset;
 
@@ -687,24 +641,6 @@ namespace TroopTitlePlugin
                 }
             }
         }
-        //*jokosany在第二远地图上显示部队将领名字
-        private Rectangle TheBackgroundsDisplayPosition
-        {
-            get
-            {
-                    return new Rectangle(this.DisplayOffset.X + this.TheBackgroundsPosition.X, this.DisplayOffset.Y + this.TheBackgroundsPosition.Y, this.TheBackgroundsPosition.Width, this.TheBackgroundsPosition.Height);
-            }
-        }
-
-        private Rectangle FactionColorsDisplayPosition
-        {
-            get
-            {
-                    return new Rectangle(this.DisplayOffset.X + this.FactionColorsPosition.X, this.DisplayOffset.Y + this.FactionColorsPosition.Y, this.FactionColorsPosition.Width, this.FactionColorsPosition.Height);
-            }
-        }
-
-        //*jokosany
         private Rectangle ThePortraitDisplayPosition
         {
             get
