@@ -41,8 +41,9 @@ namespace WorldOfTheThreeKingdomsEditor
                 { "SelfEffectsString", "自身效果：发动部队的效果列表" },
                 { "EffectPersonsString", "特定人物效果：每个人物ID后跟随一个效果种类。以空格分隔。" },
                 { "EffectAreasString", "特定范围效果：范围类别：0：视野内所有敌军；1：视野内所有友军；2：攻击范围内所有敌军；3：攻击范围内所有友军；4：周围八格内所有敌军；5：周围八格内所有友军；每个范围类别后跟随一个效果种类。以空格分隔。" },
-                { "Image","图片。图片档案放在Content/Textures/GameComponents/tupianwenzi/Data/tupian里" },
-                { "Sound","音效。音效档案放在Content/Textures/GameComponents/tupianwenzi/Data/yinxiao里" },
+                { "Image","图片。图片档案放在Content目录Textures目录GameComponents目录tupianwenzi目录Data目录tupian里" },
+                { "Sound","音效。音效档案放在Content目录Textures目录GameComponents目录tupianwenzi目录Data目录yinxiao里" },
+                { "CheckArea","0--视野内 1--周边八格 2--攻击范围 用来搜索目标人物列表" },
             };
         }
 

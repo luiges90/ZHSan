@@ -8802,7 +8802,6 @@ namespace json_and_excel
                     }
                     // a.PreferredTechniqueKinds
                     a.ClosedRouteways = new Dictionary<Microsoft.Xna.Framework.Point, object>();
-                    a.SpyMessageCloseList = new Dictionary<Microsoft.Xna.Framework.Point, object>();
                     for (int ii = 1; ii <= worksheet.Dimension.End.Column; ii++)
                     {
                         if (worksheet.Cells[1, ii].Value.ToString() == "PreferredTechniqueKinds")

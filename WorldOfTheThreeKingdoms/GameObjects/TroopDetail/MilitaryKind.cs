@@ -77,7 +77,7 @@ namespace GameObjects.TroopDetail
         private int rationDays;
         private int ridgeAdaptability;
         private float ridgeRate;
-        [DataMember]
+        //[DataMember]
         public TroopSounds Sounds;
         private int speed;
         private int stratagemRadius;

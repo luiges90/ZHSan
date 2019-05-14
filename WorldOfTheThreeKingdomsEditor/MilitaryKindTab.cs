@@ -60,7 +60,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 "ObliqueStratagem",
                 "ViewRadius",
                 "ObliqueView",
-                "InjuryRate",
+                "InjuryChance",
                 "Movability",
                 "OneAdaptabilityKind",
                 "PlainAdaptability",
@@ -97,7 +97,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 "LevelUpExperience",
                 "OffencePer100Experience",
                 "DefencePer100Experience",
-                "Influences",
+                "InfluencesString",
                 "MinCommand",
                 "MorphTo",
                 "CreateConditionsString"
@@ -135,7 +135,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 { "ObliqueStratagem", "斜向计略" },
                 { "ViewRadius", "视野半径" },
                 { "ObliqueView", "斜向视野" },
-                { "InjuryRate", "伤兵概率" },
+                { "InjuryChance", "伤兵概率" },
                 { "Movability", "行动力" },
                 { "OneAdaptabilityKind", "单一适性种类" },
                 { "PlainAdaptability", "平原适性" },
@@ -172,10 +172,18 @@ namespace WorldOfTheThreeKingdomsEditor
                 { "LevelUpExperience", "升级经验" },
                 { "OffencePer100Experience", "每一百经验增加的攻击力" },
                 { "DefencePer100Experience", "每一百经验增加的防御力" },
-                { "Influences", "影响列表" },
+                { "InfluencesString", "影响列表" },
                 { "MinCommand", "最低统率(AI)" },
                 { "MorphTo", "变换至兵种" },
-                { "CreateConditionsString", "新编条件：编队所在建筑条件" }
+                { "CreateConditionsString", "新编条件：编队所在建筑条件" },
+                { "zijinshangxian", "资金上限" },
+                { "AttackDefaultKind", "攻击默认类型" },
+                { "AttackTargetKind", "攻击目标类型" },
+                { "CastDefaultKind", "施展默认类型" },
+                { "CastTargetKind", "施展目标类型" },
+                { "IsShell", "是否外壳" },
+                { "OffenceOnlyBeforeMove", "只能在移动前攻击" },
+                { "MorphToKindId", "变换至兵种" },
             };
         }
 

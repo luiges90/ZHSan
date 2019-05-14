@@ -866,7 +866,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralBattleDead = new NumericSetTextureF(0, 100, 100, null, new Vector2(left2 + 300, heightBase + height * 2.5f), true)
+            nstGeneralBattleDead = new NumericSetTextureF(0, 300, 300, null, new Vector2(left2 + 300, heightBase + height * 2.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,
@@ -4557,7 +4557,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 CacheManager.DrawString(Session.Current.Font, "简体中文", new Vector2(50 + 100 + 50, 120), Color.Black * alpha);
 
-                CacheManager.DrawString(Session.Current.Font, "传统中文", new Vector2(50 + 100 + 200 + 50, 120), Color.Black * alpha);
+                CacheManager.DrawString(Session.Current.Font, "繁体中文", new Vector2(50 + 100 + 200 + 50, 120), Color.Black * alpha);
 
                 //CacheManager.DrawString(Session.Current.Font, "战斗", new Vector2(50, 120 + 60 * 2), Color.Black * alpha);
 

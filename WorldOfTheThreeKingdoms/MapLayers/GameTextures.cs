@@ -346,7 +346,7 @@ namespace WorldOfTheThreeKingdoms.Resources
 
             mediumCityImg.Clear();
             largeCityImg.Clear();
-            string[] filePaths = Platform.Current.GetFiles("Content/Textures/Resources/Architecture/").NullToEmptyList().Where(fi => fi.EndsWith("*.png")).NullToEmptyArray();
+            string[] filePaths = Platform.Current.GetFiles("Content/Textures/Resources/Architecture/").NullToEmptyList().Where(fi => fi.EndsWith(".png")).NullToEmptyArray();
             foreach (String s in filePaths)
             {
                 string fileName = s.Substring(s.LastIndexOf('/') + 1, s.LastIndexOf('.') - s.LastIndexOf('/') - 1);

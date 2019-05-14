@@ -26,5 +26,12 @@ namespace GameObjects
             get;
             set;
         }
-	}
+
+        public string SavezainantoString()
+        {
+            string result = "";
+            result = zainanleixing.ToString() + " " + shengyutianshu.ToString()+" ";
+            return result;
+        }
+    }
 }

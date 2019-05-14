@@ -28,6 +28,7 @@ namespace WorldOfTheThreeKingdomsEditor
             return new String[]
             {
                 "ID",
+                "Name",
                 "FactionColor",
                 "MilitaryKindsString",
                 "Brief",
@@ -41,12 +42,13 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             return new Dictionary<string, string>()
             {
+                {"Name","姓名" },
                 {"Brief","简要" },
                 {"Romance","演义" },
                 {"History","历史" },
                 {"InGame","剧本" },
-                {"FactionColor","势力颜色。此武将自立时使用的势力颜色" },
-                {"MilitaryKinds","兵种列表。此武将自立时使用的基本兵种" }
+                {"FactionColor","势力颜色 此武将自立时使用的势力颜色" },
+                {"MilitaryKindsString","兵种列表 此武将自立时使用的基本兵种" }
             };
         }
 

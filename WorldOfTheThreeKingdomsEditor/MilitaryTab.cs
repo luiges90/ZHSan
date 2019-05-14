@@ -59,7 +59,7 @@ namespace WorldOfTheThreeKingdomsEditor
             return new Dictionary<string, string>()
             {
                 { "Name", "队名" },
-                { "KindID", "种类ID" },
+                { "kindID", "种类ID" },
                 { "Quantity", "人数" },
                 { "Morale", "士气" },
                 { "Combativity", "战意" },
@@ -67,11 +67,25 @@ namespace WorldOfTheThreeKingdomsEditor
                 { "InjuryQuantity", "伤兵" },
                 { "FollowedLeaderID", "追随将领ID" },
                 { "LeaderID", "队长ID" },
-                { "LeaderExperience", "队长经验" },
+                { "leaderExperience", "队长经验" },
                 { "Tiredness", "疲累度" },
                 { "ArrivingDays", "到达时间" },
+                { "belongedArchitectureID", "所属建筑" },
                 { "StartingArchitectureID", "出发建筑" },
-                { "TargetArchitectureID", "目标建筑" }
+                { "TargetArchitectureID", "目标建筑" },
+                { "ShelledMilitaryID", "被包裹编队" },
+                { "RecruitmentPersonID", "补充人员ID" },
+                { "TroopDamageDealt", "总士兵伤害" },
+                { "RoutCount", "击破数" },
+                { "YearCreated", "编成年" },
+                { "TroopBeDamageDealt", "总受士兵伤害" },
+                { "ArchitectureDamageDealt", "总建筑伤害" },
+                { "StratagemSuccessCount", "计略成功次数" },
+                { "StratagemFailCount", "计略失败次数" },
+                { "StratagemBeSuccessCount", "中计次数" },
+                { "StratagemBeFailCount", "计略阻挡次数" },
+                { "OfficerKillCount", "致武将战死数" },
+                { "CaptiveCount", "俘获将领次数" },
             };
         }
 

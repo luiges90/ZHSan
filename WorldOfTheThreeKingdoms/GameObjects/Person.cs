@@ -466,7 +466,7 @@ namespace GameObjects
 
         private Captive belongedCaptive;
 
-        [DataMember]
+        //[DataMember]
         public Captive BelongedCaptive
         {
             get
@@ -2997,7 +2997,7 @@ namespace GameObjects
                     if (diff > 0)
                     {
                         this.ConvincingPerson.InjureRate -= diff / 1000.0f;
-                        if (this.ConvincingPerson.InjureRate < 0.05 && Session.GlobalVariables.OfficerDieInBattleRate > 0)
+                        if (this.ConvincingPerson.InjureRate < 0.05 && Session.GlobalVariables.OfficerDieInBattleRate > 0 && !this.ConvincingPerson.ImmunityOfDieInBattle)
                         {
                             architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -20f, -20);
                             architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -5f, -5);
@@ -3018,7 +3018,8 @@ namespace GameObjects
                         }
                         else if (this.ConvincingPerson.InjureRate < 0.009 * this.Strength && 
                             GameObject.Chance(this.Strength + this.Intelligence - this.ConvincingPerson.Strength - this.ConvincingPerson.Intelligence) && 
-                            (architectureByPosition.BelongedFaction == null || GameObject.Chance(100 - (architectureByPosition.Morale / 10))))
+                            (architectureByPosition.BelongedFaction == null || GameObject.Chance(100 - (architectureByPosition.Morale / 10))) &&
+                            !this.ConvincingPerson.ImmunityOfCaptive)
                         {
                             if (architectureByPosition.BelongedFaction != this.BelongedFaction)
                             {
@@ -11096,17 +11097,6 @@ namespace GameObjects
                 }
             }
         }
-
-        //public void RemoveRelation(Person p)
-        //{
-        //    foreach (KeyValuePair<Person, int> i in this.relations)
-        //    {
-        //        if (i.Key == p)
-        //        {
-        //            this.relations.Remove(p);
-        //        }
-        //    }
-        //}
 
         public Dictionary<Person, int> GetAllRelations()
         {

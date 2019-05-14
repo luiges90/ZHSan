@@ -199,7 +199,7 @@ namespace GameGlobal
         [DataMember]
         public float AIRecruitPopulationCapBackendMultiply = 0.5f;
         [DataMember]
-        public float AIRecruitPopulationCapHostilelineMultiply = 1.2f;
+        public float AIRecruitPopulationCapHostilelineMultiply = 2.0f;
         [DataMember]
         public float AIRecruitPopulationCapStrategyTendencyMulitply = 0.2f;
         [DataMember]

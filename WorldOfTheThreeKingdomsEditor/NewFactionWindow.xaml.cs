@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Data;
 using GameObjects.FactionDetail;
 using GameObjects.TroopDetail;
+using Newtonsoft.Json;
 
 namespace WorldOfTheThreeKingdomsEditor
 {
@@ -24,45 +25,99 @@ namespace WorldOfTheThreeKingdomsEditor
     public partial class NewFactionWindow : Window
     {
         private GameScenario scen;
-        private Window mainwindow;
-        private List<int> listArchis = new List<int>();
         private Faction faction;
         private DataTable dt;
         private GameObjectList list;
-        public NewFactionWindow(GameScenario scen,Window window,Faction faction2)
+        private Person leadertemp;
+        private Person princetemp;
+        private ArchitectureList architectureListtemp= new ArchitectureList();
+        private Architecture capitaltemp;
+        private MilitaryKindTable baseMilitaryKindstemp = new MilitaryKindTable();
+        private TechniqueTable availableTechniquestemp = new TechniqueTable();
+        private int guanjuezhitemp;
+        private bool edit=false;
+        public NewFactionWindow(bool editing ,DataGrid dataGrid, GameScenario scen)
         {
             this.scen = scen;
+            edit = editing;
             InitializeComponent();
-            mainwindow = window;
-            faction = faction2;
-            BtFcationColor.Background = new SolidColorBrush(Color.FromArgb(scen.GameCommonData.AllColors[faction.ColorIndex].A, scen.GameCommonData.AllColors[faction.ColorIndex].R, scen.GameCommonData.AllColors[faction.ColorIndex].G, scen.GameCommonData.AllColors[faction.ColorIndex].B));
+            faction = new Faction();
+            if(editing)
+            {
+                //faction2 = JsonConvert.DeserializeObject<Faction>(JsonConvert.SerializeObject(scen.Factions.GetGameObject(int.Parse(((DataRowView)dataGrid.SelectedItem).Row["ID"].ToString())) as Faction)) ;
+                faction = scen.Factions.GetGameObject(int.Parse(((DataRowView)dataGrid.SelectedItem).Row["ID"].ToString())) as Faction;
+            }
+            else
+            {
+                faction.Name = "新势力";
+                faction.ID = scen.Factions.GetFreeGameObjectID();
+                faction.ColorIndex = 52;
+                faction.guanjue = 0;
+                faction.BaseMilitaryKindsString = "0 1 3";
+                faction.UpgradingTechnique = -1;
+                faction.TransferingMilitaries = new MilitaryList();
+                faction.TransferingMilitariesString = "";
+                faction.TransferingMilitaryCount = 0;
+                faction.AvailableTechniquesString = "";
+                faction.PreferredTechniqueKinds = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+                faction.PlanTechniqueString = -1;
+                faction.GetGeneratorPersonCountString = "0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0";
+                faction.InformationsString = "";
+                faction.LegionsString = "";
+                faction.MilitariesString = "";
+                faction.RoutewaysString = "";
+                faction.SectionsString = "";
+                faction.TroopListString = "";
+            }
+            //this.Closed += NewFactionWindow_Closed;
+            leadertemp = this.faction.Leader;
+            princetemp = this.faction.Prince;
+            architectureListtemp = this.faction.Architectures;
+            capitaltemp = this.faction.Capital;
+            availableTechniquestemp = faction.AvailableTechniques;
+            baseMilitaryKindstemp = faction.BaseMilitaryKinds;
+            coloridtemp = faction.ColorIndex;
+            guanjuezhitemp = faction.guanjue;
+
+
+            BtFcationColor.Background = new SolidColorBrush(Color.FromArgb(scen.GameCommonData.AllColors[this.faction.ColorIndex].A, scen.GameCommonData.AllColors[this.faction.ColorIndex].R, scen.GameCommonData.AllColors[this.faction.ColorIndex].G, scen.GameCommonData.AllColors[this.faction.ColorIndex].B));
             InitArchis();
             InitTechniques();
             InitMilkinds();
             InitDipRelations();
-            //this.Closed += NewFactionWindow_Closed;
+            txname.Text = this.faction.Name; 
+            btleader.Content = leadertemp;
+            btPrince.Content = princetemp;
+            txTechniquePoint.Text = this.faction.TechniquePoint.ToString();
+            txReputation.Text = this.faction.Reputation.ToString();
+            txgongxiandu.Text = this.faction.chaotinggongxiandu.ToString();
+            btguanjuezi.Content = this.faction.guanjuezifuchuan;
+            btCapital.Content = this.faction.Capital;
+            cmUpingTec.SelectedIndex = this.faction.UpgradingTechnique;
+            txleftdays.Text = this.faction.UpgradingDaysLeft.ToString();
+            cbIsAlien.IsChecked = this.faction.IsAlien;
+            cbNoPSelectable.IsChecked = this.faction.NotPlayerSelectable;
 
-            txname.SetBinding(TextBox.TextProperty, new Binding("Name") { Source = faction });
-            btleader.SetBinding(Button.ContentProperty, new Binding("Leader") { Source = faction });
-            btPrince.SetBinding(Button.ContentProperty, new Binding("Prince") { Source = faction });
-            txTechniquePoint.SetBinding(TextBox.TextProperty, new Binding("TechniquePoint") { Source = faction });
-            txReputation.SetBinding(TextBox.TextProperty, new Binding("Reputation") { Source = faction });
-            txgongxiandu.SetBinding(TextBox.TextProperty, new Binding("chaotinggongxiandu") { Source = faction });
-            btguanjuezi.SetBinding(Button.ContentProperty, new Binding("guanjuezifuchuan") { Source = faction });
-            btCapital.SetBinding(Button.ContentProperty, new Binding("Capital") { Source = faction });
-            cmUpingTec.SelectedIndex = faction.UpgradingTechnique;
-            txleftdays.SetBinding(TextBox.TextProperty, new Binding("UpgradingDaysLeft") { Source = faction });
-            cbIsAlien.SetBinding(CheckBox.IsCheckedProperty, new Binding("IsAlien") { Source = faction });
-            cbNoPSelectable.SetBinding(CheckBox.IsCheckedProperty, new Binding("NotPlayerSelectable") { Source = faction});
+            //txname.SetBinding(TextBox.TextProperty, new Binding("Name") { Source = faction });
+            //btleader.SetBinding(Button.ContentProperty, new Binding("Leader") { Source = faction });
+            //btPrince.SetBinding(Button.ContentProperty, new Binding("Prince") { Source = faction });
+            //txTechniquePoint.SetBinding(TextBox.TextProperty, new Binding("TechniquePoint") { Source = faction });
+            //txReputation.SetBinding(TextBox.TextProperty, new Binding("Reputation") { Source = faction });
+            //txgongxiandu.SetBinding(TextBox.TextProperty, new Binding("chaotinggongxiandu") { Source = faction });
+            //btguanjuezi.SetBinding(Button.ContentProperty, new Binding("guanjuezifuchuan") { Source = faction });
+            //btCapital.SetBinding(Button.ContentProperty, new Binding("Capital") { Source = faction });
+            //cmUpingTec.SelectedIndex = faction.UpgradingTechnique;
+            //txleftdays.SetBinding(TextBox.TextProperty, new Binding("UpgradingDaysLeft") { Source = faction });
+            //cbIsAlien.SetBinding(CheckBox.IsCheckedProperty, new Binding("IsAlien") { Source = faction });
+            //cbNoPSelectable.SetBinding(CheckBox.IsCheckedProperty, new Binding("NotPlayerSelectable") { Source = faction});
             // btleader.Content = faction.Leader;
         }
 
         public void InitArchis()
         {
-            CheckBox check = new CheckBox();
-            foreach (Architecture a in faction.Architectures)
+            foreach (Architecture a in architectureListtemp)
             {
-                check = new CheckBox();
+                CheckBox check = new CheckBox();
                 check.Content = a;
                 lbArchis.Items.Add(check);
             }
@@ -98,7 +153,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 cmUpingTec.Items.Add(technique);
                 CheckBox checkBox = new CheckBox();
                 checkBox.Content = technique;
-                if(faction.AvailableTechniques.Techniques.Values.Contains(technique))
+                if(availableTechniquestemp.Techniques.Values.Contains(technique))
                 {
                     checkBox.IsChecked = true;
                 }
@@ -107,13 +162,11 @@ namespace WorldOfTheThreeKingdomsEditor
                 {
                     if (checkBox.IsChecked ==true)
                     {
-                        faction.AvailableTechniques.AddTechnique(technique);
-                        faction.AvailableTechniquesString = faction.AvailableTechniques.SaveToString();
+                        availableTechniquestemp.AddTechnique(technique);
                     }
                     else
                     {
-                       bool temp= faction.AvailableTechniques.RemoveTechniuqe(technique.ID);
-                        faction.AvailableTechniquesString = faction.AvailableTechniques.SaveToString();
+                       bool temp= availableTechniquestemp.RemoveTechniuqe(technique.ID);
                     }
                 }
                 gridTechniques.Children.Add(checkBox);
@@ -124,7 +177,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void InitMilkinds()
         {
-            foreach (GameObjects.TroopDetail.MilitaryKind militaryKind in faction.BaseMilitaryKinds.MilitaryKinds.Values)
+            foreach (GameObjects.TroopDetail.MilitaryKind militaryKind in baseMilitaryKindstemp.MilitaryKinds.Values)
             {
                 CheckBox checkBox = new CheckBox();
                 checkBox.Content = militaryKind;
@@ -135,29 +188,33 @@ namespace WorldOfTheThreeKingdomsEditor
         private void InitDipRelations()
         {
             dt = new DataTable();
-            dt.Columns.Add("势力");
+            dt.Columns.Add("ID", typeof(int));
+            dt.Columns.Add("势力名");
             dt.Columns.Add("关系", typeof(int));
             dt.Columns.Add("停战", typeof(int));
-            dt.Columns[0].ReadOnly = true;
-              list = new GameObjectList();
+            dt.Columns["ID"].ReadOnly = true;
+            dt.Columns["势力名"].ReadOnly = true;
+            list = new GameObjectList();
             foreach (DiplomaticRelation relation in scen.DiplomaticRelations.DiplomaticRelations.Values)
             {
                 if (relation.RelationFaction1ID == faction.ID)
                 {
                     list.Add(relation);
                     DataRow dr = dt.NewRow();
-                    dr[0] = relation.RelationFaction2String;
-                    dr[1] = relation.Relation;
-                    dr[2] = relation.Truce;
+                    dr["ID"] = relation.RelationFaction2ID;
+                    dr["势力名"] = relation.RelationFaction2String;
+                    dr["关系"] = relation.Relation;
+                    dr["停战"] = relation.Truce;
                     dt.Rows.Add(dr);
                 }
                 else if (relation.RelationFaction2ID == faction.ID)
                 {
                        list.Add(relation);
                     DataRow dr = dt.NewRow();
-                    dr[0] = relation.RelationFaction1String;
-                    dr[1] = relation.Relation;
-                    dr[2] = relation.Truce;
+                    dr["ID"] = relation.RelationFaction1ID;
+                    dr["势力名"] = relation.RelationFaction1String;
+                    dr["关系"] = relation.Relation;
+                    dr["停战"] = relation.Truce;
                     dt.Rows.Add(dr);
                 }
             }
@@ -165,7 +222,6 @@ namespace WorldOfTheThreeKingdomsEditor
             dgDipRelation.ItemsSource = dt.DefaultView;
             dgDipRelation.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
         }
-
 
         private void Btleader_Click(object sender, RoutedEventArgs e)
         {
@@ -221,8 +277,12 @@ namespace WorldOfTheThreeKingdomsEditor
                 {
                     DataTable dt5= ((DataView)dataGrid1.ItemsSource).ToTable();
                     Person person = scen.Persons.GetGameObject(int.Parse(dt5.Rows[dataGrid1.SelectedIndex]["ID"].ToString())) as Person;
-                    faction.Leader = person;//这里还要处理一下，武将原有势力或原有所属城池的可能bug
-                    btleader.SetBinding(Button.ContentProperty, new Binding("Leader") { Source = faction });
+                    leadertemp = person;//这里还要处理一下，武将原有势力或原有所属城池的可能bug
+                    btleader.Content = leadertemp;
+                    if(leadertemp !=faction.Leader)
+                    {
+                        btPrince.Content = null;
+                    }
                     window.Close();
                 }
             }
@@ -231,7 +291,7 @@ namespace WorldOfTheThreeKingdomsEditor
             dataGrid1.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
             window.ShowDialog();
         }
-
+        private int coloridtemp = -1;
         private void BtFcationColor_Click(object sender, RoutedEventArgs e)
         {
             Window window = new Window();
@@ -261,7 +321,7 @@ namespace WorldOfTheThreeKingdomsEditor
                     int ii = listBox.SelectedIndex;
                     this.BtFcationColor.Background = new SolidColorBrush(Color.FromArgb(scen.GameCommonData.AllColors[ii].A, scen.GameCommonData.AllColors[ii].R, scen.GameCommonData.AllColors[ii].G, scen.GameCommonData.AllColors[ii].B));
                     //tbColorID.Text = ii.ToString();
-                    faction.ColorIndex = ii;
+                    coloridtemp = ii;
                     //DataTable dt = ((DataView)dg.ItemsSource).Table;
                     //dt.Rows[3]["建筑列表"] = "1 1 1 1";//有效
                     //(scen.Factions[3] as Faction).Name = "3232";//无效
@@ -285,7 +345,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void BtPrince_Click(object sender, RoutedEventArgs e)
         {
-            if (faction.Leader == null)
+            if (leadertemp == null)
             {
                 MessageBox.Show("请先选择势力君主");
             }
@@ -302,7 +362,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 ListBox listBox = new ListBox();
 
 
-                foreach (Person person in faction.Leader.ChildrenList)
+                foreach (Person person in leadertemp.ChildrenList)
                 {
                     if (person.Available && person.Alive)
                     {
@@ -319,13 +379,13 @@ namespace WorldOfTheThreeKingdomsEditor
                         if (listBox.SelectedIndex < listBox.Items.Count - 1)
                         {
                             Person person = listBox.SelectedItem as Person;
-                            faction.Prince = person;
+                            princetemp = person;
                         }
                         else
                         {
-                            faction.Prince = null;
+                            princetemp = null;
                         }
-                        btPrince.SetBinding(Button.ContentProperty, new Binding("Prince") { Source = faction });
+                        btPrince.Content = princetemp;
                         window.Close();
                     }
                 }
@@ -361,8 +421,9 @@ namespace WorldOfTheThreeKingdomsEditor
                     if (listBox.SelectedItem != null)
                     {
                         guanjuezhongleilei guanjuezhongleilei = listBox.SelectedItem as guanjuezhongleilei;
-                        faction.guanjue = scen.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhongleiliebiao().IndexOf(guanjuezhongleilei);
-                        btguanjuezi.SetBinding(Button.ContentProperty, new Binding("guanjuezifuchuan") { Source = faction });
+                        //faction.guanjue = scen.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhongleiliebiao().IndexOf(guanjuezhongleilei);
+                        guanjuezhitemp = scen.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhongleiliebiao().IndexOf(guanjuezhongleilei);
+                        btguanjuezi.Content= guanjuezhongleilei;
                         window.Close();
                     }
                 }
@@ -373,11 +434,11 @@ namespace WorldOfTheThreeKingdomsEditor
         
         private void BtCapital_Click(object sender, RoutedEventArgs e)
         {
-            if (faction.Leader == null)
+            if (leadertemp == null)
             {
                 MessageBox.Show("请先选择势力君主");
             }
-            else if (faction.Architectures.Count == 0)
+            else if (architectureListtemp.Count == 0)
             {
                 MessageBox.Show("势力城池数为0");
             }
@@ -392,7 +453,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 window.Content = grid;
                 grid.Margin = new Thickness(50);
                 ListBox listBox = new ListBox();
-                foreach (Architecture architecture in faction.Architectures)
+                foreach (Architecture architecture in architectureListtemp)
                 {
                     listBox.Items.Add(architecture);
                 }
@@ -402,8 +463,8 @@ namespace WorldOfTheThreeKingdomsEditor
                     if (listBox.SelectedItem != null)
                     {
                         Architecture architecture = listBox.SelectedItem as Architecture;
-                        faction.Capital = architecture;
-                        btCapital.SetBinding(Button.ContentProperty, new Binding("Capital") { Source = faction });
+                        capitaltemp = architecture;
+                        btCapital.Content = architecture;
                         window.Close();
                     }
                 }
@@ -412,29 +473,29 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
-        private void CmUpingTec_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if(cmUpingTec.SelectedItem !=null)
-            {
-                faction.UpgradingTechnique = cmUpingTec.SelectedIndex;
-            }
-        }
+        //private void CmUpingTec_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if(cmUpingTec.SelectedItem !=null)
+        //    {
+        //        faction.UpgradingTechnique = cmUpingTec.SelectedIndex;
+        //    }
+        //}
 
-        private void CbNoPSelectable_Click(object sender, RoutedEventArgs e)
-        {
-            if (cbNoPSelectable.IsChecked == true)
-            {
-                faction.NotPlayerSelectable = true;
-            }
-            else
-            {
-                faction.NotPlayerSelectable = false;
-            }
-        }
+        //private void CbNoPSelectable_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (cbNoPSelectable.IsChecked == true)
+        //    {
+        //        faction.NotPlayerSelectable = true;
+        //    }
+        //    else
+        //    {
+        //        faction.NotPlayerSelectable = false;
+        //    }
+        //}
 
         private void BtAddMiliKind_Click(object sender, RoutedEventArgs e)
         {
-            if (faction.Leader == null)
+            if (leadertemp == null)
             {
                 MessageBox.Show("请先选择势力君主");
             }
@@ -451,7 +512,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 ListBox listBox = new ListBox();
                 foreach (GameObjects.TroopDetail.MilitaryKind militaryKind in scen.GameCommonData.AllMilitaryKinds.MilitaryKinds.Values)
                 {
-                    if (!faction.BaseMilitaryKinds.MilitaryKinds.Values.Contains(militaryKind))
+                    if (!baseMilitaryKindstemp.MilitaryKinds.Values.Contains(militaryKind))
                     {
                         CheckBox checkBox = new CheckBox();
                         checkBox.IsChecked = false;
@@ -461,13 +522,11 @@ namespace WorldOfTheThreeKingdomsEditor
                         {
                             if (checkBox.IsChecked == true)
                             {
-                                faction.BaseMilitaryKinds.AddMilitaryKind(militaryKind);
-                                faction.BaseMilitaryKindsString = faction.BaseMilitaryKinds.SaveToString();
+                                baseMilitaryKindstemp.AddMilitaryKind(militaryKind);
                             }
                             else
                             {
-                                bool temp = faction.BaseMilitaryKinds.RemoveMilitaryKind(militaryKind.ID);
-                                faction.BaseMilitaryKindsString = faction.BaseMilitaryKinds.SaveToString();
+                                bool temp = baseMilitaryKindstemp.RemoveMilitaryKind(militaryKind.ID);
                             }
                         }
                         listBox.Items.Add(checkBox);
@@ -493,8 +552,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 if (checkBox.IsChecked == true)
                 {
                     GameObjects.TroopDetail.MilitaryKind militaryKind = checkBox.Content as GameObjects.TroopDetail.MilitaryKind;
-                    faction.BaseMilitaryKinds.RemoveMilitaryKind(militaryKind.ID);
-                    faction.BaseMilitaryKindsString = faction.BaseMilitaryKinds.SaveToString();
+                    baseMilitaryKindstemp.RemoveMilitaryKind(militaryKind.ID);
                     lbMiliKind.Items.Remove(lbMiliKind.Items[i]);
                 }
             }
@@ -517,59 +575,75 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void BtInitfacDipRe_Click(object sender, RoutedEventArgs e)
         {
-            scen.DiplomaticRelations.RemoveDiplomaticRelationByFactionID(faction.ID);
+            //scen.DiplomaticRelations.RemoveDiplomaticRelationByFactionID(faction.ID);
+
+            dt.Clear();
             foreach (Faction faction2 in scen.Factions)
             {
                 if (faction2 != faction)
                 {
-                    scen.DiplomaticRelations.AddDiplomaticRelation(faction.ID, faction2.ID, 0);
+                    DataRow dr = dt.NewRow();
+                    dr["ID"] = faction2.ID;
+                    dr["势力名"] = faction2.Name;
+                    dr["关系"] = 0;
+                    dr["停战"] = 0;
+                    dt.Rows.Add(dr);
                 }
             }
-            InitDipRelations();
         }
 
         private void Bt2InitAllDipRe_Click(object sender, RoutedEventArgs e)
         {
-            scen.DiplomaticRelations.Clear();
-            for (int i = 0; i < scen.Factions.Count; i++)
+            if (MessageBox.Show("请问你确定要初始化所有势力外交关系么？\n此操作非读档不可逆，请谨慎操作！", "请谨慎操作", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                Faction faction = scen.Factions[i] as Faction;
-                for (int j = 0; j < scen.Factions.Count; j++)
+                scen.DiplomaticRelations.Clear();
+                for (int i = 0; i < scen.Factions.Count; i++)
                 {
-                    Faction faction2 = scen.Factions[j] as Faction;
-                    if (faction != faction2)
+                    Faction faction = scen.Factions[i] as Faction;
+                    for (int j = 0; j < scen.Factions.Count; j++)
                     {
-                        scen.DiplomaticRelations.AddDiplomaticRelation( faction.ID, faction2.ID, 0);
+                        Faction faction2 = scen.Factions[j] as Faction;
+                        if (faction != faction2)
+                        {
+                            scen.DiplomaticRelations.AddDiplomaticRelation(faction.ID, faction2.ID, 0);
+                        }
                     }
                 }
+                InitDipRelations();
             }
-            InitDipRelations();
         }
 
         private void BtDelchrhi_Click(object sender, RoutedEventArgs e)
         {
+            for (int i = lbMiliKind.Items.Count - 1; i >= 0; i--)
+            {
+                CheckBox checkBox = lbMiliKind.Items[i] as CheckBox;
+                if (checkBox.IsChecked == true)
+                {
+                    GameObjects.TroopDetail.MilitaryKind militaryKind = checkBox.Content as GameObjects.TroopDetail.MilitaryKind;
+                    baseMilitaryKindstemp.RemoveMilitaryKind(militaryKind.ID);
+                    lbMiliKind.Items.Remove(lbMiliKind.Items[i]);
+                }
+            }
             for (int i = lbArchis.Items.Count - 1; i >= 0; i--)
             {
                 CheckBox checkBox = lbArchis.Items[i] as CheckBox;
                 if (checkBox.IsChecked == true)
                 {
                     Architecture architecture = checkBox.Content as Architecture;
-                    if (architecture.Persons.HasGameObject(faction.Leader))
+                    if (architecture.Persons.HasGameObject(leadertemp))
                     {
-                        MessageBox.Show("无法删除" + architecture.Name+"，" + faction.Name + "的君主" + faction.Leader.Name + "在此城池中");
+                        MessageBox.Show("无法删除" + architecture.Name+"，" + faction.Name + "的君主" + leadertemp.Name + "在此城池中");
                         checkBox.IsChecked = false;
                     }
                     else
                     {
-                        faction.Architectures.Remove(architecture);
-                        faction.ArchitecturesString = faction.Architectures.SaveToString();
-                        if (faction.Capital == architecture)
+                        architectureListtemp.Remove(architecture);
+                        if (capitaltemp == architecture)
                         {
-                            faction.Capital = null;
-                            faction.CapitalID = -1;
-                            btCapital.SetBinding(Button.ContentProperty, new Binding("Capital") { Source = faction });
+                            capitaltemp = null;
+                            btCapital.Content= capitaltemp;
                         }
-                        architecture.BelongedFaction = null;
                         lbArchis.Items.Remove(lbArchis.Items[i]);
                     }
                 }
@@ -593,9 +667,10 @@ namespace WorldOfTheThreeKingdomsEditor
                 window.Content = grid;
                 grid.Margin = new Thickness(50);
                 ListBox listBox = new ListBox();
+                listBox.HorizontalContentAlignment = HorizontalAlignment.Stretch;
                 foreach (Architecture architecture in scen.Architectures)
                 {
-                    if (architecture.BelongedFaction != faction)
+                    if (!architectureListtemp.GameObjects.Contains(architecture))
                     {
                         CheckBox checkBox = new CheckBox();
                         checkBox.IsChecked = false;
@@ -606,49 +681,19 @@ namespace WorldOfTheThreeKingdomsEditor
                         {
                             if (checkBox.IsChecked == true)
                             {
-                                if (tempfaction != null )
+                                if (tempfaction != null && architecture.Persons.HasGameObject(tempfaction.Leader))
                                 {
-                                    if (architecture.Persons.HasGameObject(tempfaction.Leader))
-                                    {
-                                        MessageBox.Show("无法选择此城池，" + tempfaction.Name + "的君主" + tempfaction.Leader.Name + "在此城池中");
-                                        checkBox.IsChecked = false;
-                                    }
-                                    else
-                                    {
-                                        if (tempfaction.Capital == architecture)
-                                        {
-                                            tempfaction.Capital = null;
-                                            tempfaction.CapitalID = -1;
-                                        }
-                                        tempfaction.Architectures.Remove(architecture); 
-                                        tempfaction.ArchitecturesString = tempfaction.Architectures.SaveToString();
-                                        architecture.BelongedFaction = faction;
-                                        faction.Architectures.Add(architecture);
-                                        faction.ArchitecturesString = faction.Architectures.SaveToString();
-                                    }
+                                    MessageBox.Show("无法选择此城池，" + tempfaction.Name + "的君主" + tempfaction.Leader.Name + "在此城池中");
+                                    checkBox.IsChecked = false;
                                 }
                                 else
                                 {
-                                    architecture.BelongedFaction = faction;
-                                    faction.Architectures.Add(architecture);
-                                    faction.ArchitecturesString = faction.Architectures.SaveToString();
+                                    architectureListtemp.Add(architecture);
                                 }
                             }
                             else
                             {
-                                architecture.BelongedFaction = tempfaction;
-                                faction.Architectures.Remove(architecture); 
-                                faction.ArchitecturesString = faction.Architectures.SaveToString();
-                                if(tempfaction !=null)
-                                {
-                                    if (tempfaction.CapitalID == -1)
-                                    {
-                                        tempfaction.Capital = architecture;
-                                        tempfaction.CapitalID = architecture.ID;
-                                    }
-                                    tempfaction.Architectures.Add(architecture);
-                                    tempfaction.ArchitecturesString = tempfaction.Architectures.SaveToString();
-                                }
+                                architectureListtemp.Remove(architecture);
                             }
                         }
                         listBox.Items.Add(checkBox);
@@ -719,6 +764,97 @@ namespace WorldOfTheThreeKingdomsEditor
                   Microsoft.Xna.Framework.Color color = scen.GameCommonData.AllColors[((Faction)scen.Factions[e.Row.GetIndex()]).ColorIndex];
                   e.Row.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B));
               }*/
+        }
+
+        private void BtSave_Click(object sender, RoutedEventArgs e)
+        {
+            if(faction.Leader==null)
+            {
+                MessageBox.Show("势力君主为空");
+            }
+            else if (capitaltemp == null)
+            {
+                MessageBox.Show("势力首都为空");
+            }
+            else if (architectureListtemp.Count==0 || architectureListtemp==null)
+            {
+                MessageBox.Show("势力首都为空");
+            }
+            else if (baseMilitaryKindstemp.MilitaryKinds.Count == 0 || baseMilitaryKindstemp == null)
+            {
+                MessageBox.Show("势力兵种为空");
+            }
+            else
+            {
+                faction.Name = txname.Text;
+                this.faction.Leader = leadertemp;
+                faction.LeaderID = leadertemp == null ? -1 : faction.Leader.ID;
+                this.faction.Prince = princetemp;
+                faction.PrinceID = princetemp == null ? -1 : faction.Prince.ID;
+                this.faction.Capital = capitaltemp;
+                faction.CapitalID = capitaltemp == null ? -1 : faction.Capital.ID;
+                faction.ColorIndex = coloridtemp;
+                this.faction.Name = txname.Text;
+                this.faction.TechniquePoint = int.Parse(txTechniquePoint.Text);
+                this.faction.Reputation = int.Parse(txReputation.Text);
+                this.faction.chaotinggongxiandu = int.Parse(txgongxiandu.Text);
+                this.faction.guanjue = guanjuezhitemp;
+                this.faction.UpgradingTechnique = cmUpingTec.SelectedIndex;
+                this.faction.UpgradingDaysLeft = int.Parse(txleftdays.Text);
+                this.faction.IsAlien = (bool)cbIsAlien.IsChecked;
+                this.faction.NotPlayerSelectable = (bool)cbNoPSelectable.IsChecked;
+                foreach (Architecture a in faction.Architectures)
+                {
+                    if (!architectureListtemp.GameObjects.Contains(a))
+                    {
+                        a.BelongedFaction = null;
+                    }
+                }
+                foreach (Architecture a in architectureListtemp)
+                {
+                    if (a.BelongedFaction != null && a.BelongedFaction != faction)
+                    {
+                        a.BelongedFaction.Architectures.Remove(a);
+                        a.BelongedFaction.ArchitecturesString = a.BelongedFaction.Architectures.SaveToString();
+                        if (a == a.BelongedFaction.Capital)
+                        {
+                            a.BelongedFaction.Capital = null;
+                            a.BelongedFaction.CapitalID = -1;
+                        }
+                    }
+                    a.BelongedFaction = faction;
+                }
+                faction.Architectures = architectureListtemp;
+                faction.ArchitecturesString = faction.Architectures.SaveToString();
+                faction.BaseMilitaryKinds = baseMilitaryKindstemp;
+                faction.BaseMilitaryKindsString = faction.BaseMilitaryKinds.SaveToString();
+                faction.AvailableTechniques = availableTechniquestemp;
+                faction.AvailableTechniquesString = faction.AvailableTechniques.SaveToString();
+                if (edit)
+                {
+                    scen.DiplomaticRelations.RemoveDiplomaticRelationByFactionID(faction.ID);
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DiplomaticRelation relation = new DiplomaticRelation();
+                    relation.RelationFaction1ID = faction.ID;
+                    relation.RelationFaction2ID = (int)dr["ID"];
+                    relation.Relation = (int)dr["关系"];
+                    relation.Truce = (int)dr["停战"];
+                    scen.DiplomaticRelations.AddDiplomaticRelation(relation);
+                }
+
+                if (!edit)
+                {
+                    scen.Factions.Add(faction);
+                }
+                this.Close();
+            }
+        }
+
+        private void BtExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

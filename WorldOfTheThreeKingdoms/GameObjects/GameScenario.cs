@@ -589,7 +589,7 @@ namespace GameObjects
         }
 
         [DataMember]
-        private CaptiveList captiveData = new CaptiveList();
+        public CaptiveList captiveData = new CaptiveList();
 
         public CaptiveList Captives
         {
@@ -3143,13 +3143,17 @@ namespace GameObjects
                 foreach (int j in i.Value)
                 {
                     Person q = this.Persons.GetGameObject(j) as Person;
-                    if (q != null)
+                    if (p != null && q != null)
                     {
                         p.suoshurenwuList.Add(q);
                     }
-                    else
+                    else if (p != null)
                     {
                         errorMsg.Add("人物ID" + p.ID + "：所属人物表ID" + j + "不存在");
+                    } 
+                    else
+                    {
+                        errorMsg.Add("人物ID" + p + "：所属人物表ID" + j + "不存在");
                     }
                 }
             }
@@ -3232,7 +3236,7 @@ namespace GameObjects
                 }
             }
 
-            if (this.captiveData != null)
+            if (this.captiveData != null && !editing)
             {
                 foreach (Captive captive in this.captiveData)
                 {
@@ -3812,6 +3816,7 @@ namespace GameObjects
             CloseIds.Clear();
             HatedIds.Clear();
             MarriageGranterId.Clear();
+            PersonRelationIds.Clear();
         }
         
         private void alterTransportShipAdaptibility()
@@ -4584,8 +4589,10 @@ namespace GameObjects
             {
                 this.GameTime = 0;
             }
-
-            this.GameTime += (int)DateTime.Now.Subtract(sessionStartTime).TotalSeconds;
+            if(!editing)
+            {
+                this.GameTime += (int)DateTime.Now.Subtract(sessionStartTime).TotalSeconds;
+            }
             sessionStartTime = DateTime.Now;
 
             List<string> errors = new List<string>();
@@ -4609,16 +4616,18 @@ namespace GameObjects
             this.Troops.GameObjects = this.Troops.GameObjects.OrderBy(x => x.ID).ToList();
             this.TroopEvents.GameObjects = this.TroopEvents.GameObjects.OrderBy(x => x.ID).ToList();
             this.DiplomaticRelations.DiplomaticRelations = this.DiplomaticRelations.DiplomaticRelations.OrderBy(x => x.Value.RelationFaction1ID).ToDictionary(x => x.Key, y => y.Value);
-            //this.FatherIds = this.FatherIds
-            //this.MotherIds = this.MotherIds
-            //this.SpouseIds = this.SpouseIds
-            //this.BrotherIds = this.BrotherIds
-            //this.SuoshuIds = this.SuoshuIds
-            //this.CloseIds = this.CloseIds
-            //this.HatedIds = this.HatedIds
-            //this.PersonRelationIds = this.PersonRelationIds
-            //try
-            //{
+            if(editing)
+            {
+                this.FatherIds = this.FatherIds.OrderBy(x => x.Key).ToDictionary(x => x.Key, y => y.Value);
+                this.MotherIds = this.MotherIds.OrderBy(x => x.Key).ToDictionary(x => x.Key, y => y.Value);
+                this.SpouseIds = this.SpouseIds.OrderBy(x => x.Key).ToDictionary(x => x.Key, y => y.Value);
+                this.BrotherIds = this.BrotherIds.OrderBy(x => x.Key).ToDictionary(x => x.Key, y => y.Value);
+                this.SuoshuIds = this.SuoshuIds.OrderBy(x => x.Key).ToDictionary(x => x.Key, y => y.Value);
+                this.CloseIds = this.CloseIds.OrderBy(x => x.Key).ToDictionary(x => x.Key, y => y.Value);
+                this.HatedIds = this.HatedIds.OrderBy(x => x.Key).ToDictionary(x => x.Key, y => y.Value);
+                this.PersonRelationIds = this.PersonRelationIds.OrderBy(x => x.PersonID1).ToList();
+            }
+
             if (!disposeMemory)
             {
                 this.DisposeLotsOfMemory();
@@ -4944,25 +4953,22 @@ namespace GameObjects
                     person.preferredTroopPersonsString = person.preferredTroopPersons.SaveToString();
 
                     person.TrainPolicyIDString = person.TrainPolicy == null ? -1 : person.TrainPolicy.ID;
+
+                    foreach (KeyValuePair<Person, int> pi in person.GetRelations())
+                    {
+                        var personIDRelation = new PersonIDRelation()
+                        {
+                            PersonID1 = person.ID,
+                            PersonID2 = pi.Key.ID,
+                            Relation = pi.Value
+                        };
+                        PersonRelationIds.Add(personIDRelation);
+                    }
                 }
             }
-
-            captiveData = this.Captives;
-
-            PersonRelationIds.Clear();
-
-            foreach (Person p in this.Persons)
+            if(!editing)
             {
-                foreach (KeyValuePair<Person, int> pi in p.GetRelations())
-                {
-                    var personIDRelation = new PersonIDRelation()
-                    {
-                        PersonID1 = p.ID,
-                        PersonID2 = pi.Key.ID,
-                        Relation = pi.Value
-                    };
-                    PersonRelationIds.Add(personIDRelation);
-                }
+                captiveData = this.Captives;
             }
 
             if (saveMap)
@@ -5026,10 +5032,13 @@ namespace GameObjects
             }
 
             this.CurrentPlayerID = ((this.CurrentPlayer != null) ? this.CurrentPlayer.ID : -1).ToString();
-            this.PlayerList = this.PlayerFactions.GameObjects.Select(ob => ob.ID).NullToEmptyList();
+            if(!editing)
+            {
+                this.PlayerList = this.PlayerFactions.GameObjects.Select(ob => ob.ID).NullToEmptyList();
+                this.PlayerInfo = this.GetPlayerInfo();
+            }
             this.Factions.FactionQueue = this.Factions.SaveQueueToString();
 
-            this.PlayerInfo = this.GetPlayerInfo();
 
             //row["JumpPosition"] = StaticMethods.SaveToString(new Point?(ScenarioMap.JumpPosition));
 
@@ -5107,8 +5116,16 @@ namespace GameObjects
                         Time = time.ToSeasonDate(),
                         Title = scenarioClone.ScenarioTitle
                     };
-
-                    SaveScenarioSaves(saves);
+                    if(!editing)
+                    {
+                        SaveScenarioSaves(saves);
+                    }
+                    else 
+                    {
+                        string saveDir = @"Save\";
+                        string saveFile = saveDir + "Saves.json";
+                        SimpleSerializer.SerializeJsonFile(saves, saveFile);
+                    }
                 }
             }
 
