@@ -21,6 +21,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         string[] maps = null;
 
+        string sound = "";
+
         string background = "";
         string tishi = "";
         float textPre = 0f;
@@ -69,6 +71,16 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     maps = Platform.Current.GetMODFiles(dir + "/", true).NullToEmptyArray().Where(fi => fi.EndsWith(".jpg")).NullToEmptyArray();  //.Select(fi => baseDir + Scenario + @"\" + fi).NullToEmptyArray();
                 }
 
+                var soundDir = @"Content\Sound\Scenario\";
+
+                var soundFiles = Platform.Current.GetMODFiles(soundDir, true).NullToEmptyArray();
+
+                sound = soundFiles.FirstOrDefault(fi => fi.Contains(Scenario));
+
+                if (!String.IsNullOrEmpty(sound))
+                {
+                    Platform.Current.PlayEffect(sound);
+                }
             }
 
             if (Mode == "Start")
