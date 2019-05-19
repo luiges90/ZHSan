@@ -330,6 +330,8 @@ namespace GameGlobal
         public float TroopMoraleChange = 1.0f;
         [DataMember]
         public float RecruitPopualationDecreaseRate = 0.25f;
+        [DataMember]
+        public float AIOffensiveCampaignRequiredScaleFactor = 1.0f;
 
         public Parameters Clone()
         {
@@ -779,6 +781,10 @@ namespace GameGlobal
             if (TroopMoraleChange == 0)
             {
                 TroopMoraleChange = 1;
+            }
+            if (Session.Parameters.AIOffensiveCampaignRequiredScaleFactor == 0)
+            {
+                Session.Parameters.AIOffensiveCampaignRequiredScaleFactor = 1.0f;
             }
         }
     }

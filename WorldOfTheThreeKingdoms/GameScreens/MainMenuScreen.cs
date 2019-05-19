@@ -271,6 +271,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
 
             MOD currentMod = MODs.FirstOrDefault(x => x.ID.Equals(Setting.Current.MOD));
+            if (currentMod == null)
+            {
+                currentMod = MODs[0];
+            }
 
             Current = this;
 
