@@ -10653,13 +10653,18 @@ namespace GameObjects
                 foreach (Military m in wayToTarget.A.Militaries)
                 {
                     if (count > targetPersonCount) break;
-                    totalScale += m.Scale;
+                    totalScale += m.Scales;
                     count++;
                 }
             }
             else
             {
                 totalScale = wayToTarget.A.ArmyScale;
+            }
+
+            if (Session.Current.Scenario.IsPlayer(wayToTarget.A.BelongedFaction))
+            {
+                totalScale = (int) (totalScale * Session.Parameters.AIOffensiveCampaignRequiredScaleFactor);
             }
 
             return (int)(totalScale + wayToTarget.A.Endurance / 15 +
