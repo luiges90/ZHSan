@@ -10846,14 +10846,8 @@ namespace GameObjects
                             }
                         }
 
-                        int minRequiredFactor = Math.Max(20, (5 - leader.Ambition) * 20 + (leader.Calmness - leader.Braveness) * 2);
-                        if (this.IsVeryGood() && this.HasEnoughPeople)
-                        {
-                            minRequiredFactor = Math.Min(33, minRequiredFactor);
-                        }
-
                         int reserve = Math.Max(0, reserveBase - i.A.ArmyScale);
-                        int armyScaleRequiredForAttack = (int) (this.getArmyScaleRequiredForAttack(i) * (GameObject.Random(minRequiredFactor, 100) / 100.0f));
+                        int armyScaleRequiredForAttack = (int) (this.getArmyScaleRequiredForAttack(i));
                         int armyScaleHere = (i.Kind == LinkKind.Land ? this.LandArmyScale : (this.WaterArmyScale + this.LandArmyScale / 2));
                         if ((this.ArmyScale > this.MaxSupportableTroopScale) && GameObject.Random(20 * (5 - this.BelongedFaction.Leader.Ambition)) == 0)
                         {
@@ -10959,14 +10953,8 @@ namespace GameObjects
                 }
                 if (wayToTarget != null)
                 {
-                    int minRequiredFactor = Math.Max(20, (5 - leader.Ambition) * 20 + (leader.Calmness - leader.Braveness) * 2);
-                    if (this.IsVeryGood() && this.HasEnoughPeople)
-                    {
-                        minRequiredFactor = Math.Min(33, minRequiredFactor);
-                    }
-
                     int reserve = Math.Max(0, reserveBase - wayToTarget.A.ArmyScale);
-                    int armyScaleRequiredForAttack = (int)(this.getArmyScaleRequiredForAttack(wayToTarget) * (GameObject.Random(minRequiredFactor, 100) / 100.0f));
+                    int armyScaleRequiredForAttack = (int)(this.getArmyScaleRequiredForAttack(wayToTarget));
                     int armyScaleHere = (wayToTarget.Kind == LinkKind.Land ? this.LandArmyScale : (this.WaterArmyScale + this.LandArmyScale / 2));
 
                     if (armyScaleHere < armyScaleRequiredForAttack)
