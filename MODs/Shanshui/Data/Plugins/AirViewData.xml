@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Background Align="Right" Width ="70"></Background>
+  <ToolTexture FileName="Tool.png" Selected="ToolSelected.png" X="-125" Y="8" Width="80" Height="32"></ToolTexture>
+  <Map Transparent="1" Position="BottomRight" MaxWidth="400" MaxHeight="400" TileLength="1" TileLengthMax="8"></Map>
+  <Frame FileName="Frame.png"></Frame>
+  <Architecture FileName="Architecture.png"></Architecture>
+  <Troop FileName="Troop.png" Friendly="TroopFriendly.png" Hostile="TroopHostile.png"></Troop>
+  <ConmentText FileName="ConmentBackground.png" X="-60" Y="0" Width="60" Height="20"
+              FontName="宋体"
+              FontSize="10"
+              FontStyle="Regular"
+              FontColor="4294967295"
+              Align="Middle">
+  </ConmentText>
+  <TroopToolTexture FileName="TroopTool.png" Selected="TroopToolSelected.png" X="-40" Y="8" Width="80" Height="32"></TroopToolTexture>
+</Root>

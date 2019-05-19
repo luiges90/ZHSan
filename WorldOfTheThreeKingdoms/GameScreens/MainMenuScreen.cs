@@ -35,6 +35,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         public string Desc { get; set; }
 
         public string Mode { get; set; }
+
+        public int xOffset;
+
+        public int yOffset;
+
+        public bool hasAnimatedStart = true;
     }
 
     public class MainMenuScreen
@@ -164,13 +170,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         string[] texts = new string[]
         {
         };
-
+        
         string[] aboutLines = null;
 
         int currentStartVersion = 2;
         string[] startLines = null;
 
         string message = "";
+
 
         public MainMenuScreen()
         {
@@ -197,9 +204,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             Platform.Current.SaveUserFile("startRead.txt", currentStartVersion.ToString());
 
             List<string> dires = new List<string>();
-
-            int xOffset = 0;
-            int yOffset = 0;
 
             if (Platform.PlatFormType == PlatFormType.Android)
             {
@@ -251,8 +255,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         {
                             string s = lines[2];
                             string[] s2 = s.Split(new char[]{' '});
-                            xOffset = int.Parse(s2[0]);
-                            yOffset = int.Parse(s2[1]);
+                            mod.xOffset = int.Parse(s2[0]);
+                            mod.yOffset = int.Parse(s2[1]);
+                        }
+
+                        if (lines.Length > 3)
+                        {
+                            mod.hasAnimatedStart = bool.Parse(lines[3]);
                         }
                     }
 
@@ -260,11 +269,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
             }
 
+            MOD currentMod = MODs.FirstOrDefault(x => x.ID.Equals(Setting.Current.MOD));
+
             Current = this;
 
             btList = new List<ButtonTexture>() { };
 
-            var btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "New", new Vector2(100 + xOffset, 600 + yOffset));
+            var btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "New", new Vector2(100 + currentMod.xOffset, 600 + currentMod.yOffset));
+
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -278,7 +290,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(310 + xOffset, 600 + yOffset));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Save", new Vector2(310 + currentMod.xOffset, 600 + currentMod.yOffset));
+
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -288,7 +301,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(520 + xOffset, 600 + yOffset));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Setting", new Vector2(520 + currentMod.xOffset, 600 + currentMod.yOffset));
+
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -297,7 +311,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(730 + xOffset, 600 + yOffset));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "About", new Vector2(730 + currentMod.xOffset, 600 + currentMod.yOffset));
+
             btOne.OnButtonPress += (sender, e) =>
             {
                 menuTypeElapsed = 0f;
@@ -308,7 +323,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(940 + xOffset, 600 + yOffset));
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\Menu", "Exit", new Vector2(940 + currentMod.xOffset, 600 + currentMod.yOffset));
+
             btOne.OnButtonPress += (sender, e) =>
             {
                 Platform.Current.Exit();
@@ -2486,7 +2502,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             //doNotSetDifficultyToCustom = true;
 
-            //nstDianNaoChuZhan, , ,           
+            //nstDianNaoChuZhan, , ,
 
             //btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left1, heightBase + height * 3.5f))
             //{
@@ -3106,7 +3122,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             AIEncircleRank = Session.parametersTemp.AIEncircleRank;
             AIEncircleVar = Session.parametersTemp.AIEncircleVar;
 
-            //doNotSetDifficultyToCustom = false;           
+            //doNotSetDifficultyToCustom = false;
 
         }
 
@@ -4075,14 +4091,21 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             float alpha = menuTypeElapsed <= 0.5f ? menuTypeElapsed * 2 : 1f;
 
             //CacheManager.DrawAvatar(@"Content\Textures\Resources\Start\Start.jpg", Vector2.Zero, Color.White, 1f);
+            MOD currentMod = MODs.FirstOrDefault(x => x.ID.Equals(Setting.Current.MOD));
+            if (!currentMod.hasAnimatedStart)
+            {
+                CacheManager.Draw(@"Content\Textures\Resources\Start\Start.jpg", new Rectangle(0, 0, 1280, 720), Color.White);
+            }
+            else
+            {
+                CacheManager.Draw(@"Content\Textures\Resources\Start\Start01.jpg", startPos, Color.White);
+                //CacheManager.Draw(@"Content\Textures\Resources\Start\Start.jpg", new Rectangle(0, 0, , Color.White);
 
-            CacheManager.Draw(@"Content\Textures\Resources\Start\Start01.jpg", startPos, Color.White);
-            //CacheManager.Draw(@"Content\Textures\Resources\Start\Start.jpg", new Rectangle(0, 0, , Color.White);
+                CacheManager.Draw(@"Content\Textures\Resources\Start\Logo.png", new Vector2(380, 50), Color.White);
 
-            CacheManager.Draw(@"Content\Textures\Resources\Start\Logo.png", new Vector2(380, 50), Color.White);
-
-            CacheManager.Draw(@"Content\Textures\Resources\Start\Words.png", new Vector2(380, 260), Color.White);
-
+                CacheManager.Draw(@"Content\Textures\Resources\Start\Words.png", new Vector2(380, 260), Color.White);
+            }
+            
             if (MenuType == MenuType.None)
             {
                 btList.ForEach(bt => bt.Draw());

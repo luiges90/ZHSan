@@ -1,0 +1,1845 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+    <Branch Name="Internal_Agriculture">
+        <Leaf Text="内政" Color="4294375158" />
+        <Leaf Text="农业" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="开发农业，增加" Color="4294375158" />
+        <Leaf Text="粮草" Color="4289065041" />
+        <Leaf Text="的产量。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="粮草产量不仅与人口和农业值有关（相对于资金收入，粮草产量受人口数量的影响较小。），也会受到季节变化的影响。春季能够收获六成的产量，夏秋两季则为十成，冬季仅有三成。由于粮草存储的自然消耗，建筑中的粮草将每天减少千分之一。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="若某建筑的农业值达到较好的程度，则能够提高该建筑的" Color="4294375158" />
+        <Leaf Text="人口增长率" Color="4289065041" />
+        <Leaf Text="；若该建筑农业值太低，则会降低其" Color="4294375158" />
+        <Leaf Text="人口增长率" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="随着势力规模的扩大，粮草收入会根据势力的" Color="4294375158" />
+        <Leaf Text="收入缩减率" Color="4289065041" />
+        <Leaf Text="而变化。收入缩减率初始值为100%，最小值为20%，每一万人口，每五个军队规模，或每个人物都将使收入缩减率减少0.1%。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Internal_Commerce">
+        <Leaf Text="内政" Color="4294375158" />
+        <Leaf Text="商业" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="开发商业，增加" Color="4294375158" />
+        <Leaf Text="资金" Color="4289065041" />
+        <Leaf Text="的收入。资金收入与商业值和人口相关（相对于粮草产量，资金收入受人口数量的影响较大。）。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="若某建筑的商业值达到较好的程度，则能够提高该建筑的" Color="4294375158" />
+        <Leaf Text="人口增长率" Color="4289065041" />
+        <Leaf Text="；若该建筑商业值太低，则会降低其" Color="4294375158" />
+        <Leaf Text="人口增长率" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="随着势力规模的扩大，资金收入会根据势力的" Color="4294375158" />
+        <Leaf Text="收入缩减率" Color="4289065041" />
+        <Leaf Text="而变化。收入缩减率初始值为100%，最小值为20%，每一万人口，每五个军队规模，或每个人物都将使收入缩减率减少0.1%。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Internal_Technology">
+        <Leaf Text="内政" Color="4294375158" />
+        <Leaf Text="技术" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="开发技术，提高本建筑的" Color="4294375158" />
+        <Leaf Text="技术能力" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="建筑将每天向所属势力提供相等于技术值五分之一的" Color="4294375158" />
+        <Leaf Text="技巧点数" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="每50点技术值将为出征部队提供1点额外的基础攻防。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果某建筑是所在州的治所，则当其技术值达到最高值的" Color="4294375158" />
+        <Leaf Text="五成" Color="4289065041" />
+        <Leaf Text="后，该州所有友好（外交关系达到300）建筑的资金和粮草收入将增加二成，而敌对（外交关系低于0）建筑的资金和粮草收入将降低二成。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果某建筑是所在地区的核心建筑，则当其技术值达到最高值的" Color="4294375158" />
+        <Leaf Text="八成" Color="4289065041" />
+        <Leaf Text="后，从该地区所有友好（外交关系达到300）建筑出征的部队攻防将增加二成，而从敌对（外交关系低于0）建筑出征的部队攻防将降低二成。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Internal_Domination">
+        <Leaf Text="内政" Color="4294375158" />
+        <Leaf Text="统治" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="维护统治，保证民众的安定。统治如果在50以下，则" Color="4294375158" />
+        <Leaf Text="补充" Color="4283349491" />
+        <Leaf Text="无法进行。而且，统治直接关系到" Color="4294375158" />
+        <Leaf Text="耐久" Color="4283349491" />
+        <Leaf Text="的强度。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="若某建筑的统治值达到较好的程度，则能够提高该建筑的" Color="4294375158" />
+        <Leaf Text="人口增长率" Color="4289065041" />
+        <Leaf Text="；若该建筑统治值太低，则会降低其" Color="4294375158" />
+        <Leaf Text="人口增长率" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="若建筑临接区域被超过建筑规模的多个非友军部队占据，则建筑" Color="4294375158" />
+        <Leaf Text="被包围" Color="4289065041" />
+        <Leaf Text="，" Color="4294375158" />
+        <Leaf Text="统治度" Color="4289065041" />
+        <Leaf Text="将每天下降，下降的量正比于超出建筑规模的非友军部队个数。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Internal_Morale">
+        <Leaf Text="内政" Color="4294375158" />
+        <Leaf Text="民心" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="掌握民心。民心如果在100以下，则" Color="4294375158" />
+        <Leaf Text="补充" Color="4283349491" />
+        <Leaf Text="无法进行。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="若某建筑的民心值达到较好的程度，则能够提高该建筑的" Color="4294375158" />
+        <Leaf Text="人口增长率" Color="4289065041" />
+        <Leaf Text="；若该建筑民心值太低，则会降低其" Color="4294375158" />
+        <Leaf Text="人口增长率" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="建筑的民心值越高，其被攻击时的反击就越强。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Internal_Endurance">
+        <Leaf Text="内政" Color="4294375158" />
+        <Leaf Text="耐久" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="修筑城防，增加建筑的" Color="4294375158" />
+        <Leaf Text="耐久" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="若某建筑的耐久值大于零，则敌方无法攻击到城内部队。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果某建筑的耐久值降低到零，而其邻接区域有敌军的部队，则耐久工作将暂停。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="建筑的耐久值越高，其被攻击时的反击就越强。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Internal_zhenzai">
+        <Leaf Text="内政" Color="4294375158" />
+        <Leaf Text="赈灾" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="城池有一定机率会发生某项" Color="4294375158" />
+        <Leaf Text="天灾" Color="4283349491" />
+        <Leaf Text="，令城池的人口及各项内政值下降。" Color="4294375158" />
+        <Leaf Text="赈灾" Color="4283349491" />
+        <Leaf Text="可减少人口伤亡和民心的下降，以及减少灾难持续时间。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="赈灾时每个武将每天花费1个内政资金（默认为5，可在设置界面设置）。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Internal_Facility_Build">
+        <Leaf Text="内政" Color="4294375158" />
+        <Leaf Text="新建设施" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="在建筑内新建设施以完善该建筑的各种功能。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果建筑内的资金不足以维持设施的正常运作，则所有设施的功效将停止。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="当建筑被敌军攻击时，设施的耐久度也会相应下降。如果设施的耐久度下降到零，则该设施将被毁坏。只要设施维持费充足，其耐久度将自动回复。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="另外，如果城池的人口及资金达到一定数目，城池内政值接近满，可兴建扩建设施，对城池进行" Color="4294375158" />
+        <Leaf Text="扩建" Color="4283349491" />
+        <Leaf Text="，增加城池的资源、内政及人口上限。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Internal_Facility_Demolish">
+        <Leaf Text="内政" Color="4294375158" />
+        <Leaf Text="拆除设施" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="拆除建筑内的某设施。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Internal_Trade_BuyFood">
+        <Leaf Text="内政" Color="4294375158" />
+        <Leaf Text="买入粮草" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="当建筑的农业值达到500后，即有可能可以在夏秋两季买入粮草。换算方式为1资金兑换50粮草。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Internal_Trade_SellFood">
+        <Leaf Text="内政" Color="4294375158" />
+        <Leaf Text="卖出粮草" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="当建筑的商业值达到500后，即有可能可以在冬春两季卖出粮草。换算方式为200粮草兑换1资金。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Internal_Expand">
+        <Leaf Text="内政" Color="4294375158" />
+        <Leaf Text="扩建" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="可以扩建城池，使之规模变大。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="条件" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="城池种类为州城（1格到4格再到9格）或郡城（1格到4格）。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="城池的规模为1或者4" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="扩建资金足够(1格城扩建资金10万,4格城扩建资金20万)" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="扩建点都在地图范围内" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="扩建点地形不是峻岭、水域、湿地、森林、山地或者未知" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="城池视野范围内没有敌军" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="农业、商业、技术、民心、耐久、统治均超过上限的80%" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="人口超过150000。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="效果" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="可以把1格城扩建为4格，4格城扩建为9格" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="城池各项参数相应增加。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Military_Campaign">
+        <Leaf Text="军事" Color="4294375158" />
+        <Leaf Text="出征" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="选择本建筑内某个编队和某几个人物组成部队。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="部队的" Color="4294375158" />
+        <Leaf Text="能力" Color="4289065041" />
+        <Leaf Text="主要由队长的能力决定。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="当部队的当前队长是该部队的" Color="4294375158" />
+        <Leaf Text="追随将领" Color="4289065041" />
+        <Leaf Text="时，部队的攻击力和防御力都将增加二成。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="另外，如要运送资金及/或粮草，可新编运输兵并出征，并设置携带资金及口粮天数。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Military_Training">
+        <Leaf Text="军事" Color="4294375158" />
+        <Leaf Text="训练" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="选择武将为城池中的所有编队进行训练，提高编队的" Color="4294375158" />
+        <Leaf Text="士气" Color="4289065041" />
+        <Leaf Text="和" Color="4294375158" />
+        <Leaf Text="战意" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="士气" Color="4289065041" />
+        <Leaf Text="直接影响到部队的攻击力和防御力。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="战意" Color="4289065041" />
+        <Leaf Text="是部队使用战法或计略的必要条件。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Military_Recruitment">
+        <Leaf Text="军事" Color="4294375158" />
+        <Leaf Text="补充" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="选择本建筑内某个编队进行补充，提高编队的" Color="4294375158" />
+        <Leaf Text="士兵数量" Color="4289065041" />
+        <Leaf Text="。本建筑的" Color="4294375158" />
+        <Leaf Text="人口" Color="4289065041" />
+        <Leaf Text="将相应下降。如果在人口少于" Color="4294375158" />
+        <Leaf Text="建筑规模" Color="4289065041" />
+        <Leaf Text="和" Color="4294375158" />
+        <Leaf Text="四万" Color="4289065041" />
+        <Leaf Text="的乘积的情况下征兵，则本建筑的" Color="4294375158" />
+        <Leaf Text="统治" Color="4289065041" />
+        <Leaf Text="和" Color="4294375158" />
+        <Leaf Text="民心" Color="4289065041" />
+        <Leaf Text="将快速下降。消耗资金为20与建筑规模的乘积。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="统治" Color="4289065041" />
+        <Leaf Text="小于50或" Color="4294375158" />
+        <Leaf Text="民心" Color="4289065041" />
+        <Leaf Text="小于100时不能征兵。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="部队只有在拥有一个" Color="4294375158" />
+        <Leaf Text="基本单位" Color="4289065041" />
+        <Leaf Text="以上的士兵时才能保持其攻击力和防御力，否则部队的攻击力和防御力将随士兵数量的下降呈正比下降。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="每个多余的基本单位的士兵都可以给部队附加额外的攻击力和防御力。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Military_New">
+        <Leaf Text="军事" Color="4294375158" />
+        <Leaf Text="新编" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="选择本势力某个可能编成的" Color="4294375158" />
+        <Leaf Text="兵种" Color="4289065041" />
+        <Leaf Text="，成立一个新的编队。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="新编后，请使用" Color="4294375158" />
+        <Leaf Text="补充" Color="4283349491" />
+        <Leaf Text="和" Color="4294375158" />
+        <Leaf Text="训练" Color="4283349491" />
+        <Leaf Text="命令增加部队的战斗力。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Military_Transfer">
+        <Leaf Text="军事" Color="4294375158" />
+        <Leaf Text="运兵" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="选择本建筑一支或多支编队进行运输，运输时间到后编队会到达" Color="4294375158" />
+        <Leaf Text="选定好的建筑。" Color="4289065041" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="视野范围内有敌军将无法运兵。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="守城弩车" Color="4289065041" />
+        <Leaf Text="和" Color="4294375158" />
+        <Leaf Text="水军" Color="4289065041" />
+        <Leaf Text="不能运输。" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="势力灭亡运输的编队将会从势力编队列表消失" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="运兵需要" Color="4294375158" />
+        <Leaf Text="消耗钱粮" Color="4289065041" />
+        <Leaf Text="，当建筑资金粮草不足时，无法运兵。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Military_Merge">
+        <Leaf Text="军事" Color="4294375158" />
+        <Leaf Text="合并" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="选择本建筑内某几个兵种相同的编队进行合并。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果合并后编队的士兵数量超过其规模上限，多余的人数会被增加在本建筑的" Color="4294375158" />
+        <Leaf Text="人口" Color="4289065041" />
+        <Leaf Text="中。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Military_Disband">
+        <Leaf Text="军事" Color="4294375158" />
+        <Leaf Text="解散" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="解散本建筑内的某编队。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="被解散的编队，其士兵数量会被增加在本建筑的" Color="4294375158" />
+        <Leaf Text="人口" Color="4289065041" />
+        <Leaf Text="中。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Military_LevelUp">
+        <Leaf Text="军事" Color="4294375158" />
+        <Leaf Text="升级" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="提升已经达到升级所需经验的可升级部队的等级。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="一般来说高级兵种的单位规模比较小，所以升级后" Color="4294375158" />
+        <Leaf Text="士兵数量" Color="4289065041" />
+        <Leaf Text="将按照比例缩减，而差值士兵数量将增加在本建筑的" Color="4294375158" />
+        <Leaf Text="人口" Color="4289065041" />
+        <Leaf Text="中。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="另外，部队原有" Color="4294375158" />
+        <Leaf Text="经验值" Color="4289065041" />
+        <Leaf Text="超过升级所需经验的部分将减半。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Transport_Routeway_Design">
+        <Leaf Text="运输" Color="4294375158" />
+        <Leaf Text="手动设计粮道" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="手动新建粮道以运输粮草。AI能力有限，要想得到最合适的粮道，还是要手动设计。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="部队只要处于粮道的补给范围内就可以得到自动补给。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="另外，如要运送资金及/或粮草，可新编运输兵并出征，并设置携带资金及口粮天数。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Transport_Routeway_PointShortestNormal">
+        <Leaf Text="运输" Color="4294375158" />
+        <Leaf Text="某点最短粮道" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="选择地图上某点，自动生成最短粮道。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="部队只要处于粮道的补给范围内就可以得到自动补给。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Transport_Routeway_PointShortestNoWater">
+        <Leaf Text="运输" Color="4294375158" />
+        <Leaf Text="某点避水粮道" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="选择地图上某点，自动生成尽量避开水域的最短粮道，用以支持陆军行军。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="部队只要处于粮道的补给范围内就可以得到自动补给。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Transport_Routeway_ArchitectureShortestNormal">
+        <Leaf Text="运输" Color="4294375158" />
+        <Leaf Text="建筑最短粮道" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="选择周边某建筑，自动生成最短粮道。如果目标建筑是己方建筑，则粮道将连接到该建筑。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="部队只要处于粮道的补给范围内就可以得到自动补给。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Transport_Routeway_ArchitectureShortestNoWater">
+        <Leaf Text="运输" Color="4294375158" />
+        <Leaf Text="建筑避水粮道" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="选择周边某建筑，自动生成尽量避开水域的最短粮道，用以支持陆军行军。如果目标建筑是己方建筑，则粮道将连接到该建筑" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="部队只要处于粮道的补给范围内就可以得到自动补给。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Transport_Routeway_CloseAll">
+        <Leaf Text="运输" Color="4294375158" />
+        <Leaf Text="关闭所有" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="关闭所有从本建筑出发的粮道。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Transport_Routeway_DemolishAll">
+        <Leaf Text="运输" Color="4294375158" />
+        <Leaf Text="废弃所有" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="废弃所有从本建筑出发的粮道。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Transport_Fund">
+        <Leaf Text="运输" Color="4294375158" />
+        <Leaf Text="资金" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="在建筑与建筑之间传送资金。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="传送资金需要花费一定的时间，该时间与距离有关。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Transport_Food">
+        <Leaf Text="运输" Color="4294375158" />
+        <Leaf Text="粮草" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="在建筑与建筑之间输送粮草。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="传送粮草不需要花费时间，前提是建筑与建筑之间有畅通的粮道相连接。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_Transfer">
+        <Leaf Text="人事" Color="4294375158" />
+        <Leaf Text="调动" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="将本建筑的" Color="4294375158" />
+        <Leaf Text="人物" Color="4289065041" />
+        <Leaf Text="调动到本势力的其他建筑。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_Convene">
+        <Leaf Text="人事" Color="4294375158" />
+        <Leaf Text="召集" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="将本势力其他建筑的" Color="4294375158" />
+        <Leaf Text="人物" Color="4289065041" />
+        <Leaf Text="调动到本建筑。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_Hire">
+        <Leaf Text="人事" Color="4294375158" />
+        <Leaf Text="录用" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="花费一定的" Color="4294375158" />
+        <Leaf Text="资金" Color="4289065041" />
+        <Leaf Text="，录用本建筑的在野人物。建筑规模越大则录用的花费越大。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="人物的" Color="4294375158" />
+        <Leaf Text="志向" Color="4289065041" />
+        <Leaf Text="与君主的志向越接近则越容易录用成功。相反，如果志向相差较大，而对方较重视" Color="4294375158" />
+        <Leaf Text="出仕志向考虑" Color="4289065041" />
+        <Leaf Text="的话，该武将将没法录用。如果势力声望较高的话，愈大机会能够录用更多武将。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_Convince">
+        <Leaf Text="人事" Color="4294375158" />
+        <Leaf Text="说服" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="说服他方" Color="4294375158" />
+        <Leaf Text="忠诚度" Color="4289065041" />
+        <Leaf Text="不高的将领，令其加入我方阵营。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="资金消耗" Color="4294375158" />
+        <Leaf Text="200" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="只能对情报范围内的他方建筑使用本功能。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="人物的" Color="4294375158" />
+        <Leaf Text="志向" Color="4289065041" />
+        <Leaf Text="与君主的志向越接近则越容易说服成功。相反，如果志向相差较大，而对方较重视" Color="4294375158" />
+        <Leaf Text="出仕志向考虑" Color="4289065041" />
+        <Leaf Text="的话，该武将将没法说服。如果势力声望较高的话，愈大机会能够说服更多武将。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_Reward">
+        <Leaf Text="人事" Color="4294375158" />
+        <Leaf Text="褒奖" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="褒奖当前建筑的将领，提高他们的" Color="4294375158" />
+        <Leaf Text="忠诚度" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="资金消耗" Color="4294375158" />
+        <Leaf Text="100" Color="4289065041" />
+        <Leaf Text="每人。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="将领的忠诚度平均每月有机会下降一次，下降程度相关于该将领与其势力君主的" Color="4294375158" />
+        <Leaf Text="志向" Color="4289065041" />
+        <Leaf Text="差值和该将领自身的" Color="4294375158" />
+        <Leaf Text="义理" Color="4289065041" />
+        <Leaf Text="。被俘虏的将领，其忠诚度下降速度为基本值的两倍。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_RewardAll">
+        <Leaf Text="人事" Color="4294375158" />
+        <Leaf Text="褒奖所有" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="褒奖当前势力所有能够被褒奖的将领。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果某建筑内的资金不足够褒奖所有该建筑内的将领，则优先褒奖忠诚度较低的将领。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_Redeem">
+        <Leaf Text="人事" Color="4294375158" />
+        <Leaf Text="赎回" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="将一定的资金送到关押被俘将领势力的都城，赎回被俘的将领。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="资金消耗与该将领的" Color="4294375158" />
+        <Leaf Text="综合实力" Color="4289065041" />
+        <Leaf Text="相关。如果是君主，则所需资金为两倍。如果对方不同意释放，则赎金将被退回。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_Study_Skill">
+        <Leaf Text="人事" Color="4294375158" />
+        <Leaf Text="研习技能" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="经验达到新技能要求的人物可以执行本指令，研习新的技能。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="所需时间" Color="4294375158" />
+        <Leaf Text="一个月" Color="4289065041" />
+        <Leaf Text="，技能等级越高则越不容易获得。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_Study_Title">
+        <Leaf Text="人事" Color="4294375158" />
+        <Leaf Text="获取称号" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="经验达到新称号要求的人物可以执行本指令，获取新的称号。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="所需时间" Color="4294375158" />
+        <Leaf Text="一个季度" Color="4289065041" />
+        <Leaf Text="，称号等级越高则越不容易获得。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_Study_Stunt">
+        <Leaf Text="人事" Color="4294375158" />
+        <Leaf Text="修习特技" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="经验达到新特技要求的人物可以执行本指令，获取新的特技。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="所需时间" Color="4294375158" />
+        <Leaf Text="两个月" Color="4289065041" />
+        <Leaf Text="，获得几率为四分之三。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Tactics_Information">
+        <Leaf Text="策略" Color="4294375158" />
+        <Leaf Text="情报" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="获得地图上任意某个区域的" Color="4294375158" />
+        <Leaf Text="情报" Color="4289065041" />
+        <Leaf Text="。情报会每天耗费建筑的资金，耗费量与情报种类、执行情报的武将及距离相关。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="情报范围内，每天都有机会发现埋伏中的部队。" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="由于情报的维持也需要可观的资金，所以在长时间不使用的情况下最好将其关闭。" Color="4294375158" />
+    </Branch>
+	<Branch Name="Tactics_StopInformation">
+        <Leaf Text="策略" Color="4294375158" />
+        <Leaf Text="停止情报" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="停止对某区域进行的情报活动。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Tactics_Spy">
+        <Leaf Text="策略" Color="4294375158" />
+        <Leaf Text="间谍" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="向他方建筑派遣间谍，成功后间谍会把搜集到的信息自动汇报。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="资金消耗" Color="4294375158" />
+        <Leaf Text="200" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="由于潜伏任务极其隐秘，间谍将直接向派遣人汇报。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Tactics_Destroy">
+        <Leaf Text="策略" Color="4294375158" />
+        <Leaf Text="破坏" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="进行破坏，降低敌方建筑的" Color="4294375158" />
+        <Leaf Text="耐久" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="资金消耗" Color="4294375158" />
+        <Leaf Text="200" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="目标建筑的统治值越低则越容易成功。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Tactics_Instigate">
+        <Leaf Text="策略" Color="4294375158" />
+        <Leaf Text="煽动" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="进行煽动，降低敌方建筑的" Color="4294375158" />
+        <Leaf Text="统治" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="资金消耗" Color="4294375158" />
+        <Leaf Text="200" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="目标建筑的民心值越低则越容易成功。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Tactics_Gossip">
+        <Leaf Text="策略" Color="4294375158" />
+        <Leaf Text="流言" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="在敌方建筑散播流言，降低所在将领的" Color="4294375158" />
+        <Leaf Text="忠诚度" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="资金消耗" Color="4294375158" />
+        <Leaf Text="200" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="目标建筑的统治值越低则越容易成功。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Tactics_Search">
+        <Leaf Text="策略" Color="4294375158" />
+        <Leaf Text="搜索" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="在当前建筑附近进行搜索。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="时间消耗" Color="4294375158" />
+        <Leaf Text="10" Color="4289065041" />
+        <Leaf Text="天。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="目标建筑的民心值越高则搜索成功率越高。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Tactics_ClearField">
+        <Leaf Text="策略" Color="4294375158" />
+        <Leaf Text="清野" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="征收建筑视野范围内的所有粮草，建筑的" Color="4294375158" />
+        <Leaf Text="农业" Color="4289065041" />
+        <Leaf Text="值将大幅下降，也会消耗一定的" Color="4294375158" />
+        <Leaf Text="资金" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="在关隘执行本策略并不会受到农业值的限制，但会消耗双倍的资金。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Tactics_JailBreak">
+        <Leaf Text="策略" Color="4294375158" />
+        <Leaf Text="劫牢" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="在敌方建筑劫牢，以救出在该建筑被俘虏的武将" Color="4294375158" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="资金消耗" Color="4294375158" />
+        <Leaf Text="200" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="目标建筑的统治值、民心值越低，则越容易成功。" Color="4294375158" />
+    </Branch>
+	<Branch Name="Tactics_Assassinate">
+        <Leaf Text="策略" Color="4294375158" />
+        <Leaf Text="暗杀" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="对敌方某一个武将进行暗杀，使对方负伤以至死亡。" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="只能对情报范围内的他方建筑使用本功能。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_ChangeCapital">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="迁都" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="花费5000资金，将都城迁移到其他所属建筑。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果都城被攻占，则" Color="4294375158" />
+        <Leaf Text="势力声望" Color="4283349491" />
+        <Leaf Text="将下降一半。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="都城是势力内人物调度的中心，而且其" Color="4294375158" />
+        <Leaf Text="耐久强度" Color="4283349491" />
+        <Leaf Text="比普通建筑高五成。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_Diplomatic_AllyDiplomaticRelation">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="结盟" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="结成盟友，只能在双方的关系值在[280,300]的范围内执行" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_Diplomatic_QuanXiangDiplomaticRelation">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="劝降" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="花费5万资金，劝降比己方势力弱的势力。"
+Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="只能在双方的关系值小于300并且有外交人员的情况下执行。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_Diplomatic_ResetDiplomaticRelation">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="解盟" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="单方面撕毁盟约，双方外交关系归零。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="只能在己方势力没有任何部队在野的情况下执行。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_Diplomatic_EnhanceDiplomaticRelation">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="亲善" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="与友好势力加强外交关系" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="只能在城池有足够的资金并且有外交人员的情况下执行。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_Diplomatic_DenounceDiplomaticRelation">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="声讨" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="对某不得人心势力发布声讨檄文，每60000金发布一次，全势力都会根据自身情况响应。 [有可能会引发共讨联盟，对被声讨势力发起包围圈]" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="只能在城池有足够的资金情况下执行。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_Diplomatic_TruceDiplomaticRelation">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="停战" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="献上50000重金，和对象势力签署为期30天的停战协议" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="只能在城池有足够的资金并且有外交人员的情况下执行。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_Techniques">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="技巧" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="升级势力技巧，令势力的科技提升。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="每一个技巧也需要一定的耗费资金、耗费技巧点，以及需要一定的势力声望。技巧等级愈高，需求愈高。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="高级的技巧要在低级技巧研发完成后才会出现。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_KillRelease_ReleaseCaptive">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="释放俘虏" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="释放俘虏。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="主动释放俘虏可以提高与俘虏势力之间的" Color="4294375158" />
+        <Leaf Text="外交关系" Color="4283349491" />
+        <Leaf Text="，提高的量与俘虏的能力和其所在势力规模相关，势力规模越小的提高得越多。当然，也可以不释放而收取丰厚的赎金。赎金与被俘人物能力有关。另外，势力规模越大，则被要求的赎金量也越大。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_KillRelease_ReleaseSelfPerson">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="流放下属" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="流放下属" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="流放麾下武将，令该武将离开自己的势力变成在野武将。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_KillRelease_KillPerson">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="处斩下属" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="处斩下属" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="把麾下武将处死。被处死的武将的亲人，可能会因此厌恶势力君主。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_KillRelease_KillCaptive">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="流放下属" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="流放下属" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="把俘虏处死。被处死的武将的亲人，可能会因此厌恶势力君主，亦会使俘虏的所属势力与自己势力的友好度下降。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_Refuse">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="拒绝" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="设置自动或手动拒绝他方的释放俘虏请求。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果选择自动拒绝，则系统将帮助玩家拒绝所有的请求。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_Treasure_Confiscate">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="没收宝物" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="没收与君主同城池将领的宝物。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果被没收宝物的将领忠诚度不大于100，则其忠诚度会下降两倍于宝物价值的量，并有几率下野。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_Treasure_Award">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="授予宝物" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="将君主的宝物授予同城池将领。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果被授予宝物的将领忠诚度不大于100，则其忠诚度会上升宝物价值的量。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_officePosition_jingongzijin">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="进贡资金" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="每年三月，如果汉朝皇帝未有禅位，则可以向汉朝皇帝所在地" Color="4294375158" />
+        <Leaf Text="进贡" Color="4283349491" />
+        <Leaf Text="，以累积势力的" Color="4294375158" />
+        <Leaf Text="朝延贡献度" Color="4283349491" />
+        <Leaf Text="。只有当势力的朝延贡献度及占有的城池数达到一定数目，势力的君主才能获得更高的" Color="4294375158" />
+        <Leaf Text="官爵" Color="4283349491" />
+        <Leaf Text="。势力的官爵直接影响到势力声望的上限，而势力声望直接影响到可研发科技及招揽的武将。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="贡品实际为挟天子的势力，即为占有皇帝所在的城池的势力所得。挟天子的势力进贡给献帝。而汉朝皇帝的所在城池上会有皇帝标示。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果汉朝皇帝已禅位，则没需要再每年进贡，只需要足够的城池数目即可升官。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_officePosition_jingongliangcao">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="进贡粮草" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="每年三月，如果汉朝皇帝未有禅位，则可以向汉朝皇帝所在地" Color="4294375158" />
+        <Leaf Text="进贡" Color="4283349491" />
+        <Leaf Text="，以累积势力的" Color="4294375158" />
+        <Leaf Text="朝延贡献度" Color="4283349491" />
+        <Leaf Text="。只有当势力的朝延贡献度及占有的城池数达到一定数目，势力的君主才能获得更高的" Color="4294375158" />
+        <Leaf Text="官爵" Color="4283349491" />
+        <Leaf Text="。势力的官爵直接影响到势力声望的上限，而势力声望直接影响到可研发科技及招揽的武将。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="贡品实际为挟天子的势力，即为占有皇帝所在的城池的势力所得。挟天子的势力进贡给献帝。而汉朝皇帝的所在城池上会有皇帝标示。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果汉朝皇帝已禅位，则没需要再每年进贡，只需要足够的城池数目即可升官。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_officePosition_SelfBecomeEmperor">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="称帝" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="达到皇帝条件后，没有占有汉朝皇帝所在地的势力可以称帝。如果汉朝皇帝未有禅位，称帝后各城池民心下降十分之一，手下武将依对汉室的重视程度忠诚度下降不同的值。如果在献帝退位后称帝则不会给自己带来负面影响。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="异族称帝不会给自己带来负面影响。异族占领献帝所在城池，或已称帝的势力占领献帝所在城池，也会导致汉朝灭亡，献帝退位。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_officePosition_BecomeEmperorLegally">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="禅位" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="达到皇帝条件后，占有汉朝皇帝所在地的势力可以要求汉朝皇帝禅位。禅位后汉朝灭亡，献帝退位，其他各势力不再进贡，升官改为自封，并不再需要朝廷贡献度。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="异族占领献帝所在城池，或已称帝的势力占领献帝所在城池，也会导致汉朝灭亡，献帝退位。" Color="4294375158" />
+    </Branch>
+	<Branch Name="Monarch_MakeMarriage">
+		<Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="赐婚" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="赐婚的双方必须性别不相同，没有血缘关系，不厌恶对方，而且志向差在5以内。如年龄有效，则双方的年纪需在十六至五十岁之间。" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="赐婚需要资金80000，而且双方需要在这个城池。" Color="4294375158" />
+	</Branch>
+	<Branch Name="Monarch_SelectPrince">
+    <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="立储" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="储君候选人必须为君主的儿子，已出场，不为俘虏，不为在野，且和君主在同一个势力。" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="立储需要资金50000，而且君主需要在己方城池。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="一个势力只有一个储君。" Color="4294375158" />
+	</Branch>
+        <Branch Name="Monarch_ZhaoXianBang_AutoCreatePerson">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="招贤" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="花费一定资金广纳贤才，当游戏内野武将数量低于系统预设上限时，招贤有效。"
+Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="需要注意的是，生成野武将机率为0时，无法招贤。当游戏内野武将数量到达上限时，系统将会自动关闭野武将生成，无法再生成野武将，不管生成机率为多少。"
+Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="招贤机率默认为10，玩家可自行调整参数。"
+Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="招贤仅在每年3月和9月举行，且每季最多有五次机会招贤。每年最多招10个野武将。"
+Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_ZhaoXianBang_DismissOfficer">
+    <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="遣散" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="遣散当前建筑在野野武将。遣散后，野武将将会从游戏消失，同时存档也会移除该野武将。"
+Color="4294375158" /> 
+    </Branch>
+    <Branch Name="Monarch_hougongTop_nafei">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="纳妃" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="当城池已建有可容纳美女的设施时，可以把势力的武将纳进去为妃。纳妃之后该女子不再是武将，不可再出兵打仗。如果该武将是某武将的配偶，此武将的忠诚度将大幅下降，有可能下野或永远无法录用。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="被纳妃的武将必须与君主性别不相同，并与君主没有血缘关系。如年龄有效，则被纳者的年纪需在十六至五十岁之间。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="纳妃需要资金50000，而且君主及被纳者需要在这个城池。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_hougongTop_hougong">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="宠幸" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="宠幸某个妃子。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果玩家的君主有子嗣没有出场的话，被宠幸的妃子会有一定几率怀孕。怀孕之后的约第30天妃子会发现自己怀孕并告诉君主，约第300天孩子出世并加入玩家的阵营。发现怀孕之后到孩子出生之前不能再宠幸该妃子。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text=" 玩家的君主的后代需要生出来，比如曹操生曹植、曹丕等，你如果不生的话他们永远不会出场。刘备只能生刘禅。子嗣的能力在原有基础上根据游戏里的生母能力稍微调整。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="史实子嗣生完后可以生虚拟子嗣，这一点可以在设置里修改。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="君主需要在妃子所在的后宫城池，才能宠幸该妃子" Color="4294375158" />
+    </Branch>
+	<Branch Name="Monarch_hougongTop_moveFeizi">
+		<Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="移动妃子" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="移动某个妃子。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="移动目的地必须有充足的妃子空间。另外如果城池视野范围内有敌军，则不可移动妃子。" Color="4294375158" />
+	</Branch>
+	<Branch Name="Monarch_hougongTop_releaseFeizi">
+		<Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="释放妃子" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="释放某个妃子。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="妃子被释放后，不会再为妃子，将作为势力里的一般武将。" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="该妃子不能是由现任君主所纳。" Color="4294375158" />
+	</Branch>
+    <Branch Name="Section_New">
+        <Leaf Text="委任" Color="4294375158" />
+        <Leaf Text="新建军区" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="从已有的军区中选择一些建筑，组成新的军区。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="军区的名称将由其中人口最多的建筑决定。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Section_Regroup">
+        <Leaf Text="委任" Color="4294375158" />
+        <Leaf Text="重编军区" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="重编已有军区，更改其所属范围或者委任方式。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Section_Disband">
+        <Leaf Text="委任" Color="4294375158" />
+        <Leaf Text="解散军区" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="解散已有军区。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="每个势力至少拥有一个军区。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_Hiring">
+        <Leaf Text="人物" Color="4294375158" />
+        <Leaf Text="委任录用" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="设置本建筑的录用方式为手动或委任。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="若选择委任方式，则将采用与电脑相同的方法进行录用。在野人物数量越高则越有可能发动录用。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_Appointment_AppointMayor">
+    <Leaf Text="人物" Color="4294375158" />
+        <Leaf Text="任免" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="任命县令" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="县令可提高本建筑的内政效率，县令的政理和谋略越高，内政效率提高的幅度越大。" Color="4294375158" />
+       <Leaf Text="任命县令后 " Color="4294375158" />
+       <Leaf Text="县令的" Color="4294375158" />
+       <Leaf Text="忠诚" Color="4283349491" />
+       <Leaf Text="将会提高(10,20)。" Color="4294375158" />
+       <Leaf Text="\n" Color="4294375158" />
+       <Leaf Text="\n" Color="4294375158" />
+       <Leaf Text="另外，县令出战，部队可获得攻防加成。加成只在部队处于出发建筑视野范围内有效。" Color="4294375158" />
+       <Leaf Text="县令" Color="4294375158" />
+       <Leaf Text="武学" Color="4283349491" />
+       <Leaf Text="和" Color="4294375158" />
+       <Leaf Text="勇猛度" Color="4283349491" />
+       <Leaf Text="越高，部队攻击力加成越多。" Color="4294375158" />
+       <Leaf Text="县令" Color="4294375158" />
+       <Leaf Text="统帅" Color="4283349491" />
+       <Leaf Text="和" Color="4294375158" />
+       <Leaf Text="冷静度" Color="4283349491" />
+       <Leaf Text="越高，部队防御力加成越多。" Color="4294375158" />
+       <Leaf Text="\n" Color="4294375158" />
+       <Leaf Text="\n" Color="4294375158" />
+       <Leaf Text="玩家不可调走县令。注意：玩家如果通过部队出征让县令离开所属城池，将无法调回所属城池，除非罢免县令。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_Appointment_RecallMayor">
+    <Leaf Text="人物" Color="4294375158" />
+        <Leaf Text="任免" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="罢免县令" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="罢免当前建筑县令，武将忠诚下降(5,10)。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Person_Appointment_AppointOfficer">
+        <Leaf Text="人物" Color="4294375158" />
+        <Leaf Text="授予官职" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="授予武将官职。" Color="4294375158" /> 
+    </Branch>
+<Branch Name="Person_Appointment_RecallOfficer">
+        <Leaf Text="人物" Color="4294375158" />
+        <Leaf Text="免除官职" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="免除武将官职。" Color="4294375158" /> 
+    </Branch>
+    <Branch Name="Person_AutoReward">
+        <Leaf Text="人物" Color="4294375158" />
+        <Leaf Text="委任褒奖" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="设置本建筑的褒奖方式为手动或委任。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="若选择委任方式，则只要剩余资金足够进行褒奖即进行褒奖。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Internal_AutoWorking">
+        <Leaf Text="内政" Color="4294375158" />
+        <Leaf Text="委任工作" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="设置本建筑的工作分配方式为手动或委任。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="若选择委任方式，则将采用与电脑相同的方法进行工作分配。只包括六项内政工作以及训练工作。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Monarch_ZhaoXianBang_AutoZhaoXian">
+        <Leaf Text="君主" Color="4294375158" />
+        <Leaf Text="招贤" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="设置本建筑的招贤方式为手动或委任。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="若选择委任方式，则将采用与电脑相同的方法进行招贤。电脑只在建筑不够武将的情况下才会招贤。" Color="4294375158" />
+    </Branch>
+    <Branch Name="Tactics_AutoSearching">
+        <Leaf Text="策略" Color="4294375158" />
+        <Leaf Text="搜索" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="设置本建筑的搜索方式为手动或委任。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="若选择委任方式，则无工作的人物将会不停的进行搜索。" Color="4294375158" />
+    </Branch>
+	<Branch Name="Military_AutoRecruiting">
+        <Leaf Text="军事" Color="4294375158" />
+        <Leaf Text="委任补充" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="设置本建筑的补充方式为手动或委任。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="若选择委任方式，武将会自行进行部队的补充" Color="4294375158" />
+    </Branch>
+    <Branch Name="AllEnter">
+        <Leaf Text="部队" Color="4294375158" />
+        <Leaf Text="全部进入" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="命令建筑周围所有可进入的部队进入建筑。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopMove">
+        <Leaf Text="部队" Color="4294375158" />
+        <Leaf Text="移动" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="确定本部队的移动目标。部队行动的顺序由行动速率决定，该值越大则越优先行动，该值相等的部队行动顺序为随机。行动速率＝当前乘数×兵种本身的行动速率×士气÷士气上限。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="战斗中，多个部队之间的走位配合也很重要。如果某敌军部队周边八格有三个以上的我方部队可攻击到该部队，则可以发动" Color="4294375158" />
+        <Leaf Text="围攻" Color="4289065041" />
+        <Leaf Text="，而发动围攻的几率还要考虑到敌军部队的抗围几率。围攻时，发动攻击的部队的攻击力将附加每个参与围攻的其他部队攻击力的四分之一，同样附加的还有其他部队的包围致乱几率的二分之一。另外，包围将降低敌军的士气，降低量等于 5 × （参与包围的部队数量 - 2）。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="部队暴击后有几率触发" Color="4294375158" />
+        <Leaf Text="单挑" Color="4289065041" />
+        <Leaf Text="，由双方部队武学最高的人物参与，冷静度越高则越不容易被发起单挑。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopOccupy">
+        <Leaf Text="部队" Color="4294375158" />
+        <Leaf Text="占领" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="当部队在非本势力某建筑内且该建筑邻接区域没有敌军时，可以执行本命令占领该建筑。耗时一天。有可能抓获城中人物。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="建筑被占领时，如果该建筑不是空城，则农业，商业和技术值将变为 原来的值 × (1 - 0.5 × (原民心值 / 民心上限))，而民心值会变为 (民心上限 - 原民心值) ÷ 5。不论是否为空城，统治值将最多为50，耐久值则等于50与建筑规模的乘积。原来建筑中的资金和粮草只能存留十分之一。原来建筑中的编队士气和战意都将减半。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果某建筑是" Color="4294375158" />
+        <Leaf Text="战略要冲" Color="4289065041" />
+        <Leaf Text="，则其视野范围内的友好（外交关系达到300）部队每天战意增加5点，非友好（外交关系低于300）部队每天战意减少10点；且在其所有邻接建筑中，友好建筑的统治度将在每月末增加20点，而敌对建筑的统治度将在每月末减少10点。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopEnter">
+        <Leaf Text="部队" Color="4294375158" />
+        <Leaf Text="入城" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="当部队在本势力某建筑邻接区域内，可以执行本命令入城休整。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopTarget">
+        <Leaf Text="攻击" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="指定部队攻击敌方部队或建筑，进行时如果敌方部队移动则会尽可能追上敌军进行攻击。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="下回合如果依然攻击该目标，不需再次点击攻击命令" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+    </Branch>
+	<Branch Name="TroopStratagem_0">
+        <Leaf Text="计略" Color="4294375158" />
+        <Leaf Text="攻心" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="动摇敌人的军心，使其" Color="4294375158" />
+        <Leaf Text="士气" Color="4289065041" />
+        <Leaf Text="下降。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="士气直接影响到部队的" Color="4294375158" />
+        <Leaf Text="攻击力" Color="4289065041" />
+        <Leaf Text="和" Color="4294375158" />
+        <Leaf Text="防御力" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="攻心成功时有几率触发" Color="4294375158" />
+        <Leaf Text="论战" Color="4289065041" />
+        <Leaf Text="，由双方部队论战能力最高的人物参与，论战能力由谋略和风度决定，勇猛度越高则越不容易被发起论战。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStratagem_1">
+        <Leaf Text="计略" Color="4294375158" />
+        <Leaf Text="扰乱" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="使用计谋使敌军陷入" Color="4294375158" />
+        <Leaf Text="混乱" Color="4289065041" />
+        <Leaf Text="状态。没有技能影响的情况下，成功后的天数为随机一到三天。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="在混乱状态下，部队的" Color="4294375158" />
+        <Leaf Text="攻击力" Color="4289065041" />
+        <Leaf Text="将减少一半，" Color="4294375158" />
+        <Leaf Text="防御力" Color="4289065041" />
+        <Leaf Text="将减少两成。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStratagem_2">
+        <Leaf Text="计略" Color="4294375158" />
+        <Leaf Text="侦查" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="获得部队附近某区域的" Color="4294375158" />
+        <Leaf Text="情报" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="只有" Color="4294375158" />
+        <Leaf Text="情报范围" Color="4289065041" />
+        <Leaf Text="内的敌军是可见的，所以要尽力获得足够的情报。侦查范围内每天有几率发现埋伏中的敌军。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="“侦查”计略获得的情报" Color="4294375158" />
+        <Leaf Text="时间" Color="4289065041" />
+        <Leaf Text="较短，" Color="4294375158" />
+        <Leaf Text="范围" Color="4289065041" />
+        <Leaf Text="也较窄。如果想获取更优质的情报，请在本势力建筑执行“策略”中的" Color="4294375158" />
+        <Leaf Text="情报" Color="4283349491" />
+        <Leaf Text="命令。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStratagem_3">
+        <Leaf Text="计略" Color="4294375158" />
+        <Leaf Text="埋伏" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="在" Color="4294375158" />
+        <Leaf Text="森林" Color="4289065041" />
+        <Leaf Text="或者" Color="4294375158" />
+        <Leaf Text="山地" Color="4289065041" />
+        <Leaf Text="中潜伏起来，伏击经过的敌军。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="只有在周围三格之内没有可见的敌军时，才能执行本计略。埋伏状态下，有可能被经过的敌军发现而解除状态。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="如果敌军经过埋伏状态部队的" Color="4294375158" />
+        <Leaf Text="攻击范围" Color="4289065041" />
+        <Leaf Text="，则伏击成功。效果包括" Color="4294375158" />
+        <Leaf Text="无反击攻击" Color="4289065041" />
+        <Leaf Text="和" Color="4294375158" />
+        <Leaf Text="敌人士气下降" Color="4289065041" />
+        <Leaf Text="，如果是" Color="4294375158" />
+        <Leaf Text="非凌空攻击" Color="4289065041" />
+        <Leaf Text="（箭矢和投石等），还有一定几率使敌军陷入" Color="4294375158" />
+        <Leaf Text="混乱" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStratagem_4">
+        <Leaf Text="计略" Color="4294375158" />
+        <Leaf Text="火攻" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="对敌人使用火计，造成伤害。有效地形包括" Color="4294375158" />
+        <Leaf Text="平原" Color="4289065041" />
+        <Leaf Text="、" Color="4294375158" />
+        <Leaf Text="草地" Color="4289065041" />
+        <Leaf Text="、" Color="4294375158" />
+        <Leaf Text="森林" Color="4289065041" />
+        <Leaf Text="和" Color="4294375158" />
+        <Leaf Text="山地" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+		<Leaf Text="火焰伤害" Color="4289065041" />
+        <Leaf Text="在三种情况下发生，分别是" Color="4294375158" />
+        <Leaf Text="穿越火焰时" Color="4289065041" />
+        <Leaf Text="," Color="4294375158" />
+        <Leaf Text="当天结束停止在火焰区域时" Color="4289065041" />
+        <Leaf Text="和" Color="4294375158" />
+        <Leaf Text="被火矢攻击成功时" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStratagem_5">
+        <Leaf Text="计略" Color="4294375158" />
+        <Leaf Text="镇静" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="安抚" Color="4294375158" />
+        <Leaf Text="混乱" Color="4289065041" />
+        <Leaf Text="状态下的友军，使其恢复一般状态。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStratagem_6">
+        <Leaf Text="计略" Color="4294375158" />
+        <Leaf Text="灭火" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="扑灭" Color="4294375158" />
+        <Leaf Text="计略范围" Color="4289065041" />
+        <Leaf Text="内的火焰。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStratagem_7">
+        <Leaf Text="计略" Color="4294375158" />
+        <Leaf Text="鼓舞" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="提高友军的" Color="4294375158" />
+        <Leaf Text="士气" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="士气直接影响到部队的" Color="4294375158" />
+        <Leaf Text="攻击力" Color="4289065041" />
+        <Leaf Text="和" Color="4294375158" />
+        <Leaf Text="防御力" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStratagem_8">
+        <Leaf Text="计略" Color="4294375158" />
+        <Leaf Text="点火" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="点燃附近的某一处空地。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="有效地形包括" Color="4294375158" />
+        <Leaf Text="平原" Color="4289065041" />
+        <Leaf Text="、" Color="4294375158" />
+        <Leaf Text="草地" Color="4289065041" />
+        <Leaf Text="、" Color="4294375158" />
+        <Leaf Text="森林" Color="4289065041" />
+        <Leaf Text="和" Color="4294375158" />
+        <Leaf Text="山地" Color="4289065041" />
+        <Leaf Text="。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStratagem_9">
+        <Leaf Text="计略" Color="4294375158" />
+        <Leaf Text="医治" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="医治某部队的伤兵，使其重新回到战斗中。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="最多可以治愈" Color="4294375158" />
+        <Leaf Text="五" Color="4289065041" />
+        <Leaf Text="个基本单位的伤兵。" Color="4294375158" />
+    </Branch>
+	<Branch Name="TroopStratagem_10">
+        <Leaf Text="计略" Color="4294375158" />
+        <Leaf Text="伪报" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="使用计谋使敌军陷入" Color="4294375158" />
+        <Leaf Text="伪报" Color="4289065041" />
+        <Leaf Text="状态。没有技能影响的情况下，成功后的天数为随机一到三天。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="在伪报状态下，将不能向该部队下达指令，而该部队会向其出发城池移动。" Color="4294375158" />
+    </Branch>
+	<Branch Name="TroopStratagem_11">
+        <Leaf Text="计略" Color="4294375158" />
+        <Leaf Text="挑衅" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="使用计谋使敌军陷入" Color="4294375158" />
+        <Leaf Text="挑衅" Color="4289065041" />
+        <Leaf Text="状态。没有技能影响的情况下，成功后的天数为随机一到三天。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="在挑衅状态下，将不能向该部队下达指令，而该部队会向施计者移动及攻击。" Color="4294375158" />
+    </Branch>
+
+    <Branch Name="TroopStunt_0">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="遁走" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="专门用于逃离战场。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStunt_1">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="闪击" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="遇敌之前即发起迅猛如电的进攻。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStunt_2">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="铁壁" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="铜墙铁壁般的防守状态。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStunt_3">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="亢奋" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="攻击力、暴击几率和暴击致乱几率均大幅提升。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStunt_4">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="威风" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="攻防提升，威风八面。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStunt_5">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="奇袭" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="小股部队在短时间内提升战斗力。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStunt_6">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="犄角" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="必然发起围攻，围攻致乱几率大幅提高。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStunt_7">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="纵火" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="攻击时到处放火。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStunt_8">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="驱逐" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="战力提升，奋起迎敌。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStunt_9">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="癫狂" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="对敌人发起疯狂的攻击，周边的敌人也会受到波及。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStunt_10">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="稳守" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="稳扎稳打，御敌城下。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStunt_11">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="急智" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="突发妙想，计略成功率和计略抵抗率大幅提升。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStunt_12">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="隐忍" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="防御力提升，每天恢复混乱，不会被围攻。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopStunt_13">
+        <Leaf Text="特技" Color="4294375158" />
+        <Leaf Text="攻城" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="对建筑的伤害大大提升。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopAction_LevyFood">
+        <Leaf Text="行动" Color="4294375158" />
+        <Leaf Text="就近征粮" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="征收" Color="4294375158" />
+        <Leaf Text="当前坐标" Color="4289065041" />
+        <Leaf Text="的粮草。完成后，部队将在本回合无法执行任何其他命令。本命令最多征得三天口粮。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="被征收点如果位于某建筑的视野范围内，则该建筑的农业值将有所下降。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="该位置的粮草蕴藏量与地形和季节有关，被征收后将有一段时间无法再次被征收。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopCutRouteway">
+        <Leaf Text="行动" Color="4294375158" />
+        <Leaf Text="切断粮道" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="切断所有途经" Color="4294375158" />
+        <Leaf Text="当前坐标" Color="4289065041" />
+        <Leaf Text="的敌方粮道。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="完成前，部队无法执行任何命令。完成时间与部队规模有一定关系。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopConfig_AttackDefaultKind">
+        <Leaf Text="设定" Color="4294375158" />
+        <Leaf Text="攻击默认" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="当" Color="4294375158" />
+        <Leaf Text="攻击范围" Color="4289065041" />
+        <Leaf Text="内有多个符合" Color="4294375158" />
+        <Leaf Text="攻击目标" Color="4283349491" />
+        <Leaf Text="的部队时，攻击符合本设置的目标。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopConfig_AttackTargetKind">
+        <Leaf Text="设定" Color="4294375158" />
+        <Leaf Text="攻击目标" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="部队行动时会在" Color="4294375158" />
+        <Leaf Text="攻击范围" Color="4289065041" />
+        <Leaf Text="内搜索所有符合本设置的目标，然后按照" Color="4294375158" />
+        <Leaf Text="攻击默认" Color="4283349491" />
+        <Leaf Text="的设置进行攻击。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopConfig_CastDefaultKind">
+        <Leaf Text="设定" Color="4294375158" />
+        <Leaf Text="计略默认" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="当" Color="4294375158" />
+        <Leaf Text="计略范围" Color="4289065041" />
+        <Leaf Text="内有多个符合" Color="4294375158" />
+        <Leaf Text="计略目标" Color="4283349491" />
+        <Leaf Text="的部队时，对符合本设置的目标进行施展。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopConfig_CastTargetKind">
+        <Leaf Text="设定" Color="4294375158" />
+        <Leaf Text="计略目标" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="部队行动时会在" Color="4294375158" />
+        <Leaf Text="计略范围" Color="4289065041" />
+        <Leaf Text="内搜索所有符合本设置的目标，然后按照" Color="4294375158" />
+        <Leaf Text="计略默认" Color="4283349491" />
+        <Leaf Text="的设置进行施展。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopSetAuto">
+        <Leaf Text="部队" Color="4294375158" />
+        <Leaf Text="委任" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="只有" Color="4294375158" />
+        <Leaf Text="手动控制" Color="4289065041" />
+        <Leaf Text="军区的所属部队可以设置为委任。委任后部队将自动行动。" Color="4294375158" />
+    </Branch>
+	<Branch Name="TroopMorph">
+        <Leaf Text="部队" Color="4294375158" />
+        <Leaf Text="兴建" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="兴建队可以在任何位置" Color="4294375158" />
+        <Leaf Text="兴建" Color="4289065041" />
+        <Leaf Text="所属的设施。兴建时间为一天。" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="要建造军事设施，先在城池里新编所属的兴建队，并对其进行补充及训练作后勤人员。" Color="4294375158" />
+		<Leaf Text="然后兴建队可如一般部队出征，并抵达指定位置兴建。" Color="4294375158" />
+		<Leaf Text="要拆除军事设施，使用兴建指令即可把设施转回所属兴建队。" Color="4294375158" />
+    </Branch>
+    <Branch Name="TroopIdle">
+        <Leaf Text="部队" Color="4294375158" />
+        <Leaf Text="待命" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="部队" Color="4294375158" />
+        <Leaf Text="什么也不做，不会主动攻击。" Color="4289065041" />
+    </Branch>
+    <Branch Name="RoutewayEdit">
+        <Leaf Text="粮道" Color="4294375158" />
+        <Leaf Text="编辑" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="编辑粮道。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="只有畅通的粮道才能稳定而有效的补给我方部队。" Color="4294375158" />
+    </Branch>
+    <Branch Name="RoutewayShowArea">
+        <Leaf Text="粮道" Color="4294375158" />
+        <Leaf Text="显示范围" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="显示粮道的补给范围。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="随着粮道的畅通，其补给范围也会随之扩展，我方部队可以在此范围内补充粮草。" Color="4294375158" />
+    </Branch>
+    <Branch Name="RoutewayBuild">
+        <Leaf Text="粮道" Color="4294375158" />
+        <Leaf Text="疏通和暂停" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="开始疏通粮道或停止粮道的疏通。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="编辑粮道完成后，必须疏通粮道才能使其有效运作。" Color="4294375158" />
+    </Branch>
+    <Branch Name="RoutewayClose">
+        <Leaf Text="粮道" Color="4294375158" />
+        <Leaf Text="关闭粮道" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="关闭粮道的已疏通部分到" Color="4294375158" />
+        <Leaf Text="当前坐标" Color="4289065041" />
+        <Leaf Text="，并停止疏通。" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="由于粮道的维持也需要可观的资金，所以在长时间不使用的情况下最好将其关闭。" Color="4294375158" />
+    </Branch>
+    <Branch Name="RoutewayDemolish">
+        <Leaf Text="粮道" Color="4294375158" />
+        <Leaf Text="废弃粮道" Color="4283349491" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="\n" Color="4294375158" />
+        <Leaf Text="关闭并删除粮道。" Color="4294375158" />
+    </Branch>
+</Root>

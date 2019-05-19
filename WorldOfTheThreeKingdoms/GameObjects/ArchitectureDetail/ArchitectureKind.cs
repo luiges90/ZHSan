@@ -226,7 +226,7 @@ namespace GameObjects.ArchitectureDetail
                 this.hasAgriculture = value;
             }
         }
-        
+
         public string HasAgricultureString
         {
             get
@@ -567,4 +567,3 @@ namespace GameObjects.ArchitectureDetail
         }
     }
 }
-
