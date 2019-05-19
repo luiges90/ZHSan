@@ -273,6 +273,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (currentMod == null)
             {
                 currentMod = MODs[0];
+                Setting.Current.MOD = currentMod.ID;
             }
 
             Current = this;
