@@ -39,6 +39,24 @@ namespace GameManager
         public string Player { get; set; }
         [DataMember]
         public string PlayTime { get; set; }
+        [DataMember]
+        public string LeaderPics { get; set; }
+        [DataMember]
+        public string LeaderNames { get; set; }
+        [DataMember]
+        public string Reputations { get; set; }
+        [DataMember]
+        public string ArchitectureCounts { get; set; }
+        [DataMember]
+        public string CapitalNames { get; set; }
+        [DataMember]
+        public string Populations { get; set; }
+        [DataMember]
+        public string MilitaryCounts { get; set; }
+        [DataMember]
+        public string Funds { get; set; }
+        [DataMember]
+        public string Foods { get; set; }
 
         public string GameTime
         {
