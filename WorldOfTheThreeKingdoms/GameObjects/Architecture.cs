@@ -10851,10 +10851,6 @@ namespace GameObjects
                         {
                             minRequiredFactor = Math.Min(33, minRequiredFactor);
                         }
-                        if (Session.Current.Scenario.IsPlayer(i.A.BelongedFaction))
-                        {
-                            minRequiredFactor = 100;
-                        }
 
                         int reserve = Math.Max(0, reserveBase - i.A.ArmyScale);
                         int armyScaleRequiredForAttack = (int) (this.getArmyScaleRequiredForAttack(i) * (GameObject.Random(minRequiredFactor, 100) / 100.0f));
@@ -10967,10 +10963,6 @@ namespace GameObjects
                     if (this.IsVeryGood() && this.HasEnoughPeople)
                     {
                         minRequiredFactor = Math.Min(33, minRequiredFactor);
-                    }
-                    if (Session.Current.Scenario.IsPlayer(wayToTarget.A.BelongedFaction))
-                    {
-                        minRequiredFactor = 100;
                     }
 
                     int reserve = Math.Max(0, reserveBase - wayToTarget.A.ArmyScale);
