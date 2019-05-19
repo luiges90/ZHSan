@@ -25,7 +25,7 @@ namespace GameObjects.MapDetail
 
         public TerrainTextures Textures = new TerrainTextures();
         private bool viewThrough;
-
+        
         public void Init()
         {
             Textures = new TerrainTextures();
@@ -82,6 +82,9 @@ namespace GameObjects.MapDetail
                 this.fireDamageRate = value;
             }
         }
+
+        [DataMember]
+        public bool CanExtendInto;
 
         public string FireDamageRateString
         {

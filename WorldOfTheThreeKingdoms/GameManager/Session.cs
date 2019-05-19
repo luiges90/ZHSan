@@ -254,17 +254,13 @@ namespace GameManager
 
         public static void Init()
         {
-            //var same = GameTools.CheckSame();
-            //var list1 = GameTools.GetContentList("Content", true);
-            //var list2 = GameTools.GetContentList("MODs", true);
-
             new PlatformTask(() =>
             {
                 try
                 {
                     #region 手機版采用跟PC同樣設置
                     //if (Platform.PlatFormType == PlatFormType.Win)
-                    //{                        
+                    //{
                     //    //此選項用於生成壓縮格式的劇本，以減小遊戲占用存儲空間
                     //    bool BuildScenarioDataZip = false;
 
@@ -469,7 +465,7 @@ namespace GameManager
                 //Platform.Current.PreparePhone();
 
                 width = Session.MainGame.fullScreenDestination.Width;  // int.Parse(Platform.PreferResolution.Split('*')[0]);
-                height = Session.MainGame.fullScreenDestination.Height;  // int.Parse(Platform.PreferResolution.Split('*')[1]);                
+                height = Session.MainGame.fullScreenDestination.Height;  // int.Parse(Platform.PreferResolution.Split('*')[1]);
             }
 
             float slope = Convert.ToSingle(width) / Convert.ToSingle(height);
@@ -607,33 +603,6 @@ namespace GameManager
 
                 Platform.Current.PlaySong(song);
             }
-        }
-
-        static string[] ListUpSongs(string category)
-        {
-            string[] songs = null;
-
-            if (Platform.PlatFormType == PlatFormType.Android)
-            {
-                var allFiles = Platform.Current.GetFilesBasic("", false).NullToEmptyArray().Where(fi => !fi.Contains("/")).NullToEmptyArray();
-
-                var start = Setting.Current.MODRuntime.NullToString("Original") + "-" + category;
-
-                songs = allFiles.Where(fi => fi.StartsWith(start)).NullToEmptyArray();
-
-                if (songs.Length == 0)
-                {
-                    start = "Original-" + category;
-
-                    songs = allFiles.Where(fi => fi.StartsWith(start)).NullToEmptyArray();
-                }
-            }
-            else
-            {
-                songs = Platform.Current.GetMODFiles(@"Content\Music\" + category, true).NullToEmptyArray();
-            }
-
-            return songs;
         }
 
         public static void StopSong()

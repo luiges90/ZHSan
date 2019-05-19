@@ -93190,7 +93190,8 @@
 "RoutewayBuildFundCost":10000,
 "RoutewayBuildWorkCost":10000,
 "RoutewayConsumptionRate":1,
-"ViewThrough":false
+"ViewThrough":false,
+"CanExtendInto":false
 }
 },
 {
@@ -93210,7 +93211,8 @@
 "RoutewayBuildFundCost":30,
 "RoutewayBuildWorkCost":40,
 "RoutewayConsumptionRate":0.008,
-"ViewThrough":true
+"ViewThrough":true,
+"CanExtendInto":true
 }
 },
 {
@@ -93230,7 +93232,8 @@
 "RoutewayBuildFundCost":40,
 "RoutewayBuildWorkCost":50,
 "RoutewayConsumptionRate":0.01,
-"ViewThrough":true
+"ViewThrough":true,
+"CanExtendInto":true
 }
 },
 {
@@ -93250,7 +93253,8 @@
 "RoutewayBuildFundCost":60,
 "RoutewayBuildWorkCost":60,
 "RoutewayConsumptionRate":0.012,
-"ViewThrough":true
+"ViewThrough":true,
+"CanExtendInto":true
 }
 },
 {
@@ -93270,7 +93274,8 @@
 "RoutewayBuildFundCost":200,
 "RoutewayBuildWorkCost":500,
 "RoutewayConsumptionRate":0.03,
-"ViewThrough":true
+"ViewThrough":true,
+"CanExtendInto":false
 }
 },
 {
@@ -93290,7 +93295,8 @@
 "RoutewayBuildFundCost":90,
 "RoutewayBuildWorkCost":100,
 "RoutewayConsumptionRate":0.016,
-"ViewThrough":true
+"ViewThrough":true,
+"CanExtendInto":true
 }
 },
 {
@@ -93310,7 +93316,8 @@
 "RoutewayBuildFundCost":30,
 "RoutewayBuildWorkCost":30,
 "RoutewayConsumptionRate":0.005,
-"ViewThrough":true
+"ViewThrough":true,
+"CanExtendInto":false
 }
 },
 {
@@ -93330,7 +93337,8 @@
 "RoutewayBuildFundCost":10000,
 "RoutewayBuildWorkCost":10000,
 "RoutewayConsumptionRate":1,
-"ViewThrough":false
+"ViewThrough":false,
+"CanExtendInto":false
 }
 },
 {
@@ -93350,7 +93358,8 @@
 "RoutewayBuildFundCost":80,
 "RoutewayBuildWorkCost":60,
 "RoutewayConsumptionRate":0.015,
-"ViewThrough":true
+"ViewThrough":true,
+"CanExtendInto":true
 }
 },
 {
@@ -93370,7 +93379,8 @@
 "RoutewayBuildFundCost":75,
 "RoutewayBuildWorkCost":80,
 "RoutewayConsumptionRate":0.012,
-"ViewThrough":true
+"ViewThrough":true,
+"CanExtendInto":true
 }
 },
 {
@@ -93390,7 +93400,8 @@
 "RoutewayBuildFundCost":150,
 "RoutewayBuildWorkCost":100,
 "RoutewayConsumptionRate":0.024,
-"ViewThrough":true
+"ViewThrough":true,
+"CanExtendInto":true
 }
 }
 ]
