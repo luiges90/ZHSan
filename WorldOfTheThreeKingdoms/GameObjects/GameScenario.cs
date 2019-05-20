@@ -56,7 +56,7 @@ namespace GameObjects
 
         // 缓存地图上有几支部队在埋伏
         private int numberOfAmbushTroop = -1;
-
+        public static int savemaxcounts=49;
         // public Dictionary<Event, Architecture> YesArchiEventsToApply = new Dictionary<Event, Architecture>();
         //public Dictionary<Event, Architecture> NoArchiEventsToApply = new Dictionary<Event, Architecture>();
 
@@ -5075,7 +5075,6 @@ namespace GameObjects
             }
 
             var saves = LoadScenarioSaves();
-
             string file = LoadedFileName;
             if (!fullPathProvided)
             {
@@ -5456,11 +5455,22 @@ namespace GameObjects
             {
                 scesList = new List<Scenario>();
 
-                for (int i = 0; i <= 10; i++)
+                for (int i = 0; i <= savemaxcounts+1; i++)
                 {
                     var sce = new Scenario()
                     {
-                        ID = i.ToString()
+                        ID = i < 10 ? "0" + i.ToString() : i.ToString()
+                    };
+                    scesList.Add(sce);
+                }
+            }
+            else if(scesList.Count<=GameScenario.savemaxcounts)
+            {
+                for (int i = scesList.Count; i <= savemaxcounts ; i++)
+                {
+                    var sce = new Scenario()
+                    {
+                        ID = i < 10 ? "0" + i.ToString() : i.ToString()
                     };
                     scesList.Add(sce);
                 }

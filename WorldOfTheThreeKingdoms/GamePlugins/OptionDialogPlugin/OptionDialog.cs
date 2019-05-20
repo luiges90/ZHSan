@@ -22,6 +22,7 @@ namespace OptionDialogPlugin
         private List<bool> OptionObjectsSelected = new List<bool>();
         internal PlatformTexture OptionSelectedTexture;
         internal FreeTextList OptionTextList;
+        internal FreeTextList OptionTextListPage=new FreeTextList();
         internal PlatformTexture OptionTexture;
         private List<PlatformTexture> OptionTextures = new List<PlatformTexture>();
         internal GameDelegates.ObjectFunction ReturnObjectFunction;
@@ -33,7 +34,11 @@ namespace OptionDialogPlugin
         internal FreeText TitleText;
         internal PlatformTexture TitleTexture;
         internal int TitleWidth;
-
+        GamePanels.ButtonTexture btPre, btNext;
+        internal int pageIndex = 1;
+        int pageCount = 0;
+        int pageitems = 10;
+        int page = 0;
         internal void AddOptionItem(string Text, object obj, GameDelegates.VoidFunction optionFunction)
         {
             this.OptionTextList.AddText(Text);
@@ -55,16 +60,26 @@ namespace OptionDialogPlugin
         {
             if (this.OptionTextList.Count != 0)
             {
+                if(this.OptionTextList.Count>pageitems)
+                {
+                    btNext.Draw();
+                    btPre.Draw();
+                }
                 Rectangle? sourceRectangle = null;
                 CacheManager.Draw(this.TitleTexture, this.TitleDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
                 this.TitleText.Draw(0.1999f);
+                //if (personList.IndexOf(p) < (onepageperson) * pageIndex && personList.IndexOf(p) >= (onepageperson) * (pageIndex - 1))
                 for (int i = 0; i < this.OptionTextures.Count; i++)
                 {
-                    sourceRectangle = null;
-                    CacheManager.Draw(this.OptionTextures[i], this.OptionTextList.DisplayPosition(i), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                    if(i<10 * pageIndex && i>= pageitems * (pageIndex - 1))
+                    {
+                        sourceRectangle = null;
+                        CacheManager.Draw(this.OptionTextures[i], this.OptionTextList.DisplayPosition(i), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                        this.OptionTextList.Draw(i, 0.1999f);
+                    }
                 }
-                float optionText = 0.1999f;
-                this.OptionTextList.Draw(optionText);
+                //float optionText = 0.1999f;
+                //this.OptionTextList.Draw(optionText);
             }
         }
 
@@ -72,9 +87,15 @@ namespace OptionDialogPlugin
         {
             //this.OptionTextList.ResetAllTextTextures();
             this.ItemWidth = this.OptionTextList.MaxWidth + this.Margin;
+            int n = 0;
             for (int i = 0; i < this.OptionTextures.Count; i++)
             {
-                this.OptionTextList[i].Position = new Rectangle(0, i * this.ItemHeight, this.ItemWidth, this.ItemHeight);
+                n++;
+                this.OptionTextList[i].Position = new Rectangle(0, n * this.ItemHeight, this.ItemWidth, this.ItemHeight);
+                if (n % pageitems == 0)
+                {
+                    n = 0;
+                }
             }
         }
 
@@ -107,7 +128,7 @@ namespace OptionDialogPlugin
                 if (StaticMethods.PointInRectangle(position, this.OptionTextList.DisplayPosition(i)))
                 {
                     this.IsShowing = false;
-                    this.InvokeFunction(i);
+                    this.InvokeFunction(i + pageitems * (pageIndex - 1));
                     break;
                 }
             }
@@ -195,7 +216,7 @@ namespace OptionDialogPlugin
                     break;
 
                 case ShowPosition.BottomRight:
-                    rect = StaticMethods.GetBottomRightRectangle(rectDes, rect);
+                    rect = StaticMethods.GetBottomRightRectangle(rectDes, new Rectangle(rect.X, rect.Y, rect.Width, rect.Height + this.ItemHeight));
                     break;
 
                 case ShowPosition.Mouse:
@@ -206,6 +227,33 @@ namespace OptionDialogPlugin
             this.OptionTextList.DisplayOffset = new Point(rect.X, rect.Y);
             this.TitleDisplayPosition = StaticMethods.GetCenterRectangle(new Rectangle(rect.X, (rect.Y - this.TitleHeight) - this.TitleMargin, this.ItemWidth, this.TitleHeight), new Rectangle(0, 0, this.TitleWidth, this.TitleHeight));
             this.TitleText.DisplayOffset = new Point(this.TitleDisplayPosition.X, this.TitleDisplayPosition.Y);
+            btPre = new GamePanels.ButtonTexture(@"Content\Textures\Resources\Start\next-alpha", "Left", new Vector2(this.OptionTextList.DisplayOffset.X + 100, this.OptionTextList.DisplayOffset.Y + Height + 50))
+            {
+                Enable = true,
+                Scale = 0.8f
+            };
+            btPre.OnButtonPress += (sender, e) =>
+            {
+                if (pageIndex > 1)
+                {
+                    pageIndex--;
+                }
+
+            };
+
+            btNext = new GamePanels.ButtonTexture(@"Content\Textures\Resources\Start\next-alpha", "Right", new Vector2(this.OptionTextList.DisplayOffset.X + Width - 250, this.OptionTextList.DisplayOffset.Y + Height + 50))
+            {
+                Enable = false,
+                Scale = 0.8f
+            };
+            btNext.OnButtonPress += (sender, e) =>
+            {
+                if (pageIndex < pageCount)
+                {
+                    pageIndex++;
+                }
+
+            };
         }
 
         internal void SetStyle(string style)
@@ -234,6 +282,35 @@ namespace OptionDialogPlugin
 
         public void Update()
         {
+            if (this.OptionTextList.Count > pageitems)
+            {
+                OptionTextListPage.TextList = Tools.GenericTools.GetPageList<TextItem>(OptionTextList.TextList, pageIndex.ToString(), pageitems, ref pageCount, ref page);
+                if (pageIndex > 1)
+                {
+                    btPre.Enable = true;
+                }
+                else
+                {
+                    btPre.Enable = false;
+                }
+                if (pageIndex < pageCount)
+                {
+                    btNext.Enable = true;
+                }
+                else
+                {
+                    btNext.Enable = false;
+                }
+                btPre.Update();
+                btNext.Update();
+            }
+
+            //for (int i = 0; i < OptionTextListPage.Count; i++)
+            //{
+            //    var btOne = OptionTextListPage[i];
+            //    btOne.Position = new Vector2(150, 145 + 55 * i);
+            //    btOne.Update();
+            //}
         }
 
         internal Point DisplayOffset
@@ -252,7 +329,11 @@ namespace OptionDialogPlugin
         {
             get
             {
-                return (this.ItemHeight * this.OptionTextures.Count);
+                if (this.OptionTextList.Count > pageitems)
+                {
+                    return (this.ItemHeight * pageitems);
+                }
+                else return this.ItemHeight * this.OptionTextList.Count;
             }
         }
 
@@ -269,6 +350,7 @@ namespace OptionDialogPlugin
                     this.isShowing = value;
                     if (value)
                     {
+                        Update();
                         this.OptionObjectsSelected.Clear();
                         foreach (GameObject obj2 in this.OptionObjects)
                         {

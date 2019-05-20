@@ -331,31 +331,22 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.Plugins.OptionDialogPlugin.Clear();
 
             var saves = GameScenario.LoadScenarioSaves();
+            for (int i = 0; i <= GameScenario.savemaxcounts; i++)
+            {
+                string ss = i < 10 ? "0" + i.ToString() : i.ToString();
+                GameDelegates.VoidFunction voidFunction = delegate
+                {
+                    var sce = saves[int.Parse(ss)];
 
-            this.Plugins.OptionDialogPlugin.AddOption(saves[0].Summary, null, new GameDelegates.VoidFunction(this.LoadGameFromAutoPosition));
-
-            this.Plugins.OptionDialogPlugin.AddOption(saves[1].Summary, null, new GameDelegates.VoidFunction(this.LoadGameFromPosition01));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[2].Summary, null, new GameDelegates.VoidFunction(this.LoadGameFromPosition02));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[3].Summary, null, new GameDelegates.VoidFunction(this.LoadGameFromPosition03));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[4].Summary, null, new GameDelegates.VoidFunction(this.LoadGameFromPosition04));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[5].Summary, null, new GameDelegates.VoidFunction(this.LoadGameFromPosition05));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[6].Summary, null, new GameDelegates.VoidFunction(this.LoadGameFromPosition06));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[7].Summary, null, new GameDelegates.VoidFunction(this.LoadGameFromPosition07));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[8].Summary, null, new GameDelegates.VoidFunction(this.LoadGameFromPosition08));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[9].Summary, null, new GameDelegates.VoidFunction(this.LoadGameFromPosition09));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[10].Summary, null, new GameDelegates.VoidFunction(this.LoadGameFromPosition10));            
-
-            //this.Plugins.OptionDialogPlugin.AddOption(this.GetSaveFileDisplayText("Save01" + this.SaveFileExtension), null, new GameDelegates.VoidFunction(this.LoadGameFromPosition01));
-            //this.Plugins.OptionDialogPlugin.AddOption(this.GetSaveFileDisplayText("Save02" + this.SaveFileExtension), null, new GameDelegates.VoidFunction(this.LoadGameFromPosition02));
-            //this.Plugins.OptionDialogPlugin.AddOption(this.GetSaveFileDisplayText("Save03" + this.SaveFileExtension), null, new GameDelegates.VoidFunction(this.LoadGameFromPosition03));
-            //this.Plugins.OptionDialogPlugin.AddOption(this.GetSaveFileDisplayText("Save04" + this.SaveFileExtension), null, new GameDelegates.VoidFunction(this.LoadGameFromPosition04));
-            //this.Plugins.OptionDialogPlugin.AddOption(this.GetSaveFileDisplayText("Save05" + this.SaveFileExtension), null, new GameDelegates.VoidFunction(this.LoadGameFromPosition05));
-            //this.Plugins.OptionDialogPlugin.AddOption(this.GetSaveFileDisplayText("Save06" + this.SaveFileExtension), null, new GameDelegates.VoidFunction(this.LoadGameFromPosition06));
-            //this.Plugins.OptionDialogPlugin.AddOption(this.GetSaveFileDisplayText("Save07" + this.SaveFileExtension), null, new GameDelegates.VoidFunction(this.LoadGameFromPosition07));
-            //this.Plugins.OptionDialogPlugin.AddOption(this.GetSaveFileDisplayText("Save08" + this.SaveFileExtension), null, new GameDelegates.VoidFunction(this.LoadGameFromPosition08));
-            //this.Plugins.OptionDialogPlugin.AddOption(this.GetSaveFileDisplayText("Save09" + this.SaveFileExtension), null, new GameDelegates.VoidFunction(this.LoadGameFromPosition09));
-            //this.Plugins.OptionDialogPlugin.AddOption(this.GetSaveFileDisplayText("Save10" + this.SaveFileExtension), null, new GameDelegates.VoidFunction(this.LoadGameFromPosition10));
-            //this.Plugins.OptionDialogPlugin.AddOption(this.GetSaveFileDisplayText("AutoSave" + this.SaveFileExtension), null, new GameDelegates.VoidFunction(this.LoadGameFromAutoPosition));
+                    if (!String.IsNullOrEmpty(sce.Title))
+                    {
+                        mainMapLayer.StopThreads();
+                        Session.StartScenario(sce, true);
+                    }
+                };
+                saves[i].ID = ss;
+                this.Plugins.OptionDialogPlugin.AddOption(saves[i].Summary, null, voidFunction);
+            }
 
             this.Plugins.OptionDialogPlugin.EndAddOptions();
             this.Plugins.OptionDialogPlugin.ShowOptionDialog(ShowPosition.Center);
@@ -386,106 +377,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             LoadGameFromPosition("00");
             //this.LoadFileName = "AutoSave" + this.SaveFileExtension;
-            //Thread thread = new Thread(new ThreadStart(this.LoadGameFromDisk));
-            //thread.Start();
-            //thread.Join();
-            //thread = null;
-        }
-
-        private void LoadGameFromPosition01()
-        {
-            LoadGameFromPosition("01");
-            //this.LoadFileName = "Save01" + this.SaveFileExtension;
-            //Thread thread = new Thread(new ThreadStart(this.LoadGameFromDisk));
-            //thread.Start();
-            //thread.Join();
-            //thread = null;
-        }
-
-        private void LoadGameFromPosition02()
-        {
-            LoadGameFromPosition("02");
-            //this.LoadFileName = "Save02" + this.SaveFileExtension;
-            //Thread thread = new Thread(new ThreadStart(this.LoadGameFromDisk));
-            //thread.Start();
-            //thread.Join();
-            //thread = null;
-        }
-
-        private void LoadGameFromPosition03()
-        {
-            LoadGameFromPosition("03");
-            //this.LoadFileName = "Save03" + this.SaveFileExtension;
-            //Thread thread = new Thread(new ThreadStart(this.LoadGameFromDisk));
-            //thread.Start();
-            //thread.Join();
-            //thread = null;
-        }
-
-        private void LoadGameFromPosition04()
-        {
-            LoadGameFromPosition("04");
-            //this.LoadFileName = "Save04" + this.SaveFileExtension;
-            //Thread thread = new Thread(new ThreadStart(this.LoadGameFromDisk));
-            //thread.Start();
-            //thread.Join();
-            //thread = null;
-        }
-
-        private void LoadGameFromPosition05()
-        {
-            LoadGameFromPosition("05");
-            //this.LoadFileName = "Save05" + this.SaveFileExtension;
-            //Thread thread = new Thread(new ThreadStart(this.LoadGameFromDisk));
-            //thread.Start();
-            //thread.Join();
-            //thread = null;
-        }
-
-        private void LoadGameFromPosition06()
-        {
-            LoadGameFromPosition("06");
-            //this.LoadFileName = "Save06" + this.SaveFileExtension;
-            //Thread thread = new Thread(new ThreadStart(this.LoadGameFromDisk));
-            //thread.Start();
-            //thread.Join();
-            //thread = null;
-        }
-
-        private void LoadGameFromPosition07()
-        {
-            LoadGameFromPosition("07");
-            //this.LoadFileName = "Save07" + this.SaveFileExtension;
-            //Thread thread = new Thread(new ThreadStart(this.LoadGameFromDisk));
-            //thread.Start();
-            //thread.Join();
-            //thread = null;
-        }
-
-        private void LoadGameFromPosition08()
-        {
-            LoadGameFromPosition("08");
-            //this.LoadFileName = "Save08" + this.SaveFileExtension;
-            //Thread thread = new Thread(new ThreadStart(this.LoadGameFromDisk));
-            //thread.Start();
-            //thread.Join();
-            //thread = null;
-        }
-
-        private void LoadGameFromPosition09()
-        {
-            LoadGameFromPosition("09");
-            //this.LoadFileName = "Save09" + this.SaveFileExtension;
-            //Thread thread = new Thread(new ThreadStart(this.LoadGameFromDisk));
-            //thread.Start();
-            //thread.Join();
-            //thread = null;
-        }
-
-        private void LoadGameFromPosition10()
-        {
-            LoadGameFromPosition("10");
-            //this.LoadFileName = "Save10" + this.SaveFileExtension;
             //Thread thread = new Thread(new ThreadStart(this.LoadGameFromDisk));
             //thread.Start();
             //thread.Join();

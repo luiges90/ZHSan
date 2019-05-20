@@ -75,13 +75,14 @@ namespace GameManager
         {
             get
             {
-                string str = "空 白 存 档";
+                //string id =int.Parse( ID) >= 10 ? ID.ToString() : "0" + ID.ToString();
+                string str ="存档"+ID+":    " +"空 白 存 档";
 
                 string exp = ID == "0" ? "(自动保存) " : "";
 
                 if (!String.IsNullOrEmpty(Title))
                 {
-                    str = String.Join("  ", new string[] { Info, Title, Time.ToSeasonDate(), Create.ToSeasonShortTime(), "(" + GameTime + ")" });
+                    str = String.Join("  ", new string[] { "存档"+ ID + ":    ", Info, Title, Time.ToSeasonDate(), Create.ToSeasonShortTime(), "(" + GameTime + ")" });
                 }
                 return exp + str;
             }

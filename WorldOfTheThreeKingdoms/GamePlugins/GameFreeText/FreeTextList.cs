@@ -20,7 +20,7 @@ namespace GameFreeText
 
         private Microsoft.Xna.Framework.Point displayOffset;
         private Microsoft.Xna.Framework.Color textColor;
-        private List<TextItem> TextList;
+        public List<TextItem> TextList;
 
         public FreeTextList()
         {
