@@ -147,6 +147,7 @@ namespace OptionDialogPlugin
         public void ShowOptionDialog(ShowPosition showPosition)
         {
             this.optionDialog.SetDisplayOffset(showPosition);
+            this.optionDialog.pageIndex = 1;
             this.optionDialog.IsShowing = true;
         }
 
