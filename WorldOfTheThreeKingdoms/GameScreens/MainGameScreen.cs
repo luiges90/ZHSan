@@ -1595,18 +1595,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             //throw new Exception("SaveGame");
 
             var saves = GameScenario.LoadScenarioSaves();
-
-            this.Plugins.OptionDialogPlugin.AddOption(saves[1].Summary,  null, new GameDelegates.VoidFunction(this.SaveGameToPosition01));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[2].Summary,  null, new GameDelegates.VoidFunction(this.SaveGameToPosition02));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[3].Summary,  null, new GameDelegates.VoidFunction(this.SaveGameToPosition03));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[4].Summary,  null, new GameDelegates.VoidFunction(this.SaveGameToPosition04));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[5].Summary,  null, new GameDelegates.VoidFunction(this.SaveGameToPosition05));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[6].Summary,  null, new GameDelegates.VoidFunction(this.SaveGameToPosition06));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[7].Summary,  null, new GameDelegates.VoidFunction(this.SaveGameToPosition07));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[8].Summary,  null, new GameDelegates.VoidFunction(this.SaveGameToPosition08));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[9].Summary,  null, new GameDelegates.VoidFunction(this.SaveGameToPosition09));
-            this.Plugins.OptionDialogPlugin.AddOption(saves[10].Summary, null, new GameDelegates.VoidFunction(this.SaveGameToPosition10));
-
+            for (int i = 1; i <= GameScenario.savemaxcounts; i++)
+            {
+                string ss = i < 10 ? "0" + i.ToString() : i.ToString();
+                GameDelegates.VoidFunction voidFunction = delegate
+                {
+                    this.SaveFileName = "Save" + ss + this.SaveFileExtension;
+                    this.SaveGameToDisk(this.SaveFileName);
+                };
+                saves[i].ID = ss;
+                this.Plugins.OptionDialogPlugin.AddOption(saves[i].Summary, null, voidFunction);
+            }
             this.Plugins.OptionDialogPlugin.EndAddOptions();
             this.Plugins.OptionDialogPlugin.ShowOptionDialog(ShowPosition.Center);
         }
@@ -1660,67 +1659,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.SaveFileName = "QuitSave" + this.SaveFileExtension;
             this.SaveGameToDisk(this.SaveFileName);
         }
-
-        private void SaveGameToPosition01()
-        {
-            this.SaveFileName = "Save01" + this.SaveFileExtension;
-            this.SaveGameToDisk(this.SaveFileName);
-        }
-
-        private void SaveGameToPosition02()
-        {
-            this.SaveFileName = "Save02" + this.SaveFileExtension;
-            this.SaveGameToDisk(this.SaveFileName);
-        }
-
-        private void SaveGameToPosition03()
-        {
-            this.SaveFileName = "Save03" + this.SaveFileExtension;
-            this.SaveGameToDisk(this.SaveFileName);
-        }
-
-        private void SaveGameToPosition04()
-        {
-            this.SaveFileName = "Save04" + this.SaveFileExtension;
-            this.SaveGameToDisk(this.SaveFileName);
-        }
-
-        private void SaveGameToPosition05()
-        {
-            this.SaveFileName = "Save05" + this.SaveFileExtension;
-            this.SaveGameToDisk(this.SaveFileName);
-        }
-
-        private void SaveGameToPosition06()
-        {
-            this.SaveFileName = "Save06" + this.SaveFileExtension;
-            this.SaveGameToDisk(this.SaveFileName);
-        }
-
-        private void SaveGameToPosition07()
-        {
-            this.SaveFileName = "Save07" + this.SaveFileExtension;
-            this.SaveGameToDisk(this.SaveFileName);
-        }
-
-        private void SaveGameToPosition08()
-        {
-            this.SaveFileName = "Save08" + this.SaveFileExtension;
-            this.SaveGameToDisk(this.SaveFileName);
-        }
-
-        private void SaveGameToPosition09()
-        {
-            this.SaveFileName = "Save09" + this.SaveFileExtension;
-            this.SaveGameToDisk(this.SaveFileName);
-        }
-
-        private void SaveGameToPosition10()
-        {
-            this.SaveFileName = "Save10" + this.SaveFileExtension;
-            this.SaveGameToDisk(this.SaveFileName);
-        }
-
+ 
         public void SaveGameWhenCrash(String _savePath)
         {
             this.SaveFileName = _savePath;
@@ -2919,6 +2858,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         break;
                 }
 
+                var optionDialog = Session.MainGame.mainGameScreen.Plugins.OptionDialogPlugin as OptionDialogPlugin.OptionDialogPlugin;
+                if(optionDialog.IsShowing)
+                {
+                    optionDialog.Update(gameTime);
+                }
                 /*}
                 catch (OutOfMemoryException)
                 {
