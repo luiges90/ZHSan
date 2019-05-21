@@ -119,17 +119,20 @@ namespace TabListPlugin
 
         public override void Draw()
         {
-            selectallX = this.listKindToDisplay.AllColumns[0].ColumnTextList[0].Position.X;
-            selectallY = base.RealClient.Bottom + (int)(1.2f * rowHeight);
+            if (MultiSelecting)
+            {
+                selectallX = this.listKindToDisplay.AllColumns[0].ColumnTextList[0].Position.X;
+                selectallY = base.RealClient.Bottom + (int)(1.2f * rowHeight);
+            }
             base.Draw();
             if (this.listKindToDisplay != null)
             {
                 this.listKindToDisplay.Draw();
                 if (MultiSelecting)
                 {
-                    CacheManager.Draw(SellectAllTexture, new Rectangle(selectallX-2*checkboxWidth, selectallY, (int) (checkboxWidth*1.3), (int)(checkboxWidth * 1.3)), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
+                    CacheManager.Draw(SellectAllTexture, new Rectangle(selectallX - 2 * checkboxWidth, selectallY, (int)(checkboxWidth * 1.3), (int)(checkboxWidth * 1.3)), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
 
-                    CacheManager.DrawString(Session.Current.Font, selectallstring, new Vector2(selectallX, selectallY), Color.White , 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                    CacheManager.DrawString(Session.Current.Font, selectallstring, new Vector2(selectallX, selectallY), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                 }
             }
         }
