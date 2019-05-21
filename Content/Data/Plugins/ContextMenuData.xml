@@ -63,6 +63,7 @@
       </MenuItem>
       <MenuItem ID="2" Name="Military" DisplayName="军事">
         <MenuItem ID="1" Name="Campaign" DisplayName="出征" DisplayIfTrue="CampaignAvail" />
+        <MenuItem ID="1" Name="CampaignAuto" DisplayName="自动出征" DisplayIfTrue="CampaignAvail" />
         <MenuItem ID="2" Name="Troopership" DisplayName="运兵船" DisplayIfTrue="TroopershipAvail" />
         <MenuItem ID="3" Name="Transfer" DisplayName="运兵" DisplayIfTrue="TransferMilitaryAvail" />
         <MenuItem ID="10" Name="Training" DisplayName="训练" DisplayIfTrue="TrainingAvail" />

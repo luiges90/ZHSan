@@ -898,7 +898,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case SelectingUndoneWorkKind.ArchitectureAvailableContactArea:
                     if (!this.selectingLayer.Canceled)
                     {
-                        this.screenManager.SetCreatingTroopPosition(this.selectingLayer.SelectedPoint);
+                        if(this.CurrentMilitaries.Count==1 && this.CurrentMilitary!=null )
+                        {
+                            this.screenManager.SetCreatingTroopPosition(this.selectingLayer.SelectedPoint);
+                        }
+                        else if (this.CurrentMilitaries.Count > 1)
+                        {
+                            this.screenManager.SetTroopsPosition(this.selectingLayer.SelectedPoint);
+                        }
                     }
                     return;
 
