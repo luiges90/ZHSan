@@ -473,15 +473,20 @@ namespace WorldOfTheThreeKingdoms
                     {
                         if (String.IsNullOrEmpty(err))
                         {
-                            try
-                            {
-                                mainGameScreen.Draw(gameTime);
-                            }
-                            catch (Exception ex)
-                            {
-                                err = "不好意思，游戏运行出错，点击将返回主菜单，请考虑读取自动存档。\r\n" + ex.Message;
-                                WebTools.TakeWarnMsg("mainGameScreen.Draw", "", ex);
-                            }
+#if DEBUG
+                            mainGameScreen.Draw(gameTime);
+#else
+                                try
+                                {
+                                    mainGameScreen.Draw(gameTime);
+                                }
+                                catch (Exception ex)
+                                {
+                                    err = "不好意思，游戏运行出错，点击将返回主菜单，请考虑读取自动存档。\r\n" + ex.Message;
+                                    WebTools.TakeWarnMsg("mainGameScreen.Draw", "", ex);
+                                }
+#endif
+
                         }
                         else
                         {

@@ -5680,9 +5680,12 @@ namespace GameObjects
         public void SetPlayerFactionList(GameObjectList factions)
         {
             this.PlayerFactions.Clear();
-            foreach (Faction faction in factions)
+            if (factions != null)
             {
-                this.PlayerFactions.Add(faction);
+                foreach (Faction faction in factions)
+                {
+                    this.PlayerFactions.Add(faction);
+                }
             }
         }
 
