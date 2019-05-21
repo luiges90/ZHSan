@@ -82,7 +82,9 @@ namespace TabListPlugin
         internal PlatformTexture tabbuttonTexture;
         internal int tabbuttonWidth;
         internal TextAlign TabTextAlign;
-
+        PlatformTexture SellectAllTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\CheckBox.png" );
+        string selectallstring = " 全 选 ";
+        int selectallX, selectallY;
         public Font TabTextBuilder = new Font();
 
         internal Color TabTextColor;
@@ -117,10 +119,18 @@ namespace TabListPlugin
 
         public override void Draw()
         {
+            selectallX = this.listKindToDisplay.AllColumns[0].ColumnTextList[0].Position.X;
+            selectallY = base.RealClient.Bottom + (int)(1.2f * rowHeight);
             base.Draw();
             if (this.listKindToDisplay != null)
             {
                 this.listKindToDisplay.Draw();
+                if (MultiSelecting)
+                {
+                    CacheManager.Draw(SellectAllTexture, new Rectangle(selectallX-2*checkboxWidth, selectallY, (int) (checkboxWidth*1.3), (int)(checkboxWidth * 1.3)), null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.035f);
+
+                    CacheManager.DrawString(Session.Current.Font, selectallstring, new Vector2(selectallX, selectallY), Color.White , 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                }
             }
         }
 
@@ -466,6 +476,29 @@ namespace TabListPlugin
                 }
             }
 
+            else if (MultiSelecting && (Session.MainGame.mainGameScreen.PeekUndoneWork().Kind == UndoneWorkKind.Frame) && StaticMethods.PointInRectangle(position, new Rectangle(selectallX - 2 * checkboxWidth, selectallY, (int)(checkboxWidth * 1.3), (int)(checkboxWidth * 1.3))))
+            {
+                if (selectallstring.Equals(" 全 选 "))
+                {
+                    SellectAllTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\CheckBoxSelected.png");
+                    selectallstring = "取消全选";
+                    foreach (GameObject g in this.gameObjectList)
+                    {
+                        g.Selected = true;
+                    }
+                    this.ResetEditableTextures();
+                }
+                else
+                {
+                    SellectAllTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TabList\Data\CheckBox.png");
+                    selectallstring = " 全 选 ";
+                    foreach (GameObject g in this.gameObjectList)
+                    {
+                        g.Selected = false;
+                    }
+                    this.ResetEditableTextures();
+                }
+            }
 
         }
 
@@ -552,7 +585,8 @@ namespace TabListPlugin
                                         this.iTroopDetail.IsShowing = true;
                                     }
                                     Point pos = (gameObjectByPosition as Troop).Position;
-                                    if (pos != Point.Zero) { 
+                                    if (pos != Point.Zero)
+                                    {
                                         Session.MainGame.mainGameScreen.JumpTo(pos);
                                     }
                                 }
@@ -739,7 +773,6 @@ namespace TabListPlugin
                     }
                 }
             }
-
 
             /////////////////////////////////////////////////
 
