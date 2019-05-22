@@ -61,8 +61,7 @@ namespace tupianwenziPlugin
         internal GameDelegates.VoidFunction YesFunction;
 
         internal event GameDelegates.VoidFunction CloseFunction;
-
-
+        internal string TryToShowString = "";
 
         internal void Close(Screen screen)
         {
@@ -87,6 +86,15 @@ namespace tupianwenziPlugin
                 this.shijianshengyin = this.shijianshengyinduilie.Dequeue();
                 this.SpeakingPerson = name.person;
                 this.NameText.Text = name.person.Name;
+                if (name.TryToShowString != null && name.TryToShowString.Length > 1)
+                {
+                    this.TryToShowString = name.TryToShowString;
+                }
+                else this.TryToShowString = "";
+                if(TryToShowString != null && TryToShowString.Length > 1)
+                {
+                    this.SetPosition(ShowPosition.BottomLeft, screen);
+                }
                 this.RichText.Clear();
                 if (this.diyigeshengyin)
                 {
@@ -95,7 +103,6 @@ namespace tupianwenziPlugin
                 }
 
                 this.RichText.Texts = name.texts;
-
                 this.RichText.ResortTexts();
                 if (name.iConfirmationDialog != null)
                 {
@@ -122,14 +129,6 @@ namespace tupianwenziPlugin
             {
                 Rectangle? sourceRectangle = null;
 
-                //try
-                //{
-                //    CacheManager.Draw(this.SpeakingPerson.Portrait, this.PortraitDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.201f);
-                //}
-                //catch
-                //{
-                //}
-
                 CacheManager.DrawZhsanAvatar(this.SpeakingPerson, "", this.PortraitDisplayPosition, Color.White, 0.201f);
 
                 sourceRectangle = null;
@@ -138,23 +137,22 @@ namespace tupianwenziPlugin
                 {
                     if (this.shijiantupianjuxing.Width == 240 && this.shijiantupianjuxing.Height == 240)//如果是人物死亡图片的话
                     {
-
-                        //CacheManager.Draw(this.CaiseTupianZhuanchengHeibai(this.graphicsDevice ,this.shijiantupian), new Rectangle(this.shijiantupianjuxing.X, this.shijiantupianjuxing.Y + 70, this.shijiantupianjuxing.Width, this.shijiantupianjuxing.Height), sourceRectangle, Color.White , 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
                         CacheManager.Draw(this.shijiantupian, this.shijiantupianjuxing, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.202f);
-
                     }
                     else
                     {
                         CacheManager.Draw(this.shijiantupian, this.shijiantupianjuxing, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.202f);
-
                     }
                 }
                 
                 this.NameText.Draw(0.1999f);
                 CacheManager.Draw(this.FirstPageButtonDisplayTexture, this.FirstPageButtonDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.199f);
-
-                this.RichText.Draw(0.1999f);                
-                
+                if(TryToShowString!=null && TryToShowString.Length>1)
+                {
+                    CacheManager.Draw(@"Content\Textures\GameComponents\tupianwenzi\Data\Background2.png", new Rectangle(this.BackgroundDisplayPosition.X + this.BackgroundDisplayPosition.Width + 100, this.DisplayOffset.Y+115, 460, 165), sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
+                    CacheManager.DrawString(Session.Current.Font,TryToShowString.Replace(" ","\n"),new Vector2(this.BackgroundDisplayPosition.X + this.BackgroundDisplayPosition.Width + 120, this.DisplayOffset.Y + 135),Color.White,0f, Vector2.Zero, 0.8f, SpriteEffects.None, 0.1999f);
+                }
+                this.RichText.Draw(0.1999f);
             }
         }
 
@@ -209,7 +207,7 @@ namespace tupianwenziPlugin
             }
         }
 
-        internal void SetGameObjectBranch(GameObject gongfang, GameObject gameObject, string branchName)
+        internal void SetGameObjectBranch(GameObject gongfang, GameObject gameObject, string branchName,string TryToShowString = "")
         {
             this.BuildingRichText.Clear();
             if (gameObject != null)
@@ -238,13 +236,13 @@ namespace tupianwenziPlugin
             }
             if (this.HasConfirmationDialog)
             {
-                this.DisplayQueue.Enqueue(new GameObjectAndBranchName(gongfang, this.BuildingRichText.Texts, branchName, this.iConfirmationDialog, this.YesFunction, this.NoFunction));
+                this.DisplayQueue.Enqueue(new GameObjectAndBranchName(gongfang, this.BuildingRichText.Texts, branchName, this.iConfirmationDialog, this.YesFunction, this.NoFunction,TryToShowString));
                 this.YesFunction = null;
                 this.NoFunction = null;
             }
             else
             {
-                this.DisplayQueue.Enqueue(new GameObjectAndBranchName(gongfang, this.BuildingRichText.Texts, branchName, null, null, null));
+                this.DisplayQueue.Enqueue(new GameObjectAndBranchName(gongfang, this.BuildingRichText.Texts, branchName, null, null, null, TryToShowString));
             }
             this.HasConfirmationDialog = false;
         }
