@@ -3677,7 +3677,7 @@ namespace GameObjects
                 te.LoadEffectAreaFromString(this.GameCommonData.AllTroopEventEffects, te.EffectAreasString);
 
                 te.LoadDialogFromString(this.AllPersons, te.dialogString);
-                
+                if (te.TryToShowString == null) te.TryToShowString = "";
                 this.TroopEvents.AddTroopEventWithEvent(te, false);
             }
 
@@ -3741,6 +3741,7 @@ namespace GameObjects
                     e.LoadScenBiographyFromString(e.scenBiographyString);
                 }
 
+                if (e.TryToShowString == null) e.TryToShowString = "";
                 //e.LoadScenBiographyFromString(reader["ScenBiography"].ToString());
                 this.AllEvents.AddEventWithEvent(e, false);
             }

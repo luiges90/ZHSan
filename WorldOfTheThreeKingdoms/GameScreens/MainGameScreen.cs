@@ -898,7 +898,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case SelectingUndoneWorkKind.ArchitectureAvailableContactArea:
                     if (!this.selectingLayer.Canceled)
                     {
-                        this.screenManager.SetCreatingTroopPosition(this.selectingLayer.SelectedPoint);
+                        if(this.CurrentMilitaries.Count==1 && this.CurrentMilitary!=null )
+                        {
+                            this.screenManager.SetCreatingTroopPosition(this.selectingLayer.SelectedPoint);
+                        }
+                        else if (this.CurrentMilitaries.Count > 1)
+                        {
+                            this.screenManager.SetTroopsPosition(this.selectingLayer.SelectedPoint);
+                        }
                     }
                     return;
 
@@ -2118,11 +2125,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     dialog.SpeakingPerson = Session.Current.Scenario.Persons.GetGameObject(dialog.SpeakingPersonID) as Person;//修复部队事件未识别说话武将
                     if (dialog.SpeakingPerson !=null)
                     {
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(dialog.SpeakingPerson, null, dialog.Text, te.Image, te.Sound);
+                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(dialog.SpeakingPerson, null, dialog.Text, te.Image, te.Sound,te.TryToShowString);
                     }
                     else
                     {
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(troop.Leader, null, dialog.Text, te.Image, te.Sound);
+                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(troop.Leader, null, dialog.Text, te.Image, te.Sound,te.TryToShowString);
                     }
                 }
                 if (Setting.Current.GlobalVariables.DialogShowTime > 0)
@@ -2199,11 +2206,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     if (dialog.SpeakingPerson != null)
                     {
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(dialog.SpeakingPerson, null, dialog.Text, e.Image, e.Sound);
+                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(dialog.SpeakingPerson, null, dialog.Text, e.Image, e.Sound,e.TryToShowString);
                     }
                     else
                     {
-                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(a.BelongedFaction.Leader, null, dialog.Text, e.Image, e.Sound);
+                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(a.BelongedFaction.Leader, null, dialog.Text, e.Image, e.Sound,e.TryToShowString);
                     }
                 }
 

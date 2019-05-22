@@ -15400,5 +15400,19 @@ namespace GameObjects
             return result;
         }
 
+        public Person GetMaxFightingForcePerson()
+        {
+            int temp = 0;
+            Person person = new Person();
+            foreach (Person p in this.Persons)
+            {
+                if(p.FightingForce>temp)
+                {
+                    person = p;
+                }
+            }
+            return person;
+        }
+
     }
 }

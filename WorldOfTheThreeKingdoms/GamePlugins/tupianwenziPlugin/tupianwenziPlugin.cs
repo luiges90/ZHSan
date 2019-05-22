@@ -147,7 +147,7 @@ namespace tupianwenziPlugin
             }
         }
 
-        public void SetGameObjectBranch(object person, object gameObject, string branchName, string tupian, string shengyin)
+        public void SetGameObjectBranch(object person, object gameObject, string branchName, string tupian, string shengyin ,string TryToShowString="")
         {
             string shijianshengyin;
             PlatformTexture shijiantupian;
@@ -156,7 +156,7 @@ namespace tupianwenziPlugin
             if (!(Session.Current.Scenario.SkyEyeSimpleNotification(gameObject as GameObject) && Session.GlobalVariables.SkyEye))
             {
 
-                this.tupianwenzi.SetGameObjectBranch(person as GameObject, gameObject as GameObject, branchName);
+                this.tupianwenzi.SetGameObjectBranch(person as GameObject, gameObject as GameObject, branchName, TryToShowString );
 
                 if (shengyin != "")
                 {

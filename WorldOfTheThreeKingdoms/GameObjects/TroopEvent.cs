@@ -65,6 +65,9 @@ namespace GameObjects
         [DataMember]
         public String Sound = "";
 
+        [DataMember]
+        public string TryToShowString { get; set; }
+
         public event ApplyTroopEvent OnApplyTroopEvent;
 
         public void Init()

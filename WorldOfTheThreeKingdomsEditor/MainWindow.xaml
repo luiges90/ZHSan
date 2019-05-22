@@ -25,13 +25,13 @@
         </ContextMenu>
     </Window.Resources>
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
+        <Menu Name="sss" DockPanel.Dock="Top">
             <MenuItem Header="档案">
                 <MenuItem Header="读取剧本" Command="Open" InputGestureText="Ctrl+O"/>
-                <MenuItem Header="储存剧本" Command="Save" InputGestureText="Ctrl+S"/>
+                <MenuItem Name="SaveSce" Header="储存剧本" Command="Save" InputGestureText="Ctrl+S"/>
                 <Separator/>
                 <MenuItem Header="读取存档" Click="OpenSave"/>
-                <MenuItem Header="储存存档" Click="Save_Click"/>
+                <MenuItem Name="SaveSav" Header="储存存档" Click="Save_Click" IsEnabled="False"/>
                 <Separator/>
                 <MenuItem Header="更新Scenarios.json" Click="btnSyncScenario_Click"/>
                 <Separator/>

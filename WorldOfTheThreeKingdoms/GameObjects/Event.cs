@@ -145,6 +145,9 @@ namespace GameObjects
         [DataMember]
         public bool Minor = false;
 
+        [DataMember]
+        public string TryToShowString { get; set; }
+
         private bool involveLeader = false;
         public bool InvolveLeader
         {

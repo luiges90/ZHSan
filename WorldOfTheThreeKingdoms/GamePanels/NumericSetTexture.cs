@@ -205,7 +205,7 @@ namespace GamePanels
             if (IsModeS)
             {
                 groundTextureWidth = 147 + Widthchange; groundTextureHeight = 32 + Heightchange;
-                fillTextureWidth = 145 + Widthchange; fillTextureHeight = 28 + Heightchange;
+                fillTextureWidth = 143 + Widthchange; fillTextureHeight = 32 + Heightchange;
                 leftTexture = new ButtonTexture(@"Content\Textures\Resources\Start\NumberSetS", "Minus", null) { Enable = Enable };
                 rightTexture = new ButtonTexture(@"Content\Textures\Resources\Start\NumberSetS", "Plus", null) { Enable = Enable };
             }
@@ -317,14 +317,14 @@ namespace GamePanels
         public void Draw(Vector2 basePosition, float alpha)
         {
             Vector2 pos = Position + new Vector2(leftTexture.Width + (IsModeS ? 2 : 10), 0);
-            CacheManager.Draw(IsModeS ? @"Content\Textures\Resources\Start\NumberSetS-Bottom" : @"Content\Textures\Resources\Start\NumberSet-Bottom", pos + basePosition, new Rectangle(0, 0, groundTextureWidth + Widthchange, groundTextureHeight + Heightchange - 3), Color.White * alpha);
+            CacheManager.Draw(IsModeS ? @"Content\Textures\Resources\Start\NumberSetS-Bottom" : @"Content\Textures\Resources\Start\NumberSet-Bottom", new Rectangle(Convert.ToInt32(pos.X + basePosition.X), Convert.ToInt32(pos.Y + basePosition.Y), groundTextureWidth + Widthchange, groundTextureHeight + Heightchange),null, Color.White * alpha, 0f, Vector2.Zero, SpriteEffects.None, 0f);
             if (NowNumber == null) NowNumber = 0;
             int width = 0;
-            if (MaxNumber != 0) width = Convert.ToInt32(NowNumber * (fillTextureWidth + Widthchange) / MaxNumber);
+            if (MaxNumber != 0) width = Convert.ToInt32(NowNumber * (groundTextureWidth + Widthchange) / MaxNumber);
             else width = 0;
 
             //CacheManager.Draw(IsModeS ? @"Content\Textures\Resources\Start\NumberSetS-Fill" : @"Content\Textures\Resources\Start\NumberSet-Fill", new Vector2(Convert.ToInt32(pos.X + basePosition.X) + 2, Convert.ToInt32(pos.Y + basePosition.Y) + 3), new Rectangle(0, 0, width, fillTextureHeight + Heightchange - 3), Color.Orange * alpha);
-            CacheManager.Draw(IsModeS ? @"Content\Textures\Resources\Start\NumberSetS-Fill" : @"Content\Textures\Resources\Start\NumberSet-Fill", new Rectangle(Convert.ToInt32(pos.X + basePosition.X) + 2, Convert.ToInt32(pos.Y + basePosition.Y) + 3, width, fillTextureHeight + Heightchange - 3), null, Color.Orange * alpha,0f,Vector2.Zero,SpriteEffects.None,0f);
+            CacheManager.Draw(IsModeS ? @"Content\Textures\Resources\Start\NumberSetS-Fill" : @"Content\Textures\Resources\Start\NumberSet-Fill", new Rectangle(Convert.ToInt32(pos.X + basePosition.X) + 2, Convert.ToInt32(pos.Y + basePosition.Y), width - 4, fillTextureHeight + Heightchange), null, Color.White * alpha,0f,Vector2.Zero,SpriteEffects.None,0f);
 
             rightTexture.Draw(new Vector2(basePosition.X + Widthchange, basePosition.Y), Color.White * alpha);
             leftTexture.Draw(basePosition, Color.White * alpha);
@@ -337,7 +337,7 @@ namespace GamePanels
             }
             else
             {
-                CacheManager.DrawString(Session.Current.Font, DisNumberText ? ViewText + NowNumber.ToString() : NowNumber.ToString(),new Vector2(( leftTexture.Position + basePosition + (IsModeS ? new Vector2(55, 3) : new Vector2(156, 8))).X, (leftTexture.Position + basePosition + (IsModeS ? new Vector2(55, 3) : new Vector2(156, 8))).Y+Heightchange), Color.Black * alpha,0f,Vector2.Zero,((float)leftTexture.Height+Heightchange)/leftTexture.Height,SpriteEffects.None,0f);
+                CacheManager.DrawString(Session.Current.Font, DisNumberText ? ViewText + NowNumber.ToString() : NowNumber.ToString(),new Vector2(( leftTexture.Position + basePosition + (IsModeS ? new Vector2(55, 3) : new Vector2(156, 8))).X, (leftTexture.Position + basePosition + (IsModeS ? new Vector2(55, 3) : new Vector2(156, 8))).Y+Heightchange), Color.White * alpha,0f,Vector2.Zero,((float)leftTexture.Height+Heightchange)/leftTexture.Height,SpriteEffects.None,0f);
             }
         }
 

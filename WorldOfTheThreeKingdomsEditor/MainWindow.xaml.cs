@@ -341,6 +341,8 @@ namespace WorldOfTheThreeKingdomsEditor
                 scen = WorldOfTheThreeKingdoms.GameScreens.MainGameScreen.LoadScenarioData(filename, true, null, true);
                 scen.GameCommonData = CommonData.Current;
                 hasScen = true;
+                SaveSce.IsEnabled = true;
+                SaveSav.IsEnabled = false;
                 populateTables();
                 scenLoaded = true;
                 Title = "中华三国志剧本编辑器 - " + openFileDialog.SafeFileName;
@@ -362,6 +364,8 @@ namespace WorldOfTheThreeKingdomsEditor
                 scen = WorldOfTheThreeKingdoms.GameScreens.MainGameScreen.LoadScenarioData(filename2, false, null, true);
                 scen.GameCommonData = CommonData.Current;
                 hasScen = true;
+                SaveSce.IsEnabled = false;
+                SaveSav.IsEnabled = true;
                 populateTables();
                 scenLoaded = true;
                 Title = "中华三国志剧本编辑器 - " + openFileDialog.SafeFileName;

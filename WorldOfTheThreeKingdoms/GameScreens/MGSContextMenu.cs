@@ -373,6 +373,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.screenManager.ArchitectureExpand();
                     break;
 
+                case ContextMenuResult.Military_CampaignAuto://自动出征
+
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Military, FrameFunction.GetAutoCampaignMilitaries, false, true, true, true, this.CurrentArchitecture.GetCampaignMilitaryList(), null, "选择编队", "");
+                    break;
 
                 case ContextMenuResult.Military_Campaign:
                     if (function3 == null)
@@ -381,6 +385,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         {
                             this.CurrentArchitecture = this.Plugins.CreateTroopPlugin.CreatingArchitecture as Architecture;
                             this.CurrentMilitary = this.Plugins.CreateTroopPlugin.CreatingMilitary as Military;
+                            this.CurrentMilitaries = new GameObjectList();
+                            this.CurrentMilitaries.Add(this.CurrentMilitary);
                             this.CurrentGameObjects = this.Plugins.CreateTroopPlugin.CreatingPersons as GameObjectList;
                             this.CurrentPerson = this.Plugins.CreateTroopPlugin.CreatingLeader as Person;
                             this.CurrentNumber = this.Plugins.CreateTroopPlugin.CreatingFood;
@@ -408,7 +414,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         };
                     }
                     this.Plugins.CreateTroopPlugin.SetCreateFunction(function4);
-                    this.Plugins.CreateTroopPlugin.SetShellMilitaryKind(Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(0x1c));
+                    this.Plugins.CreateTroopPlugin.SetShellMilitaryKind(Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(28));
                     this.Plugins.CreateTroopPlugin.SetArchitecture(this.CurrentArchitecture);
                     this.Plugins.CreateTroopPlugin.SetPosition(ShowPosition.Center);
                     this.Plugins.CreateTroopPlugin.IsShowing = true;

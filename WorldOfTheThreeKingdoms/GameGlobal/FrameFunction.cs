@@ -31,6 +31,7 @@ namespace GameGlobal
         GetRecruitmentMilitary,
         GetRecruitmentPerson,
         GetMergeMilitary,
+        GetAutoCampaignMilitaries,
         GetBeMergedMilitaries,
         GetBeDisbandedMilitaries,
         GetLevelUpMilitaries,
