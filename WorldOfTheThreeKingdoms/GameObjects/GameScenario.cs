@@ -951,8 +951,8 @@ namespace GameObjects
 
         public void ApplyEvents()
         {
-
-            foreach (KeyValuePair<Event, Architecture> i in this.EventsToApply)
+            Dictionary<Event, Architecture> events = this.EventsToApply;
+            foreach (KeyValuePair<Event, Architecture> i in events)
             {
                 i.Key.DoApplyEvent(i.Value);
                 i.Key.happened = true;
