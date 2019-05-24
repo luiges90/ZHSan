@@ -7849,7 +7849,7 @@ namespace GameObjects
             GameArea area = new GameArea();
             foreach (Architecture architecture in Session.Current.Scenario.Architectures)
             {
-                if (!this.IsFriendly(architecture.BelongedFaction))
+                if (!this.IsFriendly(architecture.BelongedFaction) && architecture.BelongedFaction != null)
                 {
                     foreach (Point point in architecture.ArchitectureArea.Area)
                     {
