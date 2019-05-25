@@ -439,6 +439,59 @@ namespace Platforms
                 //监控此
             }
         }
+        List<string> songs2 = new List<string>();
+        List<Song> songslist = new List<Song>();
+        public virtual void PlaySong(string[] songs)
+        {
+            try
+            {
+                string res = "";
+                songs2 = new List<string>();
+                songslist = new List<Song>();
+                foreach (var item in songs)
+                {
+                    res = item;
+                    if ((!item.EndsWith(".mp3") && !item.EndsWith(".wav")))
+                    {
+                        continue;
+                    }
+                    if (Platform.PlatFormType == PlatFormType.Android)
+                    {
+                        if (res.Contains("\\"))
+                        {
+                            res = res.Substring(res.LastIndexOf('\\') + 1);
+                        }
+                    }
+                    songs2.Add(res);
+                    Song song3 = Song.FromUri(res, new Uri(res, UriKind.Relative));
+                    songslist.Add(song3);
+                }
+                if (songslist.Count >= 1)
+                {
+                    Session.Current.MusicContent.Unload();
+                    SetMusicVolume((int)Setting.Current.MusicVolume);
+                    MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+                    void MediaPlayer_MediaStateChanged(object sender, EventArgs e)
+                    {
+                        if (songs2.Count > 0 && Session.GlobalVariables.PlayMusic && MediaPlayer.State== MediaState.Stopped)
+                        {
+                            MediaPlayer.Play(getrandomsong());
+                        }
+                    }
+                    MediaPlayer.Play(getrandomsong());
+                }
+            }
+            catch (Exception ex)
+            {
+                //监控此
+            }
+        }
+        Song getrandomsong()
+        {
+             Random rd = new Random();
+             int index = rd.Next(0, songslist.Count);
+            return songslist[index];
+        }
         public virtual void StopSong()
         {
             try
