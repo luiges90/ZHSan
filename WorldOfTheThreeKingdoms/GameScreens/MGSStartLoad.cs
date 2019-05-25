@@ -247,7 +247,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 //this.Plugins.youcelanPlugin.IsShowing = true;
                 ((this.Plugins.youcelanPlugin as youcelanPlugin.TabListPlugin).TabList as TabListInFrame).SetMouseEvent(this, true);
             }
-
+            Session.Current.Scenario.Date.SetSeason();
             //this.thisGame.jiazaitishi.jiazaijindu.Value = 90;
         }
 

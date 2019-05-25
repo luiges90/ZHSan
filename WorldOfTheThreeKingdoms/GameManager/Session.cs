@@ -595,14 +595,15 @@ namespace GameManager
             string[] songs = null;
             songs = Platform.Current.GetMODFiles(@"Content\Music\" + category, true).NullToEmptyArray();
 
-            if (songs.Length > 0)
-            {
-                Random rd = new Random();
-                int index = rd.Next(0, songs.Length);
-                string song = songs[index];
+            Platform.Current.PlaySong(songs);
+            //if (songs.Length > 0)
+            //{
+            //    Random rd = new Random();
+            //    int index = rd.Next(0, songs.Length);
+            //    string song = songs[index];
+            //    Platform.Current.PlaySong(song);
+            //}
 
-                Platform.Current.PlaySong(song);
-            }
         }
 
         public static void StopSong()

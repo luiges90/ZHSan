@@ -177,7 +177,7 @@ namespace GameObjects
                 this.OnSeasonChange(this.Season);
             }
             //*jokosany每个月重新随机选择一首背景音乐,必须放在this.SetSeason();之后
-            Session.MainGame.mainGameScreen.SwichMusic(Session.Current.Scenario.Date.Season);
+            //Session.MainGame.mainGameScreen.SwichMusic(Session.Current.Scenario.Date.Season);
             //  Session.MainGame.mainGameScreen.SwichMusic(GameSeason.秋);
             // Session.MainGame.mainGameScreen.SwichMusic(this.Season);
         }
