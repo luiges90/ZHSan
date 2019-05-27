@@ -8766,7 +8766,7 @@ namespace GameObjects
 
         private void PlaySound(string soundFileLocation, bool looping)
         {
-            if (Session.GlobalVariables.PlayBattleSound)  // && File.Exists(soundFileLocation))
+            if (Setting.Current.GlobalVariables.PlayBattleSound)  // && File.Exists(soundFileLocation))
             {
                 this.SoundFileLocation = soundFileLocation;
                 this.PlaySound();
