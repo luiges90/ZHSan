@@ -2428,8 +2428,8 @@ namespace GameObjects
             this.Spouse = p;
             p.Spouse = this;
 
-            this.AdjustRelation(p, 5, 10);
-            p.AdjustRelation(this, 5, 10);
+            this.AdjustRelation(p, 15f, -5);
+            p.AdjustRelation(this, 15f, -5);
 
             this.marriageGranter = maker;
 
@@ -2601,8 +2601,8 @@ namespace GameObjects
 
                         if (this.Status != PersonStatus.Princess || !this.WillHateIfChongxing)
                         {
-                            this.AdjustRelation(p, 2f, -5);
-                            p.AdjustRelation(this, 2f, -5);
+                            this.AdjustRelation(p, 1f, -10);
+                            p.AdjustRelation(this, 1f, -10);
 
                             if (this.LocationArchitecture == p.LocationArchitecture)
                             {
@@ -4723,8 +4723,7 @@ namespace GameObjects
         {
             float v = 0;
             v += (-Person.GetIdealOffset(target, src) * 0.6f + src.IdealTendency.Offset * 0.2f + target.IdealTendency.Offset * 0.2f) * idealFactor;
-            v += target.GetRelation(src) / 100.0f;
-            v += target.Glamour / 10.0f - 5.0f;
+            v += target.Glamour / 5.0f - 10.0f;
             v -= Math.Max(-50.0f, Math.Min(50.0f, Math.Abs(target.Karma - src.Karma) / 5.0f));
             v += (float) (Math.Sign(target.Karma) * Math.Sqrt(Math.Abs(target.Karma)));
 
@@ -4735,16 +4734,16 @@ namespace GameObjects
             switch (src.Qualification)
             {
                 case PersonQualification.义理:
-                    v += (target.PersonalLoyalty - 2) * 5;
+                    v += (target.PersonalLoyalty - 2) * 10;
                     break;
                 case PersonQualification.功绩:
-                    v += Math.Max(-10, Math.Min(10, (target.ServedYears - src.ServedYears) * 3));
+                    v += Math.Max(-20, Math.Min(20, (target.OfficerMerit - src.OfficerMerit) / 750.0f));
                     break;
                 case PersonQualification.名声:
-                    v += Math.Max(-10, Math.Min(10, (target.Reputation - src.Reputation) / 1000.0f));
+                    v += Math.Max(-20, Math.Min(20, (target.Reputation - src.Reputation) / 1000.0f));
                     break;
                 case PersonQualification.能力:
-                    v += Math.Max(-10, Math.Min(10, (target.UnalteredUntiredMerit - src.UnalteredUntiredMerit) / 10000.0f));
+                    v += Math.Max(-20, Math.Min(20, (target.UnalteredUntiredMerit - src.UnalteredUntiredMerit) / 7500.0f));
                     break;
                 case PersonQualification.任意:
                     break;
@@ -4764,19 +4763,19 @@ namespace GameObjects
             }
             if (src.HasCloseStrainTo(target))
             {
-                v += 10;
+                v += 20;
             }
             if (src.Spouse == target)
             {
-                v += 10;
+                v += 30;
             }
             if (src.Brothers.GameObjects.Contains(target))
             {
-                v += 20;
+                v += 40;
             }
             if (src.Hates(target))
             {
-                v -= 20;
+                v -= 50;
             }
 
             return v;

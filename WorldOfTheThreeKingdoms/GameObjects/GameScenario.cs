@@ -4144,29 +4144,36 @@ namespace GameObjects
                                         ) ||
                                         (p.Status == PersonStatus.Princess && q.Status == PersonStatus.Princess)
                                     );
-                            if (sameWork || (p.SameLocationAs(q) && GameObject.Chance(50)) || (p.BelongedFactionWithPrincess == q.BelongedFactionWithPrincess && GameObject.Chance(20)))
+                            float factor = 0.0f;
+                            
+                            if (p.LocationTroop == q.LocationTroop)
+                            {
+                                factor = 3.0f;
+                            }
+                            else if (sameWork)
+                            {
+                                factor = 1.0f;
+                            } 
+                            else if (p.SameLocationAs(q) && GameObject.Chance(50))
+                            {
+                                factor = 1.0f;
+                            }
+                            else if (p.BelongedFactionWithPrincess == q.BelongedFactionWithPrincess && GameObject.Chance(20))
+                            {
+                                factor = 1.0f;
+                            }
+
+                            if (factor > 0)
                             {
                                 if (GameObject.Chance((int) (likeability / 4.0f)))
                                 {
-                                    if (!p.Hates(q))
-                                    {
-                                        p.AdjustRelation(q, 3f, 2);
-                                        if (!q.Hates(p))
-                                        {
-                                            q.AdjustRelation(p, 3f, 2);
-                                        }
-                                    }
+                                    p.AdjustRelation(q, 3f * factor, 2 * factor);
+                                    q.AdjustRelation(p, 3f * factor, 2 * factor);
                                 }
                                 else if (GameObject.Chance((int)(-likeability / 4.0f)))
                                 {
-                                    if (!p.Closes(q))
-                                    {
-                                        p.AdjustRelation(q, -3f, -2);
-                                        if (!q.Closes(p))
-                                        {
-                                            q.AdjustRelation(p, -3f, -2);
-                                        }
-                                    }
+                                    p.AdjustRelation(q, -3f * factor, -2 * factor);
+                                    q.AdjustRelation(p, -3f * factor, -2 * factor);
                                 }
                             }
                         }
