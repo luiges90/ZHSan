@@ -9387,6 +9387,24 @@ namespace GameObjects
             {
                 this.defence = (int)(this.defence * Session.Parameters.AITroopDefenceRate);
             }
+            int maxRelation = 0;
+            int minRelation = 0;
+            foreach (Person p in this.Persons)
+            {
+                if (p == this.Leader) continue;
+                int thisRelation = p.GetRelation(this.Leader) + this.Leader.GetRelation(p);
+                if (thisRelation > 0 && thisRelation > maxRelation)
+                {
+                    maxRelation = thisRelation;
+                }
+                if (thisRelation < 0 && thisRelation < minRelation)
+                {
+                    minRelation = thisRelation;
+                }
+            }
+            int rel = maxRelation + minRelation;
+            this.offence = (int)(this.offence * (rel / 10000.0f + 1));
+
             if (this.defence <= 0)
             {
                 this.defence = 1;
@@ -9507,6 +9525,25 @@ namespace GameObjects
             {
                 this.offence = (int)(this.offence * Session.Parameters.AITroopOffenceRate);
             }
+
+            int maxRelation = 0;
+            int minRelation = 0;
+            foreach (Person p in this.Persons)
+            {
+                if (p == this.Leader) continue;
+                int thisRelation = p.GetRelation(this.Leader) + this.Leader.GetRelation(p);
+                if (thisRelation > 0 && thisRelation > maxRelation)
+                {
+                    maxRelation = thisRelation;
+                }
+                if (thisRelation < 0 && thisRelation < minRelation)
+                {
+                    minRelation = thisRelation;
+                }
+            }
+            int rel = maxRelation + minRelation;
+            this.offence = (int)(this.offence * (rel / 10000.0f + 1));
+
             if (this.offence <= 0)
             {
                 this.offence = 1;
