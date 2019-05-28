@@ -9402,7 +9402,7 @@ namespace GameObjects
                     minRelation = thisRelation;
                 }
             }
-            int rel = maxRelation + minRelation;
+            int rel = Math.Max(-5000, Math.Min(5000, maxRelation + minRelation * 4));
             this.offence = (int)(this.offence * (rel / 10000.0f + 1));
 
             if (this.defence <= 0)
@@ -9541,7 +9541,7 @@ namespace GameObjects
                     minRelation = thisRelation;
                 }
             }
-            int rel = maxRelation + minRelation;
+            int rel = Math.Max(-5000, Math.Min(5000, maxRelation + minRelation * 4));
             this.offence = (int)(this.offence * (rel / 10000.0f + 1));
 
             if (this.offence <= 0)
