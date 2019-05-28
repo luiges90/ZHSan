@@ -4146,7 +4146,7 @@ namespace GameObjects
                                     );
                             float factor = 0.0f;
                             
-                            if (p.LocationTroop == q.LocationTroop)
+                            if (p.LocationTroop == q.LocationTroop && p.LocationTroop != null && q.LocationTroop != null)
                             {
                                 factor = 3.0f;
                             }
