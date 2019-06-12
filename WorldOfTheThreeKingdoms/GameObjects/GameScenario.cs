@@ -864,7 +864,7 @@ namespace GameObjects
 
             if (muqin.IsCaptive)
             {
-                Captive.Create(person, muqin.BelongedArchitecture.BelongedFaction);
+                Captive.Create(person, muqin.BelongedArchitecture == null ? null : muqin.BelongedArchitecture.BelongedFaction);
             }
 
             ExtensionInterface.call("ChildrenJoinFaction", new Object[] { this, person });
