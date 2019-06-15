@@ -364,7 +364,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     if (dantiao)
                     {
-                        if (ScreenLayers.DantiaoLayer.Persons.Count < 2)
+                        if (ScreenLayers.DantiaoLayer.Persons.NullToEmptyList().Count < 2)
                         {
                             message = "请选择两名武将。";
                         }
@@ -2358,7 +2358,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 scenario = null;
                 faction = null;
                 InitScenarioList();
-                ScreenLayers.DantiaoLayer.Persons = null;
+                if (btScenarioSelectList.Count > 0)
+                {
+                    btScenarioSelectList[0].PressButton();
+                }
+                ScreenLayers.DantiaoLayer.Persons = new List<Person>();
             };
 
             InitSetting();
@@ -3360,7 +3364,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                             for (int i = 0; i < btDantiaoPlayersListPaged.Count; i++)
                             {
-                                var btOne = btScenarioPlayersListPaged[i];
+                                var btOne = btDantiaoPlayersListPaged[i];
                                 btOne.Position = new Vector2(480, 151 + 24 * i);
                                 btOne.Update();
                             }
@@ -3400,7 +3404,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     for (int i = 0; i < btScenarioSelectListPaged.Count; i++)
                     {
                         var btOne = btScenarioSelectListPaged[i];
-                        btOne.Position = new Vector2(150, 145 + 55 * i);
+                        btOne.Position = new Vector2(150 - 50, 145 + 55 * i);
                         btOne.Update();
                     }
 
@@ -4185,7 +4189,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                                 var time = DateTime.Parse(sce.Time.Trim()).ToString("yyyy-MM-dd");
 
                                 bt.Draw(null, Color.White * alpha);
-                                CacheManager.DrawString(Session.Current.Font, sce.Title + " " + time, bt.Position + new Vector2(45, 2), CurrentScenario == sce ? Color.Yellow * alpha : Color.White * alpha, 0f, Vector2.Zero, 0.7f, SpriteEffects.None, 1f);
+                                CacheManager.DrawString(Session.Current.Font, sce.Title + " " + time, bt.Position + new Vector2(40, 5), CurrentScenario == sce ? Color.Yellow * alpha : Color.White * alpha, 0f, Vector2.Zero, 0.7f, SpriteEffects.None, 1f);
                             }
                         }
                     });
@@ -4197,13 +4201,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         CacheManager.DrawString(Session.Current.Font, ("     " + CurrentScenario.Desc).SplitLineString(20, 20, ref resultRow, ref resultWidth), new Vector2(700, 125), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
                     }
 
-                    if (!String.IsNullOrEmpty(message))
-                    {
-                        CacheManager.DrawString(Session.Current.Font, message, btNext.Position + new Vector2(70, 6), Color.Red * alpha);
-                    }
                 }
                 else
                 {
+                    if (!String.IsNullOrEmpty(message))
+                    {
+                        CacheManager.DrawString(Session.Current.Font, message, btNext.Position + new Vector2(125, -55), Color.Red * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
+                    }
+
                     CacheManager.DrawAvatar(@"Content\Textures\Resources\Start\Faceframe-alpha.png", new Rectangle(200, 60, 231, 231), Color.White * alpha, false, true, TextureShape.None, null);
                     CacheManager.DrawAvatar(@"Content\Textures\Resources\Start\SelectMenu-alpha.png", new Rectangle(455, 37, 590, 639), Color.White * alpha, false, true, TextureShape.None, null);
 
@@ -4212,7 +4217,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     {
                         if (scenario == null)
                         {
-                            CacheManager.DrawString(Session.Current.Font, CurrentScenario == null ? "" : "剧本加载中....", new Vector2(780, 150), Color.Black * alpha);
+                            CacheManager.DrawString(Session.Current.Font, CurrentScenario == null ? "" : "剧本加载中....", new Vector2(480, 150), Color.White * alpha, 0f, Vector2.Zero, 0.7f, SpriteEffects.None, 1f);
                         }
                         else
                         {
@@ -4221,29 +4226,78 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                                 btScenarioPlayersListPaged.ForEach(bt =>
                                 {
                                     int index = btScenarioPlayersList.IndexOf(bt);
+                                    Color color = bt.Selected ? Color.Yellow : Color.White;
                                     if (index >= 0)
                                     {
-                                        var play = CurrentScenario.Names.Split(',').NullToEmptyArray()[index] + (dantiao ? "势力" : "");
-
+                                        var Name = CurrentScenario.Names.Split(',').NullToEmptyArray()[index];
+                                        var leader = CurrentScenario.LeaderNames.Split(',').NullToEmptyArray()[index];
+                                        var Reputation = CurrentScenario.Reputations.Split(',').NullToEmptyArray()[index];
+                                        var ArchitectureCount = CurrentScenario.ArchitectureCounts.Split(',').NullToEmptyArray()[index];
+                                        var CapitalName = CurrentScenario.CapitalNames.Split(',').NullToEmptyArray()[index];
+                                        var Population = CurrentScenario.Populations.Split(',').NullToEmptyArray()[index];
+                                        var MilitaryCount = CurrentScenario.MilitaryCounts.Split(',').NullToEmptyArray()[index];
+                                        var Fund = CurrentScenario.Funds.Split(',').NullToEmptyArray()[index];
+                                        var Food = CurrentScenario.Foods.Split(',').NullToEmptyArray()[index];
+                                        var LeaderPic = CurrentScenario.LeaderPics.Split(',').NullToEmptyArray()[index];
+                                        bt.Scale = 0.5f;
                                         bt.Draw(null, Color.White * alpha);
 
-                                        CacheManager.DrawString(Session.Current.Font, play, bt.Position + new Vector2(45, 2), Color.Black * alpha);
+                                        CacheManager.DrawString(Session.Current.Font, Name, bt.Position + new Vector2(30, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, leader, bt.Position + new Vector2(92, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, Reputation, bt.Position + new Vector2(143, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, ArchitectureCount, bt.Position + new Vector2(190, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, CapitalName, bt.Position + new Vector2(230, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, Population, bt.Position + new Vector2(275, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, MilitaryCount, bt.Position + new Vector2(360, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, Fund, bt.Position + new Vector2(410, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, Food, bt.Position + new Vector2(470, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        if (bt.MouseOver)
+                                        {
+                                            CacheManager.DrawAvatar(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\" + LeaderPic + ".jpg", new Rectangle(221, 81, 191, 191), Color.White * alpha, false, true, TextureShape.None, null);
+                                        }
                                     }
                                 });
                             }
                             else
                             {
+                                CacheManager.DrawAvatar(@"Content\Textures\Resources\Start\DantiaoColumns.png", new Rectangle(455 + 23, 37 + 62, 542, 41), Color.White * alpha, false, true, TextureShape.None, null);
+
                                 btDantiaoPlayersListPaged.ForEach(bt =>
                                 {
+                                    //int index = btDantiaoPlayersList.IndexOf(bt);
+                                    //if (index >= 0)
+                                    //{
+                                    //    var person = faction.Persons[index] as Person;
+
+                                    //    bt.Draw(null, Color.White * alpha);
+
+                                    //    CacheManager.DrawString(Session.Current.Font, person.Name, bt.Position + new Vector2(45, 2), Color.Black * alpha);
+                                    //}
+
                                     int index = btDantiaoPlayersList.IndexOf(bt);
+                                    Color color = bt.Selected ? Color.Yellow : Color.White;
                                     if (index >= 0)
                                     {
                                         var person = faction.Persons[index] as Person;
-
+                                        
+                                        bt.Scale = 0.5f;
                                         bt.Draw(null, Color.White * alpha);
 
-                                        CacheManager.DrawString(Session.Current.Font, person.Name, bt.Position + new Vector2(45, 2), Color.Black * alpha);
+                                        CacheManager.DrawString(Session.Current.Font, person.Name, bt.Position + new Vector2(30, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, person.FightingForce.ToString(), bt.Position + new Vector2(92 - 5, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, person.NormalStrength.ToString(), bt.Position + new Vector2(143 + 10, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, person.NormalCommand.ToString(), bt.Position + new Vector2(190 + 20, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, person.NormalIntelligence.ToString(), bt.Position + new Vector2(230 + 40, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, person.NormalPolitics.ToString(), bt.Position + new Vector2(275 + 50, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, person.NormalGlamour.ToString(), bt.Position + new Vector2(360 + 20, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, person.Braveness.ToString(), bt.Position + new Vector2(410 + 30, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        CacheManager.DrawString(Session.Current.Font, person.Calmness.ToString(), bt.Position + new Vector2(470 + 30, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+                                        if (bt.MouseOver)
+                                        {
+                                            CacheManager.DrawAvatar(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\" + person.PictureIndex + ".jpg", new Rectangle(221, 81, 191, 191), Color.White * alpha, false, true, TextureShape.None, null);
+                                        }
                                     }
+
                                 });
                             }
 
@@ -4253,7 +4307,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                                 var persons = String.Join(", ", pers.Select(p => p.Name).NullToEmptyList());
 
-                                CacheManager.DrawString(Session.Current.Font, persons, new Vector2(880, 27), Color.Blue * alpha);
+                                CacheManager.DrawString(Session.Current.Font, persons, new Vector2(760, 65), Color.Blue * alpha, 0f, Vector2.Zero, 0.7f, SpriteEffects.None, 1f);
                             }
                         }
                     }
@@ -4287,7 +4341,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                                 CacheManager.DrawString(Session.Current.Font, MilitaryCount, bt.Position + new Vector2(360, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
                                 CacheManager.DrawString(Session.Current.Font, Fund, bt.Position + new Vector2(410, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
                                 CacheManager.DrawString(Session.Current.Font, Food, bt.Position + new Vector2(470, 2), color * alpha, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
-                                if (bt.Selected)
+                                if (bt.MouseOver)
                                 {
                                     CacheManager.DrawAvatar(@"Content\Textures\GameComponents\PersonPortrait\Images\Default\" + LeaderPic + ".jpg", new Rectangle(221, 81, 191, 191), Color.White * alpha, false, true, TextureShape.None, null);
                                 }
