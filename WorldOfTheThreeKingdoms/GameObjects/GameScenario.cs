@@ -6515,20 +6515,12 @@ namespace GameObjects
                                         }
                                     }
 
-                                    List<Title> extraTeach = new List<Title>();
                                     foreach (Title t in this.GameCommonData.AllTitles.Titles.Values)
                                     {
-                                        if (t.Kind.RandomTeachable && t.Level <= maxLevel + q.childrenTitleChanceIncrease + 1 && GameObject.Chance((int) (50.0f / t.Level)) && GameObject.Chance(t.InheritChance) && t.CanBeBorn(p))
+                                        if (t.Kind.RandomTeachable && t.Level <= maxLevel + q.childrenTitleChanceIncrease + 1 && GameObject.Chance(t.InheritChance) && t.CanBeBorn(p))
                                         {
-                                            extraTeach.Add(t);
+                                            toTeach.Add(t);
                                         }
-                                    }
-
-                                    if (extraTeach.Count > 0)
-                                    {
-                                        toTeach.Add(extraTeach[GameObject.Random(extraTeach.Count)]);
-                                        toTeach.Add(extraTeach[GameObject.Random(extraTeach.Count)]);
-                                        toTeach.Add(extraTeach[GameObject.Random(extraTeach.Count)]);
                                     }
 
                                     foreach (Title t in toTeach)
