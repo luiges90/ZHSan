@@ -272,6 +272,28 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                         GC.Collect();
 
+#if DEBUG
+                        try
+                        {
+                            LoadScreenEvent.Invoke(null, null);
+                        }
+                        catch (Exception e)
+                        {
+                            throw new Exception("加載出錯：" + e);
+                            //Program.PrintError(e);
+                            //Environment.Exit(1);
+                        }
+                        ClearEvent();
+                        IsComplete = true;
+                        if (Mode == "Start")
+                        {
+
+                        }
+                        else
+                        {
+                            Session.MainGame.loadingScreen = null;
+                        }
+#else
                         new Platforms.PlatformTask(() =>
                         {
                             try
@@ -296,7 +318,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                                 Session.MainGame.loadingScreen = null;
                             }
                         }).Start();
-                        
+#endif
                     }
                 }
             }
