@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Tools;
-
+using FontStashSharp;
 namespace GameManager
 {
     public class PlatformTexture
@@ -325,13 +325,18 @@ namespace GameManager
             Draw(name, pos, source, color, SpriteEffects.None, 1f);
         }
 
-        public static void Draw(string name, Vector2 pos, Rectangle? source, Color color, SpriteEffects effect, float scale, float depth = 0f)
+        public static Bounds Draw(string name, Vector2 pos, Rectangle? source, Color color, SpriteEffects effect, float scale, float depth = 0f)
         {
             Texture2D tex = LoadTexture(name);
+
             if (tex != null && !tex.IsDisposed)
             {
                 Session.Current.SpriteBatch.Draw(tex, pos, source, color, 0f, Vector2.Zero, scale, effect, depth);
             }
+
+            if (source == null)
+                return new Bounds();
+            return new Bounds() { X = pos.X, Y = pos.Y, X2 = pos.X + source.Value.Width * scale, Y2 = pos.Y + source.Value.Height * scale };
         }
 
         public static void Draw(string name, Vector2 pos, Rectangle? source, Color color, SpriteEffects effect, Vector2 scale, float depth = 0f)
@@ -345,6 +350,7 @@ namespace GameManager
             {
 
             }
+
         }
 
         public static void Draw(string name, Vector2 pos, Rectangle? source, Color color, float rotation, SpriteEffects effect, Vector2 scale)
@@ -466,7 +472,7 @@ namespace GameManager
                     if (Scale != Vector2.One)
                     {
                         pos = new Rectangle(Convert.ToInt16(pos.X * Scale.X), Convert.ToInt16(pos.Y * Scale.Y), Convert.ToInt16(pos.Width * Scale.X), Convert.ToInt16(pos.Height * Scale.Y));
-                    }                    
+                    }
                     Session.Current.SpriteBatch.Draw(tex, pos, null, color, 0f, Vector2.Zero, SpriteEffects.None, depth);
                 }
             }
@@ -511,7 +517,7 @@ namespace GameManager
 
             if (Platform.Current.FileExists(id))
             {
-                
+
             }
             else
             {
@@ -519,7 +525,7 @@ namespace GameManager
 
                 if (Platform.Current.FileExists(id))
                 {
-                        
+
                 }
                 else
                 {
@@ -596,5 +602,32 @@ namespace GameManager
             }
         }
 
+        /// <summary>
+        /// 画文字并返回文字范围的矩形列表（支持多行文字）
+        /// </summary>
+        /// <param name="font"></param>
+        /// <param name="text"></param>
+        /// <param name="pos"></param>
+        /// <param name="color"></param>
+        /// <param name="rotation"></param>
+        /// <param name="origin"></param>
+        /// <param name="scale"></param>
+        /// <param name="effects"></param>
+        /// <param name="layerDepth"></param>
+        /// <param name="checkTradition"></param>
+        /// <param name="upload"></param>
+        /// <returns>返回文字范围的矩形列表</returns>
+        public static List<Bounds> DrawStringReturnBounds(SpriteFont font, string text, Vector2 pos, Color color, float rotation, Vector2 origin, float scale, SpriteEffects effects, float layerDepth, bool checkTradition = false, bool upload = false)
+        {
+            List<Bounds> bounds = null;
+            if (!String.IsNullOrEmpty(text))
+            {
+                text = CheckTextCache(font, text, checkTradition, upload);
+                //Session.Current.SpriteBatch.DrawString(font, text, pos * Scale, color, rotation, origin, scale * Scale, effects, layerDepth);
+
+                bounds = TextManager.DrawTextsReturnBounds(text, FontPair, pos, color, 0, scale, layerDepth);
+            }
+            return bounds;
+        }
     }
 }
