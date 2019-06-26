@@ -3596,5 +3596,50 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 return Session.GlobalVariables.SkyEyeSimpleNotification;
             }
         }
+        public void updateGameScreenByCurrentTarget()
+        {            
+            if ((((this.CurrentArchitecture != null) && (this.CurrentTroop != null)) && (this.CurrentTroop.BelongedFaction == Session.Current.Scenario.CurrentPlayer)) && (this.CurrentArchitecture.BelongedFaction == Session.Current.Scenario.CurrentPlayer) && this.CurrentTroop.Operated == false)
+            {
+                if (!(this.Plugins.ContextMenuPlugin.IsShowing || !Session.Current.Scenario.CurrentPlayer.Controlling))
+                {
+                    this.Plugins.ContextMenuPlugin.IsShowing = true;
+                    this.Plugins.ContextMenuPlugin.SetCurrentGameObject(this);
+                    this.Plugins.ContextMenuPlugin.SetMenuKindByName("ArchitectureTroopLeftClick");
+                    this.Plugins.ContextMenuPlugin.Prepare(this.SelectorStartPosition.X, this.SelectorStartPosition.Y, base.viewportSize);
+                    this.bianduiLiebiaoBiaoji = "ArchitectureTroopLeftClick";
+                }
+            }
+            else if ((this.CurrentTroop != null) && (this.CurrentTroop.BelongedFaction == Session.Current.Scenario.CurrentPlayer) && this.CurrentTroop.Operated == false)
+            {
+                if (!this.Plugins.ContextMenuPlugin.IsShowing && Session.Current.Scenario.IsPlayerControlling())
+                {
+                    this.Plugins.ContextMenuPlugin.IsShowing = true;
+                    this.Plugins.ContextMenuPlugin.SetCurrentGameObject(this.CurrentTroop);
+                    this.Plugins.ContextMenuPlugin.SetMenuKindByName("TroopLeftClick");
+                    this.Plugins.ContextMenuPlugin.Prepare(this.SelectorStartPosition.X, this.SelectorStartPosition.Y, base.viewportSize);
+                    this.bianduiLiebiaoBiaoji = "TroopLeftClick";
+                    if (!this.Plugins.ContextMenuPlugin.IsShowing && (this.CurrentTroop.CutRoutewayDays > 0))
+                    {
+                        this.CurrentTroop.Leader.TextDestinationString = this.CurrentTroop.CutRoutewayDays.ToString();
+                        this.Plugins.tupianwenziPlugin.SetConfirmationDialog(this.Plugins.ConfirmationDialogPlugin, new GameDelegates.VoidFunction(this.CurrentTroop.StopCutRouteway), null);
+                        this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
+                        this.Plugins.tupianwenziPlugin.SetGameObjectBranch(this.CurrentTroop.Leader, this.CurrentTroop.Leader, TextMessageKind.StopCutRouteway, "StopCutRouteway");
+                        this.Plugins.tupianwenziPlugin.IsShowing = true;
+                    }
+                }
+            }
+            else if (((this.CurrentArchitecture != null) && (this.CurrentArchitecture.BelongedFaction == Session.Current.Scenario.CurrentPlayer)) && !(this.Plugins.ContextMenuPlugin.IsShowing || !Session.Current.Scenario.IsPlayerControlling()))
+            {
+                this.Plugins.ContextMenuPlugin.IsShowing = true;
+                this.Plugins.ContextMenuPlugin.SetCurrentGameObject(this.CurrentArchitecture);
+                this.Plugins.ContextMenuPlugin.SetMenuKindByName("ArchitectureLeftClick");
+                this.Plugins.ContextMenuPlugin.Prepare(this.SelectorStartPosition.X, this.SelectorStartPosition.Y, base.viewportSize);
+
+                this.bianduiLiebiaoBiaoji = "ArchitectureLeftClick";
+                this.ShowBianduiLiebiao(UndoneWorkKind.None, FrameKind.Military, FrameFunction.Browse, false, true, false, true,
+                    this.CurrentArchitecture.Militaries, this.CurrentArchitecture.ZhengzaiBuchongDeBiandui(), "", "", this.CurrentArchitecture.MilitaryPopulation);
+                this.ShowArchitectureSurveyPlugin(this.CurrentArchitecture);
+            }
+        }
     }
 }
