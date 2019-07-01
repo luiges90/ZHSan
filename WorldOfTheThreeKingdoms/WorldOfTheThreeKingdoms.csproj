@@ -1445,8 +1445,13 @@
     <Compile Include="GameObjects\zainanzhongleibiao.cs" />
     <Compile Include="GameObjects\zainanzhongleilei.cs" />
     <Compile Include="GamePanels\ButtonTexture.cs" />
+    <Compile Include="GamePanels\CheckBox.cs" />
     <Compile Include="GamePanels\LinkButton.cs" />
     <Compile Include="GamePanels\NumericSetTexture.cs" />
+    <Compile Include="GamePanels\Scrollbar\Frame.cs" />
+    <Compile Include="GamePanels\Scrollbar\Scrollbar.cs" />
+    <Compile Include="GamePanels\Scrollbar\TextContent.cs" />
+    <Compile Include="GamePanels\Scrollbar\TextureContent.cs" />
     <Compile Include="GamePanels\TextBox.cs" />
     <Compile Include="GamePlugins\AirViewPlugin\AirView.cs" />
     <Compile Include="GamePlugins\AirViewPlugin\AirViewPlugin.cs" />

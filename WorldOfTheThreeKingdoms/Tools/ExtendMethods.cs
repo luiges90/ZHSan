@@ -3,11 +3,23 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+using GameManager;
 namespace Tools
 {
     public static class ExtendMethods
     {
+        /// <summary>
+        /// float转int小数自动进一位
+        /// </summary>
+        /// <param name="source">原float数</param>
+        /// <returns>返回转换后的int</returns>
+        public static int ConvertToIntPlus(this float source)
+        {
+            return Convert.ToInt32(source + 0.5);
+        }
+        
         public static string NullToString(this object o)
         {
             return NullToString(o, "");
@@ -84,7 +96,7 @@ namespace Tools
         {
             if (String.IsNullOrEmpty(dateTime))
             {
-                
+
             }
             else
             {
@@ -116,7 +128,7 @@ namespace Tools
         {
             return ((DateTime)dateTime).ToString("yyyyMMddHHmmss");
         }
-        
+
         public static string ToSeasonDateTime(this DateTime dateTime)
         {
             return ((DateTime)dateTime).ToString("yyyy-MM-dd HH:mm:ss");

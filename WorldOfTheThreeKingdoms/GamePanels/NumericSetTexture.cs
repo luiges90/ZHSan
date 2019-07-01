@@ -99,7 +99,7 @@ namespace GamePanels
                 }
                 if (IsInTexture(poX, poY, leftTexture.Position + new Vector2(leftTexture.Width + (IsModeS ? 2 : 10), 0f) + (basePosition == null ? Vector2.Zero : (Vector2)basePosition), groundTextureWidth, groundTextureHeight))
                 {
-                    int width = poX - Convert.ToInt32(leftTexture.Position.X) - leftTexture.Width - 1 - (basePosition == null ? 0 : (int)((Vector2)basePosition).X);
+                    int width =Convert.ToInt32(poX - Convert.ToInt32(leftTexture.Position.X) - leftTexture.Width - 1 - (basePosition == null ? 0 : (int)((Vector2)basePosition).X));
                     int value = ((width * MaxNumber / groundTextureWidth) / Unit) * Unit;
                     if (value < AllowNumber && value < MaxNumber) NowNumber = value;
                     else NowNumber = AllowNumber <= MaxNumber ? AllowNumber : MaxNumber;
@@ -259,7 +259,7 @@ namespace GamePanels
                 }
                 if (IsInTexture(poX, poY, leftTexture.Position + new Vector2(leftTexture.Width + (IsModeS ? 2 : 10), 0f) + (basePosition == null ? Vector2.Zero : (Vector2)basePosition), groundTextureWidth + Widthchange, groundTextureHeight + Heightchange))
                 {
-                    int width = poX - Convert.ToInt32(leftTexture.Position.X) - leftTexture.Width - 1 - (basePosition == null ? 0 : (int)((Vector2)basePosition).X);
+                    int width = Convert.ToInt32(poX - Convert.ToInt32(leftTexture.Position.X) - leftTexture.Width - 1 - (basePosition == null ? 0 : (int)((Vector2)basePosition).X));
                     float value = ((width * MaxNumber / (groundTextureWidth + Widthchange)) / Unit) * Unit;
                     if (value < AllowNumber && value < MaxNumber) NowNumber = value;
                     else NowNumber = AllowNumber <= MaxNumber ? AllowNumber : MaxNumber;

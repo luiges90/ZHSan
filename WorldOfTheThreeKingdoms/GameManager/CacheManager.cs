@@ -601,7 +601,7 @@ namespace GameManager
                 TextManager.DrawTexts(text, FontPair, pos, color, 0, scale, layerDepth);
             }
         }
-
+        
         /// <summary>
         /// 画文字并返回文字范围的矩形列表（支持多行文字）
         /// </summary>
@@ -628,6 +628,65 @@ namespace GameManager
                 bounds = TextManager.DrawTextsReturnBounds(text, FontPair, pos, color, 0, scale, layerDepth);
             }
             return bounds;
+        }
+
+        public static List<Bounds> DrawStringReturnBounds(SpriteBatch batch,SpriteFont font, string text, Vector2 pos, Color color, float rotation, Vector2 origin, float scale, SpriteEffects effects, float layerDepth, bool checkTradition = false, bool upload = false)
+        {
+            List<Bounds> bounds = null;
+            if (!String.IsNullOrEmpty(text))
+            {
+                text = CheckTextCache(font, text, checkTradition, upload);
+                //Session.Current.SpriteBatch.DrawString(font, text, pos * Scale, color, rotation, origin, scale * Scale, effects, layerDepth);
+
+                bounds = TextManager.DrawTextsReturnBounds(batch, text, FontPair, pos, color, 0, scale, layerDepth);
+            }
+            return bounds;
+        }
+
+        /// <summary>
+        /// 计算文字的边界范围
+        /// </summary>
+        /// <param name="font"></param>
+        /// <param name="text"></param>
+        /// <param name="pos"></param>
+        /// <param name="scale"></param>
+        /// <param name="checkTradition"></param>
+        /// <param name="upload"></param>
+        /// <returns></returns>
+        public static List<Bounds> CalculateTextBounds(SpriteFont font, string text, Vector2 pos, float scale,  bool checkTradition = false, bool upload = false)
+        {
+            List<Bounds> bounds = null;
+            if (!String.IsNullOrEmpty(text))
+            {
+                text = CheckTextCache(font, text, checkTradition, upload);
+                //Session.Current.SpriteBatch.DrawString(font, text, pos * Scale, color, rotation, origin, scale * Scale, effects, layerDepth);
+
+                bounds = TextManager.CalcTextsBounds(text, FontPair, pos, 0, scale);
+            }
+            return bounds;
+        }
+
+        /// <summary>
+        /// 将文字处理成自动换行
+        /// </summary>
+        /// <param name="font">字体</param>
+        /// <param name="text">要处理的文字</param>
+        /// <param name="lineWidth">行宽度</param>
+        /// <param name="scale">缩放倍数</param>
+        /// <param name="checkTradition"></param>
+        /// <param name="upload"></param>
+        /// <returns></returns>
+        public static string AutoWrap(SpriteFont font,string text,float lineWidth,float scale, bool checkTradition = false, bool upload = false)
+        {
+            if (!String.IsNullOrEmpty(text))
+            {
+                text = CheckTextCache(font, text, checkTradition, upload);
+                //Session.Current.SpriteBatch.DrawString(font, text, pos * Scale, color, rotation, origin, scale * Scale, effects, layerDepth);
+
+                return TextManager.HandleAutoWrap(text, FontPair, lineWidth, scale);
+            }
+
+            return null;
         }
     }
 }
