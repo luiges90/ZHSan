@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using GameManager;
 using Platforms;
 using FontStashSharp;
+using GamePanels.Scrollbar;
 
 namespace GamePanels
 {
@@ -29,6 +30,10 @@ namespace GamePanels
         /// </summary>
         public Vector2? Offset;
         public float? ViewTextScale;
+        /// <summary>
+        /// 控件的偏移量
+        /// </summary>
+        public Vector2? basPos;
     }
     public class CheckBoxPressEventArgs : EventArgs
     {
@@ -40,8 +45,28 @@ namespace GamePanels
     /// <summary>
     /// 复选框，可以改变字体和字号，还有文字与复选框之间的距离
     /// </summary>
-    public class CheckBox
+    public class CheckBox : IFrameContent
     {
+        public Vector2 OffsetPos
+        {
+            get
+            {
+                return Position;
+            }
+            set
+            {
+                Position = value;
+            }
+        }
+        public float Alpha { get; set; }
+        public float Depth { get; set; }
+        /// <summary>
+        /// 包含控件所有范围矩阵的列表
+        /// </summary>
+        public List<Bounds> bounds { get; set; }
+        public float Width { get; set; }
+        public float Height { get; set; }
+        public Frame baseFrame { get; set; }
         public string ID { get; set; }
         public string Name { get; set; }
         /// <summary>
@@ -58,14 +83,16 @@ namespace GamePanels
         /// 包含所有材质的资源
         /// </summary>
         public TextureRecs cbTextureRecs { get; set; }
-        public float Alpha = 1f;
+        /// <summary>
+        /// 透明度
+        /// </summary>
         public bool Visible = true;
         public float DrawScale = 1f;
         public bool Sound = true;
         /// <summary>
         /// 整个控件的缩放倍数
         /// </summary>
-        public float Scale = 1f;
+        public float Scale { get; set; }
         //public SpriteFont ViewFont;
         /// <summary>
         /// 鼠标是否经过
@@ -95,9 +122,14 @@ namespace GamePanels
         public bool FireEventWhenUnEnable = false;
         public event CheckBoxPressEventHandler OnMouseOver, OnButtonPress;
         /// <summary>
-        /// 包含控件所有范围矩阵的列表
+        /// 控件文字的偏移量（文字与复选框之间的距离）
         /// </summary>
-        protected List<Bounds> bounds;
+        public Vector2? offsetText;
+        /// <summary>
+        /// 材质的背景色
+        /// </summary>
+        public Color color { get; set; }
+        
         /// <summary>
         /// 根据是否选择过经过控件决定要显示的材质矩形
         /// </summary>
@@ -150,6 +182,27 @@ namespace GamePanels
             Key = path + "#" + name;
             cbTextureRecs = Session.TextureRecs[Key];
             if (pos != null) Position = (Vector2)pos;
+            Scale = 1f;
+            Alpha = 1f;
+
+        }
+
+        /// <summary>
+        /// 在框架内调用的构造函数
+        /// </summary>
+        /// <param name="path">包含材质的路径</param>
+        /// <param name="name">材质的名称</param>
+        /// <param name="text">复选框中要显示的文字</param>
+        /// <param name="pos">控件的位置</param>
+        /// <param name="frame">包含控件的上级框架</param>
+        /// <param name="offsettext"></param>
+        /// <param name="id"></param>
+        public CheckBox(string path, string name, string text, Vector2 pos, Frame frame, Vector2? offsettext = null, string id = null,Color? textureColor=null) : this(path, name, text, pos)
+        {
+            baseFrame = frame;
+            ID = id;
+            offsetText = offsettext;
+            color = textureColor ?? Color.White;
         }
 
         /// <summary>
@@ -235,7 +288,7 @@ namespace GamePanels
                             && bound.Y + ((Vector2)basePos).Y - ExtDis <= poY && poY <= bound.Y2 + ((Vector2)basePos).Y + ExtDis;
                     }
                     if (MouseOver)
-                        return MouseOver;
+                        return MouseOver;//一旦判断鼠标在一个范围内则停止其他范围矩形的判断检索
                 }
             }
             else
@@ -271,7 +324,6 @@ namespace GamePanels
                 if (press)
                 {
                     PressButton();
-                    press = false;
                 }
             }
         }
@@ -281,7 +333,7 @@ namespace GamePanels
         /// </summary>
         public void Draw()
         {
-            Draw(null, Color.White * Alpha, 0.8f, null, null, null);
+            Draw(null, Color.White * Alpha, 1f, null, null, null);
         }
 
         /// <summary>
@@ -295,7 +347,7 @@ namespace GamePanels
             ViewTextColor = cbSetting.ViewTextColor ?? ViewTextColor;
             ViewTextColorMouseOver = cbSetting.ViewTextColorMouseOver ?? ViewTextColorMouseOver;
             Scale = cbSetting.Scale ?? Scale;
-            Draw(null, Color.White * Alpha, 1f, null, cbSetting.Offset, cbSetting.ViewFont);
+            Draw(cbSetting.basPos, Color.White * Alpha, 1f, null, cbSetting.Offset, cbSetting.ViewFont);
         }
 
         /// <summary>
@@ -316,17 +368,122 @@ namespace GamePanels
                 Bounds bound = CacheManager.Draw(Path, (basePos == null ? Position : (Vector2)(Position + basePos)) * DrawScale, texIndex == null ? cbRectangle : cbTextureRecs.Recs[(int)texIndex], color * Alpha, SpriteEffects.None, Scale);
 
                 //偏移量要加上画复选框后的宽度
-                if (offset != null)
-                    offset += new Vector2(bound.Width, 0);
-                else
-                    offset = new Vector2(bound.Width, 2);//默认的偏移量
+                //此处必须新建一个新变量，否会可能发生自己累加情况
+                Vector2 _offset = (Vector2)(offset == null ? new Vector2(bound.Width, 2) : offset + new Vector2(bound.Width, 0));//如果偏移量为空则加上默认的偏移量
 
-                bounds = CacheManager.DrawStringReturnBounds(viewFont ?? Session.Current.Font, Text, (basePos == null ? (Vector2)(Position + offset) : (Vector2)(Position + basePos + offset)) * DrawScale, (MouseOver || Selected) ? ViewTextColorMouseOver * Alpha : ViewTextColor * Alpha, 0f, Vector2.Zero, Scale * ViewTextScale, SpriteEffects.None, 0f);
+                bounds = CacheManager.DrawStringReturnBounds(viewFont ?? Session.Current.Font, Text, (basePos == null ? (Vector2)(Position + _offset) : (Vector2)(Position + basePos + _offset)) * DrawScale, (MouseOver || Selected) ? ViewTextColorMouseOver * Alpha : ViewTextColor * Alpha, 0f, Vector2.Zero, Scale * ViewTextScale, SpriteEffects.None, 0f);
 
                 bounds.Add(bound);
 
             }
 
+        }
+
+        public void DrawToCanvas(SpriteBatch batch)
+        {
+            if (Visible)
+            {
+                batch.Draw(CacheManager.LoadTexture(Path), Position, cbRectangle, color * Alpha, 0f, Vector2.Zero, Scale, SpriteEffects.None, Depth);
+
+                //偏移量要加上画复选框后的宽度
+                //此处必须新建一个新变量，否会可能发生自己累加情况
+                Vector2 _offsetText = (Vector2)(offsetText == null ? new Vector2(((Rectangle)cbRectangle).Width, 2) : offsetText + new Vector2(((Rectangle)cbRectangle).Width, 0));//如果偏移量为空则加上默认的偏移量
+
+                bounds = CacheManager.DrawStringReturnBounds(batch, Session.Current.Font, Text, (Vector2)(Position + _offsetText) * DrawScale, (MouseOver || Selected) ? ViewTextColorMouseOver * Alpha : ViewTextColor * Alpha, 0f, Vector2.Zero, Scale * ViewTextScale, SpriteEffects.None, Depth);
+                bounds.Add(new Bounds() { X = Position.X, Y = Position.Y, X2 = Position.X + ((Rectangle)cbRectangle).Width, Y2 = Position.Y + ((Rectangle)cbRectangle).Height });
+
+            }
+        }
+
+        public void CalculateControlSize()
+        {
+            //此处必须新建一个新变量，否会可能发生自己累加情况
+            Vector2 _offsetText = (Vector2)(offsetText == null ? new Vector2(((Rectangle)cbRectangle).Width, 2) : offsetText + new Vector2(((Rectangle)cbRectangle).Width, 0));
+            bounds = CacheManager.CalculateTextBounds(Session.Current.Font, Text, OffsetPos + _offsetText, Scale);
+            bounds.Add(new Bounds() { X = OffsetPos.X, Y = OffsetPos.Y, X2 = OffsetPos.X + ((Rectangle)cbRectangle).Width, Y2 = OffsetPos.Y + ((Rectangle)cbRectangle).Height });//加上复选框的范围
+            Width = 0;
+            bounds.ForEach(b => Width = Width > b.Width ? Width : b.Width);
+            if (bounds.Count > 1)
+                Height = bounds[bounds.Count - 2].Y2 - bounds[0].Y;//倒数第二行才是最后一行文字
+            else
+                Height = bounds[bounds.Count - 1].Y2 - bounds[0].Y;
+        }
+
+        public void UpdateCanvas()
+        {
+            //return;
+            int poX = InputManager.PoX;
+            int poY = InputManager.PoY;
+            bool press = InputManager.IsPressed;
+            MouseOver = Enable && IsInCanvasTexture(Convert.ToSingle(poX) / DrawScale, Convert.ToSingle(poY) / DrawScale) && (poX != 0 || poY != 0);
+            if (MouseOver)
+            {
+                if (!PreMouseOver && Sound)
+                {
+                    //player.Play();
+                    Platform.Current.PlayEffect(@"Content\Sound\Select");
+                }
+                if (OnMouseOver != null) OnMouseOver.Invoke(null, null);
+                if (press)
+                {
+                    PressButton();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 判断鼠标是否经过控件
+        /// </summary>
+        /// <param name="poX">鼠标横坐标</param>
+        /// <param name="poY">鼠标纵坐标</param>
+        /// <returns>返回是否经过控件的布尔值</returns>
+        public bool IsInCanvasTexture(float poX, float poY)
+        {
+            if (Visible && (Enable || FireEventWhenUnEnable))
+            {
+
+                PreMouseOver = MouseOver;
+
+                foreach (Bounds relativeBound in bounds)
+                    //通过三个条件相与判定鼠标是否经过控件
+                    if (IsInFrame(relativeBound))//控件某一范围在可视框架之内
+                    {
+                        Bounds bound = new Bounds()//将画布内控件范围的相对坐标变成屏幕上当前的绝对坐标
+                        {
+                            X = baseFrame.Position.X + relativeBound.X - baseFrame.VisualFrame.X,
+                            Y = baseFrame.Position.Y + relativeBound.Y - baseFrame.VisualFrame.Y,
+                            X2 = baseFrame.Position.X + relativeBound.X2 - baseFrame.VisualFrame.X,
+                            Y2 = baseFrame.Position.Y + relativeBound.Y2 - baseFrame.VisualFrame.Y
+                        };
+
+
+                        MouseOver = baseFrame.Position.X <= poX && poX <= baseFrame.Position.X + baseFrame.VisualFrame.Width  //鼠标在可视框架之内
+                            && baseFrame.Position.Y <= poY && poY <= baseFrame.Position.Y + baseFrame.VisualFrame.Height
+                            && bound.X - ExtDis <= poX && poX <= bound.X2 + ExtDis  //鼠标在控件范围之内
+                            && bound.Y - ExtDis <= poY && poY <= bound.Y2 + ExtDis;
+
+                        if (MouseOver)
+                            return MouseOver;//一旦判断鼠标在一个范围内则停止其他范围矩形的判断检索
+                    }
+            }
+            else
+            {
+                MouseOver = false;
+            }
+            return MouseOver;
+        }
+
+        /// <summary>
+        /// 判定控件的范围是否在上级框架之内
+        /// </summary>
+        /// <param name="bound">控件的范围</param>
+        /// <returns>返回是否在框架内的布尔值</returns>
+        protected bool IsInFrame(Bounds bound)
+        {
+            return (bound.X > baseFrame.VisualFrame.X && bound.X < baseFrame.VisualFrame.X + baseFrame.VisualFrame.Width) ||
+                (bound.X2 > baseFrame.VisualFrame.X && bound.X2 < baseFrame.VisualFrame.X + baseFrame.VisualFrame.Width) ||
+                (bound.Y > baseFrame.VisualFrame.Y && bound.Y < baseFrame.VisualFrame.Y + baseFrame.VisualFrame.Height) ||
+                (bound.Y2 > baseFrame.VisualFrame.Y && bound.Y2 < baseFrame.VisualFrame.Y + baseFrame.VisualFrame.Height);
         }
     }
 }
