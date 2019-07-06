@@ -279,6 +279,8 @@ namespace GameGlobal
         public float StartCircleTime = 30f;
         [DataMember]
         public float ScenarioMapPerTime = 3f;
+        [DataMember]
+        public int KeepSpousePersonalLoyalty = 4;
 
         public const string cryptKey = "A3g0c3%2";
 
@@ -1116,6 +1118,14 @@ namespace GameGlobal
                 {
 
                 }
+                try
+                {
+                    KeepSpousePersonalLoyalty = int.Parse(nextSibling.Attributes.GetNamedItem("KeepSpousePersonalLoyalty").Value);
+                }
+                catch (Exception exception24)
+                {
+
+                }
             }
             else
             {
@@ -1275,6 +1285,7 @@ namespace GameGlobal
             element.SetAttribute("hougongAlienOnly", hougongAlienOnly.ToString());
             element.SetAttribute("StartCircleTime", StartCircleTime.ToString());
             element.SetAttribute("ScenarioMapPerTime", ScenarioMapPerTime.ToString());
+            element.SetAttribute("KeepSpousePersonalLoyalty", KeepSpousePersonalLoyalty.ToString());
 
             document.AppendChild(element);
         

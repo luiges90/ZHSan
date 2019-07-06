@@ -1930,6 +1930,14 @@ namespace GameObjects
                // throw new Exception("try to kill person onway");
             }
 
+            if (this.Spouse != null)
+            {
+                if (!this.Spouse.Sex || this.Spouse.PersonalLoyalty < Session.Current.Scenario.GlobalVariables.KeepSpousePersonalLoyalty)
+                {
+                    this.Spouse = null;
+                }
+            }
+
             this.Alive = false;  //死亡
             this.SetBelongedCaptive(null, PersonStatus.None);
             this.LocationArchitecture = null;
@@ -7224,8 +7232,9 @@ namespace GameObjects
         {
             get
             {
-                return (int)((this.Character.IntelligenceRate * (this.Strength * (1 - Session.GlobalVariables.LeadershipOffenceRate) + this.Command * (Session.GlobalVariables.LeadershipOffenceRate + 1))
-                    + (1 - this.Character.IntelligenceRate) * this.Intelligence * 0.5) *
+                return (int)(
+                    (this.Strength * (1 - Session.GlobalVariables.LeadershipOffenceRate) + this.Command * (Session.GlobalVariables.LeadershipOffenceRate + 1)
+                    + (this.Intelligence * 0.5)) *
                     (100 + this.TitleFightingMerit
                     + this.TreasureMerit + this.CombatSkillMerit + Math.Sqrt(this.StuntCount) * 30));
             }
@@ -7827,7 +7836,7 @@ namespace GameObjects
                         v -= (this.PersonalLoyalty - 1) * 10;
                     }
 
-                    if (this.marriageGranter == this.BelongedFaction.Leader)
+                    if (this.marriageGranter == this.BelongedFaction.Leader && this.Spouse != null)
                     {
                         if (this.Spouse.HasStrainTo(this.BelongedFaction.Leader))
                         {
@@ -10418,6 +10427,18 @@ namespace GameObjects
                     }
                 }
             }// end if (this.CurrentPerson.Spouse != -1)
+
+            if (nvren.Spouse != null && nvren.Spouse != leader)
+            {
+                if (nvren.Spouse.Spouse == nvren && (nvren.Spouse.PersonalLoyalty < Session.Current.Scenario.GlobalVariables.KeepSpousePersonalLoyalty || !nvren.Spouse.Sex))
+                {
+                    nvren.Spouse.Spouse = null;
+                }
+                if (nvren.PersonalLoyalty < Session.Current.Scenario.GlobalVariables.KeepSpousePersonalLoyalty)
+                {
+                    nvren.Spouse = null;
+                }
+            }
 
             Session.Current.Scenario.YearTable.addBecomePrincessEntry(Session.Current.Scenario.Date, nvren, this);
 
