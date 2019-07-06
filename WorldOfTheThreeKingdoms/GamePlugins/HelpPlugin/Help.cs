@@ -73,7 +73,8 @@ namespace HelpPlugin
         {
             if (this.RichText.CurrentPageIndex == (this.RichText.PageCount - 1))
             {
-                this.IsShowing = false;
+                // Diable cancelling help dialog when left click the mouse, in order to enhance the user experience
+                // this.IsShowing = false;
             }
             else
             {
@@ -187,23 +188,27 @@ namespace HelpPlugin
             set
             {
                 this.isShowing = value;
+                WorldOfTheThreeKingdoms.GameScreens.MainGameScreen gameScreen = Session.MainGame.mainGameScreen;
+
                 if (value)
                 {
-                    Session.MainGame.mainGameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, UndoneWorkSubKind.None));
-                    Session.MainGame.mainGameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
-                    Session.MainGame.mainGameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                    Session.MainGame.mainGameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    gameScreen.PushUndoneWork(new UndoneWorkItem(UndoneWorkKind.Dialog, UndoneWorkSubKind.None));
+                    gameScreen.OnMouseMove += new Screen.MouseMove(this.screen_OnMouseMove);
+                    gameScreen.OnMouseLeftDown += new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    gameScreen.OnMouseRightUp += new Screen.MouseRightUp(this.screen_OnMouseRightUp);
                     this.RichText.SetGameObjectTextBranch(null, this.CurrentBranch);
                 }
                 else
                 {
-                    if (Session.MainGame.mainGameScreen.PopUndoneWork().Kind != UndoneWorkKind.Dialog)
+                    if (gameScreen.PopUndoneWork().Kind != UndoneWorkKind.Dialog)
                     {
                         throw new Exception("The UndoneWork is not a Help Dialog.");
                     }
-                    Session.MainGame.mainGameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
-                    Session.MainGame.mainGameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
-                    Session.MainGame.mainGameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+                    gameScreen.OnMouseMove -= new Screen.MouseMove(this.screen_OnMouseMove);
+                    gameScreen.OnMouseLeftDown -= new Screen.MouseLeftDown(this.screen_OnMouseLeftDown);
+                    gameScreen.OnMouseRightUp -= new Screen.MouseRightUp(this.screen_OnMouseRightUp);
+
+                    gameScreen.updateGameScreenByCurrentTarget();
                 }
             }
         }
