@@ -1587,7 +1587,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.CurrentTroop = this.CurrentArchitecture.CreateTroop(persons, leader, military, this.CurrentArchitecture.Food>military.FoodMax? military.FoodMax:0, point);
                     this.CurrentTroop.zijin = this.CurrentArchitecture.Fund > military.zijinzuidazhi ? military.zijinzuidazhi : 0;
                     this.CurrentTroop.ManualControl = true;
-                    this.CurrentTroop.mingling = "——";
                     this.CurrentArchitecture.DecreaseFund(this.CurrentTroop.zijin);
                     if ((this.CurrentArchitecture.DefensiveLegion == null) || (this.CurrentArchitecture.DefensiveLegion.Troops.Count == 0))
                     {
@@ -1630,7 +1629,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.CurrentTroop = this.CurrentArchitecture.CreateTroop(persons, leader, military, this.CurrentArchitecture.Food > military.FoodMax ? military.FoodMax : 0, point);
                     this.CurrentTroop.zijin = this.CurrentArchitecture.Fund > military.zijinzuidazhi ? military.zijinzuidazhi : 0;
                     this.CurrentTroop.ManualControl = true;
-                    this.CurrentTroop.mingling = "——";
                     this.CurrentArchitecture.DecreaseFund(this.CurrentTroop.zijin);
                     if ((this.CurrentArchitecture.DefensiveLegion == null) || (this.CurrentArchitecture.DefensiveLegion.Troops.Count == 0))
                     {
@@ -1652,7 +1650,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.CurrentTroop = this.CurrentArchitecture.CreateTroop(this.CurrentGameObjects, this.CurrentPerson, this.CurrentMilitary, this.CurrentNumber, position);
             this.CurrentTroop.zijin = this.Currentzijin;
             this.CurrentTroop.ManualControl = true;
-            this.CurrentTroop.mingling = "——";
             this.CurrentArchitecture.DecreaseFund(this.CurrentTroop.zijin);
             if ((this.CurrentArchitecture.DefensiveLegion == null) || (this.CurrentArchitecture.DefensiveLegion.Troops.Count == 0))
             {

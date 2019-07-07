@@ -1108,21 +1108,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case ContextMenuResult.TroopOccupy:
-                    this.CurrentTroop.Operated = true;
                     this.CurrentTroop.Occupy();
 
                     this.CurrentTroop.RealDestination = this.CurrentTroop.Position ;
                     this.CurrentTroop.TargetTroop = null;
                     this.CurrentTroop.TargetArchitecture = Session.Current.Scenario.GetArchitectureByPosition(this.CurrentTroop.Position);
-                    this.CurrentTroop.mingling = "入城";
-                    this.CurrentTroop.minglingweizhi = this.CurrentTroop.Position;
 
                     break;
 
                 case ContextMenuResult.TroopAction_LevyFood:
                     this.CurrentTroop.Operated = true;
                     this.CurrentTroop.LevyFood();
-                    this.CurrentTroop.mingling = "——";
                     break;
 
                 case ContextMenuResult.TroopCutRouteway:
@@ -1131,7 +1127,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.Plugins.ConfirmationDialogPlugin.SetPosition(ShowPosition.Center);
                     this.Plugins.tupianwenziPlugin.SetGameObjectBranch(this.CurrentTroop.Leader, this.CurrentTroop.Leader, TextMessageKind.StartCutRouteway, "CutRouteway");
                     this.Plugins.tupianwenziPlugin.IsShowing = true;
-                    this.CurrentTroop.mingling = "——";
                     break;
 
                 case ContextMenuResult.TroopConfig_AttackDefaultKind:
@@ -1173,7 +1168,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 case ContextMenuResult.TroopIdle:
                     this.CurrentTroop.Operated = true;
-                    this.CurrentTroop.mingling = "待命";
                     break;
 
                 case ContextMenuResult.TroopDetail:

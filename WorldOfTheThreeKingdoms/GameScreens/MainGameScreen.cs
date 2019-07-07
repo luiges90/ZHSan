@@ -1068,10 +1068,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     targetArchitecture = Session.Current.Scenario.GetArchitectureByPosition(this.selectingLayer.SelectedPoint);
                     this.CurrentTroop.RealDestination = this.selectingLayer.SelectedPoint;
                     this.CurrentTroop.TargetTroop = null;
-                    this.CurrentTroop.TargetArchitecture  = null;
-                    this.CurrentTroop.Operated = true;
-                    this.CurrentTroop.mingling = "移动";
-
+                    this.CurrentTroop.WillTroop = null;
+                    this.CurrentTroop.TargetArchitecture = null;
+                    this.CurrentTroop.WillArchitecture = null;
 
                     if (targetArchitecture != null)
                     {
@@ -1084,6 +1083,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         }
                         this.CurrentTroop.BelongedLegion.Kind = LegionKind.Offensive;
                     }
+
+                    this.CurrentTroop.SelectedMove = true;
+
                     break;
 
                 case SelectingUndoneWorkKind.Trooprucheng :   //入城
@@ -1105,15 +1107,18 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     
                     this.CurrentTroop.RealDestination = this.selectingLayer.SelectedPoint;
                     this.CurrentTroop.TargetTroop = null;
+                    this.CurrentTroop.WillTroop = null;
                     this.CurrentTroop.TargetArchitecture = null;
-                    this.CurrentTroop.mingling = "入城";
-                    this.CurrentTroop.minglingweizhi = this.selectingLayer.SelectedPoint;
-                    this.CurrentTroop.Operated = true;
+                    this.CurrentTroop.WillArchitecture = null;
+                    this.CurrentTroop.mingling = "Enter";
                     if (targetArchitecture != null)
                     {
                         this.CurrentTroop.TargetArchitecture = targetArchitecture;
 
                     }
+
+                    this.CurrentTroop.SelectedMove = true;
+
                     break;
 
 
@@ -1124,7 +1129,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         Troop targetTroop = Session.Current.Scenario.GetTroopByPosition(this.selectingLayer.SelectedPoint);
                         foreach (Troop troop in this.SelectorTroops)
                         {
-                            troop.Operated = true;
                             if (targetArchitecture != null)
                             {
                                 if (targetTroop != null && troop.Army.Kind.AirOffence)
@@ -1139,14 +1143,18 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                                 troop.BelongedLegion.WillArchitecture = targetArchitecture;
                                 if (targetArchitecture.BelongedFaction == troop.BelongedFaction)
                                 {
-                                    troop.mingling = "入城";
-                                    troop.minglingweizhi = this.selectingLayer.SelectedPoint;
                                     troop.TargetTroop = null;
+                                    troop.WillTroop = null;
                                 }
+
+                                troop.SelectedAttack = true;
                             }
                             else if (targetTroop != null)
                             {
                                 troop.TargetTroop = targetTroop;
+                                troop.WillTroop = targetTroop;
+
+                                troop.SelectedAttack = true;
                             }
                             troop.RealDestination = this.selectingLayer.SelectedPoint;
                             if (!((targetArchitecture == null) || troop.BelongedFaction.IsFriendly(targetArchitecture.BelongedFaction)))
@@ -1158,6 +1166,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                                 troop.BelongedLegion.Kind = LegionKind.Defensive;
                             }
                             this.Plugins.PersonBubblePlugin.AddPerson(troop.Leader, troop.Position, TextMessageKind.TroopMoveTo, "Destination");
+
+                            troop.SelectedMove = true;
                         }
                     }
                     this.SelectorTroops.Clear();
@@ -1167,14 +1177,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     {
                         if (this.selectingLayer.Canceled)
                         {
-                            /*this.CurrentTroop.AttackTargetKind = TroopAttackTargetKind.遇敌;
+                            this.CurrentTroop.AttackTargetKind = TroopAttackTargetKind.遇敌;
                             if (this.CurrentTroop.CurrentStratagem != null)
                             {
                                 this.CurrentTroop.CastTargetKind = TroopCastTargetKind.可能;
                             }
-                            */
-                            this.CurrentTroop.CurrentCombatMethod = null;
-                            this.CurrentTroop.CurrentStratagem = null;
+                            
                             if (this.CurrentTroop.Status == TroopStatus.埋伏)
                             {
                                 this.CurrentTroop.EndAmbush();
@@ -1182,35 +1190,58 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             return;
                         }
                         //////////////////////////////////////////////////////////////////////////////
-                        /*
+
+                        if (!this.CurrentTroop.SelectedMove)
+                        {
+                            this.CurrentTroop.RealDestination = this.selectingLayer.SelectedPoint;
+                        }
+                        
                         Troop troopByPositionNoCheck = Session.Current.Scenario.GetTroopByPositionNoCheck(this.selectingLayer.SelectedPoint);
                         if ((troopByPositionNoCheck == null) || !this.CurrentTroop.BelongedFaction.IsPositionKnown(this.selectingLayer.SelectedPoint))
                         {
                             this.CurrentTroop.TargetTroop = null;
+                            if (!this.CurrentTroop.SelectedMove)
+                            {
+                                this.CurrentTroop.WillTroop = null;
+                            }
                         }
                         else
                         {
                             this.CurrentTroop.TargetTroop = troopByPositionNoCheck;
-                            //this.CurrentTroop.WillTroop = troopByPositionNoCheck;
-                            this.CurrentTroop.TargetArchitecture = null;
-                            //this.CurrentTroop.WillArchitecture = null;
+                            //this.CurrentTroop.TargetArchitecture = null;
+                            if (!this.CurrentTroop.SelectedMove)
+                            {
+                                this.CurrentTroop.WillTroop = troopByPositionNoCheck;
+                                //this.CurrentTroop.WillArchitecture = null;
+                            }
                         }
                         Architecture architectureByPositionNoCheck = Session.Current.Scenario.GetArchitectureByPositionNoCheck(this.selectingLayer.SelectedPoint);
                         if (architectureByPositionNoCheck != null && architectureByPositionNoCheck.Endurance >0)
                         {
                             this.CurrentTroop.TargetArchitecture = architectureByPositionNoCheck;
-                            //this.CurrentTroop.WillArchitecture  = architectureByPositionNoCheck;
-                            this.CurrentTroop.TargetTroop = null;
-                            //this.CurrentTroop.WillTroop = null;
-                            this.CurrentTroop.RealDestination = this.selectingLayer.SelectedPoint;
-
+                            //this.CurrentTroop.TargetTroop = null;
+                            if (!this.CurrentTroop.SelectedMove)
+                            {
+                                this.CurrentTroop.WillArchitecture = architectureByPositionNoCheck;
+                                //this.CurrentTroop.WillTroop = null;
+                                this.CurrentTroop.RealDestination = this.selectingLayer.SelectedPoint;
+                            }
+                            
                         }
                         else
                         {
                             this.CurrentTroop.TargetArchitecture = null;
+                            if (!this.CurrentTroop.SelectedMove)
+                            {
+                                this.CurrentTroop.WillArchitecture = null;
+                            }
                         }
-                        */
+
+                        this.CurrentTroop.SelectedMove = true;
+                        this.CurrentTroop.SelectedAttack = true;
+                        
                         ///////////////////////////////////////////////////////////////////////////////////
+                        /*
                         Troop troopByPositionNoCheck = Session.Current.Scenario.GetTroopByPositionNoCheck(this.selectingLayer.SelectedPoint);
                         Architecture architectureByPositionNoCheck = Session.Current.Scenario.GetArchitectureByPositionNoCheck(this.selectingLayer.SelectedPoint);
                         bool youjianzhu=false ;
@@ -1260,8 +1291,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                             }
                         }
+                        */
                         /////////////////////////////////////////////////////////////////////////////////////
-                        this.CurrentTroop.Operated = true;
 
                         //this.Plugins.PersonBubblePlugin.AddPerson(this.CurrentTroop.Leader, this.CurrentTroop.Position, "Target");
                         return;
@@ -1274,8 +1305,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         return;
                     }
                     this.CurrentTroop.SelfCastPosition = this.selectingLayer.SelectedPoint;
-                    this.CurrentTroop.Operated = true;
-                    this.CurrentTroop.mingling = "侦查";
+
+                    this.CurrentTroop.SelectedAttack = true;
 
                     return;
 
@@ -1286,8 +1317,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         return;
                     }
                     this.CurrentTroop.SelfCastPosition = this.selectingLayer.SelectedPoint;
-                    this.CurrentTroop.Operated = true;
-                    this.CurrentTroop.mingling = "——";
+
+                    this.CurrentTroop.SelectedAttack = true;
+
                     return;
 
                 case SelectingUndoneWorkKind.ArchitectureRoutewayStartPoint:
@@ -1919,11 +1951,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 if (id == 2 || id == 3 || id == 6 || id == 8)
                 {
-                    if (id == 6) //如果是灭火
-                    {
-                        this.CurrentTroop.Operated = true;
-                        this.CurrentTroop.mingling = "——";
-                    }
+
                 }
                 else if ((this.CurrentTroop.CastTargetKind == TroopCastTargetKind.特定默认) || (this.CurrentTroop.CastTargetKind == TroopCastTargetKind.特定))
                 {

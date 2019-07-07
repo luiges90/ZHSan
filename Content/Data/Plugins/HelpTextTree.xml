@@ -1806,7 +1806,7 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　部队" Color="4294375158" />
-        <Leaf Text="什么也不做，不会主动攻击。" Color="4285458214" />
+        <Leaf Text="完成输入所有部队指令，部队会在游戏进行时行动。" Color="4285458214" />
     </Branch>
     <Branch Name="RoutewayEdit">
         <Leaf Text="粮道" Color="4294375158" />

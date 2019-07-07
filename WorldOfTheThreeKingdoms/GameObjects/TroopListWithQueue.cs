@@ -61,6 +61,8 @@ namespace GameObjects
                     }
                 }
                 troop.Operated = false;
+                troop.SelectedMove = false;
+                troop.SelectedAttack = false;
                 troop.Controllable = true;
             }
         }
@@ -129,12 +131,6 @@ namespace GameObjects
                     Troop item = this.CurrentQueue.Dequeue();
                     if (!item.Destroyed)
                     {
-                        if (item.mingling == "待命")
-                        {
-                            item.OperationDone = true;
-                            break;
-                        }
-
                         if (item.Destroyed || 
                             (item.Status != TroopStatus.一般 && item.Status != TroopStatus.伪报 && item.Status != TroopStatus.挑衅))
                         {
@@ -251,24 +247,6 @@ namespace GameObjects
         }
         private void TroopChangeRealDestination(Troop troop)
         {
-            if (Session.Current.Scenario.IsPlayer(troop.BelongedFaction))
-            {
-                if (troop.mingling == "攻击军队" && troop.TargetTroop != null)
-                {
-                    troop.RealDestination = troop.TargetTroop.Position;
-                }
-                else if (troop.mingling == "攻击军队" && troop.TargetTroop == null)
-                {
-                    troop.RealDestination = troop.Position;
-                    troop.OperationDone = true;
-                }
-            }
-            /*
-            else if (troop.mingling == "入城")
-            {
-                troop.RealDestination = troop.minglingweizhi;
-            }
-            */
 
         }
 

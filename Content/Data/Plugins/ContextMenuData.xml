@@ -258,16 +258,22 @@
       <MenuItem ID="4" Name="TroopTarget" DisplayName="攻击" DisplayIfTrue="TargetAvail" />
       <MenuItem ID="5" Name="TroopCombatMethod" DisplayName="战法" DisplayIfTrue="CombatMethodAvail" DisplayAll="False">
       </MenuItem>
-      <MenuItem ID="6" Name="TroopStratagem" DisplayName="计略" DisplayIfTrue="ControlAvail" DisplayAll="False">
+      <MenuItem ID="6" Name="TroopStratagem" DisplayName="计略" DisplayIfTrue="StrategemAvail" DisplayAll="False">
       </MenuItem>
       <MenuItem ID="7" Name="TroopStunt" DisplayName="特技" DisplayIfTrue="ControlAvail" DisplayAll="False">
       </MenuItem>
       <MenuItem ID="8" Name="TroopCutRouteway" DisplayName="截断粮道" DisplayIfTrue="CutRoutewayAvail" />
       <MenuItem ID="9" Name="TroopEnter" DisplayName="入城" DisplayIfTrue="Canrucheng" />
       <MenuItem ID="10" Name="TroopSetAuto" DisplayName="委任" OppositeName="指挥" OppositeIfTrue="Auto" DisplayIfTrue="ControlAvail" />
+	  <MenuItem ID="12" Name="TroopMorph" DisplayName="兴建" DisplayIfTrue="MorphAvail" />
+	  <MenuItem ID="17" Name="TroopConfig" DisplayName="指令" DisplayIfTrue="ControlAvail" >
+		  <MenuItem ID="13" Name="AttackDefaultKind" DisplayName="攻击默认" DisplayIfTrue="ControlAvail" />
+		  <MenuItem ID="14" Name="AttackTargetKind" DisplayName="攻击目标" DisplayIfTrue="ControlAvail" />
+		  <MenuItem ID="15" Name="CastDefaultKind" DisplayName="计略默认" DisplayIfTrue="ControlAvail" />
+		  <MenuItem ID="16" Name="CastTargetKind" DisplayName="计略目标" DisplayIfTrue="ControlAvail" />
+	  </MenuItem>
       <MenuItem ID="11" Name="TroopIdle" DisplayName="待命" DisplayIfTrue="ControlAvail" />
-      <MenuItem ID="12" Name="TroopMorph" DisplayName="兴建" DisplayIfTrue="MorphAvail" />
-
+      
     </MenuKind>
     <MenuKind ID="5" Name="TroopRightClick" DisplayName="部队右键菜单" IsLeft="false" Width="130" Height="27" DisplayAll="False">
       <MenuItem ID="1" Name="TroopDetail" DisplayName="部队信息" DisplayIfTrue="IsCurrentPlayer" />

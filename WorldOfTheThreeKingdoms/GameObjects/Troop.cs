@@ -2555,17 +2555,7 @@ namespace GameObjects
                 }
                 if (this.CanEnter() && this.Army.Kind.Movability > 1)
                 {
-                    if (Session.Current.Scenario.IsPlayer(this.BelongedFaction) && this.TargetArchitecture != null)
-                    {
-                        if (this.mingling == "入城" && this.Position == this.minglingweizhi)
-                        {
-                            this.Enter(this.TargetArchitecture);
-                        }
-                    }
-                    else
-                    {
-                        this.Enter();
-                    }
+                    this.Enter();
                     cannotFindRouteRounds = 0;
                     return path;
                 }
@@ -3517,7 +3507,12 @@ namespace GameObjects
 
         public bool CombatMethodAvail()
         {
-            return (this.Status == TroopStatus.一般);
+            return (this.Status == TroopStatus.一般 && !SelectedAttack);
+        }
+
+        public bool StrategemAvail()
+        {
+            return (this.Status == TroopStatus.一般 && !SelectedAttack);
         }
 
         public bool CanMoveAnyway()
@@ -4058,11 +4053,9 @@ namespace GameObjects
                 if (Session.Current.Scenario.IsPlayer(this.BelongedFaction) && this.TargetTroop == null && this.TargetArchitecture == null
                     && this.Position.Equals(this.Destination)
                     && this.Status == TroopStatus.一般 && this.WillArchitecture == this.StartingArchitecture
-                    && !this.HasHostileTroopInView() && !this.HasHostileArchitectureInView()
-                    && this.mingling != "移动" && this.mingling != "待命")
+                    && !this.HasHostileTroopInView() && !this.HasHostileArchitectureInView())
                 {
-                    this.minglingweizhi = this.Destination = Session.Current.Scenario.GetClosestPoint(this.StartingArchitecture.ArchitectureArea, this.Position);
-                    this.mingling = "入城";
+                    this.Destination = Session.Current.Scenario.GetClosestPoint(this.StartingArchitecture.ArchitectureArea, this.Position);
                     this.TargetArchitecture = this.StartingArchitecture;
                 }
                 {
@@ -8276,17 +8269,11 @@ namespace GameObjects
                 this.OperationDone = true;
             }*/
 
-            if (this.mingling == "入城" && this.Position == this.minglingweizhi && Session.Current.Scenario.GetTroopByPosition(this.Position) == this)
+            if (this.mingling == "Enter" &&
+                this.TargetArchitecture != null && this.TargetArchitecture.BelongedFaction == this.BelongedFaction && 
+                this.TargetArchitecture.GetTroopEnterableArea(this).Area.Contains(this.Position))
             {
-                if (this.TargetArchitecture != null)
-                {
-                    this.Enter(this.TargetArchitecture);
-                }
-                else
-                {
-                    this.Enter();
-                }
-
+                this.Enter(this.TargetArchitecture);
             }
            // sp.Stop();
            /* try
@@ -8315,7 +8302,7 @@ namespace GameObjects
 
         public bool MoveAvail()
         {
-            return (this.Status == TroopStatus.一般);
+            return (this.Status == TroopStatus.一般 && !SelectedMove && !SelectedAttack);
         }
 
         private void MoveCaptiveIntoArchitecture(Architecture des)
@@ -10971,7 +10958,7 @@ namespace GameObjects
 
         public bool TargetAvail()
         {
-            return true;
+            return !SelectedAttack;
             //return ((((this.AttackTargetKind == TroopAttackTargetKind.目标) || (this.AttackTargetKind == TroopAttackTargetKind.目标默认)) || (this.CastTargetKind == TroopCastTargetKind.特定)) || (this.CastTargetKind == TroopCastTargetKind.特定默认));
         }
 
@@ -11156,7 +11143,7 @@ namespace GameObjects
 
 
                     Architecture a = Session.Current.Scenario.GetArchitectureByPosition(position);
-                    if (a != null && (!Session.Current.Scenario.IsPlayer(this.BelongedFaction) || this.mingling == "入城" ||
+                    if (a != null && (!Session.Current.Scenario.IsPlayer(this.BelongedFaction) ||
                         (this.StartingArchitecture.BelongedSection.AIDetail.AutoRun && !this.ManualControl)) && this.TargetArchitecture == a)
                     {
                         bool canEnter = this.CanEnter();
@@ -11189,7 +11176,7 @@ namespace GameObjects
                             }
 
                             a = Session.Current.Scenario.GetArchitectureByPosition(nextPosition);
-                            if (a != null && (!Session.Current.Scenario.IsPlayer(this.BelongedFaction) || this.mingling == "入城" ||
+                            if (a != null && (!Session.Current.Scenario.IsPlayer(this.BelongedFaction) ||
                                 (this.StartingArchitecture.BelongedSection.AIDetail.AutoRun && !this.ManualControl)) && this.TargetArchitecture == a)
                             {
                                 Point old = this.position;
@@ -14265,6 +14252,9 @@ namespace GameObjects
             return result;
         }
         public bool DrawSelected = false;
+
+        public bool SelectedMove = false;
+        public bool SelectedAttack = false;
     }
 }
 
