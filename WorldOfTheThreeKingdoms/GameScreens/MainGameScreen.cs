@@ -1085,6 +1085,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
 
                     this.CurrentTroop.SelectedMove = true;
+                    this.CurrentTroop.mingling = "Move";
 
                     break;
 
@@ -1118,6 +1119,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
 
                     this.CurrentTroop.SelectedMove = true;
+                    this.CurrentTroop.mingling = "Move";
 
                     break;
 
@@ -1129,45 +1131,54 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         Troop targetTroop = Session.Current.Scenario.GetTroopByPosition(this.selectingLayer.SelectedPoint);
                         foreach (Troop troop in this.SelectorTroops)
                         {
-                            if (targetArchitecture != null)
+                            if (!troop.SelectedMove && !troop.SelectedAttack)
                             {
-                                if (targetTroop != null && troop.Army.Kind.AirOffence)
+                                if (targetArchitecture != null)
+                                {
+                                    if (targetTroop != null && troop.Army.Kind.AirOffence)
+                                    {
+                                        troop.TargetTroop = targetTroop;
+                                    }
+                                    else
+                                    {
+                                        troop.TargetArchitecture = targetArchitecture;
+                                    }
+                                    troop.WillArchitecture = targetArchitecture;
+                                    troop.BelongedLegion.WillArchitecture = targetArchitecture;
+                                    if (targetArchitecture.BelongedFaction == troop.BelongedFaction)
+                                    {
+                                        troop.TargetTroop = null;
+                                        troop.WillTroop = null;
+                                    }
+
+                                    troop.SelectedAttack = true;
+                                    troop.mingling = "Attack";
+                                }
+                                else if (targetTroop != null)
                                 {
                                     troop.TargetTroop = targetTroop;
+                                    troop.WillTroop = targetTroop;
+
+                                    troop.SelectedAttack = true;
+                                    troop.mingling = "Attack";
                                 }
                                 else
                                 {
-                                    troop.TargetArchitecture = targetArchitecture;
+                                    troop.mingling = "Move";
                                 }
-                                troop.WillArchitecture = targetArchitecture;
-                                troop.BelongedLegion.WillArchitecture = targetArchitecture;
-                                if (targetArchitecture.BelongedFaction == troop.BelongedFaction)
+                                troop.RealDestination = this.selectingLayer.SelectedPoint;
+                                if (!((targetArchitecture == null) || troop.BelongedFaction.IsFriendly(targetArchitecture.BelongedFaction)))
                                 {
-                                    troop.TargetTroop = null;
-                                    troop.WillTroop = null;
+                                    troop.BelongedLegion.Kind = LegionKind.Offensive;
                                 }
+                                else
+                                {
+                                    troop.BelongedLegion.Kind = LegionKind.Defensive;
+                                }
+                                this.Plugins.PersonBubblePlugin.AddPerson(troop.Leader, troop.Position, TextMessageKind.TroopMoveTo, "Destination");
 
-                                troop.SelectedAttack = true;
+                                troop.SelectedMove = true;
                             }
-                            else if (targetTroop != null)
-                            {
-                                troop.TargetTroop = targetTroop;
-                                troop.WillTroop = targetTroop;
-
-                                troop.SelectedAttack = true;
-                            }
-                            troop.RealDestination = this.selectingLayer.SelectedPoint;
-                            if (!((targetArchitecture == null) || troop.BelongedFaction.IsFriendly(targetArchitecture.BelongedFaction)))
-                            {
-                                troop.BelongedLegion.Kind = LegionKind.Offensive;
-                            }
-                            else
-                            {
-                                troop.BelongedLegion.Kind = LegionKind.Defensive;
-                            }
-                            this.Plugins.PersonBubblePlugin.AddPerson(troop.Leader, troop.Position, TextMessageKind.TroopMoveTo, "Destination");
-
-                            troop.SelectedMove = true;
                         }
                     }
                     this.SelectorTroops.Clear();
@@ -1191,10 +1202,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         }
                         //////////////////////////////////////////////////////////////////////////////
 
-                        if (!this.CurrentTroop.SelectedMove)
+                        /*if (!this.CurrentTroop.SelectedMove)
                         {
                             this.CurrentTroop.RealDestination = this.selectingLayer.SelectedPoint;
-                        }
+                        }*/
                         
                         Troop troopByPositionNoCheck = Session.Current.Scenario.GetTroopByPositionNoCheck(this.selectingLayer.SelectedPoint);
                         if ((troopByPositionNoCheck == null) || !this.CurrentTroop.BelongedFaction.IsPositionKnown(this.selectingLayer.SelectedPoint))
@@ -1239,7 +1250,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                         this.CurrentTroop.SelectedMove = true;
                         this.CurrentTroop.SelectedAttack = true;
-                        
+                        this.CurrentTroop.mingling = "Attack";
+
                         ///////////////////////////////////////////////////////////////////////////////////
                         /*
                         Troop troopByPositionNoCheck = Session.Current.Scenario.GetTroopByPositionNoCheck(this.selectingLayer.SelectedPoint);
@@ -1307,6 +1319,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.CurrentTroop.SelfCastPosition = this.selectingLayer.SelectedPoint;
 
                     this.CurrentTroop.SelectedAttack = true;
+                    this.CurrentTroop.mingling = "Stratagem";
 
                     return;
 
@@ -1319,6 +1332,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.CurrentTroop.SelfCastPosition = this.selectingLayer.SelectedPoint;
 
                     this.CurrentTroop.SelectedAttack = true;
+                    this.CurrentTroop.mingling = "Stratagem";
 
                     return;
 

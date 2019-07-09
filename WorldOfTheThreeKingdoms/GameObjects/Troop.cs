@@ -4057,6 +4057,7 @@ namespace GameObjects
                 {
                     this.Destination = Session.Current.Scenario.GetClosestPoint(this.StartingArchitecture.ArchitectureArea, this.Position);
                     this.TargetArchitecture = this.StartingArchitecture;
+                    this.mingling = "Enter";
                 }
                 {
                     Architecture a = Session.Current.Scenario.GetArchitectureByPositionNoCheck(this.Position);

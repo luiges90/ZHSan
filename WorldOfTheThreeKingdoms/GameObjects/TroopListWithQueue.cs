@@ -138,57 +138,28 @@ namespace GameObjects
                             item.OperationDone = true;
                         }
 
-                        if (Session.Current.Scenario.IsPlayer(item.BelongedFaction))
+                        if (!item.Destroyed)
                         {
-                            if (!(item.HasToDoCombatAction || !item.ToDoCombatAction()))
-                            {
-                                item.HasToDoCombatAction = true;
-                                this.CurrentQueue.Enqueue(item);
-                                break;
-                            }
-                            if (item.HasToDoCombatAction)
-                            {
-                                item.HasToDoCombatAction = false;
-                                item.DoCombatAction();
-                                this.CurrentQueue.Enqueue(item);
-                                break;
-                            }
-                            if (this.troopQueue.Count > 0)
-                            {
-                                this.CurrentQueue.Enqueue(this.troopQueue.Dequeue());
-                            }
-
                             if (item.MovabilityLeft > 0)
                             {
                                 this.TroopChangeRealDestination(item);
                                 this.TroopMoveThread(item);
                             }
-                        }
-                        else
-                        {
-                            if (!item.Destroyed)
-                            {
-                                if (item.MovabilityLeft > 0)
-                                {
-                                    this.TroopChangeRealDestination(item);
-                                    this.TroopMoveThread(item);
-                                }
 
-                                if (item.MovabilityLeft <= 0)
+                            if (item.MovabilityLeft <= 0)
+                            {
+                                if (!item.HasToDoCombatAction && item.ToDoCombatAction())
                                 {
-                                    if (!item.HasToDoCombatAction && item.ToDoCombatAction())
-                                    {
-                                        item.HasToDoCombatAction = true;
-                                        this.CurrentQueue.Enqueue(item);
-                                        break;
-                                    }
-                                    if (item.HasToDoCombatAction)
-                                    {
-                                        item.HasToDoCombatAction = false;
-                                        item.DoCombatAction();
-                                        this.CurrentQueue.Enqueue(item);
-                                        break;
-                                    }
+                                    item.HasToDoCombatAction = true;
+                                    this.CurrentQueue.Enqueue(item);
+                                    break;
+                                }
+                                if (item.HasToDoCombatAction)
+                                {
+                                    item.HasToDoCombatAction = false;
+                                    item.DoCombatAction();
+                                    this.CurrentQueue.Enqueue(item);
+                                    break;
                                 }
                             }
                         }
@@ -247,7 +218,14 @@ namespace GameObjects
         }
         private void TroopChangeRealDestination(Troop troop)
         {
-
+            if (troop.mingling == "Attack" && troop.TargetTroop != null)
+            {
+                troop.RealDestination = troop.TargetTroop.Position;
+            }
+            else if (troop.mingling == "Attack" && troop.TargetTroop == null)
+            {
+                troop.RealDestination = troop.Position;
+            }
         }
 
 
