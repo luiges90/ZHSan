@@ -1119,7 +1119,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
 
                     this.CurrentTroop.SelectedMove = true;
-                    this.CurrentTroop.mingling = "Move";
 
                     break;
 
@@ -1149,10 +1148,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                                     {
                                         troop.TargetTroop = null;
                                         troop.WillTroop = null;
+                                        troop.mingling = "Enter";
+                                    }
+                                    else
+                                    {
+                                        troop.mingling = "Attack";
                                     }
 
                                     troop.SelectedAttack = true;
-                                    troop.mingling = "Attack";
+                                   
                                 }
                                 else if (targetTroop != null)
                                 {
@@ -1202,10 +1206,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         }
                         //////////////////////////////////////////////////////////////////////////////
 
-                        /*if (!this.CurrentTroop.SelectedMove)
+                        if (!this.CurrentTroop.SelectedMove)
                         {
                             this.CurrentTroop.RealDestination = this.selectingLayer.SelectedPoint;
-                        }*/
+                        }
                         
                         Troop troopByPositionNoCheck = Session.Current.Scenario.GetTroopByPositionNoCheck(this.selectingLayer.SelectedPoint);
                         if ((troopByPositionNoCheck == null) || !this.CurrentTroop.BelongedFaction.IsPositionKnown(this.selectingLayer.SelectedPoint))
@@ -1250,7 +1254,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                         this.CurrentTroop.SelectedMove = true;
                         this.CurrentTroop.SelectedAttack = true;
-                        this.CurrentTroop.mingling = "Attack";
+                        if (this.CurrentTroop.mingling != "Move" && this.CurrentTroop.mingling != "Stratagem" && this.CurrentTroop.mingling != "Enter")
+                        {
+                            this.CurrentTroop.mingling = "Attack";
+                        }
 
                         ///////////////////////////////////////////////////////////////////////////////////
                         /*

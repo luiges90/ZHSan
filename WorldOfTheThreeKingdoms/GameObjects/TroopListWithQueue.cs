@@ -218,13 +218,15 @@ namespace GameObjects
         }
         private void TroopChangeRealDestination(Troop troop)
         {
-            if (troop.mingling == "Attack" && troop.TargetTroop != null)
+            if (troop.mingling == "Attack" || troop.mingling == "Stratagem")
             {
-                troop.RealDestination = troop.TargetTroop.Position;
-            }
-            else if (troop.mingling == "Attack" && troop.TargetTroop == null)
-            {
-                troop.RealDestination = troop.Position;
+                if (troop.TargetTroop != null && !troop.CanAttack(troop.TargetTroop) && !troop.CanStratagem(troop.TargetTroop))
+                {
+                    troop.RealDestination = troop.TargetTroop.Position;
+                } else
+                {
+                    troop.RealDestination = troop.Position;
+                }
             }
         }
 

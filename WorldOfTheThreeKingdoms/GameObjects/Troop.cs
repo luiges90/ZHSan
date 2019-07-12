@@ -2770,6 +2770,11 @@ namespace GameObjects
             return this.OffenceArea.HasPoint(troop.Position);
         }
 
+        public bool CanStratagem(Troop troop)
+        {
+            return this.StratagemArea.HasPoint(troop.Position);
+        }
+
         public bool CancelCombatMethodAvail()
         {
             return ((this.CurrentCombatMethod != null) && !this.CombatMethodApplied);
@@ -4072,6 +4077,8 @@ namespace GameObjects
                 }
 
                 this.DrawSelected = false;
+
+                this.mingling = "";
             }
         }
 
