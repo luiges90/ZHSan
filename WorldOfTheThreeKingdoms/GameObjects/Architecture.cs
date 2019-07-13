@@ -14977,6 +14977,14 @@ namespace GameObjects
         public bool PrincessChangeLeader(bool byOccupy, Faction capturer, Person p)
         {
             bool result = false;
+            if (p.Spouse != null)
+            {
+                if (p.Spouse.Spouse == p)
+                {
+                    p.Spouse.Spouse = null;
+                }
+                p.Spouse = null;
+            }
             if (capturer.Leader.isLegalFeiZiExcludeAge(p) && capturer.hougongValid)
              {
                 if (byOccupy)

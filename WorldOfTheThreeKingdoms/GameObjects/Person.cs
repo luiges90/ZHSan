@@ -1930,10 +1930,14 @@ namespace GameObjects
                // throw new Exception("try to kill person onway");
             }
 
-            if (this.Spouse != null)
+            if (this.Spouse != null && this.Spouse.Spouse != null)
             {
-                if (!this.Spouse.Sex || this.Spouse.PersonalLoyalty < Session.Current.Scenario.GlobalVariables.KeepSpousePersonalLoyalty)
+                if (!this.Spouse.Spouse.Sex || this.Spouse.Spouse.PersonalLoyalty < Session.Current.Scenario.GlobalVariables.KeepSpousePersonalLoyalty)
                 {
+                    if (this.Spouse.Spouse == this)
+                    {
+                        this.Spouse.Spouse = null;
+                    }
                     this.Spouse = null;
                 }
             }
