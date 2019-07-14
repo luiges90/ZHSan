@@ -220,10 +220,13 @@ namespace GameObjects
         {
             if (troop.mingling == "Attack" || troop.mingling == "Stratagem")
             {
-                if (troop.TargetTroop != null && !troop.CanAttack(troop.TargetTroop) && !troop.CanStratagem(troop.TargetTroop))
+                if (troop.TargetTroop != null && 
+                    !((troop.mingling == "Attack" && troop.CanAttack(troop.TargetTroop)) ||
+                    (troop.mingling == "Stratagem" && troop.CanStratagem(troop.TargetTroop))))
                 {
                     troop.RealDestination = troop.TargetTroop.Position;
-                } else
+                }
+                else
                 {
                     troop.RealDestination = troop.Position;
                 }
