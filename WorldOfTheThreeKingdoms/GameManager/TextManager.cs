@@ -159,7 +159,7 @@ namespace GameManager
         /// <param name="pair">FontPair</param>
         /// <param name="lineWidth">行宽度</param>
         /// <param name="scale">缩放倍数</param>
-        /// <returns></returns>
+        /// <returns>返回经过自动换行处理过的文字</returns>
         public static string HandleAutoWrap(string text, FontPair pair, float lineWidth, float scale)
         {
             Bounds bound;

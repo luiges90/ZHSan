@@ -235,10 +235,10 @@ namespace GamePanels.Scrollbar
 
         public void Draw()
         {
-            if (ContentContorls.Count < 1)//框架包含滚动条
+            if (ContentContorls.Count < 1)//框架包含控件
                 return;
 
-            lock (batchlock)//锁定并绘制滚动条
+            lock (batchlock)//锁定并绘制控件
             {
                 Platform.GraphicsDevice.SetRenderTarget(renderTarget2D);//设置Draw到画布上
 

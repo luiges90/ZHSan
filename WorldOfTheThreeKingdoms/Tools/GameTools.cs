@@ -190,6 +190,27 @@ namespace Tools
         {
             return str.Length > length ? str.Substring(0, length) + ".." : str;
         }
+        public static string WordsSubString2(this string str, int length)
+        {
+            //return str.Length > length ? str.Substring(0, length) + ".." : str;
+            if (str.Length == length)
+            {
+                return str;
+            }
+            else if (str.Length > length)
+            {
+                return str.Substring(0, length);
+            }
+            else
+            {
+                int k = str.Length;
+                for (int i = 0; i < length- k; i++)
+                {
+                    str = string.Concat(str, "\t");
+                }
+                return str;
+            }
+        }
 
         public static string RemoveExt(string res)
         {
