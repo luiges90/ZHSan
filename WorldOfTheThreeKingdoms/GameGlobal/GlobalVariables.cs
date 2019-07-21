@@ -283,6 +283,8 @@ namespace GameGlobal
         public int KeepSpousePersonalLoyalty = 4;
 
         public const string cryptKey = "A3g0c3%2";
+        [DataMember]
+        public int ShowNumberAddTime = 0;
 
         public GlobalVariables Clone()
         {
@@ -1126,6 +1128,14 @@ namespace GameGlobal
                 {
 
                 }
+                try
+                {
+                    ShowNumberAddTime = int.Parse(nextSibling.Attributes.GetNamedItem("ShowNumberAddTime").Value);
+                }
+                catch (Exception exception24)
+                {
+
+                }
             }
             else
             {
@@ -1286,6 +1296,7 @@ namespace GameGlobal
             element.SetAttribute("StartCircleTime", StartCircleTime.ToString());
             element.SetAttribute("ScenarioMapPerTime", ScenarioMapPerTime.ToString());
             element.SetAttribute("KeepSpousePersonalLoyalty", KeepSpousePersonalLoyalty.ToString());
+            element.SetAttribute("ShowNumberAddTime", ShowNumberAddTime.ToString());
 
             document.AppendChild(element);
         
