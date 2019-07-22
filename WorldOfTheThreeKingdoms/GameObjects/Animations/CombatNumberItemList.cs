@@ -89,7 +89,7 @@ namespace GameObjects.Animations
                             }
                             break;
                     }
-                    if ((gameTime.TotalGameTime.TotalMilliseconds - this.currentTime) >= 300 * Setting.Current.GlobalVariables.TroopMoveSpeed)
+                    if ((gameTime.TotalGameTime.TotalMilliseconds - this.currentTime) >= 300 * Setting.Current.GlobalVariables.TroopMoveSpeed+Setting.Current.GlobalVariables.ShowNumberAddTime*1000)
                     {
                         this.Clear();
                     }

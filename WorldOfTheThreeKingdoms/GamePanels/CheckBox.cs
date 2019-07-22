@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +12,20 @@ using GamePanels.Scrollbar;
 
 namespace GamePanels
 {
+    /// <summary>
+    /// 要对齐的文本参数
+    /// </summary>
+    public class AlignText
+    {
+        public Vector2 Offset;
+        public string Text;
+
+        public AlignText(Vector2 offset, string text)
+        {
+            Offset = offset;
+            Text = text;
+        }
+    }
     public struct CheckBoxSetting
     {
         public SpriteFont ViewFont;
@@ -93,7 +107,10 @@ namespace GamePanels
         /// 整个控件的缩放倍数
         /// </summary>
         public float Scale { get; set; }
-        //public SpriteFont ViewFont;
+        /// <summary>
+        /// 字体
+        /// </summary>
+        public SpriteFont ViewFont;
         /// <summary>
         /// 鼠标是否经过
         /// </summary>
@@ -129,7 +146,7 @@ namespace GamePanels
         /// 材质的背景色
         /// </summary>
         public Color color { get; set; }
-        
+
         /// <summary>
         /// 根据是否选择过经过控件决定要显示的材质矩形
         /// </summary>
@@ -168,6 +185,11 @@ namespace GamePanels
         }
 
         /// <summary>
+        /// 要对齐的文本列表
+        /// </summary>
+        public List<AlignText> AlignTexts = new List<AlignText>();
+
+        /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="path">包含材质的路径</param>
@@ -197,12 +219,13 @@ namespace GamePanels
         /// <param name="frame">包含控件的上级框架</param>
         /// <param name="offsettext"></param>
         /// <param name="id"></param>
-        public CheckBox(string path, string name, string text, Vector2 pos, Frame frame, Vector2? offsettext = null, string id = null,Color? textureColor=null) : this(path, name, text, pos)
+        public CheckBox(string path, string name, string text, Vector2 pos, Frame frame, Vector2? offsettext = null, string id = null, Color? textureColor = null, SpriteFont viewFont = null) : this(path, name, text, pos)
         {
             baseFrame = frame;
             ID = id;
             offsetText = offsettext;
             color = textureColor ?? Color.White;
+            ViewFont = viewFont ?? Session.Current.Font;
         }
 
         /// <summary>
@@ -347,7 +370,8 @@ namespace GamePanels
             ViewTextColor = cbSetting.ViewTextColor ?? ViewTextColor;
             ViewTextColorMouseOver = cbSetting.ViewTextColorMouseOver ?? ViewTextColorMouseOver;
             Scale = cbSetting.Scale ?? Scale;
-            Draw(cbSetting.basPos, Color.White * Alpha, 1f, null, cbSetting.Offset, cbSetting.ViewFont);
+            cbSetting.basPos = cbSetting.basPos ?? new Vector2(0, 0);
+            Draw(Position + cbSetting.basPos, Color.White * Alpha, 1f, null, cbSetting.Offset, cbSetting.ViewFont);
         }
 
         /// <summary>
@@ -375,6 +399,20 @@ namespace GamePanels
 
                 bounds.Add(bound);
 
+                if (AlignTexts.Count > 0)
+                {
+                    List<Bounds> b = new List<Bounds>();
+                    List<Bounds> _b;//处理Text为空的情况
+                    AlignTexts.ForEach(at =>
+                    {
+                        _b = CacheManager.DrawStringReturnBounds(viewFont ?? Session.Current.Font, at.Text, (basePos == null ? (Vector2)(Position + _offset + at.Offset) : (Vector2)(Position + basePos + _offset + at.Offset)) * DrawScale, (MouseOver || Selected) ? ViewTextColorMouseOver * Alpha : ViewTextColor * Alpha, 0f, Vector2.Zero, Scale * ViewTextScale, SpriteEffects.None, 0f);
+                        if (_b.Count > 0)//处理Text为空的情况
+                            b.Add(_b[0]);
+                    });
+                    //添加范围
+                    bounds.Add(new Bounds() { X = b.OrderBy(bb => bb.X).FirstOrDefault().X, Y = b.OrderBy(bb => bb.Y).FirstOrDefault().Y, X2 = b.OrderByDescending(bb => bb.X2).FirstOrDefault().X2, Y2 = b.OrderByDescending(bb => bb.Y2).FirstOrDefault().Y2 });
+                }
+
             }
 
         }
@@ -389,8 +427,22 @@ namespace GamePanels
                 //此处必须新建一个新变量，否会可能发生自己累加情况
                 Vector2 _offsetText = (Vector2)(offsetText == null ? new Vector2(((Rectangle)cbRectangle).Width, 2) : offsetText + new Vector2(((Rectangle)cbRectangle).Width, 0));//如果偏移量为空则加上默认的偏移量
 
-                bounds = CacheManager.DrawStringReturnBounds(batch, Session.Current.Font, Text, (Vector2)(Position + _offsetText) * DrawScale, (MouseOver || Selected) ? ViewTextColorMouseOver * Alpha : ViewTextColor * Alpha, 0f, Vector2.Zero, Scale * ViewTextScale, SpriteEffects.None, Depth);
+                bounds = CacheManager.DrawStringReturnBounds(batch, ViewFont, Text, (Vector2)(Position + _offsetText) * DrawScale, (MouseOver || Selected) ? ViewTextColorMouseOver * Alpha : ViewTextColor * Alpha, 0f, Vector2.Zero, Scale * ViewTextScale, SpriteEffects.None, Depth);
                 bounds.Add(new Bounds() { X = Position.X, Y = Position.Y, X2 = Position.X + ((Rectangle)cbRectangle).Width, Y2 = Position.Y + ((Rectangle)cbRectangle).Height });
+
+                if (AlignTexts.Count > 0)
+                {
+                    List<Bounds> b = new List<Bounds>();
+                    List<Bounds> _b;//处理Text为空的情况
+                    AlignTexts.ForEach(at =>
+                    {
+                        _b = CacheManager.DrawStringReturnBounds(batch, ViewFont, at.Text, (Vector2)(Position + _offsetText + at.Offset) * DrawScale, (MouseOver || Selected) ? ViewTextColorMouseOver * Alpha : ViewTextColor * Alpha, 0f, Vector2.Zero, Scale * ViewTextScale, SpriteEffects.None, Depth);
+                        if (_b.Count > 0)//处理Text为空的情况
+                            b.Add(_b[0]);
+                    });
+                    //添加范围
+                    bounds.Add(new Bounds() { X = b.OrderBy(bb => bb.X).FirstOrDefault().X, Y = b.OrderBy(bb => bb.Y).FirstOrDefault().Y, X2 = b.OrderByDescending(bb => bb.X2).FirstOrDefault().X2, Y2 = b.OrderByDescending(bb => bb.Y2).FirstOrDefault().Y2 });
+                }
 
             }
         }
@@ -399,7 +451,7 @@ namespace GamePanels
         {
             //此处必须新建一个新变量，否会可能发生自己累加情况
             Vector2 _offsetText = (Vector2)(offsetText == null ? new Vector2(((Rectangle)cbRectangle).Width, 2) : offsetText + new Vector2(((Rectangle)cbRectangle).Width, 0));
-            bounds = CacheManager.CalculateTextBounds(Session.Current.Font, Text, OffsetPos + _offsetText, Scale);
+            bounds = CacheManager.CalculateTextBounds(ViewFont, Text, OffsetPos + _offsetText, Scale);
             bounds.Add(new Bounds() { X = OffsetPos.X, Y = OffsetPos.Y, X2 = OffsetPos.X + ((Rectangle)cbRectangle).Width, Y2 = OffsetPos.Y + ((Rectangle)cbRectangle).Height });//加上复选框的范围
             Width = 0;
             bounds.ForEach(b => Width = Width > b.Width ? Width : b.Width);
@@ -407,6 +459,21 @@ namespace GamePanels
                 Height = bounds[bounds.Count - 2].Y2 - bounds[0].Y;//倒数第二行才是最后一行文字
             else
                 Height = bounds[bounds.Count - 1].Y2 - bounds[0].Y;
+
+            //计算可对齐文本的范围
+            if (AlignTexts.Count > 0)
+            {
+                List<Bounds> b = new List<Bounds>();
+                List<Bounds> _b;//处理Text为空的情况
+                AlignTexts.ForEach(at =>
+                {
+                    _b = CacheManager.CalculateTextBounds(ViewFont, at.Text, (Vector2)(Position + _offsetText + at.Offset) * DrawScale, Scale);
+                    if (_b.Count > 0)//处理Text为空的情况
+                        b.Add(_b[0]);
+                });
+                //添加范围
+                bounds.Add(new Bounds() { X = b.OrderBy(bb => bb.X).FirstOrDefault().X, Y = b.OrderBy(bb => bb.Y).FirstOrDefault().Y, X2 = b.OrderByDescending(bb => bb.X2).FirstOrDefault().X2, Y2 = b.OrderByDescending(bb => bb.Y2).FirstOrDefault().Y2 });
+            }
         }
 
         public void UpdateCanvas()
