@@ -2794,7 +2794,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = false;
 
                     this.nstDianNaoShengTao.NowNumber = 0f;
-                    this.nstDianNaoEWai1.NowNumber = 1.5f;
+                    this.nstDianNaoEWai1.NowNumber = 1.0f;
                     this.nstDianNaoEWai2.NowNumber = 0.01f;
 
                     this.nstDianNaoYinWanJiaHeBing.NowNumber = -1f;
@@ -2845,8 +2845,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = true;
 
                     this.nstDianNaoShengTao.NowNumber = 10f;
-                    this.nstDianNaoEWai1.NowNumber = 2.0f;
-                    this.nstDianNaoEWai2.NowNumber = 0.02f;
+                    this.nstDianNaoEWai1.NowNumber = 1.0f;
+                    this.nstDianNaoEWai2.NowNumber = 0.0f;
 
                     this.nstDianNaoYinWanJiaHeBing.NowNumber = -1f;
 
@@ -2896,8 +2896,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Session.globalVariablesTemp.AIAutoTakePlayerCaptiveOnlyUnfull = true;
 
                     this.nstDianNaoShengTao.NowNumber = 10f;
-                    this.nstDianNaoEWai1.NowNumber = 3.0f;
-                    this.nstDianNaoEWai2.NowNumber = 0.05f;
+                    this.nstDianNaoEWai1.NowNumber = 1.0f;
+                    this.nstDianNaoEWai2.NowNumber = 0.0f;
 
                     this.nstDianNaoYinWanJiaHeBing.NowNumber = -1f;
 
