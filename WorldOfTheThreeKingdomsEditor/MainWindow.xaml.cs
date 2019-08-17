@@ -731,6 +731,144 @@ namespace WorldOfTheThreeKingdomsEditor
             return (byte)(Convert.ToSingle(source) * Convert.ToSingle(alpha) / Convert.ToSingle(byte.MaxValue) + 0.5f);
         }
 
+        private void RandomizeFaction()
+        {
+            Dictionary<Faction, int> archCount = new Dictionary<Faction, int>();
+            foreach (Faction f in scen.Factions)
+            {
+                archCount[f] = f.ArchitectureCount;
+                if (f.Capital == null || !f.Architectures.GameObjects.Contains(f.Capital))
+                {
+                    f.Capital = f.Architectures.GetRandomObject() as Architecture;
+                }
+            }
+            foreach (Faction f in scen.Factions)
+            {
+                ArchitectureList list = f.Architectures;
+                foreach (Architecture a in list.GetList())
+                {
+                    if (a != f.Capital)
+                    {
+                        foreach (Person p in a.Persons)
+                        {
+                            p.LocationArchitecture = f.Capital;
+                        }
+                        MilitaryList mList = a.Militaries;
+                        foreach (Military m in mList.GetList())
+                        {
+                            a.RemoveMilitary(m);
+                            f.Capital.AddMilitary(m);
+                        }
+                        f.RemoveArchitecture(a);
+                    }
+                }
+            }
+            scen.ClearPersonStatusCache();
+            foreach (Faction f in scen.Factions.GetRandomList())
+            {
+                Architecture oldArch = f.Capital;
+                bool retry = false;
+                int retries = 0;
+                do
+                {
+                    retry = false;
+                    Architecture chosen = scen.Architectures.GetRandomObject() as Architecture;
+                    if (chosen.BelongedFaction == null && chosen.Kind.HasAgriculture && chosen.Kind.HasCommerce
+                        && chosen.Kind.HasMorale && chosen.Kind.HasDomination && chosen.Kind.HasPopulation)
+                    {
+                        f.RemoveArchitecture(oldArch);
+                        f.AddArchitecture(chosen);
+                        f.Capital = chosen;
+
+                        foreach (Person p in oldArch.Persons)
+                        {
+                            p.LocationArchitecture = f.Capital;
+                        }
+                        MilitaryList mList = oldArch.Militaries;
+                        foreach (Military m in mList.GetList())
+                        {
+                            oldArch.RemoveMilitary(m);
+                            f.Capital.AddMilitary(m);
+                        }
+
+                        f.Capital.PersonsString = oldArch.PersonsString;
+                        oldArch.PersonsString = "";
+
+                        f.ArchitecturesString = f.Capital.ID.ToString();
+                    }
+                    else
+                    {
+                        retry = true;
+                        retries++;
+                    }
+                } while (retry && retries < 100);
+            }
+
+            int added = 10;
+            do
+            {
+                added--;
+                foreach (Faction f in scen.Factions.GetRandomList())
+                {
+                    archCount[f]--;
+                    if (archCount[f] > 0)
+                    {
+                        Architecture start = f.Architectures.GetRandomObject() as Architecture;
+                        ArchitectureList allLinks = new ArchitectureList();
+                        start.LoadAILandLinksFromString(scen.Architectures, start.AILandLinksString);
+                        start.LoadAIWaterLinksFromString(scen.Architectures, start.AIWaterLinksString);
+                        allLinks.AddRange(start.AILandLinks);
+                        allLinks.AddRange(start.AIWaterLinks);
+                        if (allLinks.Count > 0)
+                        {
+                            Architecture selected = allLinks.GetRandomObject() as Architecture;
+                            if (selected.BelongedFaction == null)
+                            {
+                                f.AddArchitecture(selected);
+                                f.ArchitecturesString += " " + selected.ID;
+                                added = 10;
+                            }
+                        }
+                    }
+                }
+            } while (added > 0);
+
+            scen.ClearPersonStatusCache();
+
+            factionTab.setup();
+            architectureTab.setup();
+            personTab.setup();
+        }
+
+        private void btnRandomizeFaction_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("把所有势力的建筑随机对调，是否確認？", "換国", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                RandomizeFaction();
+            }
+        }
+
+        private void btnRandomizeFactionDeleteArchitecture_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("删除一些建筑，是否确认？", "删除城池", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                int deleteRatio = (scen.Architectures.Count - Math.Max(scen.Factions.Count, 60)) * 100 / scen.Architectures.Count;
+                if (deleteRatio > 0)
+                {
+                    foreach (Architecture a in scen.Architectures.GetRandomList())
+                    {
+                        if (a.BelongedFaction == null && GameObject.Chance(deleteRatio) && a.KindId != 1)
+                        {
+                            scen.Architectures.Remove(a);
+                        }
+                    }
+                }
+                architectureTab.setup();
+            }
+        }
+
         private void btnRandomizeIdeal_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("把所有武將的相性及相性考慮隨機化，是否確認？", "隨機化武將相性", MessageBoxButton.OKCancel);

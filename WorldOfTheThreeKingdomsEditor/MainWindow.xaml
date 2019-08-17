@@ -49,6 +49,9 @@
             <MenuItem Header="功能">
                 <MenuItem Header="新增随机武将" Click="btnNewPerson_Click" IsEnabled="False"/>
                 <Separator/>
+                <MenuItem Header="換国" Click="btnRandomizeFaction_Click"/>
+                <MenuItem Header="删除城池" Click="btnRandomizeFactionDeleteArchitecture_Click"/>
+                <Separator/>
                 <MenuItem Header="随机化武将相性" Click="btnRandomizeIdeal_Click"/>
                 <MenuItem Header="随机化武将性格" Click="btnRandomizePersonality_Click"/>
                 <MenuItem Header="随机化武将寿命" Click="btnRandomizeDeadYear_Click"/>
