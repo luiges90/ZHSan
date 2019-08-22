@@ -851,7 +851,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void btnRandomizeFactionDeleteArchitecture_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("删除一些建筑，是否确认？", "删除城池", MessageBoxButton.OKCancel);
+            MessageBoxResult result = MessageBox.Show("删除一些沒有势力的建筑，是否确认？", "删除城池", MessageBoxButton.OKCancel);
             if (result == MessageBoxResult.OK)
             {
                 int deleteRatio = (scen.Architectures.Count - Math.Max(scen.Factions.Count, 60)) * 100 / scen.Architectures.Count;
