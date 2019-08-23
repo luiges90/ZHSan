@@ -2421,6 +2421,10 @@ namespace GameObjects
                 {
                     result.Add(p);
                 }
+                if (p.Spouse != null && p.BelongedFaction == this.BelongedFaction && p.Spouse.Spouse == null)
+                {
+                    result.Add(p);
+                }
             }
 
             makeMarryableInFactionCache = result;
