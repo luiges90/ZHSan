@@ -1205,11 +1205,6 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             return;
                         }
                         //////////////////////////////////////////////////////////////////////////////
-
-                        if (!this.CurrentTroop.SelectedMove)
-                        {
-                            this.CurrentTroop.RealDestination = this.selectingLayer.SelectedPoint;
-                        }
                         
                         Troop troopByPositionNoCheck = Session.Current.Scenario.GetTroopByPositionNoCheck(this.selectingLayer.SelectedPoint);
                         if ((troopByPositionNoCheck == null) || !this.CurrentTroop.BelongedFaction.IsPositionKnown(this.selectingLayer.SelectedPoint))
@@ -1218,6 +1213,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             if (!this.CurrentTroop.SelectedMove)
                             {
                                 this.CurrentTroop.WillTroop = null;
+                                this.CurrentTroop.RealDestination = this.selectingLayer.SelectedPoint;
                             }
                         }
                         else
@@ -1227,11 +1223,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             if (!this.CurrentTroop.SelectedMove)
                             {
                                 this.CurrentTroop.WillTroop = troopByPositionNoCheck;
+                                this.CurrentTroop.RealDestination = this.selectingLayer.SelectedPoint;
                                 //this.CurrentTroop.WillArchitecture = null;
                             }
                         }
                         Architecture architectureByPositionNoCheck = Session.Current.Scenario.GetArchitectureByPositionNoCheck(this.selectingLayer.SelectedPoint);
-                        if (architectureByPositionNoCheck != null && architectureByPositionNoCheck.Endurance >0)
+                        if (architectureByPositionNoCheck != null)
                         {
                             this.CurrentTroop.TargetArchitecture = architectureByPositionNoCheck;
                             //this.CurrentTroop.TargetTroop = null;
@@ -1239,7 +1236,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                             {
                                 this.CurrentTroop.WillArchitecture = architectureByPositionNoCheck;
                                 //this.CurrentTroop.WillTroop = null;
-                                this.CurrentTroop.RealDestination = this.selectingLayer.SelectedPoint;
+                                if (!this.CurrentTroop.CanAttack(architectureByPositionNoCheck))
+                                {
+                                    this.CurrentTroop.RealDestination = this.selectingLayer.SelectedPoint;
+                                }
+                                else
+                                {
+                                    this.CurrentTroop.RealDestination = this.CurrentTroop.Position;
+                                }
                             }
                             
                         }

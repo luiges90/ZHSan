@@ -2770,6 +2770,17 @@ namespace GameObjects
             return this.OffenceArea.HasPoint(troop.Position);
         }
 
+        public bool CanAttack(Architecture architecture)
+        {
+            foreach (Point p in architecture.ArchitectureArea.Area) {
+                if (this.OffenceArea.HasPoint(p))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public bool CanStratagem(Troop troop)
         {
             return this.StratagemArea.HasPoint(troop.Position);
@@ -4077,8 +4088,6 @@ namespace GameObjects
                 }
 
                 this.DrawSelected = false;
-
-                this.mingling = "";
             }
         }
 

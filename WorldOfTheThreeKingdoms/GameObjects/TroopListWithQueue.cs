@@ -226,8 +226,12 @@ namespace GameObjects
                 {
                     troop.RealDestination = troop.TargetTroop.Position;
                 }
-                else
+                else if (troop.TargetArchitecture != null && troop.mingling == "Attack" && !troop.CanAttack(troop.TargetArchitecture))
                 {
+
+                }
+                else
+                { 
                     troop.RealDestination = troop.Position;
                 }
             }
