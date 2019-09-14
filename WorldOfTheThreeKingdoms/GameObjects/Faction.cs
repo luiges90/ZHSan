@@ -3561,19 +3561,16 @@ namespace GameObjects
 
         private void AIAppointMayor()
         {
-            if (GameObject.Random(10) == 0)
+            foreach (Architecture a in this.Architectures)
             {
-                foreach (Architecture a in this.Architectures)
+                if (!Session.Current.Scenario.IsPlayer(this) || a.BelongedSection.AIDetail.AutoRun)
                 {
-                    if (!Session.Current.Scenario.IsPlayer(this) || a.BelongedSection.AIDetail.AutoRun)
+                    if (a.AppointMayorAvail())
                     {
-                        if (a.AppointMayorAvail())
-                        {
-                            Person person = a.AIMayorCandicate[0] as Person;
-                            a.MayorID = person.ID;
-                            a.AppointMayor(person);
-                            a.MayorOnDutyDays = 0;
-                        }
+                        Person person = a.AIMayorCandicate[0] as Person;
+                        a.MayorID = person.ID;
+                        a.AppointMayor(person);
+                        a.MayorOnDutyDays = 0;
                     }
                 }
             }
