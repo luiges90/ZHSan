@@ -10639,15 +10639,37 @@ namespace GameObjects
             }
         }
 
+        private long EstimatedIdleFightingForce()
+        {
+            GameObjectList targetPersons = this.Persons.GetList();
+            targetPersons.IsNumber = true;
+            targetPersons.SmallToBig = false;
+            targetPersons.PropertyName = "FightingForce";
+            targetPersons.ReSort();
+
+            GameObjectList targetMilitaries = this.Militaries.GetList();
+            targetMilitaries.IsNumber = true;
+            targetMilitaries.SmallToBig = false;
+            targetMilitaries.PropertyName = "KindMerit";
+            targetMilitaries.ReSort();
+
+            long result = 0;
+            for (int i = 0; i < targetPersons.Count && i < targetMilitaries.Count; ++i)
+            {
+                result += (targetPersons[i] as Person).FightingForce * (targetMilitaries[i] as Military).KindMerit;
+            }
+            return result;
+        }
+
         private int getArmyScaleRequiredForAttack(LinkNode wayToTarget)
         {
             Person leader = this.BelongedFaction.Leader;
 
             float totalScale = 0;
-
-            int targetPersonCount = wayToTarget.A.PersonCount;
+            
             if (wayToTarget.A.BelongedFaction != null)
             {
+                int targetPersonCount = wayToTarget.A.PersonCount;
                 targetPersonCount = Math.Min(wayToTarget.A.BelongedFaction.PersonCount, (int) (targetPersonCount + wayToTarget.A.Endurance / Session.Current.Scenario.Parameters.ArchitectureDamageRate * 25));
                 int count = 0;
                 foreach (Military m in wayToTarget.A.Militaries)
@@ -10656,6 +10678,8 @@ namespace GameObjects
                     totalScale += m.Scales;
                     count++;
                 }
+
+                totalScale = (int) (totalScale * ((double)wayToTarget.A.EstimatedIdleFightingForce() / (this.EstimatedIdleFightingForce() + 1)));
             }
             else
             {

@@ -73,6 +73,14 @@ namespace GameObjects
         [DataMember]
         public int belongedArchitectureID;
 
+        public int KindMerit
+        {
+            get
+            {
+                return this.Kind.Merit;
+            }
+        }
+
         public Architecture BelongedArchitecture
         {
             get
