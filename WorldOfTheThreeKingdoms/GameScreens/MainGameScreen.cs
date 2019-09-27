@@ -33,8 +33,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         private Keys currentKey;
         private bool drawingSelector;
         private bool tufashijianzantingyinyue=false ;
-        private DateTime shangciCundangShijian;
-        private TimeSpan cundangShijianJiange;
+        private int shangciCundangShijian;
+        private int cundangShijianJiange;
         public bool EnableLaterMouseLeftDownEvent;
         public bool EnableLaterMouseLeftUpEvent;
         public bool EnableLaterMouseMoveEvent;
@@ -108,8 +108,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.EnableLaterMouseScrollEvent = true;
             this.frameRate = 0;
             this.frameCounter = 0;
-            this.cundangShijianJiange = TimeSpan.Zero;
-            this.shangciCundangShijian = DateTime.Now;
+            this.cundangShijianJiange = 0;
+            this.shangciCundangShijian = 0;
             this.UpdateCount = 0;
 
             this.screenManager = new ScreenManager();

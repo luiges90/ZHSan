@@ -935,6 +935,63 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
+        private void btnRandomizeAge_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("把所有武將的年齡隨機化，是否確認？", "隨機化武將壽命", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                foreach (Person p in scen.Persons)
+                {
+                    if (p.Alive)
+                    {
+                        if (p.Available)
+                        {
+                            int age = p.YearDead - p.YearBorn;
+                            p.YearBorn = scen.Date.Year - GameObject.RandomGaussianRange(15, Math.Min(age, 30));
+                            p.YearAvailable = scen.Date.Year;
+                            p.YearDead = Math.Max(p.YearBorn + age, scen.Date.Year + GameObject.Random(0, 5));
+                        }
+                        else
+                        {
+                            int age = p.YearDead - p.YearBorn;
+                            p.YearBorn = scen.Date.Year - GameObject.RandomGaussianRange(0, Math.Min(age, 15));
+                            p.YearAvailable = p.YearBorn + 15;
+                            p.YearDead = Math.Max(p.YearBorn + age, scen.Date.Year + GameObject.Random(0, 5));
+                        }
+                    }
+                }
+                bool changed = false;
+                do
+                {
+                    changed = false;
+                    foreach (Person p in scen.Persons)
+                    {
+                        if (p.Alive)
+                        {
+                            if (p.Father != null && p.YearBorn - p.Father.YearBorn < 16)
+                            {
+                                int shift = 16;
+                                p.Father.YearBorn -= shift;
+                                p.Father.YearAvailable -= shift;
+                                p.Father.YearDead = Math.Max(p.Father.YearDead - shift, scen.Date.Year + GameObject.Random(0, 5));
+                                changed = true;
+                            }
+                            if (p.Mother != null && p.YearBorn - p.Mother.YearBorn < 16)
+                            {
+                                int shift = 16;
+                                p.Mother.YearBorn -= shift;
+                                p.Mother.YearAvailable -= shift;
+                                p.Mother.YearDead = Math.Max(p.Mother.YearDead - shift, scen.Date.Year + GameObject.Random(0, 5));
+                                changed = true;
+                            }
+                        }
+                    }
+                } while (changed);
+
+                personTab.setup();
+            }
+        }
+
         private void btnRandomizeAvailableLocation_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("把所有武將的登場地點隨機化，是否確認？", "隨機化武將登場地點", MessageBoxButton.OKCancel);

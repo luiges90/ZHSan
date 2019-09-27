@@ -54,6 +54,7 @@
                 <Separator/>
                 <MenuItem Header="随机化武将相性" Click="btnRandomizeIdeal_Click"/>
                 <MenuItem Header="随机化武将性格" Click="btnRandomizePersonality_Click"/>
+                <MenuItem Header="随机化武将年齡" Click="btnRandomizeAge_Click"/>
                 <MenuItem Header="随机化武将寿命" Click="btnRandomizeDeadYear_Click"/>
                 <MenuItem Header="随机化武将登场地点" Click="btnRandomizeAvailableLocation_Click"/>
                 <Separator/>

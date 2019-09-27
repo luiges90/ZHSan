@@ -59,17 +59,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
 
 
-                cundangShijianJiange = DateTime.Now - shangciCundangShijian;
+                cundangShijianJiange = Session.Current.Scenario.DaySince - shangciCundangShijian;
 
-                if (cundangShijianJiange.Minutes >= Setting.Current.GlobalVariables.AutoSaveFrequency)
+                if (cundangShijianJiange >= Setting.Current.GlobalVariables.AutoSaveFrequency)
                 {
                     if (Setting.Current.GlobalVariables.doAutoSave)
                     {
-                        Session.Current.Scenario.Date.Go(1);
                         this.SaveGameAutoPosition();
-                        Session.Current.Scenario.Date.Go(-1);
                     }
-                    shangciCundangShijian = DateTime.Now;
+                    shangciCundangShijian = Session.Current.Scenario.DaySince;
                 }
 
                 return true;
