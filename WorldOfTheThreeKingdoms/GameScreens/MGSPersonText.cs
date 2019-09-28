@@ -266,6 +266,13 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             Session.Current.Scenario.CurrentPlayer = faction;
             //this.Plugins.AirViewPlugin.ReloadTroopView();
             this.gengxinyoucelan();
+
+            if (Session.Current.Scenario.needAutoSave)
+            {
+                this.SaveGameAutoPosition();
+                Session.Current.Scenario.needAutoSave = false;
+            }
+
             if (faction.IsPositionKnown(faction.Leader.Position) || Session.GlobalVariables.SkyEye)
             {
                 this.Plugins.PersonBubblePlugin.AddPerson(faction.Leader, faction.Leader.Position, TextMessageKind.GetTurn, "GetControl");

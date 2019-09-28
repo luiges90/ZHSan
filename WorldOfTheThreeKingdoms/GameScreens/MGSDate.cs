@@ -65,7 +65,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     if (Setting.Current.GlobalVariables.doAutoSave)
                     {
-                        this.SaveGameAutoPosition();
+                        Session.Current.Scenario.needAutoSave = true;
                     }
                     shangciCundangShijian = Session.Current.Scenario.DaySince;
                 }

@@ -209,6 +209,8 @@ namespace GameObjects
 
         private DateTime sessionStartTime;
 
+        public bool needAutoSave = false;
+
         public int NumberOfAmbushTroop
         {
             get
