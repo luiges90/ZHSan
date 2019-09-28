@@ -2283,7 +2283,8 @@ namespace GameObjects
                 int unfullArmyCountThreshold;
                 if (this.IsFoodAbundant && this.IsFundAbundant)
                 {
-                    unfullArmyCountThreshold = Math.Min((this.MilitaryPopulation) / Session.Parameters.AINewMilitaryPopulationThresholdDivide + 1, (this.PersonCount + this.MovingPersonCount) / Session.Parameters.AINewMilitaryPersonThresholdDivide + 1);
+                    unfullArmyCountThreshold = Math.Min((this.MilitaryPopulation) * (this.BelongedFaction.Leader.Ambition + 1) / Session.Parameters.AINewMilitaryPopulationThresholdDivide + 1, 
+                        (this.PersonCount + this.MovingPersonCount) * (this.BelongedFaction.Leader.Ambition + 1) / Session.Parameters.AINewMilitaryPersonThresholdDivide + 1);
                 }
                 else
                 {
@@ -2291,7 +2292,8 @@ namespace GameObjects
                 }
                 if (unfullArmyCount < unfullArmyCountThreshold)
                 {
-                    if (this.AIWaterLinks.Count > 0 && this.IsBesideWater && this.HasShuijunMilitaryKind() && (this.EffectiveMilitaryCount == 0 || GameObject.Chance((int)(100 - this.ShuijunMilitaryCount / (double)this.EffectiveMilitaryCount * 100))))
+                    if (this.AIWaterLinks.Count > 0 && this.IsBesideWater && this.HasShuijunMilitaryKind() && 
+                        (this.EffectiveMilitaryCount == 0 || GameObject.Chance((int)(100 - this.ShuijunMilitaryCount / (double)this.EffectiveMilitaryCount * 100))))
                     {
                         this.AIRecruitment(true, false);
                     }
