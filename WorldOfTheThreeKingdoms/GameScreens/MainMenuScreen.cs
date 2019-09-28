@@ -4910,7 +4910,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 CacheManager.DrawString(Session.Current.Font, "数字显示时间增量", new Vector2(195, 605), Color.White * alpha, 0f, Vector2.Zero, 0.6f, SpriteEffects.None, 1f);
 
-                CacheManager.DrawString(Session.Current.Font, "自动存档,密度(分钟)", new Vector2(195, 570), Color.White * alpha, 0f, Vector2.Zero, 0.6f, SpriteEffects.None, 1f);
+                CacheManager.DrawString(Session.Current.Font, "自动存档,密度(天數)", new Vector2(195, 570), Color.White * alpha, 0f, Vector2.Zero, 0.6f, SpriteEffects.None, 1f);
 
 
                 CacheManager.DrawString(Session.Current.Font, "播放一般音效", new Vector2(left, 190), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);

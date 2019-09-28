@@ -3345,7 +3345,34 @@ namespace GameObjects
             if ((Session.Current.Scenario.Date.Day % Session.Parameters.AITradePeriod) <= Session.Current.Scenario.Parameters.DayInTurn)
             {
                 int num;
-                if (this.BuyFoodAvail())
+                if (this.SellFoodAvail())
+                {
+                    if (!this.IsFundEnough && this.Food > this.EnoughFood * 2)
+                    {
+                        num = this.Food - this.EnoughFood * 2;
+                        if (num > 0)
+                        {
+                            this.SellFood(num);
+                        }
+                    }
+                    else if (!this.IsFundAbundant && this.Food > this.AbundantFood * 2)
+                    {
+                        num = this.Food - this.AbundantFood * 2;
+                        if (num > 0)
+                        {
+                            this.SellFood(num);
+                        }
+                    }
+                    else if (this.Fund < this.FundCeiling / 2 && this.Food >= FoodCeiling / 2)
+                    {
+                        num = this.Food - this.FoodCeiling / 2;
+                        if (num > 0)
+                        {
+                            this.SellFood(num);
+                        }
+                    }
+                }
+                else if (this.BuyFoodAvail())
                 {
                     if (this.Fund > this.EnoughFund * 2 && !this.IsFoodEnough)
                     {
@@ -3380,33 +3407,7 @@ namespace GameObjects
                         }
                     }*/
                 }
-                else if (this.SellFoodAvail())
-                {
-                    if (!this.IsFundEnough && this.Food > this.EnoughFood * 2)
-                    {
-                        num = this.Food - this.EnoughFood * 2;
-                        if (num > 0)
-                        {
-                            this.SellFood(num);
-                        }
-                    }
-                    else if (!this.IsFundAbundant && this.Food > this.AbundantFood * 2)
-                    {
-                        num = this.Food - this.AbundantFood * 2;
-                        if (num > 0)
-                        {
-                            this.SellFood(num);
-                        }
-                    }
-                    else if (this.Fund < this.FundCeiling / 2 && this.Food >= FoodCeiling / 2)
-                    {
-                        num = this.Food - this.FoodCeiling / 2;
-                        if (num > 0)
-                        {
-                            this.SellFood(num);
-                        }
-                    }
-                }
+                
                 /*else if ((this.SellFoodAvail() && ((this.PlanArchitecture == null) && (this.TransferFoodArchitecture == null))) && (((!this.HostileLine && (this.Fund < (this.FundCeiling / 2))) && !this.IsFoodEnough) && this.IsFoodAbundant))
                 {
                     num = this.Food - this.AbundantFood;
@@ -6365,6 +6366,11 @@ namespace GameObjects
                                         continue;
                                     }
                                     if (t.Army.Scales < 5 && this.Endurance > 30)
+                                    {
+                                        t.Destroy(true, false);
+                                        continue;
+                                    }
+                                    if (t.FoodMax / 2 > this.Food)
                                     {
                                         t.Destroy(true, false);
                                         continue;
