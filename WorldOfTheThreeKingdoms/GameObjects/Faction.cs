@@ -1060,7 +1060,7 @@ namespace GameObjects
                                 simulatSuoshu.AddRange(q.suoshurenwuList.GetList());
                                 simulatSuoshu.Add(q);
 
-                                Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, true);
+                                Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, false);
                                 if (hater != null && hater != p && hater != q) continue;
 
                                 AIActuallyMakeMarriage(p, q);
@@ -1103,8 +1103,8 @@ namespace GameObjects
                             simulatSuoshu.AddRange(q.suoshurenwuList.GetList());
                             simulatSuoshu.Add(q);
 
-                            Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, true);
-                            if (hater != null && hater != p && hater != q) continue;
+                            Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, false);
+                            if (hater != null) continue;
 
                             AIActuallyMakeMarriage(p, q);
                             break;

@@ -10627,17 +10627,23 @@ namespace GameObjects
                 PersonList t = new PersonList();
                 if (i.Status != PersonStatus.Princess)
                 {
+                    bool unwanted = false;
                     if (i != null && i != p && p.Status != PersonStatus.Princess && !i.IsCloseTo(p) && p.Spouse != i && !t.HasGameObject(p) && !i.Hates(p) && (!simulateMarry || (i != p && i != q && i != causer)))
                     {
                         t.Add(p);
+                        unwanted = true;
                     }
                     if (i != null && i != q && q.Status != PersonStatus.Princess && !i.IsCloseTo(q) && q.Spouse != i && !t.HasGameObject(q) && !i.Hates(q) && (!simulateMarry || (i != p && i != q && i != causer)))
                     {
                         t.Add(q);
+                        unwanted = true;
                     }
-                    if (i != null && i != causer && causer.Status != PersonStatus.Princess && !i.IsCloseTo(causer) && causer.Spouse != i && !t.HasGameObject(causer) && !i.Hates(causer) && (!simulateMarry || (i != p && i != q && i != causer)))
+                    if (unwanted)
                     {
-                        t.Add(causer);
+                        if (i != null && i != causer && causer.Status != PersonStatus.Princess && !i.IsCloseTo(causer) && causer.Spouse != i && !t.HasGameObject(causer) && !i.Hates(causer) && (!simulateMarry || (i != p && i != q && i != causer)))
+                        {
+                            t.Add(causer);
+                        }
                     }
                 }
                 if (result.ContainsKey(i))
@@ -10676,11 +10682,12 @@ namespace GameObjects
                 if (p.Spouse != q && !p.Spouse.Hates(q) && !p.Spouse.IsVeryCloseTo(q) && !u.HasGameObject(q) && q.Status != PersonStatus.Princess)
                 {
                     u.Add(q);
+                    if (p.Spouse != causer && !p.Spouse.Hates(causer) && !p.Spouse.IsVeryCloseTo(causer) && !u.HasGameObject(causer) && causer.Status != PersonStatus.Princess)
+                    {
+                        u.Add(causer);
+                    }
                 }
-                if (p.Spouse != causer && !p.Spouse.Hates(causer) && !p.Spouse.IsVeryCloseTo(causer) && !u.HasGameObject(causer) && causer.Status != PersonStatus.Princess)
-                {
-                    u.Add(causer);
-                }
+                
                 if (result.ContainsKey(p.Spouse))
                 {
                     u.AddRange(result[p.Spouse]);
@@ -10697,11 +10704,12 @@ namespace GameObjects
                 if (q != p && !q.Hates(p) && !q.IsVeryCloseTo(p) && !t.HasGameObject(p) && p.Status != PersonStatus.Princess)
                 {
                     t.Add(p);
+                    if (q != causer && !q.Hates(causer) && !q.IsVeryCloseTo(causer) && !t.HasGameObject(causer) && causer.Status != PersonStatus.Princess)
+                    {
+                        t.Add(causer);
+                    }
                 }
-                if (q != causer && !q.Hates(causer) && !q.IsVeryCloseTo(causer) && !t.HasGameObject(causer) && causer.Status != PersonStatus.Princess)
-                {
-                    t.Add(causer);
-                }
+               
                 if (result.ContainsKey(q))
                 {
                     t.AddRange(result[q]);
@@ -10716,11 +10724,12 @@ namespace GameObjects
                 if (q.Spouse != p && !q.Spouse.Hates(p) && !q.Spouse.IsVeryCloseTo(p) && !u.HasGameObject(p) && p.Status != PersonStatus.Princess)
                 {
                     u.Add(p);
+                    if (q.Spouse != causer && !q.Spouse.Hates(causer) && !q.Spouse.IsVeryCloseTo(causer) && !u.HasGameObject(causer) && causer.Status != PersonStatus.Princess)
+                    {
+                        u.Add(causer);
+                    }
                 }
-                if (q.Spouse != causer && !q.Spouse.Hates(causer) && !q.Spouse.IsVeryCloseTo(causer) && !u.HasGameObject(causer) && causer.Status != PersonStatus.Princess)
-                {
-                    u.Add(causer);
-                }
+                
                 if (result.ContainsKey(q.Spouse))
                 {
                     u.AddRange(result[q.Spouse]);
