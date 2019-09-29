@@ -3277,8 +3277,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.viewportSize.Y = Convert.ToInt32(Session.ResolutionY - this.Plugins.ToolBarPlugin.Height - 10);  // Platform.GraphicsDevice.Viewport.Height - this.Plugins.ToolBarPlugin.Height;
                 }
 
-                this.viewportSizeFull.X = Session.ResolutionX;
-                this.viewportSizeFull.Y = Session.ResolutionY;
+                this.viewportSizeFull.X = Platform.GraphicsDevice.Viewport.Width;
+                this.viewportSizeFull.Y = Platform.GraphicsDevice.Viewport.Height;
 
                 this.Plugins.ToolBarPlugin.SetRealViewportSize(new Point(this.viewportSize.X, this.viewportSize.Y));
 

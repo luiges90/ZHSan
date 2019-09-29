@@ -169,6 +169,7 @@ namespace WorldOfTheThreeKingdoms
             if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
             {
                 Platform.Current.SetWindowAllowUserResizing(true);
+                
             }
 
             //try

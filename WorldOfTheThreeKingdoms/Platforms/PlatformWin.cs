@@ -171,6 +171,8 @@ namespace Platforms
                 InputManager.PinchMove = Convert.ToSingle(e.Delta) / 480;
             };
 
+            xnaWindow.WindowState = FormWindowState.Maximized;
+
             //Mouse.WindowHandle = xnaWindow.Handle; // Game1.Window.Handle;  // Season.m_RenderControl.FindForm().Handle
         }
 
