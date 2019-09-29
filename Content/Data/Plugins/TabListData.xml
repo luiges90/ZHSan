@@ -305,7 +305,7 @@
                 FontColor="4294375158"
                 Align="Middle">
         </Column>
-		<Column ID="61" Name="TitleName" IsNumber="false" DisplayName="合称" MinWidth="130" DetailLevel="3" ItemID="200"
+		<Column ID="61" Name="TitleName" IsNumber="false" DisplayName="合称" MinWidth="130" DetailLevel="3" ItemID="2"
                 FontName="Microsoft YaHei UI"
                 FontSize="11"
                 FontStyle="Regular"
@@ -885,7 +885,7 @@
 				FontColor="4294375158"
 				Align="Middle">
         </Column>
-		<Column ID="243" Name="HasSkill" IsNumber="false" DisplayName="致命" MinWidth="40" ItemID="44" DetailLevel="5"
+		<Column ID="243" Name="HasSkill" IsNumber="false" DisplayName="致命" MinWidth="40" ItemID="43" DetailLevel="5"
 				FontName="方正隶变_GBK"
 				FontSize="14"
 				FontStyle="Regular"
@@ -1286,7 +1286,7 @@
         </Tab>
 		<Tab ID="16"  Name="MoveTroopSkills" DisplayName="行军步兵" Columns="1 220 221 222 223 224 225 226 230 231 232 236 233 234 235">
         </Tab>
-		<Tab ID="17"  Name="GroundArmySkills" DisplayName="弩兵骑兵" Columns="1 240 241 242 246 243 244 245 250 251 252 253 256 254 255">
+		<Tab ID="17"  Name="GroundArmySkills" DisplayName="弩兵骑兵" Columns="1 240 241 242 246 243 244 245 250 251 252 256 253 254 255">
         </Tab>
 		<Tab ID="18"  Name="SpecialArmySkills" DisplayName="水战兵器" Columns="1 260 261 262 263 264 265 266 270 271 272 273 274 275 276">
         </Tab>
