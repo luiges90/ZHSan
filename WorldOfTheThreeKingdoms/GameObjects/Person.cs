@@ -2403,7 +2403,9 @@ namespace GameObjects
         private PersonList makeMarryableInFactionCache = null;
         public PersonList MakeMarryableInFaction()
         {
-            if (this.BelongedFaction == null || this.BelongedFaction.Leader.Status == PersonStatus.Captive) new PersonList();
+            if (this.BelongedFaction == null || this.BelongedFaction.Leader.Status == PersonStatus.Captive) return new PersonList();
+
+            if (this.Status != PersonStatus.Normal) return new PersonList();
 
             if (makeMarryableInFactionCache != null) return makeMarryableInFactionCache;
 
@@ -10628,6 +10630,10 @@ namespace GameObjects
                 if (i.Status != PersonStatus.Princess)
                 {
                     bool unwanted = false;
+                    if (i.Spouse == p) continue;
+                    if (i.Spouse == q) continue;
+                    if (i == p) continue;
+                    if (i == q) continue;
                     if (i != null && i != p && p.Status != PersonStatus.Princess && !i.IsCloseTo(p) && p.Spouse != i && !t.HasGameObject(p) && !i.Hates(p) && (!simulateMarry || (i != p && i != q && i != causer)))
                     {
                         t.Add(p);

@@ -1041,7 +1041,7 @@ namespace GameObjects
 
             if (GameObject.Random(10) == 0)
             {
-                if (leader.Spouse != null && leader.WaitForFeiZi != null && leader.Age < 40)
+                if (leader.Spouse != null && leader.WaitForFeiZi != null && leader.Age < 40 && leader.Status == PersonStatus.Normal)
                 {
                     PersonList leaderMarryable = this.Leader.MakeMarryableInFaction();
                     if (leaderMarryable.Count > 0)
@@ -1079,6 +1079,7 @@ namespace GameObjects
                 {
                     if (p.WaitForFeiZi != null) continue;
                     if (p.Spouse != null) continue;
+                    if (p.Status != PersonStatus.Normal) continue;
                     PersonList allCandidates = p.MakeMarryableInFaction();
                     PersonList candidates = new PersonList();
                     foreach (Person q in allCandidates)

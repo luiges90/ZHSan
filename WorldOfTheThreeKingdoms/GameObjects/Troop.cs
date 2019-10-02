@@ -5362,7 +5362,7 @@ namespace GameObjects
             }
             if (((num > 0) && Session.Current.Scenario.PositionIsOnFire(position)) && (((this.BelongedFaction == null) && this.ViewArea.HasPoint(position)) || ((this.BelongedFaction != null) && this.BelongedFaction.IsPositionKnown(position))))
             {
-                num -= 300;
+                num = num - (int)(300 * Math.Max(1, 50.0 / this.Army.Scales));
             }
             CreditPack pack = new CreditPack();
             pack.Position = position;
@@ -5407,6 +5407,7 @@ namespace GameObjects
             {
                 if (Session.Current.Scenario.GetSimpleDistance(position, p) <= 1)
                 {
+                    // hostile
                     int cnt = 0;
                     Architecture a = Session.Current.Scenario.GetArchitectureByPosition(new Point(position.X, position.Y - 1));
                     if (a != null && a.IsHostile(this.BelongedFaction))
@@ -5432,6 +5433,26 @@ namespace GameObjects
                     if (cnt < 2)
                     {
                         return 2;
+                    }
+
+                    // friendly
+                    if (a != null && a.IsFriendly(this.BelongedFaction))
+                    {
+                        if (a.Endurance <= 0)
+                        {
+                            if (a.BelongedFaction.ArchitectureCount == 1)
+                            {
+                                return 200;
+                            }
+                            else
+                            {
+                                return 3;
+                            }
+                        }
+                        else
+                        {
+                            return 2;
+                        }
                     }
                 }
             }
