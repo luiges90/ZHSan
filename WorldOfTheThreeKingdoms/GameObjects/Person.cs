@@ -4742,7 +4742,7 @@ namespace GameObjects
             float v = 0;
             v += (-Person.GetIdealOffset(target, src) * 0.6f + src.IdealTendency.Offset * 0.2f + target.IdealTendency.Offset * 0.2f) * idealFactor;
             v += target.Glamour / 5.0f - 10.0f;
-            v -= Math.Max(-50.0f, Math.Min(50.0f, Math.Abs(target.Karma - src.Karma) / 5.0f));
+            v -= Math.Abs(target.Karma - src.Karma) / 2.5f;
             v += (float) (Math.Sign(target.Karma) * Math.Sqrt(Math.Abs(target.Karma)));
 
             if (Session.Current.Scenario.huangdisuozaijianzhu() != null)
