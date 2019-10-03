@@ -5168,12 +5168,14 @@ namespace GameObjects
 
         public void IncreaseKarma(int v)
         {
-            this.Karma += v;
+            float increase = v * ((100 - Math.Abs(this.Karma)) / 100.0f);
+            this.Karma = this.Karma + (int)increase + (GameObject.Chance((int)((increase - (int)increase) * 100)) ? 1 : 0);
         }
 
         public void DecreaseKarma(int v)
         {
-            this.Karma -= v;
+            float decrease = v * ((100 - Math.Abs(Math.Min(0, this.Karma))) / 100.0f);
+            this.Karma = this.Karma - (int)decrease - (GameObject.Chance((int)((decrease - (int)decrease) * 100)) ? 1 : 0);
         }
 
         public void DecreaseReputation(int v)
