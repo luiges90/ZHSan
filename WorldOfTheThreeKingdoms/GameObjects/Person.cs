@@ -3135,6 +3135,17 @@ namespace GameObjects
                             }
                         }
                     }
+                    foreach (Person p in this.BelongedArchitecture.MovingPersons)
+                    {
+                        if (this.IsVeryCloseTo(p))
+                        {
+                            if (this.GetRelation(p) > maxRel)
+                            {
+                                maxRel = this.GetRelation(p);
+                                closest = p;
+                            }
+                        }
+                    }
                 }
                 return closest;
             }
@@ -3223,7 +3234,7 @@ namespace GameObjects
             return (int)
                 (this.ConvinceAbility - (target.Loyalty * 4) - ((int)target.PersonalLoyalty * 25) +
                 Person.GetIdealAttraction(this, target) * 8 + Person.GetIdealAttraction(this.BelongedFaction.Leader, target) * 8) / 3 
-                + (500 - target.GetRelation(closest) / 5)
+                + (target.GetRelation(closest) / 5)
                 + 1;
         }
 
@@ -9833,12 +9844,12 @@ namespace GameObjects
             }
             foreach (Person p in mother.GetHatedPersons())
             {
-                if (!GameObject.Chance((int)r.personalLoyalty * 25))
+                if (!GameObject.Chance((int)r.personalLoyalty * 25) && !r.IsCloseTo(p))
                 {
                     r.AddHated(p);
                 }
             }
-            foreach (Person p in mother.GetClosePersons())
+            foreach (Person p in father.GetClosePersons())
             {
                 if (GameObject.Chance((int)r.personalLoyalty * 25))
                 {
@@ -9847,7 +9858,7 @@ namespace GameObjects
             }
             foreach (Person p in father.GetHatedPersons())
             {
-                if (!GameObject.Chance((int)r.personalLoyalty * 25))
+                if (!GameObject.Chance((int)r.personalLoyalty * 25) && !r.IsCloseTo(p))
                 {
                     r.AddHated(p);
                 }

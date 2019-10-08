@@ -2352,8 +2352,11 @@ namespace GameObjects
         {
             if (this.HasPerson() && this.IsFundEnough && this.HasNoFactionPerson() && !this.HasHostileTroopsInView())
             {
-                PersonList convincer = this.GetFirstHalfPersonList("ConvinceAbility");
-                if (convincer.Count <= 0) return;
+                GameObjectList convincer = this.Persons.GetList();
+                convincer.SmallToBig = true;
+                convincer.PropertyName = "ConvinceAbility";
+                convincer.IsNumber = true;
+                convincer.ReSort();
 
                 GameObjectList convinced = this.NoFactionPersons.GetList();
                 convinced.SmallToBig = false;
@@ -2381,8 +2384,11 @@ namespace GameObjects
             if (this.BelongedFaction == null) return;
             if (this.HasHostileTroopsInView()) return;
 
-            PersonList convincer = this.GetFirstHalfPersonList("ConvinceAbility");
-            if (convincer.Count <= 0) return;
+            GameObjectList convincer = this.Persons.GetList();
+            convincer.SmallToBig = true;
+            convincer.PropertyName = "ConvinceAbility";
+            convincer.IsNumber = true;
+            convincer.ReSort();
 
             GameObjectList convinced = architecture2.Captives;
             convinced.SmallToBig = false;
