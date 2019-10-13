@@ -1079,9 +1079,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                         if (this.CurrentTroop.BelongedFaction.IsFriendly(targetArchitecture.BelongedFaction))
                         {
                             this.CurrentTroop.BelongedLegion.Kind = LegionKind.Defensive;
-                            break;
                         }
-                        this.CurrentTroop.BelongedLegion.Kind = LegionKind.Offensive;
+                        else
+                        {
+                            this.CurrentTroop.BelongedLegion.Kind = LegionKind.Offensive;
+                        }
                     }
 
                     this.CurrentTroop.SelectedMove = true;
