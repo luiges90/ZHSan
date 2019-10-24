@@ -67,6 +67,13 @@ namespace WorldOfTheThreeKingdomsEditor
             lblFaction.Content = String.Join(" ", e.faction.GameObjects.Select(p => p.Name));
             lblFactionCond.Content = String.Join(" ", e.factionCond.Select(p => p.Name));
             lblFactionEffect.Content = String.Join(" ", e.factionEffect.Select(p => p.Name));
+
+            List<string> events = new List<string>();
+            events.Add("-1 无");
+            events.AddRange(scen.AllEvents.GameObjects.Select(e => e.ID + " " + e.Name));
+            cbAfterEventHappened.ItemsSource = events;
+            GameObject currentAfterHappened = scen.AllEvents.GetGameObject(e.AfterEventHappened);
+            cbAfterEventHappened.SelectedItem = e.AfterEventHappened + " " + (currentAfterHappened == null ? "无" : currentAfterHappened.Name);
         }
 
         private void PopulatePersonData(int index, Label person, Label personCond, Label effect, Label biography, Label yesEffect, Label noEffect)
@@ -111,6 +118,8 @@ namespace WorldOfTheThreeKingdomsEditor
             int.TryParse(tbEndMonth.Text, out e.EndMonth);
             e.Image = tbImage.Text;
             e.Sound = tbSound.Text;
+
+            e.AfterEventHappened = int.Parse(cbAfterEventHappened.Text.Split(' ')[0]);
 
             if (!edit)
             {
