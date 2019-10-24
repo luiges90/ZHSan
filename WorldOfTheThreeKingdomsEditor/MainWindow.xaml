@@ -28,10 +28,10 @@
         <Menu Name="sss" DockPanel.Dock="Top">
             <MenuItem Header="档案">
                 <MenuItem Header="读取剧本及common" Command="Open" InputGestureText="Ctrl+O"/>
-                <MenuItem Name="SaveSce" Header="储存剧本" Command="Save" InputGestureText="Ctrl+S"/>
+                <MenuItem Name="SaveSce" Header="储存剧本及common" Command="Save" InputGestureText="Ctrl+S"/>
                 <Separator/>
                 <MenuItem Header="读取存档及common" Click="OpenSave"/>
-                <MenuItem Name="SaveSav" Header="储存存档" Click="Save_Click" IsEnabled="False"/>
+                <MenuItem Name="SaveSav" Header="储存存档及common" Click="Save_Click" IsEnabled="False"/>
                 <Separator/>
                 <MenuItem Header="更新Scenarios.json" Click="btnSyncScenario_Click"/>
                 <Separator/>
