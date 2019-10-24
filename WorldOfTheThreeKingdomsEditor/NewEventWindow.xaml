@@ -5,8 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldOfTheThreeKingdomsEditor"
         mc:Ignorable="d"
-        Title="编辑事件" Height="450" Width="800">
-    <Grid>
-        
+        Title="编辑事件" Height="700" Width="1000">
+    <Window.Resources>
+        <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+            <UniformGrid Columns="8" />
+        </ItemsPanelTemplate>
+    </Window.Resources>
+    <Grid Margin="0,-3,0,3">
+        <TextBox HorizontalAlignment="Left" x:Name="txname" Height="23" Margin="44,16,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="名稱" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button Name="btSave" Content = "保存退出" Canvas.Left="396" Canvas.Top="302" Height="35" Width="86" Click="BtSave_Click" Margin="804,624,102,10" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                    <GradientStop Color="#FFEBEBEB" Offset="0.216"/>
+                    <GradientStop Color="#FF7BD17B" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Name="btExit" Content = "直接退出" Canvas.Left="535" Canvas.Top="302" Height="35" Width="86" Click="BtExit_Click" Margin="895,624,11,10" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                    <GradientStop Color="#FFEBEBEB" Offset="0.216"/>
+                    <GradientStop Color="#FFD17B7B" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <CheckBox Content="已发生过" x:Name="cbHappened" HorizontalAlignment="Left" Margin="169,16,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="可以重复" x:Name="cbRepeatable" HorizontalAlignment="Left" Margin="242,16,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="不重要" x:Name="cbMinor" HorizontalAlignment="Left" Margin="315,16,0,0" VerticalAlignment="Top">
+            <CheckBox.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <TextBlock>不重要的事件不会出现对话，除非涉及君主</TextBlock>
+                    </StackPanel>
+                </ToolTip>
+            </CheckBox.ToolTip>
+        </CheckBox>
+        <CheckBox Content="全势力可见" x:Name="cbGloballyDisplayed" HorizontalAlignment="Left" Margin="376,16,0,0" VerticalAlignment="Top"/>
+        <Label Content="发动几率：每個建築平均每" HorizontalAlignment="Left" Margin="461,10,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" x:Name="tbHappenChance" Height="23" Margin="615,14,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="42"/>
+        <Label Content="天发动一次" HorizontalAlignment="Left" Margin="657,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="發動時間" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" x:Name="tbStartYear" Height="23" Margin="68,48,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="33"/>
+        <Label Content="年" HorizontalAlignment="Left" Margin="101,44,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" x:Name="tbStartMonth" Height="23" Margin="123,48,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="33" RenderTransformOrigin="2.758,0.565"/>
+        <Label Content="月 至" HorizontalAlignment="Left" Margin="156,44,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" x:Name="tbEndYear" Height="23" Margin="196,48,0,0" TextWrapping="Wrap" Text="999" VerticalAlignment="Top" Width="33"/>
+        <Label Content="年" HorizontalAlignment="Left" Margin="229,44,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" x:Name="tbEndMonth" Height="23" Margin="251,48,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="33" RenderTransformOrigin="2.758,0.565"/>
+        <Label Content="月" HorizontalAlignment="Left" Margin="284,44,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
