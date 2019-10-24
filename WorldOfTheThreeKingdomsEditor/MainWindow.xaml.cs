@@ -36,6 +36,7 @@ namespace WorldOfTheThreeKingdomsEditor
         private ArchitectureTab architectureTab;
         private FactionTab factionTab;
         private PersonTab personTab;
+        private EventTab eventTab;
         private DictionaryTab<int, int> fatherTab;
         private DictionaryTab<int, int> motherTab;
         private DictionaryTab<int, int> spouseTab;
@@ -240,7 +241,8 @@ namespace WorldOfTheThreeKingdomsEditor
                     }
                     else if (s.Equals("dgEvent"))
                     {
-                        new EventTab(scen, dgEvent, lblColumnHelp).setup();
+                        eventTab = new EventTab(scen, dgEvent, lblColumnHelp);
+                        eventTab.setup();
                     }
                     else if (s.Equals("dgTroopEvent"))
                     {
@@ -1276,7 +1278,11 @@ namespace WorldOfTheThreeKingdomsEditor
                 }
                 else if (dataGrid == dgFaction)
                 {
-                    factionTab.creatWindow(edit, dgFaction, this);
+                    factionTab.createWindow(edit, dgFaction, this);
+                } 
+                else if (dataGrid == dgEvent)
+                {
+                    eventTab.createWindow(edit, dgEvent, this);
                 }
             }
         }

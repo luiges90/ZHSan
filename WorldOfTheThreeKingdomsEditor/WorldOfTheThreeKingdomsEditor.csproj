@@ -97,6 +97,9 @@
     <Compile Include="TitleKindTab.cs" />
     <Compile Include="PersonIDRelationsTab.cs" />
     <Compile Include="UserControl1_labeltext.xaml.cs" />
+    <Compile Include="NewEventWindow.xaml.cs">
+      <DependentUpon>NewEventWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -172,7 +175,10 @@
     </Page>
     <Page Include="UserControl1_labeltext.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewEventWindow.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

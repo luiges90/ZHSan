@@ -78,7 +78,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private readonly T sampleInstance = Activator.CreateInstance<T>();
 
-        private static bool settingUp = false;
+        protected static bool settingUp = false;
 
         private FieldInfo[] getFieldInfos()
         {
@@ -105,6 +105,11 @@ namespace WorldOfTheThreeKingdomsEditor
             this.scen = scen;
             this.dg = dg;
             this.helpTextBlock = helpTextBlock;
+        }
+
+        protected GameScenario getScen()
+        {
+            return scen;
         }
 
         protected interface IItemList
@@ -469,7 +474,7 @@ namespace WorldOfTheThreeKingdomsEditor
         //    }
         //}
 
-        private void initdt()
+        protected void initdt()
         {
             settingUp = true;
             dt.Clear();
@@ -1232,34 +1237,9 @@ namespace WorldOfTheThreeKingdomsEditor
             MainWindow.pasting = false;
         }
 
-        private string datagridname;
-        private MainWindow mainWindow;
-        public void creatWindow(bool edit, DataGrid dataGrid,MainWindow mainWindow)
+        public virtual void createWindow(bool edit, DataGrid dataGrid,MainWindow mainWindow)
         {
-            if (!settingUp)
-            {
-                this.mainWindow = mainWindow;
-                if (dataGrid.Name.Equals("dgFaction"))
-                {
-                    NewFactionWindow newWindow = new NewFactionWindow(edit, dataGrid, scen);
-                    datagridname = dataGrid.Name;
-                    newWindow.Closed += NewWindow_Closed;
-                    newWindow.ShowDialog();
-                }
-            }
-        }
-
-        private void NewWindow_Closed(object sender, EventArgs e)
-        {
-            if (!settingUp)
-            {
-                bool hascen = true;
-                if(datagridname.Equals("dgFaction"))
-                {
-                    initdt();
-                    mainWindow.initTables(new string[] { "dgArchitecture", "dgDiplomaticRelation" });
-                }
-            }
+           
         }
     }
 }

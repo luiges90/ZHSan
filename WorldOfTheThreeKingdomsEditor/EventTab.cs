@@ -107,5 +107,29 @@ namespace WorldOfTheThreeKingdomsEditor
         {
             init(scen, dg, helpTextBlock);
         }
+
+        private string datagridname;
+        private MainWindow mainWindow;
+        public override void createWindow(bool edit, DataGrid dataGrid, MainWindow mainWindow)
+        {
+            if (!settingUp)
+            {
+                this.mainWindow = mainWindow;
+
+                NewEventWindow newWindow = new NewEventWindow(edit, dataGrid, getScen());
+                datagridname = dataGrid.Name;
+                newWindow.Closed += NewWindow_Closed;
+                newWindow.ShowDialog();
+            }
+        }
+
+        private void NewWindow_Closed(object sender, EventArgs e)
+        {
+            if (!settingUp)
+            {
+                initdt();
+                mainWindow.initTables(new string[] { "dgEvent" });
+            }
+        }
     }
 }
