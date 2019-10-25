@@ -969,14 +969,20 @@ namespace GameObjects
 
         public void AddFundPack(int number, int days)
         {
-            FundPack item = new FundPack(number, days);
-            this.FundPacks.Add(item);
+            if (number > 0)
+            {
+                FundPack item = new FundPack(number, days);
+                this.FundPacks.Add(item);
+            }
         }
 
         public void AddFoodPack(int number, int days)
         {
-            FoodPack item = new FoodPack(number, days);
-            this.FoodPacks.Add(item);
+            if (number > 0)
+            {
+                FoodPack item = new FoodPack(number, days);
+                this.FoodPacks.Add(item);
+            }
         }
 
         /*
@@ -1670,11 +1676,11 @@ namespace GameObjects
             src.DecreaseFood(food);
             src.DecreaseFund(fund);
 
-            if (food >= 0)
+            if (food > 100)
             {
                 this.AddFoodPack((int) (food / Session.Current.Scenario.GetResourceConsumptionRate(src, this)), Session.Current.Scenario.GetTransferFundDays(src, this));
             }
-            if (fund >= 0)
+            if (fund > 100)
             {
                 this.AddFundPack((int) (fund / Session.Current.Scenario.GetResourceConsumptionRate(src, this)), Session.Current.Scenario.GetTransferFundDays(src, this));
             }
