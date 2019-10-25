@@ -13824,6 +13824,32 @@ namespace GameObjects
             }
         }
 
+        public string FundPackString
+        {
+            get
+            {
+                String s = "";
+                foreach (FundPack p in this.FundPacks)
+                {
+                    s += p.Days + "天" + p.Fund + "。";
+                }
+                return s;
+            }
+        }
+
+        public string FoodPackString
+        {
+            get
+            {
+                String s = "";
+                foreach (FoodPack p in this.FoodPacks)
+                {
+                    s += p.Days + "天" + p.Food + "。";
+                }
+                return s;
+            }
+        }
+
         public int GossipArchitectureFund
         {
             get
