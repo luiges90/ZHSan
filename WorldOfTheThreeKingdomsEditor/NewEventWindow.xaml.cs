@@ -150,10 +150,10 @@ namespace WorldOfTheThreeKingdomsEditor
             this.Close();
         }
 
-        private void BtnDialog_Click(object sender, RoutedEventArgs e)
+        private void _BtnDialog_Click( List<PersonIdDialog> tempDialog, String type)
         {
             Window window = new Window();
-            window.Title = "設置事件對話";
+            window.Title = type == "dialog" ? "設置事件對話" : (type == "yes" ? "設置選「是」事件對話" : "設置選「否」事件對話");
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Width = 800;
             window.Height = 600;
@@ -166,11 +166,22 @@ namespace WorldOfTheThreeKingdomsEditor
             dt2.Columns.Add("武將編號", typeof(int));
             dt2.Columns.Add("對話");
 
-            foreach (PersonIdDialog i in (tempDialog == null ? this.ev.dialog : tempDialog))
+            foreach (PersonIdDialog i in tempDialog)
             {
                 DataRow dr = dt2.NewRow();
                 dr["武將編號"] = i.id;
-                dr["對話"] = i.dialog;
+                if (type == "dialog")
+                {
+                    dr["對話"] = i.dialog;
+                }
+                else if (type == "yes")
+                {
+                    dr["對話"] = i.yesdialog;
+                }
+                else if (type == "no")
+                {
+                    dr["對話"] = i.nodialog;
+                }
                 dt2.Rows.Add(dr);
             }
             dataGrid1.ItemsSource = dt2.DefaultView;
@@ -186,13 +197,9 @@ namespace WorldOfTheThreeKingdomsEditor
             dataGrid1.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
             window.Closed += Closed;
             window.ShowDialog();
-            
+
             void Closed(object source, EventArgs e2)
             {
-                if (tempDialog == null)
-                {
-                    tempDialog = new List<PersonIdDialog>();
-                }
                 tempDialog.Clear();
                 for (int r = 0; r < dataGrid1.Items.Count; r++)
                 {
@@ -203,131 +210,54 @@ namespace WorldOfTheThreeKingdomsEditor
                     }
 
                     var dialog = new PersonIdDialog();
-                    dialog.id = (int) item[0];
-                    dialog.dialog = (string) item[1];
+                    dialog.id = (int)item[0];
+                    if (type == "dialog")
+                    {
+                        dialog.dialog = (string)item[1];
+                    }
+                    else if (type == "yes")
+                    {
+                        dialog.yesdialog = (string)item[1];
+                    }
+                    else if (type == "no")
+                    {
+                        dialog.nodialog = (string)item[1];
+                    }
                     tempDialog.Add(dialog);
                 }
             }
         }
 
+        private void BtnDialog_Click(object sender, RoutedEventArgs e)
+        {
+            if (tempDialog == null)
+            {
+                tempDialog = this.ev.dialog;
+            }
+            _BtnDialog_Click(tempDialog, "dialog");
+        }
+
         private void BtnYesDialog_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
-            window.Title = "設置選「是」事件對話";
-            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            window.Width = 800;
-            window.Height = 600;
-
-            Grid grid = new Grid();
-            window.Content = grid;
-
-            DataGrid dataGrid1 = new DataGrid();
-            DataTable dt2 = new DataTable();
-            dt2.Columns.Add("武將編號", typeof(int));
-            dt2.Columns.Add("對話");
-
-            foreach (PersonIdDialog i in (tempYesDialog == null ? this.ev.yesdialog : tempYesDialog))
+            if (tempYesDialog == null)
             {
-                DataRow dr = dt2.NewRow();
-                dr["武將編號"] = i.id;
-                dr["對話"] = i.yesdialog;
-                dt2.Rows.Add(dr);
+                tempYesDialog = this.ev.yesdialog;
             }
-            dataGrid1.ItemsSource = dt2.DefaultView;
-
-            dataGrid1.Loaded += SetWidth;
-            void SetWidth(object source, EventArgs e2)
-            {
-                var g = (DataGrid)source;
-                g.Columns[0].Width = 80;
-            }
-
-            grid.Children.Add(dataGrid1);
-            dataGrid1.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
-            window.Closed += Closed;
-            window.ShowDialog();
-
-            void Closed(object source, EventArgs e2)
-            {
-                if (tempYesDialog == null)
-                {
-                    tempYesDialog = new List<PersonIdDialog>();
-                }
-                tempYesDialog.Clear();
-                for (int r = 0; r < dataGrid1.Items.Count; r++)
-                {
-                    DataRowView item = dataGrid1.Items[r] as DataRowView;
-                    if (item == null)
-                    {
-                        continue;
-                    }
-
-                    var dialog = new PersonIdDialog();
-                    dialog.id = (int)item[0];
-                    dialog.yesdialog = (string)item[1];
-                    tempYesDialog.Add(dialog);
-                }
-            }
+            _BtnDialog_Click(tempYesDialog, "yes");
         }
 
         private void BtnNoDialog_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
-            window.Title = "設置選「否」事件對話";
-            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            window.Width = 800;
-            window.Height = 600;
-
-            Grid grid = new Grid();
-            window.Content = grid;
-
-            DataGrid dataGrid1 = new DataGrid();
-            DataTable dt2 = new DataTable();
-            dt2.Columns.Add("武將編號", typeof(int));
-            dt2.Columns.Add("對話");
-
-            foreach (PersonIdDialog i in (tempNoDialog == null ? this.ev.nodialog : tempNoDialog))
+            if (tempNoDialog == null)
             {
-                DataRow dr = dt2.NewRow();
-                dr["武將編號"] = i.id;
-                dr["對話"] = i.nodialog;
-                dt2.Rows.Add(dr);
+                tempNoDialog = this.ev.nodialog;
             }
-            dataGrid1.ItemsSource = dt2.DefaultView;
+            _BtnDialog_Click(tempNoDialog, "no");
+        }
 
-            dataGrid1.Loaded += SetWidth;
-            void SetWidth(object source, EventArgs e2)
-            {
-                var g = (DataGrid)source;
-                g.Columns[0].Width = 80;
-            }
+        private void Btn_PersonClick(object sender, RoutedEventArgs e)
+        {
 
-            grid.Children.Add(dataGrid1);
-            dataGrid1.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
-            window.Closed += Closed;
-            window.ShowDialog();
-
-            void Closed(object source, EventArgs e2)
-            {
-                if (tempNoDialog == null)
-                {
-                    tempNoDialog = new List<PersonIdDialog>();
-                }
-                tempNoDialog.Clear();
-                for (int r = 0; r < dataGrid1.Items.Count; r++)
-                {
-                    DataRowView item = dataGrid1.Items[r] as DataRowView;
-                    if (item == null)
-                    {
-                        continue;
-                    }
-
-                    var dialog = new PersonIdDialog();
-                    dialog.id = (int)item[0];
-                    dialog.nodialog = (string)item[1];
-                    tempNoDialog.Add(dialog);
-                }
-            }
         }
     }
 }
