@@ -32,6 +32,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private Dictionary<int, List<Person>> tempPerson;
         private Dictionary<int, List<GameObjects.Conditions.Condition>> tempPersonCond;
+        private Dictionary<int, List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>> tempEffect;
 
         public NewEventWindow(bool editing, DataGrid dataGrid, GameScenario scen)
         {
@@ -48,6 +49,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
             tempPerson = ev.person;
             tempPersonCond = ev.personCond;
+            tempEffect = ev.effect;
 
             txname.Text = ev.Name;
             cbHappened.IsChecked = ev.happened;
@@ -149,6 +151,8 @@ namespace WorldOfTheThreeKingdomsEditor
                 ev.nodialog = tempNoDialog;
             }
             ev.person = tempPerson;
+            ev.personCond = tempPersonCond;
+            ev.effect = tempEffect;
 
             if (!edit)
             {
@@ -439,6 +443,105 @@ namespace WorldOfTheThreeKingdomsEditor
                     var cond = scen.GameCommonData.AllConditions.GetCondition(id);
                     tempPersonCond[index].Add(cond);
                    
+                    DataRow dr = dt1.NewRow();
+                    dr["ID"] = cond.ID;
+                    dr["名稱"] = cond.Name;
+                    dt1.Rows.Add(dr);
+                }
+            }
+
+            void SetWidth(object source, EventArgs e2)
+            {
+                var g = (DataGrid)source;
+                g.Columns[0].Width = 80;
+            }
+
+            window.Closed += Closed;
+            window.ShowDialog();
+
+            void Closed(object source, EventArgs e2)
+            {
+                PopulateAllPersonData();
+            }
+        }
+
+        private void Btn_EffectClick(object sender, RoutedEventArgs e)
+        {
+            string indexName = ((Button)sender).Name;
+            int index = int.Parse(indexName.Substring(indexName.Length - 1));
+
+            if (!tempEffect.ContainsKey(index))
+            {
+                tempEffect.Add(index, new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>());
+            }
+
+            Window window = new Window();
+            window.Title = "選擇對武將的事件效果。雙按加入/取消";
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Width = 800;
+            window.Height = 600;
+
+            Grid grid = new Grid();
+            window.Content = grid;
+
+            DataGrid dataGrid1 = new DataGrid();
+            DataTable dt1 = new DataTable();
+            dataGrid1.Width = 360;
+            dataGrid1.Margin = new Thickness(0, 0, 400, 0);
+            dt1.Columns.Add("ID", typeof(int));
+            dt1.Columns.Add("名稱");
+            foreach (var cond in tempEffect[index])
+            {
+                DataRow dr = dt1.NewRow();
+                dr["ID"] = cond.ID;
+                dr["名稱"] = cond.Name;
+                dt1.Rows.Add(dr);
+            }
+            dataGrid1.ItemsSource = dt1.DefaultView;
+            dataGrid1.IsReadOnly = true;
+            dataGrid1.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            grid.Children.Add(dataGrid1);
+            dataGrid1.Loaded += SetWidth;
+            dataGrid1.MouseDoubleClick += Grid1_DoublcClick;
+            void Grid1_DoublcClick(object sender2, MouseButtonEventArgs e2)
+            {
+                if (dataGrid1.SelectedItem != null)
+                {
+                    int id = (int)((DataRowView)dataGrid1.SelectedItem)["ID"];
+                    var cond = scen.GameCommonData.AllEventEffects.GetEventEffect(id);
+                    tempEffect[index].Remove(cond);
+
+                    ((DataRowView)dataGrid1.SelectedItem).Delete();
+                }
+            }
+
+            DataGrid dataGrid2 = new DataGrid();
+            DataTable dt2 = new DataTable();
+            dataGrid2.Width = 360;
+            dataGrid2.Margin = new Thickness(400, 0, 0, 0);
+            dt2.Columns.Add("ID", typeof(int));
+            dt2.Columns.Add("名稱");
+            foreach (var cond in scen.GameCommonData.AllEventEffects.EventEffects.Values)
+            {
+                DataRow dr = dt2.NewRow();
+                dr["ID"] = cond.ID;
+                dr["名稱"] = cond.Name;
+                dt2.Rows.Add(dr);
+            }
+            dataGrid2.ItemsSource = dt2.DefaultView;
+            dataGrid2.IsReadOnly = true;
+            dataGrid2.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            grid.Children.Add(dataGrid2);
+            dataGrid2.Loaded += SetWidth;
+            dataGrid2.MouseDoubleClick += Grid2_DoublcClick;
+            void Grid2_DoublcClick(object sender2, MouseButtonEventArgs e2)
+            {
+                if (dataGrid2.SelectedItem != null)
+                {
+                    int id = (int)((DataRowView)dataGrid2.SelectedItem)["ID"];
+                    var cond = scen.GameCommonData.AllEventEffects.GetEventEffect(id);
+                    tempEffect[index].Add(cond);
+
                     DataRow dr = dt1.NewRow();
                     dr["ID"] = cond.ID;
                     dr["名稱"] = cond.Name;
