@@ -34,6 +34,8 @@ namespace WorldOfTheThreeKingdomsEditor
         private Dictionary<int, List<GameObjects.Conditions.Condition>> tempPersonCond;
         private Dictionary<int, List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>> tempEffect;
         private List<PersonIdDialog> tempBiography;
+        private Dictionary<int, List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>> tempYesEffect;
+        private Dictionary<int, List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>> tempNoEffect;
 
         public NewEventWindow(bool editing, DataGrid dataGrid, GameScenario scen)
         {
@@ -52,6 +54,8 @@ namespace WorldOfTheThreeKingdomsEditor
             tempPersonCond = ev.personCond;
             tempEffect = ev.effect;
             tempBiography = ev.scenBiography;
+            tempYesEffect = ev.yesEffect;
+            tempNoEffect = ev.noEffect;
 
             txname.Text = ev.Name;
             cbHappened.IsChecked = ev.happened;
@@ -115,11 +119,11 @@ namespace WorldOfTheThreeKingdomsEditor
             }
             if (ev.yesEffect.ContainsKey(index))
             {
-                yesEffect.Content = ev.yesEffect[index].Select(e => e.Name);
+                yesEffect.Content = String.Join(" ", ev.yesEffect[index].Select(e => e.Name));
             }
             if (ev.noEffect.ContainsKey(index))
             {
-                noEffect.Content = ev.noEffect[index].Select(e => e.Name);
+                noEffect.Content = String.Join(" ", ev.noEffect[index].Select(e => e.Name));
             }
         }
 
@@ -490,7 +494,7 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
-        private void Btn_EffectClick(object sender, RoutedEventArgs e)
+        private void _Btn_EffectClick(object sender, string type)
         {
             string indexName = ((Button)sender).Name;
             int index = int.Parse(indexName.Substring(indexName.Length - 1));
@@ -499,9 +503,28 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 tempEffect.Add(index, new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>());
             }
+            if (!tempYesEffect.ContainsKey(index))
+            {
+                tempYesEffect.Add(index, new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>());
+            }
+            if (!tempNoEffect.ContainsKey(index))
+            {
+                tempNoEffect.Add(index, new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>());
+            }
 
             Window window = new Window();
-            window.Title = "選擇對武將的事件效果。雙按加入/取消";
+            if (type == "effect")
+            {
+                window.Title = "選擇對武將的事件效果。雙按加入/取消";
+            }
+            else if (type == "yes")
+            {
+                window.Title = "選擇答「是」時對武將的事件效果。雙按加入/取消";
+            }
+            else if (type == "no")
+            {
+                window.Title = "選擇答「否」時對武將的事件效果。雙按加入/取消";
+            }
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Width = 800;
             window.Height = 600;
@@ -515,7 +538,21 @@ namespace WorldOfTheThreeKingdomsEditor
             dataGrid1.Margin = new Thickness(0, 0, 400, 0);
             dt1.Columns.Add("ID", typeof(int));
             dt1.Columns.Add("名稱");
-            foreach (var cond in tempEffect[index])
+
+            List<GameObjects.ArchitectureDetail.EventEffect.EventEffect> effects;
+            if (type == "effect")
+            {
+                effects = tempEffect[index];
+            }
+            else if (type == "yes")
+            {
+                effects = tempYesEffect[index];
+            }
+            else 
+            {
+                effects = tempNoEffect[index];
+            }
+            foreach (var cond in effects)
             {
                 DataRow dr = dt1.NewRow();
                 dr["ID"] = cond.ID;
@@ -534,7 +571,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 {
                     int id = (int)((DataRowView)dataGrid1.SelectedItem)["ID"];
                     var cond = scen.GameCommonData.AllEventEffects.GetEventEffect(id);
-                    tempEffect[index].Remove(cond);
+                    effects.Remove(cond);
 
                     ((DataRowView)dataGrid1.SelectedItem).Delete();
                 }
@@ -565,7 +602,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 {
                     int id = (int)((DataRowView)dataGrid2.SelectedItem)["ID"];
                     var cond = scen.GameCommonData.AllEventEffects.GetEventEffect(id);
-                    tempEffect[index].Add(cond);
+                    effects.Add(cond);
 
                     DataRow dr = dt1.NewRow();
                     dr["ID"] = cond.ID;
@@ -589,10 +626,25 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
+        private void Btn_EffectClick(object sender, RoutedEventArgs e)
+        {
+            _Btn_EffectClick(sender, "effect");
+        }
+
         private void Btn_BiographyClick(object sender, RoutedEventArgs e)
         {
             _BtnDialog_Click(tempBiography, "biography");
             PopulateAllPersonData();
+        }
+
+        private void Btn_YesEffectClick(object sender, RoutedEventArgs e)
+        {
+            _Btn_EffectClick(sender, "yes");
+        }
+
+        private void Btn_NoEffectClick(object sender, RoutedEventArgs e)
+        {
+            _Btn_EffectClick(sender, "no");
         }
     }
 }

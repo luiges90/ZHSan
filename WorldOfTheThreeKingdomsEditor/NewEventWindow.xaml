@@ -75,9 +75,9 @@
                 <Label Content="" x:Name="lblEffect0" Margin="66,50,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="列傳" x:Name="btnBiography0" Click="Btn_BiographyClick" HorizontalAlignment="Left" Margin="4,77,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblBiography0" Margin="66,74,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="選「是」效果" x:Name="btnYesEffect0" HorizontalAlignment="Left" Margin="4,100,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="選「是」效果" x:Name="btnYesEffect0" Click="Btn_YesEffectClick" HorizontalAlignment="Left" Margin="4,100,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblYesEffect0" Margin="66,97,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="選「否」效果" x:Name="btnNoEffect0" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="選「否」效果" x:Name="btnNoEffect0" Click="Btn_NoEffectClick" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblNoEffect0" Margin="66,121,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="X" x:Name="btnDelete0" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
             </Grid>
@@ -116,9 +116,9 @@
                 <Label Content="" x:Name="lblEffect1" Margin="66,50,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="列傳" x:Name="btnBiography1" Click="Btn_BiographyClick" HorizontalAlignment="Left" Margin="4,77,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblBiography1" Margin="66,74,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="選「是」效果" x:Name="btnYesEffect1" HorizontalAlignment="Left" Margin="4,100,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="選「是」效果" x:Name="btnYesEffect1" Click="Btn_YesEffectClick" HorizontalAlignment="Left" Margin="4,100,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblYesEffect1" Margin="66,97,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="選「否」效果" x:Name="btnNoEffect1" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="選「否」效果" x:Name="btnNoEffect1" Click="Btn_NoEffectClick" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblNoEffect1" Margin="66,121,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="X" x:Name="btnDelete1" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
             </Grid>
@@ -137,9 +137,9 @@
                 <Label Content="" x:Name="lblEffect2" Margin="66,50,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="列傳" x:Name="btnBiography2" Click="Btn_BiographyClick" HorizontalAlignment="Left" Margin="4,77,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblBiography2" Margin="66,74,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="選「是」效果" x:Name="btnYesEffect2" HorizontalAlignment="Left" Margin="4,100,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="選「是」效果" x:Name="btnYesEffect2" Click="Btn_YesEffectClick" HorizontalAlignment="Left" Margin="4,100,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblYesEffect2" Margin="66,97,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="選「否」效果" x:Name="btnNoEffect2" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="選「否」效果" x:Name="btnNoEffect2" Click="Btn_NoEffectClick" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblNoEffect2" Margin="66,121,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="X" x:Name="btnDelete2" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
             </Grid>
@@ -158,9 +158,9 @@
                 <Label Content="" x:Name="lblEffect3" Margin="66,50,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="列傳" x:Name="btnBiography3" Click="Btn_BiographyClick" HorizontalAlignment="Left" Margin="4,77,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblBiography3" Margin="66,74,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="選「是」效果" x:Name="btnYesEffect3" HorizontalAlignment="Left" Margin="4,100,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="選「是」效果" x:Name="btnYesEffect3" Click="Btn_YesEffectClick" HorizontalAlignment="Left" Margin="4,100,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblYesEffect3" Margin="66,97,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="選「否」效果" x:Name="btnNoEffect3" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="選「否」效果" x:Name="btnNoEffect3" Click="Btn_NoEffectClick" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblNoEffect3" Margin="66,121,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="X" x:Name="btnDelete3" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
             </Grid>
@@ -179,9 +179,9 @@
                 <Label Content="" x:Name="lblEffect4" Margin="66,50,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="列傳" x:Name="btnBiography4" Click="Btn_BiographyClick" HorizontalAlignment="Left" Margin="4,77,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblBiography4" Margin="66,74,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="選「是」效果" x:Name="btnYesEffect4" HorizontalAlignment="Left" Margin="4,100,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="選「是」效果" x:Name="btnYesEffect4" Click="Btn_YesEffectClick" HorizontalAlignment="Left" Margin="4,100,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblYesEffect4" Margin="66,97,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="選「否」效果" x:Name="btnNoEffect4" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="選「否」效果" x:Name="btnNoEffect4" Click="Btn_NoEffectClick" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblNoEffect4" Margin="66,121,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="X" x:Name="btnDelete4" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
             </Grid>
@@ -200,9 +200,9 @@
                 <Label Content="" x:Name="lblEffect5" Margin="66,50,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="列傳" x:Name="btnBiography5" Click="Btn_BiographyClick" HorizontalAlignment="Left" Margin="4,77,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblBiography5" Margin="66,74,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="選「是」效果" x:Name="btnYesEffect5" HorizontalAlignment="Left" Margin="4,100,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="選「是」效果" x:Name="btnYesEffect5" Click="Btn_YesEffectClick" HorizontalAlignment="Left" Margin="4,100,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblYesEffect5" Margin="66,97,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="選「否」效果" x:Name="btnNoEffect5" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="選「否」效果" x:Name="btnNoEffect5" Click="Btn_NoEffectClick" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblNoEffect5" Margin="66,121,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="X" x:Name="btnDelete5" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
             </Grid>
