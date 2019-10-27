@@ -69,7 +69,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Content="選擇武將" x:Name="btnPerson0" Click="Btn_PersonClick" HorizontalAlignment="Left" Margin="4,5,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblPerson0" Margin="66,2,45,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="武將條件" x:Name="btnPersonCond0" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="武將條件" x:Name="btnPersonCond0" Click="Btn_PersonCondClick" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblPersonCond0" Margin="66,25,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="事件效果" x:Name="btnEffect0" HorizontalAlignment="Left" Margin="4,53,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblEffect0" Margin="66,50,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
@@ -110,7 +110,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Content="選擇武將" x:Name="btnPerson1" Click="Btn_PersonClick" HorizontalAlignment="Left" Margin="4,5,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblPerson1" Margin="66,2,45,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="武將條件" x:Name="btnPersonCond1" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="武將條件" x:Name="btnPersonCond1" Click="Btn_PersonCondClick" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblPersonCond1" Margin="66,25,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="事件效果" x:Name="btnEffect1" HorizontalAlignment="Left" Margin="4,53,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblEffect1" Margin="66,50,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
@@ -131,7 +131,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Content="選擇武將" x:Name="btnPerson2" Click="Btn_PersonClick" HorizontalAlignment="Left" Margin="4,5,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblPerson2" Margin="66,2,45,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="武將條件" x:Name="btnPersonCond2" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="武將條件" x:Name="btnPersonCond2" Click="Btn_PersonCondClick" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblPersonCond2" Margin="66,25,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="事件效果" x:Name="btnEffect2" HorizontalAlignment="Left" Margin="4,53,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblEffect2" Margin="66,50,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
@@ -152,7 +152,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Content="選擇武將" x:Name="btnPerson3" Click="Btn_PersonClick" HorizontalAlignment="Left" Margin="4,5,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblPerson3" Margin="66,2,45,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="武將條件" x:Name="btnPersonCond3" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="武將條件" x:Name="btnPersonCond3" Click="Btn_PersonCondClick" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblPersonCond3" Margin="66,25,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="事件效果" x:Name="btnEffect3" HorizontalAlignment="Left" Margin="4,53,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblEffect3" Margin="66,50,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
@@ -173,7 +173,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Content="選擇武將" x:Name="btnPerson4" Click="Btn_PersonClick" HorizontalAlignment="Left" Margin="4,5,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblPerson4" Margin="66,2,45,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="武將條件" x:Name="btnPersonCond4" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="武將條件" x:Name="btnPersonCond4" Click="Btn_PersonCondClick" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblPersonCond4" Margin="66,25,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="事件效果" x:Name="btnEffect4" HorizontalAlignment="Left" Margin="4,53,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblEffect4" Margin="66,50,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
@@ -194,7 +194,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Content="選擇武將" x:Name="btnPerson5" Click="Btn_PersonClick" HorizontalAlignment="Left" Margin="4,5,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblPerson5" Margin="66,2,45,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="武將條件" x:Name="btnPersonCond5" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+                <Button Content="武將條件" x:Name="btnPersonCond5" Click="Btn_PersonCondClick" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblPersonCond5" Margin="66,25,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="事件效果" x:Name="btnEffect5" HorizontalAlignment="Left" Margin="4,53,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblEffect5" Margin="66,50,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
