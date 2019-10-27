@@ -33,6 +33,7 @@ namespace WorldOfTheThreeKingdomsEditor
         private Dictionary<int, List<Person>> tempPerson;
         private Dictionary<int, List<GameObjects.Conditions.Condition>> tempPersonCond;
         private Dictionary<int, List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>> tempEffect;
+        private List<PersonIdDialog> tempBiography;
 
         public NewEventWindow(bool editing, DataGrid dataGrid, GameScenario scen)
         {
@@ -50,6 +51,7 @@ namespace WorldOfTheThreeKingdomsEditor
             tempPerson = ev.person;
             tempPersonCond = ev.personCond;
             tempEffect = ev.effect;
+            tempBiography = ev.scenBiography;
 
             txname.Text = ev.Name;
             cbHappened.IsChecked = ev.happened;
@@ -109,15 +111,15 @@ namespace WorldOfTheThreeKingdomsEditor
             }
             if (ev.scenBiography.Count > index)
             {
-                biography.Content = ev.scenBiography[index];
+                biography.Content = ev.scenBiography[index].dialog;
             }
             if (ev.yesEffect.ContainsKey(index))
             {
-                yesEffect.Content = ev.yesEffect[index];
+                yesEffect.Content = ev.yesEffect[index].Select(e => e.Name);
             }
             if (ev.noEffect.ContainsKey(index))
             {
-                noEffect.Content = ev.noEffect[index];
+                noEffect.Content = ev.noEffect[index].Select(e => e.Name);
             }
         }
 
@@ -169,7 +171,22 @@ namespace WorldOfTheThreeKingdomsEditor
         private void _BtnDialog_Click( List<PersonIdDialog> tempDialog, String type)
         {
             Window window = new Window();
-            window.Title = type == "dialog" ? "設置事件對話" : (type == "yes" ? "設置選「是」事件對話" : "設置選「否」事件對話");
+            if (type == "dialog")
+            {
+                window.Title = "設置事件武將對話";
+            }
+            else if (type == "yes")
+            {
+                window.Title = "設置選「是」事件武將對話";
+            }
+            else if (type == "no")
+            {
+                window.Title = "設置選「否」事件武將對話";
+            }
+            else if (type == "biography")
+            {
+                window.Title = "設置事件武將列傳";
+            }
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Width = 800;
             window.Height = 600;
@@ -197,6 +214,10 @@ namespace WorldOfTheThreeKingdomsEditor
                 else if (type == "no")
                 {
                     dr["對話"] = i.nodialog;
+                }
+                else if (type == "biography")
+                {
+                    dr["對話"] = i.dialog;
                 }
                 dt2.Rows.Add(dr);
             }
@@ -238,6 +259,10 @@ namespace WorldOfTheThreeKingdomsEditor
                     else if (type == "no")
                     {
                         dialog.nodialog = (string)item[1];
+                    }
+                    else if (type == "biography")
+                    {
+                        dialog.dialog = (string)item[1];
                     }
                     tempDialog.Add(dialog);
                 }
@@ -562,6 +587,12 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 PopulateAllPersonData();
             }
+        }
+
+        private void Btn_BiographyClick(object sender, RoutedEventArgs e)
+        {
+            _BtnDialog_Click(tempBiography, "biography");
+            PopulateAllPersonData();
         }
     }
 }
