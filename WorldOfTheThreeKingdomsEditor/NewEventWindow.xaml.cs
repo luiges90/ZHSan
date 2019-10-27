@@ -30,6 +30,8 @@ namespace WorldOfTheThreeKingdomsEditor
         private List<PersonIdDialog> tempYesDialog;
         private List<PersonIdDialog> tempNoDialog;
 
+        private Dictionary<int, List<Person>> tempPerson;
+
         public NewEventWindow(bool editing, DataGrid dataGrid, GameScenario scen)
         {
             this.scen = scen;
@@ -42,6 +44,8 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 ev = scen.AllEvents.GetGameObject(int.Parse(((DataRowView)dataGrid.SelectedItem).Row["ID"].ToString())) as Event;
             }
+
+            tempPerson = ev.person;
 
             txname.Text = ev.Name;
             cbHappened.IsChecked = ev.happened;
@@ -56,12 +60,7 @@ namespace WorldOfTheThreeKingdomsEditor
             tbImage.Text = ev.Image;
             tbSound.Text = ev.Sound;
 
-            PopulatePersonData(0, lblPerson0, lblPersonCond0, lblEffect0, lblBiography0, lblYesEffect0, lblNoEffect0);
-            PopulatePersonData(1, lblPerson1, lblPersonCond1, lblEffect1, lblBiography1, lblYesEffect1, lblNoEffect1);
-            PopulatePersonData(2, lblPerson2, lblPersonCond2, lblEffect2, lblBiography2, lblYesEffect2, lblNoEffect2);
-            PopulatePersonData(3, lblPerson3, lblPersonCond3, lblEffect3, lblBiography3, lblYesEffect3, lblNoEffect3);
-            PopulatePersonData(4, lblPerson4, lblPersonCond4, lblEffect4, lblBiography4, lblYesEffect4, lblNoEffect4);
-            PopulatePersonData(5, lblPerson5, lblPersonCond5, lblEffect5, lblBiography5, lblYesEffect5, lblNoEffect5);
+            PopulateAllPersonData();
 
             lblArchitcture.Content = String.Join(" ", ev.architecture.GameObjects.Select(p => p.Name));
             lblArchitctureCond.Content = String.Join(" ", ev.architectureCond.Select(p => p.Name));
@@ -80,11 +79,21 @@ namespace WorldOfTheThreeKingdomsEditor
             cbAfterEventHappened.SelectedItem = ev.AfterEventHappened + " " + (currentAfterHappened == null ? "无" : currentAfterHappened.Name);
         }
 
+        private void PopulateAllPersonData()
+        {
+            PopulatePersonData(0, lblPerson0, lblPersonCond0, lblEffect0, lblBiography0, lblYesEffect0, lblNoEffect0);
+            PopulatePersonData(1, lblPerson1, lblPersonCond1, lblEffect1, lblBiography1, lblYesEffect1, lblNoEffect1);
+            PopulatePersonData(2, lblPerson2, lblPersonCond2, lblEffect2, lblBiography2, lblYesEffect2, lblNoEffect2);
+            PopulatePersonData(3, lblPerson3, lblPersonCond3, lblEffect3, lblBiography3, lblYesEffect3, lblNoEffect3);
+            PopulatePersonData(4, lblPerson4, lblPersonCond4, lblEffect4, lblBiography4, lblYesEffect4, lblNoEffect4);
+            PopulatePersonData(5, lblPerson5, lblPersonCond5, lblEffect5, lblBiography5, lblYesEffect5, lblNoEffect5);
+        }
+
         private void PopulatePersonData(int index, Label person, Label personCond, Label effect, Label biography, Label yesEffect, Label noEffect)
         {
-            if (ev.person.ContainsKey(index))
+            if (tempPerson.ContainsKey(index))
             {
-                person.Content = String.Join(" ", ev.person[index].Select(p => p == null ? "任何" : p.Name));
+                person.Content = String.Join(" ", tempPerson[index].Select(p => p == null ? "任何" : p.Name));
             }
             if (ev.personCond.ContainsKey(index))
             {
@@ -137,6 +146,7 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 ev.nodialog = tempNoDialog;
             }
+            ev.person = tempPerson;
 
             if (!edit)
             {
@@ -257,7 +267,92 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void Btn_PersonClick(object sender, RoutedEventArgs e)
         {
+            string indexName = ((Button)sender).Name;
+            int index = int.Parse(indexName.Substring(indexName.Length - 1));
 
+            Window window = new Window();
+            window.Title = "選擇事件能觸發的武將";
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Width = 800;
+            window.Height = 600;
+
+            Grid grid = new Grid();
+            window.Content = grid;
+
+            DataGrid dataGrid1 = new DataGrid();
+            DataTable dt2 = new DataTable();
+            dt2.Columns.Add("點選", typeof(Boolean));
+            dt2.Columns.Add("ID", typeof(int));
+            dt2.Columns["ID"].ReadOnly = true;
+            dt2.Columns.Add("姓名");
+            dt2.Columns["姓名"].ReadOnly = true;
+            dt2.Columns.Add("性别");
+            dt2.Columns["性别"].ReadOnly = true;
+            dt2.Columns.Add("登場年");
+            dt2.Columns["登場年"].ReadOnly = true;
+            dt2.Columns.Add("出生年");
+            dt2.Columns["出生年"].ReadOnly = true;
+            dt2.Columns.Add("死亡年");
+            dt2.Columns["死亡年"].ReadOnly = true;
+
+            foreach (Person person in scen.Persons)
+            {
+                DataRow dr = dt2.NewRow();
+                if (ev.person.Count > index)
+                {
+                    dr["點選"] = tempPerson[index].Contains(person);
+                }
+                else
+                {
+                    dr["點選"] = false;
+                }
+                dr["ID"] = person.ID;
+                dr["姓名"] = person.Name;
+                dr["性别"] = person.SexString;
+                dr["登場年"] = person.YearAvailable;
+                dr["出生年"] = person.YearBorn;
+                dr["死亡年"] = person.YearDead;
+                dt2.Rows.Add(dr);
+            }
+            dataGrid1.ItemsSource = dt2.DefaultView;
+
+            grid.Children.Add(dataGrid1);
+            dataGrid1.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+
+            window.Closed += Closed;
+            window.ShowDialog();
+
+            void Closed(object source, EventArgs e2)
+            {
+                if (!tempPerson.ContainsKey(index))
+                {
+                    tempPerson.Add(index, new List<Person>());
+                }
+                else
+                {
+                    tempPerson[index].Clear();
+                }
+                for (int r = 0; r < dataGrid1.Items.Count; r++)
+                {
+                    DataRowView item = dataGrid1.Items[r] as DataRowView;
+                    if (item == null)
+                    {
+                        continue;
+                    }
+
+                    if ((bool) item["點選"])
+                    {
+                        tempPerson[index].Add((Person)scen.Persons.GetGameObject((int)item["ID"]));
+                    }
+                }
+
+                if (tempPerson[index].Count <= 0)
+                {
+                    tempPerson[index].Add(null);
+                }
+
+                PopulateAllPersonData();
+            }
         }
     }
 }

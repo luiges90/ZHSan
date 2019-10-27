@@ -232,7 +232,6 @@ namespace WorldOfTheThreeKingdomsEditor
             window.Height = 600;
             Grid grid = new Grid();
             window.Content = grid;
-            grid.Margin = new Thickness(50);
             ListBox listBox = new ListBox();
             DataGrid dataGrid1 = new DataGrid();
             DataTable dt2 = new DataTable();
@@ -358,7 +357,6 @@ namespace WorldOfTheThreeKingdomsEditor
                 window.Height = 600;
                 Grid grid = new Grid();
                 window.Content = grid;
-                grid.Margin = new Thickness(50);
                 ListBox listBox = new ListBox();
 
 
@@ -409,7 +407,6 @@ namespace WorldOfTheThreeKingdomsEditor
                 window.Height = 600;
                 Grid grid = new Grid();
                 window.Content = grid;
-                grid.Margin = new Thickness(50);
                 ListBox listBox = new ListBox();
                 foreach (guanjuezhongleilei guanjuezhongleilei in scen.GameCommonData.suoyouguanjuezhonglei.Getguanjuedezhongleiliebiao())
                 {
@@ -451,7 +448,6 @@ namespace WorldOfTheThreeKingdomsEditor
                 window.Height = 600;
                 Grid grid = new Grid();
                 window.Content = grid;
-                grid.Margin = new Thickness(50);
                 ListBox listBox = new ListBox();
                 foreach (Architecture architecture in architectureListtemp)
                 {
@@ -508,7 +504,6 @@ namespace WorldOfTheThreeKingdomsEditor
                 window.Height = 600;
                 Grid grid = new Grid();
                 window.Content = grid;
-                grid.Margin = new Thickness(50);
                 ListBox listBox = new ListBox();
                 foreach (GameObjects.TroopDetail.MilitaryKind militaryKind in scen.GameCommonData.AllMilitaryKinds.MilitaryKinds.Values)
                 {
@@ -665,7 +660,6 @@ namespace WorldOfTheThreeKingdomsEditor
                 window.Height = 600;
                 Grid grid = new Grid();
                 window.Content = grid;
-                grid.Margin = new Thickness(50);
                 ListBox listBox = new ListBox();
                 listBox.HorizontalContentAlignment = HorizontalAlignment.Stretch;
                 foreach (Architecture architecture in scen.Architectures)
