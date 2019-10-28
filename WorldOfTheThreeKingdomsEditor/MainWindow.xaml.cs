@@ -335,7 +335,7 @@ namespace WorldOfTheThreeKingdomsEditor
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "剧本档 (*.json)|*.json";
             openFileDialog.RestoreDirectory = true;
-            openFileDialog.InitialDirectory = @"Content\Data\Scenario";
+            openFileDialog.InitialDirectory = Directory.GetCurrentDirectory() + @"\Content\Data\Scenario";
             if (openFileDialog.ShowDialog() == true)
             {
                 String filename = openFileDialog.FileName;
@@ -348,7 +348,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 populateTables();
                 scenLoaded = true;
                 Title = "中华三国志剧本编辑器 - " + openFileDialog.SafeFileName;
-                openFileDialog.InitialDirectory = @"Content\Data\Scenario";
+                openFileDialog.InitialDirectory = Directory.GetCurrentDirectory() + @"\Content\Data\Scenario";
             }
         }
 
@@ -371,7 +371,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 populateTables();
                 scenLoaded = true;
                 Title = "中华三国志剧本编辑器 - " + openFileDialog.SafeFileName;
-                openFileDialog.InitialDirectory = @"Content\Data\Scenario";
+                openFileDialog.InitialDirectory = Directory.GetCurrentDirectory() + @"\Content\Data\Scenario";
             }
         }
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -404,7 +404,7 @@ namespace WorldOfTheThreeKingdomsEditor
                 scen.ProcessScenarioData(true, true);//保存前再读取一进度，是为了把新增加的信息重新刷到scen里
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "剧本档 (*.json)|*.json";
-                saveFileDialog.InitialDirectory = @"Content\Data\Scenario";
+                saveFileDialog.InitialDirectory = Directory.GetCurrentDirectory() + @"\Content\Data\Scenario";
                 if (saveFileDialog.ShowDialog() == true)
                 {
                     String filename = saveFileDialog.FileName;

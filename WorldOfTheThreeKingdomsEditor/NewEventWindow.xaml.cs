@@ -13,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
+using System.IO;
 
 namespace WorldOfTheThreeKingdomsEditor
 {
@@ -155,6 +157,10 @@ namespace WorldOfTheThreeKingdomsEditor
             if (tempNoDialog != null)
             {
                 ev.nodialog = tempNoDialog;
+            }
+            if (tempBiography != null)
+            {
+                ev.scenBiography = tempBiography;
             }
             ev.person = tempPerson;
             ev.personCond = tempPersonCond;
@@ -645,6 +651,36 @@ namespace WorldOfTheThreeKingdomsEditor
         private void Btn_NoEffectClick(object sender, RoutedEventArgs e)
         {
             _Btn_EffectClick(sender, "no");
+        }
+
+        private void BtnImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            dialog.InitialDirectory = Directory.GetCurrentDirectory() + @"\Content\Textures\GameComponents\tupianwenzi\Data\tupian";
+            dialog.DefaultExt = ".jpg";
+            dialog.Filter = "JPEG檔案 (*.jpg)|*.jpg";
+
+            Nullable<bool> result = dialog.ShowDialog();
+            if (result == true)
+            {
+                tbImage.Text = dialog.SafeFileName;
+            }
+        }
+
+        private void BtnSound_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            dialog.InitialDirectory = Directory.GetCurrentDirectory() + @"\Content\Sound\Yinxiao";
+            dialog.DefaultExt = ".wav";
+            dialog.Filter = "WAV檔案 (*.wav)|*.wav";
+
+            Nullable<bool> result = dialog.ShowDialog();
+            if (result == true)
+            {
+                tbSound.Text = dialog.SafeFileName;
+            }
         }
     }
 }

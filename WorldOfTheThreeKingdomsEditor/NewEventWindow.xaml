@@ -82,9 +82,9 @@
                 <Button Content="X" x:Name="btnDelete0" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
             </Grid>
         </GroupBox>
-        <Button Content="選擇圖片" x:Name="btnImage" HorizontalAlignment="Left" Margin="829,45,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="選擇圖片" x:Name="btnImage" Click="BtnImage_Click" HorizontalAlignment="Left" Margin="829,45,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbImage" Height="23" Margin="909,45,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <Button Content="選擇音效" x:Name="btnSound" HorizontalAlignment="Left" Margin="829,74,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="選擇音效" x:Name="btnSound" Click="BtnSound_Click" HorizontalAlignment="Left" Margin="829,74,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="tbSound" Height="23" Margin="909,74,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
         <Button Content="選擇建築" x:Name="btnArchitecture" HorizontalAlignment="Left" Margin="829,113,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="" x:Name="lblArchitcture" Margin="904,110,10,0" VerticalAlignment="Top"/>
