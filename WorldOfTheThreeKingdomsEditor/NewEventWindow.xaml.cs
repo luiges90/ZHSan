@@ -193,34 +193,51 @@ namespace WorldOfTheThreeKingdomsEditor
             if (tempDialog != null)
             {
                 ev.dialog = tempDialog;
+                ev.dialogString = ev.SaveDialogToString();
             }
             if (tempYesDialog != null)
             {
                 ev.yesdialog = tempYesDialog;
+                ev.yesdialogString = ev.SaveyesDialogToString();
             }
             if (tempNoDialog != null)
             {
                 ev.nodialog = tempNoDialog;
+                ev.nodialogString = ev.SavenoDialogToString();
             }
             if (tempBiography != null)
             {
                 ev.scenBiography = tempBiography;
+                ev.scenBiographyString = ev.SaveScenBiographyToString();
             }
             ev.person = tempPerson;
+            ev.personString = ev.SavePersonIdToString();
             ev.personCond = tempPersonCond;
+            ev.PersonCondString = ev.SavePersonCondToString();
             ev.effect = tempEffect;
+            ev.effectString = ev.SaveEventEffectToString();
             ev.yesEffect = tempYesEffect;
+            ev.yesEffectString = ev.SaveYesEffectToString();
             ev.noEffect = tempNoEffect;
+            ev.noEffectString = ev.SaveNoEffectToString();
 
             ev.architecture = tempArchitecture;
+            ev.architectureString = ev.architecture.SaveToString();
             ev.architectureCond = tempArchitectureCond;
+            ev.architectureCondString = ev.SaveArchitecureCondToString();
             ev.architectureEffect = tempArchEffect;
+            ev.architectureEffectString = ev.SaveArchitectureEffectToString();
             ev.yesArchitectureEffect = tempArchYesEffect;
+            ev.yesArchitectureEffectString = ev.SaveYesArchitectureEffectToString();
             ev.noArchitectureEffect = tempArchNoEffect;
+            ev.noArchitectureEffectString = ev.SaveNoArchitectureEffectToString();
 
             ev.faction = tempFactions;
+            ev.factionString = ev.faction.SaveToString();
             ev.factionCond = tempFactionCond;
+            ev.factionCondString = ev.SaveFactionCondToString();
             ev.factionEffect = tempFactionEffect;
+            ev.factionEffectIDString = ev.SaveFactionEffectToString();
 
             if (!edit)
             {

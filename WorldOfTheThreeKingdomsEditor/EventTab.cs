@@ -128,7 +128,7 @@ namespace WorldOfTheThreeKingdomsEditor
             if (!settingUp)
             {
                 initdt();
-                mainWindow.initTables(new string[] { "dgEvent" });
+                mainWindow.initTables(new string[] { });
             }
         }
     }
