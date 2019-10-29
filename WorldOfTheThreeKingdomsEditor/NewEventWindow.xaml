@@ -88,13 +88,13 @@
         <TextBox x:Name="tbSound" Height="23" Margin="909,74,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
         <Button Content="選擇建築" x:Name="btnArchitecture" Click="BtnArchitecture_Click" HorizontalAlignment="Left" Margin="829,113,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="" x:Name="lblArchitcture" Margin="904,110,10,0" VerticalAlignment="Top"/>
-        <Button Content="建築條件" x:Name="btnArchitectureCond" HorizontalAlignment="Left" Margin="829,138,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="建築條件" x:Name="btnArchitectureCond" Click="BtnArchitectureCond_Click" HorizontalAlignment="Left" Margin="829,138,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="" x:Name="lblArchitctureCond" Margin="904,135,10,0" VerticalAlignment="Top"/>
-        <Button Content="建築效果" x:Name="btnArchitectureEffect" HorizontalAlignment="Left" Margin="829,163,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="建築效果" x:Name="btnArchitectureEffect" Click="BtnArchitectureEffect_Click" HorizontalAlignment="Left" Margin="829,163,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="" x:Name="lblArchitctureEffect" Margin="904,160,10,0" VerticalAlignment="Top"/>
-        <Button Content="選「是」效果" x:Name="btnArchitectureYesEffect" HorizontalAlignment="Left" Margin="829,188,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="選「是」效果" x:Name="btnArchitectureYesEffect" Click="BtnArchitectureYesEffect_Click" HorizontalAlignment="Left" Margin="829,188,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="" x:Name="lblArchitctureYesEffect" Margin="904,185,10,0" VerticalAlignment="Top"/>
-        <Button Content="選「否」效果" x:Name="btnArchitectureNoEffect" HorizontalAlignment="Left" Margin="829,213,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="選「否」效果" x:Name="btnArchitectureNoEffect" Click="BtnArchitectureNoEffect_Click" HorizontalAlignment="Left" Margin="829,213,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="" x:Name="lblArchitctureNoEffect" Margin="904,210,10,0" VerticalAlignment="Top"/>
         <Button Content="選擇勢力" x:Name="btnFaction" HorizontalAlignment="Left" Margin="829,255,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="" x:Name="lblFaction" Margin="904,252,10,0" VerticalAlignment="Top"/>

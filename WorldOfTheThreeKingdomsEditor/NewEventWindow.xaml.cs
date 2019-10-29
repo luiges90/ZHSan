@@ -40,6 +40,10 @@ namespace WorldOfTheThreeKingdomsEditor
         private Dictionary<int, List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>> tempNoEffect;
 
         private ArchitectureList tempArchitecture;
+        private List<GameObjects.Conditions.Condition> tempArchitectureCond;
+        private List<GameObjects.ArchitectureDetail.EventEffect.EventEffect> tempArchEffect;
+        private List<GameObjects.ArchitectureDetail.EventEffect.EventEffect> tempArchYesEffect;
+        private List<GameObjects.ArchitectureDetail.EventEffect.EventEffect> tempArchNoEffect;
 
         public NewEventWindow(bool editing, DataGrid dataGrid, GameScenario scen)
         {
@@ -60,7 +64,12 @@ namespace WorldOfTheThreeKingdomsEditor
             tempBiography = ev.scenBiography;
             tempYesEffect = ev.yesEffect;
             tempNoEffect = ev.noEffect;
+
             tempArchitecture = ev.architecture;
+            tempArchitectureCond = ev.architectureCond;
+            tempArchEffect = ev.architectureEffect;
+            tempArchYesEffect = ev.yesArchitectureEffect;
+            tempArchNoEffect = ev.noArchitectureEffect;
 
             txname.Text = ev.Name;
             cbHappened.IsChecked = ev.happened;
@@ -172,6 +181,10 @@ namespace WorldOfTheThreeKingdomsEditor
             ev.noEffect = tempNoEffect;
 
             ev.architecture = tempArchitecture;
+            ev.architectureCond = tempArchitectureCond;
+            ev.architectureEffect = tempArchEffect;
+            ev.yesArchitectureEffect = tempArchYesEffect;
+            ev.noArchitectureEffect = tempArchNoEffect;
 
             if (!edit)
             {
@@ -408,18 +421,10 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
-        private void Btn_PersonCondClick(object sender, RoutedEventArgs e)
+        private Window _CondEdit(List<GameObjects.Conditions.Condition> conds, String title)
         {
-            string indexName = ((Button)sender).Name;
-            int index = int.Parse(indexName.Substring(indexName.Length - 1));
-
-            if (!tempPersonCond.ContainsKey(index))
-            {
-                tempPersonCond.Add(index, new List<GameObjects.Conditions.Condition>());
-            }
-
             Window window = new Window();
-            window.Title = "選擇能觸發的武將需符合的條件。雙按加入/取消";
+            window.Title = title;
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Width = 800;
             window.Height = 600;
@@ -433,7 +438,7 @@ namespace WorldOfTheThreeKingdomsEditor
             dataGrid1.Margin = new Thickness(0, 0, 400, 0);
             dt1.Columns.Add("ID", typeof(int));
             dt1.Columns.Add("名稱");
-            foreach (var cond in tempPersonCond[index])
+            foreach (var cond in conds)
             {
                 DataRow dr = dt1.NewRow();
                 dr["ID"] = cond.ID;
@@ -450,9 +455,9 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 if (dataGrid1.SelectedItem != null)
                 {
-                    int id = (int) ((DataRowView)dataGrid1.SelectedItem)["ID"];
+                    int id = (int)((DataRowView)dataGrid1.SelectedItem)["ID"];
                     var cond = scen.GameCommonData.AllConditions.GetCondition(id);
-                    tempPersonCond[index].Remove(cond);
+                    conds.Remove(cond);
 
                     ((DataRowView)dataGrid1.SelectedItem).Delete();
                 }
@@ -483,8 +488,8 @@ namespace WorldOfTheThreeKingdomsEditor
                 {
                     int id = (int)((DataRowView)dataGrid2.SelectedItem)["ID"];
                     var cond = scen.GameCommonData.AllConditions.GetCondition(id);
-                    tempPersonCond[index].Add(cond);
-                   
+                    conds.Add(cond);
+
                     DataRow dr = dt1.NewRow();
                     dr["ID"] = cond.ID;
                     dr["名稱"] = cond.Name;
@@ -498,6 +503,20 @@ namespace WorldOfTheThreeKingdomsEditor
                 g.Columns[0].Width = 80;
             }
 
+            return window;
+        }
+
+        private void Btn_PersonCondClick(object sender, RoutedEventArgs e)
+        {
+            string indexName = ((Button)sender).Name;
+            int index = int.Parse(indexName.Substring(indexName.Length - 1));
+
+            if (!tempPersonCond.ContainsKey(index))
+            {
+                tempPersonCond.Add(index, new List<GameObjects.Conditions.Condition>());
+            }
+
+            Window window = _CondEdit(tempPersonCond[index], "選擇能觸發的武將需符合的條件。雙按加入/取消");
             window.Closed += Closed;
             window.ShowDialog();
 
@@ -507,37 +526,9 @@ namespace WorldOfTheThreeKingdomsEditor
             }
         }
 
-        private void _Btn_EffectClick(object sender, string type)
+        private Window _Btn_EffectClick(List<GameObjects.ArchitectureDetail.EventEffect.EventEffect> effects, string title)
         {
-            string indexName = ((Button)sender).Name;
-            int index = int.Parse(indexName.Substring(indexName.Length - 1));
-
-            if (!tempEffect.ContainsKey(index))
-            {
-                tempEffect.Add(index, new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>());
-            }
-            if (!tempYesEffect.ContainsKey(index))
-            {
-                tempYesEffect.Add(index, new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>());
-            }
-            if (!tempNoEffect.ContainsKey(index))
-            {
-                tempNoEffect.Add(index, new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>());
-            }
-
             Window window = new Window();
-            if (type == "effect")
-            {
-                window.Title = "選擇對武將的事件效果。雙按加入/取消";
-            }
-            else if (type == "yes")
-            {
-                window.Title = "選擇答「是」時對武將的事件效果。雙按加入/取消";
-            }
-            else if (type == "no")
-            {
-                window.Title = "選擇答「否」時對武將的事件效果。雙按加入/取消";
-            }
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Width = 800;
             window.Height = 600;
@@ -551,20 +542,7 @@ namespace WorldOfTheThreeKingdomsEditor
             dataGrid1.Margin = new Thickness(0, 0, 400, 0);
             dt1.Columns.Add("ID", typeof(int));
             dt1.Columns.Add("名稱");
-
-            List<GameObjects.ArchitectureDetail.EventEffect.EventEffect> effects;
-            if (type == "effect")
-            {
-                effects = tempEffect[index];
-            }
-            else if (type == "yes")
-            {
-                effects = tempYesEffect[index];
-            }
-            else 
-            {
-                effects = tempNoEffect[index];
-            }
+            
             foreach (var cond in effects)
             {
                 DataRow dr = dt1.NewRow();
@@ -630,6 +608,21 @@ namespace WorldOfTheThreeKingdomsEditor
                 g.Columns[0].Width = 80;
             }
 
+            return window;
+        }
+
+        private void Btn_EffectClick(object sender, RoutedEventArgs e)
+        {
+            string indexName = ((Button)sender).Name;
+            int index = int.Parse(indexName.Substring(indexName.Length - 1));
+
+            if (!tempEffect.ContainsKey(index))
+            {
+                tempEffect.Add(index, new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>());
+            }
+
+            Window window = _Btn_EffectClick(tempEffect[index], "選擇對武將的事件效果。雙按加入/取消");
+
             window.Closed += Closed;
             window.ShowDialog();
 
@@ -637,11 +630,6 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 PopulateAllPersonData();
             }
-        }
-
-        private void Btn_EffectClick(object sender, RoutedEventArgs e)
-        {
-            _Btn_EffectClick(sender, "effect");
         }
 
         private void Btn_BiographyClick(object sender, RoutedEventArgs e)
@@ -652,12 +640,44 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void Btn_YesEffectClick(object sender, RoutedEventArgs e)
         {
-            _Btn_EffectClick(sender, "yes");
+            string indexName = ((Button)sender).Name;
+            int index = int.Parse(indexName.Substring(indexName.Length - 1));
+
+            if (!tempYesEffect.ContainsKey(index))
+            {
+                tempYesEffect.Add(index, new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>());
+            }
+
+            Window window = _Btn_EffectClick(tempYesEffect[index], "選擇答「是」時對武將的事件效果。雙按加入/取消");
+
+            window.Closed += Closed;
+            window.ShowDialog();
+
+            void Closed(object source, EventArgs e2)
+            {
+                PopulateAllPersonData();
+            }
         }
 
         private void Btn_NoEffectClick(object sender, RoutedEventArgs e)
         {
-            _Btn_EffectClick(sender, "no");
+            string indexName = ((Button)sender).Name;
+            int index = int.Parse(indexName.Substring(indexName.Length - 1));
+
+            if (!tempNoEffect.ContainsKey(index))
+            {
+                tempNoEffect.Add(index, new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>());
+            }
+
+            Window window = _Btn_EffectClick(tempNoEffect[index], "選擇答「否」時對武將的事件效果。雙按加入/取消");
+
+            window.Closed += Closed;
+            window.ShowDialog();
+
+            void Closed(object source, EventArgs e2)
+            {
+                PopulateAllPersonData();
+            }
         }
 
         private void BtnImage_Click(object sender, RoutedEventArgs e)
@@ -752,6 +772,57 @@ namespace WorldOfTheThreeKingdomsEditor
                 }
 
                 lblArchitcture.Content = String.Join(" ", tempArchitecture.GameObjects.Select(p => p.Name));
+            }
+        }
+
+        private void BtnArchitectureCond_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = _CondEdit(tempArchitectureCond, "選擇能觸發的建築需符合的條件。雙按加入/取消");
+            window.Closed += Closed;
+            window.ShowDialog();
+
+            void Closed(object source, EventArgs e2)
+            {
+                lblArchitctureCond.Content = String.Join(" ", ev.architectureCond.Select(p => p.Name));
+            }
+        }
+
+        private void BtnArchitectureEffect_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = _Btn_EffectClick(tempArchEffect, "選擇對武將建築的事件效果。雙按加入/取消");
+
+            window.Closed += Closed;
+            window.ShowDialog();
+
+            void Closed(object source, EventArgs e2)
+            {
+                lblArchitctureEffect.Content = String.Join(" ", tempArchEffect.Select(p => p.Name));
+            }
+        }
+
+        private void BtnArchitectureYesEffect_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = _Btn_EffectClick(tempArchYesEffect, "選擇答「是」時對武將建築的事件效果。雙按加入/取消");
+
+            window.Closed += Closed;
+            window.ShowDialog();
+
+            void Closed(object source, EventArgs e2)
+            {
+                lblArchitctureYesEffect.Content = String.Join(" ", tempArchYesEffect.Select(p => p.Name));
+            }
+        }
+
+        private void BtnArchitectureNoEffect_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = _Btn_EffectClick(tempArchNoEffect, "選擇答「否」時對武將建築的事件效果。雙按加入/取消");
+
+            window.Closed += Closed;
+            window.ShowDialog();
+
+            void Closed(object source, EventArgs e2)
+            {
+                lblArchitctureNoEffect.Content = String.Join(" ", tempArchNoEffect.Select(p => p.Name));
             }
         }
     }
