@@ -39,6 +39,8 @@ namespace WorldOfTheThreeKingdomsEditor
         private Dictionary<int, List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>> tempYesEffect;
         private Dictionary<int, List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>> tempNoEffect;
 
+        private ArchitectureList tempArchitecture;
+
         public NewEventWindow(bool editing, DataGrid dataGrid, GameScenario scen)
         {
             this.scen = scen;
@@ -58,6 +60,7 @@ namespace WorldOfTheThreeKingdomsEditor
             tempBiography = ev.scenBiography;
             tempYesEffect = ev.yesEffect;
             tempNoEffect = ev.noEffect;
+            tempArchitecture = ev.architecture;
 
             txname.Text = ev.Name;
             cbHappened.IsChecked = ev.happened;
@@ -165,6 +168,10 @@ namespace WorldOfTheThreeKingdomsEditor
             ev.person = tempPerson;
             ev.personCond = tempPersonCond;
             ev.effect = tempEffect;
+            ev.yesEffect = tempYesEffect;
+            ev.noEffect = tempNoEffect;
+
+            ev.architecture = tempArchitecture;
 
             if (!edit)
             {
@@ -680,6 +687,71 @@ namespace WorldOfTheThreeKingdomsEditor
             if (result == true)
             {
                 tbSound.Text = dialog.SafeFileName;
+            }
+        }
+
+        private void BtnArchitecture_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new Window();
+            window.Title = "選擇事件能觸發的建築";
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Width = 800;
+            window.Height = 600;
+
+            Grid grid = new Grid();
+            window.Content = grid;
+
+            DataGrid dataGrid1 = new DataGrid();
+            DataTable dt2 = new DataTable();
+            dt2.Columns.Add("點選", typeof(Boolean));
+            dt2.Columns.Add("ID", typeof(int));
+            dt2.Columns["ID"].ReadOnly = true;
+            dt2.Columns.Add("名稱");
+            dt2.Columns["名稱"].ReadOnly = true;
+            dt2.Columns.Add("種類");
+            dt2.Columns["種類"].ReadOnly = true;
+            dt2.Columns.Add("州");
+            dt2.Columns["州"].ReadOnly = true;
+            dt2.Columns.Add("地域");
+            dt2.Columns["地域"].ReadOnly = true;
+
+            foreach (Architecture arch in scen.Architectures)
+            {
+                DataRow dr = dt2.NewRow();
+                dr["點選"] = tempArchitecture.GameObjects.Contains(arch);
+                dr["ID"] = arch.ID;
+                dr["名稱"] = arch.Name;
+                dr["種類"] = arch.KindString;
+                dr["州"] = arch.StateString;
+                dr["地域"] = arch.RegionString;
+                dt2.Rows.Add(dr);
+            }
+            dataGrid1.ItemsSource = dt2.DefaultView;
+
+            grid.Children.Add(dataGrid1);
+            dataGrid1.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+
+            window.Closed += Closed;
+            window.ShowDialog();
+
+            void Closed(object source, EventArgs e2)
+            {
+                tempArchitecture.Clear();
+                for (int r = 0; r < dataGrid1.Items.Count; r++)
+                {
+                    DataRowView item = dataGrid1.Items[r] as DataRowView;
+                    if (item == null)
+                    {
+                        continue;
+                    }
+
+                    if ((bool)item["點選"])
+                    {
+                        tempArchitecture.Add((Architecture)scen.Architectures.GetGameObject((int)item["ID"]));
+                    }
+                }
+
+                lblArchitcture.Content = String.Join(" ", tempArchitecture.GameObjects.Select(p => p.Name));
             }
         }
     }
