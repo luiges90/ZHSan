@@ -79,7 +79,7 @@
                 <Label Content="" x:Name="lblYesEffect0" Margin="66,97,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="選「否」效果" x:Name="btnNoEffect0" Click="Btn_NoEffectClick" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblNoEffect0" Margin="66,121,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="X" x:Name="btnDelete0" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
+                <Button Content="X" x:Name="btnDelete0" Click="BtnDelete_Click" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
             </Grid>
         </GroupBox>
         <Button Content="選擇圖片" x:Name="btnImage" Click="BtnImage_Click" HorizontalAlignment="Left" Margin="829,45,0,0" VerticalAlignment="Top" Width="75"/>
@@ -120,7 +120,7 @@
                 <Label Content="" x:Name="lblYesEffect1" Margin="66,97,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="選「否」效果" x:Name="btnNoEffect1" Click="Btn_NoEffectClick" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblNoEffect1" Margin="66,121,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="X" x:Name="btnDelete1" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
+                <Button Content="X" x:Name="btnDelete1" Click="BtnDelete_Click" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="2" HorizontalAlignment="Left" x:Name="gbPerson2" Height="169" Margin="10,274,0,0" VerticalAlignment="Top" Width="399">
@@ -141,7 +141,7 @@
                 <Label Content="" x:Name="lblYesEffect2" Margin="66,97,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="選「否」效果" x:Name="btnNoEffect2" Click="Btn_NoEffectClick" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblNoEffect2" Margin="66,121,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="X" x:Name="btnDelete2" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
+                <Button Content="X" x:Name="btnDelete2" Click="BtnDelete_Click" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="3" HorizontalAlignment="Left" x:Name="gbPerson3" Height="169" Margin="409,274,0,0" VerticalAlignment="Top" Width="399">
@@ -162,7 +162,7 @@
                 <Label Content="" x:Name="lblYesEffect3" Margin="66,97,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="選「否」效果" x:Name="btnNoEffect3" Click="Btn_NoEffectClick" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblNoEffect3" Margin="66,121,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="X" x:Name="btnDelete3" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
+                <Button Content="X" x:Name="btnDelete3" Click="BtnDelete_Click" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="4" HorizontalAlignment="Left" x:Name="gbPerson4" Height="169" Margin="10,448,0,0" VerticalAlignment="Top" Width="399">
@@ -183,7 +183,7 @@
                 <Label Content="" x:Name="lblYesEffect4" Margin="66,97,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="選「否」效果" x:Name="btnNoEffect4" Click="Btn_NoEffectClick" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblNoEffect4" Margin="66,121,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="X" x:Name="btnDelete4" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
+                <Button Content="X" x:Name="btnDelete4" Click="BtnDelete_Click" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="5" HorizontalAlignment="Left" x:Name="gbPerson5" Height="169" Margin="409,448,0,0" VerticalAlignment="Top" Width="399">
@@ -204,7 +204,7 @@
                 <Label Content="" x:Name="lblYesEffect5" Margin="66,97,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
                 <Button Content="選「否」效果" x:Name="btnNoEffect5" Click="Btn_NoEffectClick" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
                 <Label Content="" x:Name="lblNoEffect5" Margin="66,121,15,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,0.32" Grid.Column="1"/>
-                <Button Content="X" x:Name="btnDelete5" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
+                <Button Content="X" x:Name="btnDelete5" Click="BtnDelete_Click" HorizontalAlignment="Left" Height="19" Margin="344,5,0,0" VerticalAlignment="Top" Width="25" Grid.Column="1" RenderTransformOrigin="-6.96,0.526"/>
             </Grid>
         </GroupBox>
 

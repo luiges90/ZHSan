@@ -127,25 +127,49 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 person.Content = String.Join(" ", tempPerson[index].Select(p => p == null ? "任何" : p.Name));
             }
+            else
+            {
+                person.Content = "";
+            }
             if (ev.personCond.ContainsKey(index))
             {
                 personCond.Content = String.Join(" ", ev.personCond[index].Select(c => c.Name));
+            }
+            else
+            {
+                personCond.Content = "";
             }
             if (ev.effect.ContainsKey(index))
             {
                 effect.Content = String.Join(" ", ev.effect[index].Select(e => e.Name));
             }
+            else
+            {
+                effect.Content = "";
+            }
             if (ev.scenBiography.Count > index)
             {
                 biography.Content = ev.scenBiography[index].dialog;
+            }
+            else
+            {
+                biography.Content = "";
             }
             if (ev.yesEffect.ContainsKey(index))
             {
                 yesEffect.Content = String.Join(" ", ev.yesEffect[index].Select(e => e.Name));
             }
+            else
+            {
+                yesEffect.Content = "";
+            }
             if (ev.noEffect.ContainsKey(index))
             {
                 noEffect.Content = String.Join(" ", ev.noEffect[index].Select(e => e.Name));
+            }
+            else
+            {
+                noEffect.Content = "";
             }
         }
 
@@ -690,6 +714,20 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 PopulateAllPersonData();
             }
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            string indexName = ((Button)sender).Name;
+            int index = int.Parse(indexName.Substring(indexName.Length - 1));
+
+            tempPerson.Remove(index);
+            tempPersonCond.Remove(index);
+            tempEffect.Remove(index);
+            tempYesEffect.Remove(index);
+            tempNoEffect.Remove(index);
+
+            PopulateAllPersonData();
         }
 
         private void BtnImage_Click(object sender, RoutedEventArgs e)
