@@ -45,6 +45,10 @@ namespace WorldOfTheThreeKingdomsEditor
         private List<GameObjects.ArchitectureDetail.EventEffect.EventEffect> tempArchYesEffect;
         private List<GameObjects.ArchitectureDetail.EventEffect.EventEffect> tempArchNoEffect;
 
+        private FactionList tempFactions;
+        private List<GameObjects.Conditions.Condition> tempFactionCond;
+        private List<GameObjects.ArchitectureDetail.EventEffect.EventEffect> tempFactionEffect;
+
         public NewEventWindow(bool editing, DataGrid dataGrid, GameScenario scen)
         {
             this.scen = scen;
@@ -70,6 +74,10 @@ namespace WorldOfTheThreeKingdomsEditor
             tempArchEffect = ev.architectureEffect;
             tempArchYesEffect = ev.yesArchitectureEffect;
             tempArchNoEffect = ev.noArchitectureEffect;
+
+            tempFactions = ev.faction;
+            tempFactionCond = ev.factionCond;
+            tempFactionEffect = ev.factionEffect;
 
             txname.Text = ev.Name;
             cbHappened.IsChecked = ev.happened;
@@ -185,6 +193,10 @@ namespace WorldOfTheThreeKingdomsEditor
             ev.architectureEffect = tempArchEffect;
             ev.yesArchitectureEffect = tempArchYesEffect;
             ev.noArchitectureEffect = tempArchNoEffect;
+
+            ev.faction = tempFactions;
+            ev.factionCond = tempFactionCond;
+            ev.factionEffect = tempFactionEffect;
 
             if (!edit)
             {
@@ -783,7 +795,7 @@ namespace WorldOfTheThreeKingdomsEditor
 
             void Closed(object source, EventArgs e2)
             {
-                lblArchitctureCond.Content = String.Join(" ", ev.architectureCond.Select(p => p.Name));
+                lblArchitctureCond.Content = String.Join(" ", tempArchitectureCond.Select(p => p.Name));
             }
         }
 
@@ -823,6 +835,96 @@ namespace WorldOfTheThreeKingdomsEditor
             void Closed(object source, EventArgs e2)
             {
                 lblArchitctureNoEffect.Content = String.Join(" ", tempArchNoEffect.Select(p => p.Name));
+            }
+        }
+
+        private void BtnFaction_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new Window();
+            window.Title = "選擇事件能觸發的勢力";
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Width = 800;
+            window.Height = 600;
+
+            Grid grid = new Grid();
+            window.Content = grid;
+
+            DataGrid dataGrid1 = new DataGrid();
+            DataTable dt2 = new DataTable();
+            dt2.Columns.Add("點選", typeof(Boolean));
+            dt2.Columns.Add("ID", typeof(int));
+            dt2.Columns["ID"].ReadOnly = true;
+            dt2.Columns.Add("名稱");
+            dt2.Columns["名稱"].ReadOnly = true;
+            dt2.Columns.Add("君主");
+            dt2.Columns["君主"].ReadOnly = true;
+            dt2.Columns.Add("建築數");
+            dt2.Columns["建築數"].ReadOnly = true;
+            dt2.Columns.Add("武將數");
+            dt2.Columns["武將數"].ReadOnly = true;
+
+            foreach (Faction f in scen.Factions)
+            {
+                DataRow dr = dt2.NewRow();
+                dr["點選"] = tempFactions.GameObjects.Contains(f);
+                dr["ID"] = f.ID;
+                dr["名稱"] = f.Name;
+                dr["君主"] = f.Leader.Name;
+                dr["建築數"] = f.ArchitectureCount;
+                dr["武將數"] = f.PersonCount;
+                dt2.Rows.Add(dr);
+            }
+            dataGrid1.ItemsSource = dt2.DefaultView;
+
+            grid.Children.Add(dataGrid1);
+            dataGrid1.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+
+            window.Closed += Closed;
+            window.ShowDialog();
+
+            void Closed(object source, EventArgs e2)
+            {
+                tempFactions.Clear();
+                for (int r = 0; r < dataGrid1.Items.Count; r++)
+                {
+                    DataRowView item = dataGrid1.Items[r] as DataRowView;
+                    if (item == null)
+                    {
+                        continue;
+                    }
+
+                    if ((bool)item["點選"])
+                    {
+                        tempFactions.Add((Faction)scen.Factions.GetGameObject((int)item["ID"]));
+                    }
+                }
+
+                lblFaction.Content = String.Join(" ", tempFactions.GameObjects.Select(p => p.Name));
+            }
+        }
+
+        private void BtnFactionCond_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = _CondEdit(tempFactionCond, "選擇能觸發的勢力需符合的條件。雙按加入/取消");
+            window.Closed += Closed;
+            window.ShowDialog();
+
+            void Closed(object source, EventArgs e2)
+            {
+                lblFactionCond.Content = String.Join(" ", tempFactionCond.Select(p => p.Name));
+            }
+        }
+
+        private void BtnFactionEffect_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = _Btn_EffectClick(tempFactionEffect, "選擇對武將勢力的事件效果。雙按加入/取消");
+
+            window.Closed += Closed;
+            window.ShowDialog();
+
+            void Closed(object source, EventArgs e2)
+            {
+                lblFactionEffect.Content = String.Join(" ", tempFactionEffect.Select(p => p.Name));
             }
         }
     }

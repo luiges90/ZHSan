@@ -96,11 +96,11 @@
         <Label Content="" x:Name="lblArchitctureYesEffect" Margin="904,185,10,0" VerticalAlignment="Top"/>
         <Button Content="選「否」效果" x:Name="btnArchitectureNoEffect" Click="BtnArchitectureNoEffect_Click" HorizontalAlignment="Left" Margin="829,213,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="" x:Name="lblArchitctureNoEffect" Margin="904,210,10,0" VerticalAlignment="Top"/>
-        <Button Content="選擇勢力" x:Name="btnFaction" HorizontalAlignment="Left" Margin="829,255,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="選擇勢力" x:Name="btnFaction" Click="BtnFaction_Click" HorizontalAlignment="Left" Margin="829,255,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="" x:Name="lblFaction" Margin="904,252,10,0" VerticalAlignment="Top"/>
-        <Button Content="勢力條件" x:Name="btnFactionCond" HorizontalAlignment="Left" Margin="829,280,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="勢力條件" x:Name="btnFactionCond" Click="BtnFactionCond_Click" HorizontalAlignment="Left" Margin="829,280,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="" x:Name="lblFactionCond" Margin="904,277,10,0" VerticalAlignment="Top"/>
-        <Button Content="勢力效果" x:Name="btnFactionEffect" HorizontalAlignment="Left" Margin="829,305,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="勢力效果" x:Name="btnFactionEffect" Click="BtnFactionEffect_Click" HorizontalAlignment="Left" Margin="829,305,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="" x:Name="lblFactionEffect" Margin="904,302,10,0" VerticalAlignment="Top"/>
         <GroupBox Header="1" HorizontalAlignment="Left" x:Name="gbPerson1" Height="169" Margin="409,105,0,0" VerticalAlignment="Top" Width="399">
             <Grid Margin="0,0,-2,-2">
