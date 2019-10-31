@@ -62,22 +62,94 @@ namespace WorldOfTheThreeKingdomsEditor
                 ev = scen.AllEvents.GetGameObject(int.Parse(((DataRowView)dataGrid.SelectedItem).Row["ID"].ToString())) as Event;
             }
 
+            tempDialog = ev.dialog;
+            if (tempDialog == null)
+            {
+                tempDialog = new List<PersonIdDialog>();
+            }
+            tempYesDialog = ev.yesdialog;
+            if (tempYesDialog == null)
+            {
+                tempYesDialog = new List<PersonIdDialog>();
+            }
+            tempNoDialog = ev.nodialog;
+            if (tempNoDialog == null)
+            {
+                tempNoDialog = new List<PersonIdDialog>();
+            }
+
             tempPerson = ev.person;
+            if (tempPerson == null)
+            {
+                tempPerson = new Dictionary<int, List<Person>>();
+            }
             tempPersonCond = ev.personCond;
+            if (tempPersonCond == null)
+            {
+                tempPersonCond = new Dictionary<int, List<GameObjects.Conditions.Condition>>();
+            }
             tempEffect = ev.effect;
+            if (tempEffect == null)
+            {
+                tempEffect = new Dictionary<int, List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>>();
+            }
             tempBiography = ev.scenBiography;
+            if (tempBiography == null)
+            {
+                tempBiography = new List<PersonIdDialog>();
+            }
             tempYesEffect = ev.yesEffect;
+            if (tempYesEffect == null)
+            {
+                tempYesEffect = new Dictionary<int, List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>>();
+            }
             tempNoEffect = ev.noEffect;
+            if (tempNoEffect == null)
+            {
+                tempNoEffect = new Dictionary<int, List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>>();
+            }
 
             tempArchitecture = ev.architecture;
+            if (tempArchitecture == null)
+            {
+                tempArchitecture = new ArchitectureList();
+            }
             tempArchitectureCond = ev.architectureCond;
+            if (tempArchitectureCond == null)
+            {
+                tempArchitectureCond = new List<GameObjects.Conditions.Condition>();
+            }
             tempArchEffect = ev.architectureEffect;
+            if (tempArchEffect == null)
+            {
+                tempArchEffect = new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>();
+            }
             tempArchYesEffect = ev.yesArchitectureEffect;
+            if (tempArchYesEffect == null)
+            {
+                tempArchYesEffect = new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>();
+            }
             tempArchNoEffect = ev.noArchitectureEffect;
+            if (tempArchNoEffect == null)
+            {
+                tempArchNoEffect = new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>();
+            }
 
             tempFactions = ev.faction;
+            if (tempFactions == null)
+            {
+                tempFactions = new FactionList();
+            }
             tempFactionCond = ev.factionCond;
+            if (tempFactionCond == null)
+            {
+                tempFactionCond = new List<GameObjects.Conditions.Condition>();
+            }
             tempFactionEffect = ev.factionEffect;
+            if (tempFactionEffect == null)
+            {
+                tempFactionEffect = new List<GameObjects.ArchitectureDetail.EventEffect.EventEffect>();
+            }
 
             txname.Text = ev.Name;
             cbHappened.IsChecked = ev.happened;
@@ -94,14 +166,14 @@ namespace WorldOfTheThreeKingdomsEditor
 
             PopulateAllPersonData();
 
-            lblArchitcture.Content = String.Join(" ", ev.architecture.GameObjects.Select(p => p.Name));
-            lblArchitctureCond.Content = String.Join(" ", ev.architectureCond.Select(p => p.Name));
-            lblArchitctureEffect.Content = String.Join(" ", ev.architectureEffect.Select(p => p.Name));
-            lblArchitctureYesEffect.Content = String.Join(" ", ev.yesArchitectureEffect.Select(p => p.Name));
-            lblArchitctureNoEffect.Content = String.Join(" ", ev.noArchitectureEffect.Select(p => p.Name));
-            lblFaction.Content = String.Join(" ", ev.faction.GameObjects.Select(p => p.Name));
-            lblFactionCond.Content = String.Join(" ", ev.factionCond.Select(p => p.Name));
-            lblFactionEffect.Content = String.Join(" ", ev.factionEffect.Select(p => p.Name));
+            lblArchitcture.Content = String.Join(" ", tempArchitecture.GameObjects.Select(p => p.Name));
+            lblArchitctureCond.Content = String.Join(" ", tempArchitectureCond.Select(p => p.Name));
+            lblArchitctureEffect.Content = String.Join(" ", tempArchEffect.Select(p => p.Name));
+            lblArchitctureYesEffect.Content = String.Join(" ", tempArchYesEffect.Select(p => p.Name));
+            lblArchitctureNoEffect.Content = String.Join(" ", tempArchNoEffect.Select(p => p.Name));
+            lblFaction.Content = String.Join(" ", tempFactions.GameObjects.Select(p => p.Name));
+            lblFactionCond.Content = String.Join(" ", tempFactionCond.Select(p => p.Name));
+            lblFactionEffect.Content = String.Join(" ", tempFactionEffect.Select(p => p.Name));
 
             List<string> events = new List<string>();
             events.Add("-1 无");
@@ -131,41 +203,41 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 person.Content = "";
             }
-            if (ev.personCond.ContainsKey(index))
+            if (tempPersonCond.ContainsKey(index))
             {
-                personCond.Content = String.Join(" ", ev.personCond[index].Select(c => c.Name));
+                personCond.Content = String.Join(" ", tempPersonCond[index].Select(c => c.Name));
             }
             else
             {
                 personCond.Content = "";
             }
-            if (ev.effect.ContainsKey(index))
+            if (tempEffect.ContainsKey(index))
             {
-                effect.Content = String.Join(" ", ev.effect[index].Select(e => e.Name));
+                effect.Content = String.Join(" ", tempEffect[index].Select(e => e.Name));
             }
             else
             {
                 effect.Content = "";
             }
-            if (ev.scenBiography.Count > index)
+            if (tempBiography.Count > index)
             {
-                biography.Content = ev.scenBiography[index].dialog;
+                biography.Content = tempBiography[index].dialog;
             }
             else
             {
                 biography.Content = "";
             }
-            if (ev.yesEffect.ContainsKey(index))
+            if (tempYesEffect.ContainsKey(index))
             {
-                yesEffect.Content = String.Join(" ", ev.yesEffect[index].Select(e => e.Name));
+                yesEffect.Content = String.Join(" ", tempYesEffect[index].Select(e => e.Name));
             }
             else
             {
                 yesEffect.Content = "";
             }
-            if (ev.noEffect.ContainsKey(index))
+            if (tempNoEffect.ContainsKey(index))
             {
-                noEffect.Content = String.Join(" ", ev.noEffect[index].Select(e => e.Name));
+                noEffect.Content = String.Join(" ", tempNoEffect[index].Select(e => e.Name));
             }
             else
             {
@@ -354,28 +426,16 @@ namespace WorldOfTheThreeKingdomsEditor
 
         private void BtnDialog_Click(object sender, RoutedEventArgs e)
         {
-            if (tempDialog == null)
-            {
-                tempDialog = this.ev.dialog;
-            }
             _BtnDialog_Click(tempDialog, "dialog");
         }
 
         private void BtnYesDialog_Click(object sender, RoutedEventArgs e)
         {
-            if (tempYesDialog == null)
-            {
-                tempYesDialog = this.ev.yesdialog;
-            }
             _BtnDialog_Click(tempYesDialog, "yes");
         }
 
         private void BtnNoDialog_Click(object sender, RoutedEventArgs e)
         {
-            if (tempNoDialog == null)
-            {
-                tempNoDialog = this.ev.nodialog;
-            }
             _BtnDialog_Click(tempNoDialog, "no");
         }
 
@@ -390,7 +450,7 @@ namespace WorldOfTheThreeKingdomsEditor
             }
 
             Window window = new Window();
-            window.Title = "選擇事件能觸發的武將";
+            window.Title = "選擇事件能觸發的武將，留空代表所有武將";
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Width = 800;
             window.Height = 600;
@@ -417,7 +477,7 @@ namespace WorldOfTheThreeKingdomsEditor
             foreach (Person person in scen.Persons)
             {
                 DataRow dr = dt2.NewRow();
-                if (ev.person.Count > index)
+                if (tempPerson.Count > index)
                 {
                     dr["點選"] = tempPerson[index].Contains(person);
                 }
