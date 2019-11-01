@@ -61,6 +61,10 @@ namespace WorldOfTheThreeKingdomsEditor
             {
                 ev = scen.AllEvents.GetGameObject(int.Parse(((DataRowView)dataGrid.SelectedItem).Row["ID"].ToString())) as Event;
             }
+            else
+            {
+                ev.ID = scen.AllEvents.GetFreeGameObjectID();
+            }
 
             tempDialog = ev.dialog;
             if (tempDialog == null)
