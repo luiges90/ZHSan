@@ -2359,7 +2359,7 @@ namespace GameObjects
             if (this.HasPerson() && this.IsFundEnough && this.HasNoFactionPerson() && !this.HasHostileTroopsInView())
             {
                 GameObjectList convincer = this.Persons.GetList();
-                convincer.SmallToBig = true;
+                convincer.SmallToBig = false;
                 convincer.PropertyName = "ConvinceAbility";
                 convincer.IsNumber = true;
                 convincer.ReSort();
@@ -2391,7 +2391,7 @@ namespace GameObjects
             if (this.HasHostileTroopsInView()) return;
 
             GameObjectList convincer = this.Persons.GetList();
-            convincer.SmallToBig = true;
+            convincer.SmallToBig = false;
             convincer.PropertyName = "ConvinceAbility";
             convincer.IsNumber = true;
             convincer.ReSort();
