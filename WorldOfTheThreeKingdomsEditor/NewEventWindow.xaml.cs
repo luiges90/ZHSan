@@ -406,24 +406,28 @@ namespace WorldOfTheThreeKingdomsEditor
                     }
 
                     var dialog = new PersonIdDialog();
-                    dialog.id = (int)item[0];
-                    if (type == "dialog")
-                    {
-                        dialog.dialog = (string)item[1];
+                    if (int.TryParse(item[0].ToString(), out dialog.id)) {
+                        if (item[1] is string)
+                        {
+                            if (type == "dialog")
+                            {
+                                dialog.dialog = (string)item[1];
+                            }
+                            else if (type == "yes")
+                            {
+                                dialog.yesdialog = (string)item[1];
+                            }
+                            else if (type == "no")
+                            {
+                                dialog.nodialog = (string)item[1];
+                            }
+                            else if (type == "biography")
+                            {
+                                dialog.dialog = (string)item[1];
+                            }
+                            tempDialog.Add(dialog);
+                        }
                     }
-                    else if (type == "yes")
-                    {
-                        dialog.yesdialog = (string)item[1];
-                    }
-                    else if (type == "no")
-                    {
-                        dialog.nodialog = (string)item[1];
-                    }
-                    else if (type == "biography")
-                    {
-                        dialog.dialog = (string)item[1];
-                    }
-                    tempDialog.Add(dialog);
                 }
             }
         }
