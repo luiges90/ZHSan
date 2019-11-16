@@ -13837,7 +13837,7 @@ namespace GameObjects
                 String s = "";
                 foreach (FundPack p in this.FundPacks)
                 {
-                    s += p.Days + "天" + p.Fund + "。";
+                    s += (p.Days * Session.Current.Scenario.Parameters.DayInTurn) + "天" + p.Fund + "。";
                 }
                 return s;
             }
@@ -13850,7 +13850,7 @@ namespace GameObjects
                 String s = "";
                 foreach (FoodPack p in this.FoodPacks)
                 {
-                    s += p.Days + "天" + p.Food + "。";
+                    s += (p.Days * Session.Current.Scenario.Parameters.DayInTurn) + "天" + p.Food + "。";
                 }
                 return s;
             }
