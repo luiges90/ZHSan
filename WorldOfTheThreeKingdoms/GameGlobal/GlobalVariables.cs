@@ -281,6 +281,8 @@ namespace GameGlobal
         public float ScenarioMapPerTime = 3f;
         [DataMember]
         public int KeepSpousePersonalLoyalty = 4;
+        [DataMember]
+        public bool TroopVoice = true;
 
         public const string cryptKey = "A3g0c3%2";
         [DataMember]
@@ -1136,6 +1138,14 @@ namespace GameGlobal
                 {
 
                 }
+                try
+                {
+                    TroopVoice = bool.Parse(nextSibling.Attributes.GetNamedItem("TroopVoice").Value);
+                }
+                catch (Exception exception24)
+                {
+
+                }
             }
             else
             {
@@ -1297,6 +1307,7 @@ namespace GameGlobal
             element.SetAttribute("ScenarioMapPerTime", ScenarioMapPerTime.ToString());
             element.SetAttribute("KeepSpousePersonalLoyalty", KeepSpousePersonalLoyalty.ToString());
             element.SetAttribute("ShowNumberAddTime", ShowNumberAddTime.ToString());
+            element.SetAttribute("TroopVoice", TroopVoice.ToString());
 
             document.AppendChild(element);
         

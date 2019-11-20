@@ -1892,7 +1892,27 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btSettingList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 1f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 1.0f))
+            {
+                ID = "TroopVoice"
+            };
+            btOne.OnButtonPress += (sender, e) =>
+            {
+                var bt = (ButtonTexture)sender;
+                if (bt.Selected)
+                {
+                    bt.Selected = false;
+                    Setting.Current.GlobalVariables.TroopVoice = false;
+                }
+                else
+                {
+                    bt.Selected = true;
+                    Setting.Current.GlobalVariables.TroopVoice = true;
+                }
+            };
+            btSettingList.Add(btOne);
+
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 1.5f))
             {
                 ID = "MapSmoke"
             };
@@ -1912,7 +1932,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btSettingList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 1.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 2f))
             {
                 ID = "ArmyAnimation"
             };
@@ -1932,7 +1952,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btSettingList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 2f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 2.5f))
             {
                 ID = "AttackStop"
             };
@@ -1952,7 +1972,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btSettingList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 2.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 3f))
             {
                 ID = "ClickConfirm"
             };
@@ -1972,7 +1992,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btSettingList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 3f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 3.5f))
             {
                 ID = "NoneNoticeSmall"
             };
@@ -1992,7 +2012,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btSettingList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 3.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 4f))
             {
                 ID = "NoticePopulationMove"
             };
@@ -2012,7 +2032,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btSettingList.Add(btOne);
 
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 4f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 4.5f))
             {
                 ID = "NoticePopulationMove1000"
             };
@@ -2032,8 +2052,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             };
             btSettingList.Add(btOne);
 
-
-            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 4.5f))
+            btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(left, heightBase + height * 5f))
             {
                 ID = "OutFocus"
             };
@@ -3291,6 +3310,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             btOne = btSettingList.FirstOrDefault(bt => bt.ID == "BattleSound");
             btOne.Selected = Setting.Current.GlobalVariables.PlayBattleSound;
+
+            btOne = btSettingList.FirstOrDefault(bt => bt.ID == "TroopVoice");
+            btOne.Selected = Setting.Current.GlobalVariables.TroopVoice;
 
             btOne = btSettingList.FirstOrDefault(bt => bt.ID == "MapSmoke");
             btOne.Selected = Setting.Current.GlobalVariables.DrawMapVeil;
@@ -4919,21 +4941,23 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 CacheManager.DrawString(Session.Current.Font, "播放战斗音效", new Vector2(left, 190 + height * 0.5f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
 
-                CacheManager.DrawString(Session.Current.Font, "显示地图烟幕", new Vector2(left, 190 + height * 1), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
+                CacheManager.DrawString(Session.Current.Font, "播放战斗語音", new Vector2(left, 190 + height * 1.0f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
 
-                CacheManager.DrawString(Session.Current.Font, "显示部队动画", new Vector2(left, 190 + height * 1.5f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
+                CacheManager.DrawString(Session.Current.Font, "显示地图烟幕", new Vector2(left, 190 + height * 1.5f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
 
-                CacheManager.DrawString(Session.Current.Font, "被攻击时暂停游戏", new Vector2(left, 190 + height * 2), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
+                CacheManager.DrawString(Session.Current.Font, "显示部队动画", new Vector2(left, 190 + height * 2.0f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
 
-                CacheManager.DrawString(Session.Current.Font, "从某列表中选择单一项时单击即确定", new Vector2(left, 190 + height * 2.5f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
+                CacheManager.DrawString(Session.Current.Font, "被攻击时暂停游戏", new Vector2(left, 190 + height * 2.5f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
 
-                CacheManager.DrawString(Session.Current.Font, "不提示小型设施的建设完成", new Vector2(left, 190 + height * 3f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
+                CacheManager.DrawString(Session.Current.Font, "从某列表中选择单一项时单击即确定", new Vector2(left, 190 + height * 3.0f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
 
-                CacheManager.DrawString(Session.Current.Font, "提示人口的迁移", new Vector2(left, 190 + height * 3.5f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
+                CacheManager.DrawString(Session.Current.Font, "不提示小型设施的建设完成", new Vector2(left, 190 + height * 3.5f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
 
-                CacheManager.DrawString(Session.Current.Font, "提示1000人以下的人口迁移", new Vector2(left, 190 + height * 4f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
+                CacheManager.DrawString(Session.Current.Font, "提示人口的迁移", new Vector2(left, 190 + height * 4f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
 
-                CacheManager.DrawString(Session.Current.Font, "游戏窗体失去焦点时继续运行", new Vector2(left, 190 + height * 4.5f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
+                CacheManager.DrawString(Session.Current.Font, "提示1000人以下的人口迁移", new Vector2(left, 190 + height * 4.5f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
+
+                CacheManager.DrawString(Session.Current.Font, "游戏窗体失去焦点时继续运行", new Vector2(left, 190 + height * 5f), Color.White * alpha, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 1f);
 
 
                 //btnTextureAlpha.Alpha = alpha;

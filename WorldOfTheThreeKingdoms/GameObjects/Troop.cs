@@ -966,12 +966,19 @@ namespace GameObjects
 
         private string getSoundPath(Animation a)
         {
-            if (Directory.Exists("Content/Sound/Animation/Person/" + this.Leader.ID))
+            if (Session.Current.Scenario.GlobalVariables.TroopVoice)
             {
-                string[] files = Directory.GetFiles("Content/Sound/Animation/Person/" + this.Leader.ID, a.Name + "*.wav");
-                if (files.Count() > 0)
+                if (Directory.Exists("Content/Sound/Animation/Person/" + this.Leader.ID))
                 {
-                    return "Content/Sound/Animation/Person/" + this.Leader.ID + "/" + a.Name + GameObject.Random(1, files.Count()) + ".wav";
+                    string[] files = Directory.GetFiles("Content/Sound/Animation/Person/" + this.Leader.ID, a.Name + "*.wav");
+                    if (files.Count() > 0)
+                    {
+                        return "Content/Sound/Animation/Person/" + this.Leader.ID + "/" + a.Name + GameObject.Random(1, files.Count()) + ".wav";
+                    }
+                    else
+                    {
+                        return this.Leader.Sex ? "Content/Sound/Animation/Female/" + a.Name : "Content/Sound/Animation/Male/" + a.Name;
+                    }
                 }
                 else
                 {
@@ -980,7 +987,7 @@ namespace GameObjects
             }
             else
             {
-                return this.Leader.Sex ? "Content/Sound/Animation/Female/" + a.Name : "Content/Sound/Animation/Male/" + a.Name;
+                return "";
             }
         }
 
