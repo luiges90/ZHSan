@@ -205,7 +205,7 @@ namespace GameObjects
                     Session.Current.Scenario.YearTable.addPersonInGameBiography(i.SpeakingPerson, Session.Current.Scenario.Date, i.Text);
                 }
             }
-            if (nextScenario.Length > 0)
+            if (nextScenario != null && nextScenario.Length > 0)
             {
                 // Session.Current.Scenario.EnableLoadAndSave = false;
 
