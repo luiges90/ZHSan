@@ -514,6 +514,10 @@ namespace GameManager
             }
 
             string id = String.Format("Content/Textures/GameComponents/PersonPortrait/Images/Player/{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
+            if (!(Setting.Current == null || String.IsNullOrEmpty(Setting.Current.MODRuntime)))
+            {
+                id = id.Replace("Content", "MODs/" + Setting.Current.MODRuntime);
+            }
 
             if (Platform.Current.FileExists(id))
             {
@@ -522,6 +526,10 @@ namespace GameManager
             else
             {
                 id = String.Format(@"Content/Textures/GameComponents/PersonPortrait/Images/Default/{0}{1}.jpg", Convert.ToInt32(pictureIndex), type);
+                if (!(Setting.Current == null || String.IsNullOrEmpty(Setting.Current.MODRuntime)))
+                {
+                    id = id.Replace("Content", "MODs/" + Setting.Current.MODRuntime);
+                }
 
                 if (Platform.Current.FileExists(id))
                 {
@@ -530,6 +538,10 @@ namespace GameManager
                 else
                 {
                     id = String.Format(@"Content/Textures/GameComponents/PersonPortrait/Images/Default/{0}{1}.jpg", fallbackIndex, "");
+                    if (!(Setting.Current == null || String.IsNullOrEmpty(Setting.Current.MODRuntime)))
+                    {
+                        id = id.Replace("Content", "MODs/" + Setting.Current.MODRuntime);
+                    }
                 }
             }
 
