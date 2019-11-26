@@ -2671,7 +2671,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             this.mainMapLayer.StopThreads();
             if (Session.GlobalVariables.HardcoreMode)
             {
-                this.SaveGameQuitPosition();
+                this.SaveGameAutoPosition();
             }
             
             if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop || Platform.PlatFormType == PlatFormType.Android)
