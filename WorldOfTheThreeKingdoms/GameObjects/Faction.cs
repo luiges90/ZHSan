@@ -1677,9 +1677,12 @@ namespace GameObjects
             {
                 if (a.Abandoned)
                 {
-                    a.WithdrawResources();
-                    a.WithdrawMilitaries();
                     a.WithdrawPerson();
+                    a.WithdrawMilitaries();
+                }
+                if (a.HasHostileTroopsInView())
+                {
+                    a.WithdrawResources();
                 }
             }
         }

@@ -1821,6 +1821,8 @@ namespace GameObjects
 
         public void WithdrawResources()
         {
+            if (!this.TransferFoodAvail() || !this.TransferFundAvail()) return;
+
             int transferFood = Math.Max(0, this.Food - this.EnoughFood);
             int transferFund = Math.Max(0, this.Fund - this.EnoughFund);
 
@@ -7253,10 +7255,13 @@ namespace GameObjects
             for (int i = this.FundPacks.Count - 1; i >= 0; i--)
             {
                 FundPack local1 = this.FundPacks[i];
+
+                if (local1.Days <= 1 && this.IsSurrounded()) continue;
+
                 local1.Days--;
-                if (this.FundPacks[i].Days <= 0)
+                if (local1.Days <= 0)
                 {
-                    this.IncreaseFund(this.FundPacks[i].Fund);
+                    this.IncreaseFund(local1.Fund);
                     this.FundPacks.RemoveAt(i);
                 }
             }
@@ -7267,10 +7272,13 @@ namespace GameObjects
             for (int i = this.FoodPacks.Count - 1; i >= 0; i--)
             {
                 FoodPack local1 = this.FoodPacks[i];
+
+                if (local1.Days <= 1 && this.IsSurrounded()) continue;
+
                 local1.Days--;
-                if (this.FoodPacks[i].Days <= 0)
+                if (local1.Days <= 0)
                 {
-                    this.IncreaseFood(this.FoodPacks[i].Food);
+                    this.IncreaseFood(local1.Food);
                     this.FoodPacks.RemoveAt(i);
                 }
             }
@@ -12758,22 +12766,13 @@ namespace GameObjects
 
         public bool TransferFoodAvail()
         {
-            if (this.Food > 0)
-            {
-                foreach (Routeway routeway in this.Routeways)
-                {
-                    float minRate = 1f;
-                    if (((routeway.EndArchitecture != null) && routeway.IsActiveInArea(routeway.EndArchitecture.GetRoutewayStartArea(), out minRate)) && (minRate < 1f))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
+            if (this.IsSurrounded()) return false;
+            return ((this.Fund > 0) && (this.GetOtherArchitectureList().Count > 0));
         }
 
         public bool TransferFundAvail()
         {
+            if (this.IsSurrounded()) return false;
             return ((this.Fund > 0) && (this.GetOtherArchitectureList().Count > 0));
         }
 
