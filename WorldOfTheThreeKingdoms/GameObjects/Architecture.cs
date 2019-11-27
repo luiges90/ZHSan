@@ -11278,7 +11278,9 @@ namespace GameObjects
                 if (num > 0)
                 {
                     int decrement = maxValue * num;
+                    int militaryPopDecrement = (int) (decrement * ((float)MilitaryPopulation / Population));
                     this.DecreasePopulation(decrement);
+                    this.DecreaseMilitaryPopulation(militaryPopDecrement);
                     ExtensionInterface.call("PopulationEscape", new Object[] { Session.Current.Scenario, this, decrement });
                     if (this.OnPopulationEscape != null)
                     {
