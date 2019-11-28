@@ -776,7 +776,8 @@ namespace WorldOfTheThreeKingdomsEditor
                     retry = false;
                     Architecture chosen = scen.Architectures.GetRandomObject() as Architecture;
                     if (chosen.BelongedFaction == null && chosen.Kind.HasAgriculture && chosen.Kind.HasCommerce
-                        && chosen.Kind.HasMorale && chosen.Kind.HasDomination && chosen.Kind.HasPopulation)
+                        && chosen.Kind.HasMorale && chosen.Kind.HasDomination && chosen.Kind.HasPopulation
+                        && chosen.Population >= 50000)
                     {
                         f.RemoveArchitecture(oldArch);
                         f.AddArchitecture(chosen);
