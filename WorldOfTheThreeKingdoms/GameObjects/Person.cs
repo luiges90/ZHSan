@@ -3424,7 +3424,7 @@ namespace GameObjects
             Architecture architectureByPosition = Session.Current.Scenario.GetArchitectureByPosition(this.OutsideDestination.Value);
             if (architectureByPosition != null)
             {
-                if (architectureByPosition.BelongedFaction != this.BelongedFaction)
+                if (architectureByPosition.BelongedFaction != null && architectureByPosition.BelongedFaction != this.BelongedFaction)
                 {
                     architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -3f, -2);
                     architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -1f, -1);
