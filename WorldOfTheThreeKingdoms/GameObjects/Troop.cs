@@ -3839,6 +3839,7 @@ namespace GameObjects
         private int stuckedFor = 0;
         public void DayEvent()
         {
+            this.mingling = "";
             if (this.Morale <= 0)
             {
                 CheckTroopRout(this);
