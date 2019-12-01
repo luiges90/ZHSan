@@ -12004,6 +12004,14 @@ namespace GameObjects
                 {
                     return TroopControlState.Auto;
                 }
+                if (this.SelectedAttack)
+                {
+                    return TroopControlState.Attacked;
+                }
+                if (this.SelectedMove)
+                {
+                    return TroopControlState.Moved;
+                }
                 return TroopControlState.Undone;
             }
         }

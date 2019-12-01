@@ -9,7 +9,9 @@ namespace GameObjects
         Undone,
         Done,
         Auto,
-        AutoDone
+        AutoDone,
+        Moved,
+        Attacked
     }
 }
 

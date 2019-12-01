@@ -17,6 +17,8 @@ namespace TroopTitlePlugin
         internal PlatformTexture ActionAutoDoneTexture;
         internal PlatformTexture ActionAutoTexture;
         internal PlatformTexture ActionDoneTexture;
+        internal PlatformTexture ActionAttackedTexture;
+        internal PlatformTexture ActionMovedTexture;
         internal Rectangle ActionIconPosition;
         internal PlatformTexture ActionUndoneTexture;
         public Point BackgroundSize;
@@ -165,12 +167,16 @@ namespace TroopTitlePlugin
         internal PlatformTexture TheActionAuto1Texture;
         internal PlatformTexture TheActionDone1Texture;
         internal PlatformTexture TheActionUndone1Texture;
+        internal PlatformTexture TheActionAttacked1Texture;
+        internal PlatformTexture TheActionMoved1Texture;
         internal Rectangle TheActionIcon1Position;
         
         internal PlatformTexture TheActionAutoDone2Texture;
         internal PlatformTexture TheActionAuto2Texture;
         internal PlatformTexture TheActionDone2Texture;
         internal PlatformTexture TheActionUndone2Texture;
+        internal PlatformTexture TheActionAttacked2Texture;
+        internal PlatformTexture TheActionMoved2Texture;
         internal Rectangle TheActionIcon2Position;
         
         internal PlatformTexture TheFoodNormal1Texture;
@@ -293,6 +299,16 @@ namespace TroopTitlePlugin
                                     sourceRectangle = null;
                                     CacheManager.Draw(this.ActionAutoDoneTexture, this.ActionIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
                                     break;
+
+                                case TroopControlState.Attacked:
+                                    sourceRectangle = null;
+                                    CacheManager.Draw(this.ActionAttackedTexture, this.ActionIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
+                                    break;
+
+                                case TroopControlState.Moved:
+                                    sourceRectangle = null;
+                                    CacheManager.Draw(this.ActionMovedTexture, this.ActionIconDisplayPosition, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.4688f);
+                                    break;
                             }
                         }
                         if (troop.Food < troop.FoodCostPerDay)
@@ -382,6 +398,14 @@ namespace TroopTitlePlugin
 
                                 case TroopControlState.AutoDone:
                                     CacheManager.Draw(this.TheActionAutoDone1Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                                    break;
+
+                                case TroopControlState.Attacked:
+                                    CacheManager.Draw(this.TheActionAttacked1Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                                    break;
+
+                                case TroopControlState.Moved:
+                                    CacheManager.Draw(this.TheActionMoved1Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                                     break;
                             }
                         }
@@ -511,6 +535,14 @@ namespace TroopTitlePlugin
 
                                 case TroopControlState.AutoDone:
                                     CacheManager.Draw(this.TheActionAutoDone2Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                                    break;
+
+                                case TroopControlState.Attacked:
+                                    CacheManager.Draw(this.TheActionAttacked2Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
+                                    break;
+
+                                case TroopControlState.Moved:
+                                    CacheManager.Draw(this.TheActionMoved2Texture, this.TheActionIconDisplayPosition, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.465f);
                                     break;
                             }
                         }

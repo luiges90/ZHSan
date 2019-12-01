@@ -10,7 +10,7 @@
             FontColor="4294967295"
             Align="Left">
   </NameText>
-  <ActionIcon Done="ActionDone.png" Undone="ActionUndone.png" Auto="ActionAuto.png" AutoDone="ActionAutoDone.png" X="65" Y="0" Width="14" Height="14"></ActionIcon>
+  <ActionIcon Done="ActionDone.png" Undone="ActionUndone.png" Auto="ActionAuto.png" AutoDone="ActionAutoDone.png" Attacked="ActionAttacked.png", Moved="ActionMoved.png" X="65" Y="0" Width="14" Height="14"></ActionIcon>
   <FoodIcon Normal="FoodNormal.png" Shortage="FoodShortage.png" X="65" Y="14" Width="14" Height="14"></FoodIcon>
   <Control NoControl="NoControl.png" X="65" Y="0" Width="14" Height="14"></Control>
   <Stunt Stunt="Stunt.png" X="-14" Y="24" Width="14" Height="14"></Stunt>
@@ -73,7 +73,7 @@
   <Item38></Item38>
   <Item39></Item39>
   <Item40></Item40>
-  <TheActionIcon1 Done="ActionDone1.png" Undone="ActionUndone1.png" Auto="ActionAuto1.png" AutoDone="ActionAutoDone1.png" X="42" Y="45" Width="11" Height="11"></TheActionIcon1>
+  <TheActionIcon1 Done="ActionDone1.png" Undone="ActionUndone1.png" Auto="ActionAuto1.png" AutoDone="ActionAutoDone1.png" Attacked="ActionAttacked1.png" Moved="ActionMoved1.png" X="42" Y="45" Width="11" Height="11"></TheActionIcon1>
   <TheFoodIcon1 Normal="FoodNormal.png" Shortage="FoodShortage1.png" X="62" Y="0" Width="23" Height="23"></TheFoodIcon1>
   <TheControl1 NoControl="NoControl1.png" X="42" Y="45" Width="11" Height="11"></TheControl1>
   <TheStunt1 Stunt="Stunt1.png" X="0" Y="0" Width="81" Height="40"></TheStunt1>
@@ -123,7 +123,7 @@
   <Item68></Item68>
   <Item69></Item69>
   <Item70></Item70>
-  <TheActionIcon2 Done="ActionDone2.png" Undone="ActionUndone2.png" Auto="ActionAuto2.png" AutoDone="ActionAutoDone2.png" X="0" Y="0" Width="100" Height="39"></TheActionIcon2>
+  <TheActionIcon2 Done="ActionDone2.png" Undone="ActionUndone2.png" Auto="ActionAuto2.png" AutoDone="ActionAutoDone2.png" Attacked="ActionAttacked2.png" Moved="ActionMoved2.png" X="0" Y="0" Width="100" Height="39"></TheActionIcon2>
   <TheFoodIcon2 Normal="FoodNormal.png" Shortage="FoodShortage2.png" X="0" Y="0" Width="100" Height="39"></TheFoodIcon2>
   <TheControl2 NoControl="NoControl2.png" X="0" Y="0" Width="100" Height="39"></TheControl2>
   <TheStunt2 Stunt="Stunt2.png" X="0" Y="0" Width="100" Height="39"></TheStunt2>

@@ -92,6 +92,8 @@ namespace TroopTitlePlugin
             this.troopTitle.ActionUndoneTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\" + node.Attributes.GetNamedItem("Undone").Value);
             this.troopTitle.ActionAutoTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\" + node.Attributes.GetNamedItem("Auto").Value);
             this.troopTitle.ActionAutoDoneTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\" + node.Attributes.GetNamedItem("AutoDone").Value);
+            this.troopTitle.ActionAttackedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\" + node.Attributes.GetNamedItem("Attacked").Value);
+            this.troopTitle.ActionMovedTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\" + node.Attributes.GetNamedItem("Moved").Value);
             this.troopTitle.ActionIconPosition = StaticMethods.LoadRectangleFromXMLNode(node);
             node = nextSibling.ChildNodes.Item(5);
             this.troopTitle.FoodNormalTexture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\" + node.Attributes.GetNamedItem("Normal").Value);
@@ -188,6 +190,8 @@ namespace TroopTitlePlugin
             this.troopTitle.TheActionUndone1Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("Undone").Value);
             this.troopTitle.TheActionAuto1Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("Auto").Value);
             this.troopTitle.TheActionAutoDone1Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("AutoDone").Value);
+            this.troopTitle.TheActionAttacked1Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("Attacked").Value);
+            this.troopTitle.TheActionMoved1Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("Moved").Value);
             node = nextSibling.ChildNodes.Item(42);
             this.troopTitle.TheFoodIcon1Position = StaticMethods.LoadRectangleFromXMLNode(node);
             this.troopTitle.TheFoodNormal1Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("Normal").Value);
@@ -260,6 +264,9 @@ namespace TroopTitlePlugin
             this.troopTitle.TheActionUndone2Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("Undone").Value);
             this.troopTitle.TheActionAuto2Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("Auto").Value);
             this.troopTitle.TheActionAutoDone2Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("AutoDone").Value);
+            this.troopTitle.TheActionAttacked2Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("Attacked").Value);
+            this.troopTitle.TheActionMoved2Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("Moved").Value);
+
             node = nextSibling.ChildNodes.Item(72);
             this.troopTitle.TheFoodIcon2Position = StaticMethods.LoadRectangleFromXMLNode(node);
             this.troopTitle.TheFoodNormal2Texture = CacheManager.GetTempTexture(@"Content\Textures\GameComponents\TroopTitle\Data\Icon\" + node.Attributes.GetNamedItem("Normal").Value);
