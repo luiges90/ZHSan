@@ -10,7 +10,7 @@
             FontColor="4294967295"
             Align="Left">
   </NameText>
-  <ActionIcon Done="ActionDone.png" Undone="ActionUndone.png" Auto="ActionAuto.png" AutoDone="ActionAutoDone.png" Attacked="ActionAttacked.png", Moved="ActionMoved.png" X="65" Y="0" Width="14" Height="14"></ActionIcon>
+  <ActionIcon Done="ActionDone.png" Undone="ActionUndone.png" Auto="ActionAuto.png" AutoDone="ActionAutoDone.png" Attacked="ActionAttacked.png" Moved="ActionMoved.png" X="65" Y="0" Width="14" Height="14"></ActionIcon>
   <FoodIcon Normal="FoodNormal.png" Shortage="FoodShortage.png" X="65" Y="14" Width="14" Height="14"></FoodIcon>
   <Control NoControl="NoControl.png" X="65" Y="0" Width="14" Height="14"></Control>
   <Stunt Stunt="Stunt.png" X="-14" Y="24" Width="14" Height="14"></Stunt>
