@@ -3839,7 +3839,10 @@ namespace GameObjects
         private int stuckedFor = 0;
         public void DayEvent()
         {
-            this.mingling = "";
+            if (this.mingling != "Enter")
+            {
+                this.mingling = "";
+            }
             if (this.Morale <= 0)
             {
                 CheckTroopRout(this);
@@ -9335,7 +9338,7 @@ namespace GameObjects
             {
                 this.defence = (int)(this.defence * 0.8f);
             }
-            this.defence = (int)(this.defence * this.TempRateOfDefence);
+            this.defence = (int)(this.defence * Math.Max(1, this.TempRateOfDefence));
 
             if (this.Leader.Reputation >= 100)
             {
@@ -9440,6 +9443,11 @@ namespace GameObjects
 
             if (this.defence <= 0)
             {
+                if (this.Quantity > 0 && this.Morale > 10)
+                {
+                    int z = 0;
+                    z++;
+                }
                 this.defence = 1;
             }
            
@@ -9472,7 +9480,7 @@ namespace GameObjects
             {
                 this.offence = (int)(this.offence * 0.5f);
             }
-            this.offence = (int)(this.offence * this.TempRateOfOffence);
+            this.offence = (int)(this.offence * Math.Max(1, this.TempRateOfOffence));
 
 
             if (this.Leader != null && this.Leader.Reputation >= 100)

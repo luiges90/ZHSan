@@ -45,11 +45,6 @@ namespace GameObjects
             {
                 if (troop.CanMoveAnyway())
                 {
-                    if (troop.Status == TroopStatus.伪报)
-                    {
-                        int z = 0;
-                        z++;
-                    }
                     troop.InitializeInQueue();
                     if (troop.Status == TroopStatus.埋伏)
                     {
