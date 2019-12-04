@@ -2082,7 +2082,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     var mod = MODs[i];
 
-                    btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(400 + 280 * i, 120))
+                    btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(400 + 160 * i, 120))
                     {
                         ID = "MOD" + mod.ID
                     };
@@ -4843,7 +4843,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     {
                         var mod = MODs[i];
 
-                        CacheManager.DrawString(Session.Current.Font, mod.Name, new Vector2(250 + 200 + 280 * i, 120), Color.White * alpha);
+                        CacheManager.DrawString(Session.Current.Font, mod.Name, new Vector2(250 + 200 + 160 * i, 120), Color.White * alpha);
                     }
                 }
 
