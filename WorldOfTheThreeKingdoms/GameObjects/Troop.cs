@@ -9443,11 +9443,6 @@ namespace GameObjects
 
             if (this.defence <= 0)
             {
-                if (this.Quantity > 0 && this.Morale > 10)
-                {
-                    int z = 0;
-                    z++;
-                }
                 this.defence = 1;
             }
            

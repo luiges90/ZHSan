@@ -13431,7 +13431,6 @@ namespace GameObjects
                     num *= 2;
                 }
                 num += 10000;
-                num = num / 2;
                 ExpectedFoodCache = num;
                 return num;
             }
