@@ -5349,6 +5349,7 @@ namespace GameObjects
                 }
             }
 
+            /*
             if (!executingFaction.IsAlien)
             {
                 killer.LoseReputationBy(0.02f * this.PersonalLoyalty);
@@ -5356,6 +5357,7 @@ namespace GameObjects
 
             killer.DecreaseKarma(1 + this.PersonalLoyalty + Math.Max(0, this.Karma / 5));
             killer.BelongedFaction.Leader.DecreaseKarma(1 + this.PersonalLoyalty + Math.Max(0, this.Karma / 5));
+            */
         }
 
         public void execute(Faction executingFaction)
