@@ -1782,8 +1782,8 @@
 "Value":{
 "ID":0,
 "Name":"大盾",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":17,
 "ArchitectureTarget":true,
 "AttackDefaultString":0,
@@ -1800,8 +1800,8 @@
 "Value":{
 "ID":1,
 "Name":"枪阵",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":18,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -1818,8 +1818,8 @@
 "Value":{
 "ID":2,
 "Name":"旋风",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":20,
 "ArchitectureTarget":false,
 "AttackDefaultString":6,
@@ -1836,8 +1836,8 @@
 "Value":{
 "ID":3,
 "Name":"摧坚",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":36,
 "ArchitectureTarget":false,
 "AttackDefaultString":1,
@@ -1854,8 +1854,8 @@
 "Value":{
 "ID":10,
 "Name":"火矢",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":26,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -1872,8 +1872,8 @@
 "Value":{
 "ID":11,
 "Name":"贯穿",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":25,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -1890,8 +1890,8 @@
 "Value":{
 "ID":12,
 "Name":"散射",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":25,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -1908,8 +1908,8 @@
 "Value":{
 "ID":13,
 "Name":"燎原",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":26,
 "ArchitectureTarget":false,
 "AttackDefaultString":6,
@@ -1917,7 +1917,7 @@
 "CastConditionsString":"",
 "Combativity":40,
 "Description":"攻击力减少30%，用火矢攻击本部队攻击范围内的所有部队（包括友军）",
-"InfluencesString":"419 386 389 ",
+"InfluencesString":"419 386 389",
 "ViewingHostile":false
 }
 },
@@ -1926,8 +1926,8 @@
 "Value":{
 "ID":20,
 "Name":"进击",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":21,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -1944,8 +1944,8 @@
 "Value":{
 "ID":21,
 "Name":"突击",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":22,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -1962,8 +1962,8 @@
 "Value":{
 "ID":22,
 "Name":"风击",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":68,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -1980,8 +1980,8 @@
 "Value":{
 "ID":23,
 "Name":"雷霆",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":48,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -1998,8 +1998,8 @@
 "Value":{
 "ID":24,
 "Name":"狙击",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":43,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2016,8 +2016,8 @@
 "Value":{
 "ID":25,
 "Name":"陷阵",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":36,
 "ArchitectureTarget":true,
 "AttackDefaultString":1,
@@ -2034,8 +2034,8 @@
 "Value":{
 "ID":26,
 "Name":"虎击",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":36,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2052,8 +2052,8 @@
 "Value":{
 "ID":27,
 "Name":"突围",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":57,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2070,8 +2070,8 @@
 "Value":{
 "ID":28,
 "Name":"狂风",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":62,
 "ArchitectureTarget":false,
 "AttackDefaultString":6,
@@ -2079,7 +2079,7 @@
 "CastConditionsString":"",
 "Combativity":20,
 "Description":"降低攻击20%，攻击范围内所有敌军，不会误伤友军。部队防御力提高15%，击破恢复10点战意。",
-"InfluencesString":"386 610 418 422 540 ",
+"InfluencesString":"386 610 418 422 540",
 "ViewingHostile":true
 }
 },
@@ -2088,8 +2088,8 @@
 "Value":{
 "ID":29,
 "Name":"冲阵",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":24,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2106,8 +2106,8 @@
 "Value":{
 "ID":30,
 "Name":"落雁",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":25,
 "ArchitectureTarget":false,
 "AttackDefaultString":6,
@@ -2115,7 +2115,7 @@
 "CastConditionsString":"",
 "Combativity":20,
 "Description":"攻击降低55%，对弩兵攻击增加30%，对攻击目标周围2格范围内敌军造成伤害，会误伤，主动攻击无战斗称号部队使之士气减2。",
-"InfluencesString":"567 568 599 800 ",
+"InfluencesString":"567 568 599 800",
 "ViewingHostile":true
 }
 },
@@ -2124,8 +2124,8 @@
 "Value":{
 "ID":31,
 "Name":"拒马",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":17,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2142,8 +2142,8 @@
 "Value":{
 "ID":32,
 "Name":"盾击",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":19,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2160,8 +2160,8 @@
 "Value":{
 "ID":33,
 "Name":"毒矢",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":26,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2178,8 +2178,8 @@
 "Value":{
 "ID":34,
 "Name":"贯射",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":25,
 "ArchitectureTarget":false,
 "AttackDefaultString":6,
@@ -2187,7 +2187,7 @@
 "CastConditionsString":"",
 "Combativity":10,
 "Description":"攻击力减少10%，对本队与攻击目标之间及相邻部队造成伤害。",
-"InfluencesString":"383 384 416 ",
+"InfluencesString":"383 384 416",
 "ViewingHostile":true
 }
 },
@@ -2196,8 +2196,8 @@
 "Value":{
 "ID":35,
 "Name":"摧锋",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":24,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2214,8 +2214,8 @@
 "Value":{
 "ID":36,
 "Name":"雁行",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":25,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2232,8 +2232,8 @@
 "Value":{
 "ID":37,
 "Name":"撒星",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":20,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2250,8 +2250,8 @@
 "Value":{
 "ID":40,
 "Name":"怒喝",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":64,
 "ArchitectureTarget":false,
 "AttackDefaultString":1,
@@ -2268,8 +2268,8 @@
 "Value":{
 "ID":41,
 "Name":"拖刀",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":69,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2277,7 +2277,7 @@
 "CastConditionsString":"",
 "Combativity":70,
 "Description":"攻击+1000%，100%火攻，暴击+30%，暴击致乱增加100%,暴击使敌士气-20。",
-"InfluencesString":"8051 8031 404 8021 8071 ",
+"InfluencesString":"8051 8031 404 8021 8071",
 "ViewingHostile":false
 }
 },
@@ -2286,8 +2286,8 @@
 "Value":{
 "ID":42,
 "Name":"义勇",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":47,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2304,8 +2304,8 @@
 "Value":{
 "ID":43,
 "Name":"炎枪",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":69,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2313,7 +2313,7 @@
 "CastConditionsString":"",
 "Combativity":35,
 "Description":"对本队与攻击目标之间及相邻部队造成伤害，无误伤，20%火伤，击破+10战意，对步兵伤害+60%。",
-"InfluencesString":"383 384 610 382 540 810 ",
+"InfluencesString":"383 384 610 382 540 810",
 "ViewingHostile":true
 }
 },
@@ -2322,8 +2322,8 @@
 "Value":{
 "ID":44,
 "Name":"猛撞",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":24,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2331,7 +2331,7 @@
 "CastConditionsString":"",
 "Combativity":30,
 "Description":"攻击所有邻接部队，不会误伤友军，主动攻击使敌方战意减少5。",
-"InfluencesString":"385 610 520 ",
+"InfluencesString":"385 610 520",
 "ViewingHostile":true
 }
 },
@@ -2340,8 +2340,8 @@
 "Value":{
 "ID":45,
 "Name":"龙漩",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":42,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2358,8 +2358,8 @@
 "Value":{
 "ID":46,
 "Name":"破军",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":47,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2367,7 +2367,7 @@
 "CastConditionsString":"",
 "Combativity":65,
 "Description":"致乱+100%，暴击+60%，防御+250%，攻击本回合所有可攻击到的部队。",
-"InfluencesString":"8021 8012 8062 387 ",
+"InfluencesString":"8021 8012 8062 387",
 "ViewingHostile":false
 }
 },
@@ -2376,8 +2376,8 @@
 "Value":{
 "ID":47,
 "Name":"神威",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":69,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2385,7 +2385,7 @@
 "CastConditionsString":"",
 "Combativity":90,
 "Description":"100%火伤，散射2格，暴击+60%，致乱+100%",
-"InfluencesString":"8031 568 8012 8021 ",
+"InfluencesString":"8031 568 8012 8021",
 "ViewingHostile":true
 }
 },
@@ -2394,8 +2394,8 @@
 "Value":{
 "ID":48,
 "Name":"八卦",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":56,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2403,7 +2403,7 @@
 "CastConditionsString":"",
 "Combativity":100,
 "Description":"散射2格，可斜向，无误伤，必爆必晕，20%火伤，攻击-60%",
-"InfluencesString":"568 8011 8021 610 382 611 8091 ",
+"InfluencesString":"568 8011 8021 610 382 611 8091",
 "ViewingHostile":true
 }
 },
@@ -2412,8 +2412,8 @@
 "Value":{
 "ID":49,
 "Name":"雷龙",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":60,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2421,7 +2421,7 @@
 "CastConditionsString":"",
 "Combativity":80,
 "Description":"散射2格，可斜向，无误伤，火伤，暴击士气-10，主动攻击使敌方战意减少20，必爆，攻击-60%",
-"InfluencesString":"568 8031 8072 523 610 611 8011 8091 ",
+"InfluencesString":"568 8031 8072 523 610 611 8011 8091",
 "ViewingHostile":true
 }
 },
@@ -2430,8 +2430,8 @@
 "Value":{
 "ID":50,
 "Name":"鬼火",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":44,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2448,8 +2448,8 @@
 "Value":{
 "ID":51,
 "Name":"锐进",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":69,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2466,8 +2466,8 @@
 "Value":{
 "ID":52,
 "Name":"穿云",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":43,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2484,8 +2484,8 @@
 "Value":{
 "ID":53,
 "Name":"先登",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":47,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2502,8 +2502,8 @@
 "Value":{
 "ID":54,
 "Name":"骁武",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":64,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2520,8 +2520,8 @@
 "Value":{
 "ID":55,
 "Name":"劫营",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":46,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2538,8 +2538,8 @@
 "Value":{
 "ID":56,
 "Name":"火神",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":66,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2556,8 +2556,8 @@
 "Value":{
 "ID":57,
 "Name":"方阵",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":47,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2574,8 +2574,8 @@
 "Value":{
 "ID":58,
 "Name":"勇武",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":64,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2583,7 +2583,7 @@
 "CastConditionsString":"",
 "Combativity":30,
 "Description":"攻击+400%，破杀，暴击+30%，20%火伤。",
-"InfluencesString":"8052 388 404 382 ",
+"InfluencesString":"8052 388 404 382",
 "ViewingHostile":false
 }
 },
@@ -2592,8 +2592,8 @@
 "Value":{
 "ID":59,
 "Name":"魏武",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":47,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2610,8 +2610,8 @@
 "Value":{
 "ID":60,
 "Name":"死守",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":19,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2619,7 +2619,7 @@
 "CastConditionsString":"",
 "Combativity":25,
 "Description":"防御+400%，暴击+30%，暴击致乱+40%。",
-"InfluencesString":"8063 404 554 ",
+"InfluencesString":"8063 404 554",
 "ViewingHostile":false
 }
 },
@@ -2628,8 +2628,8 @@
 "Value":{
 "ID":61,
 "Name":"驰突",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":36,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2646,8 +2646,8 @@
 "Value":{
 "ID":62,
 "Name":"游击",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":64,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2664,8 +2664,8 @@
 "Value":{
 "ID":63,
 "Name":"八阵",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":62,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2682,8 +2682,8 @@
 "Value":{
 "ID":64,
 "Name":"鬼谋",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":52,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2691,7 +2691,7 @@
 "CastConditionsString":"",
 "Combativity":60,
 "Description":"必爆，致乱+40%，散射2格，无误伤。",
-"InfluencesString":"8011 554 568 610 ",
+"InfluencesString":"8011 554 568 610",
 "ViewingHostile":true
 }
 },
@@ -2700,8 +2700,8 @@
 "Value":{
 "ID":65,
 "Name":"驱虎",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":52,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2718,8 +2718,8 @@
 "Value":{
 "ID":66,
 "Name":"异心",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":68,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2736,8 +2736,8 @@
 "Value":{
 "ID":67,
 "Name":"完杀",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":52,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2754,8 +2754,8 @@
 "Value":{
 "ID":68,
 "Name":"裸衣",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":67,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2772,8 +2772,8 @@
 "Value":{
 "ID":69,
 "Name":"狼顾",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":52,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2781,7 +2781,7 @@
 "CastConditionsString":"",
 "Combativity":55,
 "Description":"防御+250%，散射2格，火伤20%，无误伤，致乱+40%。",
-"InfluencesString":"8062 568 382 610 554 ",
+"InfluencesString":"8062 568 382 610 554",
 "ViewingHostile":true
 }
 },
@@ -2790,8 +2790,8 @@
 "Value":{
 "ID":70,
 "Name":"血战",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":67,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2799,7 +2799,7 @@
 "CastConditionsString":"",
 "Combativity":40,
 "Description":"防御-15%，攻击所有本回合接触到的部队，必爆，暴击使敌士气-10。",
-"InfluencesString":"427 387 8011 8072 ",
+"InfluencesString":"427 387 8011 8072",
 "ViewingHostile":true
 }
 },
@@ -2808,8 +2808,8 @@
 "Value":{
 "ID":71,
 "Name":"陵蹈",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":59,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2826,8 +2826,8 @@
 "Value":{
 "ID":85,
 "Name":"雷鸣",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":48,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2835,7 +2835,7 @@
 "CastConditionsString":"",
 "Combativity":120,
 "Description":"散射5格，50%火伤，攻击-60%，",
-"InfluencesString":"8042 389 8091 ",
+"InfluencesString":"8042 389 8091",
 "ViewingHostile":true
 }
 },
@@ -2844,8 +2844,8 @@
 "Value":{
 "ID":86,
 "Name":"地裂",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":65,
 "ArchitectureTarget":true,
 "AttackDefaultString":0,
@@ -2853,7 +2853,7 @@
 "CastConditionsString":"",
 "Combativity":150,
 "Description":"散射5格，攻击-60%，必爆，暴击致乱+50%。",
-"InfluencesString":"8042 8091 8021 8022 ",
+"InfluencesString":"8042 8091 8021 8022",
 "ViewingHostile":true
 }
 },
@@ -2862,8 +2862,8 @@
 "Value":{
 "ID":87,
 "Name":"破门",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":55,
 "ArchitectureTarget":true,
 "AttackDefaultString":5,
@@ -2871,7 +2871,7 @@
 "CastConditionsString":"",
 "Combativity":25,
 "Description":"暴击对建筑伤害+100%，暴击+60%。",
-"InfluencesString":"8101 8012 ",
+"InfluencesString":"8101 8012",
 "ViewingHostile":false
 }
 },
@@ -2880,8 +2880,8 @@
 "Value":{
 "ID":88,
 "Name":"箭岚",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":25,
 "ArchitectureTarget":true,
 "AttackDefaultString":0,
@@ -2889,7 +2889,7 @@
 "CastConditionsString":"",
 "Combativity":30,
 "Description":"散射2格，暴击对建筑伤害+50%，攻击-30%，暴击使敌方士气减少2。",
-"InfluencesString":"568 353 419 361 ",
+"InfluencesString":"568 353 419 361",
 "ViewingHostile":true
 }
 },
@@ -2898,8 +2898,8 @@
 "Value":{
 "ID":89,
 "Name":"投石",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":55,
 "ArchitectureTarget":true,
 "AttackDefaultString":5,
@@ -2907,7 +2907,7 @@
 "CastConditionsString":"",
 "Combativity":15,
 "Description":"暴击对建筑伤害+50%，暴击+30%",
-"InfluencesString":"353 404 ",
+"InfluencesString":"353 404",
 "ViewingHostile":false
 }
 },
@@ -2916,8 +2916,8 @@
 "Value":{
 "ID":90,
 "Name":"霹雳",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":61,
 "ArchitectureTarget":true,
 "AttackDefaultString":5,
@@ -2925,7 +2925,7 @@
 "CastConditionsString":"",
 "Combativity":50,
 "Description":"暴击对建筑伤害+50%，必爆，100%火伤，散射，可斜向。",
-"InfluencesString":"353 8011 8031 384 611 ",
+"InfluencesString":"353 8011 8031 384 611",
 "ViewingHostile":true
 }
 },
@@ -2934,8 +2934,8 @@
 "Value":{
 "ID":91,
 "Name":"箭矢",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":26,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2952,8 +2952,8 @@
 "Value":{
 "ID":92,
 "Name":"冲击",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":20,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2970,8 +2970,8 @@
 "Value":{
 "ID":100,
 "Name":"驰射",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":43,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -2988,8 +2988,8 @@
 "Value":{
 "ID":101,
 "Name":"齐射",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":43,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3006,8 +3006,8 @@
 "Value":{
 "ID":102,
 "Name":"飞射",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":43,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3024,8 +3024,8 @@
 "Value":{
 "ID":103,
 "Name":"流火",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":26,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3033,7 +3033,7 @@
 "CastConditionsString":"",
 "Combativity":40,
 "Description":"散射，斜向，暴击致命，50%火伤。",
-"InfluencesString":"384 611 351 389 ",
+"InfluencesString":"384 611 351 389",
 "ViewingHostile":true
 }
 },
@@ -3042,8 +3042,8 @@
 "Value":{
 "ID":104,
 "Name":"连弩",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":26,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3060,8 +3060,8 @@
 "Value":{
 "ID":105,
 "Name":"连击",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":23,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3078,8 +3078,8 @@
 "Value":{
 "ID":106,
 "Name":"钩行",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":20,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3096,8 +3096,8 @@
 "Value":{
 "ID":107,
 "Name":"突刺",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":19,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3114,8 +3114,8 @@
 "Value":{
 "ID":108,
 "Name":"刺杀",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":18,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3132,8 +3132,8 @@
 "Value":{
 "ID":112,
 "Name":"劫掠",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":65,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3150,8 +3150,8 @@
 "Value":{
 "ID":114,
 "Name":"破围",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":24,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3168,8 +3168,8 @@
 "Value":{
 "ID":120,
 "Name":"震波",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":52,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3186,8 +3186,8 @@
 "Value":{
 "ID":121,
 "Name":"疯一把",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":67,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3204,8 +3204,8 @@
 "Value":{
 "ID":122,
 "Name":"冲锋",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":24,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3222,8 +3222,8 @@
 "Value":{
 "ID":123,
 "Name":"御守",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":47,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3240,8 +3240,8 @@
 "Value":{
 "ID":124,
 "Name":"混战",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":52,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3258,8 +3258,8 @@
 "Value":{
 "ID":125,
 "Name":"横勇无畏",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":47,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3276,8 +3276,8 @@
 "Value":{
 "ID":126,
 "Name":"星坠",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":26,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3294,8 +3294,8 @@
 "Value":{
 "ID":127,
 "Name":"虎啸清野",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":64,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3312,8 +3312,8 @@
 "Value":{
 "ID":128,
 "Name":"风卷残云",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":60,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3330,8 +3330,8 @@
 "Value":{
 "ID":129,
 "Name":"吃货的坚韧",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":47,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3348,8 +3348,8 @@
 "Value":{
 "ID":130,
 "Name":"无双一击",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":69,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3366,8 +3366,8 @@
 "Value":{
 "ID":131,
 "Name":"风声",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":68,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3384,8 +3384,8 @@
 "Value":{
 "ID":132,
 "Name":"会心一击",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":68,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3402,8 +3402,8 @@
 "Value":{
 "ID":133,
 "Name":"龙啸九天",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":48,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3420,8 +3420,8 @@
 "Value":{
 "ID":134,
 "Name":"百骑劫营",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":46,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3438,8 +3438,8 @@
 "Value":{
 "ID":135,
 "Name":"茶啤",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":56,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3456,8 +3456,8 @@
 "Value":{
 "ID":136,
 "Name":"爆米花",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":56,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3474,8 +3474,8 @@
 "Value":{
 "ID":137,
 "Name":"路过围观",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":36,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3492,8 +3492,8 @@
 "Value":{
 "ID":138,
 "Name":"万箭穿心",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":26,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3510,8 +3510,8 @@
 "Value":{
 "ID":139,
 "Name":"死战",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":67,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3528,8 +3528,8 @@
 "Value":{
 "ID":140,
 "Name":"天崩地裂",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":60,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3546,8 +3546,8 @@
 "Value":{
 "ID":141,
 "Name":"有死无生",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":36,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3564,8 +3564,8 @@
 "Value":{
 "ID":142,
 "Name":"茶啤",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":20,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3582,8 +3582,8 @@
 "Value":{
 "ID":143,
 "Name":"诸葛连弩",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":25,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3600,8 +3600,8 @@
 "Value":{
 "ID":144,
 "Name":"莲华",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":25,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3618,8 +3618,8 @@
 "Value":{
 "ID":145,
 "Name":"冲锋",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":24,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3636,8 +3636,8 @@
 "Value":{
 "ID":146,
 "Name":"无前",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":36,
 "ArchitectureTarget":false,
 "AttackDefaultString":1,
@@ -3654,8 +3654,8 @@
 "Value":{
 "ID":147,
 "Name":"狼图腾",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":25,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3672,8 +3672,8 @@
 "Value":{
 "ID":148,
 "Name":"神怒",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":69,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3690,8 +3690,8 @@
 "Value":{
 "ID":149,
 "Name":"天才之怒",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":56,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -3708,8 +3708,8 @@
 "Value":{
 "ID":150,
 "Name":"天女散花",
-"AIConditionWeightEnemyString":"",
-"AIConditionWeightSelfString":"",
+"AIConditionWeightEnemyString":"1260 1280",
+"AIConditionWeightSelfString":"1400",
 "AnimationKind":25,
 "ArchitectureTarget":false,
 "AttackDefaultString":0,
@@ -91572,6 +91572,7 @@
 "Value":{
 "ID":0,
 "Name":"未知",
+"CanExtendInto":false,
 "FireDamageRate":1,
 "FoodAutumnRate":0,
 "FoodDeposit":0,
@@ -91592,6 +91593,7 @@
 "Value":{
 "ID":1,
 "Name":"平原",
+"CanExtendInto":true,
 "FireDamageRate":1,
 "FoodAutumnRate":1.2,
 "FoodDeposit":100000,
@@ -91612,6 +91614,7 @@
 "Value":{
 "ID":2,
 "Name":"草原",
+"CanExtendInto":true,
 "FireDamageRate":0.8,
 "FoodAutumnRate":0.8,
 "FoodDeposit":50000,
@@ -91632,6 +91635,7 @@
 "Value":{
 "ID":3,
 "Name":"森林",
+"CanExtendInto":false,
 "FireDamageRate":1.5,
 "FoodAutumnRate":0.9,
 "FoodDeposit":80000,
@@ -91652,6 +91656,7 @@
 "Value":{
 "ID":4,
 "Name":"湿地",
+"CanExtendInto":false,
 "FireDamageRate":1,
 "FoodAutumnRate":1,
 "FoodDeposit":40000,
@@ -91672,6 +91677,7 @@
 "Value":{
 "ID":5,
 "Name":"山地",
+"CanExtendInto":false,
 "FireDamageRate":1.2,
 "FoodAutumnRate":1.1,
 "FoodDeposit":60000,
@@ -91692,6 +91698,7 @@
 "Value":{
 "ID":6,
 "Name":"水域",
+"CanExtendInto":false,
 "FireDamageRate":1,
 "FoodAutumnRate":1,
 "FoodDeposit":30000,
@@ -91712,6 +91719,7 @@
 "Value":{
 "ID":7,
 "Name":"峻岭",
+"CanExtendInto":false,
 "FireDamageRate":1,
 "FoodAutumnRate":0,
 "FoodDeposit":0,
@@ -91732,6 +91740,7 @@
 "Value":{
 "ID":8,
 "Name":"荒地",
+"CanExtendInto":true,
 "FireDamageRate":1,
 "FoodAutumnRate":0.8,
 "FoodDeposit":10000,
@@ -91752,6 +91761,7 @@
 "Value":{
 "ID":9,
 "Name":"栈道",
+"CanExtendInto":false,
 "FireDamageRate":1,
 "FoodAutumnRate":0.9,
 "FoodDeposit":5000,
@@ -91772,6 +91782,7 @@
 "Value":{
 "ID":10,
 "Name":"瘴气林",
+"CanExtendInto":false,
 "FireDamageRate":1.6,
 "FoodAutumnRate":0.4,
 "FoodDeposit":5000,
