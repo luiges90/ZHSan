@@ -214,6 +214,7 @@
         <MenuItem ID="3" Name="Music" DisplayName="播放游戏音乐" OppositeName="停止游戏音乐" OppositeIfTrue="IsPlayingMusic" />
         <MenuItem ID="4" Name="NormalSound" DisplayName="播放一般音效" OppositeName="关闭一般音效" OppositeIfTrue="IsPlayingNormalSound" />
         <MenuItem ID="5" Name="BattleSound" DisplayName="播放战斗音效" OppositeName="关闭战斗音效" OppositeIfTrue="IsPlayingBattleSound" />
+		<MenuItem ID="10" Name="TroopVoice" DisplayName="播放战斗对话" OppositeName="关闭战斗对话" OppositeIfTrue="IsPlayingTroopVoice" />
         <MenuItem ID="6" Name="TroopAnimation" DisplayName="显示部队动画" OppositeName="省略部队动画" OppositeIfTrue="IsPlayingTroopAnimation" />
         <MenuItem ID="7" Name="FullScreen" DisplayName="进入全屏显示" OppositeName="退出全屏显示" OppositeIfTrue="IsFullScreen" />
         <MenuItem ID="8" Name="SkyEye" DisplayName="开启天眼*" OppositeName="关闭天眼" OppositeIfTrue="IsSkyEye" />

@@ -883,6 +883,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     Setting.Current.GlobalVariables.PlayBattleSound = !Setting.Current.GlobalVariables.PlayBattleSound;
                     break;
 
+                case ContextMenuResult.Switch_TroopVoice:
+                    Setting.Current.GlobalVariables.TroopVoice = !Setting.Current.GlobalVariables.TroopVoice;
+                    break;
+
                 case ContextMenuResult.Switch_TroopAnimation:
                     Setting.Current.GlobalVariables.DrawTroopAnimation = !Setting.Current.GlobalVariables.DrawTroopAnimation;
                     break;

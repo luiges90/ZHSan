@@ -3521,6 +3521,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
+        public bool IsPlayingTroopVoice
+        {
+            get
+            {
+                return Setting.Current.GlobalVariables.TroopVoice;
+            }
+        }
+
         public bool IsPlayingMusic
         {
             get

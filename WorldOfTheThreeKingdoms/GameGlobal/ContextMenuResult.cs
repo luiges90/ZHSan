@@ -153,6 +153,7 @@ namespace GameGlobal
         Switch_Music,
         Switch_NormalSound,
         Switch_BattleSound,
+        Switch_TroopVoice,
         Switch_TroopAnimation,
         Switch_FullScreen,
         Switch_SkyEye,
