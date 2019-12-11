@@ -966,7 +966,7 @@ namespace GameObjects
 
         private string getSoundPath(Animation a)
         {
-            if (Session.Current.Scenario.GlobalVariables.TroopVoice)
+            if (Setting.Current.GlobalVariables.TroopVoice)
             {
                 if (Directory.Exists("Content/Sound/Animation/Person/" + this.Leader.ID))
                 {
