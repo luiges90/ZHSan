@@ -12882,7 +12882,7 @@ namespace GameObjects
             {
                 int num = this.FacilityMaintenanceCost * 60;
                 num += this.RoutewayActiveCost * 60;
-                num += this.PersonCount * Session.Parameters.InternalFundCost * 10;
+                num += this.PersonCount * Session.Parameters.InternalFundCost * 30;
                 num += (this.BelongedFaction.BecomeEmperorLegallyAvail() || this.BelongedFaction.SelfBecomeEmperorAvail()) && this.BelongedFaction.Capital == this ? 100000 : 0;
                 num += this.BelongedFaction.Leader.WaitForFeiZi != null ? Session.Parameters.NafeiCost : 0;
                 num += (int)(Math.Sqrt(this.Population) * 8.0);
@@ -13372,6 +13372,7 @@ namespace GameObjects
                 num += this.InformationDayCost * 15;
                 num += this.PlanFacilityKind == null ? 0 : this.PlanFacilityKind.FundCost;
                 num += this.BelongedFaction != null && this.BelongedFaction.PlanTechniqueArchitecture == this ? this.BelongedFaction.getTechniqueActualFundCost(this.BelongedFaction.PlanTechnique) : 0;
+                num += this.PersonCount * this.InternalFundCost * 30;
                 return num;
             }
         }
