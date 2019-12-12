@@ -7261,7 +7261,7 @@ namespace GameObjects
                     (this.Strength * (1 - Session.GlobalVariables.LeadershipOffenceRate) + this.Command * (Session.GlobalVariables.LeadershipOffenceRate + 1)
                     + (this.Intelligence * 0.5)) *
                     (100 + this.TitleFightingMerit
-                    + this.TreasureMerit + this.CombatSkillMerit + Math.Sqrt(this.StuntCount) * 30));
+                    + this.TreasureMerit + this.CombatSkillMerit + Math.Pow(this.StuntCount, 0.3) * 30));
             }
         }
 
@@ -7922,7 +7922,7 @@ namespace GameObjects
             get
             {
                 return (int)((this.Strength + this.Command + this.Intelligence + this.Politics + this.Glamour) *
-                    (100 + this.TitleMerit + this.AllSkillMerit + this.TreasureMerit + Math.Sqrt(this.StuntCount) * 30));
+                    (100 + this.TitleMerit + this.AllSkillMerit + this.TreasureMerit + Math.Pow(this.StuntCount, 0.3) * 30));
             }
         }
 
