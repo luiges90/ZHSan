@@ -2230,6 +2230,11 @@ namespace GameObjects
                     }
                 }
 
+                foreach (Person p in this.Persons)
+                {
+                    p.TempLoyaltyChange -= Math.Max(1, p.Ambition * 2 - p.PersonalLoyalty + 1);
+                }
+
                 if (this.IsTransport && this.WillArchitecture != null)
                 {
                     this.WillArchitecture.SuspendTroopTransfer = 0;
