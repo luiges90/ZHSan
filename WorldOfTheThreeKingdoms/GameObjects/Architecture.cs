@@ -2503,7 +2503,7 @@ namespace GameObjects
                                 architecture2 = list3[GameObject.Random(list3.Count / 2)] as Architecture;
                                 if (GameObject.Chance(100 - architecture2.noEscapeChance * 2))
                                 {
-                                    if ((!this.IsFriendly(architecture2.BelongedFaction) || GameObject.Chance(10)) && ((architecture2.Fund < architecture2.EnoughFund) || ((architecture2.Fund < architecture2.AbundantFund) && GameObject.Chance(20))))
+                                    if (!this.IsFriendly(architecture2.BelongedFaction))
                                     {
                                         diplomaticRelation = Session.Current.Scenario.GetDiplomaticRelation(this.BelongedFaction.ID, architecture2.BelongedFaction.ID);
                                         if (((diplomaticRelation >= 0) && (GameObject.Random(diplomaticRelation + 200) <= GameObject.Random(50))) || ((diplomaticRelation < 0) && (GameObject.Random(Math.Abs(diplomaticRelation) + 100) >= GameObject.Random(100))))
