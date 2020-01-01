@@ -119,7 +119,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
                     else
                     {
-                        Setting.Current.GlobalVariables.DialogShowTime = Session.globalVariablesBasic.DialogShowTime;
+                        //Setting.Current.GlobalVariables.DialogShowTime = Session.globalVariablesBasic.DialogShowTime;
                     }
                 }
 

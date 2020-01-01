@@ -3965,9 +3965,9 @@ namespace GameObjects
                 }
                 else
                 {
-                    Setting.Current.GlobalVariables.DialogShowTime = Session.globalVariablesBasic.DialogShowTime;
+                    //Setting.Current.GlobalVariables.DialogShowTime = Session.globalVariablesBasic.DialogShowTime;
                 }
-            }
+            } 
             this.ForceOptionsOnAutoplay();
 
             this.sessionStartTime = DateTime.Now;
