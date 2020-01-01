@@ -537,10 +537,14 @@ namespace GameManager
                 }
                 else
                 {
-                    id = String.Format(@"Content/Textures/GameComponents/PersonPortrait/Images/Default/{0}{1}.jpg", fallbackIndex, "");
-                    if (!(Setting.Current == null || String.IsNullOrEmpty(Setting.Current.MODRuntime)))
+                    id = String.Format(@"Content/Textures/GameComponents/PersonPortrait/Images/Default/{0}{1}.jpg", Convert.ToInt32(pictureIndex), "");
+                    if (Platform.Current.FileExists(id))
                     {
-                        id = id.Replace("Content", "MODs/" + Setting.Current.MODRuntime);
+
+                    }
+                    else
+                    {
+                        id = String.Format(@"Content/Textures/GameComponents/PersonPortrait/Images/Default/{0}{1}.jpg", fallbackIndex, "");
                     }
                 }
             }
