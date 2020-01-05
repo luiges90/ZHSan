@@ -12546,6 +12546,7 @@ namespace GameObjects
                         return true;
                     }
                 }
+            }
             return false;
         }
 
