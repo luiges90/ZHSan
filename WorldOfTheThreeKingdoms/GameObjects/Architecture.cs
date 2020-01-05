@@ -12512,7 +12512,7 @@ namespace GameObjects
 
         public bool IsSurrounded()
         {
-            if (((this.BelongedFaction != null) && (this.Endurance > 0)) && this.Kind.HasDomination)
+            if (((this.BelongedFaction != null) && (this.Endurance > 0)))
             {
                 int num = 0;
                 foreach (Point point in this.ContactArea.Area)
@@ -12528,6 +12528,24 @@ namespace GameObjects
                     return true;
                 }
             }
+            if (this.Endurance <= 0)
+            {
+                foreach (Point point in this.ContactArea.Area)
+                {
+                    Troop troopByPosition = Session.Current.Scenario.GetTroopByPosition(point);
+                    if (!((troopByPosition == null) || this.IsFriendlyWithoutTruce(troopByPosition.BelongedFaction)))
+                    {
+                        return true;
+                    }
+                }
+                foreach (Point point in this.ArchitectureArea.Area)
+                {
+                    Troop troopByPosition = Session.Current.Scenario.GetTroopByPosition(point);
+                    if (!((troopByPosition == null) || this.IsFriendlyWithoutTruce(troopByPosition.BelongedFaction)))
+                    {
+                        return true;
+                    }
+                }
             return false;
         }
 
