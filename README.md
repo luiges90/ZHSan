@@ -4,7 +4,7 @@
 
 **百度貼吧：http://tieba.baidu.com/f?kw=%D6%D0%BB%AA%C8%FD%B9%FA%D6%BE**
 
-**遊俠傳區：http://game.ali213.net/forum-876-1.html**
+**整合版资源：https://cloud.189.cn/t/zmE7VrE7NfQn **
 
 ---
 
