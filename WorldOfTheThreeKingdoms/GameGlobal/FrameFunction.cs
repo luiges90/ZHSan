@@ -77,6 +77,7 @@ namespace GameGlobal
         GetConfiscateTreasure,
         GetAwardTreasure,
         GetAwardTreasurePerson,
+        GetSellTreasure,
         xuanzemeinv,
         chongxingmeinv,
         MoveFeizi,

@@ -132,6 +132,7 @@ namespace GameGlobal
         Monarch_Refuse,
         Monarch_Treasure_Confiscate,
         Monarch_Treasure_Award,
+        Monarch_Treasure_Sell,
         Section_New,
         Section_Regroup,
         Section_Disband,

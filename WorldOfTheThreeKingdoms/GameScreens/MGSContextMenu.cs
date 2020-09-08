@@ -751,6 +751,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case ContextMenuResult.Monarch_Treasure_Award:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Treasure, FrameFunction.GetAwardTreasure, false, true, true, false, this.CurrentArchitecture.GetTreasureListOfLeader(), null, "", "");
                     break;
+                case ContextMenuResult.Monarch_Treasure_Sell:
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Treasure, FrameFunction.GetSellTreasure, false, true, true, false, this.CurrentArchitecture.GetTreasureListOfLeader(), null, "卖宝", "");
+                    break;
                 case ContextMenuResult.Monarch_officePosition_SelfBecomeEmperor:
                     this.CurrentArchitecture.BelongedFaction.SelfBecomeEmperor();
                     break;

@@ -66,7 +66,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 }
             }
         }
-
+        private void FrameFunction_Architecture_AfterGetSellTreasure() // 卖宝
+        {
+            this.CurrentGameObject = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as GameObject;
+            if (this.CurrentGameObject != null)
+            {
+                Treasure currentGameObject = this.CurrentGameObject as Treasure;
+                this.CurrentArchitecture.BelongedFaction.Leader.LoseTreasure(currentGameObject);
+                Session.Current.Scenario.Treasures.Remove(currentGameObject);
+                this.CurrentArchitecture.IncreaseFund(10000);
+            }
+        }
         private void FrameFunction_Architecture_Afterxuanzemeinv() // 纳妃
         {
             this.CurrentPerson = Session.MainGame.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
@@ -1422,6 +1432,9 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 case FrameFunction.GetAwardTreasurePerson:
                     this.FrameFunction_Architecture_AfterGetAwardTreasurePerson();
+                    break;
+                case FrameFunction.GetSellTreasure:
+                    this.FrameFunction_Architecture_AfterGetSellTreasure();
                     break;
                 case FrameFunction.xuanzemeinv :
                     this.FrameFunction_Architecture_Afterxuanzemeinv();
