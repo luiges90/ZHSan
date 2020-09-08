@@ -118,6 +118,7 @@ namespace GameGlobal
         Monarch_ZhaoXianBang_DismissOfficer, //遣散
         Monarch_Techniques,
         Monarch_MakeMarriage,
+        Monarch_MakeMarriage2,//纳妾
         Monarch_TrainChildren,
         Monarch_KillRelease_ReleaseSelfPerson,
         Monarch_KillRelease_MoveCaptive, //转移俘虏

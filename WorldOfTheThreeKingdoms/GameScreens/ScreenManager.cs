@@ -510,6 +510,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
+        private void FrameFunction_Architecture_AfterSelectMarryablePerson2()
+        {
+            GameObjectList selectedList = this.CurrentArchitecture.Persons.GetSelectedList();
+            if ((selectedList != null) && (selectedList.Count == 1))
+            {
+                this.CurrentPerson = selectedList[0] as Person;
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectMarryTo, false, true, true, false, this.CurrentPerson.MakeMarryable2(), null, "选择纳妾对象", "");
+            }
+        }
         private void FrameFunction_Architecture_AfterSelectMarryTo()
         {
             GameObjectList selectedList = this.CurrentArchitecture.Persons.GetSelectedList();
@@ -1256,6 +1265,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 case FrameFunction.SelectMarryablePerson:
                     this.FrameFunction_Architecture_AfterSelectMarryablePerson();
+                    break;
+
+                case FrameFunction.SelectMarryablePerson2:
+                    this.FrameFunction_Architecture_AfterSelectMarryablePerson2();
                     break;
 
                 case FrameFunction.SelectMarryTo:

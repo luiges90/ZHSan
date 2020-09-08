@@ -647,6 +647,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectMarryablePerson, false, true, true, false, this.CurrentArchitecture.makeMarryablePersons(), null, "赐婚", "");
                     break;
 
+                case ContextMenuResult.Monarch_MakeMarriage2:
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectMarryablePerson2, false, true, true, false, this.CurrentArchitecture.MakeMarryablePersons2(), null, "纳妾", "");
+                    break;
+
                 case ContextMenuResult.Monarch_TrainChildren:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectTrainableChildren, false, true, true, true, this.CurrentArchitecture.BelongedFaction.Leader.TrainableChildren, null, "子女培育", "");
                     break;

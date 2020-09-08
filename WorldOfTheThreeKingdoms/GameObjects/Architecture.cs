@@ -9463,6 +9463,11 @@ namespace GameObjects
             return this.makeMarryablePersons().Count > 0;
         }
 
+        public bool HasMarriageToMake2()
+        {
+            return this.MakeMarryablePersons2().Count > 0;
+        }
+
         public bool HasChildrenToTrain()
         {
             return this.BelongedFaction.Leader.TrainableChildren.Count > 0;
@@ -12858,6 +12863,21 @@ namespace GameObjects
             return result;
         }
 
+        public PersonList MakeMarryablePersons2()//可以纳妾的男武将列表
+        {
+            PersonList result = new PersonList();
+
+            if (this.Fund < Session.Parameters.MakeMarriageCost) return result;
+
+            foreach (Person p in this.Persons)
+            {
+                if (!p.Sex && p.MakeMarryable2().Count > 0)
+                {
+                    result.Add(p);
+                }
+            }
+            return result;
+        }
         public int AbundantFood
         {
             get
