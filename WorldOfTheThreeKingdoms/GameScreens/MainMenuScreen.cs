@@ -140,7 +140,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         NumericSetTextureF nstMusic, nstSound;
 
-        NumericSetTextureF nstArmySpeed, nstDialogTime, nstBattleSpeed, nstAutoSaveTime, nstShowNumberAddTime;
+        NumericSetTextureF nstArmySpeed, nstDialogTime, nstBattleSpeed, nstAutoSaveTime, nstShowNumberAddTime, nstSpeedUp;
 
         NumericSetTextureF nstViewDetail, nstGeneralBattleDead, nstGeneralYun, nstFeiZiYun, nstZhaoXian, nstSearchGen, nstZaiNan, nstDayInTurn;
 
@@ -2157,6 +2157,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
+            nstSpeedUp = new NumericSetTextureF(1, 10, 10, null, new Vector2(420, 635), true)
+            {
+                IntMode = true,
+                DisNumber = false,
+                NowNumber = 1,
+                Unit = 1
+            };
+
             btOne = new ButtonTexture(@"Content\Textures\Resources\Start\CheckBox", "CheckBox", new Vector2(165, heightBase + height * 4.5f))
             {
                 ID = "AutoSave"
@@ -3362,6 +3370,8 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             nstBattleSpeed.NowNumber = Setting.Current.GlobalVariables.FastBattleSpeed;
 
             nstShowNumberAddTime.NowNumber = Setting.Current.GlobalVariables.ShowNumberAddTime;
+
+            nstSpeedUp.NowNumber = Setting.Current.SpeedUp;
             //cbAIHardList.ForEach(cb => cb.Selected = false);
             //var cbAIHard = cbAIHardList.FirstOrDefault(cb => cb.ID == Setting.Current.Difficulty);
             //if (cbAIHard != null)
@@ -4177,7 +4187,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 Setting.Current.GamerName = tbGamerName.Text.NullToStringTrim();
 
-                var nsts = new NumericSetTextureF[] { nstMusic, nstSound, nstArmySpeed, nstDialogTime, nstBattleSpeed, nstAutoSaveTime, nstShowNumberAddTime };//后面没有战斗速度的处理，虽然此参数并无用
+                var nsts = new NumericSetTextureF[] { nstMusic, nstSound, nstArmySpeed, nstDialogTime, nstBattleSpeed, nstAutoSaveTime, nstShowNumberAddTime, nstSpeedUp };//后面没有战斗速度的处理，虽然此参数并无用
 
                 foreach (var nst in nsts)
                 {
@@ -4230,6 +4240,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 if (Setting.Current.GlobalVariables.ShowNumberAddTime != (int)nstShowNumberAddTime.NowNumber)
                 {
                     Setting.Current.GlobalVariables.ShowNumberAddTime = (int)nstShowNumberAddTime.NowNumber;
+                }
+
+                if (Setting.Current.SpeedUp != (int)nstSpeedUp.NowNumber)
+                {
+                    Setting.Current.SpeedUp = (int)nstSpeedUp.NowNumber;
                 }
             }
             else if (MenuType == MenuType.About)
@@ -4915,6 +4930,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 nstAutoSaveTime.Heightchange = -5;
                 nstAutoSaveTime.leftTexture.Scale = 0.8f;
                 nstAutoSaveTime.rightTexture.Scale = 0.8f;
+                nstSpeedUp.Widthchange = -50;
+                nstSpeedUp.Heightchange = -5;
+                nstSpeedUp.leftTexture.Scale = 0.8f;
+                nstSpeedUp.rightTexture.Scale = 0.8f;
                 nstMusic.Draw(alpha);
                 nstSound.Draw(alpha);
 
@@ -4923,14 +4942,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 nstBattleSpeed.Draw(alpha);
                 nstAutoSaveTime.Draw(alpha);
                 nstShowNumberAddTime.Draw(alpha);
+                nstSpeedUp.Draw(alpha);
 
                 CacheManager.DrawString(Session.Current.Font, "对话窗显示时间:", new Vector2(195, 427), Color.White * alpha, 0f, Vector2.Zero, 0.7f, SpriteEffects.None, 1f);
 
-                CacheManager.DrawString(Session.Current.Font, "战斗速度:", new Vector2(195, 476), Color.White * alpha, 0f, Vector2.Zero, 0.7f, SpriteEffects.None, 1f);
+                CacheManager.DrawString(Session.Current.Font, "战斗速度(越大越慢):", new Vector2(195, 476), Color.White * alpha, 0f, Vector2.Zero, 0.7f, SpriteEffects.None, 1f);
 
                 CacheManager.DrawString(Session.Current.Font, "部队移动(越大越慢)", new Vector2(195, 523), Color.White * alpha, 0f, Vector2.Zero, 0.6f, SpriteEffects.None, 1f);
 
                 CacheManager.DrawString(Session.Current.Font, "数字显示时间增量", new Vector2(195, 605), Color.White * alpha, 0f, Vector2.Zero, 0.6f, SpriteEffects.None, 1f);
+
+                CacheManager.DrawString(Session.Current.Font, "游戏速度(重进生效)", new Vector2(195, 635), Color.White * alpha, 0f, Vector2.Zero, 0.7f, SpriteEffects.None, 1f);
 
                 CacheManager.DrawString(Session.Current.Font, "自动存档,密度(天數)", new Vector2(195, 570), Color.White * alpha, 0f, Vector2.Zero, 0.6f, SpriteEffects.None, 1f);
 
