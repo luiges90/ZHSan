@@ -755,6 +755,10 @@ Color="4294967295"></Leaf>
      <Leaf Property="TextResultString" Color="4286644223"></Leaf>
      <Leaf Text="的招贤又失败了，真是贤者难求啊" Color="4294967295"></Leaf>
      </Branch>
+ <Branch Name="ZhiBao">
+    <Leaf Text="制作了宝物" Color="4294967295"></Leaf>
+    <Leaf Property="TextResultString" Color="4286644223"></Leaf>
+   </Branch>
  <Branch Name="AwardTitle"> 
      <Leaf Property="TextResultString" Color="4286644223"></Leaf>
      <Leaf Text="被封为" Color="4294967295"></Leaf> 

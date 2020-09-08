@@ -127,6 +127,7 @@
         <MenuItem ID="9" Name="SelectPrince"  DisplayName="立储" DisplayIfTrue="SelectPrinceAvail" />
         <MenuItem ID="11" Name="ZhaoXianBang"  DisplayName="招贤榜">
           <MenuItem ID="1" Name="GenerateOfficer" DisplayName="招贤" DisplayIfTrue="CanZhaoXian" />
+          <MenuItem ID="2" Name="ZhiBao" DisplayName="制作宝物" DisplayIfTrue="CanZhaoXian" />
         </MenuItem>
         <MenuItem ID="3" Name="Diplomatic" DisplayName="外交">
           <MenuItem ID="1" Name="EnhanceDiplomaticRelation" DisplayName="亲善" DisplayIfTrue="EnhanceDiplomaticRelationAvail" />
@@ -214,11 +215,12 @@
         <MenuItem ID="3" Name="Music" DisplayName="播放游戏音乐" OppositeName="停止游戏音乐" OppositeIfTrue="IsPlayingMusic" />
         <MenuItem ID="4" Name="NormalSound" DisplayName="播放一般音效" OppositeName="关闭一般音效" OppositeIfTrue="IsPlayingNormalSound" />
         <MenuItem ID="5" Name="BattleSound" DisplayName="播放战斗音效" OppositeName="关闭战斗音效" OppositeIfTrue="IsPlayingBattleSound" />
-		<MenuItem ID="10" Name="TroopVoice" DisplayName="播放战斗对话" OppositeName="关闭战斗对话" OppositeIfTrue="IsPlayingTroopVoice" />
+		    <MenuItem ID="10" Name="TroopVoice" DisplayName="播放战斗对话" OppositeName="关闭战斗对话" OppositeIfTrue="IsPlayingTroopVoice" />
         <MenuItem ID="6" Name="TroopAnimation" DisplayName="显示部队动画" OppositeName="省略部队动画" OppositeIfTrue="IsPlayingTroopAnimation" />
         <MenuItem ID="7" Name="FullScreen" DisplayName="进入全屏显示" OppositeName="退出全屏显示" OppositeIfTrue="IsFullScreen" />
         <MenuItem ID="8" Name="SkyEye" DisplayName="开启天眼*" OppositeName="关闭天眼" OppositeIfTrue="IsSkyEye" />
         <MenuItem ID="9" Name="MultipleResource" DisplayName="资源收入加倍*" OppositeName="停止资源加倍" OppositeIfTrue="IsMultipleResource" />
+        <MenuItem ID="11" Name="SkyEyeSimpleNotification" DisplayName="简讯开关" OppositeName="关闭简讯" OppositeIfTrue="IsSkyEyeSimpleNotification" />
       </MenuItem>
       <MenuItem ID="8" Name="YearTable" DisplayName="年表">
         <MenuItem ID="1" Name="Year5" DisplayName="最近五年" />
@@ -277,11 +279,12 @@
       
     </MenuKind>
     <MenuKind ID="5" Name="TroopRightClick" DisplayName="部队右键菜单" IsLeft="false" Width="130" Height="27" DisplayAll="False">
-      <MenuItem ID="1" Name="TroopDetail" DisplayName="部队信息" DisplayIfTrue="IsCurrentPlayer" />
+      <MenuItem ID="1" Name="TroopDetail" DisplayName="部队信息" />
       <MenuItem ID="2" Name="TroopPersons" DisplayName="部队人物" />
       <MenuItem ID="3" Name="TroopMilitary" DisplayName="部队编队" DisplayIfTrue="IsCurrentPlayer" />
       <MenuItem ID="4" Name="TroopCaptive" DisplayName="部队俘虏" DisplayIfTrue="HasCaptive" />
       <MenuItem ID="5" Name="TroopTreasure" DisplayName="相关宝物" DisplayIfTrue="HasTreasure" />
+      <MenuItem ID="6" Name="AllTroopInfluences" DisplayName="部队影响" />
     </MenuKind>
     <MenuKind ID="6" Name="RoutewayRightClick" DisplayName="粮道右键菜单" IsLeft="false" Width="130" Height="27">
       <MenuItem ID="1" Name="RoutewayEdit" DisplayName="编辑粮道" />

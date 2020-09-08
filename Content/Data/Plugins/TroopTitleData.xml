@@ -70,7 +70,13 @@
       FontColor="4294967295"
       Align="Middle">
   </Thebingli1Text>
-  <Item38></Item38>
+ <TheSpeed1Text X="50" Y="0" Width="42" Height="25"
+      FontName="宋体"
+      FontSize="10"
+      FontStyle="Regular"
+      FontColor="4294967295"
+      Align="Middle">
+  </TheSpeed1Text>
   <Item39></Item39>
   <Item40></Item40>
   <TheActionIcon1 Done="ActionDone1.png" Undone="ActionUndone1.png" Auto="ActionAuto1.png" AutoDone="ActionAutoDone1.png" Attacked="ActionAttacked1.png" Moved="ActionMoved1.png" X="42" Y="45" Width="11" Height="11"></TheActionIcon1>
