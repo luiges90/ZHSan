@@ -119,7 +119,7 @@ namespace GameManager
                         if (String.IsNullOrEmpty(rec.CacheType))
                         {
                             //這應該是用戶材質
-                            TextureDics.Remove(tex.Key);
+                            //TextureDics.Remove(tex.Key);
                         }
                         //去除空或已經失效的材質
                         if (tex.Value == null || tex.Value.IsDisposed)
