@@ -846,8 +846,14 @@ namespace GameObjects
                     }
                 }
                 if (joined) continue;
-
-                person.LocationArchitecture = this.Architectures.GetGameObject(person.AvailableLocation) as Architecture;
+                if (Setting.Current.Chuchangsuiji)
+                {
+                    person.LocationArchitecture = this.Architectures.GetRandomObject() as Architecture;
+                }
+                else
+                {
+                    person.LocationArchitecture = this.Architectures.GetGameObject(person.AvailableLocation) as Architecture;
+                }
                 person.Status = PersonStatus.NoFaction;
             }
             this.PreparedAvailablePersons.Clear();
