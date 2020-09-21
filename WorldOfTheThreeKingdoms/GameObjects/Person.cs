@@ -2457,7 +2457,7 @@ namespace GameObjects
             {
                 this.LocationArchitecture.DecreaseFund(Session.Parameters.MakeMarriageCost);
 
-                makeHateCausedByAffair(this, p, maker);
+                //makeHateCausedByAffair(this, p, maker);
             }
             if (this.Spouse == null)
             {
