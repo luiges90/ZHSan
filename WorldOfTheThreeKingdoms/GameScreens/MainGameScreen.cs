@@ -1260,6 +1260,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                         this.CurrentTroop.SelectedMove = true;
                         this.CurrentTroop.SelectedAttack = true;
+                        if(this.CurrentTroop.Stratagems != null) { this.CurrentTroop.mingling = "Stratagem"; }
                         if (this.CurrentTroop.mingling != "Move" && this.CurrentTroop.mingling != "Stratagem" && this.CurrentTroop.mingling != "Enter")
                         {
                             this.CurrentTroop.mingling = "Attack";
