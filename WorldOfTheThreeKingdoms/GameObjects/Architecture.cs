@@ -6823,6 +6823,7 @@ namespace GameObjects
                         this.DecreaseFund(this.InternalFundCost);
                     }
                     int randomValue = StaticMethods.GetRandomValue((int)((person.EnduranceAbility * this.CurrentRateOfInternal) * Session.Parameters.InternalRate), 500 + (150 * (this.AreaCount - 1)));
+                    if (this.IsSurrounded()) { randomValue = randomValue / 10; }
                     if (randomValue > 0)
                     {
                         person.AddInternalExperience(randomValue * 2);
