@@ -336,22 +336,22 @@ namespace GameManager
                 }
             }).Start();
 
-            if (String.IsNullOrEmpty(Setting.Current.Difficulty))
-            {
-                if (String.IsNullOrEmpty(Session.GlobalVariables.GameDifficulty))
-                {
-                    Setting.Current.Difficulty = Difficulty.beginner.ToString();
-                }
-                else
-                {
-                    Setting.Current.Difficulty = Session.GlobalVariables.GameDifficulty;
-                }
-            }
+            //if (String.IsNullOrEmpty(Setting.Current.Difficulty))
+            //{
+            //    if (String.IsNullOrEmpty(Session.GlobalVariables.GameDifficulty))
+            //    {
+            //        Setting.Current.Difficulty = Difficulty.beginner.ToString();
+            //    }
+            //    else
+            //    {
+            //        Setting.Current.Difficulty = Session.GlobalVariables.GameDifficulty;
+            //    }
+            //}
 
-            if (String.IsNullOrEmpty(Setting.Current.BattleSpeed))
-            {
-                Setting.Current.BattleSpeed = Setting.Current.GlobalVariables.FastBattleSpeed.ToString();
-            }
+            //if (String.IsNullOrEmpty(Setting.Current.BattleSpeed))
+            //{
+            //    Setting.Current.BattleSpeed = Setting.Current.GlobalVariables.FastBattleSpeed.ToString();
+            //}
 
             Session.LoadFont(Setting.Current.Language);
 

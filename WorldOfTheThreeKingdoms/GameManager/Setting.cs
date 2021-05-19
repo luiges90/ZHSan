@@ -29,10 +29,10 @@ namespace GameManager
         public string Resolution { get; set; }
         [DataMember]
         public string GamerName { get; set; }
-        [DataMember]
-        public string Difficulty { get; set; }
-        [DataMember]
-        public string BattleSpeed { get; set; }
+        //[DataMember]
+        //public string Difficulty { get; set; }
+        //[DataMember]
+        //public string BattleSpeed { get; set; }
         [DataMember]
         public int? SpeedUp { get; set; }
         [DataMember]
