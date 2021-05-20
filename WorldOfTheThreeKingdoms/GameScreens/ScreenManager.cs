@@ -75,7 +75,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 {
                     this.CurrentArchitecture.BelongedFaction.Leader.LoseTreasure(treasure);
                     Session.Current.Scenario.Treasures.Remove(treasure);
-                    this.CurrentArchitecture.IncreaseFund(10000);
+                    this.CurrentArchitecture.IncreaseFund(treasure.Worth * 1000);
                 }
             }
         }

@@ -127,7 +127,6 @@
         <MenuItem ID="9" Name="SelectPrince"  DisplayName="立储" DisplayIfTrue="SelectPrinceAvail" />
         <MenuItem ID="11" Name="ZhaoXianBang"  DisplayName="招贤榜">
           <MenuItem ID="1" Name="GenerateOfficer" DisplayName="招贤" DisplayIfTrue="CanZhaoXian" />
-          <MenuItem ID="2" Name="ZhiBao" DisplayName="制作宝物" DisplayIfTrue="CanZhaoXian" />
         </MenuItem>
         <MenuItem ID="3" Name="Diplomatic" DisplayName="外交">
           <MenuItem ID="1" Name="EnhanceDiplomaticRelation" DisplayName="亲善" DisplayIfTrue="EnhanceDiplomaticRelationAvail" />
@@ -158,7 +157,7 @@
         <MenuItem ID="8" Name="Treasure" DisplayName="宝物">
           <MenuItem ID="1" Name="Confiscate" DisplayName="没收" DisplayIfTrue="HasTreasureToConfiscate" />
           <MenuItem ID="2" Name="Award" DisplayName="授予" DisplayIfTrue="HasTreasureToAward" />
-	  <MenuItem ID="3" Name="Sell" DisplayName="卖" DisplayIfTrue="HasTreasureToAward" />
+	  <MenuItem ID="3" Name="Sell" DisplayName="卖出" DisplayIfTrue="HasTreasureToAward" />
         </MenuItem>
       </MenuItem>
       <MenuItem ID="8" Name="Section" DisplayName="军区">
@@ -243,7 +242,7 @@
         <MenuItem ID="12" Name="AllTerrainDetails" DisplayName="所有地形" />
         <MenuItem ID="16" Name="AllGuanjues" DisplayName="所有官爵" />
         <MenuItem ID="15" Name="AllTreasures" DisplayName="所有宝物*" />
-        <MenuItem ID="17" Name="AllDeadPersons" DisplayName="浪沙淘尽英雄" />
+        <MenuItem ID="17" Name="AllDeadPersons" DisplayName="已去世人物" />
       </MenuItem>
       <MenuItem ID="5" Name="Save" DisplayName="存储进度" DisplayIfTrue="SaveAvail" />
       <MenuItem ID="6" Name="Load" DisplayName="读取进度" DisplayIfTrue="LoadAvail" />
