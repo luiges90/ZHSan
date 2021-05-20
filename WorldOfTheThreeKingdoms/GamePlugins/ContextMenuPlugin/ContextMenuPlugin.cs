@@ -125,7 +125,7 @@ namespace ContextMenuPlugin
                 {
                     foreach (MenuItem i in kind.MenuItems)
                     {
-                        if (i.Name.Equals("TroopCombatMethod"))
+                        if (i.Name.Equals("TroopCombatMethod")|| i.Name.Equals("TroopAutoCombatMethod"))
                         {
                             i.MenuItems.Clear();
                             foreach (GameObjects.TroopDetail.CombatMethod m in Session.Current.Scenario.GameCommonData.AllCombatMethods.CombatMethods.Values)

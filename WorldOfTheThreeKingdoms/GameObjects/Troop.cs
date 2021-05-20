@@ -234,6 +234,7 @@ namespace GameObjects
         private int criticalStrikeChance;
         private CombatMethod currentCombatMethod;
         private int currentCombatMethodID = -1;
+        private int autoCombatMethodID = -1;
         //private Person CurrentDestinationChallengePerson;
         private Person CurrentDestinationControversyPerson;
         public OutburstKind CurrentOutburstKind;
@@ -525,6 +526,7 @@ namespace GameObjects
         private List<TroopDamage> TroopDamageList = new List<TroopDamage>();
         private int troopIntelligence;
         private int troopStrength;
+        public bool troopChallengeCommand = false;
         private GameArea viewArea = null;
 
         public int ViewingCliffFriendlyTroopCount;
@@ -2094,6 +2096,13 @@ namespace GameObjects
 
         public void AttackTroop(Troop troop)
         {
+            //if (this.AutoCombatMethodID != -1)
+            //{
+            //    this.CurrentStratagem = null;
+            //    this.CurrentCombatMethod = Session.Current.Scenario.GameCommonData.AllCombatMethods.GetCombatMethod(this.AutoCombatMethodID);
+            //    this.CurrentCombatMethod.Apply(this);
+            //    this.RefreshAllData();
+            //}
             if (troop != null)
             {
                 TroopDamage damage2;
@@ -7910,6 +7919,13 @@ namespace GameObjects
             if ((this.CurrentStunt != null) && (this.StuntDayLeft > 0))
             {
             }
+            if (this.AutoCombatMethodID != -1)
+            {
+                this.CurrentStratagem = null;
+                this.CurrentCombatMethod = Session.Current.Scenario.GameCommonData.AllCombatMethods.GetCombatMethod(this.AutoCombatMethodID);
+                //this.CurrentCombatMethod.Apply(this);
+                //this.RefreshAllData();
+            }
             if (this.CurrentCombatMethod != null)
             {
                 this.CurrentCombatMethod.Apply(this);
@@ -10212,6 +10228,8 @@ namespace GameObjects
             damage.InjuredDamage = (int)(this.reduceInjuredOnAttack * damage.DestinationTroop.Army.Kind.MinScale);
             damage.TirednessIncrease = this.TirednessIncreaseOnAttack;
             damage.StealFood = Math.Min(damage.DestinationTroop.Food, this.StealFood);
+            //Challenge challenge = new Challenge();
+            //challenge.ChallgenEvent(this, troop, damage);  //单挑事件
             if (damage.Critical) //控制单挑发生相关
             {
                 this.PreAction = TroopPreAction.暴击;
@@ -10226,8 +10244,15 @@ namespace GameObjects
                 }
                 Challenge challenge = new Challenge();
                 challenge.ChallgenEvent(this, troop, damage);  //单挑事件
+                this.troopChallengeCommand = false;
                 damage.InjuredDamage += (int)(this.reduceInjuredOnCritical * damage.DestinationTroop.Army.Kind.MinScale);
                 damage.TirednessIncrease += this.TirednessIncreaseOnCritical;
+            }
+            if (this.troopChallengeCommand)
+            {
+                Challenge challenge = new Challenge();
+                challenge.ChallgenEvent(this, troop, damage);
+                this.troopChallengeCommand = false;
             }
             if (damage.Waylay)
             {
@@ -12121,7 +12146,18 @@ namespace GameObjects
                 this.currentCombatMethodID = value;
             }
         }
-
+        [DataMember]
+        public int AutoCombatMethodID
+        {
+            get
+            {
+                return this.autoCombatMethodID;
+            }
+            set
+            {
+                this.autoCombatMethodID = value;
+            }
+        }
         public string CurrentDestinationChallengePersonName;
 
 
