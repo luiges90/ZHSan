@@ -256,7 +256,11 @@ namespace GameObjects
         {
             this.Developing = false;
             Troop troopByPositionNoCheck;
-            int routewayWorkForce = this.BelongedFaction.RoutewayWorkForce;
+            int routewayWorkForce = 0;
+            if (this.BelongedFaction != null)
+            {
+                routewayWorkForce = this.BelongedFaction.RoutewayWorkForce;
+            }         
             if (node == null)
             {
                 node = this.RoutePoints.First;
