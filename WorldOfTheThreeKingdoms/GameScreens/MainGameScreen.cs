@@ -2808,10 +2808,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 btBack.Update();
                 if (btBack.MouseOver)
                 {
-                    if (InputManager.IsPressed)
-                    {
-                        InputManager.SleepTime = 1f;
-                    }
+                    //if (InputManager.IsPressed)
+                    //{
+                    //    InputManager.SleepTime = 1f;
+                    //}
                 }
             }
             if (base.EnableUpdate)
