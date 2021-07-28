@@ -1011,6 +1011,11 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 case ContextMenuResult.TroopCombatMethod_Cancel:
                     this.CurrentTroop.CurrentCombatMethod = null;
+                    this.CurrentTroop.CurrentStratagem = null;
+                    this.CurrentTroop.AutoCombatMethodID = -1;
+                    //this.CurrentTroop.Operated = false;
+                    this.CurrentTroop.SelectedMove = false;
+                    this.CurrentTroop.SelectedAttack = false;
                     break;
 
                 case ContextMenuResult.TroopCombatMethod:
@@ -1202,7 +1207,15 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case ContextMenuResult.TroopInfo_TroopDetail:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Troop, FrameFunction.Browse, true, true, false, false, this.CurrentTroop.GetGameObjectList(), null, "", "");
+                    if (!Session.LargeContextMenu)
+                    {
+                        this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Troop, FrameFunction.Browse, true, true, false, false, this.CurrentTroop.GetGameObjectList(), null, "", "");
+                    }
+                    else
+                    {
+                        this.ContextMenuRightClick();
+                    }
+                    //this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Troop, FrameFunction.Browse, true, true, false, false, this.CurrentTroop.GetGameObjectList(), null, "", "");
                     break;
 
                 case ContextMenuResult.TroopInfo_TroopPersons:
@@ -1295,7 +1308,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
             }
         }
-
+        public void MoblieHandle()
+        {
+            this.ContextMenuRightClick();
+        }
 
     }
 }
