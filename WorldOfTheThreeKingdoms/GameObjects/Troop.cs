@@ -968,7 +968,7 @@ namespace GameObjects
 
         private string getSoundPath(Animation a)
         {
-            if (Setting.Current.GlobalVariables.TroopVoice)
+            if ((Setting.Current.GlobalVariables.TroopVoice)&&(Session.MainGame.mainGameScreen.mainMapLayer.TileInScreen(this.Position) && (((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || Session.Current.Scenario.CurrentPlayer.IsFriendly(this.BelongedFaction)) || Session.Current.Scenario.CurrentPlayer.IsPositionKnown(this.Position))))
             {
                 if (Directory.Exists("Content/Sound/Animation/Person/" + this.Leader.ID))
                 {
@@ -2574,7 +2574,7 @@ namespace GameObjects
                         this.BelongedFaction.ClosedRouteways.Add(key, null);
                     }
                 }
-                if (this.CanEnter() && this.Army.Kind.Movability > 1)
+                if (this.CanEnter() && this.Army.Kind.Movability > 1 && this.realDestination == this.Destination)//this.realDestination == this.Destination经过自己方城取消自动进入
                 {
                     this.Enter();
                     cannotFindRouteRounds = 0;
@@ -3853,7 +3853,7 @@ namespace GameObjects
         private int stuckedFor = 0;
         public void DayEvent()
         {
-            if (this.mingling != "Enter")
+            if (this.mingling != "Enter" && this.mingling != "Attack")
             {
                 this.mingling = "";
             }
@@ -8322,16 +8322,23 @@ namespace GameObjects
             {
                 flag = this.TryToStepForward();
             }
-            else if (this.Position != this.RealDestination)
+            else if (this.Position != this.RealDestination && !(this.TargetArchitecture != null && this.CanAttack(this.TargetArchitecture) 
+                && this.TargetArchitecture.ArchitectureArea.HasPoint(this.RealDestination)))
             {
-                flag = this.TryToStepForward();
+               flag = this.TryToStepForward();
                 // this.Destination = this.RealDestination;
             }
             else
-            {
-                this.MovabilityLeft = -1;
-                this.chongshemubiaoshujuqingling();
-
+            { 
+                if(this.TargetArchitecture != null && this.TargetArchitecture.Endurance <= 0)
+                { 
+                    flag = this.TryToStepForward(); 
+                }
+                else
+                {
+                    this.MovabilityLeft = -1;
+                    this.chongshemubiaoshujuqingling();
+                }              
             }
 
             /*if (!flag && this.MovabilityLeft < 0)
@@ -11189,6 +11196,11 @@ namespace GameObjects
 
         public bool TryToStepForward()
         {
+            //if (this.TargetArchitecture != null && this.CanAttack(this.TargetArchitecture))
+            //{
+            //    this.MovabilityLeft = -1;
+            //    return false;
+            //}
             bool path = false;
             MilitaryKind kind = this.Army.Kind;
 
@@ -13285,9 +13297,10 @@ namespace GameObjects
                         this.CurrentTileAnimationKind = TileAnimationKind.鼓舞;
                         break;
                 }
-                if (this.preAction != TroopPreAction.无)
+                if (this.preAction != TroopPreAction.无 && Session.Current.Scenario != null)
                 {
-                    this.TryToPlaySound(this.Position, this.getSoundPath(Session.Current.Scenario.GameCommonData.AllTileAnimations.GetAnimation((int)this.CurrentTileAnimationKind)), false);
+                    if (Session.MainGame.mainGameScreen.mainMapLayer.TileInScreen(this.Position) && (((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || Session.Current.Scenario.CurrentPlayer.IsFriendly(this.BelongedFaction)) || Session.Current.Scenario.CurrentPlayer.IsPositionKnown(this.Position)))
+                        this.TryToPlaySound(this.Position, this.getSoundPath(Session.Current.Scenario.GameCommonData.AllTileAnimations.GetAnimation((int)this.CurrentTileAnimationKind)), false);
                 }
             }
         }
@@ -13546,7 +13559,8 @@ namespace GameObjects
                 }
                 if (this.CurrentTileAnimationKind != TileAnimationKind.无 && Session.Current.Scenario != null)
                 {
-                    this.TryToPlaySound(this.Position, this.getSoundPath(Session.Current.Scenario.GameCommonData.AllTileAnimations.GetAnimation((int)this.CurrentTileAnimationKind)), false);
+                    if (Session.MainGame.mainGameScreen.mainMapLayer.TileInScreen(this.Position) && (((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || Session.Current.Scenario.CurrentPlayer.IsFriendly(this.BelongedFaction)) || Session.Current.Scenario.CurrentPlayer.IsPositionKnown(this.Position)))
+                        this.TryToPlaySound(this.Position, this.getSoundPath(Session.Current.Scenario.GameCommonData.AllTileAnimations.GetAnimation((int)this.CurrentTileAnimationKind)), false);
                 }
             }
         }

@@ -227,18 +227,20 @@ namespace GameObjects
                         troop.RealDestination = troop.Position;
                     }
                 }
-                else if (troop.TargetArchitecture != null && troop.mingling == "Attack")//&& !troop.CanAttack(troop.TargetArchitecture)
+                else if (troop.TargetArchitecture != null && troop.mingling == "Attack" && !troop.CanAttack(troop.TargetArchitecture))
                 {
                     troop.RealDestination = troop.TargetArchitecture.Position;
                 }
-                else
+
+                else if(troop.TargetArchitecture != null && troop.TargetArchitecture.Endurance <= 0)
                 { 
-                    //troop.RealDestination = troop.Position;
+                    troop.RealDestination = troop.TargetArchitecture.Position;
                 }
+                else troop.RealDestination = troop.Position;
             }
-            else if (troop.TargetTroop != null && troop.Will.ToString() == "行军" && troop.mingling!= "Move" && 
-                ((troop.CurrentStratagem==null && troop.CanAttack(troop.TargetTroop))
-                || (troop.CurrentStratagem != null && troop.CanStratagem(troop.TargetTroop))))//ai
+            else if (troop.TargetTroop != null && troop.Will.ToString() == "行军" && troop.mingling!= "Move" )//&& 
+                //((troop.CurrentStratagem==null && troop.CanAttack(troop.TargetTroop))
+                //|| (troop.CurrentStratagem != null && troop.CanStratagem(troop.TargetTroop))))//ai//取消见面能打就站桩
             {
                 if (troop.BaseAttackEveryAround || troop.AttackEveryAround)
                 {//修复雷霆战法攻击方式
@@ -250,11 +252,11 @@ namespace GameObjects
                         }
                     }
                 }
-                troop.RealDestination = troop.Position;
+                //troop.RealDestination = troop.Position;
             }
             else if (troop.TargetArchitecture != null)
             {
-                troop.RealDestination = troop.TargetArchitecture.Position;
+                //troop.RealDestination = troop.TargetArchitecture.Position;
             }
         }
 
