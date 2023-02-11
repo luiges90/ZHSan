@@ -10399,7 +10399,7 @@ namespace GameObjects
 
             if (addHate)
             {
-                nvren.AdjustRelation(leader, 0, -200 * nvren.PersonalLoyalty * nvren.PersonalLoyalty);
+                nvren.AdjustRelation(leader, 0, -100 * nvren.PersonalLoyalty * nvren.PersonalLoyalty);
                 this.DecreaseKarma(1 + nvren.PersonalLoyalty * 2 + Math.Max(0, this.Karma / 5));
 
                 foreach (Person p in Session.Current.Scenario.Persons)
@@ -10518,8 +10518,8 @@ namespace GameObjects
 
                     if (!q.WillHateIfChongxing)
                     {
-                        this.AdjustRelation(q, houGongDays / 5.0f * (this.Glamour / 100.0f), 0);
-                        q.AdjustRelation(this, houGongDays / 5.0f * (this.Glamour / 100.0f), 0);
+                        this.AdjustRelation(q, houGongDays / 3.0f * (this.Glamour / 100.0f), 0);
+                        q.AdjustRelation(this, houGongDays / 3.0f * (this.Glamour / 100.0f), 0);
                     }
 
                     if (!q.Hates(this) && !this.Hates(q))
