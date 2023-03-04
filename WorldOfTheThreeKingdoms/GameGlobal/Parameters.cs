@@ -332,6 +332,10 @@ namespace GameGlobal
         public float RecruitPopualationDecreaseRate = 0.25f;
         [DataMember]
         public float AIOffensiveCampaignRequiredScaleFactor = 1.0f;
+        [DataMember]
+        public int PersonCap = 2000;
+        [DataMember]
+        public float PersonCapFalldown = 10;
 
         public Parameters Clone()
         {
@@ -516,6 +520,9 @@ namespace GameGlobal
                 MakeMarriageCost = int.Parse(nextSibling.Attributes.GetNamedItem("MakeMarriageCost").Value);
                 NafeiCost = int.Parse(nextSibling.Attributes.GetNamedItem("NafeiCost").Value);
                 MakeMarrigeIdealLimit = int.Parse(nextSibling.Attributes.GetNamedItem("MakeMarrigeIdealLimit").Value);
+
+                PersonCap = int.Parse(nextSibling.Attributes.GetNamedItem("PersonCap").Value);
+                PersonCapFalldown = float.Parse(nextSibling.Attributes.GetNamedItem("PersonCapFalldown").Value);
             }
 
             else
@@ -765,6 +772,8 @@ namespace GameGlobal
             element.SetAttribute("MakeMarriageCost", MakeMarriageCost.ToString());
             element.SetAttribute("NafeiCost", NafeiCost.ToString());
             element.SetAttribute("MakeMarrigeIdealLimit", MakeMarrigeIdealLimit.ToString());
+            element.SetAttribute("PersonCap", PersonCap.ToString());
+            element.SetAttribute("PersonCapFalldown", PersonCapFalldown.ToString());
 
             document.AppendChild(element);
 
@@ -788,6 +797,10 @@ namespace GameGlobal
             if (Session.Parameters.AIOffensiveCampaignRequiredScaleFactor == 0)
             {
                 Session.Parameters.AIOffensiveCampaignRequiredScaleFactor = 1.0f;
+            }
+            if (PersonCap == 0)
+            {
+                PersonCap = 2000;
             }
         }
     }

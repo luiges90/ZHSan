@@ -2250,7 +2250,7 @@ namespace GameObjects
                     foreach (Person q in persons)
                     {
                         if (p == q) continue;
-                        p.AdjustRelation(q, -1f / Math.Max(1, persons.Count), -6);
+                        p.AdjustRelation(q, -2f / Math.Max(1, persons.Count), -6);
                     }
                 }
                 foreach (Person person in persons)
@@ -3021,7 +3021,7 @@ namespace GameObjects
 
                         foreach (Person q in this.Persons)
                         {
-                            person.AdjustRelation(q, -2f / Math.Max(1, this.persons.Count), -6);
+                            person.AdjustRelation(q, -4f / Math.Max(1, this.persons.Count), -6);
                         }
 
                         ExtensionInterface.call("CapturedByTroop", new Object[] { Session.Current.Scenario, this, person });
@@ -3036,7 +3036,7 @@ namespace GameObjects
                     foreach (Person q in this.Persons)
                     {
                         if (p == q) continue;
-                        p.AdjustRelation(q, 1f / Math.Max(1, this.persons.Count), 3);
+                        p.AdjustRelation(q, 2f / Math.Max(1, this.persons.Count), 3);
                     }
                 }
             }
@@ -3048,7 +3048,7 @@ namespace GameObjects
             Captive captive = Captive.Create(person, this.BelongedFaction);
             if (captive != null)
             {
-                captive.CaptivePerson.AdjustRelation(this.Leader, -0.5f, -2);
+                captive.CaptivePerson.AdjustRelation(this.Leader, -1f, -2);
                 this.AddCaptive(captive);
             }
             person.LocationTroop = this;
@@ -3083,7 +3083,7 @@ namespace GameObjects
                         Captive captive = Captive.Create(person, this.BelongedFaction);
                         if (captive != null)
                         {
-                            captive.CaptivePerson.AdjustRelation(this.Leader, -0.5f, -2);
+                            captive.CaptivePerson.AdjustRelation(this.Leader, -1f, -2);
                             this.AddCaptive(captive);
                         }
                         person.LocationArchitecture = null;
@@ -3268,7 +3268,7 @@ namespace GameObjects
                             {
                                 if (GameObject.Chance((p.Uncruelty * 5 + q.Glamour / 2) / 2))
                                 {
-                                    p.AdjustRelation(q, 0.5f / Math.Max(1, sending.persons.Count), 2);
+                                    p.AdjustRelation(q, 1f / Math.Max(1, sending.persons.Count), 2);
                                 }
                             }
                         }
@@ -3282,7 +3282,7 @@ namespace GameObjects
                             {
                                 if (GameObject.Chance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2) / 2))
                                 {
-                                    p.AdjustRelation(q, -0.5f / Math.Max(1, sending.persons.Count), -2);
+                                    p.AdjustRelation(q, -1f / Math.Max(1, sending.persons.Count), -2);
                                 }
                             }
                         }
@@ -3294,7 +3294,7 @@ namespace GameObjects
                             if (p == q) continue;
                             if (GameObject.Chance(p.Uncruelty * 5 + q.Glamour / 2))
                             {
-                                p.AdjustRelation(q, 1f / Math.Max(1, sending.persons.Count), 3);
+                                p.AdjustRelation(q, 2f / Math.Max(1, sending.persons.Count), 3);
                             }
                         }
                     }
@@ -3440,7 +3440,7 @@ namespace GameObjects
                             {
                                 if (GameObject.Chance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2) / 2))
                                 {
-                                    p.AdjustRelation(q, -0.5f / Math.Max(1, sending.persons.Count), -2);
+                                    p.AdjustRelation(q, -1f / Math.Max(1, sending.persons.Count), -2);
                                 }
                             }
                         }
@@ -3452,7 +3452,7 @@ namespace GameObjects
                             if (p == q) continue;
                             if (GameObject.Chance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2)))
                             {
-                                p.AdjustRelation(q, -1f / Math.Max(1, sending.persons.Count), -3);
+                                p.AdjustRelation(q, -2f / Math.Max(1, sending.persons.Count), -3);
                             }
 
                         }
@@ -3464,7 +3464,7 @@ namespace GameObjects
                             if (p == q) continue;
                             if (GameObject.Chance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2)))
                             {
-                                p.AdjustRelation(q, -1f / Math.Max(1, sending.persons.Count), -3);
+                                p.AdjustRelation(q, -2f / Math.Max(1, sending.persons.Count), -3);
                             }
                         }
                     }
@@ -8582,13 +8582,13 @@ namespace GameObjects
 
                 if (currentArchitecture.BelongedFaction != null)
                 {
-                    currentArchitecture.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -1.5f, -3);
+                    currentArchitecture.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, 3f, -3);
                     foreach (Point p in currentArchitecture.LongViewArea.Area)
                     {
                         Troop t = Session.Current.Scenario.GetTroopByPosition(p);
                         if (t != null && t.BelongedFaction != currentArchitecture.BelongedFaction)
                         {
-                            currentArchitecture.BelongedFaction.Leader.AdjustRelation(t.Leader, -1.5f, -3);
+                            currentArchitecture.BelongedFaction.Leader.AdjustRelation(t.Leader, -3f, -3);
                         }
                     }
                 }
@@ -8598,7 +8598,7 @@ namespace GameObjects
                 {
                     if (currentArchitecture.BelongedFaction != null)
                     {
-                        p.AdjustRelation(currentArchitecture.BelongedFaction.Leader, -2f, -5);
+                        p.AdjustRelation(currentArchitecture.BelongedFaction.Leader, -4f, -5);
                     }
                     if (!currentArchitecture.PrincessChangeLeader(true, this.BelongedFaction, p))
                     {

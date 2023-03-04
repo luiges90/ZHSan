@@ -1193,7 +1193,7 @@ namespace GameObjects
             if (oldFaction != null && !GameObject.Chance((int)oldFaction.Leader.PersonalLoyalty * 10))
             {
                 oldFaction.Leader.AddHated(leader, -2000);
-                leader.AdjustRelation(oldFaction.Leader, -20f, -10);
+                leader.AdjustRelation(oldFaction.Leader, -60f, -10);
             }
 
             if (oldFaction != null)
@@ -1214,14 +1214,14 @@ namespace GameObjects
                         {
                             if (p.BelongedFaction != null)
                             {
-                                p.BelongedFaction.Leader.AdjustRelation(p, -15f - p.PersonalLoyalty * 1.5f, -8);
-                                p.BelongedFaction.Leader.AdjustRelation(newFaction.Leader, -5f, -2.5f);
-                                p.AdjustRelation(p.BelongedFaction.Leader, -3f, -2);
+                                p.BelongedFaction.Leader.AdjustRelation(p, -45f - p.PersonalLoyalty * 4.5f, -8);
+                                p.BelongedFaction.Leader.AdjustRelation(newFaction.Leader, -45f, -2.5f);
+                                p.AdjustRelation(p.BelongedFaction.Leader, -7.5f, -2);
                                 p.ChangeFaction(newFaction);
                                 p.DecreaseKarma(5 - p.BelongedFaction.Leader.PersonalLoyalty - Math.Min(0, p.BelongedFaction.Leader.Karma / 2));
                             }
-                            newFaction.Leader.AdjustRelation(p, 10f, 3);
-                            p.AdjustRelation(newFaction.Leader, 3f, 1);
+                            newFaction.Leader.AdjustRelation(p, 15f, 3);
+                            p.AdjustRelation(newFaction.Leader, 4.5f, 1);
                             if (p.LocationTroop == null)
                             {
                                 p.MoveToArchitecture(newFactionCapital);
@@ -4169,13 +4169,13 @@ namespace GameObjects
                             {
                                 if (GameObject.Chance((int) (likeability / 4.0f)))
                                 {
-                                    p.AdjustRelation(q, 3f * factor, 2 * factor);
-                                    q.AdjustRelation(p, 3f * factor, 2 * factor);
+                                    p.AdjustRelation(q, 6f * factor, 2 * factor);
+                                    q.AdjustRelation(p, 6f * factor, 2 * factor);
                                 }
                                 else if (GameObject.Chance((int)(-likeability / 4.0f)))
                                 {
-                                    p.AdjustRelation(q, -3f * factor, -2 * factor);
-                                    q.AdjustRelation(p, -3f * factor, -2 * factor);
+                                    p.AdjustRelation(q, -6f * factor, -2 * factor);
+                                    q.AdjustRelation(p, -6f * factor, -2 * factor);
                                 }
                             }
                         }
@@ -4187,11 +4187,11 @@ namespace GameObjects
                                 float d = (float) Session.Parameters.CloseThreshold / Math.Max(10, p.GetRelation(q));
                                 if (p.LocationArchitecture == q.LocationArchitecture || p.LocationTroop == q.LocationTroop)
                                 {
-                                    p.AdjustRelation(q, -d / 10f, 0);
+                                    p.AdjustRelation(q, -d / 5f, 0);
                                 }
                                 else
                                 {
-                                    p.AdjustRelation(q, -d / 25f, 0);
+                                    p.AdjustRelation(q, -d / 12.5f, 0);
                                 }
 
                                 if (p.GetRelation(q) < 0)
@@ -4211,11 +4211,11 @@ namespace GameObjects
                                 }
                                 if (p.LocationArchitecture == q.LocationArchitecture || p.LocationTroop == q.LocationTroop)
                                 {
-                                    p.AdjustRelation(q, -d / 10f, 0);
+                                    p.AdjustRelation(q, -d / 5f, 0);
                                 }
                                 else
                                 {
-                                    p.AdjustRelation(q, -d / 25f, 0);
+                                    p.AdjustRelation(q, -d / 12.5f, 0);
                                 }
 
                                 if (p.GetRelation(q) > 0)
@@ -6125,8 +6125,8 @@ namespace GameObjects
                                     if (GameObject.Chance((int)((q.Strength - p.Strength + 50 + q.childrenAbilityIncrease) * ((float)p.StrengthPotential / p.Strength))))
                                     {
                                         p.Strength += GameObject.Random(Math.Max((p.StrengthPotential * 6 / 5 - p.Strength) / 10, 1) + 1);
-                                        p.AdjustRelation(q, 0, 5);
-                                        q.AdjustRelation(p, 0, 5);
+                                        p.AdjustRelation(q, 5, 5);
+                                        q.AdjustRelation(p, 2, 5);
                                         if (GameObject.Chance(30))
                                         {
                                             Dictionary<Person, int> rels = q.GetAllRelations();
@@ -6134,7 +6134,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 10));
+                                                    p.AdjustRelation(rel.Key, 2, Math.Min(5, rel.Value / 10));
                                                 }
                                             }
                                         }
@@ -6171,8 +6171,8 @@ namespace GameObjects
                                     if (GameObject.Chance((int)((q.Command - p.Command + 50 + q.childrenAbilityIncrease) * ((float)p.CommandPotential / p.Command))))
                                     {
                                         p.Command += GameObject.Random(Math.Max((p.CommandPotential * 6 / 5 - p.Command) / 10, 1) + 1);
-                                        p.AdjustRelation(q, 0, 5);
-                                        q.AdjustRelation(p, 0, 5);
+                                        p.AdjustRelation(q, 5, 5);
+                                        q.AdjustRelation(p, 2, 5);
                                         if (GameObject.Chance(30))
                                         {
                                             Dictionary<Person, int> rels = q.GetAllRelations();
@@ -6180,7 +6180,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 10));
+                                                    p.AdjustRelation(rel.Key, 2, Math.Min(5, rel.Value / 10));
                                                 }
                                             }
                                         }
@@ -6216,8 +6216,8 @@ namespace GameObjects
                                     if (GameObject.Chance((int)((q.Intelligence - p.Intelligence + 50 + q.childrenAbilityIncrease) * ((float)p.IntelligencePotential / p.Intelligence))))
                                     {
                                         p.Intelligence += GameObject.Random(Math.Max((p.IntelligencePotential * 6 / 5 - p.Intelligence) / 10, 1) + 1);
-                                        p.AdjustRelation(q, 0, 5);
-                                        q.AdjustRelation(p, 0, 5);
+                                        p.AdjustRelation(q, 5, 5);
+                                        q.AdjustRelation(p, 2, 5);
                                         if (GameObject.Chance(30))
                                         {
                                             Dictionary<Person, int> rels = q.GetAllRelations();
@@ -6225,7 +6225,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 10));
+                                                    p.AdjustRelation(rel.Key, 2, Math.Min(5, rel.Value / 10));
                                                 }
                                             }
                                         }
@@ -6262,8 +6262,8 @@ namespace GameObjects
                                     if (GameObject.Chance((int)((q.Politics - p.Politics + 50 + q.childrenAbilityIncrease) * ((float)p.PoliticsPotential / p.Politics))))
                                     {
                                         p.Politics += GameObject.Random(Math.Max((p.PoliticsPotential * 6 / 5 - p.Politics) / 10, 1) + 1);
-                                        p.AdjustRelation(q, 0, 5);
-                                        q.AdjustRelation(p, 0, 5);
+                                        p.AdjustRelation(q, 5, 5);
+                                        q.AdjustRelation(p, 2, 5);
                                         if (GameObject.Chance(30))
                                         {
                                             Dictionary<Person, int> rels = q.GetAllRelations();
@@ -6271,7 +6271,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 10));
+                                                    p.AdjustRelation(rel.Key, 2, Math.Min(5, rel.Value / 10));
                                                 }
                                             }
                                         }
@@ -6308,8 +6308,8 @@ namespace GameObjects
                                     if (GameObject.Chance((int)((q.Glamour - p.Glamour + 50 + q.childrenAbilityIncrease) * ((float)p.GlamourPotential / p.Glamour))))
                                     {
                                         p.Glamour += GameObject.Random(Math.Max((p.GlamourPotential * 6 / 5 - p.Glamour) / 10, 1) + 1);
-                                        p.AdjustRelation(q, 0, 5);
-                                        q.AdjustRelation(p, 0, 5);
+                                        p.AdjustRelation(q, 5, 5);
+                                        q.AdjustRelation(p, 2, 5);
                                         if (GameObject.Chance(30))
                                         {
                                             Dictionary<Person, int> rels = q.GetAllRelations();
@@ -6317,7 +6317,7 @@ namespace GameObjects
                                             {
                                                 if (GameObject.Chance(100 / rels.Count))
                                                 {
-                                                    p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 10));
+                                                    p.AdjustRelation(rel.Key, 2, Math.Min(5, rel.Value / 10));
                                                 }
                                             }
                                         }
@@ -6384,8 +6384,8 @@ namespace GameObjects
                                         if (GameObject.Chance(100 / t.Level + q.childrenSkillChanceIncrease + extraChance))
                                         {
                                             p.Skills.AddSkill(t);
-                                            p.AdjustRelation(q, 0, 5);
-                                            q.AdjustRelation(p, 0, 5);
+                                            p.AdjustRelation(q, 5, 5);
+                                            q.AdjustRelation(p, 2, 5);
                                             if (GameObject.Chance(30))
                                             {
                                                 Dictionary<Person, int> rels = q.GetAllRelations();
@@ -6393,7 +6393,7 @@ namespace GameObjects
                                                 {
                                                     if (GameObject.Chance(100 / rels.Count))
                                                     {
-                                                        p.AdjustRelation(rel.Key, 0, Math.Min(5, rel.Value / 10));
+                                                        p.AdjustRelation(rel.Key, 2, Math.Min(5, rel.Value / 10));
                                                     }
                                                 }
                                             }
@@ -6462,8 +6462,8 @@ namespace GameObjects
                                         if (GameObject.Chance((10 + q.childrenStuntChanceIncrease + extraChance) / 3))
                                         {
                                             p.Stunts.AddStunt(t);
-                                            p.AdjustRelation(q, 0, 10);
-                                            q.AdjustRelation(p, 0, 10);
+                                            p.AdjustRelation(q, 5, 10);
+                                            q.AdjustRelation(p, 2, 10);
                                             if (GameObject.Chance(30))
                                             {
                                                 Dictionary<Person, int> rels = q.GetAllRelations();
@@ -6471,7 +6471,7 @@ namespace GameObjects
                                                 {
                                                     if (GameObject.Chance(100 / rels.Count))
                                                     {
-                                                        p.AdjustRelation(rel.Key, 0, Math.Min(10, rel.Value / 10));
+                                                        p.AdjustRelation(rel.Key, 2, Math.Min(10, rel.Value / 10));
                                                     }
                                                 }
                                             }
@@ -6553,8 +6553,8 @@ namespace GameObjects
                                                 }
                                                 p.RealTitles.Add(t);
 
-                                                p.AdjustRelation(q, 0, 5 * t.Level);
-                                                q.AdjustRelation(p, 0, 5 * t.Level);
+                                                p.AdjustRelation(q, 5, 5 * t.Level);
+                                                q.AdjustRelation(p, 2, 5 * t.Level);
                                                 if (GameObject.Chance(30))
                                                 {
                                                     Dictionary<Person, int> rels = q.GetAllRelations();
@@ -6562,7 +6562,7 @@ namespace GameObjects
                                                     {
                                                         if (GameObject.Chance(100 / rels.Count))
                                                         {
-                                                            p.AdjustRelation(rel.Key, 0, Math.Min(5 * t.Level, rel.Value / 10));
+                                                            p.AdjustRelation(rel.Key, 2, Math.Min(5 * t.Level, rel.Value / 10));
                                                         }
                                                     }
                                                 }

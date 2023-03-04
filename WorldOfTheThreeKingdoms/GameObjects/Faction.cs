@@ -5048,8 +5048,8 @@ namespace GameObjects
                             }
                         }
                     }
-                    target.Leader.AdjustRelation(i.Leader, -6f, -4);
-                    i.Leader.AdjustRelation(target.Leader, -1.5f, -1);
+                    target.Leader.AdjustRelation(i.Leader, -12f, -4);
+                    i.Leader.AdjustRelation(target.Leader, -3f, -1);
                 }
             }
         }
@@ -5065,14 +5065,14 @@ namespace GameObjects
             if (rel.Relation > -Session.GlobalVariables.FriendlyDiplomacyThreshold)
             {
                 rel.Relation -= 100;
-                toEncircle.Leader.AdjustRelation(this.Leader, -9f, -6);
-                this.Leader.AdjustRelation(toEncircle.Leader, -3f, -2);
+                toEncircle.Leader.AdjustRelation(this.Leader, -18f, -6);
+                this.Leader.AdjustRelation(toEncircle.Leader, -6f, -2);
             }
             else
             {
                 rel.Relation -= 50;
-                toEncircle.Leader.AdjustRelation(this.Leader, -9f, -6);
-                this.Leader.AdjustRelation(toEncircle.Leader, -3f, -2);
+                toEncircle.Leader.AdjustRelation(this.Leader, -18f, -6);
+                this.Leader.AdjustRelation(toEncircle.Leader, -6f, -2);
             }
             //处理所有势力和被声讨方的关系
             foreach (DiplomaticRelation f in Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelationListByFactionID(toEncircle.ID))
