@@ -15022,18 +15022,16 @@ namespace GameObjects
                     nvxingwujiangliebiao.Add(person);
                 }
             }
-            if (this.BelongedFaction.IsAlien)
+-           foreach (Captive c in this.Captives)
             {
-                foreach (Captive c in this.Captives)
+                Person person = c.CaptivePerson;
+                if (person.ArrivingDays > 0) continue;
+                if (this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person))
                 {
-                    Person person = c.CaptivePerson;
-                    if (person.ArrivingDays > 0) continue;
-                    if (this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person))
-                    {
-                        nvxingwujiangliebiao.Add(person);
-                    }
+                    nvxingwujiangliebiao.Add(person);
                 }
             }
+
             return nvxingwujiangliebiao;
         }
 

@@ -1397,36 +1397,14 @@ namespace GameObjects
                     {
                         foreach (Person p in a.nvxingwujiang())
                         {
-                            if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null && !p.IsCaptive)
+                            if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
+                            if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null)
                             {
                                 candidate.Add(p);
                             }
                         }
                     }
-                    foreach (Captive c in this.Captives)
-                    {
-                        Person p = c.CaptivePerson;
-                        if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
-                        if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null)
-                        {
-                            candidate.Add(p);
-                        }
-                    }
 
-                    if (this.IsAlien)
-                    {
-                        foreach (Architecture a in this.Architectures)
-                        {
-                            foreach (Person p in a.NoFactionPersons)
-                            {
-                                if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
-                                if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null && !p.IsCaptive)
-                                {
-                                    candidate.Add(p);
-                                }
-                            }
-                        }
-                    }
                     candidate.PropertyName = "UntiredMerit";
                     candidate.IsNumber = true;
                     candidate.SmallToBig = false;
