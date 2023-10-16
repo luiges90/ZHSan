@@ -1404,7 +1404,17 @@ namespace GameObjects
                             }
                         }
                     }
-                   
+                    foreach (Captive c in this.Captives)
+                    {
+                        Person p = c.CaptivePerson;
+                        if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
+                        Person spousePerson = p.Spouse == null ? null : p.Spouse;
+                        if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null)
+                        {
+                            candidate.Add(p);
+                        }
+                    }
+
                     if (this.IsAlien)
                     {
                         foreach (Architecture a in this.Architectures)
@@ -1417,16 +1427,6 @@ namespace GameObjects
                                 {
                                     candidate.Add(p);
                                 }
-                            }
-                        }
-                        foreach (Captive c in this.Captives)
-                        {
-                            Person p = c.CaptivePerson;
-                            if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
-                            Person spousePerson = p.Spouse == null ? null : p.Spouse;
-                            if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null)
-                            {
-                                candidate.Add(p);
                             }
                         }
                     }
