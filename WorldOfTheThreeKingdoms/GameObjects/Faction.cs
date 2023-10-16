@@ -1397,7 +1397,6 @@ namespace GameObjects
                     {
                         foreach (Person p in a.nvxingwujiang())
                         {
-                            Person spousePerson = p.Spouse == null ? null : p.Spouse;
                             if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null && !p.IsCaptive)
                             {
                                 candidate.Add(p);
@@ -1408,7 +1407,6 @@ namespace GameObjects
                     {
                         Person p = c.CaptivePerson;
                         if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
-                        Person spousePerson = p.Spouse == null ? null : p.Spouse;
                         if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null)
                         {
                             candidate.Add(p);
@@ -1422,7 +1420,6 @@ namespace GameObjects
                             foreach (Person p in a.NoFactionPersons)
                             {
                                 if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
-                                Person spousePerson = p.Spouse == null ? null : p.Spouse;
                                 if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null && !p.IsCaptive)
                                 {
                                     candidate.Add(p);

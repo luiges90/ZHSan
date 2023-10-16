@@ -2515,7 +2515,7 @@ namespace GameObjects
                                                 (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive) &&
                                                 GameObject.Random(architecture2.GetGossipablePersonCount() + 4) >= 4
                                                 && GameObject.Random(firstHalfPerson.GossipAbility) >= 200
-                                                && GameObject.Chance(100 - architecture2.captureChance))
+                                                && GameObject.Chance(100 - architecture2.captureChance * (firstHalfPerson.Sex ? 2 : 1)))
                                             {
                                                 firstHalfPerson.GoForGossip(Session.Current.Scenario.GetClosestPoint(architecture2.ArchitectureArea, this.Position));
                                             }
@@ -2567,7 +2567,7 @@ namespace GameObjects
                                                             firstHalfPerson.NonFightingNumber > firstHalfPerson.FightingNumber &&
                                                              firstHalfPerson.FightingNumber < 350 && firstHalfPerson != this.BelongedFaction.Leader &&
                                                             (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive)
-                                                             && GameObject.Chance(100 - architecture2.captureChance))
+                                                             && GameObject.Chance(100 - architecture2.captureChance * (firstHalfPerson.Sex ? 2 : 1)))
                                                         {
                                                             firstHalfPerson.OutsideDestination = this.ArchitectureArea.Centre;
                                                             firstHalfPerson.GoForConvince(p);
@@ -2611,7 +2611,7 @@ namespace GameObjects
                                                 firstHalfPerson.NonFightingNumber > firstHalfPerson.FightingNumber &&
                                                  firstHalfPerson.FightingNumber < 350 && firstHalfPerson != this.BelongedFaction.Leader &&
                                                 (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive)
-                                                 && GameObject.Chance(100 - target.captureChance))
+                                                 && GameObject.Chance(100 - target.captureChance * (firstHalfPerson.Sex ? 2 : 1)))
                                         {
                                             firstHalfPerson.GoForJailBreak(Session.Current.Scenario.GetClosestPoint(target.ArchitectureArea, this.Position));
                                         }
@@ -2662,7 +2662,7 @@ namespace GameObjects
                                                            firstHalfPerson.NonFightingNumber > firstHalfPerson.FightingNumber &&
                                                             firstHalfPerson.FightingNumber < 350 && firstHalfPerson != this.BelongedFaction.Leader &&
                                                            (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive)
-                                                            && GameObject.Chance(100 - target.captureChance))
+                                                            && GameObject.Chance(100 - target.captureChance * (firstHalfPerson.Sex ? 2 : 1)))
                                                     {
                                                         firstHalfPerson.OutsideDestination = this.ArchitectureArea.Centre;
                                                         firstHalfPerson.GoForAssassinate(p);
