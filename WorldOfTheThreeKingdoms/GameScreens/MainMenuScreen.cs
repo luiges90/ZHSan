@@ -1070,7 +1070,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 Unit = 1
             };
 
-            nstGeneralChildsMax = new NumericSetTextureF(1, 100, 100, null, new Vector2(left1 + 220, heightBase + height * 4.5f), true)
+            nstGeneralChildsMax = new NumericSetTextureF(1, 1000, 1000, null, new Vector2(left1 + 220, heightBase + height * 4.5f), true)
             {
                 IntMode = true,
                 DisNumber = false,

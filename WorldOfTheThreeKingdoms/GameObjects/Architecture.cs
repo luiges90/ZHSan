@@ -15022,7 +15022,7 @@ namespace GameObjects
                     nvxingwujiangliebiao.Add(person);
                 }
             }
--           foreach (Captive c in this.Captives)
+            foreach (Captive c in this.Captives)
             {
                 Person person = c.CaptivePerson;
                 if (person.ArrivingDays > 0) continue;
