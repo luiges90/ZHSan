@@ -1,6 +1,6 @@
 # 中華三國志 #
 
-**官方論壇：http://www.zhsan.com**
+**官方論壇：http://www.zhsan2.top**
 
 **百度貼吧：http://tieba.baidu.com/f?kw=%D6%D0%BB%AA%C8%FD%B9%FA%D6%BE**
 
