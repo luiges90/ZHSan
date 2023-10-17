@@ -5731,7 +5731,7 @@ namespace GameObjects
             {
                 troop.IncreaseStratagemExperience(increment, false);
             }
-            if (this.BelongedFaction != null)
+            if (this.BelongedFaction != null && troop != null)
             {
                 if (flag)
                 {
