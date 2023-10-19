@@ -145,7 +145,7 @@ namespace GameObjects
         public int AttackDecrementOfCombativity;
         private TroopAttackDefaultKind attackDefaultKind;
 
-        private GameObjectList AttackedTroopList = new GameObjectList();
+        public GameObjectList AttackedTroopList = new GameObjectList();
 
         public bool AttackEveryAround;
         public bool AttackStarted;
