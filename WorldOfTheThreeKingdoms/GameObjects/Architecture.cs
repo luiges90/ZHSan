@@ -5196,6 +5196,33 @@ namespace GameObjects
             }
         }
 
+        private void AlienTroopGain()
+        {
+            if (this.BelongedFaction != null && this.BelongedFaction.IsAlien && this.BelongedFaction.Capital == this && !IsSurrounded())
+            {
+                var militaries = new List<Military>();
+                foreach (var mo in Militaries.GetList())
+                {
+                    var m = (Military)mo;
+                    if (m.Quantity < m.Kind.MaxScale)
+                    {
+                        militaries.Add(m);
+                    }
+                }
+
+                Military targetMilitary;
+                if (militaries.Count == 0)
+                {
+                    targetMilitary = CreateMilitary(BelongedFaction.BaseMilitaryKinds.GetMilitaryKindList().GetRandomObject() as MilitaryKind);
+                }
+                else
+                {
+                    targetMilitary = militaries[GameObject.Random(militaries.Count)];
+                }
+                targetMilitary.Quantity = Math.Min(targetMilitary.Quantity + Session.Parameters.AlienTroopGain, targetMilitary.Kind.MaxScale);
+            }
+        }
+
         public void ClearFundPacks()
         {
             this.FundPacks.Clear();
@@ -5681,6 +5708,7 @@ namespace GameObjects
             this.Sourrounded();
             this.ResetDayInfluence();
             this.CheckRobberTroop();
+            this.AlienTroopGain();
             this.PopulationEscapeEvent();
             this.FoodReduce();
             this.RestEvent();

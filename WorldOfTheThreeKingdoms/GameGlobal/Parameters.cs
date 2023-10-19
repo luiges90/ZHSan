@@ -336,6 +336,8 @@ namespace GameGlobal
         public int PersonCap = 2000;
         [DataMember]
         public float PersonCapFalldown = 10;
+        [DataMember]
+        public int AlienTroopGain = 50;
 
         public Parameters Clone()
         {
@@ -523,6 +525,8 @@ namespace GameGlobal
 
                 PersonCap = int.Parse(nextSibling.Attributes.GetNamedItem("PersonCap").Value);
                 PersonCapFalldown = float.Parse(nextSibling.Attributes.GetNamedItem("PersonCapFalldown").Value);
+
+                AlienTroopGain = int.Parse(nextSibling.Attributes.GetNamedItem("AlienTroopGain").Value);
             }
 
             else
@@ -774,6 +778,7 @@ namespace GameGlobal
             element.SetAttribute("MakeMarrigeIdealLimit", MakeMarrigeIdealLimit.ToString());
             element.SetAttribute("PersonCap", PersonCap.ToString());
             element.SetAttribute("PersonCapFalldown", PersonCapFalldown.ToString());
+            element.SetAttribute("AlienTroopGain", AlienTroopGain.ToString());
 
             document.AppendChild(element);
 
