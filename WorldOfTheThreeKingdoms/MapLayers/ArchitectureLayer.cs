@@ -123,7 +123,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens.ScreenLayers
                             }
                         } //end      if (point == architecture.ArchitectureArea.TopLeft && point.Y>0)
 
-                        if ((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || Session.Current.Scenario.CurrentPlayer.IsArchitectureKnown(architecture))
+                        if (Session.MainGame.mainGameScreen.mainMapLayer.TileInScreen(architecture.Position) && ((Session.GlobalVariables.SkyEye || Session.Current.Scenario.NoCurrentPlayer) || Session.Current.Scenario.CurrentPlayer.IsArchitectureKnown(architecture)))
                         {
                             if (!architecture.IncrementNumberList.IsEmpty)
                             {
