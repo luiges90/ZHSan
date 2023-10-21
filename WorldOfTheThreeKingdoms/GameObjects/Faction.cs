@@ -1347,6 +1347,12 @@ namespace GameObjects
                 }
             }
 
+            if (ID == 7)
+            {
+                int z = 1;
+                z++;
+            }
+
             //nafei
             if (leader.WaitForFeiZi != null && leader.Status == PersonStatus.Normal && leader.LocationArchitecture != null &&
                 this.Leader.LocationTroop == null)

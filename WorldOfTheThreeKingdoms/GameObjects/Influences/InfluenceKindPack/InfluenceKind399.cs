@@ -35,7 +35,10 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
                         recoverQuantity = troop2.InjuryQuantity;
                     }
                     recoverQuantity = troop2.IncreaseQuantity(recoverQuantity);
-                    troop2.OrientationTroop.InjuryQuantity -= recoverQuantity;
+                    if (troop2.OrientationTroop != null)
+                    {
+                        troop2.OrientationTroop.InjuryQuantity -= recoverQuantity;
+                    }
                 }
             }
         }

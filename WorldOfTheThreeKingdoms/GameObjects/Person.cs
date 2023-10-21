@@ -3086,8 +3086,11 @@ namespace GameObjects
                         else
                         {
                             this.ConvincingPerson.AdjustRelation(this, -diff / 3.0f, -10);
-                            architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -15f, -5);
-                            architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -6f, -2);
+                            if (architectureByPosition.BelongedFaction != null)
+                            {
+                                architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -15f, -5);
+                                architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -6f, -2);
+                            }
 
                             this.AddStrengthExperience(10);
                             this.AddIntelligenceExperience(10);

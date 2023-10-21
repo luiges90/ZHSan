@@ -2662,7 +2662,7 @@ namespace GameObjects
                                                            firstHalfPerson.NonFightingNumber > firstHalfPerson.FightingNumber &&
                                                             firstHalfPerson.FightingNumber < 350 && firstHalfPerson != this.BelongedFaction.Leader &&
                                                            (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive)
-                                                            && GameObject.Chance(100 - target.captureChance * (firstHalfPerson.Sex != target.BelongedFaction.Leader.Sex ? 2 : 1)))
+                                                            && GameObject.Chance(100 - target.captureChance * (target.BelongedFaction != null && firstHalfPerson.Sex != target.BelongedFaction.Leader.Sex ? 2 : 1)))
                                                     {
                                                         firstHalfPerson.OutsideDestination = target.ArchitectureArea.Centre;
                                                         firstHalfPerson.GoForAssassinate(p);
