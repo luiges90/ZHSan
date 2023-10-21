@@ -104,6 +104,12 @@ namespace WorldOfTheThreeKingdoms
 
             Session.Init();
 
+            //加速 TargetElapsedTime表示执行一帧所需要的时间
+            IsFixedTimeStep = true;
+            TargetElapsedTime = System.TimeSpan.FromMilliseconds(System.Math.Round(1000.0f / (60.0f * (int)Setting.Current.SpeedUp)));
+            //TargetElapsedTime = new System.TimeSpan(0, 0, 0, 0, (int)System.Math.Round(1000.0f / (60.0f * Setting.Current.SpeedUp)));
+            //TargetElapsedTime = System.TimeSpan.FromMilliseconds(16.666);
+
             //原本的分辨率默认值为720*1080，在其他大小的屏幕上会变形
             //将当前屏幕的分辨率作为默认值……
             //this.previousWindowWidth = WinHelper.GetSystemMetrics(WinHelper.SM_CXSCREEN);
