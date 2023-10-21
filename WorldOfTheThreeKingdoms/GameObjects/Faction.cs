@@ -3672,7 +3672,12 @@ namespace GameObjects
                             {
                                 if (this.IsAlien && feiziCount <= 0 && t.genderFix == 1)
                                 {
-                                    weights[t] *= 10;
+                                    weights[t] *= 50;
+                                }
+                                
+                                if (!Session.Current.Scenario.GlobalVariables.hougongAlienOnly && !this.IsAlien && meinvkongjian() > 0 && feiziCount <= 0 && t.genderFix == 1)
+                                {
+                                    weights[t] *= 50;
                                 }
                             }
                         }
