@@ -1154,9 +1154,18 @@ namespace GameObjects
                         stuckedFor++;
                         if (stuckedFor >= 5)
                         {
-                            this.GoBack();
-                            this.AttackTargetKind = TroopAttackTargetKind.无反默认;
-                            return false;
+                            if (stuckedFor >= 8)
+                            {
+                                this.RealDestination = new Point(stuckPosition.X + Random(5) - 2, stuckPosition.Y + Random(5) - 2);
+                                this.AttackTargetKind = TroopAttackTargetKind.无反默认;
+                                return false;
+                            }
+                            else
+                            {
+                                this.GoBack();
+                                this.AttackTargetKind = TroopAttackTargetKind.无反默认;
+                                return false;
+                            }
                         }
                     }
                     else

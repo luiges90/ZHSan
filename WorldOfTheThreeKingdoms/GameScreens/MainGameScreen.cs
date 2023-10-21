@@ -3585,6 +3585,14 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
+        public bool IsSkyEyeSimpleNotification
+        {
+            get
+            {
+                return Session.GlobalVariables.SkyEyeSimpleNotification;
+            }
+        }
+
         public ViewMove ViewMoveDirection
         {
             get
