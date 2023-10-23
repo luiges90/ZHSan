@@ -1408,7 +1408,7 @@ namespace GameObjects
                     {
                         Person person = c.CaptivePerson;
                         if (person.ArrivingDays > 0) continue;
-                        if (this.Leader.isLegalFeiZiExcludeAge(person))
+                        if (this.Leader.isLegalFeiZiExcludeAge(person) && person.LocationTroop == null)
                         {
                             candidate.Add(person);
                         }
