@@ -6029,7 +6029,7 @@ namespace GameObjects
             foreach (Person p in this.Persons)
             {
                 //if (p.Trainable && GameObject.Random(30) == 0)
-                if (p.Trainable && GameObject.Random((int)(10 / (IsPlayer(p.Father.BelongedFaction) ? 1 : Session.Current.Scenario.Parameters.AIExtraPerson) / Session.Parameters.DayInTurn)) == 0)
+                if (p.Trainable && GameObject.Random((int)(12 / (IsPlayer(p.Father.BelongedFaction) ? 1 : Session.Current.Scenario.Parameters.AIExtraPerson) / Session.Parameters.DayInTurn)) == 0)
                 {
                     if (p.TrainPolicy == null)
                     {
@@ -6071,7 +6071,26 @@ namespace GameObjects
                         GameObjectList candidate = new GameObjectList();
                         foreach (Person q in this.Persons)
                         {
-                            if (q.IsValidTeacher && q.HasStrainTo(p) && q != p && q.IsValidTeacher)
+                            if (q.IsValidTeacher && q.HasStrainTo(p) && q != p)
+                            {
+                                candidate.Add(q);
+                            }
+                        }
+                        candidate.PropertyName = "Age";
+                        candidate.IsNumber = true;
+                        candidate.SmallToBig = false;
+                        candidate.ReSort();
+                        if (candidate.Count > 0)
+                        {
+                            parental = (Person)candidate[0];
+                        }
+                    }
+                    if (!parental.IsValidTeacher && GameObject.Chance(25))
+                    {
+                        GameObjectList candidate = new GameObjectList();
+                        foreach (Person q in this.Persons)
+                        {
+                            if (!q.Hates(p) && !p.Hates(q))
                             {
                                 candidate.Add(q);
                             }
@@ -6086,21 +6105,6 @@ namespace GameObjects
                         }
                     }
 
-                    int siblingCount = 0;
-
-                    if (parental != null && parental.LocationArchitecture != null)
-                    {
-                        foreach (Person q in parental.LocationArchitecture.PersonAndChildren)
-                        {
-                            if (q.Trainable)
-                            {
-                                siblingCount++;
-                            }
-                        }
-                    }
-
-                    siblingCount++;
-
                     switch (r)
                     {
                         case 1:
@@ -6110,18 +6114,16 @@ namespace GameObjects
                                 if (parental != null && parental.BelongedArchitecture != null)
                                 {
                                     GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
-                                    list.AddRange(parental.BelongedArchitecture.NoFactionPersons);
                                     foreach (Person q in list)
                                     {
-                                        if (q.Strength > p.Strength && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(100 / (list.Count + siblingCount)) || q == parental || q == p.Father || q == p.Mother))
+                                        if (q.Strength > p.Strength && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(100 / list.Count) || q == parental || q == p.Father || q == p.Mother))
                                         {
-                                            if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
+                                            if (q == parental || q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
                                             {
                                                 teachers.Add(q);
                                             }
                                         }
                                     }
-
                                 }
                                 foreach (Person q in teachers)
                                 {
@@ -6156,12 +6158,11 @@ namespace GameObjects
                                 if (parental != null && parental.BelongedArchitecture != null)
                                 {
                                     GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
-                                    list.AddRange(parental.BelongedArchitecture.NoFactionPersons);
                                     foreach (Person q in list)
                                     {
-                                        if (q.Command > p.Command && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(100 / (list.Count + siblingCount)) || q == parental || q == p.Father || q == p.Mother))
+                                        if (q.Command > p.Command && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(100 / list.Count) || q == parental || q == p.Father || q == p.Mother))
                                         {
-                                            if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
+                                            if (q == parental || q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
                                             {
                                                 teachers.Add(q);
                                             }
@@ -6202,12 +6203,11 @@ namespace GameObjects
                                 if (parental != null && parental.BelongedArchitecture != null)
                                 {
                                     GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
-                                    list.AddRange(parental.BelongedArchitecture.NoFactionPersons);
                                     foreach (Person q in list)
                                     {
-                                        if (q.Intelligence > p.Intelligence && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(100 / (list.Count + siblingCount)) || q == parental || q == p.Father || q == p.Mother))
+                                        if (q.Intelligence > p.Intelligence && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(100 / list.Count) || q == parental || q == p.Father || q == p.Mother))
                                         {
-                                            if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
+                                            if (q == parental || q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
                                             {
                                                 teachers.Add(q);
                                             }
@@ -6247,12 +6247,11 @@ namespace GameObjects
                                 if (parental != null && parental.BelongedArchitecture != null)
                                 {
                                     GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
-                                    list.AddRange(parental.BelongedArchitecture.NoFactionPersons);
                                     foreach (Person q in list)
                                     {
-                                        if (q.Politics > p.Politics && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(100 / (list.Count + siblingCount)) || q == parental || q == p.Father || q == p.Mother))
+                                        if (q.Politics > p.Politics && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(100 / list.Count) || q == parental || q == p.Father || q == p.Mother))
                                         {
-                                            if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
+                                            if (q == parental || q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
                                             {
                                                 teachers.Add(q);
                                             }
@@ -6293,12 +6292,11 @@ namespace GameObjects
                                 if (parental != null && parental.BelongedArchitecture != null)
                                 {
                                     GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
-                                    list.AddRange(parental.BelongedArchitecture.NoFactionPersons);
                                     foreach (Person q in list)
                                     {
-                                        if (q.Glamour > p.Glamour && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(100 / (list.Count + siblingCount)) || q == parental || q == p.Father || q == p.Mother))
+                                        if (q.Glamour > p.Glamour && q.Age > 8 && q.IsValidTeacher && (GameObject.Chance(100 / list.Count) || q == parental || q == p.Father || q == p.Mother))
                                         {
-                                            if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
+                                            if (q == parental || q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
                                             {
                                                 teachers.Add(q);
                                             }
@@ -6339,12 +6337,11 @@ namespace GameObjects
                                 if (parental != null && parental.BelongedArchitecture != null)
                                 {
                                     GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
-                                    list.AddRange(parental.BelongedArchitecture.NoFactionPersons);
                                     foreach (Person q in list)
                                     {
-                                        if ((GameObject.Chance(100 / (list.Count + siblingCount)) || q == parental || q == p.Father || q == p.Mother) && q.IsValidTeacher && q.Age > 8)
+                                        if ((GameObject.Chance(100 / list.Count) || q == parental || q == p.Father || q == p.Mother) && q.IsValidTeacher && q.Age > 8)
                                         {
-                                            if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
+                                            if (q == parental || q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
                                             {
                                                 teachers.Add(q);
                                             }
@@ -6416,12 +6413,11 @@ namespace GameObjects
                                 if (parental != null && parental.BelongedArchitecture != null)
                                 {
                                     GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
-                                    list.AddRange(parental.BelongedArchitecture.NoFactionPersons);
                                     foreach (Person q in list)
                                     {
-                                        if ((GameObject.Chance(100 / (list.Count + siblingCount)) || q == parental || q == p.Father || q == p.Mother) && q.IsValidTeacher && q.Age > 8)
+                                        if ((GameObject.Chance(100 / list.Count) || q == parental || q == p.Father || q == p.Mother) && q.IsValidTeacher && q.Age > 8)
                                         {
-                                            if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
+                                            if (q == parental || q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 20))
                                             {
                                                 teachers.Add(q);
                                             }
@@ -6494,12 +6490,11 @@ namespace GameObjects
                                 if (parental != null && parental.BelongedArchitecture != null)
                                 {
                                     GameObjectList list = parental.BelongedArchitecture.PersonAndChildren.GetRandomList();
-                                    list.AddRange(parental.BelongedArchitecture.NoFactionPersons);
                                     foreach (Person q in list)
                                     {
-                                        if ((GameObject.Chance(100 / (list.Count + siblingCount)) || q == parental || q == p.Father || q == p.Mother) && q.IsValidTeacher && q.Age > 8)
+                                        if ((GameObject.Chance(100 / list.Count) || q == parental || q == p.Father || q == p.Mother) && q.IsValidTeacher && q.Age > 8)
                                         {
-                                            if (q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 10))
+                                            if (q == parental || q.HasStrainTo(p) || q.Closes(p.Father) || q.Closes(p.Mother) || q.Closes(parental) || GameObject.Chance(q.GetRelation(parental) / 10))
                                             {
                                                 teachers.Add(q);
                                             }

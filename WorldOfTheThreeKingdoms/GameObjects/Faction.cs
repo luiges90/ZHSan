@@ -1347,12 +1347,6 @@ namespace GameObjects
                 }
             }
 
-            if (ID == 7)
-            {
-                int z = 1;
-                z++;
-            }
-
             //nafei
             if (leader.WaitForFeiZi != null && leader.Status == PersonStatus.Normal && leader.LocationArchitecture != null &&
                 this.Leader.LocationTroop == null)
@@ -1410,6 +1404,15 @@ namespace GameObjects
                             }
                         }
                     }
+                    foreach (Captive c in this.Captives)
+                    {
+                        Person person = c.CaptivePerson;
+                        if (person.ArrivingDays > 0) continue;
+                        if (this.Leader.isLegalFeiZiExcludeAge(person))
+                        {
+                            candidate.Add(person);
+                        }
+                    }
 
                     candidate.PropertyName = "UntiredMerit";
                     candidate.IsNumber = true;
@@ -1430,7 +1433,13 @@ namespace GameObjects
 
                     if (toTake != null)
                     {
-                        if (this.Leader.LocationArchitecture == dest)
+                        if (this.IsAlien)
+                        {
+                            this.Leader.XuanZeMeiNv(toTake);
+                            toTake.WaitForFeiZi = null;
+                            leader.WaitForFeiZi = null;
+                        }
+                        else if (this.Leader.LocationArchitecture == dest)
                         {
                             if (toTake.LocationArchitecture == dest)
                             {
@@ -1438,17 +1447,11 @@ namespace GameObjects
                                 toTake.WaitForFeiZi = null;
                                 leader.WaitForFeiZi = null;
                             }
-                            else if (toTake.Status == PersonStatus.Normal)
+                            else
                             {
                                 toTake.MoveToArchitecture(dest);
                                 toTake.WaitForFeiZi = this.Leader;
                                 this.Leader.WaitForFeiZi = toTake;
-                            }
-                            else if (this.IsAlien)
-                            {
-                                this.Leader.XuanZeMeiNv(toTake);
-                                toTake.WaitForFeiZi = null;
-                                leader.WaitForFeiZi = null;
                             }
                         }
                         else
@@ -1459,18 +1462,12 @@ namespace GameObjects
                                 toTake.WaitForFeiZi = this.Leader;
                                 this.Leader.WaitForFeiZi = toTake;
                             }
-                            else if (toTake.Status == PersonStatus.Normal)
+                            else
                             {
                                 this.Leader.MoveToArchitecture(dest);
                                 toTake.MoveToArchitecture(dest);
                                 toTake.WaitForFeiZi = this.Leader;
                                 this.Leader.WaitForFeiZi = toTake;
-                            }
-                            else if (this.IsAlien)
-                            {
-                                this.Leader.XuanZeMeiNv(toTake);
-                                toTake.WaitForFeiZi = null;
-                                leader.WaitForFeiZi = null;
                             }
                         }
                     }

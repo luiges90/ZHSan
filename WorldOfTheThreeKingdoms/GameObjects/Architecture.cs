@@ -5219,7 +5219,7 @@ namespace GameObjects
                 {
                     targetMilitary = militaries[GameObject.Random(militaries.Count)];
                 }
-                targetMilitary.Quantity = Math.Min(targetMilitary.Quantity + Session.Parameters.AlienTroopGain, targetMilitary.Kind.MaxScale);
+                targetMilitary.Quantity = (int)Math.Min(targetMilitary.Quantity + Session.Parameters.AlienTroopGain * Session.Parameters.AIRecruitmentSpeedRate, targetMilitary.Kind.MaxScale);
             }
         }
 
