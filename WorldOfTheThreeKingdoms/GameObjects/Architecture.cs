@@ -4608,23 +4608,16 @@ namespace GameObjects
        }
 
         GameObjectList assassinatablePersons = new GameObjectList();
-        Faction assassinatablePersonFaction = null;
         public GameObjectList AssassinatablePersons(Faction f)
         {
-            if (assassinatablePersonFaction == f)
-            {
-                return assassinatablePersons;
-            }
             if (this.BelongedFaction == null || this.BelongedFaction.IsFriendly(f))
             {
                 assassinatablePersons = this.NoFactionPersons;
-                assassinatablePersonFaction = f;
             }
             else
             {
                 assassinatablePersons = this.MovablePersons.GetList();
                 assassinatablePersons.AddRange(this.NoFactionPersons);
-                assassinatablePersonFaction = f;
             }
             return assassinatablePersons;
         }

@@ -3032,7 +3032,7 @@ namespace GameObjects
                     }
                     else
                     {
-                        diff = GameObject.Random(this.AssassinateAbility) - GameObject.Random(this.ConvincingPerson.AssassinateAbility) * 1.5f;
+                        diff = GameObject.Random(this.AssassinateAbility) - GameObject.Random(this.ConvincingPerson.AssassinateAbility) * (architectureByPosition.BelongedFaction == BelongedFaction ? 1 : 1.5f);
                     }
                     if (diff > 0)
                     {
