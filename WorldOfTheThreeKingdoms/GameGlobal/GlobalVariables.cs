@@ -283,6 +283,8 @@ namespace GameGlobal
         public int KeepSpousePersonalLoyalty = 4;
         [DataMember]
         public bool TroopVoice = true;
+        [DataMember]
+        public int MaxTupianwenzi = 50;
 
         public const string cryptKey = "A3g0c3%2";
         [DataMember]
@@ -1141,6 +1143,14 @@ namespace GameGlobal
                 try
                 {
                     TroopVoice = bool.Parse(nextSibling.Attributes.GetNamedItem("TroopVoice").Value);
+                }
+                catch (Exception exception24)
+                {
+
+                }
+                try
+                {
+                    MaxTupianwenzi = int.Parse(nextSibling.Attributes.GetNamedItem("MaxTupianwenzi").Value);
                 }
                 catch (Exception exception24)
                 {

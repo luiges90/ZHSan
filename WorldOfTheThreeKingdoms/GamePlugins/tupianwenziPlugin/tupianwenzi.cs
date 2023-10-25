@@ -234,6 +234,13 @@ namespace tupianwenziPlugin
                     this.BuildingRichText.AddText(branchName);
                 }
             }
+            if (DisplayQueue.Count > Session.GlobalVariables.MaxTupianwenzi)
+            {
+                this.DisplayQueue.Dequeue();
+                this.shijiantupian = this.shijiantupianduilie.Dequeue();
+                this.shijiantupianjuxing = this.juxingduilie.Dequeue();
+                this.shijianshengyin = this.shijianshengyinduilie.Dequeue();
+            }
             if (this.HasConfirmationDialog)
             {
                 this.DisplayQueue.Enqueue(new GameObjectAndBranchName(gongfang, this.BuildingRichText.Texts, branchName, this.iConfirmationDialog, this.YesFunction, this.NoFunction,TryToShowString));
