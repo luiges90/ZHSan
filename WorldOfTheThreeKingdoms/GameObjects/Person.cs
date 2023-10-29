@@ -3032,7 +3032,7 @@ namespace GameObjects
                     }
                     else
                     {
-                        diff = GameObject.Random(this.AssassinateAbility) - GameObject.Random(this.ConvincingPerson.AssassinateAbility) * (architectureByPosition.BelongedFaction == BelongedFaction ? 1 : 1.5f);
+                        diff = GameObject.Random(this.AssassinateAbility) - GameObject.Random(this.ConvincingPerson.AssassinateAbility) * 1.5f;
                     }
                     if (diff > 0)
                     {
@@ -10432,7 +10432,7 @@ namespace GameObjects
 
             if (addHate)
             {
-                nvren.AdjustRelation(leader, 0, Math.Max(0, -100 * (nvren.PersonalLoyalty - 2) * (nvren.PersonalLoyalty - 2)));
+                nvren.AdjustRelation(leader, 0, Math.Max(0, -100 * (nvren.PersonalLoyalty - 1) * (nvren.PersonalLoyalty - 1)));
                 this.DecreaseKarma(1 + nvren.PersonalLoyalty * 2 + Math.Max(0, this.Karma / 5));
 
                 foreach (Person p in Session.Current.Scenario.Persons)

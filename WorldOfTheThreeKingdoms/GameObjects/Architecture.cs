@@ -2650,7 +2650,7 @@ namespace GameObjects
                                                 {
                                                     targetDef = p.AssassinateAbility;
                                                 }
-                                                if (firstHalfPerson.CanConvinceChance(p) <= 20 && firstHalfPerson.AssassinateAbility > targetDef * 2)
+                                                if (firstHalfPerson.CanConvinceChance(p) <= 20 && firstHalfPerson.AssassinateAbility > targetDef)
                                                 {
                                                     if (target.BelongedFaction == this.BelongedFaction)
                                                     {
@@ -2661,6 +2661,7 @@ namespace GameObjects
                                                     else if (firstHalfPerson != null && !firstHalfPerson.HasLeadingArmy &&
                                                            firstHalfPerson.NonFightingNumber > firstHalfPerson.FightingNumber &&
                                                             firstHalfPerson.FightingNumber < 350 && firstHalfPerson != this.BelongedFaction.Leader &&
+                                                            firstHalfPerson.AssassinateAbility > targetDef * 2 &&
                                                            (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive)
                                                             && GameObject.Chance(100 - target.captureChance * (target.BelongedFaction != null && firstHalfPerson.Sex != target.BelongedFaction.Leader.Sex ? 2 : 1)))
                                                     {
