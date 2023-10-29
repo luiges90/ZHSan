@@ -1222,7 +1222,7 @@ namespace GameObjects
                     {
                         if (!IsPersonForHouGong(p, true))
                         {
-                            if (!this.Leader.suoshurenwuList.HasGameObject(p) && !p.Hates(this.Leader) && p.RecruitableBy(this, 0))
+                            if (!this.Leader.suoshurenwuList.HasGameObject(p) && (uncruelty <= 4 || !p.Hates(this.Leader)) && (uncruelty <= 8 || p.RecruitableBy(this, 0)))
                             {
                                 p.feiziRelease();
                             }
