@@ -1318,6 +1318,7 @@ namespace GameGlobal
             element.SetAttribute("KeepSpousePersonalLoyalty", KeepSpousePersonalLoyalty.ToString());
             element.SetAttribute("ShowNumberAddTime", ShowNumberAddTime.ToString());
             element.SetAttribute("TroopVoice", TroopVoice.ToString());
+            element.SetAttribute("MaxTupianwenzi", MaxTupianwenzi.ToString());
 
             document.AppendChild(element);
         
