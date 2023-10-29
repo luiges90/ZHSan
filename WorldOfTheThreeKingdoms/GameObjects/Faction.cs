@@ -2249,7 +2249,7 @@ namespace GameObjects
         }
 
         private void PlayerAITransfer()
-        {
+        { 
             foreach (Section s in this.Sections)
             {
                 if (s.AIDetail.AutoRun)

@@ -3061,7 +3061,7 @@ namespace GameObjects
                             (architectureByPosition.BelongedFaction == null || GameObject.Chance(100 - (architectureByPosition.Morale / 10))) &&
                             !this.ConvincingPerson.ImmunityOfCaptive)
                         {
-                            if (architectureByPosition.BelongedFaction != this.BelongedFaction)
+                            if (architectureByPosition.BelongedFaction != this.BelongedFaction && architectureByPosition.BelongedFaction != null)
                             {
                                 architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -45f, -15);
                                 architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -8f, -4);
@@ -3616,7 +3616,7 @@ namespace GameObjects
             Architecture architectureByPosition = Session.Current.Scenario.GetArchitectureByPosition(this.OutsideDestination.Value);
             if (architectureByPosition != null)
             {
-                if (architectureByPosition.BelongedFaction != this.BelongedFaction)
+                if (architectureByPosition.BelongedFaction != null && architectureByPosition.BelongedFaction != this.BelongedFaction)
                 {
                     architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -6f, -2);
                     architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -2f, -1);
