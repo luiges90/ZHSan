@@ -2446,6 +2446,7 @@ namespace GameObjects
                         knownArch.Add(architecture);
                     }
                 }
+                /*
                 if (this.BelongedSection != null && (unknownArch.Count > 0) && this.BelongedSection.AIDetail.AllowInvestigateTactics)
                 {
                     if (unknownArch.Count > 1)
@@ -2476,6 +2477,7 @@ namespace GameObjects
                         }
                     }
                 }
+                */
 
                 if (!Session.Current.Scenario.IsPlayer(this.BelongedFaction))
                 {
