@@ -5723,7 +5723,10 @@ namespace GameObjects
                     }
 
                     this.Persons.GetMaxIntelligencePerson().StratagemFailCount++;
-                    troop.Persons.GetMaxIntelligencePerson().StratagemBeFailCount++;
+                    if (troop.PersonCount > 0)
+                    {
+                        troop.Persons.GetMaxIntelligencePerson().StratagemBeFailCount++;
+                    }
                     this.Army.StratagemFailCount++;
                     troop.Army.StratagemBeFailCount++;
                 }

@@ -10433,7 +10433,7 @@ namespace GameObjects
             if (addHate)
             {
                 nvren.AdjustRelation(leader, 0, Math.Max(0, -100 * (nvren.PersonalLoyalty - 1) * (nvren.PersonalLoyalty - 1)));
-                this.DecreaseKarma(1 + nvren.PersonalLoyalty * 2 + Math.Max(0, this.Karma / 5));
+                this.DecreaseKarma(1 + nvren.PersonalLoyalty + Math.Max(0, nvren.Karma / 5));
 
                 foreach (Person p in Session.Current.Scenario.Persons)
                 {
@@ -10462,7 +10462,7 @@ namespace GameObjects
 
             if (nvren.Spouse != null)
             {
-                Person p = new Person();
+                Person p = null;
                 foreach (Person person in Session.Current.Scenario.Persons)
                 {
                     if (person == nvren.Spouse)
@@ -10479,7 +10479,7 @@ namespace GameObjects
                         tookSpouse = p;
                         this.LoseReputationBy(0.05f);
 
-                        this.DecreaseKarma(1 + p.PersonalLoyalty * 2 + Math.Max(0, this.Karma / 5));
+                        this.DecreaseKarma(1 + p.PersonalLoyalty + Math.Max(0, p.Karma / 5));
 
                         p.AddHated(this.BelongedFaction.Leader, -200 * p.PersonalLoyalty * p.PersonalLoyalty);
                     }
