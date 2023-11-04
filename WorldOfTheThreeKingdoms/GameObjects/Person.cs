@@ -2386,7 +2386,8 @@ namespace GameObjects
           
             foreach (Person p in this.LocationArchitecture.Persons)
             {               
-                if (p.Sex && p.Spouse == null && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit)
+                if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && p.Spouse == null && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
+                     && !p.Hates(this) && !this.Hates(p))
                 {
                     result.Add(p);
                 }
