@@ -285,7 +285,6 @@
       <MenuItem ID="3" Name="TroopMilitary" DisplayName="部队编队" DisplayIfTrue="IsCurrentPlayer" />
       <MenuItem ID="4" Name="TroopCaptive" DisplayName="部队俘虏" DisplayIfTrue="HasCaptive" />
       <MenuItem ID="5" Name="TroopTreasure" DisplayName="相关宝物" DisplayIfTrue="HasTreasure" />
-      <MenuItem ID="6" Name="AllTroopInfluences" DisplayName="部队影响" />
     </MenuKind>
     <MenuKind ID="6" Name="RoutewayRightClick" DisplayName="粮道右键菜单" IsLeft="false" Width="130" Height="27">
       <MenuItem ID="1" Name="RoutewayEdit" DisplayName="编辑粮道" />

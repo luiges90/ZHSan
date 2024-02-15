@@ -71,7 +71,7 @@ namespace GameObjects
         {
             get
             {
-                if (factions.Count < 1) return "";
+                if (factions.Count < 1 || factions[0] == null) return "";
                 return factions[0].Name;
             }
         }
@@ -80,7 +80,7 @@ namespace GameObjects
         {
             get
             {
-                if (factions.Count < 2) return "";
+                if (factions.Count < 2 || factions[1] == null) return "";
                 return factions[1].Name;
             }
         }

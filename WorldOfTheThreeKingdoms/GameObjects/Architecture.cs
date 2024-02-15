@@ -6302,19 +6302,13 @@ namespace GameObjects
             if (military.FollowedLeader != null && from.Persons .HasGameObject(military.FollowedLeader) && military.FollowedLeader.LocationTroop == null
                 && isPersonAllowedIntoTroop(military.FollowedLeader, military, offensive))
             {
-                if (isPersonAllowedIntoTroop(military.FollowedLeader, military, offensive))
-                {
-                    result.Add(Troop.CreateSimulateTroop(this.AISelectPersonIntoTroop_inner(military.FollowedLeader, from.Persons  , true), military, from.Position));
-                }
+                result.Add(Troop.CreateSimulateTroop(this.AISelectPersonIntoTroop_inner(military.FollowedLeader, from.Persons  , true), military, from.Position));
             }
             else if (military.Leader != null && military.LeaderExperience >= 10 && (military.Leader.Strength >= 80 || military.Leader.Command >= 80 || military.Leader.HasLeaderValidTitle)
                 && from.Persons.HasGameObject(military.Leader) && military.Leader.LocationTroop == null && isPersonAllowedIntoTroop(military.Leader, military, offensive)
                )
             {
-                if (isPersonAllowedIntoTroop(military.Leader, military, offensive))
-                {
-                    result.Add(Troop.CreateSimulateTroop(this.AISelectPersonIntoTroop_inner(military.Leader, from.Persons , true), military, from.Position));
-                }
+                result.Add(Troop.CreateSimulateTroop(this.AISelectPersonIntoTroop_inner(military.Leader, from.Persons , true), military, from.Position));
             }
             else
             {
