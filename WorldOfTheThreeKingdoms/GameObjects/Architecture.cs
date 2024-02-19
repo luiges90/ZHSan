@@ -12943,6 +12943,16 @@ namespace GameObjects
                 num += this.PersonCount * Session.Parameters.InternalFundCost * 30;
                 num += (this.BelongedFaction.BecomeEmperorLegallyAvail() || this.BelongedFaction.SelfBecomeEmperorAvail()) && this.BelongedFaction.Capital == this ? 100000 : 0;
                 num += this.BelongedFaction.Leader.WaitForFeiZi != null ? Session.Parameters.NafeiCost : 0;
+                foreach (Person person in Persons)
+                {
+                    foreach (Title title in person.Titles)
+                    {
+                        if (title != null)
+                        {
+                            num += title.FundForHolder;
+                        }
+                    }
+                }
                 num += (int)(Math.Sqrt(this.Population) * 8.0);
                 if (this.withoutTruceFrontline)
                 {
@@ -13431,6 +13441,16 @@ namespace GameObjects
                 num += this.PlanFacilityKind == null ? 0 : this.PlanFacilityKind.FundCost;
                 num += this.BelongedFaction != null && this.BelongedFaction.PlanTechniqueArchitecture == this ? this.BelongedFaction.getTechniqueActualFundCost(this.BelongedFaction.PlanTechnique) : 0;
                 num += this.PersonCount * this.InternalFundCost * 30;
+                foreach (Person person in Persons)
+                {
+                    foreach (Title title in person.Titles)
+                    {
+                        if (title != null)
+                        {
+                            num += title.FundForHolder;
+                        }
+                    }
+                }
                 return num;
             }
         }

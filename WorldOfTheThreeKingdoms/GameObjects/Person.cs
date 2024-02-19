@@ -464,6 +464,20 @@ namespace GameObjects
             }
         }
 
+        private int fund = 0;
+        [DataMember]
+        public int Fund
+        {
+            get
+            {
+                return fund;
+            }
+            set
+            {
+                fund = value;
+            }
+        }
+
         private Captive belongedCaptive;
 
         //[DataMember]
@@ -5713,6 +5727,25 @@ namespace GameObjects
                 this.BelongedFaction.IncreaseReputation(this.MonthIncrementOfFactionReputation);
             }
             this.AdjustIdeal();
+            if (BelongedArchitecture != null)
+            {
+                foreach (Title title in Titles)
+                {
+                    if (title != null)
+                    {
+                        var fund = title.FundForHolder;
+                        if (BelongedArchitecture.Fund >= fund)
+                        {
+                            BelongedArchitecture.Fund -= fund;
+                            Fund += fund;
+                        }
+                        else
+                        {
+                            TempLoyaltyChange -= fund / 10;
+                        }
+                    }
+                }
+            }
         }
 
         public void resetPreferredWorkkind(bool[] need)

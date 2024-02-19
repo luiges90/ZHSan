@@ -146,6 +146,13 @@ namespace GameObjects.PersonDetail
             set;
         }
 
+        [DataMember]
+        public int FundForHolder
+        {
+            get;
+            set;
+        }
+
         private bool? containsLeaderOnlyCache = null;
         public bool ContainsLeaderOnly
         {

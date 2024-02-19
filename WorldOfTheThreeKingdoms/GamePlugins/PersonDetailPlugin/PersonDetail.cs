@@ -157,6 +157,10 @@
                                 }
                                 this.InfluenceText.ResortTexts();
                                 this.ConditionText.Clear();
+                                if (title.FundForHolder > 0)
+                                {
+                                    this.ConditionText.AddText("薪金：" + title.FundForHolder + "/月");
+                                }
                                 this.ConditionText.AddText("修习条件", this.ConditionText.TitleColor);
                                 this.ConditionText.AddNewLine();
                                 foreach (Condition condition in title.Conditions.Conditions.Values)
