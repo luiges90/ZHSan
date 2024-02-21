@@ -1326,13 +1326,20 @@
 				FontColor="4294967295"
 				Align="Left">
         </Column>
+        <Column ID="530" Name="Fund" IsNumber="false" DisplayName="銀兩" MinWidth="60" DetailLevel="9"
+                    FontName="方正隶变_GBK"
+                    FontSize="15"
+                    FontStyle="Regular"
+                    FontColor="4294375158"
+                    Align="Right">
+        </Column>
       </Columns>
       <Tabs Margin="5">
-        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 2 8 17 3 4 30 70 71 170">
+        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 2 8 17 3 4 30 70 71 170 510">
         </Tab>
         <Tab ID="2"  Name="Ability" DisplayName="能力" Columns="1 6 7 9 10 11 12 13 14 15 16 18 600">
         </Tab>
-        <Tab ID="3"  Name="Personal" DisplayName="个人" Columns="1 20 21 22 23 24 25 26 120 150 124 5 27 510">
+        <Tab ID="3"  Name="Personal" DisplayName="个人" Columns="1 20 21 22 23 24 25 26 120 150 124 530 5 27">
         </Tab>
         <Tab ID="4"  Name="Internal" DisplayName="内政" Columns="1 30 31 32 33 34 35 36 400">
         </Tab>
@@ -3037,9 +3044,16 @@
                 FontColor="4294375158"
                 Align="Right">
         </Column>
+        <Column ID="8" Name="FundForHolder" IsNumber="true" DisplayName="薪金" MinWidth="40" DetailLevel="3"
+                FontName="方正隶变_GBK"
+                FontSize="15"
+                FontStyle="Regular"
+                FontColor="4294375158"
+                Align="Right">
+        </Column>
       </Columns>
       <Tabs Margin="5">
-        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 2 7 6 3" ListKind="Influence" ListMethod="GetInfluenceList">
+        <Tab ID="1"  Name="Basic" DisplayName="基本" Columns="1 2 7 6 8 3" ListKind="Influence" ListMethod="GetInfluenceList">
         </Tab>
         <Tab ID="3"  Name="Condition" DisplayName="条件" Columns="1 4" ListKind="Influence" ListMethod="GetInfluenceList">
         </Tab>

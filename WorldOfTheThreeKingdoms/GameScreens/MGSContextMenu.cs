@@ -627,7 +627,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetJailBreakPerson, false, true, true, true, this.CurrentArchitecture.Persons, null, "劫狱", "劫狱");
                     break;
 
-                case ContextMenuResult.Monarch_officePosition_jingongzijin:
+                case ContextMenuResult.Faction_officePosition_jingongzijin:
                     this.Plugins.TransportDialogPlugin.SetSourceArchiecture(this.CurrentArchitecture);
                     this.Plugins.TransportDialogPlugin.SetKind(TransportKind.EmperorFund);
                     this.Plugins.TransportDialogPlugin.SetMapPosition(ShowPosition.Center);
@@ -635,7 +635,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.Plugins.TransportDialogPlugin.IsShowing = true;
                     break;
 
-                case ContextMenuResult.Monarch_officePosition_jingongliangcao:
+                case ContextMenuResult.Faction_officePosition_jingongliangcao:
                     this.Plugins.TransportDialogPlugin.SetSourceArchiecture(this.CurrentArchitecture);
                     this.Plugins.TransportDialogPlugin.SetKind(TransportKind.EmperorFood);
                     this.Plugins.TransportDialogPlugin.SetMapPosition(ShowPosition.Center);
@@ -655,70 +655,70 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectTrainableChildren, false, true, true, true, this.CurrentArchitecture.BelongedFaction.Leader.TrainableChildren, null, "子女培育", "");
                     break;
 
-                case ContextMenuResult.Monarch_ChangeCapital:
+                case ContextMenuResult.Faction_changeCapital:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Architecture, FrameFunction.GetNewCapital, false, true, true, false, this.CurrentArchitecture.GetChangeCapitalArchitectureList(), null, "迁都", "");
                     break;
-                case ContextMenuResult.Monarch_SelectPrince :
+                case ContextMenuResult.Faction_selectPrince :
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectPrince, false, true, true, false, this.CurrentArchitecture.BelongedFaction.Leader.ChildrenCanBeSelectedAsPrince(), null, "立储", "");
                     break;
-                case ContextMenuResult.Monarch_Diplomatic_QuanXiangDiplomaticRelation: //劝降
+                case ContextMenuResult.Faction_Diplomatic_QuanXiangDiplomaticRelation: //劝降
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.DiplomaticRelation, FrameFunction.GetQuanXiangDiplomaticRelation, false, true, true, false, this.CurrentArchitecture.GetQuanXiangDiplomaticRelationList() , null, "劝降", "");
                     break;
 
-                case ContextMenuResult.Monarch_Diplomatic_GeDiDiplomaticRelation: //割地
+                case ContextMenuResult.Faction_Diplomatic_GeDiDiplomaticRelation: //割地
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.DiplomaticRelation, FrameFunction.GetGeDiDiplomaticRelation, false, true, true, false, this.CurrentArchitecture.GetGeDiDiplomaticRelationList(), null, "割地", "");
                     break;
-                case ContextMenuResult.Monarch_Diplomatic_EnhanceDiplomaticRelation:
+                case ContextMenuResult.Faction_Diplomatic_EnhanceDiplomaticRelation:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.DiplomaticRelation, FrameFunction.GetEnhanceDiplomaticRelation, false, true, true, false, this.CurrentArchitecture.GetEnhanceDiplomaticRelationList(), null, "亲善", "");
                     break;
-                case ContextMenuResult.Monarch_Diplomatic_AllyDiplomaticRelation:
+                case ContextMenuResult.Faction_Diplomatic_AllyDiplomaticRelation:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.DiplomaticRelation, FrameFunction.GetAllyDiplomaticRelation, false, true, true, false, this.CurrentArchitecture.GetAllyDiplomaticRelationList(), null, "结盟", "");
                     break;
-                case ContextMenuResult.Monarch_Diplomatic_ResetDiplomaticRelation:
+                case ContextMenuResult.Faction_Diplomatic_ResetDiplomaticRelation:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.DiplomaticRelation, FrameFunction.GetFriendlyDiplomaticRelation, false, true, true, false, this.CurrentArchitecture.GetResetDiplomaticRelationList(), null, "解盟", "");
                     break;
-                case ContextMenuResult.Monarch_Diplomatic_TruceDiplomaticRelation:
+                case ContextMenuResult.Faction_Diplomatic_TruceDiplomaticRelation:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.DiplomaticRelation, FrameFunction.GetTruceDiplomaticRelation, false, true, true, false, this.CurrentArchitecture.GetTruceDiplomaticRelationList(), null, "停战", "");
                     break;
-                case ContextMenuResult.Monarch_Diplomatic_DenounceDiplomaticRelation:
+                case ContextMenuResult.Faction_Diplomatic_DenounceDiplomaticRelation:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.DiplomaticRelation, FrameFunction.GetDenounceDiplomaticRelation, false, true, true, false, this.CurrentArchitecture.GetDenounceDiplomaticRelationList(), null, "声讨", "");
                     break;
 
-                case ContextMenuResult.Monarch_Techniques:
+                case ContextMenuResult.Faction_ManageTechniques:
                     this.ShowFactionTechniques(this.CurrentArchitecture.BelongedFaction, this.CurrentArchitecture);
                     break;
-                case ContextMenuResult.Monarch_KillRelease_ReleaseSelfPerson:
+                case ContextMenuResult.Faction_KillRelease_ReleaseSelfPerson:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.ReleaseSelfPerson, false, true, true, false, this.CurrentArchitecture.CanKilledPersons(), null, "流放下属", "");
                     break;
-                case ContextMenuResult.Monarch_KillRelease_ReleaseCaptive:
+                case ContextMenuResult.Faction_KillRelease_ReleaseCaptive:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Captive, FrameFunction.GetReleaseCaptive, false, true, true, true, this.CurrentArchitecture.BelongedFaction.Captives, null, "释放俘虏", "");
                     break;
 
-                case ContextMenuResult.Monarch_KillRelease_MoveCaptive: //移动俘虏
+                case ContextMenuResult.Faction_KillRelease_MoveCaptive: //移动俘虏
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Captive, FrameFunction.MoveCaptive, false, true, true, true, this.CurrentArchitecture.Captives, null, "转移俘虏", "");
                     break;
 
-                case ContextMenuResult.Monarch_KillRelease_KillPerson:
+                case ContextMenuResult.Faction_KillRelease_KillPerson:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.KillPerson, false, true, true,false , this.CurrentArchitecture.CanKilledPersons(), null, "处斩下属", "");
                     break;
 
-                case ContextMenuResult.Monarch_KillRelease_KillCaptive:
+                case ContextMenuResult.Faction_KillRelease_KillCaptive:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Captive, FrameFunction.KillCaptive, false, true, true, false, this.CurrentArchitecture.BelongedFaction.Captives, null, "处斩俘虏", "");
                     break;
                     /*
-                case ContextMenuResult.Monarch_ZhaoXianBang_AutoCreatePerson: //招贤榜
+                case ContextMenuResult.Faction_ZhaoXianBang_AutoCreatePerson: //招贤榜
                     this.CurrentArchitecture.AutoCreatePerson();
                     break;
                     */
-                case ContextMenuResult.Monarch_ZhaoXianBang_GenerateOfficer:
+                case ContextMenuResult.Faction_ZhaoXianBang_GenerateOfficer:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.PersonGeneratorType, FrameFunction.GetOfficerType, false, true, true, false, this.CurrentArchitecture.AvailGeneratorTypeList(), null, "武将类型", "");
                     break;
                     /*
-                case ContextMenuResult.Monarch_ZhaoXianBang_DengYong: //登用
+                case ContextMenuResult.Faction_ZhaoXianBang_DengYong: //登用
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.DengYong, false, true, true, false, this.CurrentArchitecture.NoFactionOfficers, null, "登用", "");
                     break;
                     */
-                case ContextMenuResult.Monarch_ZhaoXianBang_DismissOfficer: //遣散
+                case ContextMenuResult.Faction_ZhaoXianBang_DismissOfficer: //遣散
                     this.CurrentArchitecture.DismissOfficer();
                     break;
                     
@@ -740,24 +740,24 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.ReleaseFeizi, false, true, true, true, this.CurrentArchitecture.ReleasableFeizis, null, "释放妃子", "");
                     break;
 
-                case ContextMenuResult.Monarch_Refuse:
+                case ContextMenuResult.Faction_Refuse:
                     this.CurrentArchitecture.BelongedFaction.AutoRefuse = !this.CurrentArchitecture.BelongedFaction.AutoRefuse;
                     break;
 
-                case ContextMenuResult.Monarch_Treasure_Confiscate:
+                case ContextMenuResult.Faction_Treasure_Confiscate:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Treasure, FrameFunction.GetConfiscateTreasure, false, true, true, false, this.CurrentArchitecture.BelongedFaction.AllTreasuresExceptLeader, null, "", "");
                     break;
 
-                case ContextMenuResult.Monarch_Treasure_Award:
+                case ContextMenuResult.Faction_Treasure_Award:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Treasure, FrameFunction.GetAwardTreasure, false, true, true, false, this.CurrentArchitecture.GetTreasureListOfLeader(), null, "", "");
                     break;
-                case ContextMenuResult.Monarch_Treasure_Sell:
+                case ContextMenuResult.Faction_Treasure_Sell:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Treasure, FrameFunction.GetSellTreasure, false, true, true, true, this.CurrentArchitecture.GetTreasureListOfLeader(), null, "卖宝", "");
                     break;
-                case ContextMenuResult.Monarch_officePosition_SelfBecomeEmperor:
+                case ContextMenuResult.Faction_officePosition_SelfBecomeEmperor:
                     this.CurrentArchitecture.BelongedFaction.SelfBecomeEmperor();
                     break;
-                case ContextMenuResult.Monarch_officePosition_BecomeEmperorLegally:
+                case ContextMenuResult.Faction_officePosition_BecomeEmperorLegally:
                     this.CurrentArchitecture.BelongedFaction.BecomeEmperorLegally();
                     break;
 
@@ -810,7 +810,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
                     break;
                     /*
-                case ContextMenuResult .Monarch_ZhaoXianBang_AutoZhaoXian:
+                case ContextMenuResult .Faction_ZhaoXianBang_AutoZhaoXian:
                     this.CurrentArchitecture.AutoZhaoXian = !this.CurrentArchitecture.AutoZhaoXian;
                     if (this.CurrentArchitecture.AutoZhaoXian)
                     {

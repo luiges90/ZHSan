@@ -31656,7 +31656,7 @@
 "Endurance":1500,
 "FactionLimit":9999,
 "FundCost":100000,
-"InfluencesString":"3151 3152 3153 3154 3157 6161",
+"InfluencesString":"3151 3152 3153 3154 3157 3502",
 "MaintenanceCost":5,
 "PointCost":0,
 "PopulationRelated":false,
@@ -31697,12 +31697,12 @@
 "AIBuildConditionWeightString":"",
 "AILevel":40,
 "ArchitectureLimit":9999,
-"ConditionTableString":"2394 5001",
+"ConditionTableString":"2394 2393",
 "Days":90,
 "Endurance":750,
 "FactionLimit":9999,
 "FundCost":250000,
-"InfluencesString":"1220 1320 6150",
+"InfluencesString":"1220 1320 3512 3500",
 "MaintenanceCost":100,
 "PointCost":50000,
 "PopulationRelated":false,
@@ -31748,7 +31748,7 @@
 "Endurance":5000,
 "FactionLimit":9999,
 "FundCost":150000,
-"InfluencesString":"1200 1300 18142 6150",
+"InfluencesString":"1200 1300 18142 3510 3500",
 "MaintenanceCost":100,
 "PointCost":50000,
 "PopulationRelated":false,
@@ -31771,7 +31771,7 @@
 "Endurance":5000,
 "FactionLimit":9999,
 "FundCost":150000,
-"InfluencesString":"1211 18143 6150",
+"InfluencesString":"1211 18143 3511 3500",
 "MaintenanceCost":100,
 "PointCost":50000,
 "PopulationRelated":false,
@@ -31794,7 +31794,7 @@
 "Endurance":5000,
 "FactionLimit":9999,
 "FundCost":100000,
-"InfluencesString":"1240 1340",
+"InfluencesString":"1240 1340 3514",
 "MaintenanceCost":100,
 "PointCost":50000,
 "PopulationRelated":false,
@@ -31817,7 +31817,7 @@
 "Endurance":2000,
 "FactionLimit":9999,
 "FundCost":100000,
-"InfluencesString":"6156",
+"InfluencesString":"3501",
 "MaintenanceCost":5,
 "PointCost":0,
 "PopulationRelated":false,
@@ -32576,7 +32576,7 @@
 "Endurance":2500,
 "FactionLimit":9999,
 "FundCost":200000,
-"InfluencesString":"1230 1330",
+"InfluencesString":"1230 1330 3513",
 "MaintenanceCost":5,
 "PointCost":100000,
 "PopulationRelated":false,
@@ -32852,7 +32852,7 @@
 "Endurance":2000,
 "FactionLimit":9999,
 "FundCost":100000,
-"InfluencesString":"6166",
+"InfluencesString":"3503",
 "MaintenanceCost":5,
 "PointCost":0,
 "PopulationRelated":false,
@@ -32875,7 +32875,7 @@
 "Endurance":2000,
 "FactionLimit":9999,
 "FundCost":100000,
-"InfluencesString":"6171",
+"InfluencesString":"3504",
 "MaintenanceCost":5,
 "PointCost":0,
 "PopulationRelated":false,
@@ -36185,6 +36185,174 @@
 "Name":"建筑内粮草衰减率变化",
 "AIPersonValue":30,
 "AIPersonValuePow":-1,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3500,
+"Value":{
+"ID":3500,
+"Name":"統率修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3501,
+"Value":{
+"ID":3501,
+"Name":"武力修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3502,
+"Value":{
+"ID":3502,
+"Name":"智力修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3503,
+"Value":{
+"ID":3503,
+"Name":"政治修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3504,
+"Value":{
+"ID":3504,
+"Name":"魅力修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3505,
+"Value":{
+"ID":3505,
+"Name":"內政修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3506,
+"Value":{
+"ID":3506,
+"Name":"策略修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3507,
+"Value":{
+"ID":3507,
+"Name":"戰鬥修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3508,
+"Value":{
+"ID":3508,
+"Name":"計略修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3510,
+"Value":{
+"ID":3510,
+"Name":"步兵修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3511,
+"Value":{
+"ID":3511,
+"Name":"弩兵修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3512,
+"Value":{
+"ID":3512,
+"Name":"騎兵修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3513,
+"Value":{
+"ID":3513,
+"Name":"水軍修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+}
+},
+{
+"Key":3514,
+"Value":{
+"ID":3514,
+"Name":"器械修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
 "Combat":false,
 "TroopLeaderValid":false,
 "Type":5
@@ -53599,270 +53767,270 @@
 }
 },
 {
-    "Key": 3500,
-    "Value": {
-        "ID": 3500,
-        "Name": "統率修練設施",
-        "Description": "統率修練設施",
-        "Kind": {
-            "ID": 3500,
-            "Name": "統率修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3500,
+"Value":{
+"ID":3500,
+"Name":"武將統率修練設施",
+"Description":"武將統率修練設施",
+"Kind":{
+"ID":3500,
+"Name":"統率修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
-    "Key": 3501,
-    "Value": {
-        "ID": 3501,
-        "Name": "武力修練設施",
-        "Description": "武力修練設施",
-        "Kind": {
-            "ID": 3501,
-            "Name": "武力修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3501,
+"Value":{
+"ID":3501,
+"Name":"武將武力修練設施",
+"Description":"武將武力修練設施",
+"Kind":{
+"ID":3501,
+"Name":"武力修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
-    "Key": 3502,
-    "Value": {
-        "ID": 3502,
-        "Name": "智力修練設施",
-        "Description": "智力1修練設施",
-        "Kind": {
-            "ID": 3502,
-            "Name": "智力修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3502,
+"Value":{
+"ID":3502,
+"Name":"武將智力修練設施",
+"Description":"武將智力修練設施",
+"Kind":{
+"ID":3502,
+"Name":"智力修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
-    "Key": 3503,
-    "Value": {
-        "ID": 3503,
-        "Name": "政治修練設施",
-        "Description": "政治修練設施",
-        "Kind": {
-            "ID": 3503,
-            "Name": "政治修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3503,
+"Value":{
+"ID":3503,
+"Name":"武將政治修練設施",
+"Description":"武將政治修練設施",
+"Kind":{
+"ID":3503,
+"Name":"政治修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
-    "Key": 3504,
-    "Value": {
-        "ID": 3504,
-        "Name": "魅力修練設施",
-        "Description": "魅力修練設施",
-        "Kind": {
-            "ID": 3504,
-            "Name": "魅力修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3504,
+"Value":{
+"ID":3504,
+"Name":"武將魅力修練設施",
+"Description":"武將魅力修練設施",
+"Kind":{
+"ID":3504,
+"Name":"魅力修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
-    "Key": 3505,
-    "Value": {
-        "ID": 3505,
-        "Name": "內政修練設施",
-        "Description": "內政修練設施",
-        "Kind": {
-            "ID": 3505,
-            "Name": "內政修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3505,
+"Value":{
+"ID":3505,
+"Name":"武將內政修練設施",
+"Description":"武將內政修練設施",
+"Kind":{
+"ID":3505,
+"Name":"內政修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
-    "Key": 3506,
-    "Value": {
-        "ID": 3506,
-        "Name": "策略修練設施",
-        "Description": "策略修練設施",
-        "Kind": {
-            "ID": 3506,
-            "Name": "策略修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3506,
+"Value":{
+"ID":3506,
+"Name":"武將策略修練設施",
+"Description":"武將策略修練設施",
+"Kind":{
+"ID":3506,
+"Name":"策略修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
-    "Key": 3507,
-    "Value": {
-        "ID": 3507,
-        "Name": "戰鬥修練設施",
-        "Description": "戰鬥修練設施",
-        "Kind": {
-            "ID": 3507,
-            "Name": "戰鬥修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3507,
+"Value":{
+"ID":3507,
+"Name":"武將戰鬥修練設施",
+"Description":"武將戰鬥修練設施",
+"Kind":{
+"ID":3507,
+"Name":"戰鬥修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
-    "Key": 3508,
-    "Value": {
-        "ID": 3508,
-        "Name": "計略修練設施",
-        "Description": "計略修練設施",
-        "Kind": {
-            "ID": 3508,
-            "Name": "計略修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3508,
+"Value":{
+"ID":3508,
+"Name":"武將計略修練設施",
+"Description":"武將計略修練設施",
+"Kind":{
+"ID":3508,
+"Name":"計略修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
-    "Key": 3510,
-    "Value": {
-        "ID": 3510,
-        "Name": "步兵修練設施",
-        "Description": "步兵修練設施",
-        "Kind": {
-            "ID": 3510,
-            "Name": "步兵修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3510,
+"Value":{
+"ID":3510,
+"Name":"武將步兵修練設施",
+"Description":"武將步兵修練設施",
+"Kind":{
+"ID":3510,
+"Name":"步兵修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
-    "Key": 3511,
-    "Value": {
-        "ID": 3511,
-        "Name": "弩兵修練設施",
-        "Description": "弩兵修練設施",
-        "Kind": {
-            "ID": 3501,
-            "Name": "弩兵修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3511,
+"Value":{
+"ID":3511,
+"Name":"武將弩兵修練設施",
+"Description":"武將弩兵修練設施",
+"Kind":{
+"ID":3511,
+"Name":"弩兵修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
-    "Key": 3512,
-    "Value": {
-        "ID": 3512,
-        "Name": "騎兵修練設施",
-        "Description": "騎兵修練設施",
-        "Kind": {
-            "ID": 3512,
-            "Name": "騎兵修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3512,
+"Value":{
+"ID":3512,
+"Name":"武將騎兵修練設施",
+"Description":"武將騎兵修練設施",
+"Kind":{
+"ID":3512,
+"Name":"騎兵修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
-    "Key": 3513,
-    "Value": {
-        "ID": 3513,
-        "Name": "水軍修練設施",
-        "Description": "水軍修練設施",
-        "Kind": {
-            "ID": 3513,
-            "Name": "水軍修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3513,
+"Value":{
+"ID":3513,
+"Name":"武將水軍修練設施",
+"Description":"武將水軍修練設施",
+"Kind":{
+"ID":3513,
+"Name":"水軍修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
-    "Key": 3514,
-    "Value": {
-        "ID": 3514,
-        "Name": "器械修練設施",
-        "Description": "器械修練設施",
-        "Kind": {
-            "ID": 3514,
-            "Name": "器械修練設施",
-            "AIPersonValue": 0,
-            "AIPersonValuePow": 0,
-            "Combat": false,
-            "TroopLeaderValid": false,
-            "Type": 5
-        },
-        "Parameter": "1.0",
-        "Parameter2": ""
-    }
+"Key":3514,
+"Value":{
+"ID":3514,
+"Name":"武將器械修練設施",
+"Description":"武將器械修練設施",
+"Kind":{
+"ID":3514,
+"Name":"器械修練設施",
+"AIPersonValue":0,
+"AIPersonValuePow":0,
+"Combat":false,
+"TroopLeaderValid":false,
+"Type":5
+},
+"Parameter":"1.0",
+"Parameter2":""
+}
 },
 {
 "Key":4000,

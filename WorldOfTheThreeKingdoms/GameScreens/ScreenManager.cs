@@ -677,7 +677,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
-        private void FrameFunction_Monarch_KillRelease_MoveCaptive() //俘虏可移动
+        private void FrameFunction_Faction_KillRelease_MoveCaptive() //俘虏可移动
         {
             if (this.CurrentArchitecture != null)
             {
@@ -1056,7 +1056,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         }
 
         /*
-        private void FrameFunction_Monarch_ZhaoXianBang_DengYong() //强制登用武将
+        private void FrameFunction_Faction_ZhaoXianBang_DengYong() //强制登用武将
         {
             this.CurrentPerson = this.mainGameScreen.Plugins.TabListPlugin.SelectedItem as Person;
             {
@@ -1476,7 +1476,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     break;
 
                 case FrameFunction.MoveCaptive: //俘虏可移动
-                    this.FrameFunction_Monarch_KillRelease_MoveCaptive();
+                    this.FrameFunction_Faction_KillRelease_MoveCaptive();
                     break;
 
                 

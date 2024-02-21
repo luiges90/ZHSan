@@ -98,41 +98,41 @@ namespace GameGlobal
         Tactics_JailBreak,
         Tactics_Assassinate,
         Diplomacy,
-        Monarch_Diplomatic_EnhanceDiplomaticRelation,
-        Monarch_Diplomatic_AllyDiplomaticRelation,
-        Monarch_Diplomatic_ResetDiplomaticRelation,
-        Monarch_Diplomatic_DenounceDiplomaticRelation,
-        Monarch_Diplomatic_TruceDiplomaticRelation,
-        Monarch_Diplomatic_QuanXiangDiplomaticRelation,//劝降
-        Monarch_Diplomatic_GeDiDiplomaticRelation,//割地
-        Monarch_officePosition_jingongzijin,
-        Monarch_officePosition_jingongliangcao,
-        Monarch_officePosition_SelfBecomeEmperor,
-        Monarch_officePosition_BecomeEmperorLegally,
-        Monarch_ChangeCapital,
-        Monarch_SelectPrince,
-      //  Monarch_ZhaoXianBang_AutoCreatePerson, //招贤榜
-       // Monarch_ZhaoXianBang_AutoZhaoXian,
-        Monarch_ZhaoXianBang_GenerateOfficer,
-      //  Monarch_ZhaoXianBang_DengYong,  //登用
-        Monarch_ZhaoXianBang_DismissOfficer, //遣散
-        Monarch_Techniques,
+        Faction_Diplomatic_EnhanceDiplomaticRelation,
+        Faction_Diplomatic_AllyDiplomaticRelation,
+        Faction_Diplomatic_ResetDiplomaticRelation,
+        Faction_Diplomatic_DenounceDiplomaticRelation,
+        Faction_Diplomatic_TruceDiplomaticRelation,
+        Faction_Diplomatic_QuanXiangDiplomaticRelation,//劝降
+        Faction_Diplomatic_GeDiDiplomaticRelation,//割地
+        Faction_officePosition_jingongzijin,
+        Faction_officePosition_jingongliangcao,
+        Faction_officePosition_SelfBecomeEmperor,
+        Faction_officePosition_BecomeEmperorLegally,
+        Faction_changeCapital,
+        Faction_selectPrince,
+      //  Faction_ZhaoXianBang_AutoCreatePerson, //招贤榜
+       // Faction_ZhaoXianBang_AutoZhaoXian,
+        Faction_ZhaoXianBang_GenerateOfficer,
+      //  Faction_ZhaoXianBang_DengYong,  //登用
+        Faction_ZhaoXianBang_DismissOfficer, //遣散
+        Faction_ManageTechniques,
         Monarch_MakeMarriage,
         Monarch_MakeMarriage2,//纳妾
         Monarch_TrainChildren,
-        Monarch_KillRelease_ReleaseSelfPerson,
-        Monarch_KillRelease_MoveCaptive, //转移俘虏
-        Monarch_KillRelease_ReleaseCaptive,
-        Monarch_KillRelease_KillPerson,
-        Monarch_KillRelease_KillCaptive,
+        Faction_KillRelease_ReleaseSelfPerson,
+        Faction_KillRelease_MoveCaptive, //转移俘虏
+        Faction_KillRelease_ReleaseCaptive,
+        Faction_KillRelease_KillPerson,
+        Faction_KillRelease_KillCaptive,
         Monarch_hougongTop_nafei,
         Monarch_hougongTop_hougong,
         Monarch_hougongTop_moveFeizi,
         Monarch_hougongTop_releaseFeizi,
-        Monarch_Refuse,
-        Monarch_Treasure_Confiscate,
-        Monarch_Treasure_Award,
-        Monarch_Treasure_Sell,
+        Faction_Refuse,
+        Faction_Treasure_Confiscate,
+        Faction_Treasure_Award,
+        Faction_Treasure_Sell,
         Section_New,
         Section_Regroup,
         Section_Disband,
