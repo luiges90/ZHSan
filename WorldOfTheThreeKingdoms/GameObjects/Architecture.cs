@@ -6890,7 +6890,7 @@ namespace GameObjects
                 }
                 else
                 {
-                    p.TempLoyaltyChange -= p.Salary * Session.Parameters.SalaryLoyaltyLoss;
+                    p.TempLoyaltyChange -= (int) (p.Salary * Session.Parameters.SalaryLoyaltyLoss);
                 }
             }
         }

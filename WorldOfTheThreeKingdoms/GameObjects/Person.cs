@@ -11568,7 +11568,7 @@ namespace GameObjects
 
         public void ArchitectureFacilityEvent()
         {
-            if (Tiredness <= 0 && Fund >= Session.Parameters.TrainAbilityCost && LocationArchitecture != null)
+            if (Tiredness <= 0 && Fund >= Session.Parameters.TrainAbilityCost && LocationArchitecture != null && GameObject.Random(30) == 0)
             {
                 var priorities = new Dictionary<string, float> {
                     { "command", LocationArchitecture.CommandTrainingFacilityRate > 0 ? Command * 10000 / (commandExperience + 1000) : 0 },
@@ -11583,7 +11583,29 @@ namespace GameObjects
                     { "siege", LocationArchitecture.SiegeTrainingFacilityRate > 0 ? Command * 10000 / (QixieExperience + 1000) : 0 }
                 };
 
-
+                float max = 0;
+                string selected = null;
+                foreach (var p in priorities)
+                {
+                    if (p.Value > max)
+                    {
+                        max = p.Value;
+                        selected = p.Key;
+                    }
+                }
+                switch (selected)
+                {
+                    case "command": locationArchitecture.FacilityTrainCommand(this); break;
+                    case "strength": locationArchitecture.FacilityTrainStrength(this); break;
+                    case "intelligence": locationArchitecture.FacilityTrainIntelligence(this); break;
+                    case "politics": locationArchitecture.FacilityTrainPolitics(this); break;
+                    case "glamour": locationArchitecture.FacilityTrainGlamour(this); break;
+                    case "infantry": locationArchitecture.FacilityTrainInfantry(this); break;
+                    case "cavalry": locationArchitecture.FacilityTrainCavalry(this); break;
+                    case "bowman": locationArchitecture.FacilityTrainBowman(this); break;
+                    case "naval": locationArchitecture.FacilityTrainNaval(this); break;
+                    case "siege": locationArchitecture.FacilityTrainSiege(this); break;
+                }
             }
         }
     }
