@@ -15,6 +15,7 @@ using System.Runtime.Serialization;
 using Platforms;
 using Tools;
 using GameManager;
+using Steamworks;
 
 namespace GameObjects
 {
@@ -2290,6 +2291,7 @@ namespace GameObjects
                 this.updateDayCounters();
                 this.createRelations();
                 this.AutoLearnEvent();
+                this.ArchitectureFacilityEvent();
 
                 List<int> toRemove = new List<int>();
                 foreach (KeyValuePair<int, int> i in new Dictionary<int, int>(this.ProhibitedFactionID))
@@ -11547,6 +11549,43 @@ namespace GameObjects
             }
         }
 
+        public int Salary
+        {
+            get
+            {
+                int salary = Session.Parameters.OfficerBaseSalary;
+                foreach (Title title in Titles)
+                {
+                    if (title != null)
+                    {
+                        salary += title.FundForHolder;
+                    }
+                }
+                return salary;
+            }
+            
+        }
+
+        public void ArchitectureFacilityEvent()
+        {
+            if (Tiredness <= 0 && Fund >= Session.Parameters.TrainAbilityCost && LocationArchitecture != null)
+            {
+                var priorities = new Dictionary<string, float> {
+                    { "command", LocationArchitecture.CommandTrainingFacilityRate > 0 ? Command * 10000 / (commandExperience + 1000) : 0 },
+                    { "strength", LocationArchitecture.StrengthTrainingFacilityRate > 0 ? Strength * 10000 / (StrengthExperience + 1000) : 0 },
+                    { "intelligence", LocationArchitecture.IntelligenceTrainingFacilityRate > 0 ? Intelligence * 10000 / (IntelligenceExperience + 1000) : 0 },
+                    { "politics", LocationArchitecture.IntelligenceTrainingFacilityRate > 0 ? Intelligence * 10000 / (IntelligenceExperience + 1000) : 0 },
+                    { "glamour", LocationArchitecture.GlamourTrainingFacilityRate > 0 ? Glamour * 10000 / (GlamourExperience + 1000) : 0 },
+                    { "infantry", LocationArchitecture.InfantryTrainingFacilityRate > 0 ? Command * 10000 / (BubingExperience + 1000) : 0 },
+                    { "cavalry", LocationArchitecture.CavalryTrainingFacilityRate > 0 ? Command * 10000 / (QibingExperience + 1000) : 0 },
+                    { "bowman", LocationArchitecture.BowmanTrainingFacilityRate > 0 ? Command * 10000 / (NubingExperience + 1000) : 0 },
+                    { "naval", LocationArchitecture.NavalTrainingFacilityRate > 0 ? Command * 10000 / (ShuijunExperience + 1000) : 0 },
+                    { "siege", LocationArchitecture.SiegeTrainingFacilityRate > 0 ? Command * 10000 / (QixieExperience + 1000) : 0 }
+                };
+
+
+            }
+        }
     }
 }
 

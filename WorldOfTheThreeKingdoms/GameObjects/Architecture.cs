@@ -480,7 +480,18 @@ namespace GameObjects
         [DataMember]
         public int MayorOnDutyDays {get;set;}
 
-       // public OngoingBattle Battle { get; set; }
+        public float CommandTrainingFacilityRate { get; set; }
+        public float StrengthTrainingFacilityRate { get; set; }
+        public float IntelligenceTrainingFacilityRate { get; set; }
+        public float PoliticsTrainingFacilityRate { get; set; }
+        public float GlamourTrainingFacilityRate { get; set; }
+        public float InfantryTrainingFacilityRate { get; set; }
+        public float CavalryTrainingFacilityRate { get; set; }
+        public float BowmanTrainingFacilityRate { get; set; }
+        public float NavalTrainingFacilityRate { get; set; }
+        public float SiegeTrainingFacilityRate { get; set; }
+
+        // public OngoingBattle Battle { get; set; }
 
         private String oldFactionName = "";
         [DataMember]
@@ -6869,6 +6880,21 @@ namespace GameObjects
             this.IncreaseFund(this.ExpectedFund);
         }
 
+        public void PaySalary()
+        {
+            foreach (Person p in Persons.GetRandomList())
+            {
+                if (Fund > p.Salary)
+                {
+                    Fund -= p.Salary;
+                }
+                else
+                {
+                    p.TempLoyaltyChange -= p.Salary * Session.Parameters.SalaryLoyaltyLoss;
+                }
+            }
+        }
+
         public void DevelopMilitaryPopulation()
         {
 
@@ -6886,7 +6912,7 @@ namespace GameObjects
                 {
                     this.DevelopFund();
                 }
-
+                this.PaySalary();
             }
 
         }
@@ -12945,13 +12971,7 @@ namespace GameObjects
                 num += this.BelongedFaction.Leader.WaitForFeiZi != null ? Session.Parameters.NafeiCost : 0;
                 foreach (Person person in Persons)
                 {
-                    foreach (Title title in person.Titles)
-                    {
-                        if (title != null)
-                        {
-                            num += title.FundForHolder;
-                        }
-                    }
+                    num += person.Salary;
                 }
                 num += (int)(Math.Sqrt(this.Population) * 8.0);
                 if (this.withoutTruceFrontline)
@@ -13443,13 +13463,7 @@ namespace GameObjects
                 num += this.PersonCount * this.InternalFundCost * 30;
                 foreach (Person person in Persons)
                 {
-                    foreach (Title title in person.Titles)
-                    {
-                        if (title != null)
-                        {
-                            num += title.FundForHolder;
-                        }
-                    }
+                    num += person.Salary;
                 }
                 return num;
             }
@@ -15569,5 +15583,116 @@ namespace GameObjects
             return person;
         }
 
+        /**
+         *  public float CommandTrainingFacilityRate { get; set; }
+        public float StrengthTrainingFacilityRate { get; set; }
+        public float IntelligenceTrainingFacilityRate { get; set; }
+        public float PoliticsTrainingFacilityRate { get; set; }
+        public float GlamourTrainingFacilityRate { get; set; }
+        public float InfantryTrainingFacilityRate { get; set; }
+        public float CavalryTrainingFacilityRate { get; set; }
+        public float BowmanTrainingFacilityRate { get; set; }
+        public float NavalTrainingFacilityRate { get; set; }
+        public float SiegeTrainingFacilityRate { get; set; }
+*/
+        public void FacilityTrainCommand(Person p)
+        {
+            if (CommandTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
+            {
+                p.Fund -= Session.Parameters.TrainAbilityCost;
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
+                p.CommandExperience += (int) (Session.Parameters.TrainAbilityAmount * CommandTrainingFacilityRate);
+            }
+        }
+
+        public void FacilityTrainStrength(Person p)
+        {
+            if (StrengthTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
+            {
+                p.Fund -= Session.Parameters.TrainAbilityCost;
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
+                p.StrengthExperience += (int)(Session.Parameters.TrainAbilityAmount * StrengthTrainingFacilityRate);
+            }
+        }
+
+        public void FacilityTrainIntelligence(Person p)
+        {
+            if (IntelligenceTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
+            {
+                p.Fund -= Session.Parameters.TrainAbilityCost;
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
+                p.IntelligenceExperience += (int)(Session.Parameters.TrainAbilityAmount * IntelligenceTrainingFacilityRate);
+            }
+        }
+
+        public void FacilityTrainPolitics(Person p)
+        {
+            if (PoliticsTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
+            {
+                p.Fund -= Session.Parameters.TrainAbilityCost;
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
+                p.PoliticsExperience += (int)(Session.Parameters.TrainAbilityAmount * PoliticsTrainingFacilityRate);
+            }
+        }
+
+        public void FacilityTrainGlamour(Person p)
+        {
+            if (GlamourTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
+            {
+                p.Fund -= Session.Parameters.TrainAbilityCost;
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
+                p.GlamourExperience += (int)(Session.Parameters.TrainAbilityAmount * GlamourTrainingFacilityRate);
+            }
+        }
+
+        public void FacilityTrainInfantry(Person p)
+        {
+            if (InfantryTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
+            {
+                p.Fund -= Session.Parameters.TrainAbilityCost;
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
+                p.BubingExperience += (int)(Session.Parameters.TrainAbilityAmount * InfantryTrainingFacilityRate);
+            }
+        }
+
+        public void FacilityTrainCavalry(Person p)
+        {
+            if (CavalryTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
+            {
+                p.Fund -= Session.Parameters.TrainAbilityCost;
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
+                p.QibingExperience += (int)(Session.Parameters.TrainAbilityAmount * CavalryTrainingFacilityRate);
+            }
+        }
+
+        public void FacilityTrainBowman(Person p)
+        {
+            if (BowmanTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
+            {
+                p.Fund -= Session.Parameters.TrainAbilityCost;
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
+                p.NubingExperience += (int)(Session.Parameters.TrainAbilityAmount * BowmanTrainingFacilityRate);
+            }
+        }
+
+        public void FacilityTrainSiege(Person p)
+        {
+            if (SiegeTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
+            {
+                p.Fund -= Session.Parameters.TrainAbilityCost;
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
+                p.QixieExperience += (int)(Session.Parameters.TrainAbilityAmount * SiegeTrainingFacilityRate);
+            }
+        }
+
+        public void FacilityTrainNaval(Person p)
+        {
+            if (NavalTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
+            {
+                p.Fund -= Session.Parameters.TrainAbilityCost;
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
+                p.ShuijunExperience += (int)(Session.Parameters.TrainAbilityAmount * NavalTrainingFacilityRate);
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
 
         public override void ApplyInfluenceKind(Architecture architecture)
         {
-            
+            architecture.PoliticsTrainingFacilityRate += rate;
         }
 
         public override void InitializeParameter(string parameter)
@@ -28,7 +28,7 @@ using System.Runtime.Serialization;namespace GameObjects.Influences.InfluenceKin
 
         public override void PurifyInfluenceKind(Architecture architecture)
         {
-
+            architecture.PoliticsTrainingFacilityRate-= rate;
         }
 
         public override double AIFacilityValue(Architecture a)

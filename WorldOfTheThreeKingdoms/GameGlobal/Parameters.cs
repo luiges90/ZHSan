@@ -338,6 +338,16 @@ namespace GameGlobal
         public float PersonCapFalldown = 10;
         [DataMember]
         public int AlienTroopGain = 50;
+        [DataMember]
+        public int TrainAbilityCost = 50;
+        [DataMember]
+        public int TrainAbilityTiredness = 5;
+        [DataMember]
+        public int TrainAbilityAmount = 50;
+        [DataMember]
+        public int OfficerBaseSalary = 10;
+        [DataMember]
+        public float SalaryLoyaltyLoss = 0.2f;
 
         public Parameters Clone()
         {
@@ -527,6 +537,12 @@ namespace GameGlobal
                 PersonCapFalldown = float.Parse(nextSibling.Attributes.GetNamedItem("PersonCapFalldown").Value);
 
                 AlienTroopGain = int.Parse(nextSibling.Attributes.GetNamedItem("AlienTroopGain").Value);
+
+                TrainAbilityCost = int.Parse(nextSibling.Attributes.GetNamedItem("TrainAbilityCost").Value);
+                TrainAbilityTiredness = int.Parse(nextSibling.Attributes.GetNamedItem("TrainAbilityTiredness").Value);
+                TrainAbilityAmount = int.Parse(nextSibling.Attributes.GetNamedItem("TrainAbilityAmount").Value);
+                OfficerBaseSalary = int.Parse(nextSibling.Attributes.GetNamedItem("OfficerBaseSalary").Value);
+                SalaryLoyaltyLoss = float.Parse(nextSibling.Attributes.GetNamedItem("SalaryLoyaltyLoss").Value);
             }
 
             else
@@ -779,6 +795,11 @@ namespace GameGlobal
             element.SetAttribute("PersonCap", PersonCap.ToString());
             element.SetAttribute("PersonCapFalldown", PersonCapFalldown.ToString());
             element.SetAttribute("AlienTroopGain", AlienTroopGain.ToString());
+            element.SetAttribute("TrainAbilityCost", TrainAbilityCost.ToString());
+            element.SetAttribute("TrainAbilityTiredness", TrainAbilityTiredness.ToString());
+            element.SetAttribute("TrainAbilityAmount", TrainAbilityAmount.ToString());
+            element.SetAttribute("OfficerBaseSalary", OfficerBaseSalary.ToString());
+            element.SetAttribute("SalaryLoyaltyLoss", SalaryLoyaltyLoss.ToString());
 
             document.AppendChild(element);
 
