@@ -1002,10 +1002,6 @@
     <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3512.cs" />
     <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3511.cs" />
     <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3510.cs" />
-    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3508.cs" />
-    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3507.cs" />
-    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3506.cs" />
-    <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3505.cs" />
     <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3504.cs" />
     <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3503.cs" />
     <Compile Include="GameObjects\Influences\InfluenceKindPack\InfluenceKind3502.cs" />

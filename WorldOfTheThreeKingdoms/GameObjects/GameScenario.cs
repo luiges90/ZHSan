@@ -3901,9 +3901,21 @@ namespace GameObjects
             }
         }
 
+        private void MigrateSave()
+        {
+            foreach (Person p in this.Persons)
+            {
+                if (p.Sex)
+                {
+                    p.NvGuan = true;
+                }
+            }
+        }
+
         public void AfterLoadGameScenario(MainGameScreen screen)
         {
             MigrateScenario();
+            MigrateSave();
 
             this.InitPluginsWithScenario(screen);
             this.InitializeMapData();
@@ -3933,6 +3945,8 @@ namespace GameObjects
 
         public void AfterLoadSaveFile(MainGameScreen screen)
         {
+            MigrateSave(); 
+
             this.InitPluginsWithScenario(screen);
             this.InitializeMapData();
             this.TroopAnimations.UpdateDirectionAnimations(ScenarioMap.TileWidth);

@@ -541,7 +541,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
                 case ContextMenuResult.Person_Convince:
                     this.Plugins.TabListPlugin.SetSelectedItemMaxCount(this.CurrentArchitecture.ConvincePersonMaxCount);
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetConvinceSourcePerson, false, true, true, true, this.CurrentArchitecture.Persons, null, "说服", "说服");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetConvinceSourcePerson, false, true, true, true, this.CurrentArchitecture.PersonsExcludeNvGuan, null, "说服", "说服");
                     break;
 
                 case ContextMenuResult.Person_Reward:
@@ -601,30 +601,30 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     */
                 case ContextMenuResult.Tactics_Destroy:
                     this.Plugins.TabListPlugin.SetSelectedItemMaxCount(this.CurrentArchitecture.DestroyPersonMaxCount);
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetDestroyPerson, false, true, true, true, this.CurrentArchitecture.Persons, null, "破坏", "破坏");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetDestroyPerson, false, true, true, true, this.CurrentArchitecture.PersonsExcludeNvGuan, null, "破坏", "破坏");
                     break;
 
                 case ContextMenuResult.Tactics_Instigate:
                     this.Plugins.TabListPlugin.SetSelectedItemMaxCount(this.CurrentArchitecture.InstigatePersonMaxCount);
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetInstigatePerson, false, true, true, true, this.CurrentArchitecture.Persons, null, "煽动", "煽动");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetInstigatePerson, false, true, true, true, this.CurrentArchitecture.PersonsExcludeNvGuan, null, "煽动", "煽动");
                     break;
 
                 case ContextMenuResult.Tactics_Gossip:
                     this.Plugins.TabListPlugin.SetSelectedItemMaxCount(this.CurrentArchitecture.GossipPersonMaxCount);
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetGossipPerson, false, true, true, true, this.CurrentArchitecture.Persons, null, "流言", "流言");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetGossipPerson, false, true, true, true, this.CurrentArchitecture.PersonsExcludeNvGuan, null, "流言", "流言");
                     break;
 
                 case ContextMenuResult.Tactics_Assassinate:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetAssassinatePerson, false, true, true, false, this.CurrentArchitecture.Persons, null, "暗杀", "暗杀");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetAssassinatePerson, false, true, true, false, this.CurrentArchitecture.PersonsExcludeNvGuan, null, "暗杀", "暗杀");
                     break;
 
                 case ContextMenuResult.Tactics_Search:
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetSearchPerson, false, true, true, true, this.CurrentArchitecture.Persons, null, "搜索", "搜索");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetSearchPerson, false, true, true, true, this.CurrentArchitecture.PersonsExcludeNvGuan, null, "搜索", "搜索");
                     break;
 
                 case ContextMenuResult.Tactics_JailBreak:
                     this.Plugins.TabListPlugin.SetSelectedItemMaxCount(this.CurrentArchitecture.JailBreakPersonMaxCount);
-                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetJailBreakPerson, false, true, true, true, this.CurrentArchitecture.Persons, null, "劫狱", "劫狱");
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetJailBreakPerson, false, true, true, true, this.CurrentArchitecture.PersonsExcludeNvGuan, null, "劫狱", "劫狱");
                     break;
 
                 case ContextMenuResult.Faction_officePosition_jingongzijin:

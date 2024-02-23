@@ -195,7 +195,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Architecture_AfterGetConvinceSourcePerson() // 说服
         {
-            this.CurrentGameObjects = this.CurrentArchitecture.Persons.GetSelectedList();
+            this.CurrentGameObjects = this.CurrentArchitecture.PersonsExcludeNvGuan.GetSelectedList();
             if (this.CurrentGameObjects != null)
             {
                 this.CurrentPersons = this.CurrentGameObjects.GetList();
@@ -256,7 +256,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (selectedList != null && (selectedList.Count == 1))
             {
                 this.CurrentDiplomaticRelationDisplay = selectedList[0] as DiplomaticRelationDisplay;
-                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetEnhanceDiplomaticRelationPerson, true, true, true, true, this.CurrentArchitecture.Persons, null, "外交人员", "Ability");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetEnhanceDiplomaticRelationPerson, true, true, true, true, this.CurrentArchitecture.PersonsExcludeNvGuan, null, "外交人员", "Ability");
             }
         }
 
@@ -267,7 +267,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (selectedList != null && (selectedList.Count == 1))
             {
                 this.CurrentDiplomaticRelationDisplay = selectedList[0] as DiplomaticRelationDisplay;
-                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetTruceDiplomaticRelationPerson, true, true, true, true, this.CurrentArchitecture.Persons, null, "外交人员", "Ability");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetTruceDiplomaticRelationPerson, true, true, true, true, this.CurrentArchitecture.PersonsExcludeNvGuan, null, "外交人员", "Ability");
             }
         }
 
@@ -278,7 +278,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if (selectedList != null && (selectedList.Count == 1))
             {
                 this.CurrentDiplomaticRelationDisplay = selectedList[0] as DiplomaticRelationDisplay;
-                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetQuanXiangDiplomaticRelationPerson, false, true, true, false, this.CurrentArchitecture.MovablePersons, null, "外交人员", "Ability");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.GetQuanXiangDiplomaticRelationPerson, false, true, true, false, this.CurrentArchitecture.PersonsExcludeNvGuan, null, "外交人员", "Ability");
             }
         }
 
@@ -673,7 +673,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((selectedList != null) && (selectedList.Count == 1))
             {
                 this.CurrentMilitary = selectedList[0] as Military;
-                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetRecruitmentPerson, false, true, true, false, this.CurrentArchitecture.Persons, null, "补充", "补充");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetRecruitmentPerson, false, true, true, false, this.CurrentArchitecture.PersonsExcludeNvGuan, null, "补充", "补充");
             }
         }
 
@@ -732,7 +732,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
         {
             if (this.CurrentArchitecture != null)
             {
-                this.CurrentGameObjects = this.CurrentArchitecture.Persons.GetSelectedList();
+                this.CurrentGameObjects = this.CurrentArchitecture.PersonsExcludeNvGuan.GetSelectedList();
                 if ((this.CurrentGameObjects != null) && (this.CurrentGameObjects.Count == 1))
                 {
                     this.CurrentPerson = this.CurrentGameObjects[0] as Person;
@@ -770,7 +770,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         private void FrameFunction_Architecture_AfterGetSearchPerson() // 搜索
         {
-            this.CurrentGameObjects = this.CurrentArchitecture.Persons.GetSelectedList();
+            this.CurrentGameObjects = this.CurrentArchitecture.PersonsExcludeNvGuan.GetSelectedList();
             if (this.CurrentGameObjects != null)
             {
                 foreach (Person person in this.CurrentGameObjects)
@@ -988,7 +988,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((selectedList != null) && (selectedList.Count == 1))
             {
                 this.CurrentMilitary = selectedList[0] as Military;
-                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetTrainingPerson, false, true, true, false, this.CurrentArchitecture.Persons, null, "训练", "训练");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Work, FrameFunction.GetTrainingPerson, false, true, true, false, this.CurrentArchitecture.PersonsExcludeNvGuan, null, "训练", "训练");
             }
         }
 
@@ -1583,17 +1583,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 Person leader=new Person();
                 PersonList persons=new PersonList();
-                if(this.CurrentArchitecture.Persons.Count==0 || this.CurrentArchitecture.GetAllAvailableArea(false).Area.Count==0)
+                if(this.CurrentArchitecture.PersonsExcludeNvGuan.Count==0 || this.CurrentArchitecture.GetAllAvailableArea(false).Area.Count==0)
                 {
                     break;
                 }
-                else if (this.CurrentArchitecture.Persons.Count > 0 && this.CurrentArchitecture.GetAllAvailableArea(false).Area.Count > 0)
+                else if (this.CurrentArchitecture.PersonsExcludeNvGuan.Count > 0 && this.CurrentArchitecture.GetAllAvailableArea(false).Area.Count > 0)
                 {
-                    if (this.CurrentArchitecture.Persons.HasGameObject(military.FollowedLeader))
+                    if (this.CurrentArchitecture.PersonsExcludeNvGuan.HasGameObject(military.FollowedLeader))
                     {
                         leader = military.FollowedLeader;
                     }
-                    else if (this.CurrentArchitecture.Persons.HasGameObject(military.Leader))
+                    else if (this.CurrentArchitecture.PersonsExcludeNvGuan.HasGameObject(military.Leader))
                     {
                         leader = military.Leader;
                     }
@@ -1605,7 +1605,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     persons.Add(leader);
                     foreach (Person p in leader.preferredTroopPersons)
                     {
-                        if (this.CurrentArchitecture.Persons.HasGameObject(p) && !persons.HasGameObject(p))
+                        if (this.CurrentArchitecture.PersonsExcludeNvGuan.HasGameObject(p) && !persons.HasGameObject(p))
                         {
                             persons.Add(p);
                         }
@@ -1633,17 +1633,17 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 Person leader = new Person();
                 PersonList persons = new PersonList();
-                if (this.CurrentArchitecture.Persons.Count == 0 || this.CurrentArchitecture.GetAllAvailableArea(false).Area.Count == 0)
+                if (this.CurrentArchitecture.PersonsExcludeNvGuan.Count == 0 || this.CurrentArchitecture.GetAllAvailableArea(false).Area.Count == 0)
                 {
                     break;
                 }
-                else if (this.CurrentArchitecture.Persons.Count > 0 && this.CurrentArchitecture.GetAllAvailableArea(false).Area.Count > 0)
+                else if (this.CurrentArchitecture.PersonsExcludeNvGuan.Count > 0 && this.CurrentArchitecture.GetAllAvailableArea(false).Area.Count > 0)
                 {
-                    if (this.CurrentArchitecture.Persons.HasGameObject(military.FollowedLeader))
+                    if (this.CurrentArchitecture.PersonsExcludeNvGuan.HasGameObject(military.FollowedLeader))
                     {
                         leader = military.FollowedLeader;
                     }
-                    else if (this.CurrentArchitecture.Persons.HasGameObject(military.Leader))
+                    else if (this.CurrentArchitecture.PersonsExcludeNvGuan.HasGameObject(military.Leader))
                     {
                         leader = military.Leader;
                     }

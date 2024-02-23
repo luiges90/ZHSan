@@ -96,7 +96,7 @@ namespace CreateTroopPlugin
             {
                 foreach (Person p in this.CreatingLeader.preferredTroopPersons)
                 {
-                    if (this.CreatingArchitecture.Persons.GameObjects.Contains(p) && !this.CreatingPersons.GameObjects.Contains(p))
+                    if (this.CreatingArchitecture.PersonsExcludeNvGuan.GameObjects.Contains(p) && !this.CreatingPersons.GameObjects.Contains(p))
                     {
                         this.CreatingPersons.Add(p);
                     }
@@ -144,10 +144,10 @@ namespace CreateTroopPlugin
 
             if (this.CreatingArchitecture.PersonCount == 1)
             {
-                this.CreatingPersons = this.CreatingArchitecture.Persons;
+                this.CreatingPersons = this.CreatingArchitecture.PersonsExcludeNvGuan;
                 this.CreatingLeader = this.CreatingPersons[0] as Person;
             }
-            else if (this.CreatingArchitecture.Persons.HasGameObject(this.CreatingMilitary.FollowedLeader))
+            else if (this.CreatingArchitecture.PersonsExcludeNvGuan.HasGameObject(this.CreatingMilitary.FollowedLeader))
             {
                 if (this.CreatingPersons == null)
                 {
@@ -160,7 +160,7 @@ namespace CreateTroopPlugin
                 this.CreatingPersons.Add(this.CreatingMilitary.FollowedLeader);
                 this.CreatingLeader = this.CreatingMilitary.FollowedLeader;
             }
-            else if (this.CreatingArchitecture.Persons.HasGameObject(this.CreatingMilitary.Leader))
+            else if (this.CreatingArchitecture.PersonsExcludeNvGuan.HasGameObject(this.CreatingMilitary.Leader))
             {
                 if (this.CreatingPersons == null)
                 {
@@ -814,7 +814,7 @@ namespace CreateTroopPlugin
 
         private void SelectPersons()
         {
-            this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.Architecture_PersonToTroop, false, true, true, true, this.CreatingArchitecture.Persons, this.CreatingPersons, "出征人物", "");
+            this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.Architecture_PersonToTroop, false, true, true, true, this.CreatingArchitecture.PersonsExcludeNvGuan, this.CreatingPersons, "出征人物", "");
             this.GameFramePlugin.SetOKFunction(delegate {
                 if (this.CreatingPersons != null)
                 {

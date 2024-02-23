@@ -1227,7 +1227,7 @@ namespace GameObjects
         {
             get
             {
-                return ((this.BelongedArchitecture != null && this.BelongedArchitecture.Persons.GameObjects.Contains(this.FollowedLeader)) ||
+                return ((this.BelongedArchitecture != null && this.BelongedArchitecture.PersonsExcludeNvGuan.GameObjects.Contains(this.FollowedLeader)) ||
                     (this.BelongedTroop != null && !this.BelongedTroop.Destroyed && this.BelongedTroop.Leader == this.FollowedLeader)) && 
                     this.FollowedLeader != null && this.FollowedLeader.Status == GameObjects.PersonDetail.PersonStatus.Normal;
             }
@@ -1237,7 +1237,7 @@ namespace GameObjects
         {
             get
             {
-                return ((this.BelongedArchitecture != null && this.BelongedArchitecture.Persons.GameObjects.Contains(this.Leader)) ||
+                return ((this.BelongedArchitecture != null && this.BelongedArchitecture.PersonsExcludeNvGuan.GameObjects.Contains(this.Leader)) ||
                     (this.BelongedTroop != null && !this.BelongedTroop.Destroyed && this.BelongedTroop.Leader == this.leader)) &&
                     this.Leader != null && this.Leader.Status == GameObjects.PersonDetail.PersonStatus.Normal;
             }

@@ -1721,7 +1721,7 @@ namespace GameObjects
             {
                 foreach (Architecture a in archs)
                 {
-                    foreach (Person p in a.Persons)
+                    foreach (Person p in a.PersonsExcludeNvGuan)
                     {
                         if (p.Status == PersonStatus.Normal && p.LocationArchitecture != null && p.LocationTroop == null)
                         {
@@ -1775,7 +1775,7 @@ namespace GameObjects
             int totalFrontline = 0;
             foreach (Architecture a in srcArch)
             {
-                foreach (Person p in a.Persons)
+                foreach (Person p in a.PersonsExcludeNvGuan)
                 {
                     if (p.Command > 50)
                     {

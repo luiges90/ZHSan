@@ -452,6 +452,21 @@ namespace GameObjects
 
         private int karma = 0;
 
+        private bool nvGuan = false;
+
+        [DataMember]
+        public bool NvGuan
+        {
+            get
+            {
+                return nvGuan;
+            }
+            set
+            {
+                nvGuan = value;
+            }
+        }
+
         [DataMember]
         public int Karma
         {
@@ -3843,7 +3858,7 @@ namespace GameObjects
         {
             Session.MainGame.mainGameScreen.xianshishijiantupian(shizhe, sourceFaction.Leader.Name, TextMessageKind.GeDi, "GeDiDiplomaticRelation", "GeDiDiplomaticRelation.jpg", "shilimiewang", targetFaction.Name, true);
 
-            foreach (Person p in a.Persons)
+            foreach (Person p in a.PersonsExcludeNvGuan)
             {
                 p.MoveToArchitecture(sourceFaction.Capital);
             }
@@ -10974,7 +10989,7 @@ namespace GameObjects
             {
                 if (this.LocationArchitecture != null)
                 {
-                    foreach (Person p in this.LocationArchitecture.Persons)
+                    foreach (Person p in this.LocationArchitecture.PersonsExcludeNvGuan)
                     {
                         if (p.preferredTroopPersons.GameObjects.Contains(this) && p.HasLeadingArmy)
                         {
