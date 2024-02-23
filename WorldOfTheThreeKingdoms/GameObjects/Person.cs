@@ -5872,12 +5872,50 @@ namespace GameObjects
         }
         */
 
-        public void MoveToArchitecture(Architecture a, Point? startingPoint)
+        public Person NvGuanFollower
         {
-            this.MoveToArchitecture(a, startingPoint, false);
+            get
+            {
+                if (this.Spouse != null && this.Spouse.BelongedFaction == this.BelongedFaction && (this.Spouse.Status == PersonStatus.Normal || this.Spouse.Status == PersonStatus.Moving))
+                {
+                    return this.Spouse;
+                }
+                else if (this.Father != null && this.Father.BelongedFaction == this.BelongedFaction && (this.Father.Status == PersonStatus.Normal || this.Father.Status == PersonStatus.Moving))
+                {
+                    return this.Father;
+                } 
+                else
+                {
+                    var strain = new PersonList();
+                    foreach (Person person in this.BelongedFaction.Persons)
+                    {
+                        if (this.HasStrainTo(person))
+                        {
+                            strain.Add(person);
+                        }
+                    }
+                    strain.PropertyName = "Age";
+                    strain.IsNumber = true;
+                    strain.SmallToBig = false;
+                    strain.ReSort();
+                    foreach (Person p in strain)
+                    {
+                        if (p.BelongedFaction == this.BelongedFaction && (p.Status == PersonStatus.Normal || p.Status == PersonStatus.Moving))
+                        {
+                            return p;
+                        }
+                    }
+                }
+                return this.BelongedFaction?.Leader;
+            }
         }
 
-        public void MoveToArchitecture(Architecture a, Point? startingPoint, bool removeFromTroop)
+        public void MoveToArchitecture(Architecture a, Point? startingPoint)
+        {
+            this.MoveToArchitecture(a, startingPoint, false, true);
+        }
+
+        public void MoveToArchitecture(Architecture a, Point? startingPoint, bool removeFromTroop, bool moveFollowers)
         {
             Architecture targetArchitecture = this.TargetArchitecture;
 
@@ -5959,6 +5997,17 @@ namespace GameObjects
                 }
 
                 this.LocationArchitecture = this.TargetArchitecture;
+            }
+
+            if (moveFollowers)
+            {
+                foreach (Person p in this.BelongedFaction.Persons)
+                {
+                    if (p.NvGuan && p.NvGuanFollower == this)
+                    {
+                        p.MoveToArchitecture(a, startingPoint, removeFromTroop, false);
+                    }
+                }
             }
         }
 
@@ -10394,6 +10443,40 @@ namespace GameObjects
             return false;
         }
 
+        public bool HasLooseStrainTo(Person b)
+        {
+            if (HasCloseStrainTo(b)) return true;
+
+            if (this == b.Father?.Father) return true;
+            if (this == b.Father?.Mother) return true;
+            if (this == b.Mother?.Father) return true;
+            if (this == b.Mother?.Mother) return true;
+            if (b == this.Father?.Father) return true;
+            if (b == this.Father?.Mother) return true;
+            if (b == this.Mother?.Father) return true;
+            if (b == this.Mother?.Mother) return true;
+
+            if (this.Father != null && this.Father == b.Father?.Father) return true;
+            if (this.Father != null && this.Father == b.Father?.Mother) return true;
+            if (this.Father != null && this.Father == b.Mother?.Father) return true;
+            if (this.Father != null && this.Father == b.Mother?.Mother) return true;
+            if (this.Mother != null && this.Mother == b.Father?.Father) return true;
+            if (this.Mother != null && this.Mother == b.Father?.Mother) return true;
+            if (this.Mother != null && this.Mother == b.Mother?.Father) return true;
+            if (this.Mother != null && this.Mother == b.Mother?.Mother) return true;
+
+            if (b.Father != null && b.Father == this.Father?.Father) return true;
+            if (b.Father != null && b.Father == this.Father?.Mother) return true;
+            if (b.Father != null && b.Father == this.Mother?.Father) return true;
+            if (b.Father != null && b.Father == this.Mother?.Mother) return true;
+            if (b.Mother != null && b.Mother == this.Father?.Father) return true;
+            if (b.Mother != null && b.Mother == this.Father?.Mother) return true;
+            if (b.Mother != null && b.Mother == this.Mother?.Father) return true;
+            if (b.Mother != null && b.Mother == this.Mother?.Mother) return true;
+
+            return false;
+        }
+
         public bool HasStrainTo(Person b)
         {
             if (this.HasCloseStrainTo(b)) return true;
@@ -10415,10 +10498,10 @@ namespace GameObjects
             if (b.Mother != null)
             {
                
-                        if (b.Mother.Strain == this.Strain)
-                        {
-                            return true;
-                        }
+                if (b.Mother.Strain == this.Strain)
+                {
+                    return true;
+                }
                 
             }
 
@@ -10443,7 +10526,7 @@ namespace GameObjects
                 }
             }
 
-            if (this.HasStrainTo(b)) return false;
+            if (this.HasLooseStrainTo(b)) return false;
 
             return true;
         }
@@ -10454,7 +10537,7 @@ namespace GameObjects
 
             if (this.Sex == b.Sex) return false;
             
-            if (this.HasStrainTo(b)) return false;
+            if (this.HasLooseStrainTo(b)) return false;
 
             return true;
         }
