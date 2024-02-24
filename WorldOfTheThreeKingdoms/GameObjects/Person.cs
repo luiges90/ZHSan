@@ -4898,23 +4898,30 @@ namespace GameObjects
             {
                 v += 2;
             }
-            if (src.Closes(target))
+            if (!src.Hates(target))
             {
-                v += 10;
-            }
-            if (src.HasStrainTo(target))
-            {
-                v += 5;
-            }
-            if (src.HasCloseStrainTo(target))
-            {
-                v += 20;
-            }
-            if (src.Brothers.GameObjects.Contains(target))
-            {
-                v += 40;
-            }
-            if (src.Hates(target))
+                if (src.Closes(target))
+                {
+                    v += 10;
+                }
+                if (src.HasStrainTo(target))
+                {
+                    v += 5;
+                }
+                if (src.HasCloseStrainTo(target))
+                {
+                    v += 20;
+                }
+                if (src.Spouse == target)
+                {
+                    v += 20;
+                }
+                if (src.Brothers.GameObjects.Contains(target))
+                {
+                    v += 40;
+                }
+            } 
+            else
             {
                 v -= 50;
             }
@@ -6002,11 +6009,14 @@ namespace GameObjects
         public PersonList NvGuanFollowed(bool includeFallback, Faction oldFaction)
         {
             var result = new PersonList();
-            foreach (Person p in BelongedFaction.Persons)
-            {
-                if (p.NvGuanFollower(includeFallback, oldFaction) == this)
+            if (this.BelongedFaction != null) 
+            { 
+                foreach (Person p in BelongedFaction.Persons)
                 {
-                    result.Add(p);
+                    if (p.NvGuanFollower(includeFallback, oldFaction) == this)
+                    {
+                        result.Add(p);
+                    }
                 }
             }
             if (oldFaction != null)
@@ -6040,7 +6050,7 @@ namespace GameObjects
 
             if (!moveFollower && NvGuan) return;
 
-            // if (this.Status != PersonStatus.Normal) return;
+            if (this.Status == PersonStatus.Captive || this.Status == PersonStatus.Princess) return;
 
             if (this.LocationTroop != null && !this.LocationTroop.Destroyed && !removeFromTroop) return;
 
@@ -10704,6 +10714,7 @@ namespace GameObjects
 
             nvren.Status = PersonStatus.Princess;
             nvren.workKind = ArchitectureWorkKind.无;
+            nvren.NvGuan = true;
 
             nvren.PrincessTaker = this.BelongedFactionWithPrincess.Leader;
 

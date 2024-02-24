@@ -213,7 +213,7 @@ namespace GameObjects
                 Faction f = this.CaptivePerson.BelongedFaction;
                 this.CaptivePerson.LocationArchitecture = f.Capital;
                 this.CaptivePerson.Status = GameObjects.PersonDetail.PersonStatus.Normal;
-                this.CaptivePerson.MoveToArchitecture(f.Capital, position, true, true, null);
+                this.CaptivePerson.MoveToArchitecture(f.Capital, position, false, true, null);
             }
             
             else
@@ -349,11 +349,11 @@ namespace GameObjects
                     this.CaptivePerson.LocationArchitecture = Session.Current.Scenario.Architectures[GameObject.Random(Session.Current.Scenario.Architectures.Count)] as Architecture;
                     if ((this.CaptivePerson.BelongedFaction != null) && this.BelongedFaction.Capital != null)
                     {
-                        this.CaptivePerson.MoveToArchitecture(this.BelongedFaction.Capital, this.CaptivePerson.LocationTroop.Position);
+                        this.CaptivePerson.MoveToArchitecture(this.BelongedFaction.Capital, this.CaptivePerson.LocationTroop.Position, false, true, null);
                     }
                     else if (Session.Current.Scenario.Architectures.Count > 0)
                     {
-                        this.CaptivePerson.MoveToArchitecture(Session.Current.Scenario.Architectures[GameObject.Random(Session.Current.Scenario.Architectures.Count)] as Architecture, this.CaptivePerson.LocationTroop.Position);
+                        this.CaptivePerson.MoveToArchitecture(Session.Current.Scenario.Architectures[GameObject.Random(Session.Current.Scenario.Architectures.Count)] as Architecture, this.CaptivePerson.LocationTroop.Position, false, true, null);
                     }
                 }
                 this.CaptivePerson.SetBelongedCaptive(null, GameObjects.PersonDetail.PersonStatus.NoFaction);

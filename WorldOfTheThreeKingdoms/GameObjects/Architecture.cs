@@ -750,6 +750,11 @@ namespace GameObjects
             }
         }
 
+        public bool PromoteNvGuanAvail()
+        {
+            return this.PromotableNvGuans.Count > 0;
+        }
+
         public PersonList MovablePersons
         {
             get
