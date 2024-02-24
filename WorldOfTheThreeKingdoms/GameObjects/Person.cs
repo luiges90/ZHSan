@@ -9848,6 +9848,11 @@ namespace GameObjects
             }
             r.YearJoin = Session.Current.Scenario.Date.Year;
 
+            if (r.Sex)
+            {
+                r.NvGuan = true;
+            }
+
             Session.Current.Scenario.Persons.Add(r);
 
             ExtensionInterface.call("CreatePerson", new Object[] { Session.Current.Scenario, r });
