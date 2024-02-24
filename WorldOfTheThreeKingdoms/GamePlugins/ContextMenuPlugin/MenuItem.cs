@@ -767,7 +767,6 @@ namespace ContextMenuPlugin
             get
             {
                 if (!Session.GlobalVariables.EnableCheat && this.DisplayName.Contains("*")) return false;
-                if (Session.GlobalVariables.hougongGetChildrenRate <= 0 && this.Name.Equals("hougongTop")) return false;
                 if (this.DisplayPlatform == "Mobile")
                 {
                     if (!Platforms.Platform.IsMobilePlatForm)
@@ -780,7 +779,6 @@ namespace ContextMenuPlugin
             set
             {
                 if (!Session.GlobalVariables.EnableCheat && this.DisplayName.Contains("*")) return;
-                if (Session.GlobalVariables.hougongGetChildrenRate <= 0 && this.Name.Equals("hougongTop")) return;
                 this.visible = value;
                 if (value)
                 {

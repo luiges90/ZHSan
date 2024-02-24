@@ -1441,7 +1441,7 @@ namespace GameObjects
         {
             get
             {
-                return NvGuan && (Age < 16 || DaySinceAvailable < 30);
+                return NvGuan && suoshurenwuList.Count == 0 && (Age < 16 || DaySinceAvailable < 30);
             }
         }
 
@@ -2497,7 +2497,7 @@ namespace GameObjects
                 {
                     result.Add(p);
                 }
-                if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && p.Spouse == null && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
+                if (!this.Sex && p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && p.Spouse == null && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
                      && !p.Hates(this) && !this.Hates(p))
                 {
                     result.Add(p);
@@ -10733,9 +10733,9 @@ namespace GameObjects
             if (this.LocationArchitecture != null && this.Status == PersonStatus.Normal)
             {
                 int houGongDays = nvren.Glamour / 4 + GameObject.Random(6) + 10;
-                if (houGongDays > 60)
+                if (houGongDays > 30)
                 {
-                    houGongDays = GameObject.Random(10) + 60;
+                    houGongDays = GameObject.Random(10) + 30;
                 }
                 houGongDays /= 2;
 
@@ -10750,7 +10750,8 @@ namespace GameObjects
                     {
                         float extraRate = q.PregnancyRate(this);
 
-                        float pregnantChance = Session.GlobalVariables.hougongGetChildrenRate / 100.0f * (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson);
+                        var rate = nvren.Status == PersonStatus.Princess ? Session.GlobalVariables.hougongGetChildrenRate : Session.GlobalVariables.getChildrenRate;
+                        float pregnantChance = rate / 100.0f * (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson);
                         pregnantChance *= houGongDays * 2 * extraRate;
 
                         if (GameObject.Chance(Math.Max((int)pregnantChance, Session.Parameters.MinPregnantProb))
@@ -10832,6 +10833,16 @@ namespace GameObjects
                 this.ArrivingDays = houGongDays / Session.Parameters.DayInTurn + 1;
                 this.Status = PersonStatus.Moving;
                 this.TaskDays = this.ArrivingDays;
+
+                if (nvren.Status != PersonStatus.Princess)
+                {
+                    nvren.OutsideTask = OutsideTaskKind.后宮;
+                    nvren.TargetArchitecture = this.LocationArchitecture;
+                    nvren.ArrivingDays = houGongDays / Session.Parameters.DayInTurn + 1;
+                    nvren.Status = PersonStatus.Moving;
+                    nvren.TaskDays = this.ArrivingDays;
+                }
+
                 ExtensionInterface.call("GoForHouGong", new Object[] { Session.Current.Scenario, this, nvren });
             }
         }

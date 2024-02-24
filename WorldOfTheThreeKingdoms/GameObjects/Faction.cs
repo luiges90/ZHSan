@@ -1231,243 +1231,242 @@ namespace GameObjects
                 }
             }
 
-            
-            // if (this.Leader.LocationArchitecture == null || this.Leader.LocationArchitecture.HasHostileTroopsInView()) return;
-
-            if (!this.hougongValid) return;
-
             if (this.Leader.NumberOfChildren >= Session.GlobalVariables.OfficerChildrenLimit) return;
 
             if (this.Leader.Age <= 12) return;
 
-            // build hougong
-            if (this.meinvkongjian() - this.feiziCount() <= 0 && !this.isAlien && TotalFeiziSpaceCount() < Session.Current.Scenario.Parameters.AIMaxFeizi &&
-                GameObject.Random((int)(GameObject.Square(unAmbition) * Session.Parameters.AIBuildHougongUnambitionProbWeight + GameObject.Square(this.meinvkongjian()) * unAmbition * Session.Parameters.AIBuildHougongSpaceBuiltProbWeight)) == 0)
+            if (this.hougongValid)
             {
-                Architecture buildAt = null;
-                bool planned = false;
-                foreach (Architecture a in this.Architectures)
-                {
-                    if (a.FrontLine) continue;
-                    if (a.ExpectedFund - a.EnoughFund <= 50 * 30) continue;
-                    if (a.Kind.FacilityPositionUnit <= 0) continue;
-                    if (a.PlanFacilityKind != null && a.PlanFacilityKind.rongna > 0)
-                    {
-                        planned = true;
-                        break;
-                    }
-                    if (a.BuildingFacility >= 0 && Session.Current.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(a.BuildingFacility).rongna > 0)
-                    {
-                        planned = true;
-                        break;
-                    }
 
-                    if (buildAt == null || a.Population > buildAt.Population)
-                    {
-                        buildAt = a;
-                    }
-                }
-
-                if (!planned && buildAt != null)
+                // build hougong
+                if (this.meinvkongjian() - this.feiziCount() <= 0 && !this.isAlien && TotalFeiziSpaceCount() < Session.Current.Scenario.Parameters.AIMaxFeizi &&
+                    GameObject.Random((int)(GameObject.Square(unAmbition) * Session.Parameters.AIBuildHougongUnambitionProbWeight + GameObject.Square(this.meinvkongjian()) * unAmbition * Session.Parameters.AIBuildHougongSpaceBuiltProbWeight)) == 0)
                 {
-                    int maxHgSize = (12 - uncruelty) + Math.Max(0, buildAt.FacilityPositionCount / buildAt.Kind.FacilityPositionUnit - 5) + Session.Parameters.AIBuildHougongMaxSizeAdd;
-                    FacilityKind hougong = null;
-                    foreach (FacilityKind fk in Session.Current.Scenario.GameCommonData.AllFacilityKinds.FacilityKinds.Values)
+                    Architecture buildAt = null;
+                    bool planned = false;
+                    foreach (Architecture a in this.Architectures)
                     {
-                        if (!fk.CanBuild(buildAt)) continue;
-                        if (fk.FundCost > buildAt.Fund) continue;
-                        if (fk.rongna > 0 && fk.rongna < maxHgSize && GameObject.Chance(Session.Parameters.AIBuildHougongSkipSizeChance))
+                        if (a.FrontLine) continue;
+                        if (a.ExpectedFund - a.EnoughFund <= 50 * 30) continue;
+                        if (a.Kind.FacilityPositionUnit <= 0) continue;
+                        if (a.PlanFacilityKind != null && a.PlanFacilityKind.rongna > 0)
                         {
-                            if (hougong == null || hougong.rongna < fk.rongna)
-                            {
-                                hougong = fk;
-                            }
+                            planned = true;
+                            break;
+                        }
+                        if (a.BuildingFacility >= 0 && Session.Current.Scenario.GameCommonData.AllFacilityKinds.GetFacilityKind(a.BuildingFacility).rongna > 0)
+                        {
+                            planned = true;
+                            break;
+                        }
+
+                        if (buildAt == null || a.Population > buildAt.Population)
+                        {
+                            buildAt = a;
                         }
                     }
-                    if (hougong != null)
+
+                    if (!planned && buildAt != null)
                     {
-                        int facilityPositionLeft = buildAt.FacilityPositionLeft;
-                        if (facilityPositionLeft < hougong.PositionOccupied && buildAt.FacilityPositionCount >= hougong.PositionOccupied)
+                        int maxHgSize = (12 - uncruelty) + Math.Max(0, buildAt.FacilityPositionCount / buildAt.Kind.FacilityPositionUnit - 5) + Session.Parameters.AIBuildHougongMaxSizeAdd;
+                        FacilityKind hougong = null;
+                        foreach (FacilityKind fk in Session.Current.Scenario.GameCommonData.AllFacilityKinds.FacilityKinds.Values)
                         {
-                            FacilityList fl = new FacilityList();
-                            foreach (Facility f in buildAt.Facilities)
+                            if (!fk.CanBuild(buildAt)) continue;
+                            if (fk.FundCost > buildAt.Fund) continue;
+                            if (fk.rongna > 0 && fk.rongna < maxHgSize && GameObject.Chance(Session.Parameters.AIBuildHougongSkipSizeChance))
                             {
-                                if (f.location.CanRemoveFacility(f))
+                                if (hougong == null || hougong.rongna < fk.rongna)
                                 {
-                                    fl.Add(f);
+                                    hougong = fk;
                                 }
                             }
-
-                            int totalRemovableSpace = 0;
-                            foreach (Facility f in fl)
+                        }
+                        if (hougong != null)
+                        {
+                            int facilityPositionLeft = buildAt.FacilityPositionLeft;
+                            if (facilityPositionLeft < hougong.PositionOccupied && buildAt.FacilityPositionCount >= hougong.PositionOccupied)
                             {
-                                totalRemovableSpace += f.PositionOccupied;
-                            }
-
-                            if (totalRemovableSpace >= hougong.PositionOccupied)
-                            {
-                                fl.PropertyName = "AIValue";
-                                fl.IsNumber = true;
-                                fl.SmallToBig = true;
-                                fl.ReSort();
-
-                                while (buildAt.FacilityPositionLeft < hougong.PositionOccupied && fl.Count > 0)
+                                FacilityList fl = new FacilityList();
+                                foreach (Facility f in buildAt.Facilities)
                                 {
-                                    Facility f = fl[0] as Facility;
-                                    if (buildAt.FacilityEnabled || f.MaintenanceCost <= 0)
+                                    if (f.location.CanRemoveFacility(f))
                                     {
-                                        f.Influences.PurifyInfluence(this, Applier.Facility, f.ID);
+                                        fl.Add(f);
                                     }
-                                    buildAt.Facilities.Remove(f);
-                                    Session.Current.Scenario.Facilities.Remove(f);
-                                    fl.Remove(f);
                                 }
-                            }
 
-                            facilityPositionLeft = buildAt.FacilityPositionLeft;
-                        }
-                        if (facilityPositionLeft >= hougong.PositionOccupied)
-                        {
-                            if ((this.Fund >= hougong.FundCost) && ((buildAt.BelongedFaction.TechniquePoint + buildAt.BelongedFaction.TechniquePointForFacility) >= hougong.PointCost))
-                            {
-                                buildAt.PlanFacilityKind = null;
-                                buildAt.BelongedFaction.DepositTechniquePointForFacility(hougong.PointCost);
-                                buildAt.BeginToBuildAFacility(hougong);
-                            }
-                            else
-                            {
-                                buildAt.PlanFacilityKind = hougong;
-                                if (GameObject.Chance(0x21) && ((buildAt.BelongedFaction.TechniquePoint + buildAt.BelongedFaction.TechniquePointForFacility) < buildAt.PlanFacilityKind.PointCost))
+                                int totalRemovableSpace = 0;
+                                foreach (Facility f in fl)
                                 {
-                                    buildAt.BelongedFaction.SaveTechniquePointForFacility(buildAt.PlanFacilityKind.PointCost / buildAt.PlanFacilityKind.Days);
+                                    totalRemovableSpace += f.PositionOccupied;
+                                }
+
+                                if (totalRemovableSpace >= hougong.PositionOccupied)
+                                {
+                                    fl.PropertyName = "AIValue";
+                                    fl.IsNumber = true;
+                                    fl.SmallToBig = true;
+                                    fl.ReSort();
+
+                                    while (buildAt.FacilityPositionLeft < hougong.PositionOccupied && fl.Count > 0)
+                                    {
+                                        Facility f = fl[0] as Facility;
+                                        if (buildAt.FacilityEnabled || f.MaintenanceCost <= 0)
+                                        {
+                                            f.Influences.PurifyInfluence(this, Applier.Facility, f.ID);
+                                        }
+                                        buildAt.Facilities.Remove(f);
+                                        Session.Current.Scenario.Facilities.Remove(f);
+                                        fl.Remove(f);
+                                    }
+                                }
+
+                                facilityPositionLeft = buildAt.FacilityPositionLeft;
+                            }
+                            if (facilityPositionLeft >= hougong.PositionOccupied)
+                            {
+                                if ((this.Fund >= hougong.FundCost) && ((buildAt.BelongedFaction.TechniquePoint + buildAt.BelongedFaction.TechniquePointForFacility) >= hougong.PointCost))
+                                {
+                                    buildAt.PlanFacilityKind = null;
+                                    buildAt.BelongedFaction.DepositTechniquePointForFacility(hougong.PointCost);
+                                    buildAt.BeginToBuildAFacility(hougong);
+                                }
+                                else
+                                {
+                                    buildAt.PlanFacilityKind = hougong;
+                                    if (GameObject.Chance(0x21) && ((buildAt.BelongedFaction.TechniquePoint + buildAt.BelongedFaction.TechniquePointForFacility) < buildAt.PlanFacilityKind.PointCost))
+                                    {
+                                        buildAt.BelongedFaction.SaveTechniquePointForFacility(buildAt.PlanFacilityKind.PointCost / buildAt.PlanFacilityKind.Days);
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
 
-            //nafei
-            if (leader.WaitForFeiZi != null && leader.Status == PersonStatus.Normal && leader.LocationArchitecture != null &&
-                this.Leader.LocationTroop == null)
-            {
-                if ((this.Leader.LocationArchitecture.Meinvkongjian - this.Leader.LocationArchitecture.Feiziliebiao.Count <= 0 && ! this.IsAlien) ||
-                    !this.Leader.isLegalFeiZiExcludeAge(leader.WaitForFeiZi) ||
-                    this.Leader.WaitForFeiZi.BelongedFaction != this)
+                //nafei
+                if (leader.WaitForFeiZi != null && leader.Status == PersonStatus.Normal && leader.LocationArchitecture != null &&
+                    this.Leader.LocationTroop == null)
                 {
-                    leader.WaitForFeiZi.WaitForFeiZi = null;
-                    leader.WaitForFeiZi = null;
-                }
-                else if (this.Leader.LocationArchitecture.Fund >= Session.Parameters.NafeiCost)
-                {
-                    if (this.Leader.WaitForFeiZi.LocationArchitecture == this.Leader.LocationArchitecture &&
-                        this.Leader.WaitForFeiZi.Status == PersonStatus.Normal)
+                    if ((this.Leader.LocationArchitecture.Meinvkongjian - this.Leader.LocationArchitecture.Feiziliebiao.Count <= 0 && !this.IsAlien) ||
+                        !this.Leader.isLegalFeiZiExcludeAge(leader.WaitForFeiZi) ||
+                        this.Leader.WaitForFeiZi.BelongedFaction != this)
                     {
-                        this.Leader.XuanZeMeiNv(this.Leader.WaitForFeiZi);
-                        this.Leader.WaitForFeiZi.WaitForFeiZi = null;
-                        this.Leader.WaitForFeiZi = null;
+                        leader.WaitForFeiZi.WaitForFeiZi = null;
+                        leader.WaitForFeiZi = null;
                     }
-                }
-            }
-            else if (this.Leader.Status == PersonStatus.Normal && this.Leader.LocationArchitecture != null &&
-                this.Leader.LocationTroop == null && this.Leader.WaitForFeiZi == null && (TotalFeiziCount() < Session.Current.Scenario.Parameters.AIMaxFeizi || this.IsAlien))
-            {
-                Architecture dest = null;
-                if ((this.Leader.LocationArchitecture.Meinvkongjian - this.Leader.LocationArchitecture.Feiziliebiao.Count > 0 && 
-                    this.Leader.LocationArchitecture.Fund >= Session.Parameters.NafeiCost + this.Leader.LocationArchitecture.EnoughFund) || this.IsAlien)
-                {
-                    dest = this.Leader.LocationArchitecture;
-                }
-                else
-                {
-                    foreach (Architecture a in this.Architectures)
+                    else if (this.Leader.LocationArchitecture.Fund >= Session.Parameters.NafeiCost)
                     {
-                        if (((a.Meinvkongjian - a.Feiziliebiao.Count > 0 && a.Fund >= Session.Parameters.NafeiCost + a.EnoughFund) || this.IsAlien) 
-                            && (dest == null || a.Population > dest.Population))
+                        if (this.Leader.WaitForFeiZi.LocationArchitecture == this.Leader.LocationArchitecture &&
+                            this.Leader.WaitForFeiZi.Status == PersonStatus.Normal)
                         {
-                            dest = a;
+                            this.Leader.XuanZeMeiNv(this.Leader.WaitForFeiZi);
+                            this.Leader.WaitForFeiZi.WaitForFeiZi = null;
+                            this.Leader.WaitForFeiZi = null;
                         }
                     }
                 }
-
-                if (dest != null)
+                else if (this.Leader.Status == PersonStatus.Normal && this.Leader.LocationArchitecture != null &&
+                    this.Leader.LocationTroop == null && this.Leader.WaitForFeiZi == null && (TotalFeiziCount() < Session.Current.Scenario.Parameters.AIMaxFeizi || this.IsAlien))
                 {
-                    PersonList candidate = new PersonList();
-                    foreach (Architecture a in this.Architectures)
+                    Architecture dest = null;
+                    if ((this.Leader.LocationArchitecture.Meinvkongjian - this.Leader.LocationArchitecture.Feiziliebiao.Count > 0 &&
+                        this.Leader.LocationArchitecture.Fund >= Session.Parameters.NafeiCost + this.Leader.LocationArchitecture.EnoughFund) || this.IsAlien)
                     {
-                        foreach (Person p in a.nvxingwujiang())
+                        dest = this.Leader.LocationArchitecture;
+                    }
+                    else
+                    {
+                        foreach (Architecture a in this.Architectures)
                         {
-                            if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
-                            if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null)
+                            if (((a.Meinvkongjian - a.Feiziliebiao.Count > 0 && a.Fund >= Session.Parameters.NafeiCost + a.EnoughFund) || this.IsAlien)
+                                && (dest == null || a.Population > dest.Population))
                             {
-                                candidate.Add(p);
-                            }
-                        }
-                    }
-                    foreach (Captive c in this.Captives)
-                    {
-                        Person person = c.CaptivePerson;
-                        if (person.ArrivingDays > 0) continue;
-                        if (this.Leader.isLegalFeiZiExcludeAge(person) && person.LocationTroop == null)
-                        {
-                            candidate.Add(person);
-                        }
-                    }
-
-                    candidate.PropertyName = "UntiredMerit";
-                    candidate.IsNumber = true;
-                    candidate.SmallToBig = false;
-                    candidate.ReSort();
-                    Person toTake = null;
-                    foreach (Person p in candidate)
-                    {
-                        if (p.Status != PersonStatus.Moving && p.Status != PersonStatus.Princess && p.LocationArchitecture != null && p.LocationTroop == null)
-                        {
-                            if ((!p.RecruitableBy(this, 0) && GameObject.Random((int)unAmbition) == 0) || GameObject.Chance((int)(Session.Parameters.AINafeiSkipChanceAdd + (int)leader.Ambition * Session.Parameters.AINafeiSkipChanceMultiply)))
-                            {
-                                toTake = p;
-                                break;
+                                dest = a;
                             }
                         }
                     }
 
-                    if (toTake != null)
+                    if (dest != null)
                     {
-                        if (this.IsAlien)
+                        PersonList candidate = new PersonList();
+                        foreach (Architecture a in this.Architectures)
                         {
-                            this.Leader.XuanZeMeiNv(toTake);
-                            toTake.WaitForFeiZi = null;
-                            leader.WaitForFeiZi = null;
+                            foreach (Person p in a.nvxingwujiang())
+                            {
+                                if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
+                                if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null)
+                                {
+                                    candidate.Add(p);
+                                }
+                            }
                         }
-                        else if (this.Leader.LocationArchitecture == dest)
+                        foreach (Captive c in this.Captives)
                         {
-                            if (toTake.LocationArchitecture == dest)
+                            Person person = c.CaptivePerson;
+                            if (person.ArrivingDays > 0) continue;
+                            if (this.Leader.isLegalFeiZiExcludeAge(person) && person.LocationTroop == null)
+                            {
+                                candidate.Add(person);
+                            }
+                        }
+
+                        candidate.PropertyName = "UntiredMerit";
+                        candidate.IsNumber = true;
+                        candidate.SmallToBig = false;
+                        candidate.ReSort();
+                        Person toTake = null;
+                        foreach (Person p in candidate)
+                        {
+                            if (p.Status != PersonStatus.Moving && p.Status != PersonStatus.Princess && p.LocationArchitecture != null && p.LocationTroop == null)
+                            {
+                                if ((!p.RecruitableBy(this, 0) && GameObject.Random((int)unAmbition) == 0) || GameObject.Chance((int)(Session.Parameters.AINafeiSkipChanceAdd + (int)leader.Ambition * Session.Parameters.AINafeiSkipChanceMultiply)))
+                                {
+                                    toTake = p;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (toTake != null)
+                        {
+                            if (this.IsAlien)
                             {
                                 this.Leader.XuanZeMeiNv(toTake);
                                 toTake.WaitForFeiZi = null;
                                 leader.WaitForFeiZi = null;
                             }
+                            else if (this.Leader.LocationArchitecture == dest)
+                            {
+                                if (toTake.LocationArchitecture == dest)
+                                {
+                                    this.Leader.XuanZeMeiNv(toTake);
+                                    toTake.WaitForFeiZi = null;
+                                    leader.WaitForFeiZi = null;
+                                }
+                                else
+                                {
+                                    toTake.MoveToArchitecture(dest);
+                                    toTake.WaitForFeiZi = this.Leader;
+                                    this.Leader.WaitForFeiZi = toTake;
+                                }
+                            }
                             else
                             {
-                                toTake.MoveToArchitecture(dest);
-                                toTake.WaitForFeiZi = this.Leader;
-                                this.Leader.WaitForFeiZi = toTake;
-                            }
-                        }
-                        else
-                        {
-                            if (toTake.LocationArchitecture == dest)
-                            {
-                                this.Leader.MoveToArchitecture(dest);
-                                toTake.WaitForFeiZi = this.Leader;
-                                this.Leader.WaitForFeiZi = toTake;
-                            }
-                            else
-                            {
-                                this.Leader.MoveToArchitecture(dest);
-                                toTake.MoveToArchitecture(dest);
-                                toTake.WaitForFeiZi = this.Leader;
-                                this.Leader.WaitForFeiZi = toTake;
+                                if (toTake.LocationArchitecture == dest)
+                                {
+                                    this.Leader.MoveToArchitecture(dest);
+                                    toTake.WaitForFeiZi = this.Leader;
+                                    this.Leader.WaitForFeiZi = toTake;
+                                }
+                                else
+                                {
+                                    this.Leader.MoveToArchitecture(dest);
+                                    toTake.MoveToArchitecture(dest);
+                                    toTake.WaitForFeiZi = this.Leader;
+                                    this.Leader.WaitForFeiZi = toTake;
+                                }
                             }
                         }
                     }
@@ -1475,56 +1474,59 @@ namespace GameObjects
             }
 
             //chongxing
-            if (this.Leader.Status == PersonStatus.Normal && this.Leader.LocationArchitecture != null && this.Leader.LocationTroop == null &&
-                !this.Leader.huaiyun && this.Leader.WaitForFeiZi == null)
+            if (this.Leader.LocationArchitecture != null && !this.Leader.LocationArchitecture.HasHostileTroopsInView())
             {
-                if ((
-                GameObject.Chance((int)((int)this.Leader.Ambition * Session.Parameters.AIChongxingChanceMultiply + Session.Parameters.AIChongxingChanceAdd))
-                ||
-                GameObject.Chance((int)Math.Round(Session.Parameters.AIHougongArchitectureCountProbMultiply * Math.Pow(this.ArchitectureCount, Session.Parameters.AIHougongArchitectureCountProbPower)))
-                ))
+                if (this.Leader.Status == PersonStatus.Normal && this.Leader.LocationArchitecture != null && this.Leader.LocationTroop == null &&
+                    !this.Leader.huaiyun && this.Leader.WaitForFeiZi == null)
                 {
-                    Person target = null;
-                    Architecture location = null;
-                    float max = 0;
-                    foreach (Architecture a in this.Architectures)
+                    if ((
+                    GameObject.Chance((int)((int)this.Leader.Ambition * Session.Parameters.AIChongxingChanceMultiply + Session.Parameters.AIChongxingChanceAdd))
+                    ||
+                    GameObject.Chance((int)Math.Round(Session.Parameters.AIHougongArchitectureCountProbMultiply * Math.Pow(this.ArchitectureCount, Session.Parameters.AIHougongArchitectureCountProbPower)))
+                    ))
                     {
-                        foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
+                        Person target = null;
+                        Architecture location = null;
+                        float max = 0;
+                        foreach (Architecture a in this.Architectures)
                         {
-                            if (p.huaiyun) continue;
-                            if (IsPersonForHouGong(p, true))
+                            foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
                             {
-                                float v = p.UntiredMerit * p.PregnancyRate(this.Leader);
-                                if (p.Hates(this.Leader))
+                                if (p.huaiyun) continue;
+                                if (IsPersonForHouGong(p, true))
                                 {
-                                    v /= 100;
-                                }
-                                if (p.Spouse != null)
-                                {
-                                    v /= 2;
-                                }
-                                if (p.GetRelation(this.Leader) < 0)
-                                {
-                                    v *= Math.Abs(p.GetRelation(this.Leader)) / 50;
-                                }
-                                if (v > max)
-                                {
-                                    target = p;
-                                    location = a;
-                                    max = v;
+                                    float v = p.UntiredMerit * p.PregnancyRate(this.Leader);
+                                    if (p.Hates(this.Leader))
+                                    {
+                                        v /= 100;
+                                    }
+                                    if (p.Spouse != null)
+                                    {
+                                        v /= 2;
+                                    }
+                                    if (p.GetRelation(this.Leader) < 0)
+                                    {
+                                        v *= Math.Abs(p.GetRelation(this.Leader)) / 50;
+                                    }
+                                    if (v > max)
+                                    {
+                                        target = p;
+                                        location = a;
+                                        max = v;
+                                    }
                                 }
                             }
                         }
-                    }
-                    if (target != null)
-                    {
-                        if (location == this.Leader.LocationArchitecture)
+                        if (target != null)
                         {
-                            this.Leader.GoForHouGong(target);
-                        }
-                        else
-                        {
-                            this.Leader.MoveToArchitecture(location);
+                            if (location == this.Leader.LocationArchitecture)
+                            {
+                                this.Leader.GoForHouGong(target);
+                            }
+                            else
+                            {
+                                this.Leader.MoveToArchitecture(location);
+                            }
                         }
                     }
                 }
@@ -3688,18 +3690,6 @@ namespace GameObjects
                         if (t.CostFund + eFund < a.Fund)
                         {
                             weights[t] = t.CostFund * t.generationChance;
-                            if (Session.Current.Scenario.GlobalVariables.hougongGetChildrenRate > 0)
-                            {
-                                if (this.IsAlien && feiziCount <= 0 && t.genderFix == 1)
-                                {
-                                    weights[t] *= 50;
-                                }
-                                
-                                if (!Session.Current.Scenario.GlobalVariables.hougongAlienOnly && !this.IsAlien && meinvkongjian() > 0 && feiziCount <= 0 && t.genderFix == 1)
-                                {
-                                    weights[t] *= 50;
-                                }
-                            }
                         }
                     }
                     

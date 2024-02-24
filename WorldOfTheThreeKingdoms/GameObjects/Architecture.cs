@@ -16,6 +16,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Runtime.Serialization;
 using GameManager;
+using Steamworks;
 
 namespace GameObjects
 {
@@ -699,6 +700,26 @@ namespace GameObjects
                 foreach (Person p in all)
                 {
                     if (!p.NvGuan)
+                    {
+                        result.Add(p);
+                    }
+                }
+
+                result.SetImmutable();
+                return result;
+            }
+        }
+
+        public PersonList NvGuans
+        {
+            get
+            {
+                PersonList all = Session.Current.Scenario.GetPersonList(this);
+                PersonList result = new PersonList();
+
+                foreach (Person p in all)
+                {
+                    if (p.NvGuan)
                     {
                         result.Add(p);
                     }
@@ -14989,6 +15010,11 @@ namespace GameObjects
             foreach (Person person in this.Feiziliebiao)
             {
                 if (!person.faxianhuaiyun && this.BelongedFaction.Leader.isLegalFeiZiExcludeAge(person) && person.ArrivingDays <= 0)
+                    meihuailiebiao.Add(person);
+            }
+            foreach (Person person in this.NvGuans)
+            {
+                if (!person.faxianhuaiyun && this.BelongedFaction.Leader.isLegalFeiZi(person) && person.Spouse == this.BelongedFaction.Leader && person.ArrivingDays <= 0)
                     meihuailiebiao.Add(person);
             }
             return meihuailiebiao;
