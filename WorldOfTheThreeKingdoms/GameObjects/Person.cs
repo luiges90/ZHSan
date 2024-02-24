@@ -5906,7 +5906,46 @@ namespace GameObjects
                         }
                     }
                 }
-                return this.BelongedFaction?.Leader;
+                return null;
+            }
+        }
+
+        public PersonList NvGuanFollowed
+        {
+            get
+            {
+                var result = new PersonList();
+                foreach (Person p in this.BelongedFaction.Persons)
+                {
+                    if (p.NvGuan && p.NvGuanFollower == this)
+                    {
+                        result.Add(p);
+                    }
+                }
+                return result;
+            }
+        }
+
+        public Person NvGuanFollowerFallback
+        {
+            get {
+                return NvGuanFollower ?? BelongedFaction?.Leader;
+            } 
+        }
+
+        public PersonList NvGuanFollowedFallback
+        {
+            get
+            {
+                var result = new PersonList();
+                foreach (Person p in this.BelongedFaction.Persons)
+                {
+                    if (p.NvGuan && p.NvGuanFollowerFallback == this)
+                    {
+                        result.Add(p);
+                    }
+                }
+                return result;
             }
         }
 
@@ -6001,12 +6040,9 @@ namespace GameObjects
 
             if (moveFollowers)
             {
-                foreach (Person p in this.BelongedFaction.Persons)
+                foreach (Person p in this.NvGuanFollowedFallback)
                 {
-                    if (p.NvGuan && p.NvGuanFollower == this)
-                    {
-                        p.MoveToArchitecture(a, startingPoint, removeFromTroop, false);
-                    }
+                    p.MoveToArchitecture(a, startingPoint, removeFromTroop, false);
                 }
             }
         }
@@ -7926,7 +7962,7 @@ namespace GameObjects
                 {
                     if (this == this.BelongedFaction.Leader) return 999;
 
-                    if (this.NvGuan && this.NvGuanFollower != this.BelongedFaction.Leader && this.NvGuanFollower.BelongedFaction == this.BelongedFaction) return 999;
+                    if (this.NvGuan && this.NvGuanFollower.BelongedFaction == this.BelongedFaction) return 999;
 
                     float v = 100;
 

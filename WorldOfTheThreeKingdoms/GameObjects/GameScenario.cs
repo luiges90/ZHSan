@@ -771,6 +771,11 @@ namespace GameObjects
                     treasure.Available = true;
                 }
 
+                if (person.Sex)
+                {
+                    person.NvGuan = true;
+                }
+
                 List<GameObject> candidates = new List<GameObject>();
                 candidates.Add(person.Spouse);
                 candidates.AddRange(person.Brothers.GameObjects);
