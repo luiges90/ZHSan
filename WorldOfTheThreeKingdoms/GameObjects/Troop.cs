@@ -2954,6 +2954,7 @@ namespace GameObjects
 
         public void ChangeFaction(Faction faction)
         {
+            var oldFaction = this.BelongedFaction;
             if ((faction != null) && (this.BelongedFaction != null))
             {
                 if (this.BelongedLegion != null && this.BelongedLegion.BelongedFaction != null && this.BelongedLegion.BelongedFaction != faction)
@@ -2975,7 +2976,7 @@ namespace GameObjects
                 {
                     if (captive.CaptiveFaction == faction)
                     {
-                        captive.CaptivePerson.MoveToArchitecture(captive.CaptiveFaction.Capital);
+                        captive.CaptivePerson.MoveToArchitecture(captive.CaptiveFaction.Capital, Position, true, false, oldFaction);
                         captive.CaptivePerson.SetBelongedCaptive(null, PersonStatus.Normal);
                         Session.Current.Scenario.Captives.Remove(captive);
                     }

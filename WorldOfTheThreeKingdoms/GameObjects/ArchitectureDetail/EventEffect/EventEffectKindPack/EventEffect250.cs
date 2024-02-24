@@ -38,12 +38,12 @@ using System.Runtime.Serialization;namespace GameObjects.ArchitectureDetail.Even
             if (person.BelongedFaction == null && person.LocationArchitecture != null && targetFaction != null)
             {
                 //person.Status = GameObjects.PersonDetail.PersonStatus.Normal;
-                person.MoveToArchitecture(targetFaction.Capital);
+                person.MoveToArchitecture(targetFaction.Capital, null, true, true, person.BelongedFaction);
                 person.ChangeFaction(targetFaction);
             }
             else if (person.LocationArchitecture != null && person.LocationArchitecture.BelongedFaction != null)
             {
-                person.MoveToArchitecture(targetFaction.Capital);
+                person.MoveToArchitecture(targetFaction.Capital, null, true, true, person.BelongedFaction);
                 person.ChangeFaction(targetFaction);
                 //person.ChangeFaction(targetFaction);
             }

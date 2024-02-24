@@ -213,7 +213,7 @@ namespace GameObjects
                 Faction f = this.CaptivePerson.BelongedFaction;
                 this.CaptivePerson.LocationArchitecture = f.Capital;
                 this.CaptivePerson.Status = GameObjects.PersonDetail.PersonStatus.Normal;
-                this.CaptivePerson.MoveToArchitecture(f.Capital, position, true, true);
+                this.CaptivePerson.MoveToArchitecture(f.Capital, position, true, true, null);
             }
             
             else

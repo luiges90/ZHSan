@@ -5477,7 +5477,7 @@ namespace GameObjects
         public void LeaveFaction()
         {
             Faction oldFaction = this.BelongedFaction;
-            if (GameObject.Chance(20) && this.LocationArchitecture != null && this.Status == PersonStatus.Normal && this.BelongedFaction != null && this.BelongedFaction.Leader != this && !this.IsCaptive)
+            if (GameObject.Chance(20) && this.LocationArchitecture != null && this.Status == PersonStatus.Normal && this.BelongedFaction != null && this.BelongedFaction.Leader != this && !this.IsCaptive && !this.NvGuan)
             {
                 if ((this.Loyalty < 50) && GameObject.Chance(100 - this.Loyalty * 2) && (GameObject.Random(this.Loyalty * (1 + (int)this.PersonalLoyalty)) <= GameObject.Random(5)))
                 {
@@ -5490,7 +5490,7 @@ namespace GameObjects
                         a = allArch[GameObject.Random(allArch.Count)] as Architecture;
                         tries++;
                     } while (a.BelongedFaction == oldFaction && tries <= 10);
-                    this.MoveToArchitecture(a);
+                    this.MoveToArchitecture(a, null, false, false, oldFaction);
                     ExtensionInterface.call("LeaveFaction", new Object[] { Session.Current.Scenario, this });
                 }
                 /*else if (((Session.GlobalVariables.IdealTendencyValid && (this.IdealTendency != null)) && (this.IdealTendency.Offset <= 1)) && (this.BelongedFaction.Leader != null))
@@ -5527,6 +5527,7 @@ namespace GameObjects
         public void LeaveToNoFaction() // 下野
         {
             Architecture locationArchitecture = this.LocationArchitecture;
+            var oldFaction = this.BelongedFaction;
             if (!this.ProhibitedFactionID.ContainsKey(this.BelongedFaction.ID))
             {
                 this.ProhibitedFactionID.Add(this.BelongedFaction.ID, 90);
@@ -5556,6 +5557,20 @@ namespace GameObjects
             }
             Session.Current.Scenario.YearTable.addBecomeNoFactionEntry(Session.Current.Scenario.Date, this, this.BelongedFaction);
             this.Status = PersonStatus.NoFaction;
+
+            foreach (Person p in NvGuanFollowed(false, oldFaction))
+            {
+                if (p.TargetArchitecture != null)
+                {
+                    p.TargetArchitecture = null;
+                    p.ArrivingDays = 0;
+                    p.TaskDays = 0;
+                    p.OutsideTask = OutsideTaskKind.无;
+                }
+                Session.Current.Scenario.YearTable.addBecomeNoFactionEntry(Session.Current.Scenario.Date, p, oldFaction);
+                this.Status = PersonStatus.NoFaction;
+            }
+
             if (this.OnLeave != null)
             {
                 this.OnLeave(this, locationArchitecture);
@@ -5564,6 +5579,7 @@ namespace GameObjects
 
         public void BeLeaveToNoFaction() // 流放
         {
+            var oldFaction = this.BelongedFaction;
             Architecture locationArchitecture = this.LocationArchitecture;
             if (this.ProhibitedFactionID.ContainsKey(this.BelongedFaction.ID))
             {
@@ -5583,6 +5599,19 @@ namespace GameObjects
 
             this.ProhibitedFactionID.Add(this.BelongedFaction.ID, 360);
             this.Status = PersonStatus.NoFaction;
+
+            foreach (Person p in NvGuanFollowed(false, oldFaction))
+            {
+                if (p.TargetArchitecture != null)
+                {
+                    p.TargetArchitecture = null;
+                    p.ArrivingDays = 0;
+                    p.TaskDays = 0;
+                    p.OutsideTask = OutsideTaskKind.无;
+                }
+                Session.Current.Scenario.YearTable.addBecomeNoFactionEntry(Session.Current.Scenario.Date, p, oldFaction);
+                this.Status = PersonStatus.NoFaction;
+            }
         }
 
         public void LoseTreasure(Treasure t)
@@ -5872,93 +5901,89 @@ namespace GameObjects
         }
         */
 
-        public Person NvGuanFollower
+        public Person NvGuanFollower(bool includeFallback, Faction oldFaction)
         {
-            get
+            if (this.Spouse != null && (this.Spouse.BelongedFaction == this.BelongedFaction || oldFaction == this.BelongedFaction) && (this.Spouse.Status == PersonStatus.Normal || this.Spouse.Status == PersonStatus.Moving))
             {
-                if (this.Spouse != null && this.Spouse.BelongedFaction == this.BelongedFaction && (this.Spouse.Status == PersonStatus.Normal || this.Spouse.Status == PersonStatus.Moving))
+                return this.Spouse;
+            }
+            else if (this.Father != null && (this.Father.BelongedFaction == this.BelongedFaction || oldFaction == this.BelongedFaction) && (this.Father.Status == PersonStatus.Normal || this.Father.Status == PersonStatus.Moving))
+            {
+                return this.Father;
+            } 
+            else
+            {
+                var strain = new PersonList();
+                foreach (Person person in this.BelongedFaction.Persons)
                 {
-                    return this.Spouse;
-                }
-                else if (this.Father != null && this.Father.BelongedFaction == this.BelongedFaction && (this.Father.Status == PersonStatus.Normal || this.Father.Status == PersonStatus.Moving))
-                {
-                    return this.Father;
-                } 
-                else
-                {
-                    var strain = new PersonList();
-                    foreach (Person person in this.BelongedFaction.Persons)
+                    if (this.HasStrainTo(person))
                     {
-                        if (this.HasStrainTo(person))
-                        {
-                            strain.Add(person);
-                        }
-                    }
-                    strain.PropertyName = "Age";
-                    strain.IsNumber = true;
-                    strain.SmallToBig = false;
-                    strain.ReSort();
-                    foreach (Person p in strain)
-                    {
-                        if (p.BelongedFaction == this.BelongedFaction && (p.Status == PersonStatus.Normal || p.Status == PersonStatus.Moving))
-                        {
-                            return p;
-                        }
+                        strain.Add(person);
                     }
                 }
+                strain.PropertyName = "Age";
+                strain.IsNumber = true;
+                strain.SmallToBig = false;
+                strain.ReSort();
+                foreach (Person p in strain)
+                {
+                    if (p.BelongedFaction == this.BelongedFaction && (p.Status == PersonStatus.Normal || p.Status == PersonStatus.Moving))
+                    {
+                        return p;
+                    }
+                }
+            }
+
+            if (includeFallback)
+            {
+                return this.BelongedFaction.Leader;
+            }
+            else
+            {
                 return null;
             }
         }
 
-        public PersonList NvGuanFollowed
+        public PersonList NvGuanFollowed(bool includeFallback, Faction oldFaction)
         {
-            get
+            var result = new PersonList();
+            foreach (Person p in BelongedFaction.Persons)
             {
-                var result = new PersonList();
-                foreach (Person p in this.BelongedFaction.Persons)
+                if (p.NvGuanFollower(includeFallback, oldFaction) == this)
                 {
-                    if (p.NvGuan && p.NvGuanFollower == this)
+                    result.Add(p);
+                }
+            }
+            if (oldFaction != null)
+            {
+                foreach (Person p in oldFaction.Persons)
+                {
+                    if (p.NvGuanFollower(includeFallback, oldFaction) == this)
                     {
                         result.Add(p);
                     }
                 }
-                return result;
             }
+            return result;
         }
 
-        public Person NvGuanFollowerFallback
+        public void MoveToArchitecture(Architecture a)
         {
-            get {
-                return NvGuanFollower ?? BelongedFaction?.Leader;
-            } 
-        }
-
-        public PersonList NvGuanFollowedFallback
-        {
-            get
-            {
-                var result = new PersonList();
-                foreach (Person p in this.BelongedFaction.Persons)
-                {
-                    if (p.NvGuan && p.NvGuanFollowerFallback == this)
-                    {
-                        result.Add(p);
-                    }
-                }
-                return result;
-            }
+            this.MoveToArchitecture(a, null, false, false, null);
         }
 
         public void MoveToArchitecture(Architecture a, Point? startingPoint)
         {
-            this.MoveToArchitecture(a, startingPoint, false, true);
+            this.MoveToArchitecture(a, startingPoint, false, false, null);
         }
 
-        public void MoveToArchitecture(Architecture a, Point? startingPoint, bool removeFromTroop, bool moveFollowers)
+        public void MoveToArchitecture(Architecture a, Point? startingPoint, bool removeFromTroop, bool moveFollower, Faction oldFaction)
         {
             Architecture targetArchitecture = this.TargetArchitecture;
 
             if (a == null) return;
+
+            if (!moveFollower && NvGuan) return;
 
             // if (this.Status != PersonStatus.Normal) return;
 
@@ -6038,11 +6063,11 @@ namespace GameObjects
                 this.LocationArchitecture = this.TargetArchitecture;
             }
 
-            if (moveFollowers)
+            if (moveFollower)
             {
-                foreach (Person p in this.NvGuanFollowedFallback)
+                foreach (Person p in this.NvGuanFollowed(true, oldFaction))
                 {
-                    p.MoveToArchitecture(a, startingPoint, removeFromTroop, false);
+                    p.MoveToArchitecture(a, startingPoint, removeFromTroop, true, oldFaction);
                 }
             }
         }
@@ -6295,11 +6320,6 @@ namespace GameObjects
                 }
 
             }
-        }
-
-        public void MoveToArchitecture(Architecture a)
-        {
-            this.MoveToArchitecture(a, null);
         }
 
         public void NoFactionMove()
@@ -7962,7 +7982,7 @@ namespace GameObjects
                 {
                     if (this == this.BelongedFaction.Leader) return 999;
 
-                    if (this.NvGuan && this.NvGuanFollower.BelongedFaction == this.BelongedFaction) return 999;
+                    if (this.NvGuan && this.NvGuanFollower(false, null).BelongedFaction == this.BelongedFaction) return 999;
 
                     float v = 100;
 

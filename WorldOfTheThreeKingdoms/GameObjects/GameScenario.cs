@@ -1189,7 +1189,7 @@ namespace GameObjects
             newFaction.AddArchitectureKnownData(newFactionCapital);
             newFaction.FirstSection.AddArchitecture(newFactionCapital);
 
-            leader.MoveToArchitecture(newFactionCapital);
+            leader.MoveToArchitecture(newFactionCapital, null, true, false, oldFaction);
 
             foreach (Point p in newFactionCapital.ArchitectureArea.Area)
             {
@@ -1235,7 +1235,7 @@ namespace GameObjects
                             p.AdjustRelation(newFaction.Leader, 4.5f, 1);
                             if (p.LocationTroop == null)
                             {
-                                p.MoveToArchitecture(newFactionCapital);
+                                p.MoveToArchitecture(newFactionCapital, null, true, false, oldFaction);
                             }
                             else
                             {
