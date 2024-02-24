@@ -7926,6 +7926,8 @@ namespace GameObjects
                 {
                     if (this == this.BelongedFaction.Leader) return 999;
 
+                    if (this.NvGuan && this.NvGuanFollower != this.BelongedFaction.Leader && this.NvGuanFollower.BelongedFaction == this.BelongedFaction) return 999;
+
                     float v = 100;
 
                     if (this.Status == PersonStatus.Captive)
