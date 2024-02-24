@@ -1043,7 +1043,7 @@ namespace GameObjects
             {
                 if (leader.Spouse != null && leader.WaitForFeiZi != null && leader.Age < 40 && leader.Status == PersonStatus.Normal)
                 {
-                    PersonList leaderMarryable = this.Leader.MakeMarryableInFaction();
+                    PersonList leaderMarryable = this.Leader.MakeAnyMarryableInFaction();
                     if (leaderMarryable.Count > 0)
                     {
                         Person q = this.Leader;
@@ -1053,7 +1053,7 @@ namespace GameObjects
                         leaderMarryable.ReSort();
                         foreach (Person p in leaderMarryable)
                         {
-                            if (p.WaitForFeiZi == null)
+                            if (p.WaitForFeiZi == null && Math.Abs(p.Age - q.Age) <= 15 && IsPersonForHouGong(p))
                             {
                                 GameObjectList simulatSuoshu = p.suoshurenwuList.GetList();
                                 simulatSuoshu.Add(p);
@@ -1080,7 +1080,7 @@ namespace GameObjects
                     if (p.WaitForFeiZi != null) continue;
                     if (p.Spouse != null) continue;
                     if (p.Status != PersonStatus.Normal) continue;
-                    PersonList allCandidates = p.MakeMarryableInFaction();
+                    PersonList allCandidates = p.MakeAnyMarryableInFaction();
                     PersonList candidates = new PersonList();
                     foreach (Person q in allCandidates)
                     {
@@ -1609,10 +1609,10 @@ namespace GameObjects
             this.AICapital();
             this.AICaptives();
             this.AITechniques();
+            this.AINvGuan();
             this.AIMakeMarriage();
             this.AISelectPrince();
             this.AIZhaoXian();
-            this.AIPromoteNvGuan();
             this.AIAppointMayor();
             this.AIHouGong();
             this.AIArchitectures();
@@ -3542,7 +3542,7 @@ namespace GameObjects
             }
         }
 
-        private void AIPromoteNvGuan()
+        private void AINvGuan()
         {
             if (!Session.Current.Scenario.IsPlayer(this))
             {

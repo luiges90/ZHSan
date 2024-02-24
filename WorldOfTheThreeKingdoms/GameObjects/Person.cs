@@ -2452,7 +2452,7 @@ namespace GameObjects
         {
             get
             {
-                PersonList pl = MakeMarryableInFaction();
+                PersonList pl = MakeAnyMarryableInFaction();
                 pl.PropertyName = "Merit";
                 pl.SmallToBig = false;
                 pl.IsNumber = true;
@@ -2471,7 +2471,7 @@ namespace GameObjects
         }
 
         private PersonList makeMarryableInFactionCache = null;
-        public PersonList MakeMarryableInFaction()
+        public PersonList MakeAnyMarryableInFaction()
         {
             if (this.BelongedFaction == null || this.BelongedFaction.Leader.Status == PersonStatus.Captive) return new PersonList();
 
@@ -2494,6 +2494,11 @@ namespace GameObjects
                     result.Add(p);
                 }
                 if (p.Spouse != null && p.BelongedFaction == this.BelongedFaction && p.Spouse.Spouse == null)
+                {
+                    result.Add(p);
+                }
+                if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && p.Spouse == null && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
+                     && !p.Hates(this) && !this.Hates(p))
                 {
                     result.Add(p);
                 }
