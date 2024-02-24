@@ -2444,6 +2444,15 @@ namespace GameObjects
                     result.Add(p);
                 }
             }
+            foreach (Captive c in this.LocationArchitecture.Captives)
+            {
+                Person p = c.CaptivePerson;
+                if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
+                     && !p.Hates(this) && !this.Hates(p))
+                {
+                    result.Add(p);
+                }
+            }
 
             return result;
         }
@@ -2514,9 +2523,33 @@ namespace GameObjects
             if (!(this.Spouse == p || p.Spouse == this))
             {
                 this.LocationArchitecture.DecreaseFund(Session.Parameters.MakeMarriageCost);
-
-                //makeHateCausedByAffair(this, p, maker);
             }
+
+            if (p.Status == PersonStatus.Captive)
+            {
+                p.SetBelongedCaptive(null, PersonStatus.Normal);
+                p.ChangeFaction(this.BelongedFaction);
+                p.NvGuan = true;
+
+                p.AdjustRelation(maker, 0, Math.Max(0, -100 * (p.PersonalLoyalty - 1) * (p.PersonalLoyalty - 1)));
+                maker.DecreaseKarma(1 + p.PersonalLoyalty + Math.Max(0, p.Karma / 5));
+
+                foreach (Person q in Session.Current.Scenario.Persons)
+                {
+                    if (q == p) continue;
+                    if (q == maker) continue;
+                    if (q.IsVeryCloseTo(p))
+                    {
+                        q.AdjustRelation(maker, 0, -50 * q.PersonalLoyalty * q.PersonalLoyalty);
+                    }
+                    if (q.HasCloseStrainTo(p))
+                    {
+                        q.AdjustRelation(maker, 0, -50 * q.PersonalLoyalty * q.PersonalLoyalty);
+                    }
+                }
+            }
+
+            makeHateCausedByAffair(this, p, maker);
             if (this.Spouse == null)
             {
                 this.Spouse = p;
@@ -4876,10 +4909,6 @@ namespace GameObjects
             if (src.HasCloseStrainTo(target))
             {
                 v += 20;
-            }
-            if (src.Spouse == target)
-            {
-                v += 30;
             }
             if (src.Brothers.GameObjects.Contains(target))
             {
@@ -8111,9 +8140,9 @@ namespace GameObjects
                     {
                         v += 10;
                     }
-                    else if (this.IsVeryCloseTo(this.BelongedFaction.Leader))
+                    else if (this.Brothers.GameObjects.Contains(this.BelongedFaction.Leader))
                     {
-                        v += 30;
+                        v += 50;
                     }
 
                     v += Math.Max(-200, TempLoyaltyChange);
