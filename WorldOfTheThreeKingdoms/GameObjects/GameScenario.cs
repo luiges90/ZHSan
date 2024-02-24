@@ -825,11 +825,18 @@ namespace GameObjects
                             Session.MainGame.mainGameScreen.xianshishijiantupian(person, person.LocationArchitecture.Name, TextMessageKind.PersonJoin, "PersonJoin", "", "", f.Name, false);
                         }
                     }
+
+                    if (!Session.Current.Scenario.IsPlayer(person.BelongedFaction))
+                    {
+                        person.BelongedFaction.ConsiderPromoteNvGuan(person);
+                    }
+
                     this.AvailablePersons.Add(person);
                     if (joinToPerson.BelongedFactionWithPrincess != null) { 
                         Session.MainGame.mainGameScreen.haizizhangdachengren(joinToPerson, person, false);
                     }
                     this.YearTable.addGrownBecomeAvailableEntry(this.Date, person);
+
                     continue;
                 }
 
@@ -843,13 +850,21 @@ namespace GameObjects
                         person.LocationArchitecture = f.Capital;
                         person.Status = PersonStatus.Normal;
                         person.YearJoin = this.Date.Year;
+
+                        if (!Session.Current.Scenario.IsPlayer(person.BelongedFaction))
+                        {
+                            person.BelongedFaction.ConsiderPromoteNvGuan(person);
+                        }
+
                         Session.MainGame.mainGameScreen.xianshishijiantupian(person, f.Capital.Name, TextMessageKind.PersonJoin, "PersonJoin", "", "", f.Name, false);
                         this.YearTable.addGrownBecomeAvailableEntry(this.Date, person);
                         Session.MainGame.mainGameScreen.haizizhangdachengren(joinToPerson, person, false);
                         joined = true;
+
                         break;
                     }
                 }
+
                 if (joined) continue;
                 if (Setting.Current.Chuchangsuiji)
                 {

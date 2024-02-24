@@ -763,6 +763,18 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             }
         }
 
+        private void FrameFunction_Faction_PromoteNvGuan()
+        {
+            this.CurrentGameObjects = this.CurrentArchitecture.PromotableNvGuans.GetSelectedList();
+            if (this.CurrentGameObjects != null)
+            {
+                foreach (Person p in  this.CurrentGameObjects)
+                {
+                    p.PromoteFromNvGuan();
+                }
+            }
+        }
+
         private void FrameFunction_Architecture_AfterGetRewardPerson() // 奖赏
         {
             this.CurrentGameObjects = this.CurrentArchitecture.RewardPersonList.GetSelectedList();
@@ -1478,8 +1490,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case FrameFunction.MoveCaptive: //俘虏可移动
                     this.FrameFunction_Faction_KillRelease_MoveCaptive();
                     break;
+                case FrameFunction.PromoteNvGuan:
+                    this.FrameFunction_Faction_PromoteNvGuan();
+                    break;
 
-                
 
             }
             this.lastFrameFunction = function;

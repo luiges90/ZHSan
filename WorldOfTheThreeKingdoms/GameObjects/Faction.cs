@@ -1612,6 +1612,7 @@ namespace GameObjects
             this.AIMakeMarriage();
             this.AISelectPrince();
             this.AIZhaoXian();
+            this.AIPromoteNvGuan();
             this.AIAppointMayor();
             this.AIHouGong();
             this.AIArchitectures();
@@ -3538,6 +3539,28 @@ namespace GameObjects
                     }
 
                 }
+            }
+        }
+
+        private void AIPromoteNvGuan()
+        {
+            if (!Session.Current.Scenario.IsPlayer(this))
+            {
+                if (Session.Current.Scenario.DaySince <= 1)
+                {
+                    foreach (Person p in Persons)
+                    {
+                        ConsiderPromoteNvGuan(p);
+                    }
+                }
+            }
+        }
+
+        public void ConsiderPromoteNvGuan(Person p)
+        {
+            if (p.NvGuanPromotable && (p.Command * 2 + p.Strength) / (p.Politics + p.Glamour * 2) > 0.95f)
+            {
+                p.PromoteFromNvGuan();
             }
         }
 

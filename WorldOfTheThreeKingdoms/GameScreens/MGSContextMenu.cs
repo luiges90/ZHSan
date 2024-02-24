@@ -721,7 +721,10 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                 case ContextMenuResult.Faction_ZhaoXianBang_DismissOfficer: //遣散
                     this.CurrentArchitecture.DismissOfficer();
                     break;
-                    
+
+                case ContextMenuResult.Faction_PromoteNvGuan:
+                    this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.PromoteNvGuan, false, true, true, true, this.CurrentArchitecture.PromotableNvGuans, null, "提拔女官", "");
+                    break;
 
                 case ContextMenuResult.Monarch_hougongTop_nafei:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.xuanzemeinv, true, true, true, false, this.CurrentArchitecture.nvxingwujiang(), null, "纳妃", "");

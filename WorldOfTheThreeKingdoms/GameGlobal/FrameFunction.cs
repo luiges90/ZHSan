@@ -90,6 +90,7 @@ namespace GameGlobal
         SelectPrince,
         AutoCreatePerson,//自动生成野武将
         GetOfficerType,
+        PromoteNvGuan,
        // DengYong,
         AppointMayor, //任命太守
         DismissOfficer, //遣散

@@ -455,6 +455,9 @@ namespace GameObjects
         private bool nvGuan = false;
 
         [DataMember]
+        public int DaySinceAvailable = 0;
+
+        [DataMember]
         public bool NvGuan
         {
             get
@@ -1429,6 +1432,19 @@ namespace GameObjects
             }
         }
 
+        public void PromoteFromNvGuan()
+        {
+            this.NvGuan = false;
+        }
+
+        public bool NvGuanPromotable
+        {
+            get
+            {
+                return NvGuan && (Age < 16 || DaySinceAvailable < 30);
+            }
+        }
+
         public void AddBubingExperience(int increment)
         {
             this.bubingExperience += (increment * Session.Parameters.ArmyExperienceRate * (1 + ExperienceRate)
@@ -2322,6 +2338,11 @@ namespace GameObjects
                 {
                     this.ProhibitedFactionID.Remove(i);
                 }
+            }
+
+            if (this.Available)
+            {
+                DaySinceAvailable += Session.Parameters.DayInTurn;
             }
 
             this.CommandExperience += this.CommandExperienceIncrease;

@@ -172,18 +172,10 @@
             DisplayIfTrue="KillPersonAvail" />
           <MenuItem ID="2" Name="ReleaseCaptive" DisplayName="释放俘虏"
             DisplayIfTrue="ReleaseCaptiveAvail" />
-          <MenuItem ID="3" Name="KillPerson" DisplayName="处斩下属" DisplayIfTrue="KillPersonAvail" />
           <MenuItem ID="4" Name="KillCaptive" DisplayName="处斩俘虏" DisplayIfTrue="ReleaseCaptiveAvail" />
           <MenuItem ID="5" Name="MoveCaptive" DisplayName="转移俘虏" DisplayIfTrue="MoveCaptiveAvail" />
         </MenuItem>
-        <MenuItem ID="8" Name="Treasure" DisplayName="宝物">
-          <MenuItem ID="1" Name="Confiscate" DisplayName="没收"
-            DisplayIfTrue="HasTreasureToConfiscate" />
-          <MenuItem ID="2" Name="Award" DisplayName="授予" DisplayIfTrue="HasTreasureToAward" />
-          <MenuItem ID="3" Name="Sell" DisplayName="卖出" DisplayIfTrue="HasTreasureToAward" />
-        </MenuItem>
-        <MenuItem ID="7" Name="Refuse" DisplayName="自动拒绝" OppositeName="手动拒绝"
-          OppositeIfTrue="FactionAutoRefuse" />
+        <MenuItem ID="12" Name="PromoteNvGuan" DisplayName="提拔女官" />
       </MenuItem>
       <MenuItem ID="7" Name="Monarch" DisplayName="君主">
         <MenuItem ID="9" Name="MakeMarriage" DisplayName="赐婚" DisplayIfTrue="HasMarriageToMake" />

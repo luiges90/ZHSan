@@ -540,6 +540,7 @@ namespace GameObjects
         public event RewardPersons OnRewardPersons;
 #pragma warning restore CS0067 // The event 'Architecture.OnRewardPersons' is never used
 
+
         public CaptiveList Captives
         {
             get
@@ -698,6 +699,26 @@ namespace GameObjects
                 foreach (Person p in all)
                 {
                     if (!p.NvGuan)
+                    {
+                        result.Add(p);
+                    }
+                }
+
+                result.SetImmutable();
+                return result;
+            }
+        }
+
+        public PersonList PromotableNvGuans
+        {
+            get
+            {
+                PersonList all = Session.Current.Scenario.GetPersonList(this);
+                PersonList result = new PersonList();
+
+                foreach (Person p in all)
+                {
+                    if (p.NvGuanPromotable)
                     {
                         result.Add(p);
                     }
