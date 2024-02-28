@@ -6011,7 +6011,7 @@ namespace GameObjects
             var result = new PersonList();
             if (this.BelongedFaction != null) 
             { 
-                foreach (Person p in BelongedFaction.Persons)
+                foreach (Person p in BelongedFaction.Persons.GameObjects)
                 {
                     if (p.NvGuanFollower(includeFallback, oldFaction) == this)
                     {
@@ -6021,7 +6021,7 @@ namespace GameObjects
             }
             if (oldFaction != null)
             {
-                foreach (Person p in oldFaction.Persons)
+                foreach (Person p in oldFaction.Persons.GameObjects)
                 {
                     if (p.NvGuanFollower(includeFallback, oldFaction) == this)
                     {
