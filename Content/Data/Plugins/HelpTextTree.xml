@@ -1099,7 +1099,7 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　纳妃需要资金50000，而且君主及被纳者需要在这个城池。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_hougongTop_hougong">
+    <Branch Name="Monarch_hougong">
         <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
         <Leaf Text="宠幸" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />

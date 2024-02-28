@@ -730,7 +730,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.xuanzemeinv, true, true, true, false, this.CurrentArchitecture.nvxingwujiang(), null, "纳妃", "");
 
                     break;
-                case ContextMenuResult.Monarch_hougongTop_hougong:
+                case ContextMenuResult.Monarch_hougong:
                     this.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.chongxingmeinv, true, true, true, false, this.CurrentArchitecture.meifaxianhuaiyundefeiziliebiao(), null, "后宫", "");
 
                     break;

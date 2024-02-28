@@ -127,7 +127,7 @@ namespace GameGlobal
         Faction_KillRelease_KillCaptive,
         Faction_PromoteNvGuan,
         Monarch_hougongTop_nafei,
-        Monarch_hougongTop_hougong,
+        Monarch_hougong,
         Monarch_hougongTop_moveFeizi,
         Monarch_hougongTop_releaseFeizi,
         Faction_Refuse,

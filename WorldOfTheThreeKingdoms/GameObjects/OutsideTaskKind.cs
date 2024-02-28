@@ -17,7 +17,7 @@ namespace GameObjects
         技能,
         称号,
         特技,
-        后宮,
+        宠幸,
         亲善,
         结盟,
         停战,

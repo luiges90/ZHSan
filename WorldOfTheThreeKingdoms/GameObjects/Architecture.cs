@@ -5886,7 +5886,7 @@ namespace GameObjects
             }
             foreach (Person p in this.MovingPersons)
             {
-                if (p.Tiredness > 0 && (p.OutsideTask == OutsideTaskKind.后宮))
+                if (p.Tiredness > 0 && (p.OutsideTask == OutsideTaskKind.宠幸))
                 {
                     p.Tiredness -= Session.GlobalVariables.TirednessDecrease;
                     if (p.Tiredness < 0) p.Tiredness = 0;

@@ -180,9 +180,9 @@
       <MenuItem ID="7" Name="Monarch" DisplayName="君主">
         <MenuItem ID="9" Name="MakeMarriage" DisplayName="赐婚" DisplayIfTrue="HasMarriageToMake" />
         <MenuItem ID="11" Name="MakeMarriage2" DisplayName="纳妾" DisplayIfTrue="HasMarriageToMake2" />
+        <MenuItem ID="2" Name="hougong" DisplayName="宠幸" DisplayIfTrue="kejinhougong" />
         <MenuItem ID="6" Name="hougongTop" DisplayName="后宫">
           <MenuItem ID="1" Name="nafei" DisplayName="纳妃" DisplayIfTrue="kenafei" />
-          <MenuItem ID="2" Name="hougong" DisplayName="宠幸" DisplayIfTrue="kejinhougong" />
           <MenuItem ID="3" Name="moveFeizi" DisplayName="移动妃子" DisplayIfTrue="CanMoveFeizi" />
           <MenuItem ID="4" Name="releaseFeizi" DisplayName="释放妃子"
             DisplayIfTrue="HaveReleasableFeizis" />

@@ -2855,8 +2855,8 @@ namespace GameObjects
                 }
                 else if (this.Spouse != null && !this.huaiyun && !this.Spouse.huaiyun && Session.GlobalVariables.getChildrenRate > 0 &&
                     this.SameLocationAs(this.Spouse) && 
-                    (this.Status == PersonStatus.Normal || this.OutsideTask == OutsideTaskKind.后宮) && 
-                    (this.Spouse.Status == PersonStatus.Normal || this.Spouse.OutsideTask == OutsideTaskKind.后宮) &&
+                    (this.Status == PersonStatus.Normal || this.OutsideTask == OutsideTaskKind.宠幸) && 
+                    (this.Spouse.Status == PersonStatus.Normal || this.Spouse.OutsideTask == OutsideTaskKind.宠幸) &&
                     this.isLegalFeiZiExcludeAge(this.Spouse) && this.Spouse.isLegalFeiZiExcludeAge(this) &&
                     this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit &&
                     this.Spouse.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
@@ -4205,7 +4205,7 @@ namespace GameObjects
                     this.DoStudyStunt();
                     break;
 
-                case OutsideTaskKind.后宮:
+                case OutsideTaskKind.宠幸:
                     this.DoHouGong();
                     break;
 
@@ -10868,7 +10868,7 @@ namespace GameObjects
                     }
                 }
 
-                this.OutsideTask = OutsideTaskKind.后宮;
+                this.OutsideTask = OutsideTaskKind.宠幸;
                 this.TargetArchitecture = this.LocationArchitecture;
                 this.ArrivingDays = houGongDays / Session.Parameters.DayInTurn + 1;
                 this.Status = PersonStatus.Moving;
@@ -10876,7 +10876,7 @@ namespace GameObjects
 
                 if (nvren.Status != PersonStatus.Princess)
                 {
-                    nvren.OutsideTask = OutsideTaskKind.后宮;
+                    nvren.OutsideTask = OutsideTaskKind.宠幸;
                     nvren.TargetArchitecture = this.LocationArchitecture;
                     nvren.ArrivingDays = houGongDays / Session.Parameters.DayInTurn + 1;
                     nvren.Status = PersonStatus.Moving;

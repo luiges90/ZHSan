@@ -11,7 +11,7 @@ using System.Runtime.Serialization;namespace GameObjects.Conditions.ConditionKin
  
         public override bool CheckConditionKind(Person person)
         {
-            return person.OutsideTask == OutsideTaskKind.后宮;
+            return person.OutsideTask == OutsideTaskKind.宠幸;
         }
     }
 }
