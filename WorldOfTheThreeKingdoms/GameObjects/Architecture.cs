@@ -1695,7 +1695,6 @@ namespace GameObjects
         public void WithdrawPerson()
         {
             if (this.BelongedFaction.ArchitectureCount <= 1) return;
-            int num = this.PersonCount - this.MilitaryCount;
             GameObjectList list = this.MovablePersons.GetList();
             if (list.Count > 1)
             {
@@ -1728,10 +1727,9 @@ namespace GameObjects
                     dest = i;
                 }
             }
-            int num2 = 0;
-            while (num2 < num)
-            {
-                Person p = list[num2] as Person;
+            for (int i = 0; i < list.Count; ++i) 
+            { 
+                Person p = list[i] as Person;
                 if (!p.HasFollowingArmy && !p.HasLeadingArmy)
                 {
                     p.WaitForFeiZi = null;
@@ -1741,7 +1739,6 @@ namespace GameObjects
                         q.MoveToArchitecture(dest);
                     }
                 }
-                num2++;
             }
         }
 

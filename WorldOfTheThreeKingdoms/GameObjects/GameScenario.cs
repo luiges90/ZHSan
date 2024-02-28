@@ -826,7 +826,7 @@ namespace GameObjects
                         }
                     }
 
-                    if (!Session.Current.Scenario.IsPlayer(person.BelongedFaction))
+                    if (person.BelongedFaction != null && !Session.Current.Scenario.IsPlayer(person.BelongedFaction))
                     {
                         person.BelongedFaction.ConsiderPromoteNvGuan(person);
                     }
@@ -851,7 +851,7 @@ namespace GameObjects
                         person.Status = PersonStatus.Normal;
                         person.YearJoin = this.Date.Year;
 
-                        if (!Session.Current.Scenario.IsPlayer(person.BelongedFaction))
+                        if (person.BelongedFaction != null && !Session.Current.Scenario.IsPlayer(person.BelongedFaction))
                         {
                             person.BelongedFaction.ConsiderPromoteNvGuan(person);
                         }
