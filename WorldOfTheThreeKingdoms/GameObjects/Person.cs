@@ -2447,8 +2447,7 @@ namespace GameObjects
             foreach (Captive c in this.LocationArchitecture.Captives)
             {
                 Person p = c.CaptivePerson;
-                if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
-                     && !p.Hates(this) && !this.Hates(p))
+                if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit)
                 {
                     result.Add(p);
                 }
@@ -2508,6 +2507,14 @@ namespace GameObjects
                 }
                 if (!this.Sex && p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && p.Spouse == null && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
                      && !p.Hates(this) && !this.Hates(p))
+                {
+                    result.Add(p);
+                }
+            }
+            foreach (Captive c in this.LocationArchitecture.Captives)
+            {
+                Person p = c.CaptivePerson;
+                if (!this.Sex && p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit)
                 {
                     result.Add(p);
                 }
