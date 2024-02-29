@@ -2511,7 +2511,7 @@ namespace GameObjects
                     result.Add(p);
                 }
             }
-            foreach (Captive c in this.LocationArchitecture.Captives)
+            foreach (Captive c in this.BelongedFaction.Captives)
             {
                 Person p = c.CaptivePerson;
                 if (!this.Sex && p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit)
@@ -6137,7 +6137,8 @@ namespace GameObjects
 
             if (moveFollower)
             {
-                foreach (Person p in this.NvGuanFollowed(true, oldFaction))
+                PersonList nvGuan = this.NvGuanFollowed(true, oldFaction);
+                foreach (Person p in nvGuan.GameObjects)
                 {
                     p.MoveToArchitecture(a, startingPoint, removeFromTroop, true, oldFaction);
                 }
@@ -10791,8 +10792,7 @@ namespace GameObjects
 
                 foreach (Person q in all)
                 {
-                    if (this.BelongedFaction.hougongValid &&
-                        ((q.Sex && q.huaiyuntianshu >= -1) || (this.Sex && this.huaiyuntianshu >= -1)) &&
+                    if (((q.Sex && q.huaiyuntianshu >= -1) || (this.Sex && this.huaiyuntianshu >= -1)) &&
                         this.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit && q.NumberOfChildren < Session.GlobalVariables.OfficerChildrenLimit)
                     {
                         float extraRate = q.PregnancyRate(this);

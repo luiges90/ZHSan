@@ -1498,7 +1498,7 @@ namespace GameObjects
                                     float v = p.UntiredMerit * p.PregnancyRate(this.Leader);
                                     if (p.Hates(this.Leader))
                                     {
-                                        v /= 100;
+                                        v /= 10;
                                     }
                                     if (p.Spouse != null)
                                     {
