@@ -6145,6 +6145,15 @@ namespace GameObjects
             }
         }
 
+        public void RecallFollowingNvGuans()
+        {
+            PersonList nvGuan = this.NvGuanFollowed(true, null);
+            foreach (Person p in nvGuan.GameObjects)
+            {
+                p.MoveToArchitecture(p.BelongedArchitecture, null, false, true, null);
+            }
+        }
+
         public void GoToGeDiDiplomatic(DiplomaticRelationDisplay a) //割地
         {
             if (a == null) return;

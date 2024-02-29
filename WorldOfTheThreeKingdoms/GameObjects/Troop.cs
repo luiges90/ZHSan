@@ -4499,6 +4499,10 @@ namespace GameObjects
                     p.WorkKind = p.OldWorkKind;
                 }
                 persons.ApplyInfluences();
+                foreach (Person p in persons)
+                {
+                    p.RecallFollowingNvGuans();
+                }
                 ExtensionInterface.call("EnterArchitecture", new Object[] { Session.Current.Scenario, this, a });
             }
         }
