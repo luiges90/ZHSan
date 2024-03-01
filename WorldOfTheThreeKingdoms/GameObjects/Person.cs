@@ -1796,6 +1796,15 @@ namespace GameObjects
                     this.Karma = (int)(Math.Max(-2000, Math.Min(500, father.Karma + mother.Karma)) * (GameObject.Random(100) / 100.0 * 0.2 + 0.1));
                 }
 
+                if (this.NvGuan)
+                {
+                    var follower = this.NvGuanFollower(true, null);
+                    if (follower != null)
+                    {
+                        this.MoveToArchitecture(follower.BelongedArchitecture);
+                    }
+                }
+
                 this.IsGeneratedChildren = false;
                 ExtensionInterface.call("PersonBecomeAvailable", new Object[] { Session.Current.Scenario, this });
                 Session.Current.Scenario.PreparedAvailablePersons.Add(this);
@@ -2447,7 +2456,7 @@ namespace GameObjects
             foreach (Captive c in this.LocationArchitecture.Captives)
             {
                 Person p = c.CaptivePerson;
-                if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit)
+                if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p))
                 {
                     result.Add(p);
                 }
@@ -2514,7 +2523,7 @@ namespace GameObjects
             foreach (Captive c in this.BelongedFaction.Captives)
             {
                 Person p = c.CaptivePerson;
-                if (!this.Sex && p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit)
+                if (!this.Sex && p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p))
                 {
                     result.Add(p);
                 }
@@ -5983,29 +5992,32 @@ namespace GameObjects
             else
             {
                 var strain = new PersonList();
-                foreach (Person person in this.BelongedFaction.Persons)
+                if (this.BelongedFaction != null)
                 {
-                    if (this.HasStrainTo(person))
+                    foreach (Person person in this.BelongedFaction.Persons)
                     {
-                        strain.Add(person);
+                        if (this.HasStrainTo(person))
+                        {
+                            strain.Add(person);
+                        }
                     }
-                }
-                strain.PropertyName = "Age";
-                strain.IsNumber = true;
-                strain.SmallToBig = false;
-                strain.ReSort();
-                foreach (Person p in strain)
-                {
-                    if (p.BelongedFaction == this.BelongedFaction && (p.Status == PersonStatus.Normal || p.Status == PersonStatus.Moving))
+                    strain.PropertyName = "Age";
+                    strain.IsNumber = true;
+                    strain.SmallToBig = false;
+                    strain.ReSort();
+                    foreach (Person p in strain)
                     {
-                        return p;
+                        if (p.BelongedFaction == this.BelongedFaction && (p.Status == PersonStatus.Normal || p.Status == PersonStatus.Moving))
+                        {
+                            return p;
+                        }
                     }
                 }
             }
 
             if (includeFallback)
             {
-                return this.BelongedFaction.Leader;
+                return this.BelongedFaction?.Leader;
             }
             else
             {
@@ -6020,7 +6032,7 @@ namespace GameObjects
             { 
                 foreach (Person p in BelongedFaction.Persons.GameObjects)
                 {
-                    if (p.NvGuanFollower(includeFallback, oldFaction) == this)
+                    if (p.NvGuan && p.NvGuanFollower(includeFallback, oldFaction) == this)
                     {
                         result.Add(p);
                     }
@@ -6030,7 +6042,7 @@ namespace GameObjects
             {
                 foreach (Person p in oldFaction.Persons.GameObjects)
                 {
-                    if (p.NvGuanFollower(includeFallback, oldFaction) == this)
+                    if (p.NvGuan && p.NvGuanFollower(includeFallback, oldFaction) == this)
                     {
                         result.Add(p);
                     }
@@ -6135,10 +6147,10 @@ namespace GameObjects
                 this.LocationArchitecture = this.TargetArchitecture;
             }
 
-            if (moveFollower)
+            PersonList nvGuan = this.NvGuanFollowed(true, oldFaction);
+            foreach (Person p in nvGuan.GameObjects)
             {
-                PersonList nvGuan = this.NvGuanFollowed(true, oldFaction);
-                foreach (Person p in nvGuan.GameObjects)
+                if (p != this)
                 {
                     p.MoveToArchitecture(a, startingPoint, removeFromTroop, true, oldFaction);
                 }
@@ -6150,7 +6162,10 @@ namespace GameObjects
             PersonList nvGuan = this.NvGuanFollowed(true, null);
             foreach (Person p in nvGuan.GameObjects)
             {
-                p.MoveToArchitecture(p.BelongedArchitecture, null, false, true, null);
+                if (p != this && p.BelongedArchitecture != this.BelongedArchitecture)
+                {
+                    p.MoveToArchitecture(this.BelongedArchitecture, null, false, true, null);
+                }
             }
         }
 
@@ -8064,7 +8079,7 @@ namespace GameObjects
                 {
                     if (this == this.BelongedFaction.Leader) return 999;
 
-                    if (this.NvGuan && this.NvGuanFollower(false, null).BelongedFaction == this.BelongedFaction) return 999;
+                    if (this.NvGuan && this.NvGuanFollower(false, null)?.BelongedFaction == this.BelongedFaction) return 999;
 
                     float v = 100;
 
@@ -9953,7 +9968,12 @@ namespace GameObjects
             if (r.Sex)
             {
                 r.NvGuan = true;
+                if (autoJoin)
+                {
+                    r.MoveToArchitecture(r.NvGuanFollower(true, null).BelongedArchitecture);
+                }
             }
+
 
             Session.Current.Scenario.Persons.Add(r);
 

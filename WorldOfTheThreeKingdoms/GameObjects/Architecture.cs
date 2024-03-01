@@ -12200,14 +12200,14 @@ namespace GameObjects
                     {
                         if ((this.PersonsExcludeNvGuan[0] as Person).LocationArchitecture != null)
                         {
-                            (this.PersonsExcludeNvGuan[0] as Person).MoveToArchitecture(this.BelongedFaction.Capital, this.Position);
+                            (this.PersonsExcludeNvGuan[0] as Person).MoveToArchitecture(this.BelongedFaction.Capital, this.Position, false, true, null);
                         }
                     }
                     while (this.MovingPersons.Count > 0)
                     {
                         if ((this.MovingPersons[0] as Person).LocationArchitecture != null)
                         {
-                            (this.MovingPersons[0] as Person).MoveToArchitecture(this.BelongedFaction.Capital, this.Position);
+                            (this.MovingPersons[0] as Person).MoveToArchitecture(this.BelongedFaction.Capital, this.Position, false, true, null);
                         }
                     }
                     foreach (Military m in this.BelongedFaction.TransferingMilitaries.GetList())
