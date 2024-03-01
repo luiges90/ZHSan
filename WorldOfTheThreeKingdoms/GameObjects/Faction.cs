@@ -1038,9 +1038,9 @@ namespace GameObjects
                 }
             }
 
-            if (GameObject.Random(10) == 0)
+            if (GameObject.Random(10) == 0 && leader.Status == PersonStatus.Normal)
             {
-                if (leader.Spouse != null && leader.WaitForFeiZi != null && leader.Age < 40 && leader.Status == PersonStatus.Normal)
+                if (leader.WaitForFeiZi == null && leader.Age <= 30 + leader.Ambition * 10)
                 {
                     PersonList leaderMarryable = this.Leader.MakeAnyMarryableInFaction();
                     if (leaderMarryable.Count > 0)
@@ -1052,7 +1052,7 @@ namespace GameObjects
                         leaderMarryable.ReSort();
                         foreach (Person p in leaderMarryable)
                         {
-                            if (p.WaitForFeiZi == null && Math.Abs(p.Age - q.Age) <= 15 && IsPersonForHouGong(p, p.IsCaptive))
+                            if (p.WaitForFeiZi == null && Math.Abs(p.Age - q.Age) <= 15 + leader.Ambition * leader.Ambition * 2 && IsPersonForHouGong(p, p.IsCaptive))
                             {
                                 Person hater = WillHateLeaderDueToAffair(p, q, p.IsCaptive, false);
                                 if (hater != null && hater != p && hater != q) continue;
@@ -1078,7 +1078,7 @@ namespace GameObjects
                     PersonList candidates = new PersonList();
                     foreach (Person q in allCandidates)
                     {
-                        if (Math.Abs(q.Age - p.Age) <= 15)
+                        if ((q.Spouse == null || q.Spouse == p) && Math.Abs(q.Age - p.Age) <= 15)
                         {
                             candidates.Add(q);
                         }
@@ -2196,38 +2196,6 @@ namespace GameObjects
 
             }
         }
-
-        public void AIVeryClosePersonTransfer()
-        {
-            if (GameObject.Chance(10))
-            {
-                foreach (Person p in this.Persons)
-                {
-                    if (p.LocationArchitecture != null && p.LocationTroop == null && p.Status == PersonStatus.Normal)
-                    {
-                        foreach (Person q in p.AvailableVeryClosePersons)
-                        {
-                            if (q.LocationArchitecture != null && q.LocationTroop == null && q.LocationArchitecture != p.LocationArchitecture &&
-                                q.Status == PersonStatus.Normal && !q.DontMoveMeUnlessIMust && !this.MayorList.GameObjects.Contains(q))
-                            {
-                                if (Session.Current.Scenario.IsPlayer(this))
-                                {
-                                    if (p.LocationArchitecture.BelongedSection.AIDetail.AutoRun && q.LocationArchitecture.BelongedSection.AIDetail.AutoRun)
-                                    {
-                                        q.MoveToArchitecture(p.LocationArchitecture);
-                                    }
-                                }
-                                else
-                                {
-                                    q.MoveToArchitecture(p.LocationArchitecture);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
 
         public void AITransferPlanning(ArchitectureList architectures)
         {

@@ -12861,7 +12861,7 @@ namespace GameObjects
 
             foreach (Person p in this.Persons)
             {
-                if (p.MakeMarryable().Count > 0)
+                if (p.MakeMarryable(true).Count > 0)
                 {
                     result.Add(p);
                 }
@@ -12877,7 +12877,7 @@ namespace GameObjects
 
             foreach (Person p in this.Persons)
             {
-                if (!p.Sex && p.MakeMarryable2().Count > 0)
+                if (!p.Sex && p.MakeMarryable2(true).Count > 0)
                 {
                     result.Add(p);
                 }

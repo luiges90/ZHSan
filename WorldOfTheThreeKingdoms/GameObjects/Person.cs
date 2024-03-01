@@ -2369,7 +2369,6 @@ namespace GameObjects
             enduranceAbility = 0;
             trainingAbility = 0;
             higherLevelLearnableTitle = null;
-            makeMarryableInFactionCache = null;
         }
 
         private void AutoLearnEvent()
@@ -2407,58 +2406,99 @@ namespace GameObjects
             }
         }
 
-        public PersonList MakeMarryable()
+        public PersonList MakeMarryable(bool sameLocation)
         {
             PersonList result = new PersonList();
 
-            if (this.LocationArchitecture == null) return result;
+            if (sameLocation && this.LocationArchitecture == null) return result;
 
             if (this.Spouse != null)
             {
-                if ((this.Spouse.LocationArchitecture == this.LocationArchitecture) && (this.Spouse.Spouse == null))
+                if ((!sameLocation || this.Spouse.LocationArchitecture == this.LocationArchitecture) && (this.Spouse.Spouse == null))
                 {
                     result.Add(this.Spouse);
                 }
                 return result;
             }
 
-            foreach (Person p in this.LocationArchitecture.Persons)
+            if (sameLocation)
             {
-                if (p == this) continue;
-                if (p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
-                    && !p.Hates(this) && !this.Hates(p) && p.Spouse == null)
+                foreach (Person p in this.LocationArchitecture.Persons)
                 {
-                    result.Add(p);
+                    if (p == this) continue;
+                    if (p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
+                        && !p.Hates(this) && !this.Hates(p) && p.Spouse == null)
+                    {
+                        result.Add(p);
+                    }
+                    if (p.Spouse == this)
+                    {
+                        result.Add(p);
+                    }
                 }
-                if (p.Spouse == this)
+            } 
+            else if (this.BelongedFaction != null)
+            {
+                foreach (Person p in this.BelongedFaction.Persons)
                 {
-                    result.Add(p);
+                    if (p == this) continue;
+                    if (p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
+                        && !p.Hates(this) && !this.Hates(p) && p.Spouse == null)
+                    {
+                        result.Add(p);
+                    }
+                    if (p.Spouse == this)
+                    {
+                        result.Add(p);
+                    }
                 }
             }
 
             return result;
         }
 
-        public PersonList MakeMarryable2()//找妾
+        public PersonList MakeMarryable2(bool sameLocation)//找妾
         {
             PersonList result = new PersonList();
 
-            if (this.LocationArchitecture == null) return result;
-          
-            foreach (Person p in this.LocationArchitecture.Persons)
-            {               
-                if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && p.Spouse == null && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
-                     && !p.Hates(this) && !this.Hates(p))
-                {
-                    result.Add(p);
-                }
-            }
-            foreach (Captive c in this.LocationArchitecture.Captives)
+            if (sameLocation && this.LocationArchitecture == null) return result;
+
+            if (sameLocation)
             {
-                Person p = c.CaptivePerson;
-                if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p))
+                foreach (Person p in this.LocationArchitecture.Persons)
                 {
-                    result.Add(p);
+                    if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && p.Spouse == null && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
+                         && !p.Hates(this) && !this.Hates(p))
+                    {
+                        result.Add(p);
+                    }
+                }
+                foreach (Captive c in this.LocationArchitecture.Captives)
+                {
+                    Person p = c.CaptivePerson;
+                    if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p))
+                    {
+                        result.Add(p);
+                    }
+                }
+            } 
+            else if (this.BelongedFaction != null)
+            {
+                foreach (Person p in this.BelongedFaction.Persons)
+                {
+                    if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && p.Spouse == null && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
+                         && !p.Hates(this) && !this.Hates(p))
+                    {
+                        result.Add(p);
+                    }
+                }
+                foreach (Captive c in this.BelongedFaction.Captives)
+                {
+                    Person p = c.CaptivePerson;
+                    if (p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p))
+                    {
+                        result.Add(p);
+                    }
                 }
             }
 
@@ -2487,51 +2527,13 @@ namespace GameObjects
             }
         }
 
-        private PersonList makeMarryableInFactionCache = null;
+
         public PersonList MakeAnyMarryableInFaction()
         {
-            if (this.BelongedFaction == null || this.BelongedFaction.Leader.Status == PersonStatus.Captive) return new PersonList();
-
-            if (this.Status != PersonStatus.Normal) return new PersonList();
-
-            if (makeMarryableInFactionCache != null) return makeMarryableInFactionCache;
-
-            PersonList result = new PersonList();
-
-            if (this.Spouse != null) return result;
-
-            if (this.BelongedFaction == null) return result;
-
-            foreach (Person p in this.BelongedFaction.Persons)
-            {
-                if (p == this) continue;
-                if (p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
-                    && !p.Hates(this) && !this.Hates(p) && p.Spouse == null)
-                {
-                    result.Add(p);
-                }
-                if (p.Spouse != null && p.BelongedFaction == this.BelongedFaction && p.Spouse.Spouse == null)
-                {
-                    result.Add(p);
-                }
-                if (!this.Sex && p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p) && p.Spouse == null && Person.GetIdealOffset(p, this) <= Session.Parameters.MakeMarrigeIdealLimit
-                     && !p.Hates(this) && !this.Hates(p))
-                {
-                    result.Add(p);
-                }
-            }
-            foreach (Captive c in this.BelongedFaction.Captives)
-            {
-                Person p = c.CaptivePerson;
-                if (!this.Sex && p.Sex && p.isLegalFeiZi(this) && this.isLegalFeiZi(p))
-                {
-                    result.Add(p);
-                }
-            }
-
-            makeMarryableInFactionCache = result;
-
-            return result;
+            var list1 = MakeMarryable(false);
+            var list2 = MakeMarryable2(false);
+            list1.AddRange(list2);
+            return list1;
         }
 
         public void Marry(Person p, Person maker)
@@ -2580,11 +2582,6 @@ namespace GameObjects
 
             Session.Current.Scenario.YearTable.addCreateSpouseEntry(Session.Current.Scenario.Date, this, p);
             Session.MainGame.mainGameScreen.MakeMarriage(this, p);
-
-            foreach (Person q in this.BelongedFaction.Persons)
-            {
-                q.makeMarryableInFactionCache = null;
-            }
         }
 
         private void createRelations()
@@ -10807,7 +10804,7 @@ namespace GameObjects
                     {
                         float extraRate = q.PregnancyRate(this);
 
-                        var rate = nvren.Status == PersonStatus.Princess ? Session.GlobalVariables.hougongGetChildrenRate : Session.GlobalVariables.getChildrenRate;
+                        var rate = nvren.Status == PersonStatus.Princess ? Session.GlobalVariables.hougongGetChildrenRate : Session.GlobalVariables.getChildrenRate / 2;
                         float pregnantChance = rate / 100.0f * (Session.Current.Scenario.IsPlayer(this.BelongedFaction) ? 1 : Session.Parameters.AIExtraPerson);
                         pregnantChance *= houGongDays * 2 * extraRate;
 

@@ -518,7 +518,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((selectedList != null) && (selectedList.Count == 1))
             {
                 this.CurrentPerson = selectedList[0] as Person;
-                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectMarryTo, false, true, true, false, this.CurrentPerson.MakeMarryable(), null, "选择对象", "");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectMarryTo, false, true, true, false, this.CurrentPerson.MakeMarryable(true), null, "选择对象", "");
             }
         }
 
@@ -528,7 +528,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             if ((selectedList != null) && (selectedList.Count == 1))
             {
                 this.CurrentPerson = selectedList[0] as Person;
-                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectMarryTo, false, true, true, false, this.CurrentPerson.MakeMarryable2(), null, "选择纳妾对象", "");
+                Session.MainGame.mainGameScreen.ShowTabListInFrame(UndoneWorkKind.Frame, FrameKind.Person, FrameFunction.SelectMarryTo, false, true, true, false, this.CurrentPerson.MakeMarryable2(true), null, "选择纳妾对象", "");
             }
         }
         private void FrameFunction_Architecture_AfterSelectMarryTo()
