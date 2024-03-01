@@ -869,7 +869,7 @@ namespace GameObjects
             this.AdjustByArchitectures();
         }
 
-        private bool IsPersonForHouGong(Person p, bool alreadyTaken = false)
+        private bool IsPersonForHouGong(Person p, bool forced, bool alreadyTaken = false)
         {
             if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) return false;
 
@@ -901,7 +901,7 @@ namespace GameObjects
                                         (!((bool)Session.GlobalVariables.PersonNaturalDeath) || (p.Age >= 16 && (p.Age <= Session.Parameters.AINafeiMaxAgeThresholdAdd + (int)leader.Ambition * Session.Parameters.AINafeiMaxAgeThresholdMultiply || !hasSon))) &&
                                         p.marriageGranter != this.Leader && !p.Hates(this.Leader);
    
-            Person hater = WillHateLeaderDueToAffair(p, this.Leader, p.suoshurenwuList.GetList(), false);
+            Person hater = WillHateLeaderDueToAffair(this.Leader, p, false, forced);
 
             if (this.IsAlien && (hater == null || hater.PersonalLoyalty >= 2))
             {
@@ -921,9 +921,9 @@ namespace GameObjects
             return (take || alreadyTaken) && (hater == null || (leader.PersonalLoyalty <= (int)PersonLoyalty.普通 && hater.UnalteredUntiredMerit * (leader.PersonalLoyalty * Session.Parameters.AINafeiStealSpouseThresholdRateMultiply + Session.Parameters.AINafeiStealSpouseThresholdRateAdd) < this.Leader.UnalteredUntiredMerit));
         }
 
-        private Person WillHateLeaderDueToAffair(Person p, Person q, GameObjectList suoshu, bool simulateMarry)
+        private Person WillHateLeaderDueToAffair(Person p, Person q, bool pForced, bool qForced)
         {
-            Dictionary<Person, PersonList> haters = Person.willHateCausedByAffair(p, q, this.Leader, suoshu, simulateMarry);
+            Dictionary<Person, PersonList> haters = Person.willHateCausedByAffair(p, q, this.Leader, pForced, qForced);
             PersonList leaderHaters = new PersonList();
             foreach (KeyValuePair<Person, PersonList> i in haters)
             {
@@ -933,7 +933,6 @@ namespace GameObjects
                 }
             }
 
-            int unAmbition = Enum.GetNames(typeof(PersonAmbition)).Length - (int)this.Leader.Ambition;
             Person spousePerson = null;
             int maxMerit = 0;
             foreach (Person i in leaderHaters)
@@ -1053,14 +1052,9 @@ namespace GameObjects
                         leaderMarryable.ReSort();
                         foreach (Person p in leaderMarryable)
                         {
-                            if (p.WaitForFeiZi == null && Math.Abs(p.Age - q.Age) <= 15 && IsPersonForHouGong(p))
+                            if (p.WaitForFeiZi == null && Math.Abs(p.Age - q.Age) <= 15 && IsPersonForHouGong(p, p.IsCaptive))
                             {
-                                GameObjectList simulatSuoshu = p.suoshurenwuList.GetList();
-                                simulatSuoshu.Add(p);
-                                simulatSuoshu.AddRange(q.suoshurenwuList.GetList());
-                                simulatSuoshu.Add(q);
-
-                                Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, false);
+                                Person hater = WillHateLeaderDueToAffair(p, q, p.IsCaptive, false);
                                 if (hater != null && hater != p && hater != q) continue;
 
                                 AIActuallyMakeMarriage(p, q);
@@ -1096,15 +1090,10 @@ namespace GameObjects
                         {
                             if (this.hougongValid)
                             {
-                                if ((IsPersonForHouGong(p) || IsPersonForHouGong(q)) && !(this.Leader == p || this.Leader == q)) continue;
+                                if ((IsPersonForHouGong(p, p.IsCaptive) || IsPersonForHouGong(q, q.IsCaptive)) && !(this.Leader == p || this.Leader == q)) continue;
                             }
 
-                            GameObjectList simulatSuoshu = p.suoshurenwuList.GetList();
-                            simulatSuoshu.Add(p);
-                            simulatSuoshu.AddRange(q.suoshurenwuList.GetList());
-                            simulatSuoshu.Add(q);
-
-                            Person hater = WillHateLeaderDueToAffair(p, q, simulatSuoshu, false);
+                            Person hater = WillHateLeaderDueToAffair(p, q, p.IsCaptive, q.IsCaptive);
                             if (hater != null) continue;
 
                             AIActuallyMakeMarriage(p, q);
@@ -1396,7 +1385,7 @@ namespace GameObjects
                             foreach (Person p in a.nvxingwujiang())
                             {
                                 if (!this.Leader.isLegalFeiZiExcludeAge(p) || !p.isLegalFeiZiExcludeAge(this.Leader)) continue;
-                                if (IsPersonForHouGong(p) && p.WaitForFeiZi == null && p.BelongedArchitecture != null)
+                                if (IsPersonForHouGong(p, p.IsCaptive) && p.WaitForFeiZi == null && p.BelongedArchitecture != null)
                                 {
                                     candidate.Add(p);
                                 }

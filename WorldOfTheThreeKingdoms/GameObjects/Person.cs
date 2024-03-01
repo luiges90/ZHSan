@@ -2541,7 +2541,8 @@ namespace GameObjects
                 this.LocationArchitecture.DecreaseFund(Session.Parameters.MakeMarriageCost);
             }
 
-            if (p.Status == PersonStatus.Captive)
+            bool forced = p.IsCaptive;
+            if (forced)
             {
                 p.SetBelongedCaptive(null, PersonStatus.Normal);
                 p.ChangeFaction(this.BelongedFaction);
@@ -2565,7 +2566,7 @@ namespace GameObjects
                 }
             }
 
-            makeHateCausedByAffair(this, p, maker);
+            makeHateCausedByAffair(this, p, maker, false, forced);
             if (this.Spouse == null)
             {
                 this.Spouse = p;
@@ -10729,26 +10730,6 @@ namespace GameObjects
                 addHate = true;
             }
 
-            if (addHate)
-            {
-                nvren.AdjustRelation(leader, 0, Math.Max(0, -100 * (nvren.PersonalLoyalty - 1) * (nvren.PersonalLoyalty - 1)));
-                this.DecreaseKarma(1 + nvren.PersonalLoyalty + Math.Max(0, nvren.Karma / 5));
-
-                foreach (Person p in Session.Current.Scenario.Persons)
-                {
-                    if (p == nvren) continue;
-                    if (p == leader) continue;
-                    if (p.IsVeryCloseTo(nvren))
-                    {
-                        p.AdjustRelation(leader, 0, -50 * p.PersonalLoyalty * p.PersonalLoyalty);
-                    }
-                    if (p.HasCloseStrainTo(nvren))
-                    {
-                        p.AdjustRelation(leader, 0, -50 * p.PersonalLoyalty * p.PersonalLoyalty);
-                    }
-                }
-            }
-
             nvren.Status = PersonStatus.Princess;
             nvren.workKind = ArchitectureWorkKind.无;
             nvren.NvGuan = true;
@@ -10758,7 +10739,7 @@ namespace GameObjects
             nvren.LocationTroop = null;
             nvren.TargetArchitecture = null;
 
-            makeHateCausedByAffair(leader, nvren, leader);
+            makeHateCausedByAffair(leader, nvren, leader, false, addHate);
 
             if (nvren.Spouse != null)
             {
@@ -10890,7 +10871,7 @@ namespace GameObjects
                     p.AdjustRelation(nvren, -houGongDays / 30.0f * (4 - p.PersonalLoyalty) * factor * (Math.Min(10, 50 - p.Age) / 10.0f), -2);
                 }
 
-                makeHateCausedByAffair(this, nvren, this);
+                makeHateCausedByAffair(this, nvren, this, false, false);
 
                 if (GameObject.Chance(20) && nvren.GetRelation(this) >= Session.Parameters.VeryCloseThreshold && nvren.Spouse == null && 
                     this.isLegalFeiZi(nvren, true) && nvren.isLegalFeiZi(this, true) && !this.Hates(nvren))
@@ -10931,49 +10912,11 @@ namespace GameObjects
             }
         }
 
-        public static Dictionary<Person, PersonList> willHateCausedByAffair(Person p, Person q, Person causer, GameObjectList suoshurenwuList, bool simulateMarry)
+        public static Dictionary<Person, PersonList> willHateCausedByAffair(Person p, Person q, Person causer, bool pForced, bool qForced)
         {
             Dictionary<Person, PersonList> result = new Dictionary<Person, PersonList>();
-            foreach (Person i in suoshurenwuList)
-            {
-                PersonList t = new PersonList();
-                if (i.Status != PersonStatus.Princess)
-                {
-                    bool unwanted = false;
-                    if (i.Spouse == p) continue;
-                    if (i.Spouse == q) continue;
-                    if (i == p) continue;
-                    if (i == q) continue;
-                    if (i != null && i != p && p.Status != PersonStatus.Princess && !i.IsCloseTo(p) && p.Spouse != i && !t.HasGameObject(p) && !i.Hates(p) && (!simulateMarry || (i != p && i != q && i != causer)))
-                    {
-                        t.Add(p);
-                        unwanted = true;
-                    }
-                    if (i != null && i != q && q.Status != PersonStatus.Princess && !i.IsCloseTo(q) && q.Spouse != i && !t.HasGameObject(q) && !i.Hates(q) && (!simulateMarry || (i != p && i != q && i != causer)))
-                    {
-                        t.Add(q);
-                        unwanted = true;
-                    }
-                    if (unwanted)
-                    {
-                        if (i != null && i != causer && causer.Status != PersonStatus.Princess && !i.IsCloseTo(causer) && causer.Spouse != i && !t.HasGameObject(causer) && !i.Hates(causer) && (!simulateMarry || (i != p && i != q && i != causer)))
-                        {
-                            t.Add(causer);
-                        }
-                    }
-                }
-                if (result.ContainsKey(i))
-                {
-                    t.AddRange(result[i]);
-                    result[i] = t;
-                }
-                else
-                {
-                    result.Add(i, t);
-                }
-            }
 
-            if (p.Spouse != null && p.WillHateIfChongxing)
+            if (p.Spouse != null && p.Spouse != q && p.WillHateIfChongxing)
             {
                 PersonList t = new PersonList();
                 if (p != q && !p.Hates(q) && !p.IsVeryCloseTo(q) && !t.HasGameObject(q) && q.Status != PersonStatus.Princess)
@@ -11014,7 +10957,7 @@ namespace GameObjects
                     result.Add(p.Spouse, u);
                 }
             }
-            if (q.Spouse != null && q.WillHateIfChongxing)
+            if (q.Spouse != null && q.Spouse != p && q.WillHateIfChongxing)
             {
                 PersonList t = new PersonList();
                 if (q != p && !q.Hates(p) && !q.IsVeryCloseTo(p) && !t.HasGameObject(p) && p.Status != PersonStatus.Princess)
@@ -11057,14 +11000,51 @@ namespace GameObjects
                 }
             }
 
+            if (pForced)
+            {
+                p.AdjustRelation(causer, 0, Math.Max(0, -100 * (p.PersonalLoyalty - 1) * (p.PersonalLoyalty - 1)));
+                causer.DecreaseKarma(1 + p.PersonalLoyalty + Math.Max(0, p.Karma / 5));
+
+                foreach (Person t in Session.Current.Scenario.Persons)
+                {
+                    if (t == p) continue;
+                    if (t == causer) continue;
+                    if (t.IsVeryCloseTo(p))
+                    {
+                        t.AdjustRelation(causer, 0, -50 * p.PersonalLoyalty * p.PersonalLoyalty);
+                    }
+                    if (t.HasCloseStrainTo(p))
+                    {
+                        t.AdjustRelation(causer, 0, -50 * p.PersonalLoyalty * p.PersonalLoyalty);
+                    }
+                }
+            }
+            if (qForced)
+            {
+                q.AdjustRelation(causer, 0, Math.Max(0, -100 * (q.PersonalLoyalty - 1) * (q.PersonalLoyalty - 1)));
+                causer.DecreaseKarma(1 + q.PersonalLoyalty + Math.Max(0, q.Karma / 5));
+
+                foreach (Person t in Session.Current.Scenario.Persons)
+                {
+                    if (t == q) continue;
+                    if (t == causer) continue;
+                    if (t.IsVeryCloseTo(q))
+                    {
+                        t.AdjustRelation(causer, 0, -50 * q.PersonalLoyalty * q.PersonalLoyalty);
+                    }
+                    if (t.HasCloseStrainTo(q))
+                    {
+                        t.AdjustRelation(causer, 0, -50 * q.PersonalLoyalty * q.PersonalLoyalty);
+                    }
+                }
+            }
+
             return result;
         }
 
-        public void makeHateCausedByAffair(Person p, Person q, Person causer)
+        public void makeHateCausedByAffair(Person p, Person q, Person causer, bool pForced, bool qForced)
         {
-            GameObjectList list = p.suoshurenwuList.GetList();
-            list.AddRange(q.suoshurenwuList);
-            Dictionary<Person, PersonList> t = Person.willHateCausedByAffair(p, q, causer, list, false);
+            Dictionary<Person, PersonList> t = Person.willHateCausedByAffair(p, q, causer, pForced, qForced);
             foreach (KeyValuePair<Person, PersonList> i in t)
             {
                 foreach (Person j in i.Value)
