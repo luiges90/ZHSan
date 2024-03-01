@@ -10681,12 +10681,9 @@ namespace GameObjects
             {
                 if ((b.Age < 16 || this.Age < 16)) return false;
 
-                if ((b.Age > 50 + (b.Sex ? 0 : 10)) || (this.Age > 50 + (this.Sex ? 0 : 10))) return false;
+                if (b.Sex && b.Age >= 50) return false;
 
-                if (!princess)
-                {
-                    if ((Math.Abs(this.Age - b.Age) > 25)) return false;
-                }
+                if (this.Sex && this.Age >= 50) return false;
             }
 
             if (this.HasLooseStrainTo(b)) return false;

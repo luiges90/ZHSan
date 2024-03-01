@@ -1645,7 +1645,7 @@ namespace GameObjects
         {
             get
             {
-                int fundSupport = this.Fund / (Session.Parameters.InternalFundCost * 30);
+                int fundSupport = (this.Fund - this.ExpectedSalary) / (Session.Parameters.InternalFundCost * 30);
                 int develop = Math.Max((this.AgricultureCeiling - this.Agriculture) / 90,
                     Math.Max((this.CommerceCeiling - this.Commerce) / 90,
                     Math.Max((this.TechnologyCeiling - this.Technology) / 90,
@@ -6839,6 +6839,19 @@ namespace GameObjects
         public void DevelopFund()
         {
             this.IncreaseFund(this.ExpectedFund);
+        }
+
+        public int ExpectedSalary
+        {
+            get
+            {
+                var sum = 0;
+                foreach (Person p in Persons)
+                {
+                    sum += p.Salary;
+                }
+                return sum;
+            }
         }
 
         public void PaySalary()
@@ -12930,10 +12943,7 @@ namespace GameObjects
                 num += this.PersonCount * Session.Parameters.InternalFundCost * 30;
                 num += (this.BelongedFaction.BecomeEmperorLegallyAvail() || this.BelongedFaction.SelfBecomeEmperorAvail()) && this.BelongedFaction.Capital == this ? 100000 : 0;
                 num += this.BelongedFaction.Leader.WaitForFeiZi != null ? Session.Parameters.NafeiCost : 0;
-                foreach (Person person in Persons)
-                {
-                    num += person.Salary;
-                }
+                num += this.ExpectedSalary;
                 num += (int)(Math.Sqrt(this.Population) * 8.0);
                 if (this.withoutTruceFrontline)
                 {
@@ -13422,10 +13432,7 @@ namespace GameObjects
                 num += this.PlanFacilityKind == null ? 0 : this.PlanFacilityKind.FundCost;
                 num += this.BelongedFaction != null && this.BelongedFaction.PlanTechniqueArchitecture == this ? this.BelongedFaction.getTechniqueActualFundCost(this.BelongedFaction.PlanTechnique) : 0;
                 num += this.PersonCount * this.InternalFundCost * 30;
-                foreach (Person person in Persons)
-                {
-                    num += person.Salary;
-                }
+                num += this.ExpectedSalary;
                 return num;
             }
         }

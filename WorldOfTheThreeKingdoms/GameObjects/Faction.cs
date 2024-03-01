@@ -978,12 +978,12 @@ namespace GameObjects
                 q.WaitForFeiZi = p;
                 if (p.LocationArchitecture != q.LocationArchitecture)
                 {
-                    if (q.Status == PersonStatus.Normal && q.LocationArchitecture != null && q.LocationTroop == null &&
+                    if (q.Status == PersonStatus.Normal && !q.NvGuan && q.LocationArchitecture != null && q.LocationTroop == null &&
                         p.BelongedArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
                     {
                         q.MoveToArchitecture(p.BelongedArchitecture);
                     }
-                    else if (p.Status == PersonStatus.Normal && p.LocationArchitecture != null && p.LocationTroop == null &&
+                    else if (p.Status == PersonStatus.Normal && !p.NvGuan && p.LocationArchitecture != null && p.LocationTroop == null &&
                         q.BelongedArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
                     {
                         p.MoveToArchitecture(q.BelongedArchitecture);
@@ -1038,7 +1038,7 @@ namespace GameObjects
                 }
             }
 
-            if (GameObject.Random(10) == 0 && leader.Status == PersonStatus.Normal)
+            if (GameObject.Random(10) == 0 && leader.Status == PersonStatus.Normal && leader.LocationArchitecture != null)
             {
                 if (leader.WaitForFeiZi == null && leader.Age <= 30 + leader.Ambition * 10)
                 {
@@ -1436,7 +1436,14 @@ namespace GameObjects
                                 }
                                 else
                                 {
-                                    toTake.MoveToArchitecture(dest);
+                                    if (toTake.NvGuan)
+                                    {
+                                        toTake.NvGuanFollower(true, null).MoveToArchitecture(dest);
+                                    }
+                                    else
+                                    {
+                                        toTake.MoveToArchitecture(dest);
+                                    }
                                     toTake.WaitForFeiZi = this.Leader;
                                     this.Leader.WaitForFeiZi = toTake;
                                 }
@@ -1452,7 +1459,14 @@ namespace GameObjects
                                 else
                                 {
                                     this.Leader.MoveToArchitecture(dest);
-                                    toTake.MoveToArchitecture(dest);
+                                    if (toTake.NvGuan)
+                                    {
+                                        toTake.NvGuanFollower(true, null).MoveToArchitecture(dest);
+                                    }
+                                    else
+                                    {
+                                        toTake.MoveToArchitecture(dest);
+                                    }
                                     toTake.WaitForFeiZi = this.Leader;
                                     this.Leader.WaitForFeiZi = toTake;
                                 }
@@ -1797,7 +1811,7 @@ namespace GameObjects
 
                     if (a.HasHostileTroopsInView() || a.RecentlyAttacked > 0)
                     {
-                        minPerson.Add(a, a.EnoughPeople + a.JianzhuGuimo * 3);
+                        minPerson.Add(a, a.EnoughPeople + a.JianzhuGuimo);
                         minTroop.Add(a, a.TroopReserveScale); // defensiveCampaign will deal with this
                         urgent = true;
                     }
