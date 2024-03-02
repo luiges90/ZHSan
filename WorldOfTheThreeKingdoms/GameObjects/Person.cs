@@ -1805,8 +1805,6 @@ namespace GameObjects
                     }
                 }
 
-                Session.Current.Scenario.ClearPersonStatusCache();
-
                 this.IsGeneratedChildren = false;
                 ExtensionInterface.call("PersonBecomeAvailable", new Object[] { Session.Current.Scenario, this });
                 Session.Current.Scenario.PreparedAvailablePersons.Add(this);
@@ -3512,11 +3510,11 @@ namespace GameObjects
             }
             else if (from == null)
             {
-                person.MoveToArchitecture(this.TargetArchitecture, null);
+                person.MoveToArchitecture(this.TargetArchitecture, null, false, true, null);
             }
             else
             {
-                person.MoveToArchitecture(this.TargetArchitecture, from.ArchitectureArea.Area[0]);
+                person.MoveToArchitecture(this.TargetArchitecture, from.ArchitectureArea.Area[0], false, true, null);
                 
             }
             person.Status = PersonStatus.Moving;
@@ -6155,8 +6153,11 @@ namespace GameObjects
                         this.Status = PersonStatus.NoFactionMoving;
                     }
                 }
+                else
+                {
+                    Session.Current.Scenario.ClearPersonStatusCache();
+                }
 
-                Session.Current.Scenario.ClearPersonStatusCache();
                 this.LocationArchitecture = this.TargetArchitecture;
             }
 
@@ -6529,7 +6530,6 @@ namespace GameObjects
                 if ((this.ArrivingDays <= 0) && (this.TargetArchitecture != null) && this.Status != PersonStatus.Princess)
                 {
                     this.ReturnedDaySince = 0;
-                    Session.Current.Scenario.ClearPersonStatusCache();
                     if (this.BelongedFaction != null)
                     {
                         if (this.TargetArchitecture.BelongedFaction == this.BelongedFaction)
