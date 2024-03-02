@@ -191,10 +191,6 @@ namespace GameGlobal
         [DataMember]
         public float AINafeiSkipChanceMultiply = 15;
         [DataMember]
-        public float AIChongxingChanceAdd = 10;
-        [DataMember]
-        public float AIChongxingChanceMultiply = 20;
-        [DataMember]
         public float AIRecruitPopulationCapMultiply = 90;
         [DataMember]
         public float AIRecruitPopulationCapBackendMultiply = 0.5f;
@@ -212,10 +208,6 @@ namespace GameGlobal
         public int AIExecuteMaxUncreulty = 4;
         [DataMember]
         public float AIExecutePersonIdealToleranceMultiply = 15;
-        [DataMember]
-        public float AIHougongArchitectureCountProbMultiply = 10;
-        [DataMember]
-        public float AIHougongArchitectureCountProbPower = 0.5f;
         [DataMember]
         public int FireStayProb = 20;
         [DataMember]
@@ -447,8 +439,6 @@ namespace GameGlobal
                 AINafeiMaxAgeThresholdMultiply = float.Parse(nextSibling.Attributes.GetNamedItem("AINafeiMaxAgeThresholdMultiply").Value);
                 AINafeiSkipChanceAdd = float.Parse(nextSibling.Attributes.GetNamedItem("AINafeiSkipChanceAdd").Value);
                 AINafeiSkipChanceMultiply = float.Parse(nextSibling.Attributes.GetNamedItem("AINafeiSkipChanceMultiply").Value);
-                AIChongxingChanceAdd = float.Parse(nextSibling.Attributes.GetNamedItem("AIChongxingChanceAdd").Value);
-                AIChongxingChanceMultiply = float.Parse(nextSibling.Attributes.GetNamedItem("AIChongxingChanceMultiply").Value);
                 AIRecruitPopulationCapMultiply = float.Parse(nextSibling.Attributes.GetNamedItem("AIRecruitPopulationCapMultiply").Value);
                 AIRecruitPopulationCapBackendMultiply = float.Parse(nextSibling.Attributes.GetNamedItem("AIRecruitPopulationCapBackendMultiply").Value);
                 AIRecruitPopulationCapHostilelineMultiply = float.Parse(nextSibling.Attributes.GetNamedItem("AIRecruitPopulationCapHostilelineMultiply").Value);
@@ -459,8 +449,6 @@ namespace GameGlobal
                 AIExecuteMaxUncreulty = int.Parse(nextSibling.Attributes.GetNamedItem("AIExecuteMaxUncreulty").Value);
                 AIExecutePersonIdealToleranceMultiply = float.Parse(nextSibling.Attributes.GetNamedItem("AIExecutePersonIdealToleranceMultiply").Value);
 
-                AIHougongArchitectureCountProbMultiply = float.Parse(nextSibling.Attributes.GetNamedItem("AIHougongArchitectureCountProbMultiply").Value);
-                AIHougongArchitectureCountProbPower = float.Parse(nextSibling.Attributes.GetNamedItem("AIHougongArchitectureCountProbPower").Value);
 
                 FireStayProb = int.Parse(nextSibling.Attributes.GetNamedItem("FireStayProb").Value);
                 FireSpreadProbMultiply = float.Parse(nextSibling.Attributes.GetNamedItem("FireSpreadProbMultiply").Value);
@@ -716,8 +704,6 @@ namespace GameGlobal
             element.SetAttribute("AIBuildHougongMaxSizeAdd", AIBuildHougongMaxSizeAdd.ToString());
             element.SetAttribute("AIBuildHougongSkipSizeChance", AIBuildHougongSkipSizeChance.ToString());
             element.SetAttribute("AINafeiUncreultyProbAdd", AINafeiUncreultyProbAdd.ToString());
-            element.SetAttribute("AIHougongArchitectureCountProbMultiply", AIHougongArchitectureCountProbMultiply.ToString());
-            element.SetAttribute("AIHougongArchitectureCountProbPower", AIHougongArchitectureCountProbPower.ToString());
             element.SetAttribute("AINafeiAbilityThresholdRate", AINafeiAbilityThresholdRate.ToString());
             element.SetAttribute("AINafeiStealSpouseThresholdRateAdd", AINafeiStealSpouseThresholdRateAdd.ToString());
             element.SetAttribute("AINafeiStealSpouseThresholdRateMultiply", AINafeiStealSpouseThresholdRateMultiply.ToString());
@@ -725,8 +711,6 @@ namespace GameGlobal
             element.SetAttribute("AINafeiMaxAgeThresholdMultiply", AINafeiMaxAgeThresholdMultiply.ToString());
             element.SetAttribute("AINafeiSkipChanceAdd", AINafeiSkipChanceAdd.ToString());
             element.SetAttribute("AINafeiSkipChanceMultiply", AINafeiSkipChanceMultiply.ToString());
-            element.SetAttribute("AIChongxingChanceAdd", AIChongxingChanceAdd.ToString());
-            element.SetAttribute("AIChongxingChanceMultiply", AIChongxingChanceMultiply.ToString());
             element.SetAttribute("AIRecruitPopulationCapMultiply", AIRecruitPopulationCapMultiply.ToString());
             element.SetAttribute("AIRecruitPopulationCapBackendMultiply", AIRecruitPopulationCapBackendMultiply.ToString());
             element.SetAttribute("AIRecruitPopulationCapHostilelineMultiply", AIRecruitPopulationCapHostilelineMultiply.ToString());

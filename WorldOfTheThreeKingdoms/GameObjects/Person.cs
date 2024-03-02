@@ -1805,6 +1805,8 @@ namespace GameObjects
                     }
                 }
 
+                Session.Current.Scenario.ClearPersonStatusCache();
+
                 this.IsGeneratedChildren = false;
                 ExtensionInterface.call("PersonBecomeAvailable", new Object[] { Session.Current.Scenario, this });
                 Session.Current.Scenario.PreparedAvailablePersons.Add(this);
@@ -1985,17 +1987,17 @@ namespace GameObjects
                // throw new Exception("try to kill person onway");
             }
 
-            if (this.Spouse != null && this.Spouse.Spouse != null)
+            foreach (Person p in Session.Current.Scenario.Persons)
             {
-                if (!this.Spouse.Spouse.Sex || this.Spouse.Spouse.PersonalLoyalty < Session.Current.Scenario.GlobalVariables.KeepSpousePersonalLoyalty)
+                if (p.Spouse == this)
                 {
-                    if (this.Spouse.Spouse == this)
+                    if (!p.Sex || p.PersonalLoyalty < Session.Current.Scenario.GlobalVariables.KeepSpousePersonalLoyalty)
                     {
-                        this.Spouse.Spouse = null;
+                        p.Spouse = null;
                     }
-                    this.Spouse = null;
                 }
             }
+            this.Spouse = null;
 
             this.Alive = false;  //死亡
             this.SetBelongedCaptive(null, PersonStatus.None);
@@ -3047,6 +3049,22 @@ namespace GameObjects
             set
             {
                 this.numberOfChildren = value;
+            }
+        }
+
+        public int NumberOfMaleChildren
+        {
+            get
+            {
+                int cnt = 0;
+                foreach (Person p in this.ChildrenList)
+                { 
+                    if (!p.Sex)
+                    {
+                        cnt++;
+                    }
+                }
+                return cnt;
             }
         }
 
@@ -6137,11 +6155,8 @@ namespace GameObjects
                         this.Status = PersonStatus.NoFactionMoving;
                     }
                 }
-                else
-                {
-                    Session.Current.Scenario.ClearPersonStatusCache();
-                }
 
+                Session.Current.Scenario.ClearPersonStatusCache();
                 this.LocationArchitecture = this.TargetArchitecture;
             }
 
@@ -6514,6 +6529,7 @@ namespace GameObjects
                 if ((this.ArrivingDays <= 0) && (this.TargetArchitecture != null) && this.Status != PersonStatus.Princess)
                 {
                     this.ReturnedDaySince = 0;
+                    Session.Current.Scenario.ClearPersonStatusCache();
                     if (this.BelongedFaction != null)
                     {
                         if (this.TargetArchitecture.BelongedFaction == this.BelongedFaction)

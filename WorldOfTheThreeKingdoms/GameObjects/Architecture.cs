@@ -684,7 +684,7 @@ namespace GameObjects
         {
             get
             {
-                PersonList p = Session.Current.Scenario.GetPersonList(this);
+                 PersonList p = Session.Current.Scenario.GetPersonList(this);
                 p.SetImmutable();
                 return p;
             }

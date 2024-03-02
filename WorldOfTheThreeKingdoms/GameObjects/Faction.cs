@@ -979,12 +979,12 @@ namespace GameObjects
                 if (p.LocationArchitecture != q.LocationArchitecture)
                 {
                     if (q.Status == PersonStatus.Normal && !q.NvGuan && q.LocationArchitecture != null && q.LocationTroop == null &&
-                        p.BelongedArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
+                        p.BelongedArchitecture != null && p.BelongedArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
                     {
                         q.MoveToArchitecture(p.BelongedArchitecture);
                     }
                     else if (p.Status == PersonStatus.Normal && !p.NvGuan && p.LocationArchitecture != null && p.LocationTroop == null &&
-                        q.BelongedArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
+                        q.BelongedArchitecture != null && q.BelongedArchitecture.Fund >= Session.Parameters.MakeMarriageCost)
                     {
                         p.MoveToArchitecture(q.BelongedArchitecture);
                     }
@@ -1477,58 +1477,81 @@ namespace GameObjects
             }
 
             //chongxing
-            if (this.Leader.LocationArchitecture != null && !this.Leader.LocationArchitecture.HasHostileTroopsInView())
+            if (this.Leader.LocationArchitecture != null && this.Leader.LocationArchitecture.Endurance > 50 && !this.Leader.LocationArchitecture.HasHostileTroopsInView())
             {
                 if (this.Leader.Status == PersonStatus.Normal && this.Leader.LocationArchitecture != null && this.Leader.LocationTroop == null &&
                     !this.Leader.huaiyun && this.Leader.WaitForFeiZi == null)
                 {
-                    if ((
-                    GameObject.Chance((int)((int)this.Leader.Ambition * Session.Parameters.AIChongxingChanceMultiply + Session.Parameters.AIChongxingChanceAdd))
-                    ||
-                    GameObject.Chance((int)Math.Round(Session.Parameters.AIHougongArchitectureCountProbMultiply * Math.Pow(this.ArchitectureCount, Session.Parameters.AIHougongArchitectureCountProbPower)))
-                    ))
+                    if (hougongValid)
                     {
-                        Person target = null;
-                        Architecture location = null;
-                        float max = 0;
-                        foreach (Architecture a in this.Architectures)
+                        if (GameObject.Chance(5 + this.Leader.Ambition * this.Leader.Ambition * 5))
                         {
-                            foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
+                            Person target = null;
+                            Architecture location = null;
+                            float max = 0;
+                            foreach (Architecture a in this.Architectures)
+                            {
+                                foreach (Person p in a.meifaxianhuaiyundefeiziliebiao())
+                                {
+                                    if (p.huaiyun) continue;
+                                    if (IsPersonForHouGong(p, false))
+                                    {
+                                        float v = p.UntiredMerit * p.PregnancyRate(this.Leader);
+                                        if (p.Hates(this.Leader))
+                                        {
+                                            v /= 10;
+                                        }
+                                        if (p.GetRelation(this.Leader) < 0)
+                                        {
+                                            v *= Math.Abs(p.GetRelation(this.Leader)) / 50f;
+                                        }
+                                        v /= (p.NumberOfChildren / 10f + 1);
+                                        if (v > max)
+                                        {
+                                            target = p;
+                                            location = a;
+                                            max = v;
+                                        }
+                                    }
+                                }
+                            }
+                            if (target != null)
+                            {
+                                if (location == this.Leader.LocationArchitecture)
+                                {
+                                    this.Leader.GoForHouGong(target);
+                                }
+                                else
+                                {
+                                    this.Leader.MoveToArchitecture(location);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (GameObject.Random((20 + this.Leader.NumberOfMaleChildren * 20) / (this.Leader.Ambition * this.Leader.Ambition + 1)) == 0)
+                        {
+                            Person target = null;
+                            float max = 0;
+                            foreach (Person p in this.Leader.LocationArchitecture.meifaxianhuaiyundefeiziliebiao())
                             {
                                 if (p.huaiyun) continue;
-                                if (IsPersonForHouGong(p, true))
+                                if (IsPersonForHouGong(p, false))
                                 {
                                     float v = p.UntiredMerit * p.PregnancyRate(this.Leader);
-                                    if (p.Hates(this.Leader))
-                                    {
-                                        v /= 10;
-                                    }
-                                    if (p.Spouse != null)
-                                    {
-                                        v /= 2;
-                                    }
-                                    if (p.GetRelation(this.Leader) < 0)
-                                    {
-                                        v *= Math.Abs(p.GetRelation(this.Leader)) / 50;
-                                    }
+                                    v *= Math.Abs(p.GetRelation(this.Leader)) / 200f;
+                                    v /= (p.NumberOfChildren / 4f + 1);
                                     if (v > max)
                                     {
                                         target = p;
-                                        location = a;
                                         max = v;
                                     }
                                 }
                             }
-                        }
-                        if (target != null)
-                        {
-                            if (location == this.Leader.LocationArchitecture)
+                            if (target != null)
                             {
                                 this.Leader.GoForHouGong(target);
-                            }
-                            else
-                            {
-                                this.Leader.MoveToArchitecture(location);
                             }
                         }
                     }
