@@ -4503,6 +4503,7 @@ namespace GameObjects
                 {
                     p.RecallFollowingNvGuans();
                 }
+                Session.Current.Scenario.ClearPersonStatusCache();
                 ExtensionInterface.call("EnterArchitecture", new Object[] { Session.Current.Scenario, this, a });
             }
         }

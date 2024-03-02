@@ -3207,10 +3207,10 @@ namespace GameObjects
                         else
                         {
                             this.ConvincingPerson.AdjustRelation(this, -diff / 3.0f, -10);
-                            if (architectureByPosition.BelongedFaction != null)
+                            if (this.ConvincingPerson.BelongedFaction != null)
                             {
-                                architectureByPosition.BelongedFaction.Leader.AdjustRelation(this, -15f, -5);
-                                architectureByPosition.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -6f, -2);
+                                this.ConvincingPerson.BelongedFaction.Leader.AdjustRelation(this, -15f, -5);
+                                this.ConvincingPerson.BelongedFaction.Leader.AdjustRelation(this.BelongedFaction.Leader, -6f, -2);
                             }
 
                             this.AddStrengthExperience(10);
@@ -11340,7 +11340,7 @@ namespace GameObjects
         public void AddHated(Person p, int relation)
         {
             if (p != null && p != this && !this.Hates(p))
-            {
+            { 
                 this.hatedPersons.Add(p);
                 this.EnsureRelationAtMost(p, relation);
                 this.EnsureRelationAtMost(p, Session.Parameters.HateThreshold);
