@@ -1057,7 +1057,7 @@ namespace GameObjects
                                 Person hater = WillHateLeaderDueToAffair(p, q, p.IsCaptive, false);
                                 if (hater != null && hater != p && hater != q) continue;
 
-                                AIActuallyMakeMarriage(p, q);
+                                AIActuallyMakeMarriage(q, p);
                                 break;
                             }
                         }
@@ -1096,7 +1096,7 @@ namespace GameObjects
                             Person hater = WillHateLeaderDueToAffair(p, q, p.IsCaptive, q.IsCaptive);
                             if (hater != null) continue;
 
-                            AIActuallyMakeMarriage(p, q);
+                            AIActuallyMakeMarriage(q, p);
                             break;
                         }
                     }
