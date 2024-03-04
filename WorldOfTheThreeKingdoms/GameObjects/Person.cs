@@ -2878,7 +2878,11 @@ namespace GameObjects
                     float relationFactor = this.PregnancyRate(this.Spouse);
                     if (this.Status == PersonStatus.Princess || this.Spouse.Status == PersonStatus.Princess)
                     {
-                        relationFactor *= 4;
+                        relationFactor *= 3;
+                    }
+                    else if (!this.NvGuan && !this.Spouse.NvGuan)
+                    {
+                        relationFactor /= 3f;
                     }
 
                     if (relationFactor > 0 && GameObject.Random((int)
