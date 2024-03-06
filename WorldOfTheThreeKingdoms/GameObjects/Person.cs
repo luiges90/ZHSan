@@ -1441,7 +1441,7 @@ namespace GameObjects
         {
             get
             {
-                return NvGuan && suoshurenwuList.Count == 0 && (Age < 16 || DaySinceAvailable < 30);
+                return NvGuan && (suoshurenwuList.Count == 0 || (suoshurenwuList.Count == 1 && suoshurenwuList[0] == Spouse)) && (Age < 16 || DaySinceAvailable < 30);
             }
         }
 

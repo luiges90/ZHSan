@@ -4178,6 +4178,10 @@ namespace GameObjects
                             {
                                 factor = 3.0f;
                             }
+                            else if (p.SameLocationAs(q) && p.Hates(q) && p.Spouse == q && GameObject.Chance(50))
+                            {
+                                factor = 3.0f;
+                            }
                             else if (sameWork)
                             {
                                 factor = 1.0f;
