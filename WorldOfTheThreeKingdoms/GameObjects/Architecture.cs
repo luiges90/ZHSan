@@ -2137,7 +2137,7 @@ namespace GameObjects
                 recruitmentPersonList.ReSort();
 
                 int recruitCount = Math.Min(recruitmentMilitaryList.Count, recruitmentPersonList.Count);
-                if (this.MilitaryPopulation < 10)
+                if (this.MilitaryPopulation < 10 && recruitCount > 0)
                 {
                     recruitCount = 1;
                 }
