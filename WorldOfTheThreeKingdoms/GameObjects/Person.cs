@@ -11737,6 +11737,8 @@ namespace GameObjects
         {
             get
             {
+                return 0;
+                /*
                 int salary = Session.Parameters.OfficerBaseSalary;
                 foreach (Title title in Titles)
                 {
@@ -11746,6 +11748,7 @@ namespace GameObjects
                     }
                 }
                 return salary;
+                */
             }
             
         }
