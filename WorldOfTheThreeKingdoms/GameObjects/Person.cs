@@ -5999,11 +5999,11 @@ namespace GameObjects
 
         public Person NvGuanFollower(bool includeFallback, Faction oldFaction)
         {
-            if (this.Spouse != null && (this.Spouse.BelongedFaction == this.BelongedFaction || oldFaction == this.BelongedFaction) && (this.Spouse.Status == PersonStatus.Normal || this.Spouse.Status == PersonStatus.Moving))
+            if (this.Spouse != null && !this.Spouse.NvGuan && (this.Spouse.BelongedFaction == this.BelongedFaction || oldFaction == this.BelongedFaction) && (this.Spouse.Status == PersonStatus.Normal || this.Spouse.Status == PersonStatus.Moving))
             {
                 return this.Spouse;
             }
-            else if (this.Father != null && (this.Father.BelongedFaction == this.BelongedFaction || oldFaction == this.BelongedFaction) && (this.Father.Status == PersonStatus.Normal || this.Father.Status == PersonStatus.Moving))
+            else if (this.Father != null && !this.Father.NvGuan && (this.Father.BelongedFaction == this.BelongedFaction || oldFaction == this.BelongedFaction) && (this.Father.Status == PersonStatus.Normal || this.Father.Status == PersonStatus.Moving))
             {
                 return this.Father;
             } 
@@ -6014,6 +6014,7 @@ namespace GameObjects
                 {
                     foreach (Person person in this.BelongedFaction.Persons)
                     {
+                        if (this == person) continue;
                         if (this.HasStrainTo(person))
                         {
                             strain.Add(person);
@@ -6025,7 +6026,7 @@ namespace GameObjects
                     strain.ReSort();
                     foreach (Person p in strain)
                     {
-                        if (p.BelongedFaction == this.BelongedFaction && (p.Status == PersonStatus.Normal || p.Status == PersonStatus.Moving))
+                        if (p.BelongedFaction == this.BelongedFaction && !p.NvGuan && (p.Status == PersonStatus.Normal || p.Status == PersonStatus.Moving))
                         {
                             return p;
                         }
@@ -6033,7 +6034,7 @@ namespace GameObjects
                 }
             }
 
-            if (includeFallback)
+            if (includeFallback && this.BelongedFaction?.Leader.NvGuan != true)
             {
                 return this.BelongedFaction?.Leader;
             }

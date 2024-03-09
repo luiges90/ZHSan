@@ -2141,7 +2141,7 @@ namespace GameObjects
                 {
                     recruitCount = 1;
                 }
-
+                 
                 for (int i = 0; i < recruitCount; ++i)
                 {
                     (recruitmentPersonList[i] as Person).RecruitMilitary(recruitmentMilitaryList[i] as Military);
@@ -12152,7 +12152,7 @@ namespace GameObjects
                             }
                         }
                     }
-                    //this.Persons.Clear();
+                    
                     while (this.MovingPersons.Count > 0)
                     {
                         Person person2 = this.MovingPersons[0] as Person;
@@ -12209,11 +12209,11 @@ namespace GameObjects
                 }
                 else
                 {
-                    while (this.PersonsExcludeNvGuan.Count > 0)
+                    while (this.Persons.Count > 0)
                     {
-                        if ((this.PersonsExcludeNvGuan[0] as Person).LocationArchitecture != null)
+                        if ((this.Persons[0] as Person).LocationArchitecture != null)
                         {
-                            (this.PersonsExcludeNvGuan[0] as Person).MoveToArchitecture(this.BelongedFaction.Capital, this.Position, false, true, null);
+                            (this.Persons[0] as Person).MoveToArchitecture(this.BelongedFaction.Capital, this.Position, false, true, null);
                         }
                     }
                     while (this.MovingPersons.Count > 0)
