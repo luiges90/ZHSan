@@ -783,12 +783,12 @@
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
-        <Leaf Text="　　对敌方某一个武将进行暗杀，使对方负伤以至死亡。" Color="4294375158" />
+        <Leaf Text="　　对敌方某一个武将进行暗杀，使对方负伤、捕捉或死亡。" Color="4294375158" />
 		<Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
 		<Leaf Text="　　只能对情报范围内其它势力的城池使用本功能。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_ChangeCapital">
+    <Branch Name="Faction_ChangeCapital">
         <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
         <Leaf Text="迁都" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
@@ -817,7 +817,7 @@
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　所有未成年的子女均有其培育方针，对其能力、特技、称号对进行培育。指定方针后，该方针会使子女成长偏向其种类。然而，所有子女也有不同的能力潜质，当实质能力接近或达到潜质时，能力提升会变得更困难。能力潜质由父母的能力决定。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_Diplomatic_AllyDiplomaticRelation">
+    <Branch Name="Faction_Diplomatic_AllyDiplomaticRelation">
         <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
         <Leaf Text="结盟" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
@@ -828,7 +828,7 @@
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_Diplomatic_QuanXiangDiplomaticRelation">
+    <Branch Name="Faction_Diplomatic_QuanXiangDiplomaticRelation">
         <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
         <Leaf Text="劝降" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
@@ -840,7 +840,7 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　只能在双方的关系值小于300并且有外交人员的情况下执行。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_Diplomatic_ResetDiplomaticRelation">
+    <Branch Name="Faction_Diplomatic_ResetDiplomaticRelation">
         <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
         <Leaf Text="解盟" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
@@ -851,7 +851,7 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　只能在己方势力没有任何部队在野的情况下执行。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_Diplomatic_EnhanceDiplomaticRelation">
+    <Branch Name="Faction_Diplomatic_EnhanceDiplomaticRelation">
         <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
         <Leaf Text="亲善" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
@@ -862,7 +862,7 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　只能在城池有足够的资金并且有外交人员的情况下执行。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_Diplomatic_DenounceDiplomaticRelation">
+    <Branch Name="Faction_Diplomatic_DenounceDiplomaticRelation">
         <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
         <Leaf Text="声讨" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
@@ -873,7 +873,7 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　只能在城池有足够的资金情况下执行。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_Diplomatic_TruceDiplomaticRelation">
+    <Branch Name="Faction_Diplomatic_TruceDiplomaticRelation">
         <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
         <Leaf Text="停战" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
@@ -884,8 +884,8 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　只能在城池有足够的资金并且有外交人员的情况下执行。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_Techniques">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+    <Branch Name="Faction_ManageTechniques">
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="技巧" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -898,8 +898,8 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　高级的技巧要在低级技巧研发完成后才会出现。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_KillRelease_ReleaseCaptive">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+    <Branch Name="Faction_KillRelease_ReleaseCaptive">
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="释放俘虏" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -911,24 +911,24 @@ Color="4294375158" />
         <Leaf Text="外交关系" Color="4293651200" />
         <Leaf Text="，提高的量与俘虏的能力和其所在势力规模相关，势力规模越小的提高得越多。当然，也可以不释放而收取丰厚的赎金。赎金与被俘人物能力有关。另外，势力规模越大，则被要求的赎金量也越大。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_KillRelease_ReleaseSelfPerson">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+    <Branch Name="Faction_KillRelease_ReleaseSelfPerson">
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="流放下属" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　流放麾下武将，令该武将离开自己的势力变成在野武将。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_KillRelease_KillPerson">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+    <Branch Name="Faction_KillRelease_KillPerson">
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="处斩下属" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　把麾下武将处死。被处死的武将的亲人，可能会因此厌恶势力君主。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_KillRelease_KillCaptive">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+    <Branch Name="Faction_KillRelease_KillCaptive">
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="处斩俘虏" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -968,8 +968,8 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　如果被授予宝物的将领忠诚度不大于100，则其忠诚度会上升宝物价值的量。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_officePosition_jingongzijin">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+    <Branch Name="Faction_officePosition_jingongzijin">
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="进贡资金" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -988,8 +988,8 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　如果汉朝皇帝已禅位，则不需要再每年进贡，只需要足够的城池数目即可获得更高的官爵。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_officePosition_jingongliangcao">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+    <Branch Name="Faction_officePosition_jingongliangcao">
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="进贡粮草" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -1008,8 +1008,8 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　如果汉朝皇帝已禅位，则不需要再每年进贡，只需要足够的城池数目即可获得更高的官爵。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_officePosition_SelfBecomeEmperor">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+    <Branch Name="Faction_officePosition_SelfBecomeEmperor">
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="称帝" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -1019,8 +1019,8 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　异族称帝不会给自己带来负面影响。异族占领汉朝皇帝所在城池，或已称帝的势力占领汉朝皇帝所在城池，也会导致汉朝灭亡，汉朝皇帝退位。" Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_officePosition_BecomeEmperorLegally">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+    <Branch Name="Faction_officePosition_BecomeEmperorLegally">
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="禅位" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -1041,8 +1041,8 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　赐婚需要资金80000，而且双方需要在这个城池。" Color="4294375158" />
 	</Branch>
-	<Branch Name="Monarch_SelectPrince">
-    <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+	<Branch Name="Faction_SelectPrince">
+    <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="立储" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -1055,8 +1055,8 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　一个势力只有一个储君。" Color="4294375158" />
 	</Branch>
-        <Branch Name="Monarch_ZhaoXianBang_AutoCreatePerson">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+        <Branch Name="Faction_ZhaoXianBang_AutoCreatePerson">
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="招贤" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -1076,8 +1076,8 @@ Color="4294375158" />
         <Leaf Text="　　招贤仅在每年3月和9月举行，且每季最多有五次机会招贤。每年最多招10个野武将。"
 Color="4294375158" />
     </Branch>
-    <Branch Name="Monarch_ZhaoXianBang_DismissOfficer">
-    <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+    <Branch Name="Faction_ZhaoXianBang_DismissOfficer">
+    <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="遣散" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -1085,6 +1085,9 @@ Color="4294375158" />
         <Leaf Text="　　遣散当前城池在野野武将。遣散后，野武将将会从游戏消失，同时存档也会移除该野武将。"
 Color="4294375158" /> 
     </Branch>
+	<Branch Name="Faction_PromoteNvGuan">
+		
+	</Branch>
     <Branch Name="Monarch_hougongTop_nafei">
         <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
         <Leaf Text="纳妃" Color="4293651200" />
