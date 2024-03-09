@@ -1441,7 +1441,8 @@ namespace GameObjects
         {
             get
             {
-                return NvGuan && (suoshurenwuList.Count == 0 || (suoshurenwuList.Count == 1 && suoshurenwuList[0] == Spouse)) && (Age < 16 || DaySinceAvailable < 30);
+                return NvGuan && (suoshurenwuList.Count == 0 || (suoshurenwuList.Count == 1 && suoshurenwuList[0] == Spouse)) && 
+                    ((Session.Current.Scenario.GlobalVariables.PersonNaturalDeath == true && Age < 16) || (Session.Current.Scenario.GlobalVariables.PersonNaturalDeath != true && DaySinceAvailable < 360));
             }
         }
 
@@ -2548,7 +2549,10 @@ namespace GameObjects
             {
                 p.SetBelongedCaptive(null, PersonStatus.Normal);
                 p.ChangeFaction(this.BelongedFaction);
-                p.NvGuan = true;
+                if (p.Sex)
+                {
+                    p.NvGuan = true;
+                }
 
                 p.AdjustRelation(maker, 0, Math.Max(0, -100 * (p.PersonalLoyalty - 1) * (p.PersonalLoyalty - 1)));
                 maker.DecreaseKarma(1 + p.PersonalLoyalty + Math.Max(0, p.Karma / 5));
@@ -10747,7 +10751,10 @@ namespace GameObjects
 
             nvren.Status = PersonStatus.Princess;
             nvren.workKind = ArchitectureWorkKind.无;
-            nvren.NvGuan = true;
+            if (nvren.Sex)
+            {
+                nvren.NvGuan = true;
+            }
 
             nvren.PrincessTaker = this.BelongedFactionWithPrincess.Leader;
 

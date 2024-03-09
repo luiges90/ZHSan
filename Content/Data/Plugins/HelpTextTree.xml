@@ -789,7 +789,7 @@
 		<Leaf Text="　　只能对情报范围内其它势力的城池使用本功能。" Color="4294375158" />
     </Branch>
     <Branch Name="Faction_ChangeCapital">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="迁都" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -818,7 +818,7 @@
         <Leaf Text="　　所有未成年的子女均有其培育方针，对其能力、特技、称号对进行培育。指定方针后，该方针会使子女成长偏向其种类。然而，所有子女也有不同的能力潜质，当实质能力接近或达到潜质时，能力提升会变得更困难。能力潜质由父母的能力决定。" Color="4294375158" />
     </Branch>
     <Branch Name="Faction_Diplomatic_AllyDiplomaticRelation">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="结盟" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -829,7 +829,7 @@
         <Leaf Text="" Color="4294375158" />
     </Branch>
     <Branch Name="Faction_Diplomatic_QuanXiangDiplomaticRelation">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="劝降" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -841,7 +841,7 @@ Color="4294375158" />
         <Leaf Text="　　只能在双方的关系值小于300并且有外交人员的情况下执行。" Color="4294375158" />
     </Branch>
     <Branch Name="Faction_Diplomatic_ResetDiplomaticRelation">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="解盟" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -852,7 +852,7 @@ Color="4294375158" />
         <Leaf Text="　　只能在己方势力没有任何部队在野的情况下执行。" Color="4294375158" />
     </Branch>
     <Branch Name="Faction_Diplomatic_EnhanceDiplomaticRelation">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="亲善" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -863,7 +863,7 @@ Color="4294375158" />
         <Leaf Text="　　只能在城池有足够的资金并且有外交人员的情况下执行。" Color="4294375158" />
     </Branch>
     <Branch Name="Faction_Diplomatic_DenounceDiplomaticRelation">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="声讨" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -874,7 +874,7 @@ Color="4294375158" />
         <Leaf Text="　　只能在城池有足够的资金情况下执行。" Color="4294375158" />
     </Branch>
     <Branch Name="Faction_Diplomatic_TruceDiplomaticRelation">
-        <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
+        <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
         <Leaf Text="停战" Color="4293651200" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
@@ -1036,10 +1036,10 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
-		<Leaf Text="　　赐婚的双方必须性别不相同，没有血缘关系，不厌恶对方，而且志向差在5以内。如年龄有效，则双方的年纪需在十六至五十岁之间。" Color="4294375158" />
+		<Leaf Text="　　赐婚的双方必须性别不相同，没有血缘关系，不厌恶对方。如年龄有效，则双方的年纪需在十六至五十岁之间。" Color="4294375158" />
 		<Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
-        <Leaf Text="　　赐婚需要资金80000，而且双方需要在这个城池。" Color="4294375158" />
+        <Leaf Text="　　赐婚需要资金8000，而且双方需要在这个城池。" Color="4294375158" />
 	</Branch>
 	<Branch Name="Faction_SelectPrince">
     <Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
@@ -1069,11 +1069,7 @@ Color="4294375158" />
 Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
-        <Leaf Text="　　招贤机率默认为10，玩家可自行调整参数。"
-Color="4294375158" />
-        <Leaf Text="\n" Color="4294375158" />
-        <Leaf Text="\n" Color="4294375158" />
-        <Leaf Text="　　招贤仅在每年3月和9月举行，且每季最多有五次机会招贤。每年最多招10个野武将。"
+        <Leaf Text="　　招贤仅在每年3月举行，如果失敗，則本年度不能再次招贤。"
 Color="4294375158" />
     </Branch>
     <Branch Name="Faction_ZhaoXianBang_DismissOfficer">
@@ -1086,7 +1082,24 @@ Color="4294375158" />
 Color="4294375158" /> 
     </Branch>
 	<Branch Name="Faction_PromoteNvGuan">
-		
+		<Leaf Text="　　　　　　　　　　　　　势力-" Color="4294375158" />
+		<Leaf Text="提拔女官" Color="4293651200" />
+		<Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="把女官提拔为武将身分。" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="绝大部分女性登场时为女官身分，不能出征、执行策略等，可以执行内政工作。另外，女官不能自行移动，而是跟随其主人。" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="女官的主人为其配偶；如没有、则为其父亲；如没有、则为其最年长的兄弟；如没有，则为势力君主。如果配偶、父亲或兄长在势力里，女官不会背叛或下野。" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="如果女官有配偶，其怀孕率会较一般武将为高。如果其配偶是君主，君主可主动宠幸其女官。" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="\n" Color="4294375158" />
+		<Leaf Text="只有未满十六岁的女官才能被提拔为武将身分。如年龄无效，则为登场后一年内。如果曾被宠幸，则不能再被提拔。" Color="4294375158" />
 	</Branch>
     <Branch Name="Monarch_hougongTop_nafei">
         <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
@@ -1094,13 +1107,13 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
-        <Leaf Text="　　当城池已建有可容纳美女的设施时，可以把势力的武将纳进去为妃。纳妃之后该女子不再是武将，不可再出兵打仗。如果该武将是某武将的配偶，此武将的忠诚度将大幅下降，有可能下野或永远无法录用。" Color="4294375158" />
+        <Leaf Text="　　当城池已建有可容纳美女的设施时，可以把势力的武将或俘虏纳进去为妃。纳妃之后该女子不再是武将，不可再出兵打仗。如果该武将是某武将的配偶，此武将的忠诚度将大幅下降，有可能下野或永远无法录用。" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="　　被纳妃的武将必须与君主性别不相同，并与君主没有血缘关系。如年龄有效，则被纳者的年纪需在十六至五十岁之间。" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
-        <Leaf Text="　　纳妃需要资金50000，而且君主及被纳者需要在这个城池。" Color="4294375158" />
+        <Leaf Text="　　纳妃需要资金8000，而且君主及被纳者需要在这个城池。" Color="4294375158" />
     </Branch>
     <Branch Name="Monarch_hougong">
         <Leaf Text="　　　　　　　　　　　　　君主-" Color="4294375158" />
@@ -1135,7 +1148,7 @@ Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
         <Leaf Text="释放某个妃子。" Color="4294375158" />
         <Leaf Text="\n" Color="4294375158" />
-        <Leaf Text="妃子被释放后，不会再为妃子，将作为势力里的一般武将。" Color="4294375158" />
+        <Leaf Text="妃子被释放后，不会再为妃子，将作为势力里的女官。" Color="4294375158" />
 		<Leaf Text="\n" Color="4294375158" />
 		<Leaf Text="该妃子不能是由现任君主所纳。" Color="4294375158" />
 	</Branch>
