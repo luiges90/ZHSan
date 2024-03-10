@@ -11766,16 +11766,16 @@ namespace GameObjects
             if (Tiredness <= 0 && Fund >= Session.Parameters.TrainAbilityCost && LocationArchitecture != null && GameObject.Random(10) == 0)
             {
                 var priorities = new Dictionary<string, float> {
-                    { "command", LocationArchitecture.CommandTrainingFacilityRate > 0 ? Command * 10000 / (commandExperience + 1000) : 0 },
-                    { "strength", LocationArchitecture.StrengthTrainingFacilityRate > 0 ? Strength * 10000 / (StrengthExperience + 1000) : 0 },
-                    { "intelligence", LocationArchitecture.IntelligenceTrainingFacilityRate > 0 ? Intelligence * 10000 / (IntelligenceExperience + 1000) : 0 },
-                    { "politics", LocationArchitecture.IntelligenceTrainingFacilityRate > 0 ? Intelligence * 10000 / (IntelligenceExperience + 1000) : 0 },
-                    { "glamour", LocationArchitecture.GlamourTrainingFacilityRate > 0 ? Glamour * 10000 / (GlamourExperience + 1000) : 0 },
-                    { "infantry", LocationArchitecture.InfantryTrainingFacilityRate > 0 ? Command * 10000 / (BubingExperience + 1000) : 0 },
-                    { "cavalry", LocationArchitecture.CavalryTrainingFacilityRate > 0 ? Command * 10000 / (QibingExperience + 1000) : 0 },
-                    { "bowman", LocationArchitecture.BowmanTrainingFacilityRate > 0 ? Command * 10000 / (NubingExperience + 1000) : 0 },
-                    { "naval", LocationArchitecture.NavalTrainingFacilityRate > 0 ? Command * 10000 / (ShuijunExperience + 1000) : 0 },
-                    { "siege", LocationArchitecture.SiegeTrainingFacilityRate > 0 ? Command * 10000 / (QixieExperience + 1000) : 0 }
+                    { "command", LocationArchitecture.CommandTrainingFacilityRate > 0 && Tiredness < 5 ? Command * 10000 / (commandExperience + 1000) : 0 },
+                    { "strength", LocationArchitecture.StrengthTrainingFacilityRate > 0 && Tiredness < 5 ? Strength * 10000 / (StrengthExperience + 1000) : 0 },
+                    { "intelligence", LocationArchitecture.IntelligenceTrainingFacilityRate > 0 && Tiredness < 5 ? Intelligence * 10000 / (IntelligenceExperience + 1000) : 0 },
+                    { "politics", LocationArchitecture.IntelligenceTrainingFacilityRate > 0 && Tiredness < 5 ? Intelligence * 10000 / (IntelligenceExperience + 1000) : 0 },
+                    { "glamour", LocationArchitecture.GlamourTrainingFacilityRate > 0 && Tiredness < 5 ? Glamour * 10000 / (GlamourExperience + 1000) : 0 },
+                    { "infantry", LocationArchitecture.InfantryTrainingFacilityRate > 0 && Tiredness < 5 ? Command * 10000 / (BubingExperience + 1000) : 0 },
+                    { "cavalry", LocationArchitecture.CavalryTrainingFacilityRate > 0 && Tiredness < 5 ? Command * 10000 / (QibingExperience + 1000) : 0 },
+                    { "bowman", LocationArchitecture.BowmanTrainingFacilityRate > 0 && Tiredness < 5 ? Command * 10000 / (NubingExperience + 1000) : 0 },
+                    { "naval", LocationArchitecture.NavalTrainingFacilityRate > 0 && Tiredness < 5 ? Command * 10000 / (ShuijunExperience + 1000) : 0 },
+                    { "siege", LocationArchitecture.SiegeTrainingFacilityRate > 0 && Tiredness < 5 ? Command * 10000 / (QixieExperience + 1000) : 0 }
                 };
 
                 float max = 0;

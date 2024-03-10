@@ -176,6 +176,7 @@
           <MenuItem ID="5" Name="MoveCaptive" DisplayName="转移俘虏" DisplayIfTrue="MoveCaptiveAvail" />
         </MenuItem>
         <MenuItem ID="12" Name="PromoteNvGuan" DisplayName="提拔女官" DisplayIfTrue="PromoteNvGuanAvail" />
+        <MenuItem ID="13" Name="Refuse" DisplayName="自动拒绝" OppositeName="手动拒绝" />
       </MenuItem>
       <MenuItem ID="7" Name="Monarch" DisplayName="君主">
         <MenuItem ID="9" Name="MakeMarriage" DisplayName="赐婚" DisplayIfTrue="HasMarriageToMake" />

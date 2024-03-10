@@ -335,7 +335,7 @@ namespace GameGlobal
         [DataMember]
         public int TrainAbilityTiredness = 5;
         [DataMember]
-        public int TrainAbilityAmount = 50;
+        public int TrainAbilityAmount = 100;
         [DataMember]
         public int OfficerBaseSalary = 10;
         [DataMember]

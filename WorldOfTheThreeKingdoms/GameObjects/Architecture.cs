@@ -15573,8 +15573,8 @@ namespace GameObjects
             if (CommandTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
             {
                 p.Fund -= Session.Parameters.TrainAbilityCost;
-                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
-                p.CommandExperience += (int) (Session.Parameters.TrainAbilityAmount * CommandTrainingFacilityRate);
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness;
+                p.CommandExperience += (int) (Session.Parameters.TrainAbilityAmount * CommandTrainingFacilityRate * GameObject.Random(90, 110) / 100f);
             }
         }
 
@@ -15583,8 +15583,8 @@ namespace GameObjects
             if (StrengthTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
             {
                 p.Fund -= Session.Parameters.TrainAbilityCost;
-                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
-                p.StrengthExperience += (int)(Session.Parameters.TrainAbilityAmount * StrengthTrainingFacilityRate);
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness;
+                p.StrengthExperience += (int)(Session.Parameters.TrainAbilityAmount * StrengthTrainingFacilityRate * GameObject.Random(90, 110) / 100f);
             }
         }
 
@@ -15593,8 +15593,8 @@ namespace GameObjects
             if (IntelligenceTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
             {
                 p.Fund -= Session.Parameters.TrainAbilityCost;
-                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
-                p.IntelligenceExperience += (int)(Session.Parameters.TrainAbilityAmount * IntelligenceTrainingFacilityRate);
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness;
+                p.IntelligenceExperience += (int)(Session.Parameters.TrainAbilityAmount * IntelligenceTrainingFacilityRate * GameObject.Random(90, 110) / 100f);
             }
         }
 
@@ -15603,8 +15603,8 @@ namespace GameObjects
             if (PoliticsTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
             {
                 p.Fund -= Session.Parameters.TrainAbilityCost;
-                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
-                p.PoliticsExperience += (int)(Session.Parameters.TrainAbilityAmount * PoliticsTrainingFacilityRate);
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness;
+                p.PoliticsExperience += (int)(Session.Parameters.TrainAbilityAmount * PoliticsTrainingFacilityRate * GameObject.Random(90, 110) / 100f);
             }
         }
 
@@ -15613,8 +15613,8 @@ namespace GameObjects
             if (GlamourTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
             {
                 p.Fund -= Session.Parameters.TrainAbilityCost;
-                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
-                p.GlamourExperience += (int)(Session.Parameters.TrainAbilityAmount * GlamourTrainingFacilityRate);
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness;
+                p.GlamourExperience += (int)(Session.Parameters.TrainAbilityAmount * GlamourTrainingFacilityRate * GameObject.Random(90, 110) / 100f);
             }
         }
 
@@ -15623,8 +15623,8 @@ namespace GameObjects
             if (InfantryTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
             {
                 p.Fund -= Session.Parameters.TrainAbilityCost;
-                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
-                p.BubingExperience += (int)(Session.Parameters.TrainAbilityAmount * InfantryTrainingFacilityRate);
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness;
+                p.BubingExperience += (int)(Session.Parameters.TrainAbilityAmount * InfantryTrainingFacilityRate * GameObject.Random(90, 110) / 100f);
             }
         }
 
@@ -15633,8 +15633,8 @@ namespace GameObjects
             if (CavalryTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
             {
                 p.Fund -= Session.Parameters.TrainAbilityCost;
-                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
-                p.QibingExperience += (int)(Session.Parameters.TrainAbilityAmount * CavalryTrainingFacilityRate);
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness;
+                p.QibingExperience += (int)(Session.Parameters.TrainAbilityAmount * CavalryTrainingFacilityRate * GameObject.Random(90, 110) / 100f);
             }
         }
 
@@ -15643,8 +15643,8 @@ namespace GameObjects
             if (BowmanTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
             {
                 p.Fund -= Session.Parameters.TrainAbilityCost;
-                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
-                p.NubingExperience += (int)(Session.Parameters.TrainAbilityAmount * BowmanTrainingFacilityRate);
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness;
+                p.NubingExperience += (int)(Session.Parameters.TrainAbilityAmount * BowmanTrainingFacilityRate * GameObject.Random(90, 110) / 100f);
             }
         }
 
@@ -15653,8 +15653,8 @@ namespace GameObjects
             if (SiegeTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
             {
                 p.Fund -= Session.Parameters.TrainAbilityCost;
-                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
-                p.QixieExperience += (int)(Session.Parameters.TrainAbilityAmount * SiegeTrainingFacilityRate);
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness;
+                p.QixieExperience += (int)(Session.Parameters.TrainAbilityAmount * SiegeTrainingFacilityRate * GameObject.Random(90, 110) / 100f);
             }
         }
 
@@ -15663,8 +15663,8 @@ namespace GameObjects
             if (NavalTrainingFacilityRate > 0 && p.Fund >= Session.Parameters.TrainAbilityCost)
             {
                 p.Fund -= Session.Parameters.TrainAbilityCost;
-                p.Tiredness += Session.Parameters.TrainAbilityTiredness * Session.Parameters.TrainAbilityTiredness;
-                p.ShuijunExperience += (int)(Session.Parameters.TrainAbilityAmount * NavalTrainingFacilityRate);
+                p.Tiredness += Session.Parameters.TrainAbilityTiredness;
+                p.ShuijunExperience += (int)(Session.Parameters.TrainAbilityAmount * NavalTrainingFacilityRate * GameObject.Random(90, 110) / 100f);
             }
         }
     }
