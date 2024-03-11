@@ -11763,7 +11763,7 @@ namespace GameObjects
 
         public void ArchitectureFacilityEvent()
         {
-            if (Tiredness <= 0 && Fund >= Session.Parameters.TrainAbilityCost && LocationArchitecture != null && GameObject.Random(10) == 0)
+            if (Fund >= Session.Parameters.TrainAbilityCost && LocationArchitecture != null && GameObject.Random(5) == 0)
             {
                 var priorities = new Dictionary<string, float> {
                     { "command", LocationArchitecture.CommandTrainingFacilityRate > 0 && Tiredness < 5 ? Command * 10000 / (commandExperience + 1000) : 0 },
