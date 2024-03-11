@@ -13514,7 +13514,7 @@ namespace GameObjects
                 {
                     return ExpectedFundCache;
                 }
-                int num = this.Commerce + ((int)((Math.Pow((double)this.Population, 0.6) * Math.Pow((double)this.Commerce, 0.8)) / 59.0));
+                int num = this.Commerce + ((int)((Math.Pow((double)this.Population, 0.6) * Math.Pow((double)this.Commerce, 0.8)) / 49.0));
                 num += this.IncrementOfMonthFund;
                 num += (int)(this.RateIncrementOfMonthFund * num);
                 if ((this.LocationState.StateAdmin != null) && this.LocationState.StateAdmin.StateAdminEffectAvail())
