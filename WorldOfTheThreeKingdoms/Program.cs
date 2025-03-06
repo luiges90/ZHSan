@@ -1,6 +1,5 @@
 ﻿using GameManager;
 using Platforms;
-using Steamworks;
 using System;
 using System.IO;
 using System.Threading;
@@ -31,8 +30,6 @@ namespace WorldOfTheThreeKingdoms
                 mutex.ReleaseMutex();
                 new MainProcessManager().Processing();
             }*/
-
-            SteamAPI.Init();
 
             string exeDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             Directory.SetCurrentDirectory(exeDir);

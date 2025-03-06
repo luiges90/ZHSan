@@ -16,7 +16,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Runtime.Serialization;
 using GameManager;
-using Steamworks;
 
 namespace GameObjects
 {

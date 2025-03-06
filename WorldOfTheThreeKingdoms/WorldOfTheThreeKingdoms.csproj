@@ -1695,10 +1695,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Win\SharpDX.MediaFoundation.dll</HintPath>
     </Reference>
-    <Reference Include="Steamworks.NET, Version=12.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Win\Steamworks.NET.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers">
       <HintPath>..\References\System.Buffers.dll</HintPath>
