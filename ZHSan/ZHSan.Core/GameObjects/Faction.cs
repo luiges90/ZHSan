@@ -495,9 +495,11 @@ namespace GameObjects
         public int GetTechniqueUsefulness(Technique tech)
         {
             int result = 0;
-            foreach (Influences.Influence i in tech.Influences.GetInfluenceList())
+            foreach (var influence in tech.Influences.Values)
             {
-                switch (i.Kind.ID)
+                var parameter = influence.GetIntParam();
+
+                switch (influence.Kind.ID)
                 {
                     case 1030:
                     case 2400:
@@ -516,7 +518,7 @@ namespace GameObjects
                     case 2230:
                     case 2240:
                     case 2250:
-                        if (int.Parse(i.Parameter) == 3)
+                        if (parameter == 3)
                         {
                             bool hasWater = false;
                             foreach (Architecture a in this.Architectures)
@@ -529,7 +531,7 @@ namespace GameObjects
                             }
                             if (!hasWater) break;
                         }
-                        else if (int.Parse(i.Parameter) == 4)
+                        else if (parameter == 4)
                         {
                             bool hasSiege = false;
                             foreach (MilitaryKind mk in this.AvailableMilitaryKinds.MilitaryKinds.Values)
@@ -541,7 +543,7 @@ namespace GameObjects
                             }
                             if (!hasSiege) break;
                         }
-                        else if (int.Parse(i.Parameter) == 0)
+                        else if (parameter == 0)
                         {
                             bool hasSiege = false;
                             foreach (MilitaryKind mk in this.AvailableMilitaryKinds.MilitaryKinds.Values)
@@ -553,7 +555,7 @@ namespace GameObjects
                             }
                             if (!hasSiege) break;
                         }
-                        else if (int.Parse(i.Parameter) == 1)
+                        else if (parameter == 1)
                         {
                             bool hasSiege = false;
                             foreach (MilitaryKind mk in this.AvailableMilitaryKinds.MilitaryKinds.Values)
@@ -565,7 +567,7 @@ namespace GameObjects
                             }
                             if (!hasSiege) break;
                         }
-                        else if (int.Parse(i.Parameter) == 2)
+                        else if (parameter == 2)
                         {
                             bool hasSiege = false;
                             foreach (MilitaryKind mk in this.AvailableMilitaryKinds.MilitaryKinds.Values)
@@ -1291,7 +1293,7 @@ namespace GameObjects
                         {
                             if (!fk.CanBuild(buildAt)) continue;
                             if (fk.FundCost > buildAt.Fund) continue;
-                            if (fk.rongna > 0 && fk.rongna < maxHgSize && GameObject.Chance(Session.Parameters.AIBuildHougongSkipSizeChance))
+                            if (fk.rongna > 0 && fk.rongna < maxHgSize && GameObject.GetChance(Session.Parameters.AIBuildHougongSkipSizeChance))
                             {
                                 if (hougong == null || hougong.rongna < fk.rongna)
                                 {
@@ -1347,7 +1349,7 @@ namespace GameObjects
                                 else
                                 {
                                     buildAt.PlanFacilityKind = hougong;
-                                    if (GameObject.Chance(0x21) && ((buildAt.BelongedFaction.TechniquePoint + buildAt.BelongedFaction.TechniquePointForFacility) < buildAt.PlanFacilityKind.PointCost))
+                                    if (GameObject.GetChance(0x21) && ((buildAt.BelongedFaction.TechniquePoint + buildAt.BelongedFaction.TechniquePointForFacility) < buildAt.PlanFacilityKind.PointCost))
                                     {
                                         buildAt.BelongedFaction.SaveTechniquePointForFacility(buildAt.PlanFacilityKind.PointCost / buildAt.PlanFacilityKind.Days);
                                     }
@@ -1433,7 +1435,7 @@ namespace GameObjects
                         {
                             if (p.Status != PersonStatus.Moving && p.Status != PersonStatus.Princess && p.LocationArchitecture != null && p.LocationTroop == null)
                             {
-                                if ((!p.RecruitableBy(this, 0) && GameObject.Random((int)unAmbition) == 0) || GameObject.Chance((int)(Session.Parameters.AINafeiSkipChanceAdd + (int)leader.Ambition * Session.Parameters.AINafeiSkipChanceMultiply)))
+                                if ((!p.RecruitableBy(this, 0) && GameObject.Random((int)unAmbition) == 0) || GameObject.GetChance((int)(Session.Parameters.AINafeiSkipChanceAdd + (int)leader.Ambition * Session.Parameters.AINafeiSkipChanceMultiply)))
                                 {
                                     toTake = p;
                                     break;
@@ -1591,7 +1593,7 @@ namespace GameObjects
                 if (!this.adjacentTo(f)) continue;
                 if (this.IsFriendly(f)) continue;
                 if (this == f) continue;
-                if (GameObject.Random(1000) < Session.Parameters.AIEncirclePlayerRate && GameObject.Chance(f.ArchitectureCount))
+                if (GameObject.Random(1000) < Session.Parameters.AIEncirclePlayerRate && GameObject.GetChance(f.ArchitectureCount))
                 {
                     if (GetEncircleFactionList(f, true) == null) continue;
                     foreach (Architecture a in this.Architectures)
@@ -1605,7 +1607,7 @@ namespace GameObjects
                 }
             }
 
-            if (GameObject.Random(180 * Math.Max(1, 5 - this.Leader.Ambition)) == 0 && GameObject.Chance(100 - Session.Parameters.AIEncirclePlayerRate))
+            if (GameObject.Random(180 * Math.Max(1, 5 - this.Leader.Ambition)) == 0 && GameObject.GetChance(100 - Session.Parameters.AIEncirclePlayerRate))
             {
                 GameObjectList factions = this.GetAdjecentHostileFactions();
                 if (factions.Count == 0) return;
@@ -1622,7 +1624,7 @@ namespace GameObjects
                 int rel = Session.Current.Scenario.GetDiplomaticRelation(this.ID, target.ID);
                 if (target != this && rel < 0 && GetEncircleFactionList(target, true) != null)
                 {
-                    if (GameObject.Chance(Math.Abs(rel) / 10))
+                    if (GameObject.GetChance(Math.Abs(rel) / 10))
                     {
                         foreach (Architecture a in this.Architectures)
                         {
@@ -2262,7 +2264,7 @@ namespace GameObjects
             WithdrwalTransfer(architectures);
             AllocationTransfer(architectures, architectures, true, true, true);
             PersonRegroupTransfer(architectures);
-            if (GameObject.Chance(10))
+            if (GameObject.GetChance(10))
             {
                 FullTransfer(architectures, architectures, true, true, true);
             }
@@ -2569,12 +2571,12 @@ namespace GameObjects
                                             captive.SendRansom(captive.BelongedFaction.Capital, architecture);
                                             break;
                                         }
-                                        if (GameObject.Chance(10))
+                                        if (GameObject.GetChance(10))
                                         {
                                             break;
                                         }
                                     }
-                                    else if (GameObject.Chance(1))
+                                    else if (GameObject.GetChance(1))
                                     {
                                         break;
                                     }
@@ -2622,7 +2624,7 @@ namespace GameObjects
                         {
                             chance = 0x63;
                         }
-                        if (!(GameObject.Chance(chance) || (GameObject.Random(Math.Abs(diplomaticRelation) + 50) >= GameObject.Random(50))))
+                        if (!(GameObject.GetChance(chance) || (GameObject.Random(Math.Abs(diplomaticRelation) + 50) >= GameObject.Random(50))))
                         {
                             captive.SelfReleaseCaptive();
                             continue;
@@ -2668,19 +2670,19 @@ namespace GameObjects
                             }
                             else if (preferredTechniqueComplition < 0.75f)
                             {
-                                if ((this.PreferredTechniqueKinds.IndexOf(technique.Kind) >= 0) || GameObject.Chance(0x19))
+                                if ((this.PreferredTechniqueKinds.IndexOf(technique.Kind) >= 0) || GameObject.GetChance(0x19))
                                 {
                                     list.Add(technique, weight);
                                 }
                             }
                             else if (preferredTechniqueComplition < 1f)
                             {
-                                if ((this.PreferredTechniqueKinds.IndexOf(technique.Kind) >= 0) || GameObject.Chance(50))
+                                if ((this.PreferredTechniqueKinds.IndexOf(technique.Kind) >= 0) || GameObject.GetChance(50))
                                 {
                                     list.Add(technique, weight);
                                 }
                             }
-                            else if ((this.PreferredTechniqueKinds.IndexOf(technique.Kind) >= 0) || GameObject.Chance(0x4b))
+                            else if ((this.PreferredTechniqueKinds.IndexOf(technique.Kind) >= 0) || GameObject.GetChance(0x4b))
                             {
                                 list.Add(technique, weight);
                             }
@@ -2727,11 +2729,11 @@ namespace GameObjects
                             this.PlanTechnique = null;
                         }
                     }
-                    else if ((this.Reputation >= this.getTechniqueActualReputation(this.PlanTechnique)) && GameObject.Chance(0x21))
+                    else if ((this.Reputation >= this.getTechniqueActualReputation(this.PlanTechnique)) && GameObject.GetChance(0x21))
                     {
                         this.SaveTechniquePointForTechnique(this.getTechniqueActualPointCost(this.PlanTechnique) / this.PlanTechnique.Days);
                     }
-                    else if (GameObject.Chance(10))
+                    else if (GameObject.GetChance(10))
                     {
                         this.PlanTechniqueArchitecture = null;
                         this.PlanTechnique = null;
@@ -5025,8 +5027,8 @@ namespace GameObjects
                 {
                     if (((Session.Current.Scenario.DiplomaticRelations.GetDiplomaticRelation(target.ID, f.ID).Relation +
                         Person.GetIdealOffset(target.Leader, f.Leader) * 1.5) < 0
-                        && (GameObject.Chance(60 - Math.Min(60, target.Leader.Karma)) || simulate) && !f.IsFriendly(target) && 
-                        (f.adjacentTo(target) || GameObject.Chance(30 - Math.Min(60, target.Leader.Karma) / 2) || simulate))
+                        && (GameObject.GetChance(60 - Math.Min(60, target.Leader.Karma)) || simulate) && !f.IsFriendly(target) && 
+                        (f.adjacentTo(target) || GameObject.GetChance(30 - Math.Min(60, target.Leader.Karma) / 2) || simulate))
                         )
                     {
                         encircleList.Add(f);
@@ -5167,7 +5169,7 @@ namespace GameObjects
                             rel.Relation >= Session.GlobalVariables.FriendlyDiplomacyThreshold)
                         {
                             float ratio = (float)this.Power / f.Power;
-                            if (GameObject.Chance((int)((ratio - 1) * this.Leader.Ambition * 10)))
+                            if (GameObject.GetChance((int)((ratio - 1) * this.Leader.Ambition * 10)))
                             {
                                 power = f.Power;
                                 toBreak = f;
@@ -5211,7 +5213,7 @@ namespace GameObjects
                         Faction opposite = i.GetDiplomaticFaction(this.ID);
                         //if (i.Relation < 300) continue; 
                         if (!this.adjacentTo(opposite)) continue;    //不接壤的AI不主动改变关系值
-                        if (GameObject.Chance((int)((double)this.armyScale / opposite.ArmyScale * ((int)this.Leader.Ambition + 1) * 20))
+                        if (GameObject.GetChance((int)((double)this.armyScale / opposite.ArmyScale * ((int)this.Leader.Ambition + 1) * 20))
                             && i.Relation < Session.GlobalVariables.FriendlyDiplomacyThreshold)
                         {
                             i.Relation -= (7 + (int)Random(15)); //根据总兵力情况每月随机减少
@@ -5220,7 +5222,7 @@ namespace GameObjects
                             break;
                         }
                         //增加关系300以上，随机一个降低数值后主动解盟的情况
-                        if (GameObject.Chance((int)(Person.GetIdealOffset(this.Leader, opposite.Leader) / 3)) && i.Relation >= 300)
+                        if (GameObject.GetChance((int)(Person.GetIdealOffset(this.Leader, opposite.Leader) / 3)) && i.Relation >= 300)
                         {
                             i.Relation -= (7 + (int)Random(15));
                             i.Relation -= (Person.GetIdealOffset(this.Leader, opposite.Leader)) / 10;
@@ -5540,7 +5542,7 @@ namespace GameObjects
                         this.BecomeEmperorLegally();
                     }
                     else if (this.Leader.ValuationOnGovernment == PersonValuationOnGovernment.无视 ||
-                        (this.Leader.ValuationOnGovernment == PersonValuationOnGovernment.普通 && GameObject.Chance(5)))
+                        (this.Leader.ValuationOnGovernment == PersonValuationOnGovernment.普通 && GameObject.GetChance(5)))
                     {
                         /*Faction owningEmperor = null;
                         foreach (Faction f in Session.Current.Scenario.Factions.GameObjects)
@@ -5913,7 +5915,7 @@ namespace GameObjects
                         if (((faction2 != this) && !this.IsFriendly(faction2)) && (faction2.Capital != null))
                         {
                             threat = this.GetThreat(faction2);
-                            if ((threat > num2) || GameObject.Chance(20))
+                            if ((threat > num2) || GameObject.GetChance(20))
                             {
                                 num2 = threat;
                                 faction = faction2;
@@ -5965,7 +5967,7 @@ namespace GameObjects
                 foreach (Faction faction2 in this.GetUnderZeroDiplomaticRelationFactions().GetRandomList())
                 {
                     threat = this.GetThreat(faction2);
-                    if ((threat > num2) || GameObject.Chance(20))
+                    if ((threat > num2) || GameObject.GetChance(20))
                     {
                         num2 = threat;
                         faction = faction2;
@@ -6078,7 +6080,7 @@ namespace GameObjects
                 foreach (Faction faction2 in this.GetUnderZeroDiplomaticRelationFactions().GetRandomList())
                 {
                     threat = this.GetThreat(faction2);
-                    if ((threat > num2) || GameObject.Chance(20))
+                    if ((threat > num2) || GameObject.GetChance(20))
                     {
                         num2 = threat;
                         faction = faction2;
@@ -6277,7 +6279,7 @@ namespace GameObjects
                     {
                         this.AvailableTechniques.AddTechnique(technique);
                         Session.Current.Scenario.NewInfluence = true;
-                        technique.Influences.ApplyInfluence(this, GameObjects.Influences.Applier.Technique, technique.ID);
+                        technique.Influences.ApplyInfluence(this, Applier.Technique, technique.ID);
                         Session.Current.Scenario.NewInfluence = false;
                         if (this.OnTechniqueFinished != null)
                         {
@@ -7308,15 +7310,15 @@ namespace GameObjects
         public float InfluenceKindValue(int id)
         {
             float result = 0;
-            foreach (Influence i in Session.Current.Scenario.GameCommonData.AllInfluences.Influences.Values)
+            foreach (var influence in Session.Current.Scenario.GameCommonData.AllInfluences.Values)
             {
-                if (i.Kind.ID == id)
+                if (influence.Kind.ID == id)
                 {
-                    foreach (ApplyingFaction j in i.appliedFaction)
+                    foreach (ApplyFaction j in influence.ApplyFactions)
                     {
                         if (j.faction == this)
                         {
-                            result += i.GetFloatParam();
+                            result += influence.GetFloatParam();
                         }
                     }
                 }

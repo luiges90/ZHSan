@@ -3428,7 +3428,7 @@ namespace ArchitectureDetail
                 }
                 this.CharacteristicText.AddText("特色", this.CharacteristicText.TitleColor);
                 this.CharacteristicText.AddNewLine();
-                foreach (Influence influence in this.ShowingArchitecture.Characteristics.Influences.Values)
+                foreach (var influence in this.ShowingArchitecture.Characteristics.Values)
                 {
                     this.CharacteristicText.AddText(influence.Description, this.CharacteristicText.SubTitleColor);
                     this.CharacteristicText.AddNewLine();
@@ -3518,7 +3518,7 @@ namespace ArchitectureDetail
                     {
                         this.TheCharacteristic1Text.AddText("特色", this.TheCharacteristic1Text.TitleColor);
                         this.TheCharacteristic1Text.AddNewLine();
-                        foreach (Influence influence in this.ShowingArchitecture.Characteristics.Influences.Values)
+                        foreach (Influence influence in this.ShowingArchitecture.Characteristics.Values)
                         {
                             this.TheCharacteristic1Text.AddText(influence.Description, this.TheCharacteristic1Text.SubTitleColor);
                             this.TheCharacteristic1Text.AddNewLine();

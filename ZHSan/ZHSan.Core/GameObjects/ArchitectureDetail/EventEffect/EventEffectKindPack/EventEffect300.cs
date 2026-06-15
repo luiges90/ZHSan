@@ -13,6 +13,6 @@ public class EventEffect300 : EventEffectKind
         var skill = Session.Current.Scenario.GameCommonData.AllSkills.GetSkill(skillId);
 
         person.Skills.AddSkill(skill);
-        skill.Influences.ApplyInfluence(person, Applier.Skill, skillId, false);
+        skill.Influences.ApplyInfluence(person, Applier.Skill, skillId);
     }
 }

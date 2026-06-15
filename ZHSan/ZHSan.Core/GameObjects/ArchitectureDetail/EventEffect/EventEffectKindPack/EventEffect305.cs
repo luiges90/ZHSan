@@ -13,6 +13,6 @@ public class EventEffect305 : EventEffectKind
         var skill = Session.Current.Scenario.GameCommonData.AllSkills.GetSkill(skillId);
 
         person.Skills.Skills.Remove(skillId);
-        skill.Influences.PurifyInfluence(person, Applier.Skill, skillId, false);
+        skill.Influences.PurifyInfluence(person, Applier.Skill, skillId);
     }
 }

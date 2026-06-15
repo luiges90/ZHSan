@@ -1,260 +1,163 @@
-﻿using GameObjects;
+﻿using GameGlobal;
 using GameObjects.Conditions;
 using GameObjects.Influences;
 using GameObjects.TroopDetail;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
-namespace GameObjects.PersonDetail
+namespace GameObjects.PersonDetail;
+
+/// <summary>
+/// 技能
+/// </summary>
+[DataContract]
+public class Skill : GameObject
 {
-    [DataContract]
-    public class Skill : GameObject
+    #region DataMember
+
+    /// <summary>
+    /// 显示行
+    /// </summary>
+    [DataMember]
+    public int DisplayRow { get; set; }
+
+    /// <summary>
+    /// 显示列
+    /// </summary>
+    [DataMember]
+    public int DisplayCol { get; set; }
+
+    /// <summary>
+    /// 类别
+    /// </summary>
+    [DataMember]
+    public int Kind { get; set; }
+
+    /// <summary>
+    /// 等级
+    /// </summary>
+    [DataMember]
+    public int Level { get; set; }
+
+    /// <summary>
+    /// 战斗
+    /// </summary>
+    [DataMember]
+    public bool Combat { get; set; }
+
+    /// <summary>
+    /// 影响列表
+    /// </summary>
+    [DataMember]
+    public string InfluencesString { get; set; }
+
+    /// <summary>
+    /// 条件列表
+    /// </summary>
+    [DataMember]
+    public string ConditionTableString { get; set; }
+
+    /// <summary>
+    /// 不同生成武将类型获得机率
+    /// </summary>
+    [DataMember]
+    public int[] GenerationChance { get; set; } = new int[10];
+
+    /// <summary>
+    /// 此技能的相关能力、0-4为武统智政魅
+    /// </summary>
+    [DataMember]
+    public int RelatedAbility { get; set; }
+
+    #endregion
+
+    public InfluenceTable Influences { get; set; } = new();
+
+    public List<Condition> Conditions { get; set; } = new();
+
+    public List<Condition> GenerateConditions = new();
+
+    public int GetRelatedAbility(Person person)
     {
-        private bool combat;
-
-        [DataMember]
-        public string InfluencesString
+        switch (RelatedAbility)
         {
-            get;
-            set;
+            case 0: return person.Strength;
+            case 1: return person.Command;
+            case 2: return person.Intelligence;
+            case 3: return person.Politics;
+            case 4: return person.Glamour;
         }
+        return 0;
+    }
 
-        [DataMember]
-        public string ConditionTableString
+    public MilitaryType MilitaryTypeOnly
+    {
+        get
         {
-            get;
-            set;
-        }
-
-        public ConditionTable Conditions = new ConditionTable();
-        private int displayCol;
-        private int displayRow;
-        
-        public InfluenceTable Influences = new InfluenceTable();
-        private int kind;
-        private int level;
-        
-        public ConditionTable GenerateConditions = new ConditionTable();
-
-        public void Init()
-        {
-            Conditions = new ConditionTable();
-            Influences = new InfluenceTable();
-            GenerateConditions = new ConditionTable();
-        }
-
-        private int[] generationChance = new int[10];
-
-        [DataMember]
-        public int[] GenerationChance
-        {
-            get
+            foreach (var influence in Influences.Values)
             {
-                return generationChance;
-            }
-            set
-            {
-                generationChance = value;
-            }
-        }
-        [DataMember]
-        public int RelatedAbility { get; set; }//游戏的commondata中的skill的此项漏存了，所以导致默认的都为0
-
-        public int GetRelatedAbility(Person p)
-        {
-            switch (RelatedAbility)
-            {
-                case 0: return p.Strength;
-                case 1: return p.Command;
-                case 2: return p.Intelligence;
-                case 3: return p.Politics;
-                case 4: return p.Glamour;
-            }
-            return 0;
-        }
-
-        public MilitaryType MilitaryTypeOnly
-        {
-            get
-            {
-                foreach (Influence i in this.Influences.Influences.Values)
+                if (influence.Kind.ID == 290)
                 {
-                    if (i.Kind.ID == 290)
-                    {
-                        return (MilitaryType)Enum.Parse(typeof(MilitaryType), i.Parameter);
-                    }
+                    return (MilitaryType)Enum.Parse(typeof(MilitaryType), influence.Parameter);
                 }
-                return MilitaryType.其他;
             }
-        }
-
-        public virtual bool CanLearn(Person person)
-        {
-            return this.Conditions.CheckCondition(person);
-        }
-
-        public GameObjectList GetConditionList()
-        {
-            return this.Conditions.GetConditionList();
-        }
-
-        public GameObjectList GetInfluenceList()
-        {
-            return this.Influences.GetInfluenceList();
-        }
-
-        [DataMember]
-        public bool Combat
-        {
-            get
-            {
-                return this.combat;
-            }
-            set
-            {
-                this.combat = value;
-            }
-        }
-
-        public int ConditionCount
-        {
-            get
-            {
-                return this.Conditions.Count;
-            }
-        }
-
-        public string Description
-        {
-            get
-            {
-                string str = "";
-                foreach (Influence influence in this.Influences.Influences.Values)
-                {
-                    str = str + "•" + influence.Description;
-                }
-                return str;
-            }
-        }
-
-        [DataMember]
-        public int DisplayCol
-        {
-            get
-            {
-                return this.displayCol;
-            }
-            set
-            {
-                this.displayCol = value;
-            }
-        }
-        [DataMember]
-        public int DisplayRow
-        {
-            get
-            {
-                return this.displayRow;
-            }
-            set
-            {
-                this.displayRow = value;
-            }
-        }
-
-        public int InfluenceCount
-        {
-            get
-            {
-                return this.Influences.Count;
-            }
-        }
-        [DataMember]
-        public int Kind
-        {
-            get
-            {
-                return this.kind;
-            }
-            set
-            {
-                this.kind = value;
-            }
-        }
-        [DataMember]
-        public int Level
-        {
-            get
-            {
-                return this.level;
-            }
-            set
-            {
-                this.level = value;
-            }
-        }
-
-        public int Merit
-        {
-            get
-            {
-                return (this.Level * 5);
-            }
-        }
-
-        public string Prerequisite
-        {
-            get
-            {
-                string str = "";
-                foreach (Condition condition in this.Conditions.Conditions.Values)
-                {
-                    str = str + "•" + condition.Name;
-                }
-                return str;
-            }
-        }
-
-        private int? subOfficerMerit = null;
-        public int SubOfficerMerit
-        {
-            get
-            {
-                if (subOfficerMerit == null)
-                {
-                    int subofficerInfluences = 0;
-                    foreach (Influence i in this.Influences.Influences.Values)
-                    {
-                        if (i.Kind.ID == 281) break;
-                        if (i.Kind.Combat)
-                        {
-                            subofficerInfluences++;
-                        }
-                    }
-                    subOfficerMerit = (int)(this.Merit * ((double)subofficerInfluences / this.Influences.Count));
-                }
-                return subOfficerMerit.Value;
-            }
-        }
-
-        public bool CanBeChosenForGenerated(Person p)
-        {
-            foreach (Condition condition in this.Conditions.Conditions.Values)
-            {
-                if (condition.Kind.ID == 902) return false;
-            }
-            return this.GenerateConditions.CheckCondition(p);
-        }
-
-        public bool CanBeBorn(Person person)
-        {
-            foreach (Condition condition in this.Conditions.Conditions.Values)
-            {
-                if (condition.Kind.ID == 901) return false;
-            }
-            return this.GenerateConditions.CheckCondition(person);
+            return MilitaryType.其他;
         }
     }
-}
 
+    public virtual bool CanLearn(Person person)
+    {
+        return Condition.CheckConditionList(Conditions, person);
+    }
+
+    public int ConditionCount => Conditions.Count;
+
+    public string Description => string.Join("•", Influences.Values.Select(x => x.Description));
+
+    public int InfluenceCount => Influences.Count;
+
+    public int Merit => Level * 5;
+
+    public string Prerequisite => StaticMethods.SaveNameToString(Conditions);
+
+    private int? subOfficerMerit = null;
+    public int SubOfficerMerit
+    {
+        get
+        {
+            if (subOfficerMerit == null)
+            {
+                int subofficerInfluences = 0;
+                foreach (var influence in Influences.Values)
+                {
+                    if (influence.Kind.ID == 281) break;
+
+                    if (influence.Kind.Combat)
+                    {
+                        subofficerInfluences++;
+                    }
+                }
+
+                subOfficerMerit = (int)(Merit * (double)subofficerInfluences / Influences.Count);
+            }
+            
+            return subOfficerMerit.Value;
+        }
+    }
+
+    public bool CanBeChosenForGenerated(Person person)
+    {
+        if (Conditions.Any(x => x.Kind.ID == 902)) return false;
+
+        return Condition.CheckConditionList(GenerateConditions, person);
+    }
+
+    public bool CanBeBorn(Person person)
+    {
+        if (Conditions.Any(x => x.Kind.ID == 901)) return false;
+
+        return Condition.CheckConditionList(GenerateConditions, person);
+    }
+}

@@ -76,8 +76,6 @@ namespace GameObjects
 
             DecrementNumberList = new CombatNumberItemList(CombatNumberDirection.下);
 
-            Characteristics = new InfluenceTable();
-
             FundPacks = new List<FundPack>();
 
             FoodPacks = new List<FoodPack>();
@@ -230,7 +228,10 @@ namespace GameObjects
 
         public CombatNumberItemList DecrementNumberList = new CombatNumberItemList(CombatNumberDirection.下);
 
-        public InfluenceTable Characteristics = new InfluenceTable();
+        /// <summary>
+        /// 特征
+        /// </summary>
+        public InfluenceTable Characteristics { get; set; }
 
         public ArchitectureList ClosestArchitectures;
 
@@ -1348,7 +1349,7 @@ namespace GameObjects
                 }
                 if (this.BelongedFaction.IsAlien &&
                     (i.CaptivePerson.PersonalLoyalty >= 2 || this.BelongedFaction.Leader.Hates(i.CaptivePerson) || i.CaptivePerson.Hates(this.BelongedFaction.Leader)) &&
-                    GameObject.Chance(10))
+                    GameObject.GetChance(10))
                 {
                     if (!this.BelongedFaction.Leader.HasStrainTo(i.CaptivePerson))
                     {
@@ -1396,7 +1397,7 @@ namespace GameObjects
                         else if (this.ExpectedFund != 0 && (kind.FundCost - (this.Fund - this.EnoughFund)) / this.ExpectedFund + 1 <= kind.Days / 15)
                         {
                             this.PlanFacilityKind = kind;
-                            if (GameObject.Chance(0x21) && this.PlanFacilityKind.Days != 0 && ((this.BelongedFaction.TechniquePoint + this.BelongedFaction.TechniquePointForFacility) < this.PlanFacilityKind.PointCost))
+                            if (GameObject.GetChance(0x21) && this.PlanFacilityKind.Days != 0 && ((this.BelongedFaction.TechniquePoint + this.BelongedFaction.TechniquePointForFacility) < this.PlanFacilityKind.PointCost))
                             {
                                 this.BelongedFaction.SaveTechniquePointForFacility(this.PlanFacilityKind.PointCost / this.PlanFacilityKind.Days);
                             }
@@ -1410,7 +1411,7 @@ namespace GameObjects
 
         private void AIFacility()
         {
-            if (((this.PlanArchitecture == null) || GameObject.Chance(10)) && (this.BuildingFacility < 0) && this.FacilityPositionCount > 0)
+            if (((this.PlanArchitecture == null) || GameObject.GetChance(10)) && (this.BuildingFacility < 0) && this.FacilityPositionCount > 0)
             {
                 if (this.PlanFacilityKind != null && this.BelongedFaction != null)
                 {
@@ -1422,7 +1423,7 @@ namespace GameObjects
                             this.BeginToBuildAFacility(this.PlanFacilityKind);
                             this.PlanFacilityKind = null;
                         }
-                        else if (GameObject.Chance(0x21) && ((this.BelongedFaction.TechniquePoint + this.BelongedFaction.TechniquePointForFacility) < this.PlanFacilityKind.PointCost))
+                        else if (GameObject.GetChance(0x21) && ((this.BelongedFaction.TechniquePoint + this.BelongedFaction.TechniquePointForFacility) < this.PlanFacilityKind.PointCost))
                         {
                             this.BelongedFaction.SaveTechniquePointForFacility(this.PlanFacilityKind.PointCost / this.PlanFacilityKind.Days);
                         }
@@ -1522,7 +1523,7 @@ namespace GameObjects
                         if (value > 0 && this.ExpectedFund != 0)
                         {
                             int fundMonthToWait = (kind.FundCost - (this.Fund - this.EnoughFund)) / this.ExpectedFund + 1;
-                            if (value > maxValue && GameObject.Chance((int)(100 - fundMonthToWait * Session.Parameters.AIFacilityFundMonthWaitParam)) && this.Fund - kind.FundCost > this.EnoughFund)
+                            if (value > maxValue && GameObject.GetChance((int)(100 - fundMonthToWait * Session.Parameters.AIFacilityFundMonthWaitParam)) && this.Fund - kind.FundCost > this.EnoughFund)
                             {
                                 if (this.FacilityPositionLeft < kind.PositionOccupied)
                                 {
@@ -1585,7 +1586,7 @@ namespace GameObjects
                             else
                             {
                                 this.PlanFacilityKind = toBuild;
-                                if (this.BelongedFaction != null && GameObject.Chance(0x21) && ((this.BelongedFaction.TechniquePoint + this.BelongedFaction.TechniquePointForFacility) < this.PlanFacilityKind.PointCost))
+                                if (this.BelongedFaction != null && GameObject.GetChance(0x21) && ((this.BelongedFaction.TechniquePoint + this.BelongedFaction.TechniquePointForFacility) < this.PlanFacilityKind.PointCost))
                                 {
                                     this.BelongedFaction.SaveTechniquePointForFacility(this.PlanFacilityKind.PointCost / this.PlanFacilityKind.Days);
                                 }
@@ -2299,7 +2300,7 @@ namespace GameObjects
                 {
 
                     bool needRecruit = false;
-                    bool lotsOfPopulation = GameObject.Chance((int)((((float)this.Population / (float)this.PopulationCeiling) * 100f - 50f) * 2.5));
+                    bool lotsOfPopulation = GameObject.GetChance((int)((((float)this.Population / (float)this.PopulationCeiling) * 100f - 50f) * 2.5));
                     if ((recentlyAttacked || this.BelongedFaction.PlanTechniqueArchitecture != this) && _architectureKind.HasPopulation && ((recentlyAttacked || GameObject.Random((int)this.BelongedFaction.Leader.StrategyTendency + 1) == 0) && this.RecruitmentAvail()))
                     {
                         if (this.ArmyScale < this.FewArmyScale || lotsOfPopulation)
@@ -2314,7 +2315,7 @@ namespace GameObjects
                         {
                             needRecruit = false;
                         }
-                        else if (!GameObject.Chance(this.Domination * 4 - 300) || this.Morale < 100)
+                        else if (!GameObject.GetChance(this.Domination * 4 - 300) || this.Morale < 100)
                         {
                             needRecruit = false;
                         }
@@ -2342,7 +2343,7 @@ namespace GameObjects
                                 / (this.HostileLine ? Session.Parameters.AIRecruitPopulationCapHostilelineMultiply : 1);
                         }
                     }
-                    needRecruit = needRecruit && (GameObject.Chance(this.Persons.Count * 25) || (!need[0] && !need[1] && !need[2])); // 太少武将在城内时就不要补充了，先搞好内政更重要
+                    needRecruit = needRecruit && (GameObject.GetChance(this.Persons.Count * 25) || (!need[0] && !need[1] && !need[2])); // 太少武将在城内时就不要补充了，先搞好内政更重要
                     needRecruit = needRecruit && (this.Population > this.PopulationCeiling / 5);
                     if (needRecruit)
                     {
@@ -2411,7 +2412,7 @@ namespace GameObjects
                 if (unfullArmyCount < unfullArmyCountThreshold)
                 {
                     if (this.AIWaterLinks.Count > 0 && this.IsBesideWater && this.HasShuijunMilitaryKind() && 
-                        (this.EffectiveMilitaryCount == 0 || GameObject.Chance((int)(100 - this.ShuijunMilitaryCount / (double)this.EffectiveMilitaryCount * 100))))
+                        (this.EffectiveMilitaryCount == 0 || GameObject.GetChance((int)(100 - this.ShuijunMilitaryCount / (double)this.EffectiveMilitaryCount * 100))))
                     {
                         this.AIRecruitment(true, false);
                     }
@@ -2600,7 +2601,7 @@ namespace GameObjects
                             knownArch.IsNumber = true;
                             knownArch.ReSort();
                         }
-                        if ((this.HasPerson() && (GameObject.Random(this.Fund) >= this.GossipArchitectureFund)) && GameObject.Chance(50))
+                        if ((this.HasPerson() && (GameObject.Random(this.Fund) >= this.GossipArchitectureFund)) && GameObject.GetChance(50))
                         {
                             ArchitectureList list3 = new ArchitectureList();
                             foreach (Architecture architecture in knownArch)
@@ -2613,7 +2614,7 @@ namespace GameObjects
                             if (list3.Count > 0)
                             {
                                 architecture2 = list3[GameObject.Random(list3.Count / 2)] as Architecture;
-                                if (GameObject.Chance(100 - architecture2.noEscapeChance * 2))
+                                if (GameObject.GetChance(100 - architecture2.noEscapeChance * 2))
                                 {
                                     if (!this.IsFriendly(architecture2.BelongedFaction))
                                     {
@@ -2627,7 +2628,7 @@ namespace GameObjects
                                                 (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive) &&
                                                 GameObject.Random(architecture2.GetGossipablePersonCount() + 4) >= 4
                                                 && GameObject.Random(firstHalfPerson.GossipAbility) >= 200
-                                                && GameObject.Chance(100 - architecture2.captureChance * (firstHalfPerson.Sex != architecture2.BelongedFaction.Leader.Sex ? 2 : 1)))
+                                                && GameObject.GetChance(100 - architecture2.captureChance * (firstHalfPerson.Sex != architecture2.BelongedFaction.Leader.Sex ? 2 : 1)))
                                             {
                                                 firstHalfPerson.GoForGossip(Session.Current.Scenario.GetClosestPoint(architecture2.ArchitectureArea, this.Position));
                                             }
@@ -2636,7 +2637,7 @@ namespace GameObjects
                                 }
                             }
                         }
-                        if ((this.HasPerson() && (GameObject.Random(this.Fund) >= this.ConvincePersonFund)) && GameObject.Chance(50) && this.BelongedSection.AIDetail.AllowPersonTactics)
+                        if ((this.HasPerson() && (GameObject.Random(this.Fund) >= this.ConvincePersonFund)) && GameObject.GetChance(50) && this.BelongedSection.AIDetail.AllowPersonTactics)
                         {
                             ArchitectureList list4 = new ArchitectureList();
                             foreach (Architecture architecture in knownArch)
@@ -2660,7 +2661,7 @@ namespace GameObjects
                                 {
                                     ConvinceCaptivesAI(architecture2);
                                 }
-                                else if (!this.IsFriendly(architecture2.BelongedFaction) || GameObject.Chance(50))
+                                else if (!this.IsFriendly(architecture2.BelongedFaction) || GameObject.GetChance(50))
                                 {
                                     diplomaticRelation = Session.Current.Scenario.GetDiplomaticRelation(this.BelongedFaction.ID, architecture2.BelongedFaction.ID);
                                     if (((diplomaticRelation >= 0) && (GameObject.Random(diplomaticRelation + 50) <= GameObject.Random(50))) || (diplomaticRelation < 0))
@@ -2679,7 +2680,7 @@ namespace GameObjects
                                                             firstHalfPerson.NonFightingNumber > firstHalfPerson.FightingNumber &&
                                                              firstHalfPerson.FightingNumber < 350 && firstHalfPerson != this.BelongedFaction.Leader &&
                                                             (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive)
-                                                             && GameObject.Chance(100 - architecture2.captureChance * (firstHalfPerson.Sex != architecture2.BelongedFaction.Leader.Sex ? 2 : 1)))
+                                                             && GameObject.GetChance(100 - architecture2.captureChance * (firstHalfPerson.Sex != architecture2.BelongedFaction.Leader.Sex ? 2 : 1)))
                                                         {
                                                             firstHalfPerson.OutsideDestination = this.ArchitectureArea.Centre;
                                                             firstHalfPerson.GoForConvince(p);
@@ -2693,7 +2694,7 @@ namespace GameObjects
                                 }
                             }
                         }
-                        if ((this.HasPerson() && (GameObject.Random(this.Fund) >= this.JailBreakArchitectureFund)) && GameObject.Chance(50) && this.JailBreakAvail() && this.BelongedSection.AIDetail.AllowPersonTactics)
+                        if ((this.HasPerson() && (GameObject.Random(this.Fund) >= this.JailBreakArchitectureFund)) && GameObject.GetChance(50) && this.JailBreakAvail() && this.BelongedSection.AIDetail.AllowPersonTactics)
                         {
                             List<Architecture> a = new List<Architecture>();
                             foreach (Architecture architecture in Session.Current.Scenario.Architectures)
@@ -2706,7 +2707,7 @@ namespace GameObjects
                             if (a.Count > 0)
                             {
                                 Architecture target = a[GameObject.Random(a.Count)] as Architecture;
-                                if (GameObject.Chance(100 - target.noEscapeChance * 2))
+                                if (GameObject.GetChance(100 - target.noEscapeChance * 2))
                                 {
                                     int totalCaptiveValue = 0;
                                     foreach (Captive c in target.Captives)
@@ -2723,7 +2724,7 @@ namespace GameObjects
                                                 firstHalfPerson.NonFightingNumber > firstHalfPerson.FightingNumber &&
                                                  firstHalfPerson.FightingNumber < 350 && firstHalfPerson != this.BelongedFaction.Leader &&
                                                 (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive)
-                                                 && GameObject.Chance(100 - target.captureChance * (firstHalfPerson.Sex != target.BelongedFaction.Leader.Sex ? 2 : 1)))
+                                                 && GameObject.GetChance(100 - target.captureChance * (firstHalfPerson.Sex != target.BelongedFaction.Leader.Sex ? 2 : 1)))
                                         {
                                             firstHalfPerson.GoForJailBreak(Session.Current.Scenario.GetClosestPoint(target.ArchitectureArea, this.Position));
                                         }
@@ -2731,7 +2732,7 @@ namespace GameObjects
                                 }
                             }
                         }
-                        if (this.HasPerson() && GameObject.Chance(50) && this.AssassinateAvail() && this.BelongedSection.AIDetail.AllowPersonTactics)
+                        if (this.HasPerson() && GameObject.GetChance(50) && this.AssassinateAvail() && this.BelongedSection.AIDetail.AllowPersonTactics)
                         {
                             if (knownArch.Count > 0)
                             {
@@ -2785,7 +2786,7 @@ namespace GameObjects
                                                             firstHalfPerson.FightingNumber < 350 && firstHalfPerson != this.BelongedFaction.Leader &&
                                                             firstHalfPerson.AssassinateAbility > targetDef * 2 &&
                                                            (firstHalfPerson != firstHalfPerson.BelongedFaction.Leader || firstHalfPerson.ImmunityOfCaptive)
-                                                            && GameObject.Chance(100 - target.captureChance * (target.BelongedFaction != null && firstHalfPerson.Sex != target.BelongedFaction.Leader.Sex ? 2 : 1)))
+                                                            && GameObject.GetChance(100 - target.captureChance * (target.BelongedFaction != null && firstHalfPerson.Sex != target.BelongedFaction.Leader.Sex ? 2 : 1)))
                                                     {
                                                         firstHalfPerson.OutsideDestination = target.ArchitectureArea.Centre;
                                                         firstHalfPerson.GoForAssassinate(p);
@@ -3456,7 +3457,7 @@ namespace GameObjects
 
         private void AITreasure()
         {
-            if (GameObject.Chance(Session.Parameters.AITreasureChance) && !Session.Current.Scenario.IsPlayer(this.BelongedFaction))
+            if (GameObject.GetChance(Session.Parameters.AITreasureChance) && !Session.Current.Scenario.IsPlayer(this.BelongedFaction))
             {
                 /*if (this.HasTreasureToConfiscate())
                 {
@@ -3893,12 +3894,9 @@ namespace GameObjects
         {
             if (this.BelongedFaction != null)
             {
-                foreach (Technique t in this.BelongedFaction.AvailableTechniques.Techniques.Values)
+                foreach (Technique technique in this.BelongedFaction.AvailableTechniques.Techniques.Values)
                 {
-                    foreach (Influences.Influence i in t.Influences.Influences.Values)
-                    {
-                        i.PurifyInfluence(this, Applier.Technique, t.ID);
-                    }
+                    technique.Influences.PurifyInfluence(this, Applier.Technique, technique.ID);
                 }
             }
         }
@@ -3907,20 +3905,17 @@ namespace GameObjects
         {
             if (this.BelongedFaction != null)
             {
-                foreach (Technique t in this.BelongedFaction.AvailableTechniques.Techniques.Values)
+                foreach (Technique technique in this.BelongedFaction.AvailableTechniques.Techniques.Values)
                 {
-                    foreach (Influences.Influence i in t.Influences.Influences.Values)
-                    {
-                        i.ApplyInfluence(this, Applier.Technique, t.ID);
-                    }
+                    technique.Influences.ApplyInfluence(this, Applier.Technique, technique.ID);
                 }
             }
         }
 
         public void ApplyInfluences()
         {
-            this.Characteristics.ApplyInfluence(this, Applier.Characteristics, 0);
-            this.ApplyFacilityInfluences(false);
+            Characteristics.ApplyInfluence(this, Applier.Characteristics, 0);
+            ApplyFacilityInfluences(false);
         }
 
         public void ApplyFacilityInfluences(bool skipNoCostFacility)
@@ -5845,7 +5840,7 @@ namespace GameObjects
                     {
                         if (this.PersonsExcludeNvGuan.Count > i)
                         {
-                            if (GameObject.Chance((m.Kind.OffenceRadius + 1) * (m.Kind.OffenceRadius + 1) * 100 / this.Militaries.Count))
+                            if (GameObject.GetChance((m.Kind.OffenceRadius + 1) * (m.Kind.OffenceRadius + 1) * 100 / this.Militaries.Count))
                             {
                                 a.Endurance = a.Endurance - Math.Max(1, (int)(m.Offence / 4 * m.Kind.ArchitectureDamageRate * Session.Parameters.ArchitectureDamageRate));
                                 if (a.Endurance <= 0) break;
@@ -5919,24 +5914,24 @@ namespace GameObjects
         {
             foreach (Captive p in this.Captives.GetRandomList())
             {
-                if (GameObject.Random(5) == 0 && !GameObject.Chance(p.CaptivePerson.PersonalLoyalty * 25))
+                if (GameObject.Random(5) == 0 && !GameObject.GetChance(p.CaptivePerson.PersonalLoyalty * 25))
                 {
                     if (p.CaptiveFaction != null)
                     {
                         bool pass = true;
-                        if (p.CaptivePerson.HasStrainTo(p.CaptiveFaction.Leader) && GameObject.Chance(33))
+                        if (p.CaptivePerson.HasStrainTo(p.CaptiveFaction.Leader) && GameObject.GetChance(33))
                         {
                             pass = false;
                         }
-                        if (p.CaptivePerson.HasCloseStrainTo(p.CaptiveFaction.Leader) && GameObject.Chance(67))
+                        if (p.CaptivePerson.HasCloseStrainTo(p.CaptiveFaction.Leader) && GameObject.GetChance(67))
                         {
                             pass = false;
                         }
-                        if (p.CaptivePerson.IsCloseTo(p.CaptiveFaction.Leader) && GameObject.Chance(33))
+                        if (p.CaptivePerson.IsCloseTo(p.CaptiveFaction.Leader) && GameObject.GetChance(33))
                         {
                             pass = false;
                         }
-                        if (p.CaptivePerson.IsVeryCloseTo(p.CaptiveFaction.Leader) && GameObject.Chance(67))
+                        if (p.CaptivePerson.IsVeryCloseTo(p.CaptiveFaction.Leader) && GameObject.GetChance(67))
                         {
                             pass = false;
                         }
@@ -5956,12 +5951,12 @@ namespace GameObjects
                 }
                 if (GameObject.Random((this.Domination * 10 + this.Morale) * 20) + 200 <= GameObject.Random(p.CaptivePerson.CaptiveAbility))
                 {
-                    if (!GameObject.Chance(noEscapeChance) || GameObject.Chance(p.CaptivePerson.captiveEscapeChance))
+                    if (!GameObject.GetChance(noEscapeChance) || GameObject.GetChance(p.CaptivePerson.captiveEscapeChance))
                     {
                         p.CaptiveEscape();
                     }
                 }
-                if (p.CaptivePerson.ArrivingDays > 0 && (GameObject.Chance(p.CaptivePerson.JailBreakAbility / 100) || GameObject.Chance(p.CaptivePerson.captiveEscapeChance)))
+                if (p.CaptivePerson.ArrivingDays > 0 && (GameObject.GetChance(p.CaptivePerson.JailBreakAbility / 100) || GameObject.GetChance(p.CaptivePerson.captiveEscapeChance)))
                 {
                     p.CaptiveEscape();
                 }
@@ -6012,14 +6007,14 @@ namespace GameObjects
                     bool doDisaster = true;
                     if (disasterChanceDecrease.ContainsKey(kindID))
                     {
-                        if (GameObject.Chance(disasterChanceDecrease[kindID]))
+                        if (GameObject.GetChance(disasterChanceDecrease[kindID]))
                         {
                             doDisaster = false;
                         }
                     }
                     if (disasterChanceIncrease.ContainsKey(kindID))
                     {
-                        if (GameObject.Chance(disasterChanceIncrease[kindID]))
+                        if (GameObject.GetChance(disasterChanceIncrease[kindID]))
                         {
                             doDisaster = true;
                         }
@@ -6051,7 +6046,7 @@ namespace GameObjects
             }
             float extraProb = (zhenzainenglizonghe % 3000) / 30.0f;
             tianshu = zhenzainenglizonghe / 3000;
-            return tianshu + (GameObject.Chance((int)extraProb) ? 1 : 0);
+            return tianshu + (GameObject.GetChance((int)extraProb) ? 1 : 0);
         }
 
         private float jianzaixishu()
@@ -6106,7 +6101,7 @@ namespace GameObjects
             {
                 foreach (Person p in this.Persons)
                 {
-                    while (GameObject.Chance(this.zainan.zainanzhonglei.OfficerDamage))
+                    while (GameObject.GetChance(this.zainan.zainanzhonglei.OfficerDamage))
                     {
                         p.InjureRate *= 0.85f;
                         Session.MainGame.mainGameScreen.OnOfficerSick(p);
@@ -6659,7 +6654,7 @@ namespace GameObjects
             {
                 chance *= 3;
             }
-            if (GameObject.Chance(chance))
+            if (GameObject.GetChance(chance))
             {
                 troop.AmbushDetected(troop);
             }
@@ -6986,7 +6981,7 @@ namespace GameObjects
                     mPop = (int) (pop * (0.25 + (500000 - this.Population) / 500000 * 0.25) * Session.Parameters.MilitaryPopulationReloadQuantity);
                 }
                 this.IncreaseMilitaryPopulation((int) mPop);
-                if (GameObject.Chance((int) ((mPop - (int) mPop) * 100))) {
+                if (GameObject.GetChance((int) ((mPop - (int) mPop) * 100))) {
                     this.IncreaseMilitaryPopulation(1);
                 }
             }
@@ -7072,7 +7067,7 @@ namespace GameObjects
                 }
 
                 if (hostileFightingForce > friendlyFightingForce * (this.BelongedFaction.Leader.PersonalLoyalty + 1) &&
-                    GameObject.Chance(40 - this.BelongedFaction.Leader.PersonalLoyalty * 10))
+                    GameObject.GetChance(40 - this.BelongedFaction.Leader.PersonalLoyalty * 10))
                 {
                     Person shizhe = this.MovablePersons[Random(this.MovablePersons.Count)] as Person;
                     DiplomaticRelationDisplay display = this.GetGeDiDiplomaticRelationList()[GameObject.Random(this.GetGeDiDiplomaticRelationList().Count)] as DiplomaticRelationDisplay; ;
@@ -7494,7 +7489,7 @@ namespace GameObjects
             this.BuildableFacilityKindList.Clear();
             foreach (FacilityKind kind in Session.Current.Scenario.GameCommonData.AllFacilityKinds.FacilityKinds.Values)
             {
-                if (this.BelongedFaction != null && !this.BelongedFaction.hougongValid && kind.rongna > 0 && kind.InfluenceCount == 0) continue;
+                if (this.BelongedFaction != null && !this.BelongedFaction.hougongValid && kind.rongna > 0 && kind.Influences.Count == 0) continue;
                 if (this.FacilityBuildable(kind))
                 {
                     this.BuildableFacilityKindList.Add(kind);
@@ -8140,7 +8135,7 @@ namespace GameObjects
             InformationKindList list = new InformationKindList();
             foreach (InformationKind kind in Session.Current.Scenario.GameCommonData.AllInformationKinds.GetAvailList(this))
             {
-                if ((kind.Level <= InformationLevel.中) || GameObject.Chance(20))
+                if ((kind.Level <= InformationLevel.中) || GameObject.GetChance(20))
                 {
                     list.Add(kind);
                 }
@@ -8939,9 +8934,9 @@ namespace GameObjects
 
         private void characteristicsDoWork()
         {
-            foreach (Influence i in this.Characteristics.Influences.Values)
+            foreach (var influence in Characteristics.Values)
             {
-                i.DoWork(this);
+                influence.DoWork(this);
             }
         }
 
@@ -9731,15 +9726,15 @@ namespace GameObjects
                     //Label_0221:
                     foreach (Person person in this.Persons.GetList())
                     {
-                        if (((!this.withoutTruceFrontline || !GameObject.Chance(5)) && !GameObject.Chance(20)) || (GameObject.Random(Session.Current.Scenario.Date.Day) < GameObject.Random(30)))
+                        if (((!this.withoutTruceFrontline || !GameObject.GetChance(5)) && !GameObject.GetChance(20)) || (GameObject.Random(Session.Current.Scenario.Date.Day) < GameObject.Random(30)))
                         {
                             continue;
                         }
-                        if (GameObject.Chance(100 - Session.Parameters.AutoLearnSkillSuccessRate * Session.Parameters.LearnSkillDays) && person.HasLearnableSkill)
+                        if (GameObject.GetChance(100 - Session.Parameters.AutoLearnSkillSuccessRate * Session.Parameters.LearnSkillDays) && person.HasLearnableSkill)
                         {
                             person.GoForStudySkill();
                         }
-                        else if (GameObject.Chance(50))
+                        else if (GameObject.GetChance(50))
                         {
                             List<Title> higherLevelLearnableTitle = person.HigherLevelLearnableTitle;
                             if (higherLevelLearnableTitle.Count > 0)
@@ -9752,7 +9747,7 @@ namespace GameObjects
                             foreach (Stunt stunt in Session.Current.Scenario.GameCommonData.AllStunts.GetStuntList().GetRandomList())
                             {
                                 if ((person.Stunts.GetStunt(stunt.ID) == null) && stunt.IsLearnable(person) &&
-                                    GameObject.Chance(100 - Session.Parameters.AutoLearnStuntSuccessRate * Session.Parameters.LearnStuntDays))
+                                    GameObject.GetChance(100 - Session.Parameters.AutoLearnStuntSuccessRate * Session.Parameters.LearnStuntDays))
                                 {
                                     person.GoForStudyStunt(stunt);
                                     break;
@@ -10799,7 +10794,7 @@ namespace GameObjects
                 this.RemoveRoutewayToArchitecture(this.PlanArchitecture);
                 this.PlanArchitecture = null;
             }
-            else if ((this.PlanArchitecture != null) || ((this.IsGood() || GameObject.Chance((int)(GameObject.Square((int)leader.Ambition) * Session.Parameters.AIAttackChanceIfUnfull))) &&
+            else if ((this.PlanArchitecture != null) || ((this.IsGood() || GameObject.GetChance((int)(GameObject.Square((int)leader.Ambition) * Session.Parameters.AIAttackChanceIfUnfull))) &&
               (this.Domination >= this.DominationCeiling * 0.7 || this.Population <= _architectureKind.PopulationBoundary / 2)))
             {
                 Architecture target = this.PlanArchitecture;
@@ -10830,15 +10825,15 @@ namespace GameObjects
                         {
                             continue;
                         }
-                        if (GameObject.Chance(Session.Parameters.AIObeyStrategyTendencyChance) && this.BelongedFaction.Leader.StrategyTendency == PersonStrategyTendency.统一地区 && i.A.LocationState.LinkedRegion != this.LocationState.LinkedRegion)
+                        if (GameObject.GetChance(Session.Parameters.AIObeyStrategyTendencyChance) && this.BelongedFaction.Leader.StrategyTendency == PersonStrategyTendency.统一地区 && i.A.LocationState.LinkedRegion != this.LocationState.LinkedRegion)
                         {
                             continue;
                         }
-                        if (GameObject.Chance(Session.Parameters.AIObeyStrategyTendencyChance) && this.BelongedFaction.Leader.StrategyTendency == PersonStrategyTendency.统一州 && i.A.LocationState != this.LocationState)
+                        if (GameObject.GetChance(Session.Parameters.AIObeyStrategyTendencyChance) && this.BelongedFaction.Leader.StrategyTendency == PersonStrategyTendency.统一州 && i.A.LocationState != this.LocationState)
                         {
                             continue;
                         }
-                        if (GameObject.Chance(Session.Parameters.AIObeyStrategyTendencyChance) && this.BelongedFaction.Leader.StrategyTendency == PersonStrategyTendency.维持现状)
+                        if (GameObject.GetChance(Session.Parameters.AIObeyStrategyTendencyChance) && this.BelongedFaction.Leader.StrategyTendency == PersonStrategyTendency.维持现状)
                         {
                             continue;
                         }
@@ -10895,7 +10890,7 @@ namespace GameObjects
                         {
                             if ((GameObject.Random((5 - (int)leader.Ambition) * Session.Parameters.AIOffendIgnoreReserveProbAmbitionMultiply - Session.Parameters.AIOffendIgnoreReserveProbAmbitionAdd) == 0 &&
                                 (GameObject.Random((leader.Calmness - leader.Braveness) * Session.Parameters.AIOffendIgnoreReserveProbBCDiffMultiply + Session.Parameters.AIOffendIgnoreReserveProbBCDiffAdd)) == 0) &&
-                                (GameObject.Chance((int)(((double)armyScaleHere / i.A.ArmyScale - Session.Parameters.AIOffendIgnoreReserveChanceTroopRatioAdd) * Session.Parameters.AIOffendIgnoreReserveChanceTroopRatioMultiply))))
+                                (GameObject.GetChance((int)(((double)armyScaleHere / i.A.ArmyScale - Session.Parameters.AIOffendIgnoreReserveChanceTroopRatioAdd) * Session.Parameters.AIOffendIgnoreReserveChanceTroopRatioMultiply))))
                             {
                                 if (armyScaleHere >= armyScaleRequiredForAttack)
                                 {
@@ -11512,7 +11507,7 @@ namespace GameObjects
                         this.Domination -= (int) decrease;
                         decrease -= (int)decrease;
                     }
-                    if (GameObject.Chance((int) (decrease * 100)))
+                    if (GameObject.GetChance((int) (decrease * 100)))
                     {
                         this.Domination--;
                     }
@@ -11523,7 +11518,7 @@ namespace GameObjects
                         this.Morale -= (int)decrease;
                         decrease -= (int)decrease;
                     }
-                    if (GameObject.Chance((int)(decrease * 100)))
+                    if (GameObject.GetChance((int)(decrease * 100)))
                     {
                         this.Morale--;
                     }
@@ -14932,7 +14927,7 @@ namespace GameObjects
             List<Condition> conditions = new List<Condition>();
             for (int i = 0; i < Session.Parameters.ExpandConditions.Count; i++)
             {
-                Condition c = Session.Current.Scenario.GameCommonData.AllConditions.GetCondition(Session.Parameters.ExpandConditions[i]);
+                Condition c = Session.Current.Scenario.GameCommonData.AllConditions.Get(Session.Parameters.ExpandConditions[i]);
                 conditions.Add(c);
             }
             if (!Condition.CheckConditionList(conditions, this)) return false;
@@ -15516,15 +15511,15 @@ namespace GameObjects
         public float InfluenceKindValue(int id)
         {
             float result = 0;
-            foreach (Influence i in Session.Current.Scenario.GameCommonData.AllInfluences.Influences.Values)
+            foreach (Influence influence in Session.Current.Scenario.GameCommonData.AllInfluences.Values)
             {
-                if (i.Kind.ID == id)
+                if (influence.Kind.ID == id)
                 {
-                    foreach (ApplyingArchitecture j in i.appliedArch)
+                    foreach (ApplyArchitecture j in influence.ApplyArchitectures)
                     {
                         if (j.arch == this)
                         {
-                            result += i.GetFloatParam();
+                            result += influence.GetFloatParam();
                         }
                     }
                 }
@@ -15683,7 +15678,7 @@ namespace GameObjects
                 var invitees = new List<Person>();
                 foreach (Person p2 in candidates)
                 {
-                    if (GameObject.Chance(p2.GetRelation(p) / 60 + 10))
+                    if (GameObject.GetChance(p2.GetRelation(p) / 60 + 10))
                     {
                         p.AdjustRelation(p2, 3, 0);
                         p2.AdjustRelation(p, 3, 0);
@@ -15720,7 +15715,7 @@ namespace GameObjects
             var groupsToCreate = new HashSet<TreasureCreationSetting>();
             foreach (Facility facility in facilities)
             {
-                foreach (Influence influence in facility.Influences.Influences.Values)
+                foreach (var influence in facility.Influences.Values)
                 {
                     if (influence.Kind.ID == 3530)
                     {
@@ -15788,14 +15783,14 @@ namespace GameObjects
                 {
                     var randomIndex = GameObject.Random(selectedSetting.EligibleInfluenceIDs.Count);
                     var influenceId = selectedSetting.EligibleInfluenceIDs[randomIndex];
-                    var chosenInfluence = Session.Current.Scenario.GameCommonData.AllInfluences.GetInfluence(influenceId) as Influence;
+                    var chosenInfluence = Session.Current.Scenario.GameCommonData.AllInfluences.Get(influenceId) as Influence;
 
                     if (chosenInfluence != null)
                     {
-                        treasure.Influences.AddInfluence(chosenInfluence);
+                        treasure.Influences.Add(chosenInfluence);
                     }
                 }
-            } while (GameObject.Chance(50));
+            } while (GameObject.GetChance(50));
 
             // 随机选择图片ID
             if (selectedSetting.PicIDs != null && selectedSetting.PicIDs.Count > 0)
@@ -15969,17 +15964,11 @@ namespace GameObjects
             var cost = int.MaxValue;
             foreach (Facility facility in Facilities)
             {
-                if (facility.Influences.HasInfluenceKind(3520))
+                foreach (var influence in facility.Influences.GetInfluenceByKind(3520))
                 {
-                    List<Influence> inf = facility.Influences.GetInfluenceByKind(3520);
-                    foreach (var i in inf)
-                    {
-                        var thisCost = int.Parse(i.Parameter);
-                        if (thisCost < cost)
-                        {
-                            cost = thisCost;
-                        }
-                    }
+                    var thisCost = influence.GetIntParam();
+
+                    cost = Math.Min(thisCost, cost);
                 }
             }
 

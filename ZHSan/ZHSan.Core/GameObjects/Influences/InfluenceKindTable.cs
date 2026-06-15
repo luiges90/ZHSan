@@ -1,99 +1,54 @@
-﻿using GameObjects;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
-namespace GameObjects.Influences
+namespace GameObjects.Influences;
+
+[DataContract]
+public class InfluenceKindTable
 {
-    [DataContract]
-    public class InfluenceKindTable
+    [DataMember]
+    public Dictionary<int, InfluenceKind> InfluenceKinds = new Dictionary<int, InfluenceKind>();
+
+    /// <summary>
+    ///  新增
+    /// </summary>
+    /// <param name="influenceKind"></param>
+    /// <returns></returns>
+    public bool Add(InfluenceKind influenceKind)
     {
-        [DataMember]
-        public Dictionary<int, InfluenceKind> InfluenceKinds = new Dictionary<int, InfluenceKind>();
-
-        public bool AddInfluenceKind(InfluenceKind ik)
-        {
-            if (this.InfluenceKinds.ContainsKey(ik.ID))
-            {
-                return false;
-            }
-            this.InfluenceKinds.Add(ik.ID, ik);
-            return true;
-        }
-
-        public void Clear()
-        {
-            this.InfluenceKinds.Clear();
-        }
-
-        public InfluenceKind GetInfluenceKind(int id)
-        {
-            InfluenceKind kind = null;
-            this.InfluenceKinds.TryGetValue(id, out kind);
-            return kind;
-        }
-
-        public GameObjectList GetInfluenceKindList()
-        {
-            GameObjectList list = new GameObjectList();
-            foreach (InfluenceKind kind in this.InfluenceKinds.Values)
-            {
-                list.Add(kind);
-            }
-            return list;
-        }
-
-        public bool HasInfluenceKind(int id)
-        {
-            return this.InfluenceKinds.ContainsKey(id);
-        }
-
-        public void LoadFromString(InfluenceKindTable allInfluenceKinds, string influenceIDs)
-        {
-            char[] separator = new char[] { ' ', '\n', '\r', '\t' };
-            string[] strArray = influenceIDs.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-            InfluenceKind kind = null;
-            for (int i = 0; i < strArray.Length; i++)
-            {
-                if (allInfluenceKinds.InfluenceKinds.TryGetValue(int.Parse(strArray[i]), out kind))
-                {
-                    this.AddInfluenceKind(kind);
-                }
-            }
-        }
-
-        public string SaveToString()
-        {
-            string str = "";
-            foreach (InfluenceKind kind in this.InfluenceKinds.Values)
-            {
-                str = str + kind.ID.ToString() + " ";
-            }
-            return str;
-        }
-
-        public int Count
-        {
-            get
-            {
-                return this.InfluenceKinds.Count;
-            }
-        }
-
-        public bool HasTroopLeaderValidInfluenceKind
-        {
-            get
-            {
-                foreach (InfluenceKind kind in this.InfluenceKinds.Values)
-                {
-                    if (kind.TroopLeaderValid)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
+        return InfluenceKinds.TryAdd(influenceKind.ID, influenceKind);
     }
-}
 
+    /// <summary>
+    /// 删除
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public bool Remove(int id)
+    {
+        return InfluenceKinds.Remove(id);
+    }
+
+    /// <summary>
+    /// 查找
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public InfluenceKind Get(int id)
+    {
+        InfluenceKinds.TryGetValue(id, out var kind);
+
+        return kind;
+    }
+
+    public int Count => InfluenceKinds.Count;
+
+    public void Clear() => InfluenceKinds.Clear();
+
+    public GameObjectList GetInfluenceKindList() => [.. InfluenceKinds.Values];
+
+    public bool HasInfluenceKind(int id) => InfluenceKinds.ContainsKey(id);
+
+    public bool HasTroopLeaderValidInfluenceKind => InfluenceKinds.Values.Any(x => x.TroopLeaderValid);
+}

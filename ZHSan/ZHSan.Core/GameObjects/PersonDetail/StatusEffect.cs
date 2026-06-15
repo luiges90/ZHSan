@@ -1,4 +1,8 @@
 
+using System.Collections.Generic;
+using GameObjects.Conditions;
+using GameObjects.Influences;
+
 namespace GameObjects.PersonDetail;
 
 /// <summary>
@@ -30,12 +34,16 @@ public class StatusEffect
     /// <summary>
     /// 触发条件
     /// </summary>
-    public string TriggerConditions { get; private set; }
+    public string TriggerConditionString { get; private set; }
 
     /// <summary>
     /// 影响
     /// </summary>
-    public string Influences { get; private set; }
+    public string InfluenceString { get; private set; }
+
+    public List<Condition> TriggerConditions { get; set; } = new();
+
+    public InfluenceTable Influences { get; set; } = new();
 
     public StatusEffect(StatusEffectConfig config)
     {
@@ -43,7 +51,7 @@ public class StatusEffect
         Name = config.Name;
         Duration = config.Duration;
         StatusType = config.StatusType;
-        TriggerConditions = config.TriggerConditions;
-        Influences = config.Influences;
+        TriggerConditionString = config.TriggerConditions;
+        InfluenceString = config.Influences;
     }
 }

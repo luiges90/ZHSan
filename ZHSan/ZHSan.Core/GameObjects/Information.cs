@@ -69,7 +69,7 @@ namespace GameObjects
             {
                 chance *= 3;
             }
-            if (GameObject.Chance(chance))
+            if (GameObject.GetChance(chance))
             {
                 troop.AmbushDetected(troop);
             }

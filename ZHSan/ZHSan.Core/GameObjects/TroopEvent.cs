@@ -23,7 +23,7 @@ namespace GameObjects
         [DataMember]
         public string ConditionsString { get; set; }
 
-        public ConditionTable Conditions = new ConditionTable();
+        public List<Condition> Conditions { get; set; } = new();
 
         //[DataMember]
         public List<PersonDialog> Dialogs = new List<PersonDialog>();
@@ -72,8 +72,6 @@ namespace GameObjects
 
         public void Init()
         {
-            Conditions = new ConditionTable();
-
             EffectAreas = new List<TroopEffectArea>();
 
             EffectPersons = new List<TroopEffectPerson>();
@@ -249,7 +247,7 @@ namespace GameObjects
 
         public bool CheckCondition(Troop troop)
         {
-            return Condition.CheckConditionList(this.Conditions.Conditions.Values, troop);
+            return Condition.CheckConditionList(Conditions, troop);
         }
 
         public bool CheckTroop(Troop troop)
@@ -260,7 +258,7 @@ namespace GameObjects
                 {
                     return false;
                 }
-                if (!GameObject.Chance(this.HappenChance))
+                if (!GameObject.GetChance(this.HappenChance))
                 {
                     return false;
                 }

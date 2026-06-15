@@ -14,7 +14,7 @@ public class EventEffect315 : EventEffectKind
 
         if (person.RealTitles.Contains(title))
         {
-            title.Influences.PurifyInfluence(person, Applier.Title, titleId, false);
+            title.Influences.PurifyInfluence(person, Applier.Title, titleId);
             person.RealTitles.Remove(title);
         }
     }

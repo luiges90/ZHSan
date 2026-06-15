@@ -6,8 +6,6 @@ namespace GameObjects.Influences.InfluenceKindPack;
 [DataContract]
 public class InfluenceKind3000 : InfluenceKind
 {
-    private int increment = 0;
-
     public override void ApplyInfluenceKind(Influence influence, Architecture arch)
     {
         arch.IncrementOfMonthFund += influence.GetIntParam();

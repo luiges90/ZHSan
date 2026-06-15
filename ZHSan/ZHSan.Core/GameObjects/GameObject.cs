@@ -52,7 +52,7 @@ namespace GameObjects
         private string textDestinationString;
         private string textResultString;
 
-        public static bool Chance(int chance)
+        public static bool GetChance(int chance)
         {
             if (chance <= 0)
             {
@@ -61,7 +61,7 @@ namespace GameObjects
             return ((chance >= 100) || (Random(100) < chance));
         }
 
-        public static bool Chance(int chance, int root)
+        public static bool GetChance(int chance, int root)
         {
             if (chance <= 0)
             {

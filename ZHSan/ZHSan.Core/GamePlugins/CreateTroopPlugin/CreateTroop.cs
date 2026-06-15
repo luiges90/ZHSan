@@ -315,26 +315,26 @@ namespace CreateTroopPlugin
                 {
                     foreach (Person person in this.CreatingPersons)
                     {
-                        foreach (Technique t in this.CreatingTroop.BelongedFaction.AvailableTechniques.Techniques.Values)
+                        foreach (var technique in CreatingTroop.BelongedFaction.AvailableTechniques.Techniques.Values)
                         {
-                            foreach (GameObjects.Influences.Influence i in t.Influences.Influences.Values)
+                            foreach(var influence in technique.Influences.Values)  
                             {
-                                i.PurifyInfluence(this.CreatingTroop, Applier.Technique, t.ID);
+                                influence.PurifyInfluence(CreatingTroop, Applier.Technique, technique.ID);
                             }
                         }
-                        foreach (Skill s in person.Skills.GetSkillList())
+                        foreach (var skill in person.Skills.Skills.Values)
                         {
-                            s.Influences.PurifyInfluence(person, Applier.Skill, s.ID, false);
+                            skill.Influences.PurifyInfluence(person, Applier.Skill, skill.ID);
                         }
-                        foreach (Title t in person.Titles)
+                        foreach (var title in person.Titles)
                         {
-                            t.Influences.PurifyInfluence(person, Applier.Title, t.ID, false);
+                            title.Influences.PurifyInfluence(person, Applier.Title, title.ID);
                         }
-                        foreach (Stunt s in person.Stunts.GetStuntList())
+                        foreach (var stunt in person.Stunts.Stunts.Values)
                         {
-                            s.Influences.PurifyInfluence(person, Applier.Stunt, 0, false);
+                            stunt.Influences.PurifyInfluence(person, Applier.Stunt, 0);
                         }
-                        person.PurifyAllTreasures(false);
+                        person.PurifyAllTreasures();
                     }                  
                 }
             }
@@ -347,19 +347,22 @@ namespace CreateTroopPlugin
                 {
                     foreach (Person person in this.CreatingPersons)
                     {
-                        foreach (Skill s in person.Skills.GetSkillList())
+                        foreach (var skill in person.Skills.Skills.Values)
                         {
-                            s.Influences.PurifyInfluence(person, Applier.Skill, s.ID, false);
+                            skill.Influences.PurifyInfluence(person, Applier.Skill, skill.ID);
                         }
-                        foreach (Title t in person.Titles)
+
+                        foreach (var title in person.Titles)
                         {
-                            t.Influences.PurifyInfluence(person, Applier.Title, t.ID, false);
+                            title.Influences.PurifyInfluence(person, Applier.Title, title.ID);
                         }
-                        foreach (Stunt s in person.Stunts.GetStuntList())
+
+                        foreach (var stunt in person.Stunts.Stunts.Values)
                         {
-                            s.Influences.PurifyInfluence(person, Applier.Stunt, 0, false);
+                            stunt.Influences.PurifyInfluence(person, Applier.Stunt, stunt.ID);
                         }
-                        person.PurifyAllTreasures(false);
+
+                        person.PurifyAllTreasures();
                     }
                      foreach (Technique t in this.CreatingTroop.BelongedFaction.AvailableTechniques.Techniques.Values)
                     {

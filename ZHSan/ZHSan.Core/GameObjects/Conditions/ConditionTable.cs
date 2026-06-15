@@ -1,120 +1,61 @@
-﻿using GameObjects;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace GameObjects.Conditions
+namespace GameObjects.Conditions;
+
+[DataContract]
+public class ConditionTable
 {
-    [DataContract]
-    public class ConditionTable
+    [DataMember]
+    public Dictionary<int, Condition> Conditions = new Dictionary<int, Condition>();
+
+    public ConditionTable() {}
+
+    public ConditionTable(Dictionary<int, Condition> conditions)
     {
-        [DataMember]
-        public Dictionary<int, Condition> Conditions = new Dictionary<int, Condition>();
+        Conditions = conditions;
+    }
 
-        public bool AddCondition(Condition influence)
-        {
-            if (this.Conditions.ContainsKey(influence.ID))
-            {
-                return false;
-            }
-            this.Conditions.Add(influence.ID, influence);
-            return true;
-        }
+    /// <summary>
+    /// 新增
+    /// </summary>
+    /// <param name="condition"></param>
+    /// <returns></returns>
+    public bool Add(Condition condition)
+    {
+        return Conditions.TryAdd(condition.ID, condition);
+    }
 
-        public void Clear()
-        {
-            this.Conditions.Clear();
-        }
+    /// <summary>
+    /// 删除
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public bool Remove(int id)
+    {
+        return Conditions.Remove(id);
+    }
 
-        public Condition GetCondition(int influenceID)
-        {
-            Condition condition = null;
-            this.Conditions.TryGetValue(influenceID, out condition);
-            return condition;
-        }
+    /// <summary>
+    /// 查找
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public Condition Get(int id)
+    {
+        Conditions.TryGetValue(id, out var condition);
 
-        public GameObjectList GetConditionList()
-        {
-            GameObjectList list = new GameObjectList();
-            foreach (Condition condition in this.Conditions.Values)
-            {
-                list.Add(condition);
-            }
-            return list;
-        }
+        return condition;
+    }
 
-        public List<string> LoadFromString(ConditionTable allConditions, string conditionIDs)
-        {
-            List<string> errorMsg = new List<string>();
+    public int Count => Conditions.Count;
 
-            char[] separator = new char[] { ' ', '\n', '\r', '\t' };
-            string[] strArray = conditionIDs.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-            Condition condition = null;
+    public void Clear() => Conditions.Clear();
 
-            for (int i = 0; i < strArray.Length; i++)
-            {
-                int arrayI;
-                if (int.TryParse(strArray[i], out arrayI))
-                {
-                    if (allConditions.Conditions.TryGetValue(int.Parse(strArray[i]), out condition))
-                    {
-                        this.AddCondition(condition);
-                    }
-                    else
-                    {
-                        errorMsg.Add("条件ID" + int.Parse(strArray[i]) + "不存在");
-                    }
-                }
-                else
-                {
-                    errorMsg.Add("条件一栏应为半型空格分隔的条件ID");
-                }
-            }
-            //}
-            //catch
-            //{
-            //    errorMsg.Add("条件一栏应为半型空格分隔的条件ID");
-            //}
-            return errorMsg;
-        }
+    public IEnumerable<Condition> Values => Conditions.Values;
 
-        public string SaveToString()
-        {
-            string str = "";
-            foreach (Condition condition in this.Conditions.Values)
-            {
-                str = str + condition.ID.ToString() + " ";
-            }
-            return str;
-        }
-
-        public int Count
-        {
-            get
-            {
-                return this.Conditions.Count;
-            }
-        }
-
-        public bool CheckCondition(Person p)
-        {
-            return Condition.CheckConditionList(this.Conditions.Values, p);
-        }
-
-        public bool CheckPersonalityCondition(Person p)
-        {
-            foreach (Condition j in this.Conditions.Values)
-            {
-                if (j.Kind.ID == 600 || j.Kind.ID == 610) //check personality kind only
-                {
-                    if (!j.CheckCondition(p))
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
+    public bool CheckCondition(Person person)
+    {
+        return Condition.CheckConditionList(Conditions.Values, person);
     }
 }
-

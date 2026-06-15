@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 using Serilog;
 
@@ -115,19 +116,19 @@ namespace GameObjects.Conditions
         /// 校验条件列表
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="list"></param>
+        /// <param name="conditions"></param>
         /// <param name="target"></param>
         /// <returns></returns>
-        public static bool CheckConditionList<T>(ICollection<Condition> list, T target) where T : GameObject
+        public static bool CheckConditionList<T>(IEnumerable<Condition> conditions, T target) where T : GameObject
         {
             if (target == null) return false;
-            
-            if (list == null || list.Count == 0) return true;
 
+            if (conditions == null) return true;
+            
             bool result = true;
             bool negate = false;
 
-            foreach (Condition condition in list)
+            foreach (var condition in conditions)
             {
                 var conditionKind = condition.Kind;
 
@@ -198,10 +199,9 @@ namespace GameObjects.Conditions
         /// <param name="conditions"></param>
         /// <param name="weightStr"></param>
         /// <returns></returns>
-        public static Dictionary<Condition, float> LoadConditionWeightFromString(ConditionTable conditions, string weightStr)
+        public static Dictionary<Condition, float> LoadConditionWeightFromString(Dictionary<int, Condition> conditions, string weightStr)
         {
             var weights = weightStr.Split((char[])null, StringSplitOptions.RemoveEmptyEntries);
-            var conditionDict = conditions.Conditions;
             var result = new Dictionary<Condition, float>();
 
             var length = weights.Length;
@@ -220,7 +220,7 @@ namespace GameObjects.Conditions
                     logger.Error($"无法解析权重值:{valueStr}");
                 }
 
-                if (!conditionDict.TryGetValue(conditionId, out var condition))
+                if (!conditions.TryGetValue(conditionId, out var condition))
                 {
                     logger.Error($"条件Id:[{conditionIdStr}]不存在");
                 }
@@ -229,6 +229,21 @@ namespace GameObjects.Conditions
             }
 
             return result;
+        }
+
+        public static bool CheckPersonalityCondition(ICollection<Condition> conditions, Person person)
+        {
+            foreach (var condition in conditions)
+            {
+                var kindId = condition.Kind.ID;
+
+                if (kindId == 600 || kindId == 610) //check personality kind only
+                {
+                    if (!condition.CheckCondition(person)) return false;
+                }
+            }
+
+            return true;
         }
     }
 }

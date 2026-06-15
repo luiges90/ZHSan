@@ -1266,9 +1266,9 @@ namespace GameObjects
             get
             {
                 double influenceValue = 0;
-                foreach (Influences.Influence i in this.Kind.Influences.Influences.Values)
+                foreach (var influence in Kind.Influences.Values)
                 {
-                    influenceValue += i.AIPersonValue;
+                    influenceValue += influence.AIPersonValue;
                 }
                 return (int) (this.Offence + this.Defence + influenceValue * 2);
             }
@@ -1824,11 +1824,6 @@ namespace GameObjects
             {
                 return this.Kind.MorphToKindId;
             }
-        }
-
-        public GameObjectList GetInfluenceList()
-        {
-            return this.Kind.Influences.GetInfluenceList();
         }
 
         public Architecture TargetArchitecture

@@ -113,18 +113,11 @@ namespace GameObjects.ArchitectureDetail
         
         # endregion
 
-        public InfluenceTable Influences = new InfluenceTable();
+        public InfluenceTable Influences { get; set; } = new();
 
-        public ConditionTable Conditions = new ConditionTable();
+        public ConditionTable Conditions { get; set; } = new();
 
-        public Dictionary<Condition, float> AIBuildConditionWeight = new Dictionary<Condition, float>();
-
-        public void Init()
-        {
-            Influences = new InfluenceTable();
-            Conditions = new ConditionTable();
-            AIBuildConditionWeight = new Dictionary<Condition, float>();
-        }
+        public Dictionary<Condition, float> AIBuildConditionWeight { get; set; } = new();
 
         /// <summary>
         /// 获取AI值
@@ -133,10 +126,8 @@ namespace GameObjects.ArchitectureDetail
         /// <returns></returns>
         public double AIValue(Architecture architecture)
         {
-            var influences = Influences.Influences.Values;
-
             // TODO:影响为空时返回一个很小的负数，是否调整为0
-            var value = influences.Any() ? influences.Max(x => x.AIFacilityValue(architecture)) : double.MinValue;
+            var value = Influences.Values.Any() ? Influences.Values.Max(x => x.AIFacilityValue(architecture)) : double.MinValue;
 
             if (value >= 0)
             {
@@ -154,14 +145,12 @@ namespace GameObjects.ArchitectureDetail
             {
                 var str = rongna > 0 ? $"•可以容纳{rongna}名美女" : "";
 
-                str += string.Join("•", Influences.Influences.Values.Select(x => x.Description));
+                str += string.Join("•", Influences.Values.Select(x => x.Description));
 
                 return str;
             }
         }
 
-        public int InfluenceCount => Influences.Count;
-        
         public string PopulationRelatedString => PopulationRelated ? "○" : "×";
 
         /// <summary>
@@ -172,7 +161,7 @@ namespace GameObjects.ArchitectureDetail
             get
             {
                 int fundIncrease = 0;
-                foreach (Influence influence in Influences.Influences.Values)
+                foreach (var influence in Influences.Values)
                 {
                     var influenceKindId = influence.Kind.ID;
 
@@ -206,7 +195,7 @@ namespace GameObjects.ArchitectureDetail
                 // 增筑 & 治所占用位置为0
                 if (PositionOccupied > 0) return false;
 
-                var influenceKindIds = Influences.Influences.Values.Select(x => x.Kind.ID);
+                var influenceKindIds = Influences.Values.Select(x => x.Kind.ID);
 
                 // 农业、商业、技术、耐久、设施空间、人口上限
                 var targetKindIds = new [] { 1000, 1001, 1002, 1003, 1020, 1050 };
@@ -239,7 +228,7 @@ namespace GameObjects.ArchitectureDetail
             if (TechnologyNeeded > architecture.Technology)
                 return false;
 
-            if (!Condition.CheckConditionList(Conditions.Conditions.Values, architecture)) 
+            if (!Condition.CheckConditionList(Conditions.Values, architecture)) 
                 return false;
 
             // 已达建筑上限

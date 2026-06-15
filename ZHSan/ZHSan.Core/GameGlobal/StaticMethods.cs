@@ -2,6 +2,7 @@
 using GameObjects;
 using MersenneTwister;
 using Microsoft.Xna.Framework;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,8 @@ namespace GameGlobal
 
     public class StaticMethods
     {
+        private static readonly ILogger logger = Log.ForContext<StaticMethods>();
+
         public static Random RandomDigit = Randoms.Create();
 
         public static void AdjustRectangleInViewport(ref Microsoft.Xna.Framework.Rectangle rect)
@@ -625,5 +628,52 @@ namespace GameGlobal
         {
             return string.Join(" ", items.Select(x => x.ID));
         }
+
+        /// <summary>
+        /// 将Name保存为字符串
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items"></param>
+        /// <returns></returns>
+        public static string SaveNameToString<T>(IEnumerable<T> items) where T : GameObject
+        {
+            return string.Join("•", items.Select(x => x.Name));
+        }
+
+        /// <summary>
+        /// 根据Id字符串获取列表 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items"></param>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public static Dictionary<int, T> LoadFromString<T>(Dictionary<int, T> items, string ids) where T : GameObject
+        {
+            var idArray = ids.Split((char[])null, StringSplitOptions.RemoveEmptyEntries);
+
+            var result = new Dictionary<int, T>();
+            var noExistsIds = new List<string>();
+
+            foreach (var idStr in idArray)
+            {
+                if (int.TryParse(idStr, out var id) && items.TryGetValue(id, out var obj))
+                {
+                    result.TryAdd(obj.ID, obj);
+                }
+                else
+                {
+                    noExistsIds.Add(idStr);
+                }
+            }
+
+            if (noExistsIds.Count > 0)
+            {
+                logger.Error($"[{typeof(T).Name}] {string.Join(",", noExistsIds)}不存在。");
+            }
+
+            return result;
+        }
+
+        public static string ToMark(bool value) => value ? "○" : "×";
     }
 }

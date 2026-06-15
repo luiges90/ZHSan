@@ -26,7 +26,7 @@ namespace GameObjects
 
         public void ChallgenEvent(Troop sourceTroop, Troop troop, TroopDamage damage)
         {
-            if ((!sourceTroop.IsFriendly(troop.BelongedFaction) && !sourceTroop.AirOffence) && (this.ChallengeOftenShow || GameObject.Chance(20)))
+            if ((!sourceTroop.IsFriendly(troop.BelongedFaction) && !sourceTroop.AirOffence) && (this.ChallengeOftenShow || GameObject.GetChance(20)))
             {
                 Person maxStrengthPerson = sourceTroop.Persons.GetMaxStrengthPerson();
                 Person destination = troop.Persons.GetMaxStrengthPerson();
@@ -75,13 +75,13 @@ namespace GameObjects
                 }
                 catch
                 {
-                    flag = (GameObject.Chance(chance) ? 1 : 2);
+                    flag = (GameObject.GetChance(chance) ? 1 : 2);
                     damage.ChallengeHappened = true;  //单挑发生
                 }
             }
             else
             {
-                flag = (GameObject.Chance(chance) ? 1 : 2);
+                flag = (GameObject.GetChance(chance) ? 1 : 2);
                 damage.ChallengeHappened = true;  //单挑发生
             }
 

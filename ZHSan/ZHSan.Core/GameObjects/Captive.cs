@@ -174,7 +174,7 @@ namespace GameObjects
                             {
                                 int diplomaticRelation = Session.Current.Scenario.GetDiplomaticRelation(this.BelongedFaction.ID, this.CaptiveFaction.ID);
                                 //if (((diplomaticRelation >= 0) || (GameObject.Random(this.RansomFund) > GameObject.Random(this.RansomFund + this.BelongedFaction.Capital.Fund))) || (GameObject.Random(Math.Abs(diplomaticRelation) + 100) < GameObject.Random(100)))
-                                if (diplomaticRelation >= 0 || ((!this.CaptivePerson.RecruitableBy(this.BelongedFaction, 0) || (this.CaptivePerson.Loyalty >= 100 && GameObject.Chance(80 - this.CaptivePerson.PersonalLoyalty * 20))) 
+                                if (diplomaticRelation >= 0 || ((!this.CaptivePerson.RecruitableBy(this.BelongedFaction, 0) || (this.CaptivePerson.Loyalty >= 100 && GameObject.GetChance(80 - this.CaptivePerson.PersonalLoyalty * 20))) 
                                     && (!this.BelongedFaction.Capital.IsFundEnough || GameObject.Random(this.RansomFund) > GameObject.Random(this.RansomFund + this.BelongedFaction.Capital.Fund)))
                                     && (!Session.GlobalVariables.AIAutoTakePlayerCaptives))
                                 {
@@ -276,7 +276,7 @@ namespace GameObjects
             {
                 Session.Current.Scenario.ChangeDiplomaticRelation(this.BelongedFaction.ID, this.CaptiveFaction.ID, this.ReleaseRelation / 400);
             }
-            if (GameObject.Chance(this.CaptivePerson.Karma + this.CaptivePerson.PersonalLoyalty * 10))
+            if (GameObject.GetChance(this.CaptivePerson.Karma + this.CaptivePerson.PersonalLoyalty * 10))
             {
                 this.BelongedFaction.Leader.IncreaseKarma(1);
             }

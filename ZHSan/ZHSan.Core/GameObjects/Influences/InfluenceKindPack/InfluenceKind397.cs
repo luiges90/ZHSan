@@ -37,7 +37,7 @@ public class InfluenceKind397 : InfluenceKind
         foreach (Troop troop in source.GetAreaStratagemTroops(destination, true))
         {
             int num3 = troop.Army.MoraleCeiling - troop.Army.Morale;
-            if (num3 >= 5 || !Chance(0x5f))
+            if (num3 >= 5 || !GetChance(0x5f))
             {
                 int num4 = source.GetStratagemSuccessChanceCredit(troop, false, false, false);
                 if (num4 > 0)

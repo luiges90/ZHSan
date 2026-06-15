@@ -1,22 +1,18 @@
 ﻿using System;
 
+namespace GameObjects.Conditions;
 
-namespace GameObjects.Conditions
+public static class ConditionKindFactory
 {
-
-    public static class ConditionKindFactory
+    public static ConditionKind CreateConditionKindByID(int id)
     {
-        public static ConditionKind CreateConditionKindByID(int id)
+        try
         {
-            try
-            {
-                return (Activator.CreateInstance(Type.GetType("GameObjects.Conditions.ConditionKindPack.ConditionKind" + id.ToString())) as ConditionKind);
-            }
-            catch
-            {
-                return null;
-            }
+            return Activator.CreateInstance(Type.GetType("GameObjects.Conditions.ConditionKindPack.ConditionKind" + id.ToString())) as ConditionKind;
+        }
+        catch
+        {
+            return null;
         }
     }
 }
-

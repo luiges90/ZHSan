@@ -413,7 +413,7 @@
                                     this.InfluenceText.AddNewLine();
                                     this.InfluenceText.AddText(treasure.Description, Color.Turquoise);
                                     this.InfluenceText.AddNewLine();
-                                    foreach (Influence influence in treasure.Influences.Influences.Values)
+                                    foreach (var influence in treasure.Influences.Values)
                                     {
                                         if ((((influence.Kind.ID == 280) || (influence.Kind.ID == 0x119)) || ((influence.Kind.ID == 0x11d) || (influence.Kind.ID == 290))) || (influence.Kind.ID == 300))
                                         {
@@ -475,7 +475,7 @@
                                 }
                                 this.InfluenceText.AddText(title.DetailedName, titleColor);
                                 this.InfluenceText.AddNewLine();
-                                foreach (Influence influence in title.Influences.Influences.Values)
+                                foreach (var influence in title.Influences.Values)
                                 {
                                     //阿柒:根据影响种类设定不同颜色
                                     if (influence.Kind.ID == 280 || influence.Kind.ID == 281 || influence.Kind.ID == 285 || influence.Kind.ID == 290 || influence.Kind.ID == 300)
@@ -497,7 +497,7 @@
                                 }
                                 this.ConditionText.AddText("修习条件", this.ConditionText.TitleColor);
                                 this.ConditionText.AddNewLine();
-                                foreach (Condition condition in title.Conditions.Conditions.Values)
+                                foreach (Condition condition in title.Conditions)
                                 {
                                     if (condition.CheckCondition(this.ShowingPerson))
                                     {
@@ -509,7 +509,7 @@
                                     }
                                     this.ConditionText.AddNewLine();
                                 }
-                                foreach (Condition condition in title.ArchitectureConditions.Conditions.Values)
+                                foreach (Condition condition in title.ArchitectureConditions)
                                 {
                                     if (this.ShowingPerson.LocationArchitecture != null && condition.CheckCondition(this.ShowingPerson.LocationArchitecture))
                                     {
@@ -521,7 +521,7 @@
                                     }
                                     this.ConditionText.AddNewLine();
                                 }
-                                foreach (Condition condition in title.FactionConditions.Conditions.Values)
+                                foreach (Condition condition in title.FactionConditions)
                                 {
                                     if (this.ShowingPerson.BelongedFaction != null && condition.CheckCondition(this.ShowingPerson.BelongedFaction))
                                     {
@@ -647,7 +647,7 @@
                                 this.ConditionText.AddNewLine();
                                 if ((this.ShowingPerson.LocationTroop != null) && (this.ShowingPerson == this.ShowingPerson.LocationTroop.Leader))
                                 {
-                                    foreach (Condition condition in stunt.CastConditions.Conditions.Values)
+                                    foreach (Condition condition in stunt.CastConditions)
                                     {
                                         if (condition.CheckCondition(this.ShowingPerson.LocationTroop))
                                         {
@@ -662,7 +662,7 @@
                                 }
                                 else
                                 {
-                                    foreach (Condition condition in stunt.CastConditions.Conditions.Values)
+                                    foreach (Condition condition in stunt.CastConditions)
                                     {
                                         this.ConditionText.AddText(condition.Name);
                                         this.ConditionText.AddNewLine();
@@ -671,7 +671,7 @@
                                 this.ConditionText.AddNewLine();
                                 this.ConditionText.AddText("修习条件", this.ConditionText.SubTitleColor);
                                 this.ConditionText.AddNewLine();
-                                foreach (Condition condition in stunt.LearnConditions.Conditions.Values)
+                                foreach (Condition condition in stunt.LearnConditions)
                                 {
                                     if (condition.CheckCondition(this.ShowingPerson))
                                     {
@@ -706,7 +706,7 @@
                                 this.InfluenceText.AddText("技能", this.InfluenceText.TitleColor);
                                 this.InfluenceText.AddText(this.LinkedSkills[i].Name, this.InfluenceText.SubTitleColor);
                                 this.InfluenceText.AddNewLine();
-                                foreach (Influence influence in this.LinkedSkills[i].Influences.Influences.Values)
+                                foreach (Influence influence in this.LinkedSkills[i].Influences.Values)
                                 {
                                     //阿柒:根据影响种类设定不同颜色
                                     if (influence.Kind.ID == 280 || influence.Kind.ID == 281 || influence.Kind.ID == 285 || influence.Kind.ID == 290 || influence.Kind.ID == 300)
@@ -723,7 +723,7 @@
                                 this.ConditionText.Clear();
                                 this.ConditionText.AddText("修习条件", this.ConditionText.TitleColor);
                                 this.ConditionText.AddNewLine();
-                                foreach (Condition condition in this.LinkedSkills[i].Conditions.Conditions.Values)
+                                foreach (Condition condition in this.LinkedSkills[i].Conditions)
                                 {
                                     if (condition.CheckCondition(this.ShowingPerson))
                                     {

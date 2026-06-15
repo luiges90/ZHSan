@@ -13,7 +13,7 @@ public class EventEffectKind100 : EventEffectKind
 
         if (troop != null)
         {
-            var influence = Session.Current.Scenario.GameCommonData.AllInfluences.GetInfluence(eventEffect.GetIntParam());
+            var influence = Session.Current.Scenario.GameCommonData.AllInfluences.Get(eventEffect.GetIntParam());
             if (influence != null)
             {
                 troop.EventInfluences.Add(influence);
@@ -24,7 +24,7 @@ public class EventEffectKind100 : EventEffectKind
 
     public override void ApplyEffectKind(EventEffect eventEffect, Troop troop)
     {
-        var influence = Session.Current.Scenario.GameCommonData.AllInfluences.GetInfluence(eventEffect.GetIntParam());
+        var influence = Session.Current.Scenario.GameCommonData.AllInfluences.Get(eventEffect.GetIntParam());
         if (influence != null)
         {
             troop.EventInfluences.Add(influence);

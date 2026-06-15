@@ -110,9 +110,9 @@ namespace HelpPlugin
                     branch.AddLeaf(m.Name, this.help.RichText.TitleColor.PackedValue);
                     branch.AddLeaf("\\n", this.help.RichText.DefaultColor.PackedValue);
                     branch.AddLeaf("\\n", this.help.RichText.DefaultColor.PackedValue);
-                    foreach (GameObjects.Influences.Influence i in m.Influences.Influences.Values)
+                    foreach (var influence in m.Influences.Values)
                     {
-                        branch.AddLeaf(i.Description, this.help.RichText.SubTitleColor.PackedValue);
+                        branch.AddLeaf(influence.Description, this.help.RichText.SubTitleColor.PackedValue);
                         branch.AddLeaf("\\n", this.help.RichText.DefaultColor.PackedValue);
                     }
                     this.help.TextTree.AddItem("TroopCombatMethod_" + m.ID, branch);
@@ -144,9 +144,9 @@ namespace HelpPlugin
                     branch.AddLeaf(m.Name, this.help.RichText.TitleColor.PackedValue);
                     branch.AddLeaf("\\n", this.help.RichText.DefaultColor.PackedValue);
                     branch.AddLeaf("\\n", this.help.RichText.DefaultColor.PackedValue);
-                    foreach (GameObjects.Influences.Influence i in m.Influences.Influences.Values)
+                    foreach (var influence in m.Influences.Values)
                     {
-                        branch.AddLeaf(i.Description, this.help.RichText.SubTitleColor.PackedValue);
+                        branch.AddLeaf(influence.Description, this.help.RichText.SubTitleColor.PackedValue);
                         branch.AddLeaf("\\n", this.help.RichText.DefaultColor.PackedValue);
                     }
                     this.help.TextTree.AddItem("TroopStunt_" + m.ID, branch);

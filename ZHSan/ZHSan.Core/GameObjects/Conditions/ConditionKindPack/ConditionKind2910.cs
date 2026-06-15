@@ -8,7 +8,7 @@ class ConditionKind2910 : ConditionKind
 {
     public override bool CheckConditionKind(Condition condition, Architecture arch)
     {
-        Condition c = Session.Current.Scenario.GameCommonData.AllConditions.GetCondition(condition.GetIntParam());
+        Condition c = Session.Current.Scenario.GameCommonData.AllConditions.Get(condition.GetIntParam());
 
         if (c != null && arch.Mayor != null)
         {

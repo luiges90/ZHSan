@@ -2304,7 +2304,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
                     }
                     else
                     {
-                        if (GameObject.Chance(50))
+                        if (GameObject.GetChance(50))
                         {
                             Session.Current.Scenario.ApplyYesEvents();
                         }
@@ -2535,7 +2535,7 @@ namespace WorldOfTheThreeKingdoms.GameScreens
 
         public override void TroopReceiveCriticalStrike(Troop sending, Troop receiving)
         {
-            if (!receiving.Destroyed && ((((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.CurrentPlayer.IsPositionKnown(receiving.Position)) || Session.GlobalVariables.SkyEye) && ((receiving.Status != TroopStatus.混乱) && (GameObject.Chance(receiving.Leader.Braveness * 10)))))
+            if (!receiving.Destroyed && ((((Session.Current.Scenario.CurrentPlayer == null) || Session.Current.Scenario.CurrentPlayer.IsPositionKnown(receiving.Position)) || Session.GlobalVariables.SkyEye) && ((receiving.Status != TroopStatus.混乱) && (GameObject.GetChance(receiving.Leader.Braveness * 10)))))
             {
                 this.Plugins.PersonBubblePlugin.AddPerson(receiving.Leader, receiving.Position, TextMessageKind.BeCritical, "ReceiveCriticalStrike");
             }
@@ -2638,12 +2638,12 @@ namespace WorldOfTheThreeKingdoms.GameScreens
             {
                 if (isHarmful)
                 {
-                    if (GameObject.Chance(0x21))
+                    if (GameObject.GetChance(0x21))
                     {
                         this.Plugins.PersonBubblePlugin.AddPerson(receiving.Leader, receiving.Position, TextMessageKind.TrappedByStratagem, "HarmfulStratagemSuccess");
                     }
                 }
-                else if ((sending != receiving) && GameObject.Chance(0x21))
+                else if ((sending != receiving) && GameObject.GetChance(0x21))
                 {
                     this.Plugins.PersonBubblePlugin.AddPerson(receiving.Leader, receiving.Position, TextMessageKind.HelpedByStratagem, "NoHarmStratagemSuccess");
                 }

@@ -10,18 +10,21 @@ public class ConditionKind650 : ConditionKind
     {
         var influenceId = condition.GetIntParam();
 
-        foreach (Skill i in person.Skills.Skills.Values)
+        foreach (Skill skill in person.Skills.Skills.Values)
         {
-            if (i.Influences.HasInfluence(influenceId)) return true;
+            if (skill.Influences.HasInfluence(influenceId)) return true;
         }
-        foreach (Title t in person.Titles)
+
+        foreach (Title title in person.Titles)
         {
-            if (t.Influences.HasInfluence(influenceId)) return true;
+            if (title.Influences.HasInfluence(influenceId)) return true;
         }
-        foreach (Stunt i in person.Stunts.Stunts.Values)
+
+        foreach (Stunt stunt in person.Stunts.Stunts.Values)
         {
-            if (i.Influences.HasInfluence(influenceId)) return true;
+            if (stunt.Influences.HasInfluence(influenceId)) return true;
         }
+
         return false;
     }
 }

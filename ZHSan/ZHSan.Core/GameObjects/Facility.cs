@@ -30,6 +30,13 @@ namespace GameObjects
 
         # endregion
 
+        public Facility(int id, int kindId, int endurance)
+        {
+            ID = id;
+            KindID = kindId;
+            Endurance = endurance;
+        }
+
         private FacilityKind _kind;
 
         private FacilityKind Kind
@@ -74,7 +81,7 @@ namespace GameObjects
 
         public void DoWork(Architecture architecture)
         {
-            foreach (Influence influence in Kind.Influences.Influences.Values)
+            foreach (var influence in Kind.Influences.Values)
             {
                 influence.DoWork(architecture);
             }
@@ -105,13 +112,6 @@ namespace GameObjects
         public int rongna => Kind.rongna;
 
         public bool IsProfitable => Kind.IsProfitable;
-
-        public Facility(int id, int kindId, int endurance)
-        {
-            ID = id;
-            KindID = kindId;
-            Endurance = endurance;
-        }
     }
 
     public class FacilityFactory

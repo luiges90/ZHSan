@@ -1191,11 +1191,11 @@ namespace GameObjects
                     return false;
                 }
                 //retreat if morale < 45 or has more injured troop than working troops, with 80 + 2 x calmness chance
-                if (GameObject.Chance(80 + (this.Leader.Calmness * 2)) && ((this.InjuryQuantity > this.Quantity) || (this.Morale < 45)
+                if (GameObject.GetChance(80 + (this.Leader.Calmness * 2)) && ((this.InjuryQuantity > this.Quantity) || (this.Morale < 45)
                         || (this.Army.Scales <= 5 && !this.IsTransport && this.BelongedLegion != null && this.BelongedLegion.Kind == LegionKind.Offensive)))
                 {
                     this.GoBack();
-                    if (GameObject.Chance(50))
+                    if (GameObject.GetChance(50))
                     {
                         this.AttackTargetKind = TroopAttackTargetKind.无反;
                     }
@@ -1215,7 +1215,7 @@ namespace GameObjects
                                 !this.BelongedLegion.PreferredRouteway.IsEnough(this.BelongedLegion.PreferredRouteway.LastActivePoint.ConsumptionRate, this.FoodCostPerDay))))
                     {
                         this.GoBack();
-                        if (GameObject.Chance(50))
+                        if (GameObject.GetChance(50))
                         {
                             this.AttackTargetKind = TroopAttackTargetKind.无反;
                         }
@@ -1297,7 +1297,7 @@ namespace GameObjects
                 // retreat if anyone in the team is too tired
                 foreach (Person p in this.Persons)
                 {
-                    if (p.TooTiredToBattle && GameObject.Chance(20))
+                    if (p.TooTiredToBattle && GameObject.GetChance(20))
                     {
                         this.AttackTargetKind = TroopAttackTargetKind.无反默认;
                         this.GoBack();
@@ -1330,9 +1330,9 @@ namespace GameObjects
                         friendlyFightingForce += i.FightingForce;
                     }
                     float hostileToFriendlyRatio = (float)hostileFightingForce / friendlyFightingForce;
-                    if (GameObject.Chance((int)((hostileToFriendlyRatio - 1) * 10)) &&
-                        (GameObject.Chance((int)((this.Leader.Calmness - this.Leader.Braveness + 10) * 4 * hostileToFriendlyRatio)) &&
-                        (GameObject.Chance((int)(((this.Experience + (this.Army.FollowedLeader != null ? 1000 : this.Army.LeaderExperience)) / 2000 + 10) * hostileToFriendlyRatio))) ||
+                    if (GameObject.GetChance((int)((hostileToFriendlyRatio - 1) * 10)) &&
+                        (GameObject.GetChance((int)((this.Leader.Calmness - this.Leader.Braveness + 10) * 4 * hostileToFriendlyRatio)) &&
+                        (GameObject.GetChance((int)(((this.Experience + (this.Army.FollowedLeader != null ? 1000 : this.Army.LeaderExperience)) / 2000 + 10) * hostileToFriendlyRatio))) ||
                             !this.BelongedFaction.AvailableMilitaryKinds.GetMilitaryKindList().GameObjects.Contains(this.Army.Kind)))
                     {
                         this.AttackTargetKind = TroopAttackTargetKind.无反默认;
@@ -1454,7 +1454,7 @@ namespace GameObjects
             Session.Current.Scenario.GetClosestPointsBetweenTwoAreas(dayArea, this.WillArchitecture.ArchitectureArea, out nullable, out nullable2);
             if ((this.CurrentStunt != null) || (GameObject.Random(this.Stunts.Count + 3) < 3))
             {
-                if (hasTargetTroopFlag && ((credit < 500) || (GameObject.Chance(this.Combativity) && GameObject.Chance(90))))
+                if (hasTargetTroopFlag && ((credit < 500) || (GameObject.GetChance(this.Combativity) && GameObject.GetChance(90))))
                 { //Label_0712:
                     foreach (CombatMethod method in this.CombatMethods.CombatMethods.Values.ToArray())//ToArray()添加防止集合已修改;可能无法执行枚举操作
                     {
@@ -1501,7 +1501,7 @@ namespace GameObjects
                         }
                     }
                 }
-                if ((((this.Morale <= 90) || hasTargetTroopFlag) || ((hasUnAttackableTroop || GameObject.Chance(10)) || this.HasHostileArchitectureInView())) && ((credit < 500) || (GameObject.Chance(this.Combativity) && GameObject.Chance(30))))
+                if ((((this.Morale <= 90) || hasTargetTroopFlag) || ((hasUnAttackableTroop || GameObject.GetChance(10)) || this.HasHostileArchitectureInView())) && ((credit < 500) || (GameObject.GetChance(this.Combativity) && GameObject.GetChance(30))))
                 {
                     foreach (Stratagem stratagem in this.Stratagems.Stratagems.Values)
                     {
@@ -1598,7 +1598,7 @@ namespace GameObjects
                     }
                 }
             }
-            if (this.OffenceOnlyBeforeMove && ((credit <= 0) || ((credit < 100) && GameObject.Chance(100 - credit))))
+            if (this.OffenceOnlyBeforeMove && ((credit <= 0) || ((credit < 100) && GameObject.GetChance(100 - credit))))
             {
                 this.OffenceOnlyBeforeMoveFlag = true;
                 foreach (Point point in dayArea.Area)
@@ -2020,7 +2020,7 @@ namespace GameObjects
         {
             troop.DecreaseMorale(this.GenerateMoraleDecrement(baseDecrement));
             CheckTroopRout(this, troop);
-            if (!this.IsFriendly(troop.BelongedFaction) && GameObject.Chance(20))
+            if (!this.IsFriendly(troop.BelongedFaction) && GameObject.GetChance(20))
             {
                 Person maxControversyAbilityPerson = this.Persons.GetMaxControversyAbilityPerson();
                 Person destination = troop.Persons.GetMaxControversyAbilityPerson();
@@ -2029,7 +2029,7 @@ namespace GameObjects
                     int chance = Person.ControversyWinningChance(maxControversyAbilityPerson, destination);
                     if ((maxControversyAbilityPerson.Character.ControversyChance + chance) >= 60)
                     {
-                        bool win = GameObject.Chance(chance);
+                        bool win = GameObject.GetChance(chance);
                         if (win)
                         {
                             this.IncreaseCombativity(30);
@@ -2076,7 +2076,7 @@ namespace GameObjects
             {
                 foreach (Influence influence in this.CurrentStunt.Influences.Influences.Values)
                 {
-                    influence.ApplyInfluence(this.Leader, Applier.Stunt, 0, false);
+                    influence.ApplyInfluence(this.Leader, Applier.Stunt, 0);
                 }
             }
         }
@@ -2509,7 +2509,7 @@ namespace GameObjects
                 {
                     this.EnableOneAdaptablility = true;
                     bool flag2 = false;
-                    if ((this.BelongedFaction != null) && !GameObject.Chance(0x21))
+                    if ((this.BelongedFaction != null) && !GameObject.GetChance(0x21))
                     {
                         flag2 = true;
                         foreach (Troop troop in this.BelongedFaction.Troops)
@@ -2647,7 +2647,7 @@ namespace GameObjects
                         list.ReSort();
                     }
                     current = list[GameObject.Random(list.Count / 2)] as Person;
-                    if (GameObject.Chance(GameObject.Random(current.DestroyAbility - 150)) && (GameObject.Random(current.NonFightingNumber) > GameObject.Random(current.FightingNumber)))
+                    if (GameObject.GetChance(GameObject.Random(current.DestroyAbility - 150)) && (GameObject.Random(current.NonFightingNumber) > GameObject.Random(current.FightingNumber)))
                     {
                         current.GoForDestroy(this.WillArchitecture.Position);
                     }
@@ -2662,7 +2662,7 @@ namespace GameObjects
 
         private void CallInstigate()
         {
-            if (GameObject.Chance(100 - this.WillArchitecture.noEscapeChance * 2))
+            if (GameObject.GetChance(100 - this.WillArchitecture.noEscapeChance * 2))
             {
                 if (this.WillArchitecture.Endurance >= (this.WillArchitecture.EnduranceCeiling * 0.2))
                 {
@@ -2699,7 +2699,7 @@ namespace GameObjects
                             list.ReSort();
                         }
                         current = list[GameObject.Random(list.Count / 2)] as Person;
-                        if (GameObject.Chance(GameObject.Random(current.InstigateAbility - 150)) && (GameObject.Random(current.NonFightingNumber) > GameObject.Random(current.FightingNumber)))
+                        if (GameObject.GetChance(GameObject.Random(current.InstigateAbility - 150)) && (GameObject.Random(current.NonFightingNumber) > GameObject.Random(current.FightingNumber)))
                         {
                             current.GoForInstigate(this.WillArchitecture.Position);
                         }
@@ -2742,9 +2742,9 @@ namespace GameObjects
             if (this.BelongedFaction == null || this.BelongedLegion == null || this.BelongedLegion.BelongedFaction == null) return;
             if (((this.WillArchitecture.BelongedFaction != null) && !this.IsFriendlyWithoutTruce(this.WillArchitecture.BelongedFaction)) && (Session.Current.Scenario.GetDistance(this.Position, this.WillArchitecture.Position) <= 10.0))
             {
-                if (this.BelongedFaction.IsArchitectureKnown(this.WillArchitecture) || GameObject.Chance(0x21))
+                if (this.BelongedFaction.IsArchitectureKnown(this.WillArchitecture) || GameObject.GetChance(0x21))
                 {
-                    if (GameObject.Chance(15))
+                    if (GameObject.GetChance(15))
                     {
                         if (this.WillArchitecture.Kind.HasDomination)
                         {
@@ -3020,13 +3020,13 @@ namespace GameObjects
                 PersonList personlist = new PersonList();
                 foreach (Person person in troop.Persons)
                 {
-                    if (!person.ImmunityOfCaptive && !GameObject.Chance(person.ChanceOfNoCapture) &&
+                    if (!person.ImmunityOfCaptive && !GameObject.GetChance(person.ChanceOfNoCapture) &&
                         GameObject.Random(this.CaptiveAblility) > GameObject.Random(person.CaptiveAbility + 200))
                     {
                         personlist.Add(person);
                     }
                     else if (!person.ImmunityOfCaptive && 
-                        GameObject.Chance(this.captureChance * 
+                        GameObject.GetChance(this.captureChance * 
                         ((int) (!Session.Current.Scenario.IsPlayer(this.BelongedFaction) && Session.Current.Scenario.IsPlayer(troop.BelongedFaction) ? Session.Parameters.AIExtraPerson : 1))))
                     {
                         personlist.Add(person);
@@ -3083,13 +3083,13 @@ namespace GameObjects
                 PersonList personlist = new PersonList();
                 foreach (Person person in a.Persons)
                 {
-                    if (!person.ImmunityOfCaptive && !GameObject.Chance(person.ChanceOfNoCapture) &&
+                    if (!person.ImmunityOfCaptive && !GameObject.GetChance(person.ChanceOfNoCapture) &&
                         GameObject.Random(this.CaptiveAblility) > GameObject.Random(person.CaptiveAbility + 200))
                     {
                         personlist.Add(person);
                     }
                     else if (!person.ImmunityOfCaptive &&
-                        GameObject.Chance(this.captureChance * 
+                        GameObject.GetChance(this.captureChance * 
                         ((int)(!Session.Current.Scenario.IsPlayer(this.BelongedFaction) && Session.Current.Scenario.IsPlayer(a.BelongedFaction) ? Session.Parameters.AIExtraPerson : 1))))
                     {
                         personlist.Add(person);
@@ -3285,7 +3285,7 @@ namespace GameObjects
                         {
                             foreach (Person q in sending.persons)
                             {
-                                if (GameObject.Chance((p.Uncruelty * 5 + q.Glamour / 2) / 2))
+                                if (GameObject.GetChance((p.Uncruelty * 5 + q.Glamour / 2) / 2))
                                 {
                                     p.AdjustRelation(q, 1f / Math.Max(1, sending.persons.Count), 2);
                                 }
@@ -3299,7 +3299,7 @@ namespace GameObjects
                         {
                             foreach (Person q in sending.persons)
                             {
-                                if (GameObject.Chance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2) / 2))
+                                if (GameObject.GetChance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2) / 2))
                                 {
                                     p.AdjustRelation(q, -1f / Math.Max(1, sending.persons.Count), -2);
                                 }
@@ -3311,14 +3311,14 @@ namespace GameObjects
                         foreach (Person q in sending.persons)
                         {
                             if (p == q) continue;
-                            if (GameObject.Chance(p.Uncruelty * 5 + q.Glamour / 2))
+                            if (GameObject.GetChance(p.Uncruelty * 5 + q.Glamour / 2))
                             {
                                 p.AdjustRelation(q, 2f / Math.Max(1, sending.persons.Count), 3);
                             }
                         }
                     }
                 }
-                if (GameObject.Chance(sending.stealTreasureRate) && sending.BelongedFaction != null)
+                if (GameObject.GetChance(sending.stealTreasureRate) && sending.BelongedFaction != null)
                 {
                     foreach (Person p in receiving.Persons.GetRandomList())
                     {
@@ -3351,49 +3351,49 @@ namespace GameObjects
                 {
                     foreach (KeyValuePair<int, int> i in p.CommandDecrease)
                     {
-                        if (GameObject.Chance(i.Key))
+                        if (GameObject.GetChance(i.Key))
                         {
                             receiving.Leader.BaseCommand -= i.Value;
                         }
                     }
                     foreach (KeyValuePair<int, int> i in p.StrengthDecrease)
                     {
-                        if (GameObject.Chance(i.Key))
+                        if (GameObject.GetChance(i.Key))
                         {
                             receiving.Leader.BaseStrength -= i.Value;
                         }
                     }
                     foreach (KeyValuePair<int, int> i in p.IntelligenceDecrease)
                     {
-                        if (GameObject.Chance(i.Key))
+                        if (GameObject.GetChance(i.Key))
                         {
                             receiving.Leader.BaseIntelligence -= i.Value;
                         }
                     }
                     foreach (KeyValuePair<int, int> i in p.PoliticsDecrease)
                     {
-                        if (GameObject.Chance(i.Key))
+                        if (GameObject.GetChance(i.Key))
                         {
                             receiving.Leader.BasePolitics -= i.Value;
                         }
                     }
                     foreach (KeyValuePair<int, int> i in p.GlamourDecrease)
                     {
-                        if (GameObject.Chance(i.Key))
+                        if (GameObject.GetChance(i.Key))
                         {
                             receiving.Leader.BaseGlamour -= i.Value;
                         }
                     }
                     foreach (KeyValuePair<int, int> i in p.ReputationDecrease)
                     {
-                        if (GameObject.Chance(i.Key))
+                        if (GameObject.GetChance(i.Key))
                         {
                             receiving.Leader.Reputation -= i.Value;
                         }
                     }
                     foreach (KeyValuePair<int, int> i in p.LoseSkill)
                     {
-                        if (GameObject.Chance(i.Key))
+                        if (GameObject.GetChance(i.Key))
                         {
                             for (int si = 0; si < i.Value; ++si)
                             {
@@ -3406,42 +3406,42 @@ namespace GameObjects
                     }
                     foreach (KeyValuePair<int, int> i in p.CommandIncrease)
                     {
-                        if (GameObject.Chance(i.Key))
+                        if (GameObject.GetChance(i.Key))
                         {
                             p.BaseCommand += i.Value;
                         }
                     }
                     foreach (KeyValuePair<int, int> i in p.StrengthIncrease)
                     {
-                        if (GameObject.Chance(i.Key))
+                        if (GameObject.GetChance(i.Key))
                         {
                             p.BaseStrength += i.Value;
                         }
                     }
                     foreach (KeyValuePair<int, int> i in p.IntelligenceIncrease)
                     {
-                        if (GameObject.Chance(i.Key))
+                        if (GameObject.GetChance(i.Key))
                         {
                             p.BaseIntelligence += i.Value;
                         }
                     }
                     foreach (KeyValuePair<int, int> i in p.PoliticsIncrease)
                     {
-                        if (GameObject.Chance(i.Key))
+                        if (GameObject.GetChance(i.Key))
                         {
                             p.BasePolitics += i.Value;
                         }
                     }
                     foreach (KeyValuePair<int, int> i in p.GlamourIncrease)
                     {
-                        if (GameObject.Chance(i.Key))
+                        if (GameObject.GetChance(i.Key))
                         {
                             p.BaseGlamour += i.Value;
                         }
                     }
                     foreach (KeyValuePair<int, int> i in p.ReputationIncrease)
                     {
-                        if (GameObject.Chance(i.Key))
+                        if (GameObject.GetChance(i.Key))
                         {
                             p.Reputation += i.Value;
                         }
@@ -3457,7 +3457,7 @@ namespace GameObjects
                         {
                             foreach (Person q in receiving.persons)
                             {
-                                if (GameObject.Chance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2) / 2))
+                                if (GameObject.GetChance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2) / 2))
                                 {
                                     p.AdjustRelation(q, -1f / Math.Max(1, sending.persons.Count), -2);
                                 }
@@ -3469,7 +3469,7 @@ namespace GameObjects
                         foreach (Person q in receiving.persons)
                         {
                             if (p == q) continue;
-                            if (GameObject.Chance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2)))
+                            if (GameObject.GetChance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2)))
                             {
                                 p.AdjustRelation(q, -2f / Math.Max(1, sending.persons.Count), -3);
                             }
@@ -3481,7 +3481,7 @@ namespace GameObjects
                         foreach (Person q in sending.persons)
                         {
                             if (p == q) continue;
-                            if (GameObject.Chance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2)))
+                            if (GameObject.GetChance(((5 - p.PersonalLoyalty) * 10 - q.Glamour / 2)))
                             {
                                 p.AdjustRelation(q, -2f / Math.Max(1, sending.persons.Count), -3);
                             }
@@ -3873,13 +3873,13 @@ namespace GameObjects
             }
             else
             {
-                if (!GameObject.Chance(this.chanceTirednessStopIncrease))
+                if (!GameObject.GetChance(this.chanceTirednessStopIncrease))
                 {
                     this.Army.Tiredness += Session.GlobalVariables.TirednessIncrease;
                 }
                 foreach (Person p in this.Persons)
                 {
-                    if (!GameObject.Chance(p.chanceTirednessStopIncrease) && !GameObject.Chance(this.chanceTirednessStopIncrease) && !this.IsRobber)
+                    if (!GameObject.GetChance(p.chanceTirednessStopIncrease) && !GameObject.GetChance(this.chanceTirednessStopIncrease) && !this.IsRobber)
                     {
                         p.Tiredness += Session.GlobalVariables.TirednessIncrease;
                     }
@@ -3916,7 +3916,7 @@ namespace GameObjects
                 {
                     this.DecreaseCombativity(this.DecrementPerDayOfCombativity + this.CombativityDecrementPerDayByViewArea);
                 }
-                if (GameObject.Chance(this.TirednessIncreaseChanceByViewArea))
+                if (GameObject.GetChance(this.TirednessIncreaseChanceByViewArea))
                 {
                     this.Army.Tiredness += 1;
                     foreach (Person p in this.Persons)
@@ -3924,7 +3924,7 @@ namespace GameObjects
                         p.Tiredness += 1;
                     }
                 }
-                if (GameObject.Chance(this.TirednessDecreaseChanceByViewArea) && this.Army.Tiredness > 0)
+                if (GameObject.GetChance(this.TirednessDecreaseChanceByViewArea) && this.Army.Tiredness > 0)
                 {
                     this.Army.Tiredness -= 1;
                     foreach (Person p in this.Persons)
@@ -3972,15 +3972,15 @@ namespace GameObjects
                 {
                     if (this.Tiredness <= 20)
                     {
-                        this.IncreaseMorale(((GameObject.Chance(this.Army.Leader.Command) ? 1 : 0) + (GameObject.Chance(this.Army.Leader.Command) ? 1 : 0)) * moraleRate);
+                        this.IncreaseMorale(((GameObject.GetChance(this.Army.Leader.Command) ? 1 : 0) + (GameObject.GetChance(this.Army.Leader.Command) ? 1 : 0)) * moraleRate);
                     }
                     else if (this.Tiredness <= 40)
                     {
-                        this.IncreaseMorale((GameObject.Chance(this.Army.Leader.Command) ? 1 : 0) * moraleRate);
+                        this.IncreaseMorale((GameObject.GetChance(this.Army.Leader.Command) ? 1 : 0) * moraleRate);
                     }
                     else if (this.Tiredness > 60)
                     {
-                        this.DecreaseMorale((this.Tiredness - 30) / 30 + ((GameObject.Chance(this.Army.Leader.Command) ? 1 : 0)) * moraleRate);
+                        this.DecreaseMorale((this.Tiredness - 30) / 30 + ((GameObject.GetChance(this.Army.Leader.Command) ? 1 : 0)) * moraleRate);
                     }
                 }
 
@@ -4004,11 +4004,11 @@ namespace GameObjects
                     }
                 }
 
-                if (this.ChaosDayLeft > 0 && GameObject.Chance(this.ChaosRecoverByViewArea))
+                if (this.ChaosDayLeft > 0 && GameObject.GetChance(this.ChaosRecoverByViewArea))
                 {
                     this.SetRecoverFromChaos();
                 }
-                if (GameObject.Chance(this.ChaosByViewArea))
+                if (GameObject.GetChance(this.ChaosByViewArea))
                 {
                     this.SetChaos(1 + GameObject.Random(2));
                 }
@@ -4337,7 +4337,7 @@ namespace GameObjects
             {
                 chance *= troop.OnlyBeDetectedByHighLevelInformation ? 3 : 1;
             }
-            if (GameObject.Chance(chance))
+            if (GameObject.GetChance(chance))
             {
                 this.AmbushDetected(troop);
             }
@@ -4757,7 +4757,7 @@ namespace GameObjects
             {
                 num = 1;
             }
-            if (((architecture.RecentlyBreaked <= 0) && (architecture.Endurance < 30)) && GameObject.Chance(50))
+            if (((architecture.RecentlyBreaked <= 0) && (architecture.Endurance < 30)) && GameObject.GetChance(50))
             {
                 num *= 5;
             }
@@ -5291,7 +5291,7 @@ namespace GameObjects
                         {
                             flag = true;
                             attackArchitecutreCredit = this.GetAttackArchitecutreCredit(architectureByPositionNoCheck);
-                            if ((this.ViewingHostileTroopCount > 0) || GameObject.Chance(33))
+                            if ((this.ViewingHostileTroopCount > 0) || GameObject.GetChance(33))
                             {
                                 attackArchitecutreCredit += num2;
                             }
@@ -5688,12 +5688,12 @@ namespace GameObjects
                 else
                 {
                     int chance = this.CurrentStratagem.Chance + num;
-                    flag = GameObject.Chance(chance);
+                    flag = GameObject.GetChance(chance);
                 }
             }
             else
             {
-                flag = GameObject.Chance(this.TroopIntelligence + this.StratagemChanceIncrement);
+                flag = GameObject.GetChance(this.TroopIntelligence + this.StratagemChanceIncrement);
             }
             if (!this.CurrentStratagem.Friendly)
             {
@@ -5702,7 +5702,7 @@ namespace GameObjects
                     if (this.OrientationTroop == troop)
                     {
                         this.WaitForDeepChaos = !troop.NeverBeIntoChaos && 
-                            (GameObject.Chance(this.ChaosAfterStratagemSuccessChance) || GameObject.Chance((this.TroopIntelligence - troop.TroopIntelligence) / 2));
+                            (GameObject.GetChance(this.ChaosAfterStratagemSuccessChance) || GameObject.GetChance((this.TroopIntelligence - troop.TroopIntelligence) / 2));
                         this.WaitForDeepChaosFrameCount = 100;
                     }
                     if (this.OnStratagemSuccess != null)
@@ -5875,7 +5875,7 @@ namespace GameObjects
             {
                 return 0;
             }
-            if (((this.ViewingWillArchitecture && (this.WillArchitecture != null)) && ((this.WillArchitecture.BelongedFaction == this.BelongedFaction) && (this.WillArchitecture.RecentlyAttacked <= 0))) && GameObject.Chance(0x21))
+            if (((this.ViewingWillArchitecture && (this.WillArchitecture != null)) && ((this.WillArchitecture.BelongedFaction == this.BelongedFaction) && (this.WillArchitecture.RecentlyAttacked <= 0))) && GameObject.GetChance(0x21))
             {
                 return 0;
             }
@@ -5894,7 +5894,7 @@ namespace GameObjects
                     return 10000;
                 }
             }
-            if ((this.RationDaysLeft <= 3) && ((this.RationDaysLeft != 3) || !GameObject.Chance(50)))
+            if ((this.RationDaysLeft <= 3) && ((this.RationDaysLeft != 3) || !GameObject.GetChance(50)))
             {
                 flag = false;
 
@@ -6041,7 +6041,7 @@ namespace GameObjects
                 return 0;
             }
             int num = 0;
-            if ((this.BelongedFaction.GetKnownAreaData(position) >= Session.GlobalVariables.ScoutRoutewayInformationLevel) && this.BelongedLegion != null && (this.BelongedLegion.HasCuttingRoutewayTroop || GameObject.Chance(10)))
+            if ((this.BelongedFaction.GetKnownAreaData(position) >= Session.GlobalVariables.ScoutRoutewayInformationLevel) && this.BelongedLegion != null && (this.BelongedLegion.HasCuttingRoutewayTroop || GameObject.GetChance(10)))
             {
                 foreach (Routeway routeway in Session.Current.Scenario.GetActiveRoutewayListByPosition(position))
                 {
@@ -6076,7 +6076,7 @@ namespace GameObjects
                 {
                     return 0;
                 }
-                if (Session.Current.Scenario.IsTroopViewingPosition(this.BelongedLegion.CoreTroop, position) && (this.BelongedLegion.WillArchitecture.IsViewing(position) || GameObject.Chance(10)))
+                if (Session.Current.Scenario.IsTroopViewingPosition(this.BelongedLegion.CoreTroop, position) && (this.BelongedLegion.WillArchitecture.IsViewing(position) || GameObject.GetChance(10)))
                 {
                     return 10;
                 }
@@ -6133,7 +6133,7 @@ namespace GameObjects
             {
                 if (this != this.BelongedLegion.CoreTroop)
                 {
-                    if ((((this.Army.Kind.Type == MilitaryType.水军) && (terrainKindByPosition == TerrainKind.水域)) || ((this.Army.Kind.Type != MilitaryType.水军) && (terrainKindByPosition != TerrainKind.水域))) && ((((supplyRoutePointsByPositionAndFaction.Count > 0) && (this.Position == p)) && (this.BelongedLegion.GetWillClosestTroop() == this)) && GameObject.Chance((20 + this.Leader.Calmness) - this.Leader.Braveness)))
+                    if ((((this.Army.Kind.Type == MilitaryType.水军) && (terrainKindByPosition == TerrainKind.水域)) || ((this.Army.Kind.Type != MilitaryType.水军) && (terrainKindByPosition != TerrainKind.水域))) && ((((supplyRoutePointsByPositionAndFaction.Count > 0) && (this.Position == p)) && (this.BelongedLegion.GetWillClosestTroop() == this)) && GameObject.GetChance((20 + this.Leader.Calmness) - this.Leader.Braveness)))
                     {
                         pack.Credit += 10000;
                         return pack;
@@ -6143,7 +6143,7 @@ namespace GameObjects
                         pack.Credit += 1 + ((int)((this.DistanceToWillArchitecture - distance) * 100.0));
                     }
                 }
-                else if (((this.Position == p) && (((this.Army.Kind.Type == MilitaryType.水军) && (terrainKindByPosition == TerrainKind.水域)) || ((this.Army.Kind.Type != MilitaryType.水军) && (terrainKindByPosition != TerrainKind.水域)))) && (((supplyRoutePointsByPositionAndFaction.Count > 0) && (this.BelongedLegion.GetWillClosestTroop() == this)) && GameObject.Chance((50 + this.Leader.Calmness) - this.Leader.Braveness)))
+                else if (((this.Position == p) && (((this.Army.Kind.Type == MilitaryType.水军) && (terrainKindByPosition == TerrainKind.水域)) || ((this.Army.Kind.Type != MilitaryType.水军) && (terrainKindByPosition != TerrainKind.水域)))) && (((supplyRoutePointsByPositionAndFaction.Count > 0) && (this.BelongedLegion.GetWillClosestTroop() == this)) && GameObject.GetChance((50 + this.Leader.Calmness) - this.Leader.Braveness)))
                 {
                     pack.Credit += 10000;
                     return pack;
@@ -6721,7 +6721,7 @@ namespace GameObjects
                 if (positionIndexInCurrentPath > 0)
                 {
                     float terranRateByPosition = this.GetTerranRateByPosition(position);
-                    if (!(!this.ViewingWillArchitecture || GameObject.Chance(10)))
+                    if (!(!this.ViewingWillArchitecture || GameObject.GetChance(10)))
                     {
                         return (int)((terranRateByPosition - this.CurrentRate + 1) * 10f + waterDecredit);
                     }
@@ -7012,7 +7012,7 @@ namespace GameObjects
                             {
                                 this.Enter();
                             }
-                            else if ((this.CurrentStunt == null) && GameObject.Chance(10))
+                            else if ((this.CurrentStunt == null) && GameObject.GetChance(10))
                             {
                                 this.Enter();
                             }
@@ -8902,7 +8902,7 @@ namespace GameObjects
 
         private void PostActionAI()
         {
-            if (((((!this.HasSupply || !GameObject.Chance(0x21)) && this.ControlAvail()) && ((this.RationDaysLeft == 0) || ((this.RationDaysLeft == 1) && GameObject.Chance(20)))) && this.LevyFoodAvail()) && (GameObject.Chance(50) || !this.HasHostileTroopInView()))
+            if (((((!this.HasSupply || !GameObject.GetChance(0x21)) && this.ControlAvail()) && ((this.RationDaysLeft == 0) || ((this.RationDaysLeft == 1) && GameObject.GetChance(20)))) && this.LevyFoodAvail()) && (GameObject.GetChance(50) || !this.HasHostileTroopInView()))
             {
                 TerrainDetail terrainDetailByPositionNoCheck = Session.Current.Scenario.GetTerrainDetailByPositionNoCheck(this.Position);
                 if ((terrainDetailByPositionNoCheck != null) && (terrainDetailByPositionNoCheck.GetFood(Session.Current.Scenario.Date.Season) >= (((this.RationDaysLeft + 1.5) * this.FoodCostPerDay) - this.Food)))
@@ -8996,7 +8996,7 @@ namespace GameObjects
             int chance = this.TroopIntelligence + this.StratagemChanceIncrement;
             foreach (Point point in this.StratagemArea.Area)
             {
-                if ((((this.BelongedFaction == null) && this.ViewArea.HasPoint(point)) || ((this.BelongedFaction != null) && this.BelongedFaction.IsPositionKnown(point))) && GameObject.Chance(chance))
+                if ((((this.BelongedFaction == null) && this.ViewArea.HasPoint(point)) || ((this.BelongedFaction != null) && this.BelongedFaction.IsPositionKnown(point))) && GameObject.GetChance(chance))
                 {
                     Session.Current.Scenario.ClearPositionFire(point);
                 }
@@ -10070,7 +10070,7 @@ namespace GameObjects
             ArchitectureDamage damage = new ArchitectureDamage();
             damage.SourceTroop = this;
             damage.DestinationArchitecture = architecture;
-            damage.Critical = GameObject.Chance(this.CriticalStrikeChance - (architecture.ChanceDecrementOfCriticalStrike));
+            damage.Critical = GameObject.GetChance(this.CriticalStrikeChance - (architecture.ChanceDecrementOfCriticalStrike));
             damage.Position = this.OrientationPosition;
 
                 //int num = (int) (((((this.Offence * 10) * Session.Parameters.ArchitectureDamageRate) * this.ArchitectureDamageRate) * this.StuntArchitectureDamageRate) / ((float) architecture.Domination));
@@ -10133,12 +10133,12 @@ namespace GameObjects
             damage.SourceTroop = this;
             damage.DestinationTroop = troop;
             damage.Counter = counter;
-            damage.AntiAttack = GameObject.Chance(troop.ChanceOfBlockAttack);
-            damage.AntiArrowAttack = this.ArrowOffence && (troop.IsAntiArrowAttack || GameObject.Chance(troop.ChanceOfBlockArrowAttack));
+            damage.AntiAttack = GameObject.GetChance(troop.ChanceOfBlockAttack);
+            damage.AntiArrowAttack = this.ArrowOffence && (troop.IsAntiArrowAttack || GameObject.GetChance(troop.ChanceOfBlockArrowAttack));
             damage.AntiCounterAttack = !counter && this.IsAntiCounterAttack;
-            damage.Critical = (!counter && !troop.OutburstPreventCriticalStrike) && (GameObject.Chance(this.ChanceOfMustCriticalStrike) || GameObject.Chance(this.CriticalStrikeChance - troop.AntiCriticalStrikeChance));
-            damage.OnFire = GameObject.Chance((this.ChanceOfOnFire > this.BaseChanceOfOnFire) ? this.ChanceOfOnFire : this.BaseChanceOfOnFire);
-            damage.Chaos = GameObject.Chance(this.ChanceOfChaosAttack);
+            damage.Critical = (!counter && !troop.OutburstPreventCriticalStrike) && (GameObject.GetChance(this.ChanceOfMustCriticalStrike) || GameObject.GetChance(this.CriticalStrikeChance - troop.AntiCriticalStrikeChance));
+            damage.OnFire = GameObject.GetChance((this.ChanceOfOnFire > this.BaseChanceOfOnFire) ? this.ChanceOfOnFire : this.BaseChanceOfOnFire);
+            damage.Chaos = GameObject.GetChance(this.ChanceOfChaosAttack);
             if (this.Status == TroopStatus.埋伏)
             {
                 this.Status = TroopStatus.一般;
@@ -10176,7 +10176,7 @@ namespace GameObjects
                     defence = this.DefenceConsidered;
                 }
             }
-            else if (GameObject.Chance(this.ChanceOfFixDefenceAttack) && (defence > 100))
+            else if (GameObject.GetChance(this.ChanceOfFixDefenceAttack) && (defence > 100))
             {
                 defence = 100;
             }
@@ -10188,7 +10188,7 @@ namespace GameObjects
                 damage.SourceOffence = (int) (damage.SourceOffence * (1 + this.InCityOffenseRate));
             }
 
-            if ((!troop.StuntAvoidSurround && !counter) && (this.StuntMustSurround || !GameObject.Chance(troop.AvoidSurroundedChance)))
+            if ((!troop.StuntAvoidSurround && !counter) && (this.StuntMustSurround || !GameObject.GetChance(troop.AvoidSurroundedChance)))
             {
                 TroopList surroundAttackingTroop = this.GetSurroundAttackingTroop(troop);
                 if (surroundAttackingTroop.Count >= 3)
@@ -10207,7 +10207,7 @@ namespace GameObjects
                             num3 += StaticMethods.GetRandomValue(troop2.ChaosAfterSurroundAttackChance, Session.GlobalVariables.SurroundFactor * 2 / 5);
                         }
                     }
-                    damage.Chaos = GameObject.Chance(this.ChaosAfterSurroundAttackChance + num3);
+                    damage.Chaos = GameObject.GetChance(this.ChaosAfterSurroundAttackChance + num3);
                 }
             }
             //int num4 = (int) (((damage.SourceOffence * 500) * Session.Parameters.TroopDamageRate) / ((float) defence));
@@ -10259,7 +10259,7 @@ namespace GameObjects
             {
                 this.PreAction = TroopPreAction.暴击;
                 num4 = (int)((num4 * 1.5f) * troop.RateOfCriticalDamageReceived);
-                if (!(damage.Chaos || !GameObject.Chance(this.ChaosAfterCriticalStrikeChance)))
+                if (!(damage.Chaos || !GameObject.GetChance(this.ChaosAfterCriticalStrikeChance)))
                 {
                     damage.Chaos = true;
                 }
@@ -10288,7 +10288,7 @@ namespace GameObjects
                 }
                 else if (!this.Army.Kind.AirOffence)
                 {
-                    damage.Chaos = this.InevitableChaosOnWaylay || GameObject.Chance(30);
+                    damage.Chaos = this.InevitableChaosOnWaylay || GameObject.GetChance(30);
                 }
             }
             if (damage.Counter)
@@ -10314,15 +10314,15 @@ namespace GameObjects
                     damage.DestinationMoraleChange -= this.MoraleDecrementOnPrestige;
                 }
             }
-            if (GameObject.Chance(this.ChanceOfTrippleDamage))
+            if (GameObject.GetChance(this.ChanceOfTrippleDamage))
             {
                 num4 *= 3;
             }
-            else if (GameObject.Chance(this.ChanceOfDoubleDamage))
+            else if (GameObject.GetChance(this.ChanceOfDoubleDamage))
             {
                 num4 *= 2;
             }
-            if (GameObject.Chance(troop.ChanceOfHalfDamage))
+            if (GameObject.GetChance(troop.ChanceOfHalfDamage))
             {
                 num4 /= 2;
             }
@@ -11362,7 +11362,7 @@ namespace GameObjects
                 int y = this.RealDestination.Y - this.Position.Y;
                 if (x >= 0 && y > 0)
                 {
-                    if (GameObject.Chance((int) ((double) x / y * 100.0)) )
+                    if (GameObject.GetChance((int) ((double) x / y * 100.0)) )
                     {
                         this.Position = new Point(this.Position.X + 1, this.Position.Y);
                     } 
@@ -11373,7 +11373,7 @@ namespace GameObjects
                 }
                 else if (x >= 0 && y < 0)
                 {
-                    if (GameObject.Chance((int)((double)x / Math.Abs(y) * 100.0)))
+                    if (GameObject.GetChance((int)((double)x / Math.Abs(y) * 100.0)))
                     {
                         this.Position = new Point(this.Position.X + 1, this.Position.Y);
                     }
@@ -11384,7 +11384,7 @@ namespace GameObjects
                 }
                 else if (x < 0 && y >= 0)
                 {
-                    if (GameObject.Chance((int)((double)y / Math.Abs(x) * 100.0)))
+                    if (GameObject.GetChance((int)((double)y / Math.Abs(x) * 100.0)))
                     {
                         this.Position = new Point(this.Position.X, this.Position.Y + 1);
                     }
@@ -11395,7 +11395,7 @@ namespace GameObjects
                 }
                 else
                 {
-                    if (GameObject.Chance((int)((double)Math.Abs(y) / Math.Abs(x) * 100.0)))
+                    if (GameObject.GetChance((int)((double)Math.Abs(y) / Math.Abs(x) * 100.0)))
                     {
                         this.Position = new Point(this.Position.X, this.Position.Y - 1);
                     }
@@ -12698,19 +12698,19 @@ namespace GameObjects
                     switch (this.Army.Kind.Type)
                     {
                         case MilitaryType.步兵:
-                            return GameObject.Chance(this.BelongedFaction.AntiArrowChanceIncrementOfBubing);
+                            return GameObject.GetChance(this.BelongedFaction.AntiArrowChanceIncrementOfBubing);
 
                         case MilitaryType.弩兵:
-                            return GameObject.Chance(this.BelongedFaction.AntiArrowChanceIncrementOfNubing);
+                            return GameObject.GetChance(this.BelongedFaction.AntiArrowChanceIncrementOfNubing);
 
                         case MilitaryType.骑兵:
-                            return GameObject.Chance(this.BelongedFaction.AntiArrowChanceIncrementOfQibing);
+                            return GameObject.GetChance(this.BelongedFaction.AntiArrowChanceIncrementOfQibing);
 
                         case MilitaryType.水军:
-                            return GameObject.Chance(this.BelongedFaction.AntiArrowChanceIncrementOfShuijun);
+                            return GameObject.GetChance(this.BelongedFaction.AntiArrowChanceIncrementOfShuijun);
 
                         case MilitaryType.器械:
-                            return GameObject.Chance(this.BelongedFaction.AntiArrowChanceIncrementOfQixie);
+                            return GameObject.GetChance(this.BelongedFaction.AntiArrowChanceIncrementOfQixie);
                     }
                 }
                 return false;
@@ -12730,19 +12730,19 @@ namespace GameObjects
                     switch (this.Army.Kind.Type)
                     {
                         case MilitaryType.步兵:
-                            return GameObject.Chance(this.BelongedFaction.NoCounterChanceIncrementOfBubing);
+                            return GameObject.GetChance(this.BelongedFaction.NoCounterChanceIncrementOfBubing);
 
                         case MilitaryType.弩兵:
-                            return GameObject.Chance(this.BelongedFaction.NoCounterChanceIncrementOfNubing);
+                            return GameObject.GetChance(this.BelongedFaction.NoCounterChanceIncrementOfNubing);
 
                         case MilitaryType.骑兵:
-                            return GameObject.Chance(this.BelongedFaction.NoCounterChanceIncrementOfQibing);
+                            return GameObject.GetChance(this.BelongedFaction.NoCounterChanceIncrementOfQibing);
 
                         case MilitaryType.水军:
-                            return GameObject.Chance(this.BelongedFaction.NoCounterChanceIncrementOfShuijun);
+                            return GameObject.GetChance(this.BelongedFaction.NoCounterChanceIncrementOfShuijun);
 
                         case MilitaryType.器械:
-                            return GameObject.Chance(this.BelongedFaction.NoCounterChanceIncrementOfQixie);
+                            return GameObject.GetChance(this.BelongedFaction.NoCounterChanceIncrementOfQixie);
                     }
                 }
                 return false;
@@ -14370,7 +14370,7 @@ namespace GameObjects
             {
                 if (i.Kind.ID == id)
                 {
-                    foreach (ApplyingTroop j in i.appliedTroop)
+                    foreach (ApplyTroop j in i.ApplyTroops)
                     {
                         if (j.troop == this)
                         {

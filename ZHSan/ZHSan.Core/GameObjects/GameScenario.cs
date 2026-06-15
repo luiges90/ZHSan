@@ -1228,7 +1228,7 @@ namespace GameObjects
                 }
             }
 
-            if (oldFaction != null && !GameObject.Chance((int)oldFaction.Leader.PersonalLoyalty * 10))
+            if (oldFaction != null && !GameObject.GetChance((int)oldFaction.Leader.PersonalLoyalty * 10))
             {
                 oldFaction.Leader.AddHated(leader, -2000);
                 leader.AdjustRelation(oldFaction.Leader, -60f, -10);
@@ -1245,10 +1245,10 @@ namespace GameObjects
                 if ((p.BelongedFaction == null || p.BelongedFaction == oldFaction) && !p.IsCaptive && p.Status != PersonStatus.Princess && p != leader)
                 {
                     int offset = Person.GetIdealOffset(leader, p);
-                    if (p.HasCloseStrainTo(leader) || p.IsVeryCloseTo(leader) || (GameObject.Chance(100 - offset * 20) && p.BelongedFaction == oldFaction))
+                    if (p.HasCloseStrainTo(leader) || p.IsVeryCloseTo(leader) || (GameObject.GetChance(100 - offset * 20) && p.BelongedFaction == oldFaction))
                     {
-                        if (p.BelongedFaction == null || p.IsVeryCloseTo(leader) || (GameObject.Chance(100 - ((int)p.PersonalLoyalty) * 25 + (5 - offset) * 10)
-                            && GameObject.Chance(220 - p.Loyalty * 2 + (5 - offset) * 20)))
+                        if (p.BelongedFaction == null || p.IsVeryCloseTo(leader) || (GameObject.GetChance(100 - ((int)p.PersonalLoyalty) * 25 + (5 - offset) * 10)
+                            && GameObject.GetChance(220 - p.Loyalty * 2 + (5 - offset) * 20)))
                         {
                             if (p.BelongedFaction != null)
                             {
@@ -1684,7 +1684,7 @@ namespace GameObjects
             List<Point> list = new List<Point>();
             foreach (Point point in this.FireTable.Positions)
             {
-                if (GameObject.Chance(Session.Parameters.FireStayProb))
+                if (GameObject.GetChance(Session.Parameters.FireStayProb))
                 {
                     list.Add(point);
                 }
@@ -1734,7 +1734,7 @@ namespace GameObjects
                             chance = 6;
                             break;
                     }
-                    if (GameObject.Chance((int)(chance * Session.Parameters.FireSpreadProbMultiply)))
+                    if (GameObject.GetChance((int)(chance * Session.Parameters.FireSpreadProbMultiply)))
                     {
                         this.SetPositionOnFire(point);
                         Troop troopByPosition = this.GetTroopByPosition(point);
@@ -2831,135 +2831,100 @@ namespace GameObjects
 
             commonData.TroopAnimations = new TroopAnimation();
 
+            // TODO: CommonData需移除InfluenceTable
+            var allInfluences = commonData.AllInfluences.Values.ToDictionary(x => x.ID, x => x);
+            var allConditions = commonData.AllConditions.Conditions;
+
             LoadGameCommonData();
 
-            if (commonData.AllTerrainDetails != null && commonData.AllTerrainDetails.TerrainDetails != null)
+            foreach (var terrainDetail in commonData.AllTerrainDetails?.TerrainDetails?.Values ?? Enumerable.Empty<TerrainDetail>())
             {
-                foreach (var terrainDetail in commonData.AllTerrainDetails.TerrainDetails)
-                {
-                    terrainDetail.Value.Init();
-                }
+                terrainDetail.Init();
             }
 
-            if (commonData.AllInfluences != null && commonData.AllInfluences.Influences != null)
+            foreach (var influence in allInfluences.Values ?? Enumerable.Empty<Influence>())
             {
-                foreach (var influence in commonData.AllInfluences.Influences)
-                {
-                    influence.Value.Init();
-                }
+                influence.Init();
             }
 
-            if (commonData.AllFacilityKinds != null && commonData.AllFacilityKinds.FacilityKinds != null)
+            foreach (var facilityKind in commonData.AllFacilityKinds?.FacilityKinds?.Values ?? Enumerable.Empty<FacilityKind>())
             {
-                foreach (var facilityKind in commonData.AllFacilityKinds.FacilityKinds)
-                {
-                    facilityKind.Value.Init();
-
-                    facilityKind.Value.Influences.LoadFromString(commonData.AllInfluences, facilityKind.Value.InfluencesString);
-
-                    facilityKind.Value.Conditions.LoadFromString(commonData.AllConditions, facilityKind.Value.ConditionTableString);
-
-                    facilityKind.Value.AIBuildConditionWeight = Condition.LoadConditionWeightFromString(commonData.AllConditions, facilityKind.Value.AIBuildConditionWeightString);
-                }
+                facilityKind.Influences = new InfluenceTable(StaticMethods.LoadFromString(allInfluences, facilityKind.InfluencesString));
+                facilityKind.Conditions = new ConditionTable(StaticMethods.LoadFromString(allConditions, facilityKind.ConditionTableString));
+                facilityKind.AIBuildConditionWeight = Condition.LoadConditionWeightFromString(allConditions, facilityKind.AIBuildConditionWeightString);
             }
 
-            if (commonData.AllTechniques != null && commonData.AllTechniques.Techniques != null)
+            foreach (var technique in commonData.AllTechniques?.Techniques?.Values ?? Enumerable.Empty<Technique>())
             {
-                foreach (var technique in commonData.AllTechniques.Techniques)
-                {
-                    technique.Value.Init();
-                    technique.Value.Influences.LoadFromString(commonData.AllInfluences, technique.Value.InfluencesString);
-                    technique.Value.Conditions.LoadFromString(commonData.AllConditions, technique.Value.ConditionTableString);
-                    technique.Value.AIConditionWeight = Condition.LoadConditionWeightFromString(commonData.AllConditions, technique.Value.AIConditionWeightString);
-                }
+                technique.Influences = new InfluenceTable(StaticMethods.LoadFromString(allInfluences, technique.InfluencesString));
+                technique.Conditions = StaticMethods.LoadFromString(allConditions, technique.ConditionTableString).Values.ToList();
+                technique.AIConditionWeight = Condition.LoadConditionWeightFromString(allConditions, technique.AIConditionWeightString);
             }
 
-            if (commonData.AllSkills != null && commonData.AllSkills.Skills != null)
+            foreach (var skill in commonData.AllSkills?.Skills?.Values ?? Enumerable.Empty<Skill>())
             {
-                foreach (var skill in commonData.AllSkills.Skills)
-                {
-                    skill.Value.Init();
-                    skill.Value.Influences.LoadFromString(commonData.AllInfluences, skill.Value.InfluencesString);
-                    skill.Value.Conditions.LoadFromString(commonData.AllConditions, skill.Value.ConditionTableString);
-                }
+                skill.Influences = new InfluenceTable(StaticMethods.LoadFromString(allInfluences, skill.InfluencesString));
+                skill.Conditions = StaticMethods.LoadFromString(allConditions, skill.ConditionTableString).Values.ToList();
             }
 
-            if (commonData.AllTitles != null && commonData.AllTitles.Titles != null)
+            foreach (var title in commonData.AllTitles?.Titles?.Values ?? Enumerable.Empty<Title>())
             {
-                foreach (var title in commonData.AllTitles.Titles)
-                {
-                    title.Value.Init();
-                    title.Value.Influences.LoadFromString(commonData.AllInfluences, title.Value.InfluencesString);
-                    title.Value.Conditions.LoadFromString(commonData.AllConditions, title.Value.ConditionTableString);
-                    title.Value.ArchitectureConditions.LoadFromString(commonData.AllConditions, title.Value.ArchitectureConditionsString);
-                    title.Value.FactionConditions.LoadFromString(commonData.AllConditions, title.Value.FactionConditionsString);
-                    title.Value.LoseConditions.LoadFromString(commonData.AllConditions, title.Value.LoseConditionsString);
-                    title.Value.GenerateConditions.LoadFromString(commonData.AllConditions, title.Value.GenerateConditionsString);
-                }
+                title.Init();
+                title.Influences = new InfluenceTable(StaticMethods.LoadFromString(allInfluences, title.InfluencesString));
+                title.Conditions = StaticMethods.LoadFromString(allConditions, title.ConditionTableString).Values.ToList();
+                title.ArchitectureConditions = StaticMethods.LoadFromString(allConditions, title.ArchitectureConditionsString).Values.ToList();
+                title.FactionConditions = StaticMethods.LoadFromString(allConditions, title.FactionConditionsString).Values.ToList();
+                title.LoseConditions = StaticMethods.LoadFromString(allConditions, title.LoseConditionsString).Values.ToList();
+                title.GenerateConditions = StaticMethods.LoadFromString(allConditions, title.GenerateConditionsString).Values.ToList();
             }
 
-            if (commonData.AllMilitaryKinds != null && commonData.AllMilitaryKinds.MilitaryKinds != null)
+            foreach (var militaryKind in commonData.AllMilitaryKinds?.MilitaryKinds?.Values ?? Enumerable.Empty<MilitaryKind>())
             {
-                foreach (var militaryKind in commonData.AllMilitaryKinds.MilitaryKinds)
-                {
-                    militaryKind.Value.Init();
-
-                    militaryKind.Value.Influences.LoadFromString(commonData.AllInfluences, militaryKind.Value.InfluencesString);
-
-                    militaryKind.Value.CreateConditions.LoadFromString(commonData.AllConditions, militaryKind.Value.CreateConditionsString);
-
-                    militaryKind.Value.AICreateArchitectureConditionWeight = Condition.LoadConditionWeightFromString(commonData.AllConditions, militaryKind.Value.AICreateArchitectureConditionWeightString);
-                    militaryKind.Value.AIUpgradeArchitectureConditionWeight = Condition.LoadConditionWeightFromString(commonData.AllConditions, militaryKind.Value.AIUpgradeArchitectureConditionWeightString);
-                    militaryKind.Value.AIUpgradeLeaderConditionWeight = Condition.LoadConditionWeightFromString(commonData.AllConditions, militaryKind.Value.AIUpgradeLeaderConditionWeightString);
-                    militaryKind.Value.AILeaderConditionWeight = Condition.LoadConditionWeightFromString(commonData.AllConditions, militaryKind.Value.AILeaderConditionWeightString);
-
-                    militaryKind.Value.successor = new MilitaryKindTable();
-                    militaryKind.Value.successor.LoadFromString(commonData.AllMilitaryKinds, militaryKind.Value.SuccessorString);
-                }
+                militaryKind.Init();
+                militaryKind.Influences = new InfluenceTable(StaticMethods.LoadFromString(allInfluences, militaryKind.InfluencesString));
+                militaryKind.CreateConditions = StaticMethods.LoadFromString(allConditions, militaryKind.CreateConditionsString).Values.ToList();
+                militaryKind.AICreateArchitectureConditionWeight = Condition.LoadConditionWeightFromString(allConditions, militaryKind.AICreateArchitectureConditionWeightString);
+                militaryKind.AIUpgradeArchitectureConditionWeight = Condition.LoadConditionWeightFromString(allConditions, militaryKind.AIUpgradeArchitectureConditionWeightString);
+                militaryKind.AIUpgradeLeaderConditionWeight = Condition.LoadConditionWeightFromString(allConditions, militaryKind.AIUpgradeLeaderConditionWeightString);
+                militaryKind.AILeaderConditionWeight = Condition.LoadConditionWeightFromString(allConditions, militaryKind.AILeaderConditionWeightString);
+                militaryKind.successor = new MilitaryKindTable();
+                militaryKind.successor.LoadFromString(commonData.AllMilitaryKinds, militaryKind.SuccessorString);
             }
 
-            if (commonData.AllCombatMethods != null && commonData.AllCombatMethods.CombatMethods != null)
+            foreach (var combatMethod in commonData.AllCombatMethods?.CombatMethods?.Values ?? Enumerable.Empty<CombatMethod>())
             {
-                foreach (var combatMethod in commonData.AllCombatMethods.CombatMethods)
-                {
-                    combatMethod.Value.Init();
-
-                    combatMethod.Value.Influences.LoadFromString(commonData.AllInfluences, combatMethod.Value.InfluencesString);
-
-                    combatMethod.Value.AttackDefault = commonData.AllAttackDefaultKinds.GetGameObject(combatMethod.Value.AttackDefaultString) as AttackDefaultKind;
-                    combatMethod.Value.AttackTarget = commonData.AllAttackTargetKinds.GetGameObject(combatMethod.Value.AttackTargetString) as AttackTargetKind;
-
-                    combatMethod.Value.CastConditions.LoadFromString(commonData.AllConditions, combatMethod.Value.CastConditionsString);
-
-                    combatMethod.Value.AIConditionWeightSelf = Condition.LoadConditionWeightFromString(commonData.AllConditions, combatMethod.Value.AIConditionWeightSelfString);
-                    combatMethod.Value.AIConditionWeightEnemy = Condition.LoadConditionWeightFromString(commonData.AllConditions, combatMethod.Value.AIConditionWeightEnemyString);
-                }
+                combatMethod.Influences = new InfluenceTable(StaticMethods.LoadFromString(allInfluences, combatMethod.InfluencesString));
+                combatMethod.AttackDefault = commonData.AllAttackDefaultKinds.GetGameObject(combatMethod.AttackDefaultString) as AttackDefaultKind;
+                combatMethod.AttackTarget = commonData.AllAttackTargetKinds.GetGameObject(combatMethod.AttackTargetString) as AttackTargetKind;
+                combatMethod.CastConditions = StaticMethods.LoadFromString(allConditions, combatMethod.CastConditionsString).Values.ToList();
+                combatMethod.AIConditionWeightSelf = Condition.LoadConditionWeightFromString(allConditions, combatMethod.AIConditionWeightSelfString);
+                combatMethod.AIConditionWeightEnemy = Condition.LoadConditionWeightFromString(allConditions, combatMethod.AIConditionWeightEnemyString);
             }
 
-            if (commonData.AllStunts != null && commonData.AllStunts.Stunts != null)
+            foreach (var stunt in commonData.AllStunts?.Stunts?.Values ?? Enumerable.Empty<Stunt>())
             {
-                foreach (var stunt in commonData.AllStunts.Stunts)
-                {
-                    stunt.Value.Init();
-                    stunt.Value.Influences.LoadFromString(commonData.AllInfluences, stunt.Value.InfluencesString);
-                    stunt.Value.CastConditions.LoadFromString(commonData.AllConditions, stunt.Value.CastConditionsString);
-                    stunt.Value.LearnConditions.LoadFromString(commonData.AllConditions, stunt.Value.LearnConditionsString);
-                    stunt.Value.AIConditions.LoadFromString(commonData.AllConditions, stunt.Value.AIConditionsString);
-                }
+                stunt.Influences = new InfluenceTable(StaticMethods.LoadFromString(allInfluences, stunt.InfluencesString));
+                stunt.CastConditions = StaticMethods.LoadFromString(allConditions, stunt.CastConditionsString).Values.ToList();
+                stunt.LearnConditions = StaticMethods.LoadFromString(allConditions, stunt.LearnConditionsString).Values.ToList();
+                stunt.AIConditions = StaticMethods.LoadFromString(allConditions, stunt.AIConditionsString).Values.ToList();
             }
 
-            if (commonData.AllStratagems != null && commonData.AllStratagems.Stratagems != null)
+            foreach (var stratagem in commonData.AllStratagems?.Stratagems?.Values ?? Enumerable.Empty<Stratagem>())
             {
-                foreach (var stratagem in commonData.AllStratagems.Stratagems)
-                {
-                    stratagem.Value.Init();
-                    stratagem.Value.Influences.LoadFromString(commonData.AllInfluences, stratagem.Value.InfluencesString);
-                    stratagem.Value.CastConditions.LoadFromString(commonData.AllConditions, stratagem.Value.CastConditionsString);
-                    stratagem.Value.CastDefault = commonData.AllCastDefaultKinds.GetGameObject(stratagem.Value.CastDefaultString) as CastDefaultKind;
-                    stratagem.Value.CastTarget = commonData.AllCastTargetKinds.GetGameObject(stratagem.Value.CastTargetString) as CastTargetKind;
-                    stratagem.Value.AIConditionWeightSelf = Condition.LoadConditionWeightFromString(commonData.AllConditions, stratagem.Value.AIConditionWeightSelfString);
-                    stratagem.Value.AIConditionWeightEnemy = Condition.LoadConditionWeightFromString(commonData.AllConditions, stratagem.Value.AIConditionWeightEnemyString);
-                }
+                stratagem.Influences = new InfluenceTable(StaticMethods.LoadFromString(allInfluences, stratagem.InfluencesString));
+                stratagem.CastConditions = StaticMethods.LoadFromString(allConditions, stratagem.CastConditionsString).Values.ToList();
+                stratagem.CastDefault = commonData.AllCastDefaultKinds.GetGameObject(stratagem.CastDefaultString) as CastDefaultKind;
+                stratagem.CastTarget = commonData.AllCastTargetKinds.GetGameObject(stratagem.CastTargetString) as CastTargetKind;
+                stratagem.AIConditionWeightSelf = Condition.LoadConditionWeightFromString(allConditions, stratagem.AIConditionWeightSelfString);
+                stratagem.AIConditionWeightEnemy = Condition.LoadConditionWeightFromString(allConditions, stratagem.AIConditionWeightEnemyString);
+            }
+
+            // 数据转业务实体
+            commonData.AllStatusEffects = commonData.allStatusEffects?.Values.Select(config => new StatusEffect(config)).ToDictionary(x => x.ID, x => x);
+
+            foreach (var statusEffect in commonData.AllStatusEffects?.Values ?? Enumerable.Empty<StatusEffect>())
+            {
+                statusEffect.Influences = new InfluenceTable(StaticMethods.LoadFromString(allInfluences, statusEffect.InfluenceString));
             }
 
             return commonData;
@@ -3391,8 +3356,7 @@ namespace GameObjects
                     }
                 }
 
-                //architecture.CharacteristicsString = reader["Characteristics"].ToString();
-                e.AddRange(architecture.Characteristics.LoadFromString(this.GameCommonData.AllInfluences, architecture.CharacteristicsString));
+                architecture.Characteristics = new InfluenceTable(StaticMethods.LoadFromString(GameCommonData.AllInfluences.Influences, architecture.CharacteristicsString));
 
                 //architecture.ArchitectureAreaString = reader["Area"].ToString();
 
@@ -3694,23 +3658,20 @@ namespace GameObjects
 
             this.DiplomaticRelations.Init(this.Factions);
 
-            foreach (Treasure treasure in this.Treasures)
+            foreach (Treasure treasure in Treasures)
             {
-                treasure.Init();
-
                 //treasure.HidePlaceIDString = (short)reader["HidePlace"];
-                treasure.HidePlace = this.AllArchitectures.ContainsKey(treasure.HidePlaceIDString) ? this.AllArchitectures[treasure.HidePlaceIDString] : null;
+                treasure.HidePlace = AllArchitectures.ContainsKey(treasure.HidePlaceIDString) ? AllArchitectures[treasure.HidePlaceIDString] : null;
 
                 //treasure.BelongedPersonIDString = (short)reader["BelongedPerson"];
-                treasure.BelongedPerson = this.AllPersons.ContainsKey(treasure.BelongedPersonIDString) ? this.AllPersons[treasure.BelongedPersonIDString] : null;
+                treasure.BelongedPerson = AllPersons.ContainsKey(treasure.BelongedPersonIDString) ? AllPersons[treasure.BelongedPersonIDString] : null;
                 
                 if (treasure.BelongedPerson != null)
                 {
                     treasure.BelongedPerson.Treasures.Add(treasure);
                 }
 
-                //treasure.InfluencesString = reader["Influences"].ToString();
-                treasure.Influences.LoadFromString(this.GameCommonData.AllInfluences, treasure.InfluencesString);
+                treasure.Influences = new InfluenceTable(StaticMethods.LoadFromString(GameCommonData.AllInfluences.Influences, treasure.InfluencesString));
 
                 //this.Treasures.AddTreasure(treasure);
             }
@@ -3727,8 +3688,7 @@ namespace GameObjects
                 //te.LaunchPersonString = (short)reader["LaunchPerson"];
                 te.LaunchPerson = this.Persons.GetGameObject(te.LaunchPersonString) as Person;
 
-                //te.ConditionsString = reader["Conditions"].ToString();
-                te.Conditions.LoadFromString(this.GameCommonData.AllConditions, te.ConditionsString);
+                te.Conditions = StaticMethods.LoadFromString(GameCommonData.AllConditions.Conditions, te.ConditionsString).Values.ToList();
 
                 //te.TargetPersonsString = reader["TargetPersons"].ToString();
                 te.LoadTargetPersonFromString(this.AllPersons, te.TargetPersonsString);
@@ -4120,7 +4080,7 @@ namespace GameObjects
             if (strongestAI == null || strongestPlayer == null) return;
 
 
-            if (GameObject.Chance((int)(((float)strongestPlayerPower / strongestAIPower - Session.GlobalVariables.AIMergeAgainstPlayer) * 100)))
+            if (GameObject.GetChance((int)(((float)strongestPlayerPower / strongestAIPower - Session.GlobalVariables.AIMergeAgainstPlayer) * 100)))
             {
                 GameObjectList fl = this.Factions.GetList();
                 fl.IsNumber = true;
@@ -4135,7 +4095,7 @@ namespace GameObjects
 
                     if (!f.Leader.Hates(strongestAI.Leader))
                     {
-                        if (GameObject.Chance((int)(Person.GetIdealAttraction(strongestAI.Leader, f.Leader) + strongestPlayerPower / strongestAIPower * 100)))
+                        if (GameObject.GetChance((int)(Person.GetIdealAttraction(strongestAI.Leader, f.Leader) + strongestPlayerPower / strongestAIPower * 100)))
                         {
                             if (strongestAI.adjacentTo(f) && this.GetDiplomaticRelation(strongestAI.ID, f.ID) > 0)
                             {
@@ -4240,7 +4200,7 @@ namespace GameObjects
                             {
                                 factor = 3.0f;
                             }
-                            else if (p.SameLocationAs(q) && p.Hates(q) && p.Spouse == q && GameObject.Chance(50))
+                            else if (p.SameLocationAs(q) && p.Hates(q) && p.Spouse == q && GameObject.GetChance(50))
                             {
                                 factor = 3.0f;
                             }
@@ -4248,23 +4208,23 @@ namespace GameObjects
                             {
                                 factor = 1.0f;
                             } 
-                            else if (p.SameLocationAs(q) && GameObject.Chance(50))
+                            else if (p.SameLocationAs(q) && GameObject.GetChance(50))
                             {
                                 factor = 1.0f;
                             }
-                            else if (p.BelongedFactionWithPrincess == q.BelongedFactionWithPrincess && GameObject.Chance(20))
+                            else if (p.BelongedFactionWithPrincess == q.BelongedFactionWithPrincess && GameObject.GetChance(20))
                             {
                                 factor = 1.0f;
                             }
 
                             if (factor > 0)
                             {
-                                if (GameObject.Chance((int) (likeability / 4.0f)))
+                                if (GameObject.GetChance((int) (likeability / 4.0f)))
                                 {
                                     p.AdjustRelation(q, 6f * factor, 2 * factor);
                                     q.AdjustRelation(p, 6f * factor, 2 * factor);
                                 }
-                                else if (GameObject.Chance((int)(-likeability / 4.0f)))
+                                else if (GameObject.GetChance((int)(-likeability / 4.0f)))
                                 {
                                     p.AdjustRelation(q, -6f * factor, -2 * factor);
                                     q.AdjustRelation(p, -6f * factor, -2 * factor);
@@ -4274,7 +4234,7 @@ namespace GameObjects
 
                         if (p.GetRelation(q) > 0)
                         {
-                            if (!p.Closes(q) && GameObject.Chance((5 - p.PersonalLoyalty) * 20 - 10))
+                            if (!p.Closes(q) && GameObject.GetChance((5 - p.PersonalLoyalty) * 20 - 10))
                             {
                                 float d = (float) Session.Parameters.CloseThreshold / Math.Max(10, p.GetRelation(q));
                                 if (p.LocationArchitecture == q.LocationArchitecture || p.LocationTroop == q.LocationTroop)
@@ -4775,7 +4735,7 @@ namespace GameObjects
                 {
                     architecture.KindId = architecture.Kind.ID;
                     architecture.StateID = architecture.LocationState.ID;
-                    architecture.CharacteristicsString = architecture.Characteristics.SaveToString();
+                    architecture.CharacteristicsString = StaticMethods.SaveIdToString(architecture.Characteristics.Values);
 
                     architecture.ArchitectureAreaString = StaticMethods.SaveToString(architecture.ArchitectureArea.Area);
 
@@ -4878,7 +4838,7 @@ namespace GameObjects
                 {
                     event2.AfterEventHappened = (event2.AfterHappenedEvent != null) ? event2.AfterHappenedEvent.ID : -1;
                     event2.LaunchPersonString = (event2.LaunchPerson != null) ? event2.LaunchPerson.ID : -1;
-                    event2.ConditionsString = event2.Conditions.SaveToString();
+                    event2.ConditionsString = StaticMethods.SaveIdToString(event2.Conditions);
                     event2.TargetPersonsString = event2.SaveTargetPersonToString();
                     event2.SelfEffectsString = event2.SaveSelfEffectToString();
                     event2.EffectPersonsString = event2.SaveEffectPersonToString();
@@ -5093,7 +5053,7 @@ namespace GameObjects
             {
                 treasure.BelongedPersonIDString = (treasure.BelongedPerson != null) ? treasure.BelongedPerson.ID : -1;
                 treasure.HidePlaceIDString = (treasure.HidePlace != null) ? treasure.HidePlace.ID : -1;
-                treasure.InfluencesString = treasure.Influences.SaveToString();
+                treasure.InfluencesString = StaticMethods.SaveIdToString(treasure.Influences.Values);
                 treasure.Available = (treasure.BelongedPerson != null) ? true : false;
                 if (treasure.Available)
                 {
@@ -5260,7 +5220,7 @@ namespace GameObjects
                 {
                     ck.ID = num;
                     ck.Name = conditionKind.Value.Name;
-                    conditionKinds.AddConditionKind(ck);
+                    conditionKinds.Add(ck);
                 }
                 else
                 {
@@ -5301,7 +5261,7 @@ namespace GameObjects
                     ck.Combat = influenceKind.Value.Combat;
                     ck.AIPersonValue = influenceKind.Value.AIPersonValue;
                     ck.AIPersonValuePow = influenceKind.Value.AIPersonValuePow;
-                    influenceKinds.AddInfluenceKind(ck);
+                    influenceKinds.Add(ck);
                 }
                 else
                 {
@@ -5440,7 +5400,7 @@ namespace GameObjects
                 {
                     ck.ID = num;
                     ck.Name = conditionKind.Value.Name;
-                    conditionKinds.AddConditionKind(ck);
+                    conditionKinds.Add(ck);
                 }
                 else
                 {
@@ -5462,7 +5422,7 @@ namespace GameObjects
                 if (commonData.AllConditionKinds.ConditionKinds.TryGetValue(kindId, out var matchedKind))
                 {
                     condition.Kind = matchedKind;
-                    allConditions.AddCondition(condition);
+                    allConditions.Add(condition);
                 }
                 else
                 {
@@ -5484,7 +5444,7 @@ namespace GameObjects
                     ck.Combat = influenceKind.Value.Combat;
                     ck.AIPersonValue = influenceKind.Value.AIPersonValue;
                     ck.AIPersonValuePow = influenceKind.Value.AIPersonValuePow;
-                    influenceKinds.AddInfluenceKind(ck);
+                    influenceKinds.Add(ck);
                 }
                 else
                 {
@@ -5506,7 +5466,7 @@ namespace GameObjects
                 if (commonData.AllInfluenceKinds.InfluenceKinds.TryGetValue(kindId, out var matchedKind))
                 {
                     influence.Kind = matchedKind;
-                    allInfluences.AddInfluence(influence);
+                    allInfluences.Add(influence);
                 }
                 else
                 {
@@ -6247,7 +6207,7 @@ namespace GameObjects
                         GameObjectList candidate = new GameObjectList();
                         foreach (Person q in this.Persons)
                         {
-                            if (GameObject.Chance(10) && q.IsValidTeacher(p) && !q.Hates(p) && !p.Hates(q))
+                            if (GameObject.GetChance(10) && q.IsValidTeacher(p) && !q.Hates(p) && !p.Hates(q))
                             {
                                 candidate.Add(q);
                             }
@@ -6272,17 +6232,17 @@ namespace GameObjects
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
                                     //if (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q)) continue;
-                                    if (GameObject.Chance((int)((q.Strength - p.Strength + 50 + q.childrenAbilityIncrease) * ((float)p.StrengthPotential / p.Strength))))
+                                    if (GameObject.GetChance((int)((q.Strength - p.Strength + 50 + q.childrenAbilityIncrease) * ((float)p.StrengthPotential / p.Strength))))
                                     {
                                         p.Strength += GameObject.Random(Math.Max((p.StrengthPotential * 6 / 5 - p.Strength) / 10, 1) + 1);
                                         p.AdjustRelation(q, 5, 5);
                                         q.AdjustRelation(p, 2, 5);
-                                        if (GameObject.Chance(30))
+                                        if (GameObject.GetChance(30))
                                         {
                                             Dictionary<Person, int> rels = q.GetAllRelations();
                                             foreach (KeyValuePair<Person, int> rel in rels)
                                             {
-                                                if (GameObject.Chance(100 / rels.Count))
+                                                if (GameObject.GetChance(100 / rels.Count))
                                                 {
                                                     p.AdjustRelation(rel.Key, 2, Math.Min(5, rel.Value / 10));
                                                 }
@@ -6300,17 +6260,17 @@ namespace GameObjects
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
                                     //if (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q)) continue;
-                                    if (GameObject.Chance((int)((q.Command - p.Command + 50 + q.childrenAbilityIncrease) * ((float)p.CommandPotential / p.Command))))
+                                    if (GameObject.GetChance((int)((q.Command - p.Command + 50 + q.childrenAbilityIncrease) * ((float)p.CommandPotential / p.Command))))
                                     {
                                         p.Command += GameObject.Random(Math.Max((p.CommandPotential * 6 / 5 - p.Command) / 10, 1) + 1);
                                         p.AdjustRelation(q, 5, 5);
                                         q.AdjustRelation(p, 2, 5);
-                                        if (GameObject.Chance(30))
+                                        if (GameObject.GetChance(30))
                                         {
                                             Dictionary<Person, int> rels = q.GetAllRelations();
                                             foreach (KeyValuePair<Person, int> rel in rels)
                                             {
-                                                if (GameObject.Chance(100 / rels.Count))
+                                                if (GameObject.GetChance(100 / rels.Count))
                                                 {
                                                     p.AdjustRelation(rel.Key, 2, Math.Min(5, rel.Value / 10));
                                                 }
@@ -6328,17 +6288,17 @@ namespace GameObjects
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
                                     //if (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q)) continue;
-                                    if (GameObject.Chance((int)((q.Intelligence - p.Intelligence + 50 + q.childrenAbilityIncrease) * ((float)p.IntelligencePotential / p.Intelligence))))
+                                    if (GameObject.GetChance((int)((q.Intelligence - p.Intelligence + 50 + q.childrenAbilityIncrease) * ((float)p.IntelligencePotential / p.Intelligence))))
                                     {
                                         p.Intelligence += GameObject.Random(Math.Max((p.IntelligencePotential * 6 / 5 - p.Intelligence) / 10, 1) + 1);
                                         p.AdjustRelation(q, 5, 5);
                                         q.AdjustRelation(p, 2, 5);
-                                        if (GameObject.Chance(30))
+                                        if (GameObject.GetChance(30))
                                         {
                                             Dictionary<Person, int> rels = q.GetAllRelations();
                                             foreach (KeyValuePair<Person, int> rel in rels)
                                             {
-                                                if (GameObject.Chance(100 / rels.Count))
+                                                if (GameObject.GetChance(100 / rels.Count))
                                                 {
                                                     p.AdjustRelation(rel.Key, 2, Math.Min(5, rel.Value / 10));
                                                 }
@@ -6356,17 +6316,17 @@ namespace GameObjects
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
                                     //if (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q)) continue;
-                                    if (GameObject.Chance((int)((q.Politics - p.Politics + 50 + q.childrenAbilityIncrease) * ((float)p.PoliticsPotential / p.Politics))))
+                                    if (GameObject.GetChance((int)((q.Politics - p.Politics + 50 + q.childrenAbilityIncrease) * ((float)p.PoliticsPotential / p.Politics))))
                                     {
                                         p.Politics += GameObject.Random(Math.Max((p.PoliticsPotential * 6 / 5 - p.Politics) / 10, 1) + 1);
                                         p.AdjustRelation(q, 5, 5);
                                         q.AdjustRelation(p, 2, 5);
-                                        if (GameObject.Chance(30))
+                                        if (GameObject.GetChance(30))
                                         {
                                             Dictionary<Person, int> rels = q.GetAllRelations();
                                             foreach (KeyValuePair<Person, int> rel in rels)
                                             {
-                                                if (GameObject.Chance(100 / rels.Count))
+                                                if (GameObject.GetChance(100 / rels.Count))
                                                 {
                                                     p.AdjustRelation(rel.Key, 2, Math.Min(5, rel.Value / 10));
                                                 }
@@ -6384,17 +6344,17 @@ namespace GameObjects
                                     if (p.Hates(q)) continue;
                                     if (q.Hates(p)) continue;
                                     //if (q.Hates(p.Father) || q.Hates(p.Mother) || p.Father.Hates(q) || p.Mother.Hates(q)) continue;
-                                    if (GameObject.Chance((int)((q.Glamour - p.Glamour + 50 + q.childrenAbilityIncrease) * ((float)p.GlamourPotential / p.Glamour))))
+                                    if (GameObject.GetChance((int)((q.Glamour - p.Glamour + 50 + q.childrenAbilityIncrease) * ((float)p.GlamourPotential / p.Glamour))))
                                     {
                                         p.Glamour += GameObject.Random(Math.Max((p.GlamourPotential * 6 / 5 - p.Glamour) / 10, 1) + 1);
                                         p.AdjustRelation(q, 5, 5);
                                         q.AdjustRelation(p, 2, 5);
-                                        if (GameObject.Chance(30))
+                                        if (GameObject.GetChance(30))
                                         {
                                             Dictionary<Person, int> rels = q.GetAllRelations();
                                             foreach (KeyValuePair<Person, int> rel in rels)
                                             {
-                                                if (GameObject.Chance(100 / rels.Count))
+                                                if (GameObject.GetChance(100 / rels.Count))
                                                 {
                                                     p.AdjustRelation(rel.Key, 2, Math.Min(5, rel.Value / 10));
                                                 }
@@ -6424,7 +6384,7 @@ namespace GameObjects
                                     List<Skill> candidates = new List<Skill>();
                                     foreach (Skill s in this.GameCommonData.AllSkills.Skills.Values)
                                     {
-                                        if (s.CanBeBorn(p) && GameObject.Chance((s.GetRelatedAbility(q) - 70) / 5) && GameObject.Chance(100 / s.Level))
+                                        if (s.CanBeBorn(p) && GameObject.GetChance((s.GetRelatedAbility(q) - 70) / 5) && GameObject.GetChance(100 / s.Level))
                                         {
                                             skillToTeach.Add(s);
                                         }
@@ -6442,17 +6402,17 @@ namespace GameObjects
                                         {
                                             extraChance += 5;
                                         }
-                                        if (GameObject.Chance(100 / t.Level + q.childrenSkillChanceIncrease + extraChance))
+                                        if (GameObject.GetChance(100 / t.Level + q.childrenSkillChanceIncrease + extraChance))
                                         {
                                             p.Skills.AddSkill(t);
                                             p.AdjustRelation(q, 5, 5);
                                             q.AdjustRelation(p, 2, 5);
-                                            if (GameObject.Chance(30))
+                                            if (GameObject.GetChance(30))
                                             {
                                                 Dictionary<Person, int> rels = q.GetAllRelations();
                                                 foreach (KeyValuePair<Person, int> rel in rels)
                                                 {
-                                                    if (GameObject.Chance(100 / rels.Count))
+                                                    if (GameObject.GetChance(100 / rels.Count))
                                                     {
                                                         p.AdjustRelation(rel.Key, 2, Math.Min(5, rel.Value / 10));
                                                     }
@@ -6488,7 +6448,7 @@ namespace GameObjects
                                             candidates.Add(s);
                                         }
                                     }
-                                    if (candidates.Count > 0 && GameObject.Chance((q.Strength + q.Command + q.Intelligence - 210) / 15))
+                                    if (candidates.Count > 0 && GameObject.GetChance((q.Strength + q.Command + q.Intelligence - 210) / 15))
                                     {
                                         stuntToTeach.Add(candidates[GameObject.Random(candidates.Count)]);
                                     }
@@ -6501,17 +6461,17 @@ namespace GameObjects
                                         {
                                             extraChance += 10;
                                         }
-                                        if (GameObject.Chance((10 + q.childrenStuntChanceIncrease + extraChance) / 3))
+                                        if (GameObject.GetChance((10 + q.childrenStuntChanceIncrease + extraChance) / 3))
                                         {
                                             p.Stunts.AddStunt(t);
                                             p.AdjustRelation(q, 5, 10);
                                             q.AdjustRelation(p, 2, 10);
-                                            if (GameObject.Chance(30))
+                                            if (GameObject.GetChance(30))
                                             {
                                                 Dictionary<Person, int> rels = q.GetAllRelations();
                                                 foreach (KeyValuePair<Person, int> rel in rels)
                                                 {
-                                                    if (GameObject.Chance(100 / rels.Count))
+                                                    if (GameObject.GetChance(100 / rels.Count))
                                                     {
                                                         p.AdjustRelation(rel.Key, 2, Math.Min(10, rel.Value / 10));
                                                     }
@@ -6542,7 +6502,7 @@ namespace GameObjects
 
                                     foreach (Title t in this.GameCommonData.AllTitles.Titles.Values)
                                     {
-                                        if (t.Kind.RandomTeachable && t.Level <= maxLevel + q.childrenTitleChanceIncrease + 1 && GameObject.Chance(t.InheritChance) && t.CanBeBorn(p))
+                                        if (t.Kind.RandomTeachable && t.Level <= maxLevel + q.childrenTitleChanceIncrease + 1 && GameObject.GetChance(t.InheritChance) && t.CanBeBorn(p))
                                         {
                                             toTeach.Add(t);
                                         }
@@ -6555,7 +6515,7 @@ namespace GameObjects
                                         {
                                             extraChance += 5;
                                         }
-                                        if (GameObject.Chance(t.InheritChance * 3 + q.childrenTitleChanceIncrease * 3 + extraChance) && t.CanBeBorn(p))
+                                        if (GameObject.GetChance(t.InheritChance * 3 + q.childrenTitleChanceIncrease * 3 + extraChance) && t.CanBeBorn(p))
                                         {
                                             Title existing = null;
                                             foreach (Title u in p.Titles)
@@ -6578,12 +6538,12 @@ namespace GameObjects
 
                                                 p.AdjustRelation(q, 5, 5 * t.Level);
                                                 q.AdjustRelation(p, 2, 5 * t.Level);
-                                                if (GameObject.Chance(30))
+                                                if (GameObject.GetChance(30))
                                                 {
                                                     Dictionary<Person, int> rels = q.GetAllRelations();
                                                     foreach (KeyValuePair<Person, int> rel in rels)
                                                     {
-                                                        if (GameObject.Chance(100 / rels.Count))
+                                                        if (GameObject.GetChance(100 / rels.Count))
                                                         {
                                                             p.AdjustRelation(rel.Key, 2, Math.Min(5 * t.Level, rel.Value / 10));
                                                         }

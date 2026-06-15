@@ -143,7 +143,7 @@ namespace TreasureDetailPlugin
             this.DescriptionText.ResortTexts();
             this.InfluenceText.AddText("效果", this.DescriptionText.TitleColor);
             this.InfluenceText.AddNewLine();
-            foreach (Influence influence in this.ShowingTreasure.Influences.Influences.Values)
+            foreach (var influence in this.ShowingTreasure.Influences.Values)
             {
                 this.InfluenceText.AddText(influence.Description, this.DescriptionText.SubTitleColor);
                 this.InfluenceText.AddNewLine();

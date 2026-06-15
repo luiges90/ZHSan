@@ -477,7 +477,7 @@ namespace TroopDetailPlugin
 			this.InfluenceText.AddNewLine();
 			this.InfluenceText.AddText(this.ShowingTroop.Army.Kind.Name, this.InfluenceText.SubTitleColor);
 			this.InfluenceText.AddNewLine();
-			Dictionary<int, Influence>.ValueCollection.Enumerator enumerator4 = this.ShowingTroop.Army.Kind.Influences.Influences.Values.GetEnumerator();
+			var enumerator4 = this.ShowingTroop.Army.Kind.Influences.Values.GetEnumerator();
 			try
 			{
 				while (true)

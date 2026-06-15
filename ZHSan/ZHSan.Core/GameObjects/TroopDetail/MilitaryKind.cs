@@ -1,1317 +1,731 @@
-using GameObjects;
 using GameObjects.Influences;
 using GameObjects.Conditions;
-using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using GameManager;
 using Microsoft.Xna.Framework;
 using GameGlobal;
 
-namespace GameObjects.TroopDetail
+namespace GameObjects.TroopDetail;
+
+/// <summary>
+/// 兵种类型
+/// </summary>
+[DataContract]
+public class MilitaryKind : GameObject
 {
-    [DataContract]
-    public class MilitaryKind : GameObject
+    #region DataMember
+
+    /// <summary>
+    /// 类别
+    /// </summary>
+    [DataMember]
+    public MilitaryType Type { get; set; }
+
+    /// <summary>
+    /// 描述
+    /// </summary>
+    [DataMember]
+    public string Description { get; set; }
+
+    /// <summary>
+    /// 强度（AI）
+    /// </summary>
+    [DataMember]
+    public int Merit { get; set; }
+
+    /// <summary>
+    /// 较强兵种ID：如果AI准备征召这个兵种的话，会考虑征召在这列表中的兵种，而这列表的兵种是绝对强于这个兵种
+    /// </summary>
+    [DataMember]
+    public string SuccessorString { get; set; }
+
+    /// <summary>
+    /// 行动速率：行动速率高的部队将优先行动。行动速率＝兵种本身的行动速率×士气÷士气上限
+    /// </summary>
+    [DataMember]
+    public int Speed { get; set; }
+
+    /// <summary>
+    /// 获得机率：每天有1除以此数的机率，拥有武将的势力可获得这个兵种
+    /// </summary>
+    [DataMember]
+    public int ObtainProb { get; set; }
+
+    /// <summary>
+    /// 出兵称号影响
+    /// </summary>
+    [DataMember]
+    public int TitleInfluence { get; set; } = -1;
+
+    /// <summary>
+    /// 新建资金
+    /// </summary>
+    [DataMember]
+    public int CreateCost { get; set; }
+
+    /// <summary>
+    /// 新建所需技术
+    /// </summary>
+    [DataMember]
+    public int CreateTechnology { get; set; }
+
+    /// <summary>
+    /// 水边新建
+    /// </summary>
+    [DataMember]
+    public bool CreateBesideWater { get; set; }
+
+    /// <summary>
+    /// 攻击
+    /// </summary>
+    [DataMember]
+    public int Offence { get; set; }
+
+    /// <summary>
+    /// 防御
+    /// </summary>
+    [DataMember]
+    public int Defence { get; set; }
+
+    /// <summary>
+    /// 攻击半径
+    /// </summary>
+    [DataMember]
+    public int OffenceRadius { get; set; }
+
+    /// <summary>
+    /// 能否反击
+    /// </summary>
+    [DataMember]
+    public bool CounterOffence { get; set; }
+
+    /// <summary>
+    /// 能否被反击
+    /// </summary>
+    [DataMember]
+    public bool BeCountered { get; set; }
+
+    /// <summary>
+    /// 斜向攻击
+    /// </summary>
+    [DataMember]
+    public bool ObliqueOffence { get; set; }
+
+    /// <summary>
+    /// 箭矢攻击：弓箭攻击，投石车等部队不属于弓箭攻击
+    /// </summary>
+    [DataMember]
+    public bool ArrowOffence { get; set; }
+
+    /// <summary>
+    /// 凌空攻击：是否可以攻击建筑内的部队
+    /// </summary>
+    [DataMember]
+    public bool AirOffence { get; set; }
+
+    /// <summary>
+    /// 近身攻击
+    /// </summary>
+    [DataMember]
+    public bool ContactOffence { get; set; }
+
+    /// <summary>
+    /// 建筑伤害系数
+    /// </summary>
+    [DataMember]
+    public float ArchitectureDamageRate { get; set; }
+
+    /// <summary>
+    /// 建筑反击承受率
+    /// </summary>
+    [DataMember]
+    public float ArchitectureCounterDamageRate { get; set; }
+
+    /// <summary>
+    /// 计略范围
+    /// </summary>
+    [DataMember]
+    public int StratagemRadius { get; set; }
+
+    /// <summary>
+    /// 斜向计略
+    /// </summary>
+    [DataMember]
+    public bool ObliqueStratagem { get; set; }
+
+    /// <summary>
+    /// 视野半径
+    /// </summary>
+    [DataMember]
+    public int ViewRadius { get; set; }
+
+    /// <summary>
+    /// 斜向视野
+    /// </summary>
+    [DataMember]
+    public bool ObliqueView { get; set; }
+
+    /// <summary>
+    /// 伤兵概率
+    /// </summary>
+    [DataMember]
+    public int InjuryChance { get; set; }
+
+    /// <summary>
+    /// 行动力
+    /// </summary>
+    [DataMember]
+    public int Movability { get; set; }
+
+    /// <summary>
+    /// 单一适性种类
+    /// </summary>
+    [DataMember]
+    public int OneAdaptabilityKind { get; set; }
+
+    /// <summary>
+    /// 平原适性
+    /// </summary>
+    [DataMember]
+    public int PlainAdaptability { get; set; }
+
+    /// <summary>
+    /// 草地适性
+    /// </summary>
+    [DataMember]
+    public int GrasslandAdaptability { get; set; }
+
+    /// <summary>
+    /// 森林适性
+    /// </summary>
+    [DataMember]
+    public int ForrestAdaptability { get; set; }
+
+    /// <summary>
+    /// 湿地适性
+    /// </summary>
+    [DataMember]
+    public int MarshAdaptability { get; set; }
+
+    /// <summary>
+    /// 山地适性
+    /// </summary>
+    [DataMember]
+    public int MountainAdaptability { get; set; }
+
+    /// <summary>
+    /// 水域适性
+    /// </summary>
+    [DataMember]
+    public int WaterAdaptability { get; set; }
+
+    /// <summary>
+    /// 峻岭适性
+    /// </summary>
+    [DataMember]
+    public int RidgeAdaptability { get; set; }
+
+    /// <summary>
+    /// 荒地适性
+    /// </summary>
+    [DataMember]
+    public int WastelandAdaptability { get; set; }
+
+    /// <summary>
+    /// 沙漠适性
+    /// </summary>
+    [DataMember]
+    public int DesertAdaptability { get; set; }
+
+    /// <summary>
+    /// 棧道适性
+    /// </summary>
+    [DataMember]
+    public int CliffAdaptability { get; set; }
+
+    /// <summary>
+    /// 平原乘数
+    /// </summary>
+    [DataMember]
+    public float PlainRate { get; set; }
+
+    /// <summary>
+    /// 草地乘数
+    /// </summary>
+    [DataMember]
+    public float GrasslandRate { get; set; }
+
+    /// <summary>
+    /// 森林乘数
+    /// </summary>
+    [DataMember]
+    public float ForrestRate { get; set; }
+
+    /// <summary>
+    /// 湿地乘数
+    /// </summary>
+    [DataMember]
+    public float MarshRate { get; set; }
+
+    /// <summary>
+    /// 山地乘数
+    /// </summary>
+    [DataMember]
+    public float MountainRate { get; set; }
+
+    /// <summary>
+    /// 水域乘数
+    /// </summary>
+    [DataMember]
+    public float WaterRate { get; set; }
+
+    /// <summary>
+    /// 峻岭乘数
+    /// </summary>
+    [DataMember]
+    public float RidgeRate { get; set; }
+
+    /// <summary>
+    /// 荒地乘数
+    /// </summary>
+    [DataMember]
+    public float WastelandRate { get; set; }
+
+    /// <summary>
+    /// 沙漠乘数
+    /// </summary>
+    [DataMember]
+    public float DesertRate { get; set; }
+
+    /// <summary>
+    /// 棧道乘数
+    /// </summary>
+    [DataMember]
+    public float CliffRate { get; set; }
+
+    /// <summary>
+    /// 受火伤率
+    /// </summary>
+    [DataMember]
+    public float FireDamageRate { get; set; }
+
+    /// <summary>
+    /// 势力编队上限
+    /// </summary>
+    [DataMember]
+    public int RecruitLimit { get; set; }
+
+    /// <summary>
+    /// 每个士兵每天消耗的粮草数
+    /// </summary>
+    [DataMember]
+    public int FoodPerSoldier { get; set; }
+
+    /// <summary>
+    /// 口粮天数
+    /// </summary>
+    [DataMember]
+    public int RationDays { get; set; }
+
+    /// <summary>
+    /// 每补充1人所需的技巧点数
+    /// </summary>
+    [DataMember]
+    public int PointsPerSoldier { get; set; }
+
+    /// <summary>
+    /// 成军最小规模
+    /// </summary>
+    [DataMember]
+    public int MinScale { get; set; }
+
+    /// <summary>
+    /// 一个单位规模所增加的攻击力
+    /// </summary>
+    [DataMember]
+    public int OffencePerScale { get; set; }
+
+    /// <summary>
+    /// 一个单位规模所增加的防御力
+    /// </summary>
+    [DataMember]
+    public int DefencePerScale { get; set; }
+
+    /// <summary>
+    /// 最大规模
+    /// </summary>
+    [DataMember]
+    public int MaxScale { get; set; }
+
+    /// <summary>
+    /// 能否升级
+    /// </summary>
+    [DataMember]
+    public bool CanLevelUp { get; set; }
+
+    /// <summary>
+    /// 升级成的兵种ID
+    /// </summary>
+    [DataMember]
+    public List<int> LevelUpKindID { get; set; } = new();
+
+    /// <summary>
+    /// 升级经验
+    /// </summary>
+    [DataMember]
+    public int LevelUpExperience { get; set; }
+
+    /// <summary>
+    /// 每一百经验增加的攻击力
+    /// </summary>
+    [DataMember]
+    public int OffencePer100Experience { get; set; }
+
+    /// <summary>
+    /// 每一百经验增加的防御力
+    /// </summary>
+    [DataMember]
+    public int DefencePer100Experience { get; set; }
+
+    /// <summary>
+    /// 影响列表
+    /// </summary>
+    [DataMember]
+    public string InfluencesString { get; set; }
+
+    /// <summary>
+    /// 最低统率(AI)
+    /// </summary>
+    [DataMember]
+    public int MinCommand { get; set; }
+
+    /// <summary>
+    /// 新编条件：编队所在建筑条件
+    /// </summary>
+    [DataMember]
+    public string CreateConditionsString { get; set; }
+
+    /// <summary>
+    /// 资金上限
+    /// </summary>
+    [DataMember]
+    public int zijinshangxian { get; set; }
+
+    /// <summary>
+    /// 攻击默认类型
+    /// </summary>
+    [DataMember]
+    public TroopAttackDefaultKind AttackDefaultKind { get; set; }
+
+    /// <summary>
+    /// 攻击目标类型
+    /// </summary>
+    [DataMember]
+    public TroopAttackTargetKind AttackTargetKind { get; set; }
+
+    /// <summary>
+    /// 施展默认类型
+    /// </summary>
+    [DataMember]
+    public TroopCastDefaultKind CastDefaultKind { get; set; }
+
+    /// <summary>
+    /// 施展目标类型
+    /// </summary>
+    [DataMember]
+    public TroopCastTargetKind CastTargetKind { get; set; }
+
+    /// <summary>
+    /// 是否外壳
+    /// </summary>
+    [DataMember]
+    public bool IsShell { get; set; }
+
+    /// <summary>
+    /// 只能在移动前攻击
+    /// </summary>
+    [DataMember]
+    public bool OffenceOnlyBeforeMove { get; set; }
+
+    /// <summary>
+    /// 变换至兵种
+    /// </summary>
+    [DataMember]
+    public int MorphToKindId { get; set; }
+
+    [DataMember]
+    public string AICreateArchitectureConditionWeightString { get; set; }
+
+    [DataMember]
+    public string AIUpgradeArchitectureConditionWeightString { get; set; }
+
+    [DataMember]
+    public string AIUpgradeLeaderConditionWeightString { get; set; }
+
+    [DataMember]
+    public string AILeaderConditionWeightString { get; set; }
+
+    #endregion
+
+    //[DataMember]
+    public TroopSounds Sounds;
+
+    public TroopTextures Textures;
+
+    public InfluenceTable Influences { get; set; } = new();
+
+    public List<Condition> CreateConditions { get; set; } = new();
+
+    public Dictionary<Condition, float> AICreateArchitectureConditionWeight = new();
+
+    public Dictionary<Condition, float> AIUpgradeArchitectureConditionWeight = new();
+    
+    public Dictionary<Condition, float> AIUpgradeLeaderConditionWeight = new();
+
+    public Dictionary<Condition, float> AILeaderConditionWeight = new();
+
+    public PersonList Persons = new PersonList();
+
+    public void Init()
     {
-        private float fireDamageRate;
-        private bool airOffence;
-        private float architectureCounterDamageRate;
-        private float architectureDamageRate;
-        private bool arrowOffence;
-        private TroopAttackDefaultKind attackDefaultKind;
-        private TroopAttackTargetKind attackTargetKind;
-        private bool beCountered;
-        private bool canLevelUp;
-        private TroopCastDefaultKind castDefaultKind;
-        private TroopCastTargetKind castTargetKind;
-        private int cliffAdaptability;
-        private float cliffRate;
-        private bool contactOffence;
-        private bool counterOffence;
-        private bool createBesideWater;
-        private int createCost;
-        private int createTechnology;
-        private int defence;
-        private int defencePer100Experience;
-        private int defencePerScale;
-        private string description;
-        private int desertAdaptability;
-        private float desertRate;
-        private int foodPerSoldier;
-        private int forrestAdaptability;
-        private float forrestRate;
-        private int grasslandAdaptability;
-        private float grasslandRate;
-
-        [DataMember]
-        public string InfluencesString
-        {
-            get;
-            set;
-        }
-
-        private int injuryChance;
-        private bool isShell;
-        private int levelUpExperience;
-
-        private int marshAdaptability;
-        private float marshRate;
-        private int maxScale;
-        private int merit;
-        private int minScale;
-        private int mountainAdaptability;
-        private float mountainRate;
-        private int movability;
-        private bool obliqueOffence;
-        private bool obliqueStratagem;
-        private bool obliqueView;
-        private int offence;
-        private bool offenceOnlyBeforeMove;
-        private int offencePer100Experience;
-        private int offencePerScale;
-        private int offenceRadius;
-        private int oneAdaptabilityKind;
-        private int plainAdaptability;
-        private float plainRate;
-        private int pointsPerSoldier;
-        private int rationDays;
-        private int ridgeAdaptability;
-        private float ridgeRate;
-        //[DataMember]
-        public TroopSounds Sounds;
-        private int speed;
-        private int stratagemRadius;
-
-        public TroopTextures Textures;
-        private MilitaryType type;
-        private int recruitLimit;
-        private int viewRadius;
-        private int wastelandAdaptability;
-        private float wastelandRate;
-        private int waterAdaptability;
-        private float waterRate;
-        [DataMember]
-        public int zijinshangxian;
-
-        public InfluenceTable Influences = new InfluenceTable();
-
-        private List<int> levelUpKindID = new List<int>();
-
-        private int titleInfluence = -1;
-
-        private int morphToKindId = -1;
-
-        public Dictionary<Condition, float> AICreateArchitectureConditionWeight = new Dictionary<Condition, float>();
-
-        public Dictionary<Condition, float> AIUpgradeArchitectureConditionWeight = new Dictionary<Condition, float>();
-
-        public Dictionary<Condition, float> AIUpgradeLeaderConditionWeight = new Dictionary<Condition, float>();
-
-        public Dictionary<Condition, float> AILeaderConditionWeight = new Dictionary<Condition, float>();
-
-        public ConditionTable CreateConditions = new ConditionTable();
-
-        public PersonList Persons = new PersonList();
-
-        public void Init()
-        {
-            Influences = new InfluenceTable();
-
-            if (levelUpKindID == null || levelUpKindID.Count == 0)
-            {
-                levelUpKindID = new List<int>();
-            }
-            else
-            {
-
-            }
-
-            titleInfluence = -1;
-
-           // morphToKindId = -1;
-
-            AICreateArchitectureConditionWeight = new Dictionary<Condition, float>();
-
-            AIUpgradeArchitectureConditionWeight = new Dictionary<Condition, float>();
-
-            AIUpgradeLeaderConditionWeight = new Dictionary<Condition, float>();
-
-            AILeaderConditionWeight = new Dictionary<Condition, float>();
-
-            CreateConditions = new ConditionTable();
-
-            Persons = new PersonList();
-        }
-
-        [DataMember]
-        public string CreateConditionsString
-        {
-            get;
-            set;
-        }
-
-        [DataMember]
-        public string AICreateArchitectureConditionWeightString
-        {
-            get;
-            set;
-        }
-
-        [DataMember]
-        public string AIUpgradeArchitectureConditionWeightString
-        {
-            get;
-            set;
-        }
-
-        [DataMember]
-        public string AIUpgradeLeaderConditionWeightString
-        {
-            get;
-            set;
-        }
-
-        [DataMember]
-        public string AILeaderConditionWeightString
-        {
-            get;
-            set;
-        }
-
-        [DataMember]
-        public string SuccessorString
-        {
-            get;
-            set;
-        }
-
-        public MilitaryKindTable successor;
-        private bool findSuccessor_visited;
-        [DataMember]
-        public int MinCommand { get; set; }
-        
-        [DataMember]
-        public int ObtainProb
-        {
-            get;
-            set;
-        }
-
-        public bool LevelUpAvail(Architecture a)
-        {
-            return this.CheckConditions(a) && this.GetLevelUpKinds(a).Count > 0;
-        }
-
-        public bool CreateAvail(Architecture a)
-        {
-            if (this.IsShell)
-            {
-                return false;
-            }
-            if ((a.Fund < (this.CreateCost * this.GetRateOfNewMilitary(a))) || (a.Technology < this.CreateTechnology))
-            {
-                return false;
-            }
-            if (a.BelongedFaction.IsMilitaryKindOverLimit(base.ID))
-            {
-                return false;
-            }
-            if (!(!this.CreateBesideWater || a.IsBesideWater))
-            {
-                return false;
-            }
-            if (!this.CheckConditions(a))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        public bool IsTransport
-        {
-            get
-            {
-                return this.ID == 29;
-            }
-        }
-
-        public MilitaryKind findSuccessorCreatable(MilitaryKindList allMilitaryKinds, Architecture recruiter)
-        {
-            foreach (MilitaryKind i in allMilitaryKinds)
-            {
-                i.findSuccessor_visited = false;
-            }
-            return findSuccessorRecruitable_r(allMilitaryKinds, recruiter, this);
-        }
-
-        private MilitaryKind findSuccessorRecruitable_r(MilitaryKindList allMilitaryKinds, Architecture recruiter, MilitaryKind prev)
-        {
-            if (prev.successor.GetMilitaryKindList().Count == 0)
-            {
-                return prev;
-            }
-            prev.findSuccessor_visited = true;
-            MilitaryKindList toVisit = new MilitaryKindList();
-            foreach (MilitaryKind i in prev.successor.GetMilitaryKindList())
-            {
-                if (!i.findSuccessor_visited && recruiter.GetNewMilitaryKindList().GameObjects.Contains(i) && allMilitaryKinds.GetList().GameObjects.Contains(i))
-                {
-                    toVisit.Add(i);
-                }
-            }
-            if (toVisit.Count == 0)
-            {
-                return prev;
-            }
-            return findSuccessorRecruitable_r(allMilitaryKinds, recruiter, toVisit[GameObject.Random(toVisit.Count)] as MilitaryKind);
-        }
-
-        public GameObjectList GetInfluenceList()
-        {
-            return this.Influences.GetInfluenceList();
-        }
-
-        public float GetRateOfNewMilitary(Architecture a)
-        {
-            switch (this.Type)
-            {
-                case MilitaryType.步兵:
-                    return a.RateOfNewBubingMilitaryFundCost;
-
-                case MilitaryType.弩兵:
-                    return a.RateOfNewNubingMilitaryFundCost;
-
-                case MilitaryType.骑兵:
-                    return a.RateOfNewQibingMilitaryFundCost;
-
-                case MilitaryType.水军:
-                    return a.RateOfNewShuijunMilitaryFundCost;
-
-                case MilitaryType.器械:
-                    return a.RateOfNewQixieMilitaryFundCost;
-            }
-            return 1f;
-        }
-
-        public int[] Adaptabilities
-        {
-            get
-            {
-                return new int[]{this.PlainAdaptability, this.GrasslandAdaptability, this.ForrestAdaptability, this.WastelandAdaptability, this.MarshAdaptability,
-                    this.MountainAdaptability, this.CliffAdaptability, this.RidgeAdaptability, this.WaterAdaptability};
-            }
-        }
-
-        public bool Movable
-        {
-            get
-            {
-                foreach (int i in this.Adaptabilities) 
-                {
-                    if (this.Movability >= i)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
-
-        public int GetTerrainAdaptability(TerrainKind terrain)
-        {
-            switch (terrain)
-            {
-                case TerrainKind.无:
-                    return 0xdac;
-
-                case TerrainKind.平原:
-                    return this.PlainAdaptability;
-
-                case TerrainKind.草原:
-                    return this.GrasslandAdaptability;
-
-                case TerrainKind.森林:
-                    return this.ForrestAdaptability;
-
-                case TerrainKind.湿地:
-                    return this.MarshAdaptability;
-
-                case TerrainKind.山地:
-                    return this.MountainAdaptability;
-
-                case TerrainKind.水域:
-                    return this.WaterAdaptability;
-
-                case TerrainKind.峻岭:
-                    return this.RidgeAdaptability;
-
-                case TerrainKind.荒地:
-                    return this.WastelandAdaptability;
-
-                case TerrainKind.沙漠:
-                    return this.DesertAdaptability;
-
-                case TerrainKind.栈道:
-                    return this.CliffAdaptability;
-            }
-            return 0xdac;
-        }
-
-        public bool IsMovableOnPosition(Point position)
-        {
-            return (this.GetTerrainAdaptability(Session.Current.Scenario.GetTerrainKindByPosition(position)) <= this.Movability);
-        }
-
-        public override string ToString()
-        {
-            return (base.Name + "  " + this.Type.ToString());
-        }
-        [DataMember]
-        public float FireDamageRate
-        {
-            get
-            {
-                return this.fireDamageRate;
-            }
-            set
-            {
-                this.fireDamageRate = value;
-            }
-        }
-        [DataMember]
-        public bool AirOffence
-        {
-            get
-            {
-                return this.airOffence;
-            }
-            set
-            {
-                this.airOffence = value;
-            }
-        }
-        [DataMember]
-        public float ArchitectureCounterDamageRate
-        {
-            get
-            {
-                return this.architectureCounterDamageRate;
-            }
-            set
-            {
-                this.architectureCounterDamageRate = value;
-            }
-        }
-        [DataMember]
-        public float ArchitectureDamageRate
-        {
-            get
-            {
-                return this.architectureDamageRate;
-            }
-            set
-            {
-                this.architectureDamageRate = value;
-            }
-        }
-        [DataMember]
-        public bool ArrowOffence
-        {
-            get
-            {
-                return this.arrowOffence;
-            }
-            set
-            {
-                this.arrowOffence = value;
-            }
-        }
-
-        public string ArrowOffenceString
-        {
-            get
-            {
-                return (this.arrowOffence ? "○" : "×");
-            }
-        }
-        [DataMember]
-        public TroopAttackDefaultKind AttackDefaultKind
-        {
-            get
-            {
-                return this.attackDefaultKind;
-            }
-            set
-            {
-                this.attackDefaultKind = value;
-            }
-        }
-        [DataMember]
-        public TroopAttackTargetKind AttackTargetKind
-        {
-            get
-            {
-                return this.attackTargetKind;
-            }
-            set
-            {
-                this.attackTargetKind = value;
-            }
-        }
-        [DataMember]
-        public bool BeCountered
-        {
-            get
-            {
-                return this.beCountered;
-            }
-            set
-            {
-                this.beCountered = value;
-            }
-        }
-
-        public string BeCounteredString
-        {
-            get
-            {
-                return (this.beCountered ? "○" : "×");
-            }
-        }
-        [DataMember]
-        public bool CanLevelUp
-        {
-            get
-            {
-                return this.canLevelUp;
-            }
-            set
-            {
-                this.canLevelUp = value;
-            }
-        }
-
-        public string CanLevelUpString
-        {
-            get
-            {
-                return (this.CanLevelUp ? "○" : "×");
-            }
-        }
-        [DataMember]
-        public TroopCastDefaultKind CastDefaultKind
-        {
-            get
-            {
-                return this.castDefaultKind;
-            }
-            set
-            {
-                this.castDefaultKind = value;
-            }
-        }
-        [DataMember]
-        public TroopCastTargetKind CastTargetKind
-        {
-            get
-            {
-                return this.castTargetKind;
-            }
-            set
-            {
-                this.castTargetKind = value;
-            }
-        }
-        [DataMember]
-        public int CliffAdaptability
-        {
-            get
-            {
-                return this.cliffAdaptability;
-            }
-            set
-            {
-                this.cliffAdaptability = value;
-            }
-        }
-        [DataMember]
-        public float CliffRate
-        {
-            get
-            {
-                return this.cliffRate;
-            }
-            set
-            {
-                this.cliffRate = value;
-            }
-        }
-        [DataMember]
-        public bool ContactOffence
-        {
-            get
-            {
-                return this.contactOffence;
-            }
-            set
-            {
-                this.contactOffence = value;
-            }
-        }
-
-        public string ContactOffenceString
-        {
-            get
-            {
-                return (this.contactOffence ? "○" : "×");
-            }
-        }
-        [DataMember]
-        public bool CounterOffence
-        {
-            get
-            {
-                return this.counterOffence;
-            }
-            set
-            {
-                this.counterOffence = value;
-            }
-        }
-
-        public string CounterOffenceString
-        {
-            get
-            {
-                return (this.counterOffence ? "○" : "×");
-            }
-        }
-        [DataMember]
-        public bool CreateBesideWater
-        {
-            get
-            {
-                return this.createBesideWater;
-            }
-            set
-            {
-                this.createBesideWater = value;
-            }
-        }
-
-        public string CreateBesideWaterString
-        {
-            get
-            {
-                return (this.CreateBesideWater ? "○" : "×");
-            }
-        }
-        [DataMember]
-        public int CreateCost
-        {
-            get
-            {
-                return this.createCost;
-            }
-            set
-            {
-                this.createCost = value;
-            }
-        }
-        [DataMember]
-        public int CreateTechnology
-        {
-            get
-            {
-                return this.createTechnology;
-            }
-            set
-            {
-                this.createTechnology = value;
-            }
-        }
-        [DataMember]
-        public int Defence
-        {
-            get
-            {
-                return this.defence;
-            }
-            set
-            {
-                this.defence = value;
-            }
-        }
-        [DataMember]
-        public int DefencePer100Experience
-        {
-            get
-            {
-                return this.defencePer100Experience;
-            }
-            set
-            {
-                this.defencePer100Experience = value;
-            }
-        }
-        [DataMember]
-        public int DefencePerScale
-        {
-            get
-            {
-                return this.defencePerScale;
-            }
-            set
-            {
-                this.defencePerScale = value;
-            }
-        }
-        [DataMember]
-        public string Description
-        {
-            get
-            {
-                return this.description;
-            }
-            set
-            {
-                this.description = value;
-            }
-        }
-        [DataMember]
-        public int DesertAdaptability
-        {
-            get
-            {
-                return this.desertAdaptability;
-            }
-            set
-            {
-                this.desertAdaptability = value;
-            }
-        }
-        [DataMember]
-        public float DesertRate
-        {
-            get
-            {
-                return this.desertRate;
-            }
-            set
-            {
-                this.desertRate = value;
-            }
-        }
-        [DataMember]
-        public int FoodPerSoldier
-        {
-            get
-            {
-                return this.foodPerSoldier;
-            }
-            set
-            {
-                this.foodPerSoldier = value;
-            }
-        }
-        [DataMember]
-        public int ForrestAdaptability
-        {
-            get
-            {
-                return this.forrestAdaptability;
-            }
-            set
-            {
-                this.forrestAdaptability = value;
-            }
-        }
-        [DataMember]
-        public float ForrestRate
-        {
-            get
-            {
-                return this.forrestRate;
-            }
-            set
-            {
-                this.forrestRate = value;
-            }
-        }
-        [DataMember]
-        public int GrasslandAdaptability
-        {
-            get
-            {
-                return this.grasslandAdaptability;
-            }
-            set
-            {
-                this.grasslandAdaptability = value;
-            }
-        }
-        [DataMember]
-        public float GrasslandRate
-        {
-            get
-            {
-                return this.grasslandRate;
-            }
-            set
-            {
-                this.grasslandRate = value;
-            }
-        }
-
-        public int InfluenceCount
-        {
-            get
-            {
-                return this.Influences.Count;
-            }
-        }
-        [DataMember]
-        public int InjuryChance
-        {
-            get
-            {
-                return this.injuryChance;
-            }
-            set
-            {
-                this.injuryChance = value;
-            }
-        }
-        [DataMember]
-        public bool IsShell
-        {
-            get
-            {
-                return this.isShell;
-            }
-            set
-            {
-                this.isShell = value;
-            }
-        }
-
-        public string IsShellString
-        {
-            get
-            {
-                return (this.IsShell ? "○" : "×");
-            }
-        }
-        [DataMember]
-        public int LevelUpExperience
-        {
-            get
-            {
-                return this.levelUpExperience;
-            }
-            set
-            {
-                this.levelUpExperience = value;
-            }
-        }
-        [DataMember]
-        public List<int> LevelUpKindID
-        {
-            get
-            {
-                return this.levelUpKindID;
-            }
-            set
-            {
-                this.levelUpKindID = value;
-                this.levelUpKindID.RemoveAll(i => i == -1);
-            }
-        }
-
-        public List<MilitaryKind> GetLevelUpKinds(Architecture a)
-        {
-            List<MilitaryKind> result = new List<MilitaryKind>();
-            foreach (int id in LevelUpKindID) 
-            {
-                if (!a.BelongedFaction.IsMilitaryKindOverLimit(id))
-                {
-                    result.Add(Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(id));
-                }
-            }
-            return result;
-        }
-        [DataMember]
-        public int MarshAdaptability
-        {
-            get
-            {
-                return this.marshAdaptability;
-            }
-            set
-            {
-                this.marshAdaptability = value;
-            }
-        }
-        [DataMember]
-        public float MarshRate
-        {
-            get
-            {
-                return this.marshRate;
-            }
-            set
-            {
-                this.marshRate = value;
-            }
-        }
-        [DataMember]
-        public int MaxScale
-        {
-            get
-            {
-                return this.maxScale;
-            }
-            set
-            {
-                this.maxScale = value;
-            }
-        }
-        [DataMember]
-        public int Merit
-        {
-            get
-            {
-                return this.merit;
-            }
-            set
-            {
-                this.merit = value;
-            }
-        }
-        [DataMember]
-        public int MinScale
-        {
-            get
-            {
-                return this.minScale;
-            }
-            set
-            {
-                this.minScale = value;
-            }
-        }
-        [DataMember]
-        public int MountainAdaptability
-        {
-            get
-            {
-                return this.mountainAdaptability;
-            }
-            set
-            {
-                this.mountainAdaptability = value;
-            }
-        }
-        [DataMember]
-        public float MountainRate
-        {
-            get
-            {
-                return this.mountainRate;
-            }
-            set
-            {
-                this.mountainRate = value;
-            }
-        }
-        [DataMember]
-        public int Movability
-        {
-            get
-            {
-                return this.movability;
-            }
-            set
-            {
-                this.movability = value;
-            }
-        }
-        [DataMember]
-        public bool ObliqueOffence
-        {
-            get
-            {
-                return this.obliqueOffence;
-            }
-            set
-            {
-                this.obliqueOffence = value;
-            }
-        }
-
-        public string ObliqueOffenceString
-        {
-            get
-            {
-                return (this.obliqueOffence ? "○" : "×");
-            }
-        }
-        [DataMember]
-        public bool ObliqueStratagem
-        {
-            get
-            {
-                return this.obliqueStratagem;
-            }
-            set
-            {
-                this.obliqueStratagem = value;
-            }
-        }
-
-        public string ObliqueStratagemString
-        {
-            get
-            {
-                return (this.ObliqueStratagem ? "○" : "×");
-            }
-        }
-        [DataMember]
-        public bool ObliqueView
-        {
-            get
-            {
-                return this.obliqueView;
-            }
-            set
-            {
-                this.obliqueView = value;
-            }
-        }
-
-        public string ObliqueViewString
-        {
-            get
-            {
-                return (this.obliqueView ? "○" : "×");
-            }
-        }
-        [DataMember]
-        public int Offence
-        {
-            get
-            {
-                return this.offence;
-            }
-            set
-            {
-                this.offence = value;
-            }
-        }
-        [DataMember]
-        public bool OffenceOnlyBeforeMove
-        {
-            get
-            {
-                return this.offenceOnlyBeforeMove;
-            }
-            set
-            {
-                this.offenceOnlyBeforeMove = value;
-            }
-        }
-
-        public string OffenceOnlyBeforeMoveString
-        {
-            get
-            {
-                return (this.offenceOnlyBeforeMove ? "○" : "×");
-            }
-        }
-        [DataMember]
-        public int OffencePer100Experience
-        {
-            get
-            {
-                return this.offencePer100Experience;
-            }
-            set
-            {
-                this.offencePer100Experience = value;
-            }
-        }
-        [DataMember]
-        public int OffencePerScale
-        {
-            get
-            {
-                return this.offencePerScale;
-            }
-            set
-            {
-                this.offencePerScale = value;
-            }
-        }
-        [DataMember]
-        public int OffenceRadius
-        {
-            get
-            {
-                return this.offenceRadius;
-            }
-            set
-            {
-                this.offenceRadius = value;
-            }
-        }
-        [DataMember]
-        public int OneAdaptabilityKind
-        {
-            get
-            {
-                return this.oneAdaptabilityKind;
-            }
-            set
-            {
-                this.oneAdaptabilityKind = value;
-            }
-        }
-        [DataMember]
-        public int PlainAdaptability
-        {
-            get
-            {
-                return this.plainAdaptability;
-            }
-            set
-            {
-                this.plainAdaptability = value;
-            }
-        }
-        [DataMember]
-        public float PlainRate
-        {
-            get
-            {
-                return this.plainRate;
-            }
-            set
-            {
-                this.plainRate = value;
-            }
-        }
-        [DataMember]
-        public int PointsPerSoldier
-        {
-            get
-            {
-                return this.pointsPerSoldier;
-            }
-            set
-            {
-                this.pointsPerSoldier = value;
-            }
-        }
-        [DataMember]
-        public int RationDays
-        {
-            get
-            {
-                return this.rationDays;
-            }
-            set
-            {
-                this.rationDays = value;
-            }
-        }
-        [DataMember]
-        public int RidgeAdaptability
-        {
-            get
-            {
-                return this.ridgeAdaptability;
-            }
-            set
-            {
-                this.ridgeAdaptability = value;
-            }
-        }
-        [DataMember]
-        public float RidgeRate
-        {
-            get
-            {
-                return this.ridgeRate;
-            }
-            set
-            {
-                this.ridgeRate = value;
-            }
-        }
-        [DataMember]
-        public int Speed
-        {
-            get
-            {
-                return this.speed;
-            }
-            set
-            {
-                this.speed = value;
-            }
-        }
-        [DataMember]
-        public int StratagemRadius
-        {
-            get
-            {
-                return this.stratagemRadius;
-            }
-            set
-            {
-                this.stratagemRadius = value;
-            }
-        }
-        [DataMember]
-        public int TitleInfluence
-        {
-            get
-            {
-                return this.titleInfluence;
-            }
-            set
-            {
-                this.titleInfluence = value;
-            }
-        }
-        [DataMember]
-        public MilitaryType Type
-        {
-            get
-            {
-                return this.type;
-            }
-            set
-            {
-                this.type = value;
-            }
-        }
-        [DataMember]
-        public int RecruitLimit
-        {
-            get
-            {
-                return this.recruitLimit;
-            }
-            set
-            {
-                this.recruitLimit = value;
-            }
-        }
-        [DataMember]
-        public int ViewRadius
-        {
-            get
-            {
-                return this.viewRadius;
-            }
-            set
-            {
-                this.viewRadius = value;
-            }
-        }
-        [DataMember]
-        public int WastelandAdaptability
-        {
-            get
-            {
-                return this.wastelandAdaptability;
-            }
-            set
-            {
-                this.wastelandAdaptability = value;
-            }
-        }
-        [DataMember]
-        public float WastelandRate
-        {
-            get
-            {
-                return this.wastelandRate;
-            }
-            set
-            {
-                this.wastelandRate = value;
-            }
-        }
-        [DataMember]
-        public int WaterAdaptability
-        {
-            get
-            {
-                return this.waterAdaptability;
-            }
-            set
-            {
-                this.waterAdaptability = value;
-            }
-        }
-        [DataMember]
-        public float WaterRate
-        {
-            get
-            {
-                return this.waterRate;
-            }
-            set
-            {
-                this.waterRate = value;
-            }
-        }
-        [DataMember]
-        public int MorphToKindId
-        {
-            get
-            {
-                return this.morphToKindId;
-            }
-            set
-            {
-                this.morphToKindId = value;
-            }
-        }
-
-        public MilitaryKind MorphTo
-        {
-            get
-            {
-                if (!Session.Current.Scenario.GameCommonData.AllMilitaryKinds.MilitaryKinds.ContainsKey(morphToKindId)) return null;
-                return Session.Current.Scenario.GameCommonData.AllMilitaryKinds.MilitaryKinds[this.morphToKindId];
-            }
-        }
-
-        public bool CheckConditions(Architecture a)
-        {
-            return Condition.CheckConditionList(this.CreateConditions.Conditions.Values, a);
-        }
-        /*
-        public int EachMilitaryKindCount(Faction f)
-        {
-            int count = 0;
-           // MilitaryKind mk = Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(id);
-            if (f != null)
-            {
-                foreach (Military military in f.Militaries)
-                {
-                    if (military.RealKindID == this.ID )
-                    {
-                        count++;
-                    }
-                }
-            }
-            
-            return count;
-        }
-        */
+        Persons = new PersonList();
     }
+
+    public MilitaryKindTable successor;
+    private bool findSuccessor_visited;
+
+    public bool LevelUpAvail(Architecture arch)
+    {
+        return CheckConditions(arch) && GetLevelUpKinds(arch).Count > 0;
+    }
+
+    public bool CreateAvail(Architecture arch)
+    {
+        if (IsShell) return false;
+        
+        if (arch.Fund < CreateCost * GetRateOfNewMilitary(arch) || arch.Technology < CreateTechnology)
+        {
+            return false;
+        }
+
+        if (arch.BelongedFaction.IsMilitaryKindOverLimit(ID))
+        {
+            return false;
+        }
+
+        if (CreateBesideWater && arch.IsBesideWater)
+        {
+            return false;
+        }
+
+        if (!CheckConditions(arch))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public bool IsTransport => ID == 29;
+
+    public MilitaryKind findSuccessorCreatable(MilitaryKindList allMilitaryKinds, Architecture recruiter)
+    {
+        foreach (MilitaryKind i in allMilitaryKinds)
+        {
+            i.findSuccessor_visited = false;
+        }
+        return findSuccessorRecruitable_r(allMilitaryKinds, recruiter, this);
+    }
+
+    private MilitaryKind findSuccessorRecruitable_r(MilitaryKindList allMilitaryKinds, Architecture recruiter, MilitaryKind prev)
+    {
+        if (prev.successor.GetMilitaryKindList().Count == 0)
+        {
+            return prev;
+        }
+        prev.findSuccessor_visited = true;
+        MilitaryKindList toVisit = new MilitaryKindList();
+        foreach (MilitaryKind i in prev.successor.GetMilitaryKindList())
+        {
+            if (!i.findSuccessor_visited && recruiter.GetNewMilitaryKindList().GameObjects.Contains(i) && allMilitaryKinds.GetList().GameObjects.Contains(i))
+            {
+                toVisit.Add(i);
+            }
+        }
+        if (toVisit.Count == 0)
+        {
+            return prev;
+        }
+        return findSuccessorRecruitable_r(allMilitaryKinds, recruiter, toVisit[GameObject.Random(toVisit.Count)] as MilitaryKind);
+    }
+
+    public float GetRateOfNewMilitary(Architecture arch)
+    {
+        switch (Type)
+        {
+            case MilitaryType.步兵:
+                return arch.RateOfNewBubingMilitaryFundCost;
+
+            case MilitaryType.弩兵:
+                return arch.RateOfNewNubingMilitaryFundCost;
+
+            case MilitaryType.骑兵:
+                return arch.RateOfNewQibingMilitaryFundCost;
+
+            case MilitaryType.水军:
+                return arch.RateOfNewShuijunMilitaryFundCost;
+
+            case MilitaryType.器械:
+                return arch.RateOfNewQixieMilitaryFundCost;
+        }
+        
+        return 1f;
+    }
+
+    public int[] Adaptabilities
+    {
+        get
+        {
+            return [PlainAdaptability, GrasslandAdaptability, ForrestAdaptability, WastelandAdaptability, MarshAdaptability,
+                    MountainAdaptability, CliffAdaptability, RidgeAdaptability, WaterAdaptability];
+        }
+    }
+
+    public bool Movable
+    {
+        get
+        {
+            foreach (int i in Adaptabilities)
+            {
+                if (Movability >= i)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    public int GetTerrainAdaptability(TerrainKind terrain)
+    {
+        switch (terrain)
+        {
+            case TerrainKind.无:
+                return 0xdac;
+
+            case TerrainKind.平原:
+                return PlainAdaptability;
+
+            case TerrainKind.草原:
+                return GrasslandAdaptability;
+
+            case TerrainKind.森林:
+                return ForrestAdaptability;
+
+            case TerrainKind.湿地:
+                return MarshAdaptability;
+
+            case TerrainKind.山地:
+                return MountainAdaptability;
+
+            case TerrainKind.水域:
+                return WaterAdaptability;
+
+            case TerrainKind.峻岭:
+                return RidgeAdaptability;
+
+            case TerrainKind.荒地:
+                return WastelandAdaptability;
+
+            case TerrainKind.沙漠:
+                return DesertAdaptability;
+
+            case TerrainKind.栈道:
+                return CliffAdaptability;
+        }
+        return 0xdac;
+    }
+
+    public bool IsMovableOnPosition(Point position)
+    {
+        return GetTerrainAdaptability(Session.Current.Scenario.GetTerrainKindByPosition(position)) <= Movability;
+    }
+
+    public override string ToString() => $"{Name} {Type}";
+    
+    public string ArrowOffenceString => StaticMethods.ToMark(ArrowOffence);
+    
+    public string BeCounteredString => StaticMethods.ToMark(BeCountered);
+    
+    public string CanLevelUpString => StaticMethods.ToMark(CanLevelUp);
+    
+    public string ContactOffenceString => StaticMethods.ToMark(ContactOffence);
+
+    public string CounterOffenceString => StaticMethods.ToMark(CounterOffence);
+
+    public string CreateBesideWaterString => StaticMethods.ToMark(CreateBesideWater);
+
+    public string IsShellString => StaticMethods.ToMark(IsShell);
+
+    public string ObliqueOffenceString => StaticMethods.ToMark(ObliqueOffence);
+    
+    public string ObliqueStratagemString => StaticMethods.ToMark(ObliqueStratagem);
+
+    public string OffenceOnlyBeforeMoveString => StaticMethods.ToMark(OffenceOnlyBeforeMove);
+    
+    public int InfluenceCount => Influences.Count;
+    
+    public List<MilitaryKind> GetLevelUpKinds(Architecture arch)
+    {
+        var militaryKinds = Session.Current.Scenario.GameCommonData.AllMilitaryKinds;
+
+        List<MilitaryKind> result = new List<MilitaryKind>();
+        foreach (int id in LevelUpKindID)
+        {
+            if (!arch.BelongedFaction.IsMilitaryKindOverLimit(id))
+            {
+                result.Add(militaryKinds.GetMilitaryKind(id));
+            }
+        }
+
+        return result;
+    }
+    
+    public MilitaryKind MorphTo
+    {
+        get
+        {
+            var militaryKinds = Session.Current.Scenario.GameCommonData.AllMilitaryKinds.MilitaryKinds;
+
+            if (!militaryKinds.ContainsKey(MorphToKindId)) return null;
+
+            return militaryKinds[MorphToKindId];
+        }
+    }
+
+    public bool CheckConditions(Architecture arch)
+    {
+        return Condition.CheckConditionList(CreateConditions, arch);
+    }
+
+    /*
+    public int EachMilitaryKindCount(Faction f)
+    {
+        int count = 0;
+       // MilitaryKind mk = Session.Current.Scenario.GameCommonData.AllMilitaryKinds.GetMilitaryKind(id);
+        if (f != null)
+        {
+            foreach (Military military in f.Militaries)
+            {
+                if (military.RealKindID == this.ID )
+                {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+    */
 }

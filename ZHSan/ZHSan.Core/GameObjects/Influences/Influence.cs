@@ -115,48 +115,40 @@ public class Influence : GameObject
         return floatParameter2.Value;
     }
 
-    public HashSet<ApplyingArchitecture> appliedArch = new HashSet<ApplyingArchitecture>();
+    public HashSet<ApplyArchitecture> ApplyArchitectures { get; set; } = new();
 
-    public HashSet<ApplyingPerson> appliedPerson = new HashSet<ApplyingPerson>();
+    public HashSet<ApplyPerson> ApplyPersons { get; set; } = new();
 
-    public HashSet<ApplyingFaction> appliedFaction = new HashSet<ApplyingFaction>();
+    public HashSet<ApplyFaction> ApplyFactions { get; set; } = new();
 
-    public HashSet<ApplyingTroop> appliedTroop = new HashSet<ApplyingTroop>();
+    public HashSet<ApplyTroop> ApplyTroops { get; set; } = new();
 
     public void Init()
     {
-        appliedArch = new HashSet<ApplyingArchitecture>();
-        appliedPerson = new HashSet<ApplyingPerson>();
-        appliedFaction = new HashSet<ApplyingFaction>();
-        appliedTroop = new HashSet<ApplyingTroop>();
+        ApplyArchitectures = new();
+        ApplyPersons = new();
+        ApplyFactions = new();
+        ApplyTroops = new();
     }
 
-    public void ApplyInfluence(Architecture architecture, Applier applier, int applierID)
+    public void ApplyInfluence(Architecture arch, Applier applier, int id)
     {
-        ApplyingArchitecture a = new ApplyingArchitecture(architecture, applier, applierID);
-        
-        Kind.ApplyInfluenceKind(architecture, this, applier, applierID);
+        Kind.ApplyFromEntry(arch, this, applier, id);
     }
 
     public void ApplyInfluence(Faction faction, Applier applier, int applierID)
     {
-        ApplyingFaction a = new ApplyingFaction(faction, applier, applierID);
-        
-        Kind.ApplyInfluenceKind(faction, this, applier, applierID);
+        Kind.ApplyFromEntry(faction, this, applier, applierID);
     }
 
-    public void ApplyInfluence(Person person, Applier applier, int applierID, bool excludePersonal)
+    public void ApplyInfluence(Person person, Applier applier, int applierID)
     {
-        ApplyingPerson a = new ApplyingPerson(person, applier, applierID);
-        
-        Kind.ApplyInfluenceKind(person, this, applier, applierID, excludePersonal);
+        Kind.ApplyFromEntry(person, this, applier, applierID);
     }
 
     public void ApplyInfluence(Troop troop, Applier applier, int applierID)
     {
-        ApplyingTroop a = new ApplyingTroop(troop, applier, applierID);
-        
-        Kind.ApplyInfluenceKind(troop, this, applier, applierID);
+        Kind.ApplyFromEntry(troop, this, applier, applierID);
     }
 
     public void DoWork(Architecture architecture)
@@ -188,35 +180,27 @@ public class Influence : GameObject
 
     public void PurifyInfluence(Architecture architecture, Applier applier, int applierID)
     {
-        ApplyingArchitecture a = new ApplyingArchitecture(architecture, applier, applierID);
-
-        Kind.PurifyInfluenceKind(architecture, this, applier, applierID);
+        Kind.PurifyFromEntry(architecture, this, applier, applierID);
     }
 
     public void PurifyInfluence(Faction faction, Applier applier, int applierID)
     {
-        ApplyingFaction a = new ApplyingFaction(faction, applier, applierID);
-        
-        Kind.PurifyInfluenceKind(faction, this, applier, applierID);
+        Kind.PurifyFromEntry(faction, this, applier, applierID);
     }
 
-    public void PurifyInfluence(Person person, Applier applier, int applierID, bool excludePersonal)
+    public void PurifyInfluence(Person person, Applier applier, int applierID)
     {
-        ApplyingPerson a = new ApplyingPerson(person, applier, applierID);
-
-        Kind.PurifyInfluenceKind(person, this, applier, applierID, excludePersonal);
+        Kind.PurifyFromEntry(person, this, applier, applierID);
     }
 
     public void TroopDestroyed(Troop troop)
     {
-        appliedTroop.RemoveWhere((x) => { return x.troop == troop; });
+        ApplyTroops.RemoveWhere((x) => { return x.troop == troop; });
     }
 
     public void PurifyInfluence(Troop troop, Applier applier, int applierID)
     {
-        ApplyingTroop a = new ApplyingTroop(troop, applier, applierID);
-        
-        Kind.PurifyInfluenceKind(troop, this, applier, applierID);
+        Kind.PurifyFromEntry(troop, this, applier, applierID);
     }
 
     public double AIFacilityValue(Architecture arch)

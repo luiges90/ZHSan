@@ -16,7 +16,7 @@ public class EventEffect330 : EventEffectKind
         {
             if (t.Kind.Equals(title.Kind))
             {
-                title.Influences.PurifyInfluence(person, Applier.Title, titleId, false);
+                title.Influences.PurifyInfluence(person, Applier.Title, titleId);
                 person.RealTitles.Remove(title);
             }
         }

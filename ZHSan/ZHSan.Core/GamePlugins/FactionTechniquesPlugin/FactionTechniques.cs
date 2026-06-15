@@ -214,23 +214,17 @@ namespace FactionTechniquesPlugin
                                         this.CommentsText.AddText("前提条件：" + Session.Current.Scenario.GameCommonData.AllTechniques.GetTechnique(item.LinkedTechnique.PreID).Name, this.CommentsText.NegativeColor);
                                     }
                                 }
-                                if (item.LinkedTechnique.Conditions.Count > 0)
-                                {
-                                    foreach (Condition c in item.LinkedTechnique.Conditions.Conditions.Values) 
-                                    {
-                                        this.CommentsText.AddNewLine();
-                                        if (c.CheckCondition(this.ShowingFaction))
-                                        {
-                                            this.CommentsText.AddText("条件：" + c.Name, this.CommentsText.PositiveColor);
-                                        }
-                                        else
-                                        {
-                                            this.CommentsText.AddText("条件：" + c.Name, this.CommentsText.NegativeColor);
-                                        }
-                                    }
 
+                                foreach (Condition condition in item.LinkedTechnique.Conditions)
+                                {
+                                    CommentsText.AddNewLine();
+
+                                    var text = $"条件：{condition.Name}";
+                                    var textColor = condition.CheckCondition(ShowingFaction) ? CommentsText.PositiveColor : CommentsText.NegativeColor;
+
+                                    CommentsText.AddText(text, textColor);
                                 }
-                                
+
                                 if (this.ShowingFaction.UpgradingTechnique >= 0)
                                 {
                                     this.CommentsText.AddNewLine();

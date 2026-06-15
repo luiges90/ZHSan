@@ -63,19 +63,22 @@ namespace GameObjects
             {
                 if (!Session.Current.Scenario.Preparing)
                 {
-                    foreach (Title t in person.Titles)
+                    foreach (var title in person.Titles)
                     {
-                        t.Influences.PurifyInfluence(person, Applier.Title, t.ID, false);
+                        title.Influences.PurifyInfluence(person, Applier.Title, title.ID);
                     }
-                    foreach (Skill s in person.Skills.GetSkillList())
+
+                    foreach (var skill in person.Skills.Skills.Values)
                     {
-                        s.Influences.PurifyInfluence(person, Applier.Skill, s.ID, false);
+                        skill.Influences.PurifyInfluence(person, Applier.Skill, skill.ID);
                     }
-                    foreach (Stunt s in person.Stunts.GetStuntList())
+
+                    foreach (var stunt in person.Stunts.Stunts.Values)
                     {
-                        s.Influences.PurifyInfluence(person, Applier.Stunt, 0, false);
+                        stunt.Influences.PurifyInfluence(person, Applier.Stunt, stunt.ID);
                     }
-                    person.PurifyAllTreasures(false);
+
+                    person.PurifyAllTreasures();
                 }
             }
         }
@@ -85,10 +88,10 @@ namespace GameObjects
             //this.PurifyInfluences();
             foreach (Person person in base.GameObjects)
             {
-                person.ApplyTitles(false);
-                person.ApplySkills(false);
+                person.ApplyTitles();
+                person.ApplySkills();
                 person.ApplyStunts();
-                person.ApplyAllTreasures(false);
+                person.ApplyAllTreasures();
             }
         }
 

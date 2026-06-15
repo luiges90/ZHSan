@@ -580,14 +580,14 @@ namespace GameObjects
 
         public bool IsStart()
         {
-            Condition cstart = Session.Current.Scenario.GameCommonData.AllConditions.GetCondition(9998);
+            Condition cstart = Session.Current.Scenario.GameCommonData.AllConditions.Get(9998);
             if (cstart == null) return false;
             return this.architectureCond.Contains(cstart) || this.factionCond.Contains(cstart);
         }
 
         public bool IsEnd()
         {
-            Condition cend = Session.Current.Scenario.GameCommonData.AllConditions.GetCondition(9999);
+            Condition cend = Session.Current.Scenario.GameCommonData.AllConditions.Get(9999);
             if (cend == null) return false;
             return this.architectureCond.Contains(cend) || this.factionCond.Contains(cend);
         }

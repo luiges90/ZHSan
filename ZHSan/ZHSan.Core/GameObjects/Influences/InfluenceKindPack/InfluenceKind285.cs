@@ -9,7 +9,7 @@ public class InfluenceKind285 : InfluenceKind
 {
     public override bool IsVaild(Influence influence, Person person)
     {
-        Condition condition = Session.Current.Scenario.GameCommonData.AllConditions.GetCondition(influence.GetIntParam());
+        Condition condition = Session.Current.Scenario.GameCommonData.AllConditions.Get(influence.GetIntParam());
        
         return condition.CheckCondition(person);
     }

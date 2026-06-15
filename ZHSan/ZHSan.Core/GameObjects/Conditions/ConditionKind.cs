@@ -1,72 +1,71 @@
 ﻿using System.Runtime.Serialization;
 
-namespace GameObjects.Conditions
+namespace GameObjects.Conditions;
+
+[DataContract]
+public class ConditionKind : GameObject
 {
-    [DataContract]
-    public class ConditionKind : GameObject
+    protected static Person markedPerson = null;
+
+    public virtual bool CheckConditionKind(Condition condition, Architecture architecture)
     {
-        protected static Person markedPerson = null;
-
-        public virtual bool CheckConditionKind(Condition condition, Architecture architecture)
+        if (ID < ConditionKindIds.PersonRangeStart || ConditionKindIds.IsInLeaderRange(ID))
         {
-            if (ID < ConditionKindIds.PersonRangeStart || ConditionKindIds.IsInLeaderRange(ID))
-            {
-                var mayor = architecture.Mayor;
+            var mayor = architecture.Mayor;
 
-                return mayor != null && CheckConditionKind(condition, mayor);
-            }
-
-            if (ConditionKindIds.IsInFactionRange(ID))
-            {
-                var faction = architecture.BelongedFaction;
-
-                return faction != null && CheckConditionKind(condition, faction);
-            }
-
-            return false;
+            return mayor != null && CheckConditionKind(condition, mayor);
         }
 
-        public virtual bool CheckConditionKind(Condition condition, Faction faction)
+        if (ConditionKindIds.IsInFactionRange(ID))
         {
-            if (ID < ConditionKindIds.PersonRangeStart || ConditionKindIds.IsInLeaderRange(ID))
-            {
-                var leader = faction.Leader;
+            var faction = architecture.BelongedFaction;
 
-                return leader != null && CheckConditionKind(condition, leader);
-            }
-           
-            return false;
+            return faction != null && CheckConditionKind(condition, faction);
         }
 
-        public virtual bool CheckConditionKind(Condition condition, Person person)
+        return false;
+    }
+
+    public virtual bool CheckConditionKind(Condition condition, Faction faction)
+    {
+        if (ID < ConditionKindIds.PersonRangeStart || ConditionKindIds.IsInLeaderRange(ID))
         {
-            if (ConditionKindIds.IsInArchitectureRange(ID))
-            {
-                var arch = person.LocationArchitecture;
+            var leader = faction.Leader;
 
-                return arch != null && CheckConditionKind(condition, arch);
-            }
-
-            if (ConditionKindIds.IsInFactionRange(ID))
-            {
-                var faction = person.BelongedFaction;
-
-                return faction != null && CheckConditionKind(condition, faction);
-            }
-
-            return false;
+            return leader != null && CheckConditionKind(condition, leader);
         }
 
-        public virtual bool CheckConditionKind(Condition condition, Troop troop)
+        return false;
+    }
+
+    public virtual bool CheckConditionKind(Condition condition, Person person)
+    {
+        if (ConditionKindIds.IsInArchitectureRange(ID))
         {
-            if (ConditionKindIds.IsInFactionRange(ID))
-            {
-                var faction = troop.BelongedFaction;
+            var arch = person.LocationArchitecture;
 
-                return faction != null && CheckConditionKind(condition, faction);
-            }
-
-            return false;
+            return arch != null && CheckConditionKind(condition, arch);
         }
+
+        if (ConditionKindIds.IsInFactionRange(ID))
+        {
+            var faction = person.BelongedFaction;
+
+            return faction != null && CheckConditionKind(condition, faction);
+        }
+
+        return false;
+    }
+
+    public virtual bool CheckConditionKind(Condition condition, Troop troop)
+    {
+        if (ConditionKindIds.IsInFactionRange(ID))
+        {
+            var faction = troop.BelongedFaction;
+
+            return faction != null && CheckConditionKind(condition, faction);
+        }
+
+        return false;
     }
 }
