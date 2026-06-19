@@ -1270,6 +1270,17 @@ namespace Platforms
             }
         }
 
+        public override string[] GetFilesBasic(string dir, bool all = false)
+        {
+            try
+            {
+                return Directory.GetFiles(dir);
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 
     public class PlatformTask

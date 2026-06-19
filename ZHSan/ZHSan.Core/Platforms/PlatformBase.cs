@@ -451,7 +451,10 @@ namespace Platforms
                 foreach (var item in songs)
                 {
                     res = item;
-                    if ((!item.EndsWith(".mp3") && !item.EndsWith(".wav")))
+                    // Issue: ArgumentException - Could not load the specified container!
+                    // Solution: Use OGG audio files instead of MP3 (tested on Windows 11).
+                    // Ref. https://cloud.tencent.com/developer/ask/sof/106178561?from=16139
+                    if (!item.EndsWith(".mp3") && !item.EndsWith(".wav") && !item.EndsWith(".ogg"))
                     {
                         continue;
                     }
@@ -462,9 +465,16 @@ namespace Platforms
                             res = res.Substring(res.LastIndexOf('\\') + 1);
                         }
                     }
-                    songs2.Add(res);
-                    Song song3 = Song.FromUri(res, new Uri(res, UriKind.Relative));
-                    songslist.Add(song3);
+                    try
+                    {
+                        Song song3 = Song.FromUri(res, new Uri(res, UriKind.Relative));
+                        songs2.Add(res);
+                        songslist.Add(song3);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Skip any invalid songs
+                    }
                 }
                 if (songslist.Count >= 1)
                 {
