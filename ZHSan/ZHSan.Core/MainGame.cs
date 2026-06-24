@@ -174,7 +174,7 @@ namespace WorldOfTheThreeKingdoms
             if (Platform.PlatFormType == PlatFormType.Win || Platform.PlatFormType == PlatFormType.Desktop)
             {
                 Platform.Current.SetWindowAllowUserResizing(true);
-                
+                this.Exiting += this.Close_Game; // DesktopGL/MonoGame issue: Crash on window close (X) button - Windows 11
             }
 
             //try
@@ -210,6 +210,11 @@ namespace WorldOfTheThreeKingdoms
             {
                 mainGameScreen.Window_ClientSizeChanged(sender, e);
             }
+        }
+        
+        private void Close_Game(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
 
         /// <summary>
